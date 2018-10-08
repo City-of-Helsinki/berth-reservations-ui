@@ -3,9 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "immutable": "^3.8.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-scripts": "2.0.3"
+    "react-redux": "^5.0.7",
+    "react-scripts": "2.0.3",
+    "recompose": "^0.30.0",
+    "redux": "^4.0.0",
+    "redux-actions": "^2.6.1",
+    "redux-promise-middleware": "^5.1.1",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -21,6 +28,13 @@
     "eslint-plugin-jest": "^21.24.1",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
-    "prettier": "^1.14.3"
-  }
+    "prettier": "^1.14.3",
+    "redux-devtools-extension": "^2.13.5"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
