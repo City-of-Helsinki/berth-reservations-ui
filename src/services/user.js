@@ -10,7 +10,6 @@ const userFactory = Record({
 export default {
   getUsers: async query => {
     const data = await get('users', query);
-    debugger;
     return List(data.map(userFactory));
   }
 };
