@@ -1,6 +1,4 @@
-// @flow
 import { Record } from 'immutable';
-import type { UserProps, Users } from '../types/user';
 
 const factory = Record({
   id: '',
@@ -8,4 +6,4 @@ const factory = Record({
   email: ''
 });
 
-export default (data: UserProps): Users => factory(data);
+export default data => factory(data);

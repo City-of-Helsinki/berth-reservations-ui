@@ -1,13 +1,6 @@
-// @flow
 import React from 'react';
-import type { Users } from '../types/user';
 
-type Props = {
-  getUsers: Function,
-  users: Users
-};
-
-const Foo = ({ getUsers, users }: Props) => (
+const Foo = ({ getUsers, users }) => (
   <div className="Foo">
     <header className="Foo-header">
       <p>FOO!!!!</p>
