@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { sayHi } from '../ducks/first';
+import { sayHi } from '../../ducks/first';
 import App from '../App';
 
 export default connect(

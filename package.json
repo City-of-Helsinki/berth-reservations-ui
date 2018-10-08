@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "immutable": "^4.0.0-rc.10",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
@@ -19,10 +20,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "api": "node api"
   },
   "devDependencies": {
     "@babel/preset-flow": "^7.0.0",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
     "eslint": "5.6.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.1.0",
@@ -31,7 +35,10 @@
     "eslint-plugin-jest": "^21.24.1",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
+    "express": "^4.16.3",
+    "faker": "^4.1.0",
     "flow-bin": "^0.82.0",
+    "json-schema-faker": "^0.5.0-rc16",
     "prettier": "^1.14.3",
     "redux-devtools-extension": "^2.13.5"
   },
