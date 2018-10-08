@@ -9,6 +9,8 @@ import configureStore from './config/configureStore';
 import App from './components/containers/AppContainer';
 import Foo from './components/containers/FooContainer';
 
+import 'open-city-design/src/scss/main.scss';
+
 const Root = () => (
   <Provider store={configureStore()}>
     <Router>
