@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const App = ({ sayHi }) => (
+const App = () => (
   <div className="App">
     <header className="App-header">
       <p>
         Edit <code>src/App.js</code> and save to reload.
       </p>
-      <button onClick={sayHi}>asd</button>
+      <Link to="/foo">Foo-page</Link>
     </header>
   </div>
 );
