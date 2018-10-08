@@ -1,10 +1,11 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 
 const Foo = ({ getUsers, users }) => (
   <div className="Foo">
     <header className="Foo-header">
       <p>FOO!!!!</p>
-      <button onClick={() => getUsers()}>getUsera</button>
+      <Button onClick={() => getUsers()}>getUsers</Button>
       {users.map(user => (
         <div key={user.id}>{user.name}</div>
       ))}
