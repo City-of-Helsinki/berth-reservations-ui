@@ -1,11 +1,20 @@
 # Berth Reservation UI
 
 ### Prerequisites
+
 * Yarn
+
+### Setup
+
+After cloning this repository, create a new `.env.local` file from the provided `.env.example` file and configure it as needed:
+
+```
+$ cp .env.example .env.local
+```
 
 ### Running
 
-After cloning this repository, run both in seperate windows:
+Run both commands below in seperate windows:
 
 ```
 $ yarn start
