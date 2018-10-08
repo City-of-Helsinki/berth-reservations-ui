@@ -1,11 +1,14 @@
-// @flow
-import { List } from 'immutable';
+import { List, Record } from 'immutable';
 import { get } from '../utils/api';
-import userFactory from '../factories/user';
-import type { Users } from '../types/user';
+
+const userFactory = Record({
+  id: '',
+  name: '',
+  email: ''
+});
 
 export default {
-  getUsers: async (query: {}): Promise<Users> => {
+  getUsers: async query => {
     const data = await get('users', query);
     return List(data.map(userFactory));
   }

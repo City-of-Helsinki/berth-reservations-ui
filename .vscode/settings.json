@@ -1,10 +1,4 @@
 {
-  "javascript.validate.enable": false,
   "editor.formatOnSave": true,
-  "editor.rulers": [100],
-  "flow.enabled": true,
-  "flow.runOnEdit": true,
-  "flow.showStatus": true,
-  "flow.stopFlowOnExit": true,
-  "flow.useNPMPackagedFlow": true
+  "editor.rulers": [100]
 }
