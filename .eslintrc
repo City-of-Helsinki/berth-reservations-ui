@@ -1,10 +1,21 @@
 {
-  "extends": ["react-app", "airbnb-base", "plugin:prettier/recommended", "plugin:jest/recommended"],
+  "extends": [
+    "react-app",
+    "airbnb-base",
+    "plugin:jest/recommended",
+    "plugin:flowtype/recommended",
+    "plugin:prettier/recommended"
+  ],
   "parser": "babel-eslint",
-  "plugins": ["jest", "react", "prettier"],
+  "plugins": ["react", "jest", "flowtype", "prettier"],
   "env": {
     "browser": true,
     "node": true
+  },
+  "settings": {
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": false
+    }
   },
   "rules": {
     "prettier/prettier": ["error"],
