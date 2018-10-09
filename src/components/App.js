@@ -1,16 +1,16 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 
-const App = () => (
+const App = ({ intl }) => (
   <div className="App">
     <header className="App-header">
       <p>
         <FormattedMessage id="home.hello" defaultMessage="Terve" />
       </p>
-      <Link to="/foo">Foo-page</Link>
+      <Link to={`/${intl.locale}/foo`}>Foo-page</Link>
     </header>
-  </div>
+  </div >
 );
 
-export default App;
+export default injectIntl(App);
