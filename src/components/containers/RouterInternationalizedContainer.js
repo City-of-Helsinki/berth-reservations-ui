@@ -4,7 +4,7 @@ import RouterInternationalized from '../RouterInternationalized';
 
 export default withRouter(
   connect(
-    (state: Map, ownProps: Object) => ({
+    (state, ownProps) => ({
       locale: ownProps.match.params.locale,
     }),
     {

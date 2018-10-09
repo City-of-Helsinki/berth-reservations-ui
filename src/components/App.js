@@ -1,14 +1,14 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Link } from 'react-router-dom';
+import LocalizedLink from './LocalizedLink';
 
 const App = ({ intl }) => (
   <div className="App">
     <header className="App-header">
       <p>
-        <FormattedMessage id="home.hello" defaultMessage="Terve" />
+        <FormattedMessage id="home.hello" />
       </p>
-      <Link to={`/${intl.locale}/foo`}>Foo-page</Link>
+      <LocalizedLink to={'/foo'}>Foo-page</LocalizedLink>
     </header>
   </div >
 );

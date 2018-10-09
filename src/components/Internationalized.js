@@ -1,5 +1,4 @@
 import * as React from 'react';
-import moment from 'moment';
 import { IntlProvider, addLocaleData } from 'react-intl';
 
 import englishLocaleData from 'react-intl/locale-data/en';
@@ -19,8 +18,6 @@ const messages = {
 ].forEach(addLocaleData);
 
 const Internationalized = ({ locale, children }) => {
-  moment.locale(locale);
-
   return (
     <IntlProvider
       locale={locale}

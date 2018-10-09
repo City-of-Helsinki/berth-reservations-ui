@@ -7,7 +7,7 @@ const Foo = ({ getUsers, users }) => (
     <header className="Foo-header">
       <p>FOO!!!!</p>
       <Button onClick={() => getUsers()}>
-        <FormattedMessage id="foo.get_users" defaultMessage="Hae käyttäjiä" />
+        <FormattedMessage id="foo.get_users" />
       </Button>
       {users.map(user => (
         <div key={user.id}>{user.name}</div>
