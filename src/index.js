@@ -1,23 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
 
 import * as serviceWorker from './serviceWorker';
 
 import configureStore from './config/configureStore';
-import Foo from './components/containers/FooContainer';
-import App from './components/App';
+import RouterInternationalized from './components/containers/RouterInternationalizedContainer';
 
 import 'open-city-design/src/scss/main.scss';
 
 const Root = () => (
   <Provider store={configureStore()}>
     <Router>
-      <Switch>
-        <Route exact path="/" component={App} />
-        <Route exact path="/foo" component={Foo} />
-      </Switch>
+      <Route path="/:locale" component={RouterInternationalized} />
     </Router>
   </Provider>
 );
