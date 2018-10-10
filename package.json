@@ -9,6 +9,7 @@
     "open-city-design": "^1.0.0-alpha.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-intl": "^2.7.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.3",
