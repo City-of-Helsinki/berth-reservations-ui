@@ -1,13 +1,11 @@
+// @flow
 import { withRouter } from 'react-router';
-import { connect } from 'react-redux';
+import { mapProps, compose } from 'recompose';
 import RouterInternationalized from '../RouterInternationalized';
 
-export default withRouter(
-  connect(
-    (state, ownProps) => ({
-      locale: ownProps.match.params.locale,
-    }),
-    {
-    }
-  )(RouterInternationalized)
-);
+export default compose(
+  withRouter,
+  mapProps(props => ({
+    locale: props.match.params.locale
+  }))
+)(RouterInternationalized);

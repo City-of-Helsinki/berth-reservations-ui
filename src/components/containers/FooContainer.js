@@ -1,3 +1,4 @@
+// @flow
 import { connect } from 'react-redux';
 import Foo from '../Foo';
 import { getUsers } from '../../ducks/first';

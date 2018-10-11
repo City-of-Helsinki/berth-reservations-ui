@@ -1,13 +1,20 @@
+// @flow
 import React from 'react';
 import { Button } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
+import type { Users } from '../types/user';
 
 const StyledButton = styled(Button)`
   background-color: ${props => props.theme.color};
 `;
 
-const Foo = ({ getUsers, users }) => (
+type Props = {
+  getUsers: Function,
+  users: Users
+};
+
+const Foo = ({ getUsers, users }: Props) => (
   <div className="Foo">
     <header className="Foo-header">
       <p>FOO!!!!</p>

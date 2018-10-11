@@ -1,8 +1,9 @@
+// @flow
 import React from 'react';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import LocalizedLink from './LocalizedLink';
 
-const App = ({ intl }) => (
+const App = () => (
   <div className="App">
     <header className="App-header">
       <p>
@@ -10,7 +11,7 @@ const App = ({ intl }) => (
       </p>
       <LocalizedLink to={'/foo'}>Foo-page</LocalizedLink>
     </header>
-  </div >
+  </div>
 );
 
-export default injectIntl(App);
+export default App;
