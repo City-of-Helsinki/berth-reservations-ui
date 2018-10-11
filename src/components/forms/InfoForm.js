@@ -1,9 +1,8 @@
 import React from 'react';
 import { Form as FinalForm } from 'react-final-form';
 import { Form as BootstrapForm, Row, Col } from 'reactstrap';
-import { FormattedMessage } from 'react-intl';
 
-import { Text, Select } from './fields/InputField';
+import { Text, Select, Checkbox, Radio } from './fields/InputField';
 import InputGroup from './fields/InputGroup';
 
 export default ({ onSubmit, validate }) => (
@@ -88,6 +87,9 @@ export default ({ onSubmit, validate }) => (
             />
           </Col>
         </Row>
+        <h3>Esteettömyys</h3>
+        <Checkbox id="accessibility" name="accessibility" label="form.info.accessibility" />
+        <hr />
         <button className="btn btn-secondary">Submit</button>
       </BootstrapForm>
     )}

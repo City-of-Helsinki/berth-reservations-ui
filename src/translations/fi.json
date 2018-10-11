@@ -12,5 +12,6 @@
   "form.info.boat.name.label": "Nimi",
   "form.info.boat.name.placeholder": "Veneen nimi",
   "form.info.boat.model.label": "Merkki",
-  "form.info.boat.model.placeholder": "Veneen merkki"
+  "form.info.boat.model.placeholder": "Veneen merkki",
+  "form.info.accessibility": "Tarvitsen esteettömän venepaikan"
 }

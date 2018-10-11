@@ -39,10 +39,10 @@ const InputField = (type: string) => ({
   </Field>
 );
 
-const ToggleField = (type: string) => ({ id, name, label, ...inputProps }: any): any => (
+const ToggleField = (type: string) => ({ id, name, label, inline, ...inputProps }: any): any => (
   <Field name={name}>
     {({ input, meta }) => (
-      <FormGroup check>
+      <FormGroup check inline={inline}>
         <Label check>
           <Input
             id={id}
@@ -51,7 +51,7 @@ const ToggleField = (type: string) => ({ id, name, label, ...inputProps }: any):
             invalid={meta.invalid}
             {...inputProps}
             {...input}
-          />{' '}
+          />
           <FormattedMessage id={label} />
         </Label>
       </FormGroup>
