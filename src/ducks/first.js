@@ -1,6 +1,8 @@
+// @flow
 import { Record, List } from 'immutable';
 import { createAction } from 'redux-actions';
 import userService from '../services/user';
+import type { Action, First } from '../types/ducks';
 
 const defaultState = Record({
   first: undefined,
@@ -10,7 +12,7 @@ const defaultState = Record({
 export const sayHi = createAction('FIRST', () => 'hi');
 export const getUsers = createAction('GET_USERS', userService.getUsers);
 
-export default (state = defaultState(), action) => {
+export default (state: First = defaultState(), action: Action) => {
   const { type, payload } = action;
 
   switch (type) {

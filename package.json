@@ -11,6 +11,7 @@
     "react-dom": "^16.5.2",
     "react-intl": "^2.7.1",
     "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.3",
     "reactstrap": "6.1.0",
@@ -29,6 +30,7 @@
     "api": "node api"
   },
   "devDependencies": {
+    "@babel/preset-flow": "^7.0.0",
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "eslint": "5.6.0",
