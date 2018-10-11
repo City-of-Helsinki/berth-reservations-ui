@@ -4,11 +4,13 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "final-form": "^4.10.0",
     "immutable": "^4.0.0-rc.10",
     "node-sass": "^4.9.3",
     "open-city-design": "^1.0.0-alpha.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-final-form": "^3.6.7",
     "react-intl": "^2.7.1",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",

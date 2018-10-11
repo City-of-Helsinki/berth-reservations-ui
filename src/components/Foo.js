@@ -4,6 +4,7 @@ import { Button } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 import type { Users } from '../types/user';
+import InfoForm from './forms/InfoForm';
 
 const StyledButton = styled(Button)`
   background-color: ${props => props.theme.color};
@@ -24,6 +25,7 @@ const Foo = ({ getUsers, users }: Props) => (
       {users.map(user => (
         <div key={user.id}>{user.name}</div>
       ))}
+      <InfoForm onSubmit={console.log} validate={console.log} />
     </header>
   </div>
 );
