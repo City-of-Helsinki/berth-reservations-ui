@@ -12,7 +12,7 @@ const defaultState = Record({
 export const sayHi = createAction('FIRST', () => 'hi');
 export const getUsers = createAction('GET_USERS', userService.getUsers);
 
-export default (state: First = defaultState(), action: Action) => {
+export default (state: First = defaultState(), action: Action): Record => {
   const { type, payload } = action;
 
   switch (type) {

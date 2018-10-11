@@ -28,7 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "api": "node api",
-    "flow": "flow"
+    "flow": "node_modules/flow-bin/flow-osx-v0.82.0/flow"
   },
   "devDependencies": {
     "@babel/preset-flow": "^7.0.0",
