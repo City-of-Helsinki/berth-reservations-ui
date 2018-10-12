@@ -12,9 +12,7 @@ import sv from '../translations/sv.json';
 
 const messages = { fi, en, sv };
 
-addLocaleData(finnishLocaleData);
-addLocaleData(englishLocaleData);
-addLocaleData(swedishLocaleData);
+addLocaleData([...finnishLocaleData, ...englishLocaleData, ...swedishLocaleData]);
 
 type Props = {
   locale: string,

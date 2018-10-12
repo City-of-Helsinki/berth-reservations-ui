@@ -1,4 +1,17 @@
 {
   "home.hello": "Tervetuloa!",
-  "foo.get_users": "Hae käyttäjiä"
+  "foo.get_users": "Hae käyttäjiä",
+  "form.info.registernumber.label": "Rekisterinumero",
+  "form.info.registernumber.placeholder": "Veneen rekisterinumero",
+  "form.info.boat.type.label": "Tyyppi",
+  "form.info.boat.type.placeholder": "Valitse veneen tyyppi",
+  "form.info.boat.width.label": "Leveys",
+  "form.info.boat.length.label": "Rungon pituus",
+  "form.info.boat.depth.label": "Syvyys",
+  "form.info.boat.weight.label": "Paino",
+  "form.info.boat.name.label": "Nimi",
+  "form.info.boat.name.placeholder": "Veneen nimi",
+  "form.info.boat.model.label": "Merkki",
+  "form.info.boat.model.placeholder": "Veneen merkki",
+  "form.info.accessibility": "Tarvitsen esteettömän venepaikan"
 }
