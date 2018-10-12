@@ -1,39 +1,25 @@
 import React, { Fragment } from 'react';
 import { Row, Col } from 'reactstrap';
 import Joi from 'joi';
+import validation from '../../utils/formValidation';
 
 import Form from './fields/Form';
-
 import { Text, Select, Checkbox } from './fields/InputField';
 import InputGroup from './fields/InputGroup';
 
 const schema = Joi.object().keys({
-  boatDepth: Joi.string().required(),
-  boatLength: Joi.string().required(),
+  boatDepth: Joi.number().required(),
+  boatLength: Joi.number().required(),
+  boatWeight: Joi.number().required(),
+  boatWidth: Joi.number().required(),
   boatModel: Joi.string().required(),
   boatName: Joi.string().required(),
   boatType: Joi.string().required(),
-  boatWeight: Joi.string().required(),
-  boatWidth: Joi.string().required(),
   registerNumber: Joi.string().required()
 });
 
-const validate = values => {
-  const { error } = Joi.validate(values, schema, { abortEarly: false });
-  if (error.details) {
-    return error.details.reduce(
-      (reduction, current) => ({
-        ...reduction,
-        [current.context.key]: current.message
-      }),
-      {}
-    );
-  }
-  return {};
-};
-
 export default ({ onSubmit }) => (
-  <Form onSubmit={onSubmit} validate={validate}>
+  <Form onSubmit={onSubmit} validate={validation(schema)}>
     {({ reset, submitting, pristine }) => (
       <Fragment>
         <h1>Rekisteröidyn veneen tiedot</h1>
