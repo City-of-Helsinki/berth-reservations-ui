@@ -9,7 +9,6 @@ const InputField = (type: string) => ({
   name,
   label,
   placeholder,
-  feedback,
   text,
   children,
   intl: { formatMessage },
@@ -25,14 +24,14 @@ const InputField = (type: string) => ({
           id={id}
           type={type}
           placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
-          valid={meta.valid}
-          invalid={meta.invalid}
+          valid={meta.touched && meta.valid}
+          invalid={meta.touched && meta.invalid}
           {...inputProps}
           {...input}
         >
           {children}
         </Input>
-        {feedback && <FormFeedback>{feedback}</FormFeedback>}
+        {meta.touched && meta.error && <FormFeedback>{meta.error}</FormFeedback>}
         {text && <FormText>{text}</FormText>}
       </FormGroup>
     )}
@@ -47,13 +46,14 @@ const ToggleField = (type: string) => ({ id, name, label, inline, ...inputProps 
           <Input
             id={id}
             type={type}
-            valid={meta.valid}
-            invalid={meta.invalid}
+            valid={meta.touched && meta.valid}
+            invalid={meta.touched && meta.invalid}
             {...inputProps}
             {...input}
           />
           <FormattedMessage id={label} />
         </Label>
+        {meta.touched && meta.error && <FormFeedback>{meta.error}</FormFeedback>}
       </FormGroup>
     )}
   </Field>

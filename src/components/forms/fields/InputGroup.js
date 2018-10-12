@@ -1,7 +1,7 @@
 // @flow
 import React, { Fragment } from 'react';
 import { Field } from 'react-final-form';
-import { Input, Label, InputGroup, InputGroupAddon } from 'reactstrap';
+import { Input, Label, InputGroup, InputGroupAddon, FormFeedback } from 'reactstrap';
 import { injectIntl, FormattedMessage } from 'react-intl';
 
 const InputGroupField = (type: string) => ({
@@ -27,14 +27,15 @@ const InputGroupField = (type: string) => ({
             id={id}
             type={type}
             placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
-            valid={meta.valid}
-            invalid={meta.invalid}
+            valid={meta.touched && meta.valid}
+            invalid={meta.touched && meta.invalid}
             {...inputProps}
             {...input}
           >
             {children}
           </Input>
           {append && <InputGroupAddon addonType="append">{append}</InputGroupAddon>}
+          {meta.touched && meta.error && <FormFeedback>{meta.error}</FormFeedback>}
         </InputGroup>
       </Fragment>
     )}
