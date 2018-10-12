@@ -1,8 +1,28 @@
 // @flow
-import React from 'react';
+import React, { type Node } from 'react';
 import { Field } from 'react-final-form';
 import { FormGroup, Label, Input, FormText, FormFeedback } from 'reactstrap';
 import { injectIntl, FormattedMessage } from 'react-intl';
+import type { FormatMessage } from '../../../types/intl';
+
+export type InputFieldProps = {
+  id: string,
+  name: string,
+  label: string,
+  placeholder: string,
+  text: string,
+  children: () => Node,
+  intl: {
+    formatMessage: FormatMessage
+  }
+};
+
+type ToggleFieldProps = {
+  id: string,
+  name: string,
+  label: string,
+  inline: boolean
+};
 
 const InputField = (type: string) => ({
   id,
@@ -13,7 +33,7 @@ const InputField = (type: string) => ({
   children,
   intl: { formatMessage },
   ...inputProps
-}: any) => (
+}: InputFieldProps) => (
   <Field name={name}>
     {({ input, meta }) => (
       <FormGroup>
@@ -38,7 +58,13 @@ const InputField = (type: string) => ({
   </Field>
 );
 
-const ToggleField = (type: string) => ({ id, name, label, inline, ...inputProps }: any): any => (
+const ToggleField = (type: string) => ({
+  id,
+  name,
+  label,
+  inline,
+  ...inputProps
+}: ToggleFieldProps): any => (
   <Field name={name}>
     {({ input, meta }) => (
       <FormGroup check inline={inline}>

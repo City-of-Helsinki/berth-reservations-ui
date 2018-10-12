@@ -1,20 +1,28 @@
 // @flow
 import React, { Fragment } from 'react';
 import { Field } from 'react-final-form';
-import { Input, Label, InputGroup, InputGroupAddon, FormFeedback } from 'reactstrap';
+import { Input, Label, InputGroup, InputGroupAddon, FormFeedback, FormText } from 'reactstrap';
 import { injectIntl, FormattedMessage } from 'react-intl';
+
+import type { InputFieldProps } from './InputField';
+
+type InputGroupFieldProps = InputFieldProps & {
+  prepend: string,
+  append: string
+};
 
 const InputGroupField = (type: string) => ({
   id,
   name,
   label,
   placeholder,
+  text,
   prepend,
   append,
   children,
   intl: { formatMessage },
   ...inputProps
-}: any) => (
+}: InputGroupFieldProps) => (
   <Field name={name}>
     {({ input, meta }) => (
       <Fragment>
@@ -36,6 +44,7 @@ const InputGroupField = (type: string) => ({
           </Input>
           {append && <InputGroupAddon addonType="append">{append}</InputGroupAddon>}
           {meta.touched && meta.error && <FormFeedback>{meta.error}</FormFeedback>}
+          {text && <FormText>{text}</FormText>}
         </InputGroup>
       </Fragment>
     )}

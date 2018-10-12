@@ -1,8 +1,15 @@
-import React from 'react';
+// @flow
+import React, { type Node } from 'react';
 import { Form as FinalForm } from 'react-final-form';
 import { Form as BootstrapForm } from 'reactstrap';
 
-export default ({ onSubmit, validate, children }) => (
+type Props = {
+  onSubmit: Function,
+  validate: Function,
+  children: any => Node
+};
+
+export default ({ onSubmit, validate, children }: Props) => (
   <FinalForm
     onSubmit={onSubmit}
     validate={validate}
