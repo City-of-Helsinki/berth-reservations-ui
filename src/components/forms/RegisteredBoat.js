@@ -20,10 +20,7 @@ const schema = Joi.object().keys({
 
 export default ({ onSubmit, initialValues }) => (
   <Form
-    onSubmit={formData => {
-      console.log(formData);
-      onSubmit(formData);
-    }}
+    onSubmit={formData => onSubmit(formData)}
     initialValues={initialValues}
     validate={validation(schema)}
   >
