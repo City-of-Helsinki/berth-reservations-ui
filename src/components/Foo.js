@@ -3,29 +3,28 @@ import React from 'react';
 import { Button } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
-import type { Users } from '../types/user';
-import InfoForm from './forms/InfoForm';
+import RegisteredBoat from './forms/RegisteredBoat';
+import LocalizedLink from './LocalizedLink';
 
 const StyledButton = styled(Button)`
   background-color: ${props => props.theme.color};
 `;
 
 type Props = {
-  getUsers: Function,
-  users: Users
+  registeredBoat: Object,
+  saveRegisteredBoat: Function
 };
 
-const Foo = ({ getUsers, users }: Props) => (
+const Foo = ({ registeredBoat, saveRegisteredBoat }: Props) => (
   <div className="Foo">
     <header className="Foo-header">
       <p>FOO!!!!</p>
-      <StyledButton onClick={() => getUsers()}>
+      <StyledButton onClick={() => console.log('moi')}>
         <FormattedMessage id="foo.get_users" />
       </StyledButton>
-      {users.map(user => (
-        <div key={user.id}>{user.name}</div>
-      ))}
-      <InfoForm onSubmit={console.log} validate={console.log} />
+      <LocalizedLink to={'/'}>Front-page</LocalizedLink>
+
+      <RegisteredBoat onSubmit={saveRegisteredBoat} initialValues={registeredBoat} />
     </header>
   </div>
 );
