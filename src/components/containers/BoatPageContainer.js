@@ -1,6 +1,6 @@
 // @flow
 import { connect } from 'react-redux';
-import Foo from '../Foo';
+import BoatPage from '../pages/BoatPage';
 import { getUsers } from '../../ducks/first';
 
 export default connect(
@@ -8,4 +8,4 @@ export default connect(
     users: state.first.users
   }),
   { getUsers }
-)(Foo);
+)(BoatPage);

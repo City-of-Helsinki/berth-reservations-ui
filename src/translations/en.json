@@ -1,4 +1,5 @@
 {
   "home.hello": "Welcome!",
-  "foo.get_users": "Get users"
+  "foo.get_users": "Get users",
+  "user.hello": "User information"
 }

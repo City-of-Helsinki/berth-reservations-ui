@@ -14,7 +14,7 @@ const Root = () => (
     <ThemeProvider>
       <Router>
         <Switch>
-          <Redirect exact path="/" to="/fi" />
+          <Redirect exact path="/" to="/fi/berths" />
           <Route path="/:locale" component={RouterInternationalized} />
         </Switch>
       </Router>

@@ -3,8 +3,8 @@ import React from 'react';
 import { Button } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
-import type { Users } from '../types/user';
-import InfoForm from './forms/InfoForm';
+import type { Users } from '../../types/user';
+import InfoForm from '../forms/InfoForm';
 
 const StyledButton = styled(Button)`
   background-color: ${props => props.theme.color};
@@ -15,7 +15,7 @@ type Props = {
   users: Users
 };
 
-const Foo = ({ getUsers, users }: Props) => (
+const BoatPage = ({ getUsers, users }: Props) => (
   <div className="Foo">
     <header className="Foo-header">
       <p>FOO!!!!</p>
@@ -30,4 +30,4 @@ const Foo = ({ getUsers, users }: Props) => (
   </div>
 );
 
-export default Foo;
+export default BoatPage;

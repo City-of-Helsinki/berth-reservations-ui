@@ -1,17 +1,15 @@
 // @flow
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import LocalizedLink from './LocalizedLink';
 
-const App = () => (
+const UserPage = () => (
   <div className="App">
     <header className="App-header">
       <p>
-        <FormattedMessage id="home.hello" />
+        <FormattedMessage id="home.user" />
       </p>
-      <LocalizedLink to={'/foo'}>Foo-page</LocalizedLink>
     </header>
   </div>
 );
 
-export default App;
+export default UserPage;
