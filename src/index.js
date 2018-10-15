@@ -15,6 +15,7 @@ const Root = () => (
       <Router>
         <Switch>
           <Redirect exact path="/" to="/fi/berths" />
+          <Redirect exact path="/:locale/" to="/:locale/berths" />
           <Route path="/:locale" component={RouterInternationalized} />
         </Switch>
       </Router>
