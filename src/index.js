@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -13,7 +13,10 @@ const Root = () => (
   <Provider store={configureStore()}>
     <ThemeProvider>
       <Router>
-        <Route path="/:locale" component={RouterInternationalized} />
+        <Switch>
+          <Redirect exact path="/" to="/fi" />
+          <Route path="/:locale" component={RouterInternationalized} />
+        </Switch>
       </Router>
     </ThemeProvider>
   </Provider>
