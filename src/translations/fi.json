@@ -1,6 +1,7 @@
 {
   "home.hello": "Tervetuloa!",
   "foo.get_users": "Hae käyttäjiä",
+  "user.hello": "User information",
   "form.info.registernumber.label": "Rekisterinumero",
   "form.info.registernumber.placeholder": "Veneen rekisterinumero",
   "form.info.boat.type.label": "Tyyppi",
