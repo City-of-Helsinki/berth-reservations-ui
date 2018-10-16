@@ -26,7 +26,7 @@ export default ({ onSubmit, initialValues }) => (
   >
     {({ reset, submitting, pristine }) => (
       <Fragment>
-        <h1>Rekisteröidyn veneen tiedot</h1>
+        <h3>Rekisteröidyn veneen tiedot</h3>
         <Row>
           <Col sm={6}>
             <Text
@@ -46,7 +46,7 @@ export default ({ onSubmit, initialValues }) => (
             </Select>
           </Col>
         </Row>
-        <h1>Veneen mitat</h1>
+        <h3>Veneen mitat</h3>
         <Row>
           <Col sm={3}>
             <InputGroup
@@ -85,7 +85,7 @@ export default ({ onSubmit, initialValues }) => (
             />
           </Col>
         </Row>
-        <h1>Lisätiedot</h1>
+        <h3>Lisätiedot</h3>
         <Row>
           <Col sm={4}>
             <Text
