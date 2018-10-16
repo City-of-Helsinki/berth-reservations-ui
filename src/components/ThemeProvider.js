@@ -6,6 +6,11 @@ import theme from '../config/theme';
 // $SuppressFlowComment
 require('open-city-design/src/scss/main.scss');
 
+/* eslint-disable */
+// eslint-disable-next-line $SuppressFlowComment
+const extractedTheme = require('sass-extract-loader?{"plugins":["sass-extract-js"]}!./themeProvider.scss');
+/* eslint-enable */
+
 const GlobalStyles = createGlobalStyle``;
 
 type Props = {
@@ -15,6 +20,6 @@ type Props = {
 export default ({ children }: Props) => (
   <Fragment>
     <GlobalStyles />
-    <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    <ThemeProvider theme={{ ...extractedTheme, ...theme }}>{children}</ThemeProvider>
   </Fragment>
 );
