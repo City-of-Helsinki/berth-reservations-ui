@@ -7,9 +7,11 @@ import Page from '../Page';
 const BerthPage = () => (
   <Page>
     <h2>
-      <FormattedMessage id="berths.title" />
+      <FormattedMessage id="page.berths.title" />
     </h2>
-    <LocalizedLink to={'/boat'}>Boat information</LocalizedLink>
+    <LocalizedLink to={'/boat'}>
+      <FormattedMessage id="page.berths.link.boat_information" />
+    </LocalizedLink>
   </Page>
 );
 

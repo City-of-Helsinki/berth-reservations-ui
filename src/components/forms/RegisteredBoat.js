@@ -1,11 +1,20 @@
+// @flow
+
 import React, { Fragment } from 'react';
 import { Row, Col } from 'reactstrap';
 import Joi from 'joi';
+import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 import validation from '../../utils/formValidation';
 
 import Form from './fields/Form';
 import { Text, Select, Checkbox } from './fields/InputField';
 import InputGroup from './fields/InputGroup';
+
+type Props = {
+  intl: intlShape,
+  onSubmit: Function,
+  initialValues: Object
+};
 
 const schema = Joi.object().keys({
   boatDepth: Joi.number().required(),
@@ -18,7 +27,7 @@ const schema = Joi.object().keys({
   registerNumber: Joi.string().required()
 });
 
-export default ({ onSubmit, initialValues }) => (
+const BoatInformationForm = ({ intl, onSubmit, initialValues }: Props) => (
   <Form
     onSubmit={formData => onSubmit(formData)}
     initialValues={initialValues}
@@ -26,33 +35,37 @@ export default ({ onSubmit, initialValues }) => (
   >
     {({ reset, submitting, pristine }) => (
       <Fragment>
-        <h3>Rekisteröidyn veneen tiedot</h3>
+        <h3>
+          <FormattedMessage id="page.boat.form.section.boat_info" />
+        </h3>
         <Row>
           <Col sm={6}>
             <Text
               id="registerNumber"
               name="registerNumber"
-              label="form.info.registernumber.label"
-              placeholder="form.info.registernumber.placeholder"
+              label="page.boat.form.registernumber.label"
+              placeholder="page.boat.form.registernumber.placeholder"
               required
             />
           </Col>
           <Col sm={6}>
-            <Select id="boatType" name="boatType" label="form.info.boat.type.label" required>
-              <option>form.info.boat.type.placeholder</option>
+            <Select id="boatType" name="boatType" label="page.boat.form.type.label" required>
+              <option>{intl.messages['page.boat.form.type.placeholder']}</option>
               <option>a</option>
               <option>b</option>
               <option>c</option>
             </Select>
           </Col>
         </Row>
-        <h3>Veneen mitat</h3>
+        <h3>
+          <FormattedMessage id="page.boat.form.section.boat_measures" />
+        </h3>
         <Row>
           <Col sm={3}>
             <InputGroup
               id="boatWidth"
               name="boatWidth"
-              label="form.info.boat.width.label"
+              label="page.boat.form.width.label"
               append="m"
               required
             />
@@ -61,7 +74,7 @@ export default ({ onSubmit, initialValues }) => (
             <InputGroup
               id="boatLength"
               name="boatLength"
-              label="form.info.boat.length.label"
+              label="page.boat.form.length.label"
               append="m"
               required
             />
@@ -70,7 +83,7 @@ export default ({ onSubmit, initialValues }) => (
             <InputGroup
               id="boatDepth"
               name="boatDepth"
-              label="form.info.boat.depth.label"
+              label="page.boat.form.depth.label"
               append="m"
               required
             />
@@ -79,20 +92,22 @@ export default ({ onSubmit, initialValues }) => (
             <InputGroup
               id="boatWeight"
               name="boatWeight"
-              label="form.info.boat.weight.label"
+              label="page.boat.form.weight.label"
               append="kg"
               required
             />
           </Col>
         </Row>
-        <h3>Lisätiedot</h3>
+        <h3>
+          <FormattedMessage id="page.boat.form.section.boat_additional_info" />
+        </h3>
         <Row>
           <Col sm={4}>
             <Text
               id="boatName"
               name="boatName"
-              label="form.info.boat.name.label"
-              placeholder="form.info.boat.name.placeholder"
+              label="page.boat.form.name.label"
+              placeholder="page.boat.form.name.placeholder"
               required
             />
           </Col>
@@ -100,14 +115,21 @@ export default ({ onSubmit, initialValues }) => (
             <Text
               id="boatModel"
               name="boatModel"
-              label="form.info.boat.model.label"
-              placeholder="form.info.boat.model.placeholder"
+              label="page.boat.form.model.label"
+              placeholder="page.boat.form.model.placeholder"
               required
             />
           </Col>
         </Row>
-        <h3>Esteettömyys</h3>
-        <Checkbox id="accessibility" name="accessibility" label="form.info.accessibility" />
+        <h3>
+          <FormattedMessage id="page.boat.form.section.boat_accessibility" />
+        </h3>
+        <Checkbox
+          id="accessibility"
+          name="accessibility"
+          label="page.boat.form.accessibility"
+          inline={false}
+        />
         <hr />
 
         <button
@@ -116,13 +138,15 @@ export default ({ onSubmit, initialValues }) => (
           onClick={reset}
           disabled={submitting || pristine}
         >
-          Reset
+          <FormattedMessage id="page.boat.form.action.reset_form" />
         </button>
 
         <button type="submit" className="btn btn-primary" disabled={submitting}>
-          Submit
+          <FormattedMessage id="page.boat.form.action.next_page" />
         </button>
       </Fragment>
     )}
   </Form>
 );
+
+export default injectIntl(BoatInformationForm);
