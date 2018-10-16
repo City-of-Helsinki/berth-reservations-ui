@@ -21,11 +21,11 @@ const Page = ({ children }: Props) => (
     <Navbar color="white" light expand="md">
       <NavbarBrand href="/">Venepaikkahaku</NavbarBrand>
     </Navbar>
-    <KoroSection theme="hel-berth" styleType="koro-pulse-top">
+    <KoroSection theme="hel-berth" koroStyle="koro-pulse-top">
       Venepaikkahaku
     </KoroSection>
     <div>{children}</div>
-    <KoroSection theme="hel-berth" styleType="koro-pulse-bottom">
+    <KoroSection theme="hel-berth" koroStyle="koro-pulse-bottom">
       Footer info
     </KoroSection>
   </div>
