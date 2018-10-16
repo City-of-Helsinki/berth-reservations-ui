@@ -6,9 +6,9 @@ import Page from '../Page';
 
 const BerthPage = () => (
   <Page>
-    <p>
-      <FormattedMessage id="home.hello" />
-    </p>
+    <h2>
+      <FormattedMessage id="berths.title" />
+    </h2>
     <LocalizedLink to={'/boat'}>Boat information</LocalizedLink>
   </Page>
 );

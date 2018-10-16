@@ -65,7 +65,7 @@ const ToggleField = (type: string) => ({
   inline,
   ...inputProps
 }: ToggleFieldProps): any => (
-  <Field name={name}>
+  <Field name={name} type={type}>
     {({ input, meta }) => (
       <FormGroup check inline={inline}>
         <Label check>

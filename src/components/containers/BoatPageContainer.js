@@ -1,11 +1,11 @@
 // @flow
 import { connect } from 'react-redux';
+import { saveRegisteredBoat } from '../../ducks/forms';
 import BoatPage from '../pages/BoatPage';
-import { getUsers } from '../../ducks/first';
 
 export default connect(
   state => ({
-    users: state.first.users
+    registeredBoat: state.forms.registeredBoat
   }),
-  { getUsers }
+  { saveRegisteredBoat }
 )(BoatPage);

@@ -18,11 +18,15 @@ const schema = Joi.object().keys({
   registerNumber: Joi.string().required()
 });
 
-export default ({ onSubmit }) => (
-  <Form onSubmit={onSubmit} validate={validation(schema)}>
+export default ({ onSubmit, initialValues }) => (
+  <Form
+    onSubmit={formData => onSubmit(formData)}
+    initialValues={initialValues}
+    validate={validation(schema)}
+  >
     {({ reset, submitting, pristine }) => (
       <Fragment>
-        <h1>Rekisteröidyn veneen tiedot</h1>
+        <h3>Rekisteröidyn veneen tiedot</h3>
         <Row>
           <Col sm={6}>
             <Text
@@ -42,7 +46,7 @@ export default ({ onSubmit }) => (
             </Select>
           </Col>
         </Row>
-        <h1>Veneen mitat</h1>
+        <h3>Veneen mitat</h3>
         <Row>
           <Col sm={3}>
             <InputGroup
@@ -81,7 +85,7 @@ export default ({ onSubmit }) => (
             />
           </Col>
         </Row>
-        <h1>Lisätiedot</h1>
+        <h3>Lisätiedot</h3>
         <Row>
           <Col sm={4}>
             <Text
