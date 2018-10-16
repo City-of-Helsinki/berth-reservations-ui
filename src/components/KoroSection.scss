@@ -1,0 +1,63 @@
+@import '../../node_modules/open-city-design/src/scss/helsinki/mixins';
+
+.section-koro {
+}
+
+.section-koro__content {
+  padding: 0px 35px 300px 35px;
+  font-size: 65px;
+  font-weight: bold;
+  color: #fff;
+  background-image: url('https://www.hel.fi/wps/wcm/connect/04e3b129-2229-4c2c-924d-97e079611226/1/L%C3%A4hteel%C3%A4n+venesatama_konsta_linkola.jpg') !important;
+}
+
+.section-koro.koro-pulse-top:after {
+  content: '';
+  display: block;
+  height: 30px;
+  width: 100%;
+}
+
+.section-koro:before {
+  content: '';
+  color: #0072c6;
+  display: block;
+  height: 30px;
+  width: 100%;
+}
+
+.section-koro.hel-berth,
+.section-koro.hel-berth:before,
+.section-koro.hel-berth:after {
+  background: #9fc9eb;
+}
+
+.section-koro.hel-berth.koro-pulse-top:after {
+  background: #9fc9eb;
+  @include koro('pulse', #ffffff, 300);
+}
+
+.section-koro.hel-berth.koro-pulse-bottom:before {
+  background: #fff;
+  @include koro('pulse', #ffffff, 300);
+}
+
+.section-koro.hel-berth.koro-pulse-bottom {
+  background: #0072c6;
+}
+
+/*
+$hel-black:         #343434;
+$hel-copper:        #00d7a7;
+$hel-bus:           #0000bf;
+$hel-coat:          #0072c6;
+$hel-fog:           #9fc9eb;
+$hel-metro:         #fd4f00;
+$hel-brick:         #bd2719;
+$hel-suomenlinna:   #f5a3c7;
+$hel-engel:         #ffe977;
+$hel-tram:          #009246;
+$hel-summer:        #ffc61e;
+$hel-silver:        #dedfe1;
+$hel-gold:          #c2a251;
+*/
