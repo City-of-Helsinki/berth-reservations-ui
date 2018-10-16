@@ -5,6 +5,12 @@ import { Navbar, NavbarBrand, Nav, NavItem } from 'reactstrap';
 
 import Logo from './Logo';
 import KoroSection from './KoroSection';
+import styled from 'styled-components';
+
+const Content = styled.div`
+  background-color: #9fc9eb;
+  padding: 20px;
+`;
 
 type Props = {
   children: any
@@ -24,7 +30,7 @@ const Page = ({ children }: Props) => (
     <KoroSection theme="hel-berth" koroStyle="koro-pulse-top">
       Venepaikkahaku
     </KoroSection>
-    <div>{children}</div>
+    <Content>{children}</Content>
     <KoroSection theme="hel-berth" koroStyle="koro-pulse-bottom">
       Footer info
     </KoroSection>
