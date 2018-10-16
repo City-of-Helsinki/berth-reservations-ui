@@ -1,8 +1,5 @@
 @import '../../node_modules/open-city-design/src/scss/helsinki/mixins';
 
-.section-koro {
-}
-
 .section-koro__content {
   padding: 0px 35px 300px 18px;
   font-size: 65px;
@@ -12,7 +9,15 @@
 
 .section-koro.hel-berth.koro-pulse-top {
   margin-bottom: 40px;
-  background: #9fc9eb;
+  background-image: url('https://images.unsplash.com/photo-1539522264456-269fca8fd3ce?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1600&h=450&fit=crop&ixid=eyJhcHBfaWQiOjF9&s=d82dcc254b7d3329f7ae5c61c6bc1f1b');
+}
+
+.section-koro.hel-berth.koro-pulse-top:after {
+  @include koro('pulse', #ffffff, 300);
+  content: '';
+  display: block;
+  height: 30px;
+  width: 100%;
 }
 
 .section-koro.hel-berth.koro-pulse-bottom {
@@ -20,33 +25,12 @@
   background: #0072c6;
 }
 
-.section-koro.koro-pulse-top:after {
-  content: '';
-  display: block;
-  height: 30px;
-  width: 100%;
-}
-
-.section-koro.koro-pulse-bottom:before {
+.section-koro.hel-berth.koro-pulse-bottom:before {
+  background: #fff;
+  @include koro('pulse', #0072c6, 300);
   content: '';
   color: #0072c6;
   display: block;
   height: 30px;
   width: 100%;
-}
-
-.section-koro.hel-berth,
-.section-koro.hel-berth:before,
-.section-koro.hel-berth:after {
-  background: #9fc9eb;
-}
-
-.section-koro.hel-berth.koro-pulse-top:after {
-  background: #9fc9eb;
-  @include koro('pulse', #ffffff, 300);
-}
-
-.section-koro.hel-berth.koro-pulse-bottom:before {
-  background: #fff;
-  @include koro('pulse', #0072c6, 300);
 }
