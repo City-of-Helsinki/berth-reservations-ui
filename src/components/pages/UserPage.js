@@ -6,7 +6,7 @@ import Page from '../Page';
 const UserPage = () => (
   <Page>
     <h2>
-      <FormattedMessage id="user.title" />
+      <FormattedMessage id="page.user.title" />
     </h2>
   </Page>
 );

@@ -14,10 +14,10 @@ type Props = {
 const BoatPage = ({ registeredBoat, saveRegisteredBoat }: Props) => (
   <Page>
     <h2>
-      <FormattedMessage id="boat.title" />
+      <FormattedMessage id="page.boat.title" />
     </h2>
     <LocalizedLink to={'/'}>
-      <FormattedMessage id="navigation.front_page" />
+      <FormattedMessage id="site.link.front_page" />
     </LocalizedLink>
     <RegisteredBoat onSubmit={saveRegisteredBoat} initialValues={registeredBoat} />
   </Page>
