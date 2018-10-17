@@ -22,14 +22,19 @@ const Circle = styled.div`
   height: 50px;
   display: inline-block;
   border: 2px solid #000;
-  background-color: #efefef;
   border-radius: 50%;
   padding-top: 8px;
   font-size: 20px;
+  color: #fff;
   margin-bottom: 10px;
 
   &.active {
     background-color: #0072c6;
+  }
+
+  &.checked {
+    background-color: #e9ecef;
+    color: #000;
   }
 `;
 
@@ -39,7 +44,7 @@ export default () => (
       <Row>
         <StepIcon sm="3">
           <div>
-            <Circle>&#10003;</Circle>
+            <Circle className="checked">&#10003;</Circle>
           </div>
           <div>Satamat</div>
         </StepIcon>
