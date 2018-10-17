@@ -17,6 +17,10 @@ type Props = {
   children: any
 };
 
+const TopNavbar = styled(Navbar)`
+  background-color: #9fc8eb;
+`;
+
 const TopKoro = styled(KoroSection).attrs({
   top: true
 })`
@@ -37,14 +41,14 @@ const BottomKoro = styled(KoroSection).attrs({
 
 const Page = ({ children }: Props) => (
   <Fragment>
-    <Navbar color="info" expand="md">
+    <TopNavbar expand="md">
       <NavbarBrand href="/">
         <Logo />
       </NavbarBrand>
       <Nav className="ml-auto" navbar>
         <NavItem>FI</NavItem>
       </Nav>
-    </Navbar>
+    </TopNavbar>
     <Navbar color="white" light expand="md">
       <NavbarBrand href="/">Venepaikkahaku</NavbarBrand>
     </Navbar>
