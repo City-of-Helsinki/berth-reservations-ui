@@ -24,10 +24,10 @@ const Circle = styled.div`
   display: inline-block;
   border: 0.125em solid #000;
   border-radius: 50%;
-  padding-top: 0.5em;
-  font-size: 1.25em;
+  padding-top: 0.7em;
+  font-size: 1.2em;
   color: #fff;
-  margin-bottom: 0.625em;
+  margin-bottom: 1em;
 
   &.active {
     background-color: #0072c6;
