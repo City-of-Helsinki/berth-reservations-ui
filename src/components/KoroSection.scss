@@ -2,13 +2,13 @@
 
 .section-koro-top {
   &.fog:after {
-    @include koro('pulse', #9fc8eb, 300);
+    @include koro('basic', #9fc8eb, 400);
   }
   &.blue:after {
-    @include koro('pulse', #0072c6, 300);
+    @include koro('basic', #0072c6, 400);
   }
   &:after {
-    @include koro('pulse', #ffffff, 300);
+    @include koro('basic', #ffffff, 400);
     content: '';
     display: block;
     height: 1.25em;
@@ -16,13 +16,13 @@
 }
 .section-koro-bottom {
   &.fog:before {
-    @include koro('pulse', #9fc8eb, 300);
+    @include koro('basic', #9fc8eb, 400);
   }
   &.blue:before {
-    @include koro('pulse', #0072c6, 300);
+    @include koro('basic', #0072c6, 400);
   }
   &:before {
-    @include koro('pulse', #ffffff, 300);
+    @include koro('basic', #ffffff, 400);
     content: '';
     display: block;
     height: 1.25em;
