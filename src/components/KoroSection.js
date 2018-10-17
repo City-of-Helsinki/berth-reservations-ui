@@ -1,6 +1,7 @@
 // @flow
 import React, { type Node } from 'react';
 import classnames from 'classnames';
+// $SuppressFlowComment
 import './KoroSection.scss';
 
 type Props = {
