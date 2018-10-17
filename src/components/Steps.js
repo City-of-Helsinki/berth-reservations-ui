@@ -1,0 +1,77 @@
+// @flow
+import React from 'react';
+import styled from 'styled-components';
+import { Col, Row, Container } from 'reactstrap';
+
+const Steps = styled.div`
+  background-color: #52a4ca;
+  padding: 4em;
+`;
+
+const StepContainer = styled(Container)`
+  width: 600px;
+  margin-bottom: 50px;
+`;
+
+const StepIcon = styled(Col)`
+  text-align: center;
+  margin-bottom: 10px;
+`;
+
+const Circle = styled.div`
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border: 2px solid #000;
+  background-color: #efefef;
+  border-radius: 50%;
+  padding-top: 8px;
+  font-size: 20px;
+  margin-bottom: 10px;
+
+  &.active {
+    background-color: #0072c6;
+  }
+`;
+
+type Props = {
+  children: Node
+};
+
+export default ({ children }: Props) => (
+  <Steps>
+    <StepContainer>
+      <Row>
+        <StepIcon md="3">
+          <div>
+            <Circle>&#10003;</Circle>
+          </div>
+          <div>Satamat</div>
+        </StepIcon>
+        <StepIcon md="3">
+          <div>
+            <Circle className="active">&nbsp;</Circle>
+          </div>
+          <div>Veneen tiedot</div>
+        </StepIcon>
+        <StepIcon md="3">
+          <div>
+            <Circle>&nbsp;</Circle>
+          </div>
+          <div>Hakija</div>
+        </StepIcon>
+        <StepIcon md="3">
+          <div>
+            <Circle>&nbsp;</Circle>
+          </div>
+          <div>Lähetä hakemus</div>
+        </StepIcon>
+      </Row>
+    </StepContainer>
+    <Container>
+      <Row>
+        <Col md="12">{children}</Col>
+      </Row>
+    </Container>
+  </Steps>
+);

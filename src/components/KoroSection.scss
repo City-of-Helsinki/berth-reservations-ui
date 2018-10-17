@@ -1,34 +1,30 @@
 @import '../../node_modules/open-city-design/src/scss/helsinki/mixins';
 
-.section-koro__content {
-  padding: 0px 35px 300px 18px;
-  font-size: 65px;
-  font-weight: bold;
-  color: #fff;
+.section-koro-top {
+  &.fog:after {
+    @include koro('pulse', #52a4ca, 300);
+  }
+  &.blue:after {
+    @include koro('pulse', #0072c6, 300);
+  }
+  &:after {
+    @include koro('pulse', #ffffff, 300);
+    content: '';
+    display: block;
+    height: 20px;
+  }
 }
-
-.section-koro.hel-berth.koro-pulse-top {
-  background-image: url('https://images.unsplash.com/photo-1539522264456-269fca8fd3ce?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1600&h=450&fit=crop&ixid=eyJhcHBfaWQiOjF9&s=d82dcc254b7d3329f7ae5c61c6bc1f1b');
-}
-
-.section-koro.hel-berth.koro-pulse-top:after {
-  @include koro('pulse', #9fc9eb, 300);
-  content: '';
-  display: block;
-  height: 30px;
-  width: 100%;
-}
-
-.section-koro.hel-berth.koro-pulse-bottom {
-  background: #0072c6;
-}
-
-.section-koro.hel-berth.koro-pulse-bottom:before {
-  background: #9fc9eb;
-  @include koro('pulse', #0072c6, 300);
-  content: '';
-  color: #0072c6;
-  display: block;
-  height: 30px;
-  width: 100%;
+.section-koro-bottom {
+  &.fog:before {
+    @include koro('pulse', #52a4ca, 300);
+  }
+  &.blue:before {
+    @include koro('pulse', #0072c6, 300);
+  }
+  &:before {
+    @include koro('pulse', #ffffff, 300);
+    content: '';
+    display: block;
+    height: 20px;
+  }
 }

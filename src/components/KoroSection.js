@@ -1,17 +1,29 @@
-import React from 'react';
+// @flow
+import React, { type Node } from 'react';
 import classnames from 'classnames';
 import './KoroSection.scss';
 
-export default class KoroSection extends React.Component {
-  render() {
-    const { koroStyle, theme } = this.props;
+type Props = {
+  className: string,
+  children?: Node,
+  color: 'fog' | 'blue' | 'white',
+  top?: boolean,
+  bottom?: boolean
+};
 
-    return (
-      <div>
-        <section className={classnames(['section-koro', theme, koroStyle, 'koro-size-x3'])}>
-          <div className="section-koro__content">{this.props.children}</div>
-        </section>
-      </div>
-    );
+export default class KoroSection extends React.Component<Props> {
+  static defaultProps = {
+    top: false,
+    bottom: false
+  };
+
+  render() {
+    const { top, bottom, children, className, color } = this.props;
+    const classes = classnames(className, color, {
+      'section-koro-top': top,
+      'section-koro-bottom': bottom
+    });
+
+    return <section className={classes}>{children}</section>;
   }
 }
