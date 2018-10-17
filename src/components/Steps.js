@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Col, Row, Container } from 'reactstrap';
 
 const Steps = styled.div`
-  background-color: #52a4ca;
+  background-color: #9fc8eb;
   padding-top: 4em;
 `;
 
