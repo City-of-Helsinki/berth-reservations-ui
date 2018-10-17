@@ -5,7 +5,7 @@ import { Col, Row, Container } from 'reactstrap';
 import Logo from './Logo';
 
 const Wrapper = styled.div`
-  background-color: #0072c6;
+  background-color: ${props => props.theme.colors.blue};
   color: #fff;
   padding-top: 4em;
   height: 15em;

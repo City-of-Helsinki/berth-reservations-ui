@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Col, Row, Container } from 'reactstrap';
 
 const Legend = styled.div`
-  background-color: #9fc8eb;
+  background-color: ${props => props.theme.colors.helFog};
   padding-top: 3em;
 `;
 

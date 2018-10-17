@@ -18,7 +18,7 @@ type Props = {
 };
 
 const TopNavbar = styled(Navbar)`
-  background-color: #9fc8eb;
+  background-color: ${props => props.theme.colors.helFog};
 `;
 
 const TopKoro = styled(KoroSection).attrs({
