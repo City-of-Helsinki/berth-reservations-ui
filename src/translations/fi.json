@@ -2,10 +2,24 @@
   "site.title": "Venepaikkahaku",
   "site.link.front_page": "Etusivulle",
 
+  "site.steps.berths": "Satamat",
+  "site.steps.boat_information": "Veneen tiedot",
+  "site.steps.applicant": "Hakija",
+  "site.steps.send_application": "Lähetä hakemus",
+
+  "site.footer.bearth_search": "Venepaikkahaku",
+  "site.footer.browse_berths": "Selaa venesatamia",
+  "site.footer.apply": "Hae venepaikkaa",
+  "site.footer.ukk": "UKK",
+  "site.footer.send_feedback": "Lähetä palautetta",
+  "site.footer.contact_us": "Ota yhteyttä",
+  "site.footer.copyright": "2018 Helsingin kaupunki",
+
   "page.berths.title": "Satamahaku",
   "page.berths.link.boat_information": "Veneen tiedot",
 
   "page.boat.title": "Veneen tiedot",
+  "page.boat.legend": "Venepaikkaa haetaan venekohtaisesti. Anna tässä haettavalla venepaikalla pidettävän veneen tiedot. Voit myös hakea venepaikkaa vaikka sinulla ei ole vielä venettä.",
   "page.boat.form.section.boat_info": "Rekisteröidyn veneen tiedot",
   "page.boat.form.section.boat_measures": "Veneen mitat",
   "page.boat.form.section.boat_additional_info": "Lisätiedot",

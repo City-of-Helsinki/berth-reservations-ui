@@ -1,10 +1,17 @@
 // @flow
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import styled from 'styled-components';
 
 import Page from '../Page';
+import Legend from '../Legend';
+import Steps from '../Steps';
 import RegisteredBoat from '../forms/RegisteredBoat';
-import LocalizedLink from '../LocalizedLink';
+
+const Content = styled.div`
+  background-color: white;
+  padding: 4em 8em 2em 8em;
+`;
 
 type Props = {
   registeredBoat: Object,
@@ -13,13 +20,18 @@ type Props = {
 
 const BoatPage = ({ registeredBoat, saveRegisteredBoat }: Props) => (
   <Page>
-    <h2>
-      <FormattedMessage id="page.boat.title" />
-    </h2>
-    <LocalizedLink to={'/'}>
-      <FormattedMessage id="site.link.front_page" />
-    </LocalizedLink>
-    <RegisteredBoat onSubmit={saveRegisteredBoat} initialValues={registeredBoat} />
+    <Steps />
+    <Legend>
+      <h3>
+        <FormattedMessage id="page.boat.title" />
+      </h3>
+      <p>
+        <FormattedMessage id="page.boat.legend" />
+      </p>
+    </Legend>
+    <Content>
+      <RegisteredBoat onSubmit={saveRegisteredBoat} initialValues={registeredBoat} />
+    </Content>
   </Page>
 );
 
