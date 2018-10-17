@@ -4,26 +4,68 @@ import { Col, Row, Container } from 'reactstrap';
 
 import Logo from './Logo';
 
-import styles from './Footer.scss';
-
 const Wrapper = styled.div`
   background-color: #0072c6;
   color: #fff;
-  padding: 20px;
-  height: 200px;
+  padding-top: 4em;
+  height: 15em;
+`;
+
+const OptionsContainer = styled(Container)`
+  width: 100%;
+`;
+
+const LinksContainer = styled(Container)`
+  margin-top: 2em;
+  width: 60%;
+`;
+
+const List = styled.ul`
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style-type: none;
+    display: inline;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  li + li {
+    border-left: 1px solid #fff;
+  }
+`;
+
+const FooterSection = styled(Col)`
+  text-align: center;
 `;
 
 const Footer = () => (
   <Wrapper>
-    <Container>
+    <OptionsContainer>
       <Row>
-        <Col md="4">Venepaikkahaku</Col>
-        <Col md="4">
+        <FooterSection md="4">Venepaikkahaku</FooterSection>
+        <FooterSection md="4">
           <Logo />
-        </Col>
-        <Col md="4">sdfsfsdf</Col>
+        </FooterSection>
+        <FooterSection md="4">
+          <div>Selaa venesatamia</div>
+          <div>Hae venepaikkaa</div>
+          <div>UKK</div>
+        </FooterSection>
       </Row>
-    </Container>
+    </OptionsContainer>
+    <LinksContainer>
+      <Row>
+        <FooterSection md="12">
+          <List>
+            <li>Lähetä palautetta</li>
+            <li>Ota yhteyttä</li>
+            <li>2018 Helsingin kaupunki</li>
+          </List>
+        </FooterSection>
+      </Row>
+    </LinksContainer>
   </Wrapper>
 );
 
