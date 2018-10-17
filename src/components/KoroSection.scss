@@ -2,7 +2,7 @@
 
 .section-koro-top {
   &.fog:after {
-    @include koro('pulse', #52a4ca, 300);
+    @include koro('pulse', #9fc8eb, 300);
   }
   &.blue:after {
     @include koro('pulse', #0072c6, 300);
@@ -16,7 +16,7 @@
 }
 .section-koro-bottom {
   &.fog:before {
-    @include koro('pulse', #52a4ca, 300);
+    @include koro('pulse', #9fc8eb, 300);
   }
   &.blue:before {
     @include koro('pulse', #0072c6, 300);
