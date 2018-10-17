@@ -30,12 +30,6 @@ const BoatPage = ({ registeredBoat, saveRegisteredBoat }: Props) => (
       </p>
     </Legend>
     <Content>
-      <h2>
-        <FormattedMessage id="page.boat.title" />
-      </h2>
-      <LocalizedLink to={'/'}>
-        <FormattedMessage id="site.link.front_page" />
-      </LocalizedLink>
       <RegisteredBoat onSubmit={saveRegisteredBoat} initialValues={registeredBoat} />
     </Content>
   </Page>
