@@ -11,7 +11,7 @@
     @include koro('pulse', #ffffff, 300);
     content: '';
     display: block;
-    height: 20px;
+    height: 1.25em;
   }
 }
 .section-koro-bottom {
@@ -25,6 +25,6 @@
     @include koro('pulse', #ffffff, 300);
     content: '';
     display: block;
-    height: 20px;
+    height: 1.25em;
   }
 }

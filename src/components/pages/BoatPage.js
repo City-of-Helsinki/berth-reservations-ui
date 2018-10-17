@@ -7,7 +7,6 @@ import Page from '../Page';
 import Legend from '../Legend';
 import Steps from '../Steps';
 import RegisteredBoat from '../forms/RegisteredBoat';
-import LocalizedLink from '../LocalizedLink';
 
 const Content = styled.div`
   background-color: white;
@@ -23,10 +22,11 @@ const BoatPage = ({ registeredBoat, saveRegisteredBoat }: Props) => (
   <Page>
     <Steps />
     <Legend>
-      <h3>Veneen tiedot</h3>
+      <h3>
+        <FormattedMessage id="page.boat.title" />
+      </h3>
       <p>
-        Venepaikkaa haetaan venekohtaisesti. Anna tässä haettavalla venepaikalla pidettävän veneen
-        tiedot. Voit myös hakea venepaikkaa vaikka sinulla ei ole vielä venettä.
+        <FormattedMessage id="page.boat.legend" />
       </p>
     </Legend>
     <Content>
