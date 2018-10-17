@@ -11,7 +11,7 @@ import LocalizedLink from '../LocalizedLink';
 
 const Content = styled.div`
   background-color: white;
-  padding: 80px;
+  padding: 4em 8em 2em 8em;
 `;
 
 type Props = {
