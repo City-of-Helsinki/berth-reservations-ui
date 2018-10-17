@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { type Node } from 'react';
 import styled from 'styled-components';
 import { Col, Row, Container } from 'reactstrap';
 
