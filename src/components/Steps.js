@@ -1,5 +1,5 @@
 // @flow
-import React, { type Node } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Col, Row, Container } from 'reactstrap';
 
@@ -10,12 +10,6 @@ const Steps = styled.div`
 
 const StepContainer = styled(Container)`
   width: 600px;
-  margin-bottom: 50px;
-`;
-
-const LegendContainer = styled(Container)`
-  width: 80%;
-  padding-bottom: 50px;
 `;
 
 const StepIcon = styled(Col)`
@@ -39,11 +33,7 @@ const Circle = styled.div`
   }
 `;
 
-type Props = {
-  children: Node
-};
-
-export default ({ children }: Props) => (
+export default () => (
   <Steps>
     <StepContainer>
       <Row>
@@ -73,10 +63,5 @@ export default ({ children }: Props) => (
         </StepIcon>
       </Row>
     </StepContainer>
-    <LegendContainer>
-      <Row>
-        <Col md="12">{children}</Col>
-      </Row>
-    </LegendContainer>
   </Steps>
 );

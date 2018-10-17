@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
 import Page from '../Page';
+import Legend from '../Legend';
 import Steps from '../Steps';
 import RegisteredBoat from '../forms/RegisteredBoat';
 import LocalizedLink from '../LocalizedLink';
@@ -20,13 +21,14 @@ type Props = {
 
 const BoatPage = ({ registeredBoat, saveRegisteredBoat }: Props) => (
   <Page>
-    <Steps>
+    <Steps />
+    <Legend>
       <h3>Veneen tiedot</h3>
       <p>
         Venepaikkaa haetaan venekohtaisesti. Anna tässä haettavalla venepaikalla pidettävän veneen
         tiedot. Voit myös hakea venepaikkaa vaikka sinulla ei ole vielä venettä.
       </p>
-    </Steps>
+    </Legend>
     <Content>
       <h2>
         <FormattedMessage id="page.boat.title" />
