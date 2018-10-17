@@ -5,12 +5,17 @@ import { Col, Row, Container } from 'reactstrap';
 
 const Steps = styled.div`
   background-color: #52a4ca;
-  padding: 4em;
+  padding-top: 4em;
 `;
 
 const StepContainer = styled(Container)`
   width: 600px;
   margin-bottom: 50px;
+`;
+
+const LegendContainer = styled(Container)`
+  width: 80%;
+  padding-bottom: 50px;
 `;
 
 const StepIcon = styled(Col)`
@@ -42,25 +47,25 @@ export default ({ children }: Props) => (
   <Steps>
     <StepContainer>
       <Row>
-        <StepIcon md="3">
+        <StepIcon sm="3">
           <div>
             <Circle>&#10003;</Circle>
           </div>
           <div>Satamat</div>
         </StepIcon>
-        <StepIcon md="3">
+        <StepIcon sm="3">
           <div>
             <Circle className="active">&nbsp;</Circle>
           </div>
           <div>Veneen tiedot</div>
         </StepIcon>
-        <StepIcon md="3">
+        <StepIcon sm="3">
           <div>
             <Circle>&nbsp;</Circle>
           </div>
           <div>Hakija</div>
         </StepIcon>
-        <StepIcon md="3">
+        <StepIcon sm="3">
           <div>
             <Circle>&nbsp;</Circle>
           </div>
@@ -68,10 +73,10 @@ export default ({ children }: Props) => (
         </StepIcon>
       </Row>
     </StepContainer>
-    <Container>
+    <LegendContainer>
       <Row>
         <Col md="12">{children}</Col>
       </Row>
-    </Container>
+    </LegendContainer>
   </Steps>
 );
