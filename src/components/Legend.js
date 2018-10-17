@@ -5,7 +5,7 @@ import { Col, Row, Container } from 'reactstrap';
 
 const Legend = styled.div`
   background-color: #52a4ca;
-  padding-top: 4em;
+  padding-top: 3em;
 `;
 
 const LegendContainer = styled(Container)`
