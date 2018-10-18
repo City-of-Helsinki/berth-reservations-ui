@@ -1,7 +1,6 @@
 // @flow
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { FormattedMessage } from 'react-intl';
 import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -66,9 +65,7 @@ export default class Step extends React.Component<Props> {
     return (
       <Section>
         <Circle className={classes}>{content}</Circle>
-        <Label>
-          <FormattedMessage id={label} />
-        </Label>
+        <Label>{label}</Label>
       </Section>
     );
   }
