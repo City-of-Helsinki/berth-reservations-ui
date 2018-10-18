@@ -12,7 +12,9 @@ const StepIndicatorSection = styled.div`
 `;
 
 const StepContainer = styled(Container)`
-  width: 50em;
+  @media only screen and (min-width: 500px) {
+    width: 45em;
+  }
 `;
 
 const StepColumn = styled(Col)`
