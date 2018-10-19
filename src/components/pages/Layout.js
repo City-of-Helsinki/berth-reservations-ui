@@ -1,71 +1,144 @@
 // @flow
 
 import React, { Fragment } from 'react';
-import { FormattedMessage } from 'react-intl';
-import { Navbar, NavbarBrand, Nav, NavItem } from 'reactstrap';
+import { FormattedMessage, injectIntl, type intlShape } from 'react-intl';
+import { Link } from 'react-router-dom';
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  Navbar,
+  NavbarBrand,
+  Nav
+} from 'reactstrap';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Logo from '../Logo';
 import KoroSection from '../KoroSection';
 import Footer from '../Footer';
 
-const Content = styled.div`
-  background-color: white;
-  padding-bottom: 3rem;
-`;
-
 type Props = {
-  children: any
+  children: Node,
+  intl: intlShape
 };
 
-const TopNavbar = styled(Navbar)`
-  background-color: ${props => props.theme.colors.helFog};
-`;
+type State = {
+  collapsed: boolean,
+  dropdownOpen: boolean
+};
 
-const TopKoro = styled(KoroSection).attrs({
-  top: true
-})`
-  background-image: url('https://images.unsplash.com/photo-1539522264456-269fca8fd3ce?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1600&h=450&fit=crop&ixid=eyJhcHBfaWQiOjF9&s=d82dcc254b7d3329f7ae5c61c6bc1f1b');
-  & > div {
-    padding: 4em;
-    height: 25em;
-    h1 {
-      font-size: 5em;
-      color: #fff;
-    }
+class Layout extends React.Component<Props, State> {
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      collapsed: true,
+      dropdownOpen: false
+    };
   }
-`;
 
-const BottomKoro = styled(KoroSection).attrs({
-  top: true
-})``;
+  toggle = () => {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
+  };
 
-const Layout = ({ children }: Props) => (
-  <Fragment>
-    <TopNavbar expand="md">
-      <NavbarBrand href="/">
-        <Logo />
-      </NavbarBrand>
-      <Nav className="ml-auto" navbar>
-        <NavItem>FI</NavItem>
-      </Nav>
-    </TopNavbar>
-    <Navbar color="white" light expand="md">
-      <NavbarBrand href="/">
-        <FormattedMessage id="site.title" />
-      </NavbarBrand>
-    </Navbar>
-    <TopKoro color="fog">
-      <div>
-        <h1>
-          <FormattedMessage id="site.title" />
-        </h1>
-      </div>
-    </TopKoro>
-    <Content>{children}</Content>
-    <BottomKoro color="blue" />
-    <Footer />
-  </Fragment>
-);
+  render() {
+    const { children, intl } = this.props;
 
-export default Layout;
+    const Content = styled.div`
+      background-color: white;
+      padding-bottom: 3rem;
+    `;
+
+    const TopNavbar = styled(Navbar)`
+      background-color: ${props => props.theme.colors.helFog};
+      & a {
+        color: #000;
+      }
+      & a:hover {
+        text-decoration: none;
+        color: #000;
+      }
+    `;
+
+    const LanguageSelector = styled(DropdownToggle)`
+      color: #000;
+      background-color: ${props => props.theme.colors.helFog};
+      border: 0em;
+      width: 7.2em;
+      text-align: right;
+    `;
+
+    const TopKoro = styled(KoroSection).attrs({
+      top: true
+    })`
+      background-image: url('https://images.unsplash.com/photo-1539522264456-269fca8fd3ce?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1600&h=450&fit=crop&ixid=eyJhcHBfaWQiOjF9&s=d82dcc254b7d3329f7ae5c61c6bc1f1b');
+      & > div {
+        padding: 4em;
+        height: 25em;
+        h1 {
+          font-size: 5em;
+          color: #fff;
+        }
+      }
+    `;
+
+    const BottomKoro = styled(KoroSection).attrs({
+      top: true
+    })``;
+
+    return (
+      <Fragment>
+        <TopNavbar expand="md">
+          <NavbarBrand href="/">
+            <Logo />
+          </NavbarBrand>
+          <Nav className="ml-auto" navbar>
+            <Dropdown size="lg" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+              <LanguageSelector color="fog" caret>
+                <FontAwesomeIcon icon="globe" /> {intl.locale.toUpperCase()}
+              </LanguageSelector>
+              <DropdownMenu>
+                <DropdownItem>
+                  <Link to={`/fi`}>
+                    <FormattedMessage id="site.language.fi" />
+                  </Link>
+                </DropdownItem>
+                <DropdownItem>
+                  <Link to={`/sv`}>
+                    <FormattedMessage id="site.language.sv" />
+                  </Link>
+                </DropdownItem>
+                <DropdownItem>
+                  <Link to={`/en`}>
+                    <FormattedMessage id="site.language.en" />
+                  </Link>
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </Nav>
+        </TopNavbar>
+        <Navbar color="white" light expand="md">
+          <NavbarBrand href="/">
+            <FormattedMessage id="site.title" />
+          </NavbarBrand>
+        </Navbar>
+        <TopKoro color="fog">
+          <div>
+            <h1>
+              <FormattedMessage id="site.title" />
+            </h1>
+          </div>
+        </TopKoro>
+        <Content>{children}</Content>
+        <BottomKoro color="blue" />
+        <Footer />
+      </Fragment>
+    );
+  }
+}
+
+export default injectIntl(Layout);
