@@ -5,9 +5,9 @@ import { FormattedMessage } from 'react-intl';
 import { Navbar, NavbarBrand, Nav, NavItem } from 'reactstrap';
 import styled from 'styled-components';
 
-import Logo from './Logo';
-import KoroSection from './KoroSection';
-import Footer from './Footer';
+import Logo from '../Logo';
+import KoroSection from '../KoroSection';
+import Footer from '../Footer';
 
 const Content = styled.div`
   background-color: white;
@@ -40,7 +40,7 @@ const BottomKoro = styled(KoroSection).attrs({
   top: true
 })``;
 
-const Page = ({ children }: Props) => (
+const Layout = ({ children }: Props) => (
   <Fragment>
     <TopNavbar expand="md">
       <NavbarBrand href="/">
@@ -68,4 +68,4 @@ const Page = ({ children }: Props) => (
   </Fragment>
 );
 
-export default Page;
+export default Layout;

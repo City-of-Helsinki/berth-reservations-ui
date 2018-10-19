@@ -3,7 +3,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
-import Page from '../Page';
+import Layout from './Layout';
 import Legend from '../Legend';
 import Steps from '../Steps';
 import RegisteredBoat from '../forms/RegisteredBoat';
@@ -19,7 +19,7 @@ type Props = {
 };
 
 const BoatPage = ({ registeredBoat, saveRegisteredBoat }: Props) => (
-  <Page>
+  <Layout>
     <Steps />
     <Legend>
       <h3>
@@ -32,7 +32,7 @@ const BoatPage = ({ registeredBoat, saveRegisteredBoat }: Props) => (
     <Content>
       <RegisteredBoat onSubmit={saveRegisteredBoat} initialValues={registeredBoat} />
     </Content>
-  </Page>
+  </Layout>
 );
 
 export default BoatPage;
