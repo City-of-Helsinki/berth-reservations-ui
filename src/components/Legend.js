@@ -10,7 +10,7 @@ const Legend = styled.div`
 
 const LegendContainer = styled(Container)`
   width: 80%;
-  padding-bottom: 3.125em;
+  padding-bottom: 3em;
 `;
 
 type Props = {
