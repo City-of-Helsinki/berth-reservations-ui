@@ -1,14 +1,14 @@
 // @flow
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import Page from '../Page';
+import Layout from './Layout';
 
 const UserPage = () => (
-  <Page>
+  <Layout>
     <h2>
       <FormattedMessage id="page.user.title" />
     </h2>
-  </Page>
+  </Layout>
 );
 
 export default UserPage;
