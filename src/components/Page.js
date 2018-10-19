@@ -11,7 +11,7 @@ import Footer from './Footer';
 
 const Content = styled.div`
   background-color: white;
-  padding-bottom: 3.125rem;
+  padding-bottom: 3rem;
 `;
 
 type Props = {

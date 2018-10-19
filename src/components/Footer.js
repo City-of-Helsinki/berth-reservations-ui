@@ -33,7 +33,7 @@ const List = styled.ul`
   }
 
   li + li {
-    border-left: 0.0625em solid #fff;
+    border-left: 0.06em solid #fff;
   }
 `;
 

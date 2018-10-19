@@ -4,21 +4,18 @@ import styled from 'styled-components';
 import { injectIntl, intlShape } from 'react-intl';
 import { Col, Row, Container } from 'reactstrap';
 import Step from './Step';
+import media from '../utils/responsive';
 
 const StepIndicatorSection = styled.div`
   background-color: ${props => props.theme.colors.helFog};
   padding-top: 4em;
-  padding-bottom: 2em;
+  padding-bottom: 1em;
 `;
 
 const StepContainer = styled(Container)`
-  @media only screen and (min-width: 500px) {
+  ${media.md`
     width: 45em;
-  }
-`;
-
-const StepColumn = styled(Col)`
-  margin-bottom: 0.625em;
+  `};
 `;
 
 type Props = {
@@ -29,18 +26,18 @@ const Steps = ({ intl }: Props) => (
   <StepIndicatorSection>
     <StepContainer>
       <Row>
-        <StepColumn sm="3">
+        <Col sm="3">
           <Step completed={true} label={intl.messages['site.steps.berths']} />
-        </StepColumn>
-        <StepColumn sm="3">
+        </Col>
+        <Col sm="3">
           <Step current={true} label={intl.messages['site.steps.boat_information']} />
-        </StepColumn>
-        <StepColumn sm="3">
+        </Col>
+        <Col sm="3">
           <Step label={intl.messages['site.steps.applicant']} />
-        </StepColumn>
-        <StepColumn sm="3">
+        </Col>
+        <Col sm="3">
           <Step label={intl.messages['site.steps.send_application']} />
-        </StepColumn>
+        </Col>
       </Row>
     </StepContainer>
   </StepIndicatorSection>

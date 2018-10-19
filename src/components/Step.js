@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type Props = {
@@ -11,61 +10,48 @@ type Props = {
 };
 
 const Section = styled.div`
-  width: 100%;
-  height: 5.125em;
-  display: block;
-  margin-bottom: 2em;
   text-align: center;
-  margin: auto;
 `;
 
-const Circle = styled.div`
-  width: 3.125em;
-  height: 3.125em;
-  border: 0.125em solid #000;
-  border-radius: 50%;
-  padding-top: 0.8em;
+const Circle = styled.div.attrs({
+  backgroundcolor: props => {
+    if (props.current) {
+      return props.theme.colors.blue;
+    }
+    if (props.completed) {
+      return props.theme.colors.light;
+    }
+    return 'none';
+  }
+})`
+  width: 3em;
+  height: 3em;
   font-size: 1.2em;
-  color: #fff;
+  color: #000;
   margin: auto;
   margin-bottom: 1em;
-
-  &.current {
-    background-color: #0072c6;
-  }
-
-  &.completed {
-    background-color: #e9ecef;
-    color: #000;
-  }
-`;
-
-const Label = styled.div`
-  display: inline-block;
-  margin-top: 0em;
+  padding-top: 0.8em;
+  border: 0.1em solid #000;
+  border-radius: 50%;
+  background-color: ${props => props.backgroundcolor};
 `;
 
 export default class Step extends React.Component<Props> {
   static defaultProps = {
     completed: false,
-    current: false,
-    label: ''
+    current: false
   };
 
   render() {
     const { completed, current, label } = this.props;
-
-    const classes = classnames('content', {
-      current,
-      completed
-    });
-
     const content = completed ? <FontAwesomeIcon icon="check" /> : '';
 
     return (
       <Section>
-        <Circle className={classes}>{content}</Circle>
-        <Label>{label}</Label>
+        <Circle completed={completed} current={current}>
+          {content}
+        </Circle>
+        <div>{label}</div>
       </Section>
     );
   }

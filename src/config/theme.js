@@ -23,6 +23,7 @@ export default {
   maxWidth,
   colors: {
     helFog: '#9fc8eb',
-    blue: '#0072c6'
+    blue: '#0072c6',
+    light: '#ebedf1'
   }
 };
