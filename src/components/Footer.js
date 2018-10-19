@@ -18,7 +18,7 @@ const OptionsContainer = styled(Container)`
 
 const LinksContainer = styled(Container)`
   margin-top: 2em;
-  width: 60%;
+  max-width: ${props => props.theme.maxWidth.xl};
 `;
 
 const List = styled.ul`
