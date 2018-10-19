@@ -13,17 +13,7 @@ const Section = styled.div`
   text-align: center;
 `;
 
-const Circle = styled.div.attrs({
-  backgroundcolor: props => {
-    if (props.current) {
-      return props.theme.colors.blue;
-    }
-    if (props.completed) {
-      return props.theme.colors.light;
-    }
-    return 'none';
-  }
-})`
+const Circle = styled.div`
   width: 3em;
   height: 3em;
   font-size: 1.2em;
@@ -33,7 +23,15 @@ const Circle = styled.div.attrs({
   padding-top: 0.8em;
   border: 0.1em solid #000;
   border-radius: 50%;
-  background-color: ${props => props.backgroundcolor};
+  background-color: ${props => {
+    if (props.current) {
+      return props.theme.colors.blue;
+    }
+    if (props.completed) {
+      return props.theme.colors.light;
+    }
+    return 'none';
+  }}};
 `;
 
 export default class Step extends React.Component<Props> {
