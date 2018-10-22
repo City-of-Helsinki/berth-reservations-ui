@@ -6,19 +6,23 @@ import { Form as BootstrapForm } from 'reactstrap';
 type Props = {
   onSubmit: Function,
   validate: Function,
+  submit: Function,
   initialValues: Object,
   children: any => Node
 };
 
-export default ({ onSubmit, validate, initialValues, children }: Props) => (
+export default ({ onSubmit, validate, initialValues, submit, children }: Props) => (
   <FinalForm
     onSubmit={formData => onSubmit(formData)}
     validate={validate}
     initialValues={initialValues}
-    render={({ handleSubmit, ...renderProps }) => (
-      <BootstrapForm noValidate onSubmit={handleSubmit}>
-        {children(renderProps)}
-      </BootstrapForm>
-    )}
+    render={({ handleSubmit, ...renderProps }) => {
+      submit = handleSubmit;
+      return (
+        <BootstrapForm noValidate onSubmit={handleSubmit}>
+          {children(renderProps)}
+        </BootstrapForm>
+      );
+    }}
   />
 );

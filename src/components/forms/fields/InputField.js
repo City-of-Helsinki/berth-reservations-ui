@@ -37,9 +37,11 @@ const InputField = (type: string) => ({
   <Field name={name}>
     {({ input, meta }) => (
       <FormGroup>
-        <Label for={id}>
-          <FormattedMessage id={label} />
-        </Label>
+        {label && (
+          <Label for={id}>
+            <FormattedMessage id={label} />
+          </Label>
+        )}
         <Input
           id={id}
           type={type}
