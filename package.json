@@ -39,10 +39,13 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "api": "node api",
-    "flow": "flow"
+    "flow": "flow",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "devDependencies": {
     "@babel/preset-flow": "^7.0.0",
+    "@storybook/addon-actions": "^3.4.11",
+    "@storybook/react": "^3.4.11",
     "cors": "^2.8.4",
     "dotenv": "^6.1.0",
     "eslint": "5.6.0",
