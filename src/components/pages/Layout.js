@@ -1,25 +1,34 @@
 // @flow
 
 import React, { Fragment } from 'react';
-import { FormattedMessage } from 'react-intl';
-import { Navbar, NavbarBrand, Nav, NavItem } from 'reactstrap';
+import { FormattedMessage, type intlShape } from 'react-intl';
+import { Navbar, NavbarBrand, Nav } from 'reactstrap';
 import styled from 'styled-components';
 
+import LanguageDropdown from '../LanguageDropdown';
 import Logo from '../Logo';
 import KoroSection from '../KoroSection';
 import Footer from '../Footer';
+
+type Props = {
+  children: Node,
+  intl: intlShape
+};
 
 const Content = styled.div`
   background-color: white;
   padding-bottom: 3rem;
 `;
 
-type Props = {
-  children: any
-};
-
 const TopNavbar = styled(Navbar)`
   background-color: ${props => props.theme.colors.helFog};
+  & a {
+    color: #000;
+  }
+  & a:hover {
+    text-decoration: none;
+    color: #000;
+  }
 `;
 
 const TopKoro = styled(KoroSection).attrs({
@@ -47,7 +56,7 @@ const Layout = ({ children }: Props) => (
         <Logo />
       </NavbarBrand>
       <Nav className="ml-auto" navbar>
-        <NavItem>FI</NavItem>
+        <LanguageDropdown />
       </Nav>
     </TopNavbar>
     <Navbar color="white" light expand="md">

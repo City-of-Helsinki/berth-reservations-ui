@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faGlobe } from '@fortawesome/free-solid-svg-icons';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -12,7 +12,7 @@ import configureStore from './config/configureStore';
 import ThemeProvider from './components/ThemeProvider';
 import RouterInternationalized from './components/containers/RouterInternationalizedContainer';
 
-library.add(faCheck);
+library.add(faCheck, faGlobe);
 
 const Root = () => (
   <Provider store={configureStore()}>

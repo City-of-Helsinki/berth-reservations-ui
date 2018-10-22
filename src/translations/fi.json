@@ -1,6 +1,9 @@
 {
   "site.title": "Venepaikkahaku",
   "site.link.front_page": "Etusivulle",
+  "site.language.fi": "Suomeksi",
+  "site.language.sv": "På Svenska",
+  "site.language.en": "In English",
 
   "site.steps.berths": "Satamat",
   "site.steps.boat_information": "Veneen tiedot",
