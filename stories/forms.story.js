@@ -7,11 +7,30 @@ import BigShips from '../src/components/forms/BigShips';
 storiesOf('Forms', module)
   .add('RegisteredBoat', () => <RegisteredBoat onSubmit={action('Submit')} />)
   .add('BigShips', () => {
-    const doSomething = () => {};
+    let submit;
     return (
       <div>
-        <BigShips onSubmit={action('Submit')} />
-        <button onClick={doSomething}>asdas</button>
+        <BigShips
+          onSubmit={() => {
+            console.debug('onSubmit');
+          }}
+          getHandleSubmit={handleSubmit => {
+            console.debug('getHandleSubmit');
+            submit = handleSubmit;
+          }}
+        />
+        <button
+          onClick={e => {
+            console.debug('onClick');
+            debugger;
+            if (submit) {
+              console.debug('true');
+              submit(e);
+            }
+          }}
+        >
+          asdas
+        </button>
       </div>
     );
   });

@@ -26,13 +26,13 @@ const schema = Joi.object().keys({
   registerNumber: Joi.string().required()
 });
 
-const BigShipsForm = ({ intl, onSubmit, initialValues, submit }: Props) => {
+const BigShipsForm = ({ intl, onSubmit, initialValues, getHandleSubmit }: Props) => {
   return (
     <Form
       onSubmit={onSubmit}
       initialValues={initialValues}
       validate={validation(schema)}
-      submit={submit}
+      getHandleSubmit={getHandleSubmit}
     >
       {() => (
         <Container fluid>

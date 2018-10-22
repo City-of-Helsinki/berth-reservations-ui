@@ -11,13 +11,15 @@ type Props = {
   children: any => Node
 };
 
-export default ({ onSubmit, validate, initialValues, submit, children }: Props) => (
+export default ({ onSubmit, validate, initialValues, getHandleSubmit, children }: Props) => (
   <FinalForm
     onSubmit={formData => onSubmit(formData)}
     validate={validate}
     initialValues={initialValues}
     render={({ handleSubmit, ...renderProps }) => {
-      submit = handleSubmit;
+      if (getHandleSubmit) {
+        getHandleSubmit(handleSubmit);
+      }
       return (
         <BootstrapForm noValidate onSubmit={handleSubmit}>
           {children(renderProps)}
