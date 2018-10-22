@@ -39,5 +39,21 @@
   "page.boat.form.accessibility": "Tarvitsen esteettömän pääsyn veneeseen",
   "page.boat.form.action.reset_form": "Tyhjennä lomake",
   "page.boat.form.action.next_page": "Seuraava sivu",
+
+  "page.person.form.section.person_info": "Hakijan henkilötiedot",
+  "page.person.form.first_name.label": "Etunimi",
+  "page.person.form.first_name.placeholder": "Vellamo",
+  "page.person.form.last_name.label": "Sukunimi",
+  "page.person.form.last_name.placeholder": "Merenkävijä",
+  "page.person.form.ssn.label": "Henkilötunnus",
+  "page.person.form.ssn.placeholder": "PPKKVV00000",
+  "page.person.form.street_address.label": "Jakeluosoite",
+  "page.person.form.postal_code.label": "Postinumero",
+  "page.person.form.munacipality.label": "Postitoimipaikka",
+  "page.person.form.mobile_phone.label": "Matkapuhelin",
+  "page.person.form.email.label": "Sähköposti",
+  "page.person.form.action.reset_form": "Tyhjennä lomake",
+  "page.person.form.action.next_page": "Seuraava sivu",
+
   "page.user.title": "Hakijan tiedot"
 }
