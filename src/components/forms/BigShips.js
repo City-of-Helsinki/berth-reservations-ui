@@ -26,14 +26,9 @@ const schema = Joi.object().keys({
   registerNumber: Joi.string().required()
 });
 
-const BigShipsForm = ({ intl, onSubmit, initialValues, getHandleSubmit }: Props) => {
+const BigShipsForm = ({ intl, onSubmit, initialValues }: Props) => {
   return (
-    <Form
-      onSubmit={onSubmit}
-      initialValues={initialValues}
-      validate={validation(schema)}
-      getHandleSubmit={getHandleSubmit}
-    >
+    <Form onSubmit={onSubmit} initialValues={initialValues} validate={validation(schema)}>
       {() => (
         <Container fluid>
           <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
