@@ -34,9 +34,7 @@ const PrivatePersonForm = ({ onSubmit, initialValues }: Props) => (
   >
     {({ reset, submitting, pristine }) => (
       <Fragment>
-        <h3>
-          <FormattedMessage id="page.person.form.section.person_info" />
-        </h3>
+        <FormattedMessage tagName="h3" id="page.person.form.section.person_info" />
         <Row>
           <Col sm={6}>
             <Text

@@ -35,9 +35,7 @@ const BoatInformationForm = ({ intl, onSubmit, initialValues }: Props) => (
   >
     {({ reset, submitting, pristine }) => (
       <Fragment>
-        <h3>
-          <FormattedMessage id="page.boat.form.section.boat_info" />
-        </h3>
+        <FormattedMessage tagName="h3" id="page.boat.form.section.boat_info" />
         <Row>
           <Col sm={6}>
             <Text
@@ -57,9 +55,7 @@ const BoatInformationForm = ({ intl, onSubmit, initialValues }: Props) => (
             </Select>
           </Col>
         </Row>
-        <h3>
-          <FormattedMessage id="page.boat.form.section.boat_measures" />
-        </h3>
+        <FormattedMessage tagName="h3" id="page.boat.form.section.boat_measures" />
         <Row>
           <Col sm={3}>
             <InputGroup
@@ -98,9 +94,7 @@ const BoatInformationForm = ({ intl, onSubmit, initialValues }: Props) => (
             />
           </Col>
         </Row>
-        <h3>
-          <FormattedMessage id="page.boat.form.section.boat_additional_info" />
-        </h3>
+        <FormattedMessage tagName="h3" id="page.boat.form.section.boat_additional_info" />
         <Row>
           <Col sm={4}>
             <Text
@@ -121,9 +115,7 @@ const BoatInformationForm = ({ intl, onSubmit, initialValues }: Props) => (
             />
           </Col>
         </Row>
-        <h3>
-          <FormattedMessage id="page.boat.form.section.boat_accessibility" />
-        </h3>
+        <FormattedMessage tagName="h3" id="page.boat.form.section.boat_accessibility" />
         <Checkbox
           id="accessibility"
           name="accessibility"

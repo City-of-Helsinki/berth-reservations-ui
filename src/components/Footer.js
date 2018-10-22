@@ -52,15 +52,9 @@ const Footer = () => (
           <Logo />
         </FooterSection>
         <FooterSection md="4">
-          <div>
-            <FormattedMessage id="site.footer.browse_berths" />
-          </div>
-          <div>
-            <FormattedMessage id="site.footer.apply" />
-          </div>
-          <div>
-            <FormattedMessage id="site.footer.ukk" />
-          </div>
+          <FormattedMessage tagName="div" id="site.footer.browse_berths" />
+          <FormattedMessage tagName="div" id="site.footer.apply" />
+          <FormattedMessage tagName="div" id="site.footer.ukk" />
         </FooterSection>
       </Row>
     </OptionsContainer>
@@ -68,15 +62,9 @@ const Footer = () => (
       <Row>
         <FooterSection md="12">
           <List>
-            <li>
-              <FormattedMessage id="site.footer.send_feedback" />
-            </li>
-            <li>
-              <FormattedMessage id="site.footer.contact_us" />
-            </li>
-            <li>
-              <FormattedMessage id="site.footer.copyright" />
-            </li>
+            <FormattedMessage tagName="li" id="site.footer.send_feedback" />
+            <FormattedMessage tagName="li" id="site.footer.contact_us" />
+            <FormattedMessage tagName="li" id="site.footer.copyright" />
           </List>
         </FooterSection>
       </Row>
