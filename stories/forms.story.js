@@ -10,7 +10,7 @@ storiesOf('Forms', module)
     const doSomething = () => {};
     return (
       <div>
-        <BigShips onSubmit={action('Submit')} submit={doSomething} />
+        <BigShips onSubmit={action('Submit')} />
         <button onClick={doSomething}>asdas</button>
       </div>
     );
