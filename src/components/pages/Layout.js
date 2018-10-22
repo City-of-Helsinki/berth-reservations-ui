@@ -15,11 +15,6 @@ type Props = {
   intl: intlShape
 };
 
-type State = {
-  collapsed: boolean,
-  dropdownOpen: boolean
-};
-
 const Content = styled.div`
   background-color: white;
   padding-bottom: 3rem;
@@ -54,53 +49,32 @@ const BottomKoro = styled(KoroSection).attrs({
   top: true
 })``;
 
-class Layout extends React.Component<Props, State> {
-  constructor(props: any) {
-    super(props);
-
-    this.state = {
-      collapsed: true,
-      dropdownOpen: false
-    };
-  }
-
-  toggle = () => {
-    this.setState({
-      dropdownOpen: !this.state.dropdownOpen
-    });
-  };
-
-  render() {
-    const { children } = this.props;
-
-    return (
-      <Fragment>
-        <TopNavbar expand="md">
-          <NavbarBrand href="/">
-            <Logo />
-          </NavbarBrand>
-          <Nav className="ml-auto" navbar>
-            <LanguageDropdown />
-          </Nav>
-        </TopNavbar>
-        <Navbar color="white" light expand="md">
-          <NavbarBrand href="/">
-            <FormattedMessage id="site.title" />
-          </NavbarBrand>
-        </Navbar>
-        <TopKoro color="fog">
-          <div>
-            <h1>
-              <FormattedMessage id="site.title" />
-            </h1>
-          </div>
-        </TopKoro>
-        <Content>{children}</Content>
-        <BottomKoro color="blue" />
-        <Footer />
-      </Fragment>
-    );
-  }
-}
+const Layout = ({ children }: Props) => (
+  <Fragment>
+    <TopNavbar expand="md">
+      <NavbarBrand href="/">
+        <Logo />
+      </NavbarBrand>
+      <Nav className="ml-auto" navbar>
+        <LanguageDropdown />
+      </Nav>
+    </TopNavbar>
+    <Navbar color="white" light expand="md">
+      <NavbarBrand href="/">
+        <FormattedMessage id="site.title" />
+      </NavbarBrand>
+    </Navbar>
+    <TopKoro color="fog">
+      <div>
+        <h1>
+          <FormattedMessage id="site.title" />
+        </h1>
+      </div>
+    </TopKoro>
+    <Content>{children}</Content>
+    <BottomKoro color="blue" />
+    <Footer />
+  </Fragment>
+);
 
 export default Layout;
