@@ -1,20 +1,11 @@
 // @flow
 
 import React, { Fragment } from 'react';
-import { FormattedMessage, injectIntl, type intlShape } from 'react-intl';
-import { Link } from 'react-router-dom';
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Navbar,
-  NavbarBrand,
-  Nav
-} from 'reactstrap';
+import { FormattedMessage, type intlShape } from 'react-intl';
+import { Navbar, NavbarBrand, Nav } from 'reactstrap';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import LanguageDropdown from '../LanguageDropdown';
 import Logo from '../Logo';
 import KoroSection from '../KoroSection';
 import Footer from '../Footer';
@@ -28,6 +19,40 @@ type State = {
   collapsed: boolean,
   dropdownOpen: boolean
 };
+
+const Content = styled.div`
+  background-color: white;
+  padding-bottom: 3rem;
+`;
+
+const TopNavbar = styled(Navbar)`
+  background-color: ${props => props.theme.colors.helFog};
+  & a {
+    color: #000;
+  }
+  & a:hover {
+    text-decoration: none;
+    color: #000;
+  }
+`;
+
+const TopKoro = styled(KoroSection).attrs({
+  top: true
+})`
+  background-image: url('https://images.unsplash.com/photo-1539522264456-269fca8fd3ce?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1600&h=450&fit=crop&ixid=eyJhcHBfaWQiOjF9&s=d82dcc254b7d3329f7ae5c61c6bc1f1b');
+  & > div {
+    padding: 4em;
+    height: 25em;
+    h1 {
+      font-size: 5em;
+      color: #fff;
+    }
+  }
+`;
+
+const BottomKoro = styled(KoroSection).attrs({
+  top: true
+})``;
 
 class Layout extends React.Component<Props, State> {
   constructor(props: any) {
@@ -46,49 +71,7 @@ class Layout extends React.Component<Props, State> {
   };
 
   render() {
-    const { children, intl } = this.props;
-
-    const Content = styled.div`
-      background-color: white;
-      padding-bottom: 3rem;
-    `;
-
-    const TopNavbar = styled(Navbar)`
-      background-color: ${props => props.theme.colors.helFog};
-      & a {
-        color: #000;
-      }
-      & a:hover {
-        text-decoration: none;
-        color: #000;
-      }
-    `;
-
-    const LanguageSelector = styled(DropdownToggle)`
-      color: #000;
-      background-color: ${props => props.theme.colors.helFog};
-      border: 0em;
-      width: 7.2em;
-      text-align: right;
-    `;
-
-    const TopKoro = styled(KoroSection).attrs({
-      top: true
-    })`
-      background-image: url('https://images.unsplash.com/photo-1539522264456-269fca8fd3ce?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1600&h=450&fit=crop&ixid=eyJhcHBfaWQiOjF9&s=d82dcc254b7d3329f7ae5c61c6bc1f1b');
-      & > div {
-        padding: 4em;
-        height: 25em;
-        h1 {
-          font-size: 5em;
-          color: #fff;
-        }
-      }
-    `;
-
-    const BottomKoro = styled(KoroSection).attrs({
-      top: true
-    })``;
+    const { children } = this.props;
 
     return (
       <Fragment>
@@ -97,28 +80,7 @@ class Layout extends React.Component<Props, State> {
             <Logo />
           </NavbarBrand>
           <Nav className="ml-auto" navbar>
-            <Dropdown size="lg" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-              <LanguageSelector color="fog" caret>
-                <FontAwesomeIcon icon="globe" /> {intl.locale.toUpperCase()}
-              </LanguageSelector>
-              <DropdownMenu>
-                <DropdownItem>
-                  <Link to={`/fi`}>
-                    <FormattedMessage id="site.language.fi" />
-                  </Link>
-                </DropdownItem>
-                <DropdownItem>
-                  <Link to={`/sv`}>
-                    <FormattedMessage id="site.language.sv" />
-                  </Link>
-                </DropdownItem>
-                <DropdownItem>
-                  <Link to={`/en`}>
-                    <FormattedMessage id="site.language.en" />
-                  </Link>
-                </DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
+            <LanguageDropdown />
           </Nav>
         </TopNavbar>
         <Navbar color="white" light expand="md">
@@ -141,4 +103,4 @@ class Layout extends React.Component<Props, State> {
   }
 }
 
-export default injectIntl(Layout);
+export default Layout;
