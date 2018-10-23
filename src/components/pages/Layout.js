@@ -66,9 +66,7 @@ const Layout = ({ children }: Props) => (
     </Navbar>
     <TopKoro color="fog">
       <div>
-        <h1>
-          <FormattedMessage id="site.title" />
-        </h1>
+        <FormattedMessage tagName="h1" id="site.title" />
       </div>
     </TopKoro>
     <Content>{children}</Content>
