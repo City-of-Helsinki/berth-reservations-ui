@@ -32,9 +32,7 @@ const UnRegisteredBoatForm = ({ onSubmit, initialValues }: Props) => (
   >
     {({ reset, submitting, pristine }) => (
       <Fragment>
-        <h3>
-          <FormattedMessage id="form.unregistered.header.title" />
-        </h3>
+        <FormattedMessage tagName="h3" id="form.unregistered.header.title" />
         <Row>
           <Col sm={6}>
             <Text
@@ -64,9 +62,7 @@ const UnRegisteredBoatForm = ({ onSubmit, initialValues }: Props) => (
             />
           </Col>
         </Row>
-        <h3>
-          <FormattedMessage id="form.unregistered.header.additional_info" />
-        </h3>
+        <FormattedMessage tagName="h3" id="form.unregistered.header.additional_info" />
         <Row>
           <Col sm={4}>
             <Text
@@ -87,9 +83,7 @@ const UnRegisteredBoatForm = ({ onSubmit, initialValues }: Props) => (
             />
           </Col>
         </Row>
-        <h3>
-          <FormattedMessage id="form.unregistered.header.accessibility" />
-        </h3>
+        <FormattedMessage tagName="h3" id="form.unregistered.header.accessibility" />
         <Checkbox
           id="accessibility"
           name="accessibility"
