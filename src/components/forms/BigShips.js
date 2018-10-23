@@ -33,6 +33,7 @@ const BigShipsForm = ({ intl, onSubmit, initialValues }: Props) => {
         <Container fluid>
           <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
           <FormattedMessage tagName="p" id="form.big_ship.summary" />
+          <FormattedMessage tagName="h3" id="form.big_ship.header.details" />
 
           <Row>
             <Col sm={6}>
@@ -69,14 +70,14 @@ const BigShipsForm = ({ intl, onSubmit, initialValues }: Props) => {
                 name="usage"
                 label="form.big_ship.usage.label"
                 placeholder="form.big_ship.usage.placeholder"
-                text="form.big_ship.usage.text"
                 required
               />
+              <FormattedMessage tagName="p" id="form.big_ship.usage.info" />
             </Col>
           </Row>
           <Row>
             <Col sm={3}>
-              <FormattedMessage tagName="p" id="form.big_ship.time_period.label" />
+              <FormattedMessage tagName="h6" id="form.big_ship.time_period.label" />
 
               <Radio
                 id="time_period.for_now"
@@ -121,7 +122,7 @@ const BigShipsForm = ({ intl, onSubmit, initialValues }: Props) => {
               <Checkbox id="inspected" name="inspected" label="form.big_ship.inspected.label" />
               <Checkbox id="insurence" name="insurence" label="form.big_ship.insurence.label" />
               <Checkbox id="agreed" name="agreed" label="form.big_ship.agreed.label" />
-              <FormattedMessage tagName="p" id="form.big_ship.stuff" />
+              <FormattedMessage tagName="p" id="form.big_ship.inspection_and_insurence" />
             </Col>
           </Row>
         </Container>
