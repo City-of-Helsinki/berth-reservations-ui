@@ -1,8 +1,9 @@
 // @flow
 import React, { type Node } from 'react';
 import { Field } from 'react-final-form';
-import { FormGroup, Label, Input, FormText, FormFeedback } from 'reactstrap';
+import { FormGroup, Input, FormText, FormFeedback } from 'reactstrap';
 import { injectIntl, FormattedMessage } from 'react-intl';
+import Label from './Label';
 import type { FormatMessage } from '../../../types/intl';
 
 export type InputFieldProps = {
@@ -31,18 +32,20 @@ const InputField = (type: string) => ({
   placeholder,
   text,
   children,
+  required,
   intl: { formatMessage },
   ...inputProps
 }: InputFieldProps) => (
   <Field name={name}>
     {({ input, meta }) => (
       <FormGroup>
-        <Label for={id}>
+        <Label for={id} required={required}>
           <FormattedMessage id={label} />
         </Label>
         <Input
           id={id}
           type={type}
+          required={required}
           placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
           valid={meta.touched && meta.valid}
           invalid={meta.touched && meta.invalid}
