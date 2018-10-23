@@ -28,9 +28,7 @@ const InputGroupField = (type: string) => ({
   <Field name={name}>
     {({ input, meta }) => (
       <Fragment>
-        <Label for={id} required={required}>
-          <FormattedMessage id={label} />
-        </Label>
+        <Label for={id} required={required} text={label} />
         <InputGroup>
           {prepend && <InputGroupAddon addonType="prepend">{prepend}</InputGroupAddon>}
           <Input

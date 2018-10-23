@@ -1,14 +1,14 @@
 // @flow
-import React, { type Node } from 'react';
+import React, { type Node, Fragment } from 'react';
 import { Field } from 'react-final-form';
-import { FormGroup, Input, FormText, FormFeedback } from 'reactstrap';
-import { injectIntl, FormattedMessage } from 'react-intl';
+import { FormGroup, Input, CustomInput, FormText, FormFeedback } from 'reactstrap';
+import { injectIntl, intlShape } from 'react-intl';
 import Label from './Label';
-import type { FormatMessage } from '../../../types/intl';
 
-export type InputFieldProps = {
+type FormGroupFieldProps = {
   id: string,
   name: string,
+  type: string,
   label: string,
   placeholder: string,
   text: string,
@@ -16,80 +16,107 @@ export type InputFieldProps = {
   intl: {
     formatMessage: FormatMessage
   },
-  required: boolean
+  required?: boolean,
+  text?: string,
+  children?: Node
 };
 
-type ToggleFieldProps = {
-  id: string,
-  name: string,
-  label: string,
-  inline: boolean
+export type InputFieldProps = {
+  intl: intlShape,
+  children?: Node,
+  placeholder?: string
 };
 
-const InputField = (type: string) => ({
+type CustomInputFieldProps = {
+  value: string
+};
+
+const FormGroupField = ({
   id,
   name,
+  type,
+  value,
   label,
-  placeholder,
+  required,
   text,
   children,
-  required,
-  intl: { formatMessage },
-  ...inputProps
-}: InputFieldProps) => (
-  <Field name={name}>
+  ...rest
+}: FormGroupFieldProps) => (
+  <Field name={name} type={type} value={value}>
     {({ input, meta }) => (
-      <FormGroup>
-        <Label for={id} required={required}>
-          <FormattedMessage id={label} />
-        </Label>
-        <Input
-          id={id}
-          type={type}
-          required={required}
-          placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
-          valid={meta.touched && meta.valid}
-          invalid={meta.touched && meta.invalid}
-          {...inputProps}
-          {...input}
-        >
-          {children}
-        </Input>
+      <Fragment>
+        {label && <Label htmlFor={id} required={required} text={label} />}
+        {React.Children.map(children, child =>
+          React.cloneElement(child, {
+            id,
+            type,
+            required,
+            valid: meta.touched && meta.valid,
+            invalid: meta.touched && meta.invalid,
+            ...input,
+            ...rest
+          })
+        )}
         {meta.touched && meta.error && <FormFeedback>{meta.error}</FormFeedback>}
         {text && <FormText>{text}</FormText>}
-      </FormGroup>
+      </Fragment>
     )}
   </Field>
 );
 
-const ToggleField = (type: string) => ({
-  id,
-  name,
-  label,
-  inline,
+const InputField = (type: string) => ({
+  placeholder,
+  intl: { formatMessage },
+  children,
   ...inputProps
-}: ToggleFieldProps): any => (
-  <Field name={name} type={type}>
-    {({ input, meta }) => (
-      <FormGroup check inline={inline}>
-        <Label check>
-          <Input
-            id={id}
-            type={type}
-            valid={meta.touched && meta.valid}
-            invalid={meta.touched && meta.invalid}
-            {...inputProps}
-            {...input}
-          />
-          <FormattedMessage id={label} />
-        </Label>
-        {meta.touched && meta.error && <FormFeedback>{meta.error}</FormFeedback>}
-      </FormGroup>
-    )}
-  </Field>
+}: InputFieldProps) => (
+  <FormGroup>
+    <FormGroupField
+      type={type}
+      placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
+      {...inputProps}
+    >
+      <Input>{children}</Input>
+    </FormGroupField>
+  </FormGroup>
+);
+
+const CustomInputField = (type: string) => ({
+  children,
+  value,
+  label,
+  ...inputProps
+}: CustomInputFieldProps): any => (
+  <FormGroup>
+    <FormGroupField label={label} type={type} {...inputProps}>
+      <CustomInput type={type} label={label} value={value}>
+        {children}
+      </CustomInput>
+    </FormGroupField>
+  </FormGroup>
+);
+
+const MultiCustomInputField = (type: string) => ({
+  children,
+  items,
+  id,
+  required,
+  label,
+  ...inputProps
+}: CustomInputFieldProps): any => (
+  <FormGroup>
+    <Label htmlFor={id} required={required} text={label} />
+    {Object.entries(items).map(([value, item]) => (
+      <FormGroupField label="" id={id} required={required} type={type} {...inputProps}>
+        <CustomInput type={type} id={item} key={value} label={item} value={value} {...inputProps} />
+      </FormGroupField>
+    ))}
+  </FormGroup>
 );
 
 export const Text = injectIntl(InputField('text'));
-export const Select = injectIntl(InputField('select'));
-export const Checkbox = ToggleField('checkbox');
-export const Radio = ToggleField('radio');
+export const Select = CustomInputField('select');
+export const Checkbox = CustomInputField('checkbox');
+export const Radio = CustomInputField('radio');
+export const MultiCheckbox = MultiCustomInputField('checkbox');
+export const MultiRadio = MultiCustomInputField('radio');
