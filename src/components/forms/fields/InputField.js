@@ -15,10 +15,6 @@ type DefaultFieldProps = {
   children?: Node
 };
 
-type FormGroupFieldProps = DefaultFieldProps & {
-  type: string
-};
-
 export type InputFieldProps = DefaultFieldProps & {
   intl: intlShape,
   placeholder?: string
@@ -28,17 +24,19 @@ type CustomInputFieldProps = DefaultFieldProps & {
   intl: intlShape
 };
 
-type Items = {
-  name: string,
-  label: string,
-  value: string
-};
-
 type MultiCustomInputFieldProps = CustomInputFieldProps & {
-  items: Items
+  items: {
+    name: string,
+    label: string,
+    value: string
+  }
 };
 
-const FormGroupField = ({
+type FormGroupFieldProps = DefaultFieldProps & {
+  type: string
+};
+
+export const FormGroupField = ({
   id,
   name,
   value,
