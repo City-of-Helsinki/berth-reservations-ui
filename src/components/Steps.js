@@ -19,7 +19,9 @@ const StepContainer = styled(Container)`
 `;
 
 type Props = {
-  intl: intlShape
+  intl: intlShape,
+  step: number,
+  done: boolean
 };
 
 const Steps = ({ intl, step, done }: Props) => (
