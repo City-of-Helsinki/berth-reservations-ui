@@ -29,7 +29,7 @@ storiesOf('Form', module).add('Fields', () => (
           items={[
             { name: 'test1', label: 'storybook.dummy.label', value: 'test1' },
             { name: 'test2', label: 'storybook.dummy.label', value: 'test2' },
-            { name: 'test3', label: 'storybook.dummy.label', value: 'test2' }
+            { name: 'test3', label: 'storybook.dummy.label', value: 'test3' }
           ]}
           label="storybook.dummy.label"
         />

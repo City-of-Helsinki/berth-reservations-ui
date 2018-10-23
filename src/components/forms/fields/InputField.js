@@ -5,41 +5,48 @@ import { FormGroup, Input, CustomInput, FormText, FormFeedback } from 'reactstra
 import { injectIntl, intlShape } from 'react-intl';
 import Label from './Label';
 
-type FormGroupFieldProps = {
+type DefaultFieldProps = {
   id: string,
   name: string,
-  type: string,
-  label: string,
-  placeholder: string,
-  text: string,
-  children: () => Node,
-  intl: {
-    formatMessage: FormatMessage
-  },
+  value: string | number,
+  label?: string,
   required?: boolean,
   text?: string,
   children?: Node
 };
 
-export type InputFieldProps = {
+type FormGroupFieldProps = DefaultFieldProps & {
+  type: string
+};
+
+export type InputFieldProps = DefaultFieldProps & {
   intl: intlShape,
-  children?: Node,
   placeholder?: string
 };
 
-type CustomInputFieldProps = {
+type CustomInputFieldProps = DefaultFieldProps & {
+  intl: intlShape
+};
+
+type Items = {
+  name: string,
+  label: string,
   value: string
+};
+
+type MultiCustomInputFieldProps = CustomInputFieldProps & {
+  items: Items
 };
 
 const FormGroupField = ({
   id,
   name,
-  type,
   value,
   label,
   required,
   text,
   children,
+  type,
   ...rest
 }: FormGroupFieldProps) => (
   <Field name={name} type={type} value={value}>
@@ -65,8 +72,8 @@ const FormGroupField = ({
 );
 
 const InputField = (type: string) => ({
-  placeholder,
   intl: { formatMessage },
+  placeholder,
   ...inputProps
 }: InputFieldProps) => (
   <FormGroup>
@@ -80,16 +87,16 @@ const InputField = (type: string) => ({
   </FormGroup>
 );
 
-const CustomInputField = (type: string) => ({
-  children,
+const CustomInputField = (type: string, inlineLabel: boolean) => ({
   intl: { formatMessage },
-  value,
+  id,
   label,
+  children,
   ...inputProps
 }: CustomInputFieldProps): any => (
   <FormGroup>
-    <FormGroupField label={label} type={type} {...inputProps}>
-      <CustomInput type={type} label={formatMessage({ id: label })} value={value}>
+    <FormGroupField id={id} label={inlineLabel || label} type={type} {...inputProps}>
+      <CustomInput id={id} type={type} label={inlineLabel && formatMessage({ id: label })}>
         {children}
       </CustomInput>
     </FormGroupField>
@@ -97,40 +104,38 @@ const CustomInputField = (type: string) => ({
 );
 
 const MultiCustomInputField = (type: string) => ({
-  children,
   intl: { formatMessage },
-  items,
   id,
   required,
   label,
+  items,
   ...inputProps
-}: CustomInputFieldProps): any => (
+}: MultiCustomInputFieldProps): any => (
   <FormGroup>
     <Label htmlFor={id} required={required} text={label} />
-    {items.map(({ name: itemName, label: itemLabel, value: itemValue }) => (
-      <FormGroupField
-        key={`${id}_${itemName}`}
-        label=""
-        id={id}
-        required={required}
-        type={type}
-        {...inputProps}
-      >
-        <CustomInput
+    {items.map(({ name: itemName, label: itemLabel, value: itemValue }) => {
+      const key = `${id}_${itemName}_${itemValue}`;
+      return (
+        <FormGroupField
+          id={key}
+          key={key}
+          label=""
           name={itemName}
-          type={type}
-          id={`${id}_${itemName}`}
-          label={formatMessage({ id: itemLabel })}
+          required={required}
           value={itemValue}
-        />
-      </FormGroupField>
-    ))}
+          type={type}
+          {...inputProps}
+        >
+          <CustomInput id={key} type={type} label={formatMessage({ id: itemLabel })} />
+        </FormGroupField>
+      );
+    })}
   </FormGroup>
 );
 
 export const Text = injectIntl(InputField('text'));
 export const Select = injectIntl(CustomInputField('select'));
-export const Checkbox = injectIntl(CustomInputField('checkbox'));
-export const Radio = injectIntl(CustomInputField('radio'));
+export const Checkbox = injectIntl(CustomInputField('checkbox', true));
+export const Radio = injectIntl(CustomInputField('radio', true));
 export const MultiCheckbox = injectIntl(MultiCustomInputField('checkbox'));
 export const MultiRadio = injectIntl(MultiCustomInputField('radio'));
