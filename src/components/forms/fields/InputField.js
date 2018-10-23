@@ -15,7 +15,8 @@ export type InputFieldProps = {
   children: () => Node,
   intl: {
     formatMessage: FormatMessage
-  }
+  },
+  required: boolean
 };
 
 type ToggleFieldProps = {
