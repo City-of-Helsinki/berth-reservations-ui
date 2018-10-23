@@ -67,7 +67,6 @@ const FormGroupField = ({
 const InputField = (type: string) => ({
   placeholder,
   intl: { formatMessage },
-  children,
   ...inputProps
 }: InputFieldProps) => (
   <FormGroup>
@@ -76,20 +75,21 @@ const InputField = (type: string) => ({
       placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
       {...inputProps}
     >
-      <Input>{children}</Input>
+      <Input />
     </FormGroupField>
   </FormGroup>
 );
 
 const CustomInputField = (type: string) => ({
   children,
+  intl: { formatMessage },
   value,
   label,
   ...inputProps
 }: CustomInputFieldProps): any => (
   <FormGroup>
     <FormGroupField label={label} type={type} {...inputProps}>
-      <CustomInput type={type} label={label} value={value}>
+      <CustomInput type={type} label={formatMessage({ id: label })} value={value}>
         {children}
       </CustomInput>
     </FormGroupField>
@@ -98,6 +98,7 @@ const CustomInputField = (type: string) => ({
 
 const MultiCustomInputField = (type: string) => ({
   children,
+  intl: { formatMessage },
   items,
   id,
   required,
@@ -106,17 +107,30 @@ const MultiCustomInputField = (type: string) => ({
 }: CustomInputFieldProps): any => (
   <FormGroup>
     <Label htmlFor={id} required={required} text={label} />
-    {Object.entries(items).map(([value, item]) => (
-      <FormGroupField label="" id={id} required={required} type={type} {...inputProps}>
-        <CustomInput type={type} id={item} key={value} label={item} value={value} {...inputProps} />
+    {items.map(({ name: itemName, label: itemLabel, value: itemValue }) => (
+      <FormGroupField
+        key={`${id}_${itemName}`}
+        label=""
+        id={id}
+        required={required}
+        type={type}
+        {...inputProps}
+      >
+        <CustomInput
+          name={itemName}
+          type={type}
+          id={`${id}_${itemName}`}
+          label={formatMessage({ id: itemLabel })}
+          value={itemValue}
+        />
       </FormGroupField>
     ))}
   </FormGroup>
 );
 
 export const Text = injectIntl(InputField('text'));
-export const Select = CustomInputField('select');
-export const Checkbox = CustomInputField('checkbox');
-export const Radio = CustomInputField('radio');
-export const MultiCheckbox = MultiCustomInputField('checkbox');
-export const MultiRadio = MultiCustomInputField('radio');
+export const Select = injectIntl(CustomInputField('select'));
+export const Checkbox = injectIntl(CustomInputField('checkbox'));
+export const Radio = injectIntl(CustomInputField('radio'));
+export const MultiCheckbox = injectIntl(MultiCustomInputField('checkbox'));
+export const MultiRadio = injectIntl(MultiCustomInputField('radio'));

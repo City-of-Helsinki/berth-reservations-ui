@@ -15,44 +15,33 @@ storiesOf('Form', module).add('Fields', () => (
   <Form onSubmit={action('onSubmit')}>
     {() => (
       <div>
-        <Text
-          id="mobilePhone"
-          name="mobilePhone"
-          label="page.person.form.mobile_phone.label"
-          required
-        />
-        <Select
-          id="mobilePhone"
-          name="mobilePhone"
-          label="page.person.form.mobile_phone.label"
-          required
-        />
-        <Checkbox
-          id="mobilePhone"
-          name="mobilePhone"
-          label="page.person.form.mobile_phone.label"
-          required
-        />
-        <Radio
-          id="mobilePhone"
-          name="mobilePhone"
-          value="test"
-          label="page.person.form.mobile_phone.label"
-          required
-        />
+        <Text id="text" name="Text" label="storybook.dummy.label" />
+        <Select id="select" name="Select" label="storybook.dummy.label">
+          <option value="a">First</option>
+          <option value="b">Second</option>
+          <option value="c">Third</option>
+        </Select>
+        <Checkbox id="checkbox" name="Checkbox" label="storybook.dummy.label" />
+        <Radio id="radio" name="Radio" value="Radio" label="storybook.dummy.label" />
         <MultiCheckbox
-          id="mobilePhone"
-          name="mobilePhone"
-          items={{ test: 'Testi kenttä1', test2: 'Testi kenttä2' }}
-          label="page.person.form.mobile_phone.label"
-          required
+          id="multiCheckbox"
+          name="MultiCheckbox"
+          items={[
+            { name: 'test1', label: 'storybook.dummy.label', value: 'test1' },
+            { name: 'test2', label: 'storybook.dummy.label', value: 'test2' },
+            { name: 'test3', label: 'storybook.dummy.label', value: 'test2' }
+          ]}
+          label="storybook.dummy.label"
         />
         <MultiRadio
-          id="mobilePhone"
-          name="mobilePhone"
-          items={{ test: 'Testi kenttä1', test2: 'Testi kenttä2' }}
-          label="page.person.form.mobile_phone.label"
-          required
+          id="multiRadio"
+          name="MultiRadio"
+          items={[
+            { name: 'test', label: 'storybook.dummy.label', value: 'test1' },
+            { name: 'test', label: 'storybook.dummy.label', value: 'test2' },
+            { name: 'test', label: 'storybook.dummy.label', value: 'test3' }
+          ]}
+          label="storybook.dummy.label"
         />
       </div>
     )}
