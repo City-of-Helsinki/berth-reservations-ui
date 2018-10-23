@@ -30,9 +30,7 @@ const NoBoatForm = ({ intl, onSubmit, initialValues }: Props) => (
   >
     {({ reset, submitting, pristine }) => (
       <Fragment>
-        <h3>
-          <FormattedMessage id="page.boat.form.section.boat_info" />
-        </h3>
+        <FormattedMessage tagName="h3" id="page.boat.form.section.boat_info" />
         <Row>
           <Col sm={4}>
             <Select id="boatType" name="boatType" label="page.boat.form.type.label" required>
@@ -61,9 +59,7 @@ const NoBoatForm = ({ intl, onSubmit, initialValues }: Props) => (
             />
           </Col>
         </Row>
-        <h3>
-          <FormattedMessage id="page.boat.form.section.boat_accessibility" />
-        </h3>
+        <FormattedMessage tagName="h3" id="page.boat.form.section.boat_accessibility" />
         <Checkbox
           id="accessibility"
           name="accessibility"

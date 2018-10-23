@@ -5,9 +5,7 @@ import Layout from './Layout';
 
 const UserPage = () => (
   <Layout>
-    <h2>
-      <FormattedMessage id="page.user.title" />
-    </h2>
+    <FormattedMessage tagName="h2" id="page.user.title" />
   </Layout>
 );
 

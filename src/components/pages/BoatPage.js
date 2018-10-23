@@ -22,12 +22,8 @@ const BoatPage = ({ registeredBoat, saveRegisteredBoat }: Props) => (
   <Layout>
     <Steps />
     <Legend>
-      <h3>
-        <FormattedMessage id="page.boat.title" />
-      </h3>
-      <p>
-        <FormattedMessage id="page.boat.legend" />
-      </p>
+      <FormattedMessage tagName="h3" id="page.boat.title" />
+      <FormattedMessage tagName="p" id="page.boat.legend" />
     </Legend>
     <Content>
       <RegisteredBoat onSubmit={saveRegisteredBoat} initialValues={registeredBoat} />

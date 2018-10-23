@@ -42,7 +42,6 @@
   "page.boat.form.accessibility": "Tarvitsen esteettömän pääsyn veneeseen",
   "page.boat.form.action.reset_form": "Tyhjennä lomake",
   "page.boat.form.action.next_page": "Seuraava sivu",
-
   "page.person.form.section.person_info": "Hakijan henkilötiedot",
   "page.person.form.first_name.label": "Etunimi",
   "page.person.form.first_name.placeholder": "Vellamo",
@@ -57,7 +56,6 @@
   "page.person.form.email.label": "Sähköposti",
   "page.person.form.action.reset_form": "Tyhjennä lomake",
   "page.person.form.action.next_page": "Seuraava sivu",
-
   "page.user.title": "Hakijan tiedot",
   "form.big_ship.header.title": "Suurten alusten laituripaikat",
   "form.big_ship.summary": "loren ipsum",
@@ -78,5 +76,17 @@
   "form.big_ship.inspected.label": "Vakuutan että alus on katsastettu.",
   "form.big_ship.insurence.label": "Vakuutan että aluksella on voimassa oleva vakuutus, joka kattaa aluksen nostosta johtuvat kustannukset.",
   "form.big_ship.agreed.label": "Olen tutustunut sopimusheotihin ja sutoiutdun noudattamaan niitä.",
-  "form.big_ship.inspection_and_insurence": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet nisi at tellus cursus aliquet. Aliquam erat volutpat. Integer non metus risus. Maecenas interdum venenatis molestie. Aliquam gravida lorem ut nisl viverra blandit. Quisque euismod, tellus at mollis consectetur, justo eros tincidunt nibh, ut luctus magna sapien ut ex. Suspendisse viverra id risus non varius. Mauris tincidunt velit et elit tempus, sit amet iaculis mauris scelerisque. Vestibulum id hendrerit mi, eu pulvinar risus. Etiam vitae sollicitudin risus, in volutpat neque. Nulla rutrum justo vitae ante pellentesque feugiat. Sed eget venenatis massa, ut"
+  "form.big_ship.inspection_and_insurence": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet nisi at tellus cursus aliquet. Aliquam erat volutpat. Integer non metus risus. Maecenas interdum venenatis molestie. Aliquam gravida lorem ut nisl viverra blandit. Quisque euismod, tellus at mollis consectetur, justo eros tincidunt nibh, ut luctus magna sapien ut ex. Suspendisse viverra id risus non varius. Mauris tincidunt velit et elit tempus, sit amet iaculis mauris scelerisque. Vestibulum id hendrerit mi, eu pulvinar risus. Etiam vitae sollicitudin risus, in volutpat neque. Nulla rutrum justo vitae ante pellentesque feugiat. Sed eget venenatis massa, ut",
+  "form.unregistered.header.title": "Rekisteröimättömän veneen teidot",
+  "form.unregistered.header.additional_info": "Lisätiedot",
+  "form.unregistered.header.accessibility": "esteettömyys",
+  "form.unregistered.type.label": "Tyyppi",
+  "form.unregistered.type.placeholder": "Valitse veneen tyyppi",
+  "form.unregistered.width.label": "Leveys",
+  "form.unregistered.lenght.label": "Rungon pituus",
+  "form.unregistered.brand.label": "Nimi",
+  "form.unregistered.brand.placeholder": "Veneen nimi",
+  "form.unregistered.model.label": "Merkki",
+  "form.unregistered.model.placeholder": "Veneen merkki",
+  "form.unregistered.accessibility.label": "Tarvisen esteetölmän venepaikan"
 }
