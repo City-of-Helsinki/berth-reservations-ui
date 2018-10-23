@@ -12,4 +12,4 @@ storiesOf('Steps', module)
 storiesOf('Steps/Step', module)
   .add('Inactive', () => <Step label="None" />)
   .add('Current', () => <Step current label="Current" />)
-  .add('Complited', () => <Step completed label="Completed" />);
+  .add('Completed', () => <Step completed label="Completed" />);
