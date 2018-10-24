@@ -94,7 +94,6 @@ const BigShipsForm = ({ intl, onSubmit, initialValues }: Props) => (
         <Row>
           <Col sm={3}>
             <FormattedMessage tagName="h6" id="form.big_ship.time_period.label" />
-
             <Radio
               id="time_period_for_now"
               name="time_period"
