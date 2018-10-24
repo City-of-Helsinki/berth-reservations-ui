@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 import { Col, Row, Container } from 'reactstrap';
 
-import Logo from './Logo';
+import Icon from './Icon';
 
 const Wrapper = styled.div`
   background-color: ${props => props.theme.colors.blue};
@@ -49,7 +49,7 @@ const Footer = () => (
           <FormattedMessage id="site.footer.bearth_search" />
         </FooterSection>
         <FooterSection md="4">
-          <Logo />
+          <Icon name="helsinkiLogo" width="120" color="#fff" />
         </FooterSection>
         <FooterSection md="4">
           <FormattedMessage tagName="div" id="site.footer.browse_berths" />

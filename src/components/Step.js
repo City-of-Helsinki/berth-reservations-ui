@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Icon from './Icon';
 
 type Props = {
   completed?: boolean,
@@ -20,7 +20,7 @@ const Circle = styled.div`
   color: #000;
   margin: auto;
   margin-bottom: 1em;
-  padding-top: 0.8em;
+  padding-top: 0.1em;
   border: 0.1em solid #000;
   border-radius: 50%;
   background-color: ${props => {
@@ -42,7 +42,7 @@ export default class Step extends React.Component<Props> {
 
   render() {
     const { completed, current, label } = this.props;
-    const content = completed ? <FontAwesomeIcon icon="check" /> : '';
+    const content = completed ? <Icon name="check" width="50" color="#000" /> : '';
 
     return (
       <Section>
