@@ -1,6 +1,7 @@
 // @flow
 import React, { Component, Fragment } from 'react';
 import Form from './Form';
+import { Button } from 'reactstrap';
 
 type State = any;
 type Props = any;
@@ -49,21 +50,20 @@ export default class Wizard extends Component<Props, State> {
         {({ submitting, invalid }) => (
           <Fragment>
             {activePage}
-            {invalid && 'Form is missing values!'}
             <div>
               {this.hasPreviousStep() && (
-                <button type="button" onClick={prevStep}>
+                <Button type="button" onClick={prevStep}>
                   « Previous
-                </button>
+                </Button>
               )}
               {this.hasNextStep() ? (
-                <button type="button" onClick={nextStep} disabled={invalid}>
+                <Button type="button" onClick={nextStep} disabled={invalid}>
                   Next »
-                </button>
+                </Button>
               ) : (
-                <button type="submit" disabled={submitting || invalid}>
+                <Button type="submit" disabled={submitting || invalid}>
                   Submit
-                </button>
+                </Button>
               )}
             </div>
           </Fragment>
