@@ -1,14 +1,13 @@
 // @flow
 
-import React, { Fragment } from 'react';
-import { Row, Col } from 'reactstrap';
+import React from 'react';
+import { Row, Col, Container } from 'reactstrap';
 import Joi from 'joi';
 import { FormattedMessage } from 'react-intl';
 import validation from '../../utils/formValidation';
 
 import Form from './fields/Form';
 import { Text } from './fields/InputField';
-import InputGroup from './fields/InputGroup';
 
 type Props = {
   onSubmit: Function,
@@ -33,7 +32,7 @@ const PrivatePersonForm = ({ onSubmit, initialValues }: Props) => (
     validate={validation(schema)}
   >
     {({ reset, submitting, pristine }) => (
-      <Fragment>
+      <Container fluid>
         <FormattedMessage tagName="h3" id="page.person.form.section.person_info" />
         <Row>
           <Col sm={6}>
@@ -113,7 +112,7 @@ const PrivatePersonForm = ({ onSubmit, initialValues }: Props) => (
         <button type="submit" className="btn btn-primary" disabled={submitting}>
           <FormattedMessage id="page.person.form.action.next_page" />
         </button>
-      </Fragment>
+      </Container>
     )}
   </Form>
 );

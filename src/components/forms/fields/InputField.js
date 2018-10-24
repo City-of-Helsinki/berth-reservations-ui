@@ -2,13 +2,13 @@
 import React, { type Node, Fragment } from 'react';
 import { Field } from 'react-final-form';
 import { FormGroup, Input, CustomInput, FormText, FormFeedback } from 'reactstrap';
-import { injectIntl, intlShape } from 'react-intl';
+import { injectIntl, type IntlShape } from 'react-intl';
 import Label from './Label';
 
-type DefaultFieldProps = {
+export type DefaultFieldProps = {
   id: string,
   name: string,
-  value: string | number,
+  value?: string | number,
   label?: string,
   required?: boolean,
   text?: string,
@@ -16,20 +16,20 @@ type DefaultFieldProps = {
 };
 
 export type InputFieldProps = DefaultFieldProps & {
-  intl: intlShape,
+  intl: IntlShape,
   placeholder?: string
 };
 
 type CustomInputFieldProps = DefaultFieldProps & {
-  intl: intlShape
+  intl: IntlShape
 };
 
 type MultiCustomInputFieldProps = CustomInputFieldProps & {
-  items: {
+  items: Array<{
     name: string,
     label: string,
     value: string
-  }
+  }>
 };
 
 type FormGroupFieldProps = DefaultFieldProps & {
@@ -50,7 +50,7 @@ export const FormGroupField = ({
   <Field name={name} type={type} value={value}>
     {({ input, meta }) => (
       <Fragment>
-        {label && <Label htmlFor={id} required={required} text={label} />}
+        {label && <Label htmlFor={id} required={required || false} text={label} />}
         {React.Children.map(children, child =>
           React.cloneElement(child, {
             id,
@@ -93,8 +93,12 @@ const CustomInputField = (type: string, inlineLabel: boolean) => ({
   ...inputProps
 }: CustomInputFieldProps): any => (
   <FormGroup>
-    <FormGroupField id={id} label={inlineLabel || label} type={type} {...inputProps}>
-      <CustomInput id={id} type={type} label={inlineLabel && formatMessage({ id: label })}>
+    <FormGroupField id={id} label={inlineLabel ? undefined : label} type={type} {...inputProps}>
+      <CustomInput
+        id={id}
+        type={type}
+        label={inlineLabel ? formatMessage({ id: label }) : undefined}
+      >
         {children}
       </CustomInput>
     </FormGroupField>
@@ -110,7 +114,7 @@ const MultiCustomInputField = (type: string) => ({
   ...inputProps
 }: MultiCustomInputFieldProps): any => (
   <FormGroup>
-    <Label htmlFor={id} required={required} text={label} />
+    {label && <Label htmlFor={id} required={required || false} text={label} />}
     {items.map(({ name: itemName, label: itemLabel, value: itemValue }) => {
       const key = `${id}_${itemName}_${itemValue}`;
       return (
@@ -132,7 +136,7 @@ const MultiCustomInputField = (type: string) => ({
 );
 
 export const Text = injectIntl(InputField('text'));
-export const Select = injectIntl(CustomInputField('select'));
+export const Select = injectIntl(CustomInputField('select', false));
 export const Checkbox = injectIntl(CustomInputField('checkbox', true));
 export const Radio = injectIntl(CustomInputField('radio', true));
 export const MultiCheckbox = injectIntl(MultiCustomInputField('checkbox'));

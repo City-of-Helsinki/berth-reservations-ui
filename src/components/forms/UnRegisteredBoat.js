@@ -1,7 +1,7 @@
 // @flow
 
-import React, { Fragment } from 'react';
-import { Row, Col } from 'reactstrap';
+import React from 'react';
+import { Row, Col, Container } from 'reactstrap';
 import Joi from 'joi';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import validation from '../../utils/formValidation';
@@ -31,7 +31,8 @@ const UnRegisteredBoatForm = ({ onSubmit, initialValues }: Props) => (
     validate={validation(schema)}
   >
     {({ reset, submitting, pristine }) => (
-      <Fragment>
+      <Container fluid>
+        {' '}
         <FormattedMessage tagName="h3" id="form.unregistered.header.title" />
         <Row>
           <Col sm={6}>
@@ -91,7 +92,6 @@ const UnRegisteredBoatForm = ({ onSubmit, initialValues }: Props) => (
           inline={false}
         />
         <hr />
-
         <button
           type="button"
           className="btn btn-secondary"
@@ -100,11 +100,10 @@ const UnRegisteredBoatForm = ({ onSubmit, initialValues }: Props) => (
         >
           <FormattedMessage id="page.boat.form.action.reset_form" />
         </button>
-
         <button type="submit" className="btn btn-primary" disabled={submitting}>
           <FormattedMessage id="page.boat.form.action.next_page" />
         </button>
-      </Fragment>
+      </Container>
     )}
   </Form>
 );

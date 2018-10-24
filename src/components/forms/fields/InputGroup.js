@@ -2,12 +2,12 @@
 import React, { Fragment } from 'react';
 import { Input, FormGroup, InputGroup, InputGroupAddon } from 'reactstrap';
 
-import { FormGroupField, type InputFieldProps } from './InputField';
+import { FormGroupField, type DefaultFieldProps } from './InputField';
 import Label from './Label';
 
-type InputGroupFieldProps = InputFieldProps & {
-  prepend: string,
-  append: string
+type InputGroupFieldProps = DefaultFieldProps & {
+  prepend?: string,
+  append?: string
 };
 
 const InputGroupField = (type: string) => ({
@@ -19,7 +19,7 @@ const InputGroupField = (type: string) => ({
   ...inputProps
 }: InputGroupFieldProps) => (
   <FormGroup>
-    <Label htmlFor={id} required={required} text={label} />
+    {label && <Label htmlFor={id} required={required || false} text={label} />}
     <InputGroup>
       <FormGroupField id={id} required={required} label="" type={type} {...inputProps}>
         <Fragment>
