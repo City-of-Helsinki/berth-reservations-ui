@@ -1,9 +1,9 @@
 // @flow
 import React from 'react';
-import { Input, FormGroup, InputGroup, InputGroupAddon } from 'reactstrap';
-
-import { FormGroupField, type DefaultFieldProps } from './InputField';
+import { FormGroup, Input, InputGroup, InputGroupAddon } from 'reactstrap';
 import Label from './Label';
+import FormGroupField from './FormGroupField';
+import { type DefaultFieldProps } from '../../../types/form';
 
 type InputGroupFieldProps = DefaultFieldProps & {
   prepend?: string,
@@ -30,4 +30,4 @@ const InputGroupField = (type: string) => ({
   </FormGroup>
 );
 
-export default InputGroupField('number');
+export default InputGroupField;

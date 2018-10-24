@@ -5,7 +5,7 @@ import { Row, Col, Container } from 'reactstrap';
 import Joi from 'joi';
 import { injectIntl, FormattedMessage, type intlShape } from 'react-intl';
 
-import { Text, Select, MultiCheckbox, MultiRadio } from '../fields/InputField';
+import { Text, Select, MultiCheckbox, MultiRadio } from '../Fields';
 
 type Props = {
   intl: intlShape

@@ -5,7 +5,7 @@ import { Row, Col, Container } from 'reactstrap';
 import Joi from 'joi';
 import { FormattedMessage } from 'react-intl';
 
-import { Text } from '../fields/InputField';
+import { Text } from '../Fields';
 
 export const schema = Joi.object().keys({
   firstName: Joi.string().required(),

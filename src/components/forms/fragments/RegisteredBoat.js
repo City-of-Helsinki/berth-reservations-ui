@@ -5,8 +5,7 @@ import { Row, Col, Container } from 'reactstrap';
 import Joi from 'joi';
 import { injectIntl, FormattedMessage, type intlShape } from 'react-intl';
 
-import { Text, Select } from '../fields/InputField';
-import InputGroup from '../fields/InputGroup';
+import { Text, Select, Number } from '../Fields';
 
 import RegistrationAdditionalInfo, {
   registrationAdditionalInfoSchema
@@ -51,7 +50,7 @@ const RegisteredBoatForm = ({ intl }: Props) => (
     <FormattedMessage tagName="h3" id="page.boat.form.section.boat_measures" />
     <Row>
       <Col sm={3}>
-        <InputGroup
+        <Number
           id="boatWidth"
           name="boatWidth"
           label="page.boat.form.width.label"
@@ -60,7 +59,7 @@ const RegisteredBoatForm = ({ intl }: Props) => (
         />
       </Col>
       <Col sm={3}>
-        <InputGroup
+        <Number
           id="boatLength"
           name="boatLength"
           label="page.boat.form.length.label"
@@ -69,7 +68,7 @@ const RegisteredBoatForm = ({ intl }: Props) => (
         />
       </Col>
       <Col sm={3}>
-        <InputGroup
+        <Number
           id="boatDepth"
           name="boatDepth"
           label="page.boat.form.depth.label"
@@ -78,7 +77,7 @@ const RegisteredBoatForm = ({ intl }: Props) => (
         />
       </Col>
       <Col sm={3}>
-        <InputGroup
+        <Number
           id="boatWeight"
           name="boatWeight"
           label="page.boat.form.weight.label"
