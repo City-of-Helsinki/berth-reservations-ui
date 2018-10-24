@@ -26,7 +26,7 @@ const LanguageSelector = styled(DropdownToggle)`
   text-align: right;
 `;
 
-const GlobeWrapper = styled.div`
+const StyledSelector = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -58,10 +58,10 @@ class LanguageDropdown extends React.Component<Props, State> {
     return (
       <Dropdown size="lg" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <LanguageSelector color="fog">
-          <GlobeWrapper>
+          <StyledSelector>
             <Icon name="globe" width="30" color="black" />
             <span>{intl.locale.toUpperCase()}</span>
-          </GlobeWrapper>
+          </StyledSelector>
         </LanguageSelector>
         <DropdownMenu>
           <DropdownItem>
