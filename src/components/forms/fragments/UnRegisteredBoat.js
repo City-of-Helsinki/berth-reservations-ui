@@ -9,7 +9,7 @@ import { Text, Number } from '../Fields';
 
 import RegistrationAdditionalInfo, {
   registrationAdditionalInfoSchema
-} from './RegistrationAdditionalInfo';
+} from '../groups/RegistrationAdditionalInfo';
 
 export const schema = Joi.object().keys({
   type: Joi.string().required(),

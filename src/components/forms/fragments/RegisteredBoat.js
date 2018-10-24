@@ -9,7 +9,7 @@ import { Text, Select, Number } from '../Fields';
 
 import RegistrationAdditionalInfo, {
   registrationAdditionalInfoSchema
-} from './RegistrationAdditionalInfo';
+} from '../groups/RegistrationAdditionalInfo';
 
 type Props = {
   intl: intlShape

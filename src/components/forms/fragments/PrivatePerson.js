@@ -7,6 +7,8 @@ import { FormattedMessage } from 'react-intl';
 
 import { Text } from '../Fields';
 
+import PostalDetails from '../groups/PostalDetails';
+
 export const schema = Joi.object().keys({
   firstName: Joi.string().required(),
   lastName: Joi.string().required(),
@@ -51,22 +53,7 @@ const PrivatePersonForm = () => (
         />
       </Col>
     </Row>
-
-    <Row>
-      <Col sm={4}>
-        <Text
-          id="streetAddress"
-          name="streetAddress"
-          label="page.person.form.street_address.label"
-        />
-      </Col>
-      <Col sm={4}>
-        <Text id="postalCode" name="postalCode" label="page.person.form.postal_code.label" />
-      </Col>
-      <Col sm={4}>
-        <Text id="munacipality" name="munacipality" label="page.person.form.munacipality.label" />
-      </Col>
-    </Row>
+    <PostalDetails prefix="person" />
     <Row>
       <Col sm={4}>
         <Text
