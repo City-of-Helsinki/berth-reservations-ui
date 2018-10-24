@@ -14,7 +14,7 @@ export default class Wizard extends Component<Props, State> {
     };
   }
 
-  next = values =>
+  next = (values: any) =>
     this.setState(state => ({
       page: Math.min(state.page + 1, this.props.children.length - 1),
       values
@@ -25,12 +25,12 @@ export default class Wizard extends Component<Props, State> {
       page: Math.max(state.page - 1, 0)
     }));
 
-  validate = values => {
+  validate = (values: any) => {
     const activePage = React.Children.toArray(this.props.children)[this.state.page];
     return activePage.props.validate ? activePage.props.validate(values) : {};
   };
 
-  handleSubmit = values => {
+  handleSubmit = (values: any) => {
     const { children, onSubmit } = this.props;
     const { page } = this.state;
     const isLastPage = page === React.Children.count(children) - 1;
