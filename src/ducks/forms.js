@@ -8,6 +8,7 @@ const defaultState = Record({
 });
 
 export const saveRegisteredBoat = createAction('SAVE_REGISTERED_BOAT', formData => formData);
+export const onSubmit = createAction('SAVE_REGISTERED_BOAT', formData => formData);
 
 export default (state: Forms = defaultState(), action: Action) => {
   const { type, payload } = action;

@@ -1,11 +1,11 @@
 // @flow
 import { connect } from 'react-redux';
-import { saveRegisteredBoat } from '../../../ducks/forms';
+import { onSubmit } from '../../../ducks/forms';
 import Wizard from '../Wizard';
 
 export default connect(
   state => ({
-    registeredBoat: state.forms.registeredBoat
+    initialValues: state.forms.values
   }),
-  { onSubmit: saveRegisteredBoat }
+  { onSubmit }
 )(Wizard);

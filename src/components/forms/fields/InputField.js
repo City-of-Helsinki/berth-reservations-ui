@@ -1,6 +1,7 @@
 // @flow
 import React, { type Node, Fragment } from 'react';
 import { Field } from 'react-final-form';
+import { get } from 'lodash';
 import { FormGroup, Input, CustomInput, FormText, FormFeedback } from 'reactstrap';
 import { injectIntl, type IntlShape } from 'react-intl';
 import Label from './Label';
@@ -51,11 +52,11 @@ export const FormGroupField = ({
     {({ input, meta }) => (
       <Fragment>
         {label && <Label htmlFor={id} required={required || false} text={label} />}
-        {React.Children.map(
-          children,
-          child =>
-            child &&
-            React.cloneElement(child, {
+        {React.Children.map(children, child => {
+          const childType = get(child, ['type', 'name']);
+
+          if (childType === 'Input' || childType === 'CustomInput') {
+            return React.cloneElement(child, {
               id,
               type,
               required,
@@ -63,8 +64,10 @@ export const FormGroupField = ({
               invalid: meta.touched && meta.invalid,
               ...input,
               ...rest
-            })
-        )}
+            });
+          }
+          return child;
+        })}
         {meta.touched && meta.error && <FormFeedback>{meta.error}</FormFeedback>}
         {text && <FormText>{text}</FormText>}
       </Fragment>

@@ -31,13 +31,15 @@ export default class Wizard extends Component<Props, State> {
   };
 
   handleSubmit = (values: any) => {
+    console.log('HEI!');
     const { children, onSubmit } = this.props;
     const { page } = this.state;
     const isLastPage = page === React.Children.count(children) - 1;
     if (isLastPage) {
-      return onSubmit(values);
+      onSubmit(values);
+    } else {
+      this.next(values);
     }
-    this.next(values);
   };
 
   render() {
