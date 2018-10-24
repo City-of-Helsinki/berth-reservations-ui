@@ -764,7 +764,7 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
-"@babel/runtime@^7.0.0":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2":
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.1.2.tgz#81c89935f4647706fc54541145e6b4ecfef4b8e3"
   integrity sha512-Y3SCjmhSupzFB6wcv1KmmFucH6gDVnI30WjOcicV10ju0cZjak3Jcs67YLIXBrmZYw1xCrVeJPbycFwrqNyxpg==
@@ -1130,6 +1130,11 @@
     "@babel/preset-react" "^7.0.0"
     "@svgr/core" "^2.4.1"
     loader-utils "^1.1.0"
+
+"@tanem/svg-injector@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-1.2.1.tgz#3120e90246d0eb3c4fc6c61586a6f028a3c658ae"
+  integrity sha512-mA5Q5ulPoGQ+e08Vts1R6xw2QU0BKEnMH/KcqoYoS7Gk6imvMTpyFPeu1g+NOZObSIoAzA3/kRzY8m96cEBA2A==
 
 "@types/tapable@1.0.2":
   version "1.0.2"
@@ -2694,6 +2699,13 @@ babel-plugin-transform-undefined-to-void@^6.9.0:
   version "6.9.4"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-undefined-to-void/-/babel-plugin-transform-undefined-to-void-6.9.4.tgz#be241ca81404030678b748717322b89d0c8fe280"
   integrity sha1-viQcqBQEAwZ4t0hxcyK4nQyP4oA=
+
+babel-plugin-wildcard@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-wildcard/-/babel-plugin-wildcard-5.0.0.tgz#71a8284d81f7530be2055fb47e0d388cb96a48ec"
+  integrity sha512-RhbEQV7HbqfreBW41R2ExJV4SdeG3pnno2gYqbucrrzhBub3/72524yNeQbPa0dyVJQwGS/DZ2X6MeiWSdErlQ==
+  dependencies:
+    rimraf "^2.6.2"
 
 babel-preset-env@^1.6.1:
   version "1.7.0"
@@ -10971,6 +10983,15 @@ react-style-proptype@^3.0.0:
   integrity sha512-ywYLSjNkxKHiZOqNlso9PZByNEY+FTyh3C+7uuziK0xFXu9xzdyfHwg4S9iyiRRoPCR4k2LqaBBsWVmSBwCWYQ==
   dependencies:
     prop-types "^15.5.4"
+
+react-svg@^6.0.20:
+  version "6.0.20"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-6.0.20.tgz#4ee687952eb8fcdd2882aa3ed0d136129b9ee916"
+  integrity sha512-eGUJI/BVbAWmWsjkmVrpRWdy6er54vESnR2D6NVicVy7vwkkHjiIYmBOnxYHauw8mB3V18nssjuYkhj75KW5jw==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    "@tanem/svg-injector" "^1.2.1"
+    prop-types "^15.6.2"
 
 react-transition-group@^2.0.0, react-transition-group@^2.3.1:
   version "2.5.0"

@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    [
+      "wildcard",
+      {
+        "exts": ["js", "svg"]
+      }
+    ]
+  ]
+}

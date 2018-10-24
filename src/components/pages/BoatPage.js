@@ -2,6 +2,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
+import Icon from '../Icon';
 
 import Layout from './Layout';
 import Legend from '../Legend';
@@ -22,6 +23,7 @@ const BoatPage = ({ registeredBoat, saveRegisteredBoat }: Props) => (
   <Layout>
     <Steps />
     <Legend>
+      <Icon name="helsinki-logo" width="170" color="yellow" />
       <FormattedMessage tagName="h3" id="page.boat.title" />
       <FormattedMessage tagName="p" id="page.boat.legend" />
     </Legend>
