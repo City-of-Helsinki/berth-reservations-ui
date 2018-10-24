@@ -5,7 +5,6 @@ export default schema => values => {
 
   if (error && error.details) {
     const { details } = error;
-    console.log('ERROOR', details);
     return details.reduce(
       (reduction, current) => ({
         ...reduction,
@@ -14,6 +13,5 @@ export default schema => values => {
       {}
     );
   }
-  console.log('KAIKKI OK!');
   return {};
 };

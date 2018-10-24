@@ -7,6 +7,10 @@ import { FormattedMessage } from 'react-intl';
 
 import { Text } from '../Fields';
 
+import FullName from '../groups/FullName';
+import PostalDetails from '../groups/PostalDetails';
+import ContactDetails from '../groups/ContactDetails';
+
 export const schema = Joi.object().keys({
   firstName: Joi.string().required(),
   lastName: Joi.string().required(),
@@ -20,70 +24,31 @@ export const schema = Joi.object().keys({
 
 const CompanyForm = () => (
   <Container fluid>
-    <FormattedMessage tagName="h3" id="form.company.section.person_info" />
+    <FormattedMessage tagName="h3" id="form.company.title" />
     <Row>
       <Col sm={5}>
         <Text
-          id="CompanyName"
-          name="CompanyName"
-          label="form.company.companyName.label"
-          placeholder="form.company.companyName.placeholder"
-          required
+          id="form.company.company_name"
+          name="company.companyName"
+          label="form.company.field.name.label"
+          placeholder="form.company.field.name.placeholder"
         />
       </Col>
     </Row>
     <Row>
       <Col sm={5}>
         <Text
-          id="businessId"
-          name="businessId"
-          label="form.company.businessId.label"
-          placeholder="form.company.businessId.placeholder"
-          required
+          id="form.company.business_id"
+          name="company.businessId"
+          label="form.company.field.business_id.label"
+          placeholder="form.company.field.business_id.placeholder"
         />
       </Col>
     </Row>
-    <Row>
-      <Col sm={5}>
-        <Text
-          id="ssn"
-          name="ssn"
-          label="form.company.ssn.label"
-          placeholder="form.company.ssn.placeholder"
-        />
-      </Col>
-      <Col sm={2}>
-        <Text id="streetAddress" name="streetAddress" label="form.company.street_address.label" />
-      </Col>
-      <Col sm={5}>
-        <Text id="postalCode" name="postalCode" label="form.company.postal_code.label" />
-      </Col>
-    </Row>
-
-    <Row>
-      <Col sm={4}>
-        <Text id="streetAddress" name="streetAddress" label="form.company.street_address.label" />
-      </Col>
-      <Col sm={4}>
-        <Text id="postalCode" name="postalCode" label="form.company.postal_code.label" />
-      </Col>
-      <Col sm={4}>
-        <Text id="munacipality" name="munacipality" label="form.company.munacipality.label" />
-      </Col>
-    </Row>
-    <Row>
-      <Col sm={4}>
-        <Text
-          id="mobilePhone"
-          name="mobilePhone"
-          label="form.company.mobile_phone.label"
-          required
-        />
-      </Col>
-      <Col sm={4}>
-        <Text id="email" name="email" label="form.company.email.label" required />
-      </Col>
-    </Row>
+    <PostalDetails prefix="company" />
+    <FormattedMessage tagName="h3" id="form.company.contact_person" />
+    <FullName prefix="company" />
+    <ContactDetails prefix="company" />
   </Container>
 );
 

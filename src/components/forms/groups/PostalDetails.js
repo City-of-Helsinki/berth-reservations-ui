@@ -9,21 +9,21 @@ export default ({ prefix }) => (
       <Text
         id={`${prefix}.streetAddress`}
         name={`${prefix}.streetAddress`}
-        label={`page.${prefix}.form.street_address.label`}
+        label={`form.${prefix}.street_address.label`}
       />
     </Col>
     <Col sm={4}>
       <Text
         id={`${prefix}.postalCode`}
         name={`${prefix}.postalCode`}
-        label={`page.${prefix}.form.postal_code.label`}
+        label={`form.${prefix}.postal_code.label`}
       />
     </Col>
     <Col sm={4}>
       <Text
         id={`${prefix}.munacipality`}
         name={`${prefix}.munacipality`}
-        label={`form.${prefix}.form.munacipality.label`}
+        label={`form.${prefix}.munacipality.label`}
       />
     </Col>
   </Row>

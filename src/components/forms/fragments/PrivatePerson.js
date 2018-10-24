@@ -7,7 +7,9 @@ import { FormattedMessage } from 'react-intl';
 
 import { Text } from '../Fields';
 
+import FullName from '../groups/FullName';
 import PostalDetails from '../groups/PostalDetails';
+import ContactDetails from '../groups/ContactDetails';
 
 export const schema = Joi.object().keys({
   firstName: Joi.string().required(),
@@ -22,51 +24,20 @@ export const schema = Joi.object().keys({
 
 const PrivatePersonForm = () => (
   <Container fluid>
-    <FormattedMessage tagName="h3" id="page.person.form.section.person_info" />
-    <Row>
-      <Col sm={6}>
-        <Text
-          id="firstName"
-          name="firstName"
-          label="page.person.form.first_name.label"
-          placeholder="page.person.form.first_name.placeholder"
-          required
-        />
-      </Col>
-      <Col sm={6}>
-        <Text
-          id="lastName"
-          name="lastName"
-          label="page.person.form.last_name.label"
-          placeholder="page.person.form.last_name.placeholder"
-          required
-        />
-      </Col>
-    </Row>
+    <FormattedMessage tagName="h3" id="form.person.person_info" />
+    <FullName prefix="person" />
     <Row>
       <Col sm={3}>
         <Text
-          id="ssn"
-          name="ssn"
-          label="page.person.form.ssn.label"
-          placeholder="page.person.form.ssn.placeholder"
+          id="form.person.ssn"
+          name="person.ssn"
+          label="form.person.field.ssn.label"
+          placeholder="form.person.field.ssn.placeholder"
         />
       </Col>
     </Row>
     <PostalDetails prefix="person" />
-    <Row>
-      <Col sm={4}>
-        <Text
-          id="mobilePhone"
-          name="mobilePhone"
-          label="page.person.form.mobile_phone.label"
-          required
-        />
-      </Col>
-      <Col sm={4}>
-        <Text id="email" name="email" label="page.person.form.email.label" required />
-      </Col>
-    </Row>
+    <ContactDetails prefix="person" />
   </Container>
 );
 
