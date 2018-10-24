@@ -2,16 +2,22 @@
 
 import React from 'react';
 import Svg from 'react-svg';
-import * as icons from '../assets/shapes';
+import helsinkiLogo from '../assets/shapes/helsinki-logo.svg';
+
+const icons = {
+  helsinkiLogo
+};
+
+type Names = $Keys<typeof icons>;
 
 type Props = {
-  name: string,
+  name: Names,
   color: string,
-  width: number
+  width: string
 };
 
-const Icon = ({ name, color, width }: Props) => {
-  return <Svg svgStyle={{ width, height: 'auto', fill: color }} src={icons[name]} />;
-};
+const Icon = ({ name, color, width }: Props) => (
+  <Svg svgStyle={{ width, height: 'auto', fill: color }} src={icons[name]} />
+);
 
 export default Icon;

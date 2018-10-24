@@ -23,7 +23,7 @@ const BoatPage = ({ registeredBoat, saveRegisteredBoat }: Props) => (
   <Layout>
     <Steps />
     <Legend>
-      <Icon name="helsinki-logo" width="170" color="yellow" />
+      <Icon name="helsinkiLogo" width="170" color="yellow" />
       <FormattedMessage tagName="h3" id="page.boat.title" />
       <FormattedMessage tagName="p" id="page.boat.legend" />
     </Legend>
