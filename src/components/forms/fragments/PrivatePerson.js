@@ -7,25 +7,25 @@ import { FormattedMessage } from 'react-intl';
 
 import { Text } from '../Fields';
 
-import FullName from '../groups/FullName';
-import PostalDetails from '../groups/PostalDetails';
-import ContactDetails from '../groups/ContactDetails';
+import FullName, { schema as fullNameSchema } from '../groups/FullName';
+import PostalDetails, { schema as postalDetailsSchema } from '../groups/PostalDetails';
+import ContactDetails, { schema as contactDetailsSchema } from '../groups/ContactDetails';
 
 export const schema = Joi.object().keys({
-  firstName: Joi.string().required(),
-  lastName: Joi.string().required(),
-  ssn: Joi.string().required(),
-  streetAddress: Joi.string(),
-  postalCode: Joi.number(),
-  munacipality: Joi.string(),
-  mobilePhone: Joi.string().required(),
-  email: Joi.string().required()
+  person: Joi.object()
+    .keys({
+      name: fullNameSchema.required(),
+      ssn: Joi.string().required(),
+      postal: postalDetailsSchema.required(),
+      contact: contactDetailsSchema.required()
+    })
+    .required()
 });
 
 const PrivatePersonForm = () => (
   <Container fluid>
     <FormattedMessage tagName="h3" id="form.person.person_info" />
-    <FullName prefix="person" />
+    <FullName prefix="person.name" />
     <Row>
       <Col sm={3}>
         <Text
@@ -36,8 +36,8 @@ const PrivatePersonForm = () => (
         />
       </Col>
     </Row>
-    <PostalDetails prefix="person" />
-    <ContactDetails prefix="person" />
+    <PostalDetails prefix="person.postal" />
+    <ContactDetails prefix="person.contact" />
   </Container>
 );
 

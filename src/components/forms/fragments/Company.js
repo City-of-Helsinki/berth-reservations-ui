@@ -7,19 +7,19 @@ import { FormattedMessage } from 'react-intl';
 
 import { Text } from '../Fields';
 
-import FullName from '../groups/FullName';
-import PostalDetails from '../groups/PostalDetails';
-import ContactDetails from '../groups/ContactDetails';
+import FullName, { schema as fullNameSchema } from '../groups/FullName';
+import PostalDetails, { schema as postalDetailsSchema } from '../groups/PostalDetails';
+import ContactDetails, { schema as contactDetailsSchema } from '../groups/ContactDetails';
 
 export const schema = Joi.object().keys({
-  firstName: Joi.string().required(),
-  lastName: Joi.string().required(),
-  ssn: Joi.string().required(),
-  streetAddress: Joi.string(),
-  postalCode: Joi.number(),
-  munacipality: Joi.string(),
-  mobilePhone: Joi.string().required(),
-  email: Joi.string().required()
+  company: Joi.object().keys({
+    companyName: Joi.string().required(),
+    businessId: Joi.string().required(),
+    ssn: Joi.string().required(),
+    postal: postalDetailsSchema.required(),
+    fullName: fullNameSchema.required(),
+    contact: contactDetailsSchema.required()
+  })
 });
 
 const CompanyForm = () => (
@@ -45,10 +45,10 @@ const CompanyForm = () => (
         />
       </Col>
     </Row>
-    <PostalDetails prefix="company" />
+    <PostalDetails prefix="company.postal" />
     <FormattedMessage tagName="h3" id="form.company.contact_person" />
-    <FullName prefix="company" />
-    <ContactDetails prefix="company" />
+    <FullName prefix="company.fullName" />
+    <ContactDetails prefix="company.contact" />
   </Container>
 );
 

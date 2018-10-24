@@ -8,14 +8,18 @@ import { FormattedMessage } from 'react-intl';
 import { Checkbox } from '../Fields';
 
 export const schema = Joi.object().keys({
-  firstName: Joi.string().required(),
-  lastName: Joi.string().required(),
-  ssn: Joi.string().required(),
-  streetAddress: Joi.string(),
-  postalCode: Joi.number(),
-  munacipality: Joi.string(),
-  mobilePhone: Joi.string().required(),
-  email: Joi.string().required()
+  overview: Joi.object()
+    .keys({
+      email: Joi.boolean(),
+      sms: Joi.boolean(),
+      guarantee: Joi.boolean(),
+      receivable_boating_info: Joi.boolean(),
+
+      receivable_fitness_services: Joi.boolean(),
+      receivable_library_services: Joi.boolean(),
+      receivable_other_cultural_services: Joi.boolean()
+    })
+    .required()
 });
 
 const OverviewForm = () => (
@@ -25,7 +29,7 @@ const OverviewForm = () => (
       <Col sm={3}>
         <Checkbox
           id="email"
-          name="email"
+          name="overview.email"
           label="page.overview.form.section.info_options.email"
           inline={false}
         />
@@ -33,7 +37,7 @@ const OverviewForm = () => (
       <Col sm={3}>
         <Checkbox
           id="sms"
-          name="sms"
+          name="overview.sms"
           label="page.overview.form.section.info_options.sms"
           inline={false}
         />
@@ -43,7 +47,7 @@ const OverviewForm = () => (
       <Col sm={6}>
         <Checkbox
           id="guarantee"
-          name="guarantee"
+          name="overview.guarantee"
           label="page.overview.form.section.info_options.guarantee"
           inline={false}
         />
@@ -55,7 +59,7 @@ const OverviewForm = () => (
       <Col sm={6}>
         <Checkbox
           id="receivable_boating_info"
-          name="receivable_boating_info"
+          name="overview.receivable_boating_info"
           label="page.overview.form.section.info_options.receivable_items.boating_info"
           inline={false}
         />
@@ -71,7 +75,7 @@ const OverviewForm = () => (
       <Col sm={3}>
         <Checkbox
           id="receivable_fitness_services"
-          name="receivable_fitness_services"
+          name="overview.receivable_fitness_services"
           label="page.overview.form.section.info_options.receivable_items.fitness_services"
           inline={false}
         />
@@ -79,7 +83,7 @@ const OverviewForm = () => (
       <Col sm={3}>
         <Checkbox
           id="receivable_library_services"
-          name="receivable_library_services"
+          name="overview.receivable_library_services"
           label="page.overview.form.section.info_options.receivable_items.library_services"
           inline={false}
         />
@@ -87,7 +91,7 @@ const OverviewForm = () => (
       <Col sm={3}>
         <Checkbox
           id="receivable_other_cultural_services"
-          name="receivable_other_cultural_services"
+          name="overview.receivable_other_cultural_services"
           label="page.overview.form.section.info_options.receivable_items.other_cultural_services"
           inline={false}
         />

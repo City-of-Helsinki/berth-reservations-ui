@@ -5,6 +5,7 @@ export default schema => values => {
 
   if (error && error.details) {
     const { details } = error;
+    console.debug('Errors:', details, values);
     return details.reduce(
       (reduction, current) => ({
         ...reduction,
@@ -13,5 +14,6 @@ export default schema => values => {
       {}
     );
   }
+  console.debug('Valid:', values);
   return {};
 };

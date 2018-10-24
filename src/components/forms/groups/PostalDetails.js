@@ -1,7 +1,14 @@
 import React from 'react';
 import { Row, Col } from 'reactstrap';
+import Joi from 'joi';
 
 import { Text } from '../Fields';
+
+export const schema = Joi.object().keys({
+  streetAddress: Joi.string().required(),
+  postalCode: Joi.string().required(),
+  munacipality: Joi.string().required()
+});
 
 export default ({ prefix }) => (
   <Row>
