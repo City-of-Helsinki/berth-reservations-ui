@@ -2,20 +2,17 @@
 import React, { type Node } from 'react';
 import { Field } from 'react-final-form';
 import { FormGroup, Input, FormText, FormFeedback } from 'reactstrap';
-import { injectIntl, FormattedMessage } from 'react-intl';
+import { injectIntl, FormattedMessage, type IntlShape } from 'react-intl';
 import Label from './Label';
-import type { FormatMessage } from '../../../types/intl';
 
 export type InputFieldProps = {
   id: string,
   name: string,
-  label: string,
   placeholder: string,
   text: string,
+  intl: IntlShape,
   children: () => Node,
-  intl: {
-    formatMessage: FormatMessage
-  },
+  label?: string,
   required: boolean
 };
 
@@ -23,6 +20,7 @@ type ToggleFieldProps = {
   id: string,
   name: string,
   label: string,
+  value: string,
   inline: boolean
 };
 
@@ -40,9 +38,11 @@ const InputField = (type: string) => ({
   <Field name={name}>
     {({ input, meta }) => (
       <FormGroup>
-        <Label for={id} required={required}>
-          <FormattedMessage id={label} />
-        </Label>
+        {label && (
+          <Label for={id} required={required}>
+            <FormattedMessage id={label} />
+          </Label>
+        )}
         <Input
           id={id}
           type={type}
@@ -66,10 +66,11 @@ const ToggleField = (type: string) => ({
   id,
   name,
   label,
+  value,
   inline,
   ...inputProps
 }: ToggleFieldProps): any => (
-  <Field name={name} type={type}>
+  <Field name={name} type={type} value={value}>
     {({ input, meta }) => (
       <FormGroup check inline={inline}>
         <Label check>

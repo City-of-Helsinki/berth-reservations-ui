@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { injectIntl, intlShape } from 'react-intl';
+import { injectIntl, type intlShape } from 'react-intl';
 import { Col, Row, Container } from 'reactstrap';
 import Step from './Step';
 import media from '../utils/responsive';
