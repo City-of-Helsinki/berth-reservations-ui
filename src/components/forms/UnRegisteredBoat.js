@@ -7,8 +7,12 @@ import { injectIntl, FormattedMessage } from 'react-intl';
 import validation from '../../utils/formValidation';
 
 import Form from './fields/Form';
-import { Text, Checkbox } from './fields/InputField';
+import { Text } from './fields/InputField';
 import InputGroup from './fields/InputGroup';
+
+import RegistrationAdditionalInfo, {
+  registrationAdditionalInfo
+} from './partials/RegistrationAdditionalInfo';
 
 type Props = {
   onSubmit: Function,
@@ -19,9 +23,7 @@ const schema = Joi.object().keys({
   type: Joi.string().required(),
   width: Joi.number().required(),
   length: Joi.number().required(),
-  name: Joi.string().required(),
-  brand: Joi.string().required(),
-  model: Joi.string().required()
+  ...registrationAdditionalInfo
 });
 
 const UnRegisteredBoatForm = ({ onSubmit, initialValues }: Props) => (
@@ -63,34 +65,7 @@ const UnRegisteredBoatForm = ({ onSubmit, initialValues }: Props) => (
             />
           </Col>
         </Row>
-        <FormattedMessage tagName="h3" id="form.unregistered.header.additional_info" />
-        <Row>
-          <Col sm={4}>
-            <Text
-              id="brand"
-              name="brand"
-              label="form.unregistered.brand.label"
-              placeholder="form.unregistered.brand.placeholder"
-              required
-            />
-          </Col>
-          <Col sm={4}>
-            <Text
-              id="model"
-              name="model"
-              label="form.unregistered.model.label"
-              placeholder="form.unregistered.model.placeholder"
-              required
-            />
-          </Col>
-        </Row>
-        <FormattedMessage tagName="h3" id="form.unregistered.header.accessibility" />
-        <Checkbox
-          id="accessibility"
-          name="accessibility"
-          label="form.unregistered.accessibility.label"
-          inline={false}
-        />
+        <RegistrationAdditionalInfo />
         <hr />
         <button
           type="button"

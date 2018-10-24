@@ -7,8 +7,12 @@ import { injectIntl, FormattedMessage, type intlShape } from 'react-intl';
 import validation from '../../utils/formValidation';
 
 import Form from './fields/Form';
-import { Text, Select, Checkbox } from './fields/InputField';
+import { Text, Select } from './fields/InputField';
 import InputGroup from './fields/InputGroup';
+
+import RegistrationAdditionalInfo, {
+  registrationAdditionalInfo
+} from './partials/RegistrationAdditionalInfo';
 
 type Props = {
   intl: intlShape,
@@ -22,9 +26,7 @@ const schema = Joi.object().keys({
   boatWeight: Joi.number().required(),
   boatWidth: Joi.number().required(),
   boatModel: Joi.string().required(),
-  boatName: Joi.string().required(),
-  boatType: Joi.string().required(),
-  registerNumber: Joi.string().required()
+  ...registrationAdditionalInfo
 });
 
 const BoatInformationForm = ({ intl, onSubmit, initialValues }: Props) => (
@@ -94,34 +96,8 @@ const BoatInformationForm = ({ intl, onSubmit, initialValues }: Props) => (
             />
           </Col>
         </Row>
-        <FormattedMessage tagName="h3" id="page.boat.form.section.boat_additional_info" />
-        <Row>
-          <Col sm={4}>
-            <Text
-              id="boatName"
-              name="boatName"
-              label="page.boat.form.name.label"
-              placeholder="page.boat.form.name.placeholder"
-              required
-            />
-          </Col>
-          <Col sm={4}>
-            <Text
-              id="boatModel"
-              name="boatModel"
-              label="page.boat.form.model.label"
-              placeholder="page.boat.form.model.placeholder"
-              required
-            />
-          </Col>
-        </Row>
-        <FormattedMessage tagName="h3" id="page.boat.form.section.boat_accessibility" />
-        <Checkbox
-          id="accessibility"
-          name="accessibility"
-          label="page.boat.form.accessibility"
-          inline={false}
-        />
+        <RegistrationAdditionalInfo />
+
         <hr />
 
         <button
