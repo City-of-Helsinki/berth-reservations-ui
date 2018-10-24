@@ -3,9 +3,13 @@
 import React from 'react';
 import Svg from 'react-svg';
 import helsinkiLogo from '../assets/shapes/helsinki-logo.svg';
+import globe from '../assets/shapes/globe.svg';
+import check from '../assets/shapes/check.svg';
 
 const icons = {
-  helsinkiLogo
+  helsinkiLogo,
+  globe,
+  check
 };
 
 type Names = $Keys<typeof icons>;

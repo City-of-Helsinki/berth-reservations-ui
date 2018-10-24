@@ -4,8 +4,8 @@ import React from 'react';
 import { FormattedMessage, injectIntl, type intlShape } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { Dropdown, DropdownMenu, DropdownItem, DropdownToggle } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
+import Icon from './Icon';
 
 type Props = {
   children: Node,
@@ -24,6 +24,16 @@ const LanguageSelector = styled(DropdownToggle)`
   border: 0em;
   width: 7.2em;
   text-align: right;
+`;
+
+const StyledSelector = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  & span {
+    margin-left: 0.5em;
+  }
 `;
 
 class LanguageDropdown extends React.Component<Props, State> {
@@ -47,8 +57,11 @@ class LanguageDropdown extends React.Component<Props, State> {
 
     return (
       <Dropdown size="lg" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <LanguageSelector color="fog" caret>
-          <FontAwesomeIcon icon="globe" /> {intl.locale.toUpperCase()}
+        <LanguageSelector color="fog">
+          <StyledSelector>
+            <Icon name="globe" width="30" color="black" />
+            <span>{intl.locale.toUpperCase()}</span>
+          </StyledSelector>
         </LanguageSelector>
         <DropdownMenu>
           <DropdownItem>
