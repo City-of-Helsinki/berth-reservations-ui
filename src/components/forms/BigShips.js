@@ -38,7 +38,7 @@ const schema = Joi.object().keys({
       .max(Joi.ref('time_period_to'))
       .required()
   }),
-  insurence: Joi.string().required(),
+  insurance: Joi.string().required(),
   inspected: Joi.string().required(),
   agreed: Joi.string().required()
 });
@@ -135,12 +135,12 @@ const BigShipsForm = ({ intl, onSubmit, initialValues }: Props) => (
               name="MultiCheckbox"
               items={[
                 { name: 'inspected', label: 'form.big_ship.inspected.label', value: 'inspected' },
-                { name: 'insurence', label: 'form.big_ship.insurence.label', value: 'insurence' },
+                { name: 'insurance', label: 'form.big_ship.insurance.label', value: 'insurance' },
                 { name: 'agreed', label: 'form.big_ship.agreed.label', value: 'agreed' }
               ]}
-              label="form.big_ship.header.inspection_and_insurence"
+              label="form.big_ship.header.inspection_and_insurance"
             />
-            <FormattedMessage tagName="p" id="form.big_ship.inspection_and_insurence" />
+            <FormattedMessage tagName="p" id="form.big_ship.inspection_and_insurance" />
           </Col>
         </Row>
 
