@@ -12,7 +12,8 @@ export type InputFieldProps = {
   text: string,
   intl: IntlShape,
   children: () => Node,
-  label?: string
+  label?: string,
+  required: boolean
 };
 
 type ToggleFieldProps = {
