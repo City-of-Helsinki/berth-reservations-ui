@@ -1,59 +1,35 @@
 // @flow
 import React, { Fragment } from 'react';
-import { Field } from 'react-final-form';
-import { Input, InputGroup, InputGroupAddon, FormFeedback, FormText } from 'reactstrap';
-import { injectIntl, FormattedMessage } from 'react-intl';
+import { Input, FormGroup, InputGroup, InputGroupAddon } from 'reactstrap';
+
+import { FormGroupField, type DefaultFieldProps } from './InputField';
 import Label from './Label';
 
-import type { InputFieldProps } from './InputField';
-
-type InputGroupFieldProps = InputFieldProps & {
-  prepend: string,
-  append: string
+type InputGroupFieldProps = DefaultFieldProps & {
+  prepend?: string,
+  append?: string
 };
 
 const InputGroupField = (type: string) => ({
   id,
-  name,
+  required,
   label,
-  placeholder,
-  text,
   prepend,
   append,
-  children,
-  required,
-  intl: { formatMessage },
   ...inputProps
 }: InputGroupFieldProps) => (
-  <Field name={name}>
-    {({ input, meta }) => (
-      <Fragment>
-        {label && (
-          <Label for={id} required={required}>
-            <FormattedMessage id={label} />
-          </Label>
-        )}
-        <InputGroup>
+  <FormGroup>
+    {label && <Label htmlFor={id} required={required || false} text={label} />}
+    <InputGroup>
+      <FormGroupField id={id} required={required} label="" type={type} {...inputProps}>
+        <Fragment>
           {prepend && <InputGroupAddon addonType="prepend">{prepend}</InputGroupAddon>}
-          <Input
-            id={id}
-            type={type}
-            required={required}
-            placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
-            valid={meta.touched && meta.valid}
-            invalid={meta.touched && meta.invalid}
-            {...inputProps}
-            {...input}
-          >
-            {children}
-          </Input>
+          <Input />
           {append && <InputGroupAddon addonType="append">{append}</InputGroupAddon>}
-          {meta.touched && meta.error && <FormFeedback>{meta.error}</FormFeedback>}
-          {text && <FormText>{text}</FormText>}
-        </InputGroup>
-      </Fragment>
-    )}
-  </Field>
+        </Fragment>
+      </FormGroupField>
+    </InputGroup>
+  </FormGroup>
 );
 
-export default injectIntl(InputGroupField('number'));
+export default InputGroupField('number');
