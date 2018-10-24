@@ -3,7 +3,7 @@
 import React from 'react';
 import { Row, Col, Container } from 'reactstrap';
 import Joi from 'joi';
-import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
+import { injectIntl, FormattedMessage, type intlShape } from 'react-intl';
 import validation from '../../utils/formValidation';
 
 import Form from './fields/Form';

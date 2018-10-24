@@ -2,7 +2,7 @@
 import React, { type Node } from 'react';
 import { Field } from 'react-final-form';
 import { FormGroup, Input, FormText, FormFeedback } from 'reactstrap';
-import { injectIntl, IntlShape, FormattedMessage } from 'react-intl';
+import { injectIntl, FormattedMessage, type IntlShape } from 'react-intl';
 import Label from './Label';
 
 export type InputFieldProps = {
