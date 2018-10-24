@@ -5,8 +5,7 @@ import { Row, Col, Container } from 'reactstrap';
 import Joi from 'joi';
 import { injectIntl, FormattedMessage, type intlShape } from 'react-intl';
 
-import { Select, Checkbox } from '../fields/InputField';
-import InputGroup from '../fields/InputGroup';
+import { Select, Checkbox, Number } from '../Fields';
 
 type Props = {
   intl: intlShape
@@ -31,7 +30,7 @@ const NoBoatForm = ({ intl }: Props) => (
         </Select>
       </Col>
       <Col sm={4}>
-        <InputGroup
+        <Number
           id="boatWidth"
           name="boatWidth"
           label="page.boat.form.width.label"
@@ -40,7 +39,7 @@ const NoBoatForm = ({ intl }: Props) => (
         />
       </Col>
       <Col sm={4}>
-        <InputGroup
+        <Number
           id="boatLength"
           name="boatLength"
           label="page.boat.form.length.label"

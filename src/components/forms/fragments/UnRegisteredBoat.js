@@ -5,8 +5,7 @@ import { Row, Col, Container } from 'reactstrap';
 import Joi from 'joi';
 import { injectIntl, FormattedMessage } from 'react-intl';
 
-import { Text } from '../fields/InputField';
-import InputGroup from '../fields/InputGroup';
+import { Text, Number } from '../Fields';
 
 import RegistrationAdditionalInfo, {
   registrationAdditionalInfoSchema
@@ -34,16 +33,10 @@ const UnRegisteredBoatForm = () => (
         />
       </Col>
       <Col sm={3}>
-        <InputGroup
-          id="width"
-          name="width"
-          label="form.unregistered.width.label"
-          append="m"
-          required
-        />
+        <Number id="width" name="width" label="form.unregistered.width.label" append="m" required />
       </Col>
       <Col sm={3}>
-        <InputGroup
+        <Number
           id="length"
           name="length"
           label="form.unregistered.lenght.label"

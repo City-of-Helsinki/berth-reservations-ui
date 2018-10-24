@@ -1,6 +1,6 @@
 // @flow
 import React, { Component, Fragment } from 'react';
-import Form from './fields/Form';
+import Form from './Form';
 
 type State = any;
 type Props = any;

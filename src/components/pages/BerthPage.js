@@ -7,7 +7,7 @@ import Layout from './Layout';
 const BerthPage = () => (
   <Layout>
     <FormattedMessage tagName="h2" id="page.berths.title" />
-    <LocalizedLink to={'/boat'}>
+    <LocalizedLink to={'/form'}>
       <FormattedMessage id="page.berths.link.boat_information" />
     </LocalizedLink>
   </Layout>

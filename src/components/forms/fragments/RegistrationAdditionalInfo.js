@@ -1,9 +1,10 @@
+// @flow
 import React, { Fragment } from 'react';
 import { Row, Col } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import Joi from 'joi';
 
-import { Text, Checkbox } from '../fields/InputField';
+import { Text, Checkbox } from '../Fields';
 
 export const registrationAdditionalInfoSchema = {
   boatName: Joi.string().required(),
