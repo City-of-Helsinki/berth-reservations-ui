@@ -2,7 +2,10 @@
 import type { RecordOf } from 'immutable';
 
 export type Forms = RecordOf<{
-  registeredBoat: Object
+  registeredBoat: Object,
+  values: Object,
+  step: number,
+  done: boolean
 }>;
 
 export type Action = {

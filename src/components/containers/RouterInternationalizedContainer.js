@@ -1,11 +1,5 @@
 // @flow
-import { withRouter } from 'react-router';
-import { mapProps, compose } from 'recompose';
 import RouterInternationalized from '../RouterInternationalized';
+import { withLocale } from '../../utils/container';
 
-export default compose(
-  withRouter,
-  mapProps(props => ({
-    locale: props.match.params.locale
-  }))
-)(RouterInternationalized);
+export default withLocale(RouterInternationalized);
