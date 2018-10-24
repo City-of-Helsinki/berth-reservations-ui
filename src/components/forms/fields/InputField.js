@@ -51,16 +51,19 @@ export const FormGroupField = ({
     {({ input, meta }) => (
       <Fragment>
         {label && <Label htmlFor={id} required={required || false} text={label} />}
-        {React.Children.map(children, child =>
-          React.cloneElement(child, {
-            id,
-            type,
-            required,
-            valid: meta.touched && meta.valid,
-            invalid: meta.touched && meta.invalid,
-            ...input,
-            ...rest
-          })
+        {React.Children.map(
+          children,
+          child =>
+            child &&
+            React.cloneElement(child, {
+              id,
+              type,
+              required,
+              valid: meta.touched && meta.valid,
+              invalid: meta.touched && meta.invalid,
+              ...input,
+              ...rest
+            })
         )}
         {meta.touched && meta.error && <FormFeedback>{meta.error}</FormFeedback>}
         {text && <FormText>{text}</FormText>}

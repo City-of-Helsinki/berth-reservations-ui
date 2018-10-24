@@ -7,8 +7,8 @@ import { Text, Checkbox } from '../fields/InputField';
 
 export const registrationAdditionalInfo = {
   boatName: Joi.string().required(),
-  boatType: Joi.string().required(),
-  registerNumber: Joi.string().required()
+  boatModel: Joi.string().required(),
+  accessibility: Joi.boolean().required()
 };
 
 export default () => (

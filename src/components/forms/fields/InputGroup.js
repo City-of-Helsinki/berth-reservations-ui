@@ -1,5 +1,5 @@
 // @flow
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Input, FormGroup, InputGroup, InputGroupAddon } from 'reactstrap';
 
 import { FormGroupField, type DefaultFieldProps } from './InputField';
@@ -22,11 +22,9 @@ const InputGroupField = (type: string) => ({
     {label && <Label htmlFor={id} required={required || false} text={label} />}
     <InputGroup>
       <FormGroupField id={id} required={required} label="" type={type} {...inputProps}>
-        <Fragment>
-          {prepend && <InputGroupAddon addonType="prepend">{prepend}</InputGroupAddon>}
-          <Input />
-          {append && <InputGroupAddon addonType="append">{append}</InputGroupAddon>}
-        </Fragment>
+        {prepend && <InputGroupAddon addonType="prepend">{prepend}</InputGroupAddon>}
+        <Input />
+        {append && <InputGroupAddon addonType="append">{append}</InputGroupAddon>}
       </FormGroupField>
     </InputGroup>
   </FormGroup>
