@@ -4,17 +4,26 @@ import { createAction } from 'redux-actions';
 import type { Action, Forms } from '../types/ducks';
 
 const defaultState = Record({
-  registeredBoat: {}
+  registeredBoat: {},
+  values: {},
+  step: 0,
+  done: false
 });
 
-export const saveRegisteredBoat = createAction('SAVE_REGISTERED_BOAT', formData => formData);
-export const onSubmit = createAction('SAVE_REGISTERED_BOAT', formData => formData);
+export const saveRegisteredBoat = createAction('SUBMIT_FORM', formData => formData);
+export const onSubmit = createAction('SUBMIT_FORM', formData => formData);
+export const nextStep = createAction('WIZARD_NEXT_STEP');
+export const prevStep = createAction('WIZARD_PREV_STEP');
 
 export default (state: Forms = defaultState(), action: Action) => {
   const { type, payload } = action;
   switch (type) {
-    case 'SAVE_REGISTERED_BOAT':
-      return state.set('registeredBoat', payload);
+    case 'SUBMIT_FORM':
+      return state.set('registeredBoat', payload).set('done', true);
+    case 'WIZARD_NEXT_STEP':
+      return state.update('step', step => step + 1);
+    case 'WIZARD_PREV_STEP':
+      return state.update('step', step => step - 1);
     default:
       return state;
   }

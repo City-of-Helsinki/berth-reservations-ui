@@ -6,68 +6,67 @@ type State = any;
 type Props = any;
 
 export default class Wizard extends Component<Props, State> {
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
     this.state = {
-      page: 0,
-      values: props.initialValues || {}
+      initialValues: props.initialValues
     };
   }
 
-  next = (values: any) =>
-    this.setState(state => ({
-      page: Math.min(state.page + 1, this.props.children.length - 1),
-      values
-    }));
+  hasNextStep = () => {
+    const { step, children } = this.props;
+    return step < React.Children.count(children) - 1;
+  };
 
-  previous = () =>
-    this.setState(state => ({
-      page: Math.max(state.page - 1, 0)
-    }));
+  hasPreviousStep = () => {
+    const { step } = this.props;
+    return step > 0;
+  };
+
+  getActiveStep = () => {
+    const { step, children } = this.props;
+    return React.Children.toArray(children)[step];
+  };
 
   validate = (values: any) => {
-    const activePage = React.Children.toArray(this.props.children)[this.state.page];
+    const activePage = this.getActiveStep();
     return activePage.props.validate ? activePage.props.validate(values) : {};
   };
 
   handleSubmit = (values: any) => {
-    console.log('HEI!');
-    const { children, onSubmit } = this.props;
-    const { page } = this.state;
-    const isLastPage = page === React.Children.count(children) - 1;
-    if (isLastPage) {
-      onSubmit(values);
+    const { nextStep, onSubmit, localePush } = this.props;
+    if (this.hasNextStep()) {
+      nextStep();
     } else {
-      this.next(values);
+      onSubmit(values);
+      localePush('thank-you');
     }
   };
 
   render() {
-    const { children } = this.props;
-    const { page, values } = this.state;
-    const activePage = React.Children.toArray(children)[page];
-    const isLastPage = page === React.Children.count(children) - 1;
+    const { initialValues } = this.state;
+    const { prevStep } = this.props;
+    const activePage = this.getActiveStep();
 
     return (
-      <Form initialValues={values} validate={this.validate} onSubmit={this.handleSubmit}>
-        {({ submitting, values }) => (
+      <Form initialValues={initialValues} validate={this.validate} onSubmit={this.handleSubmit}>
+        {({ submitting }) => (
           <Fragment>
             {activePage}
             <div>
-              {page > 0 && (
-                <button type="button" onClick={this.previous}>
+              {this.hasPreviousStep() && (
+                <button type="button" onClick={prevStep}>
                   « Previous
                 </button>
               )}
-              {!isLastPage && <button type="submit">Next »</button>}
-              {isLastPage && (
+              {this.hasNextStep() ? (
+                <button type="submit">Next »</button>
+              ) : (
                 <button type="submit" disabled={submitting}>
                   Submit
                 </button>
               )}
             </div>
-
-            <pre>{JSON.stringify(values, 0, 2)}</pre>
           </Fragment>
         )}
       </Form>

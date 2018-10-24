@@ -9,17 +9,17 @@ import { Text } from '../fields/InputField';
 import InputGroup from '../fields/InputGroup';
 
 import RegistrationAdditionalInfo, {
-  registrationAdditionalInfo
+  registrationAdditionalInfoSchema
 } from './RegistrationAdditionalInfo';
 
-export const unRegisteredBoat = Joi.object().keys({
+export const schema = Joi.object().keys({
   type: Joi.string().required(),
   width: Joi.number().required(),
   length: Joi.number().required(),
-  ...registrationAdditionalInfo
+  ...registrationAdditionalInfoSchema
 });
 
-const UnRegisteredBoat = () => (
+const UnRegisteredBoatForm = () => (
   <Container fluid>
     {' '}
     <FormattedMessage tagName="h3" id="form.unregistered.header.title" />
@@ -56,4 +56,4 @@ const UnRegisteredBoat = () => (
   </Container>
 );
 
-export default injectIntl(UnRegisteredBoat);
+export default injectIntl(UnRegisteredBoatForm);

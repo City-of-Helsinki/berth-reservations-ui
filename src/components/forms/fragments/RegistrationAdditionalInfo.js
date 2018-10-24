@@ -5,13 +5,13 @@ import Joi from 'joi';
 
 import { Text, Checkbox } from '../fields/InputField';
 
-export const registrationAdditionalInfo = {
+export const registrationAdditionalInfoSchema = {
   boatName: Joi.string().required(),
   boatModel: Joi.string().required(),
   accessibility: Joi.boolean().required()
 };
 
-export default () => (
+const RegistrationAdditionalInfo = () => (
   <Fragment>
     <FormattedMessage tagName="h3" id="page.boat.form.section.boat_additional_info" />
     <Row>
@@ -43,3 +43,5 @@ export default () => (
     />
   </Fragment>
 );
+
+export default RegistrationAdditionalInfo;

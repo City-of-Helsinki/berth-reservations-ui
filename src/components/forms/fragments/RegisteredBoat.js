@@ -9,24 +9,24 @@ import { Text, Select } from '../fields/InputField';
 import InputGroup from '../fields/InputGroup';
 
 import RegistrationAdditionalInfo, {
-  registrationAdditionalInfo
+  registrationAdditionalInfoSchema
 } from './RegistrationAdditionalInfo';
 
 type Props = {
   intl: intlShape
 };
 
-export const registeredBoat = Joi.object().keys({
+export const schema = Joi.object().keys({
   registerNumber: Joi.string().required(),
   boatType: Joi.string().required(),
   boatWidth: Joi.number().required(),
   boatLength: Joi.number().required(),
   boatDepth: Joi.number().required(),
   boatWeight: Joi.number().required(),
-  ...registrationAdditionalInfo
+  ...registrationAdditionalInfoSchema
 });
 
-const RegisteredBoat = ({ intl }: Props) => (
+const RegisteredBoatForm = ({ intl }: Props) => (
   <Container fluid>
     <FormattedMessage tagName="h3" id="page.boat.form.section.boat_info" />
     <Row>
@@ -91,4 +91,4 @@ const RegisteredBoat = ({ intl }: Props) => (
   </Container>
 );
 
-export default injectIntl(RegisteredBoat);
+export default injectIntl(RegisteredBoatForm);
