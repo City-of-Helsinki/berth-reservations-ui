@@ -6,7 +6,7 @@ import { Navbar, NavbarBrand, Nav } from 'reactstrap';
 import styled from 'styled-components';
 
 import LanguageDropdown from '../LanguageDropdown';
-import Logo from '../Logo';
+import Icon from '../Icon';
 import KoroSection from '../KoroSection';
 import Footer from '../Footer';
 
@@ -52,7 +52,7 @@ const Layout = ({ children }: Props) => (
   <Fragment>
     <TopNavbar expand="md">
       <NavbarBrand href="/">
-        <Logo />
+        <Icon name="helsinkiLogo" width="100" color="#000" />
       </NavbarBrand>
       <Nav className="ml-auto" navbar>
         <LanguageDropdown />
