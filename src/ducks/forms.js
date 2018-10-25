@@ -10,7 +10,7 @@ const defaultState = Record({
     overview: {},
     privatePerson: {}
   },
-  step: 0,
+  step: 1,
   done: false
 });
 
