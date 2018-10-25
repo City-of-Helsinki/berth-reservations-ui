@@ -1,10 +1,9 @@
 // @flow
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
 import Layout from './Layout';
-import Legend from '../Legend';
+import FormLegend from '../containers/FormLegendContainer';
 import Steps from '../containers/StepsContainer';
 import Wizard from '../forms/containers/WizardContainer';
 import RegisteredBoat, { schema as RegisteredBoatSchema } from '../forms/fragments/RegisteredBoat';
@@ -20,10 +19,7 @@ const Content = styled.div`
 const BoatPage = () => (
   <Layout>
     <Steps />
-    <Legend>
-      <FormattedMessage tagName="h3" id="page.boat.title" />
-      <FormattedMessage tagName="p" id="page.boat.legend" />
-    </Legend>
+    <FormLegend />
     <Content>
       <Wizard>
         <RegisteredBoat validate={validation(RegisteredBoatSchema)} />
