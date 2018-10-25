@@ -6,7 +6,7 @@ import type { Action, Forms } from '../types/ducks';
 const defaultState = Record({
   registeredBoat: {},
   values: {},
-  step: 0,
+  step: 1,
   done: false
 });
 
