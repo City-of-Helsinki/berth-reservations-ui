@@ -1,7 +1,9 @@
 // @flow
 import React, { Component, Fragment } from 'react';
-import Form from './Form';
 import { Button } from 'reactstrap';
+import Joi from 'joi';
+import Form from './Form';
+import validation from '../../utils/formValidation';
 
 type State = any;
 type Props = any;
@@ -30,8 +32,11 @@ export default class Wizard extends Component<Props, State> {
   };
 
   validate = (values: any) => {
-    const activePage = this.getActiveStep();
-    return activePage.props.validate ? activePage.props.validate(values) : {};
+    const { props } = this.getActiveStep();
+    const schema = Joi.object().keys({
+      [props.prefix]: props.schema.required()
+    });
+    return validation(schema)(values);
   };
 
   handleSubmit = (values: any) => {

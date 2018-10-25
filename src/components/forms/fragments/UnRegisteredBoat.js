@@ -8,17 +8,22 @@ import { injectIntl, FormattedMessage } from 'react-intl';
 import { Text, Number } from '../Fields';
 
 import RegistrationAdditionalInfo, {
-  registrationAdditionalInfoSchema
-} from '../groups/RegistrationAdditionalInfo';
+  schema as registrationAdditionalInfoSchema
+} from './RegistrationAdditionalInfo';
 
-export const schema = Joi.object().keys({
-  type: Joi.string().required(),
-  width: Joi.number().required(),
-  length: Joi.number().required(),
-  ...registrationAdditionalInfoSchema
-});
+export const schema = Joi.object()
+  .keys({
+    type: Joi.string().required(),
+    width: Joi.number().required(),
+    length: Joi.number().required()
+  })
+  .concat(registrationAdditionalInfoSchema);
 
-const UnRegisteredBoatForm = () => (
+type Props = {
+  prefix: string
+};
+
+const UnRegisteredBoatForm = ({ prefix }: Props) => (
   <Container fluid>
     {' '}
     <FormattedMessage tagName="h3" id="form.unregistered.header.title" />
@@ -26,26 +31,32 @@ const UnRegisteredBoatForm = () => (
       <Col sm={6}>
         <Text
           id="type"
-          name="type"
+          name={`${prefix}.type`}
           label="form.unregistered.type.label"
           placeholder="form.unregistered.type.placeholder"
           required
         />
       </Col>
       <Col sm={3}>
-        <Number id="width" name="width" label="form.unregistered.width.label" append="m" required />
+        <Number
+          id="width"
+          name={`${prefix}.width`}
+          label="form.unregistered.width.label"
+          append="m"
+          required
+        />
       </Col>
       <Col sm={3}>
         <Number
           id="length"
-          name="length"
+          name={`${prefix}.length`}
           label="form.unregistered.lenght.label"
           append="m"
           required
         />
       </Col>
     </Row>
-    <RegistrationAdditionalInfo />
+    <RegistrationAdditionalInfo prefix={prefix} />
   </Container>
 );
 

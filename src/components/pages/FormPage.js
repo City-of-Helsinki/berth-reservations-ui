@@ -7,10 +7,9 @@ import Layout from './Layout';
 import Legend from '../Legend';
 import Steps from '../containers/StepsContainer';
 import Wizard from '../forms/containers/WizardContainer';
-import RegisteredBoat, { schema as RegisteredBoatSchema } from '../forms/fragments/RegisteredBoat';
-import PrivatePerson, { schema as PrivatePersonSchema } from '../forms/fragments/PrivatePerson';
-import Overview, { schema as OverviewSchema } from '../forms/fragments/Overview';
-import validation from '../../utils/formValidation';
+import RegisteredBoat, { schema as registeredBoatSchema } from '../forms/fragments/RegisteredBoat';
+import PrivatePerson, { schema as privatePersonSchema } from '../forms/fragments/PrivatePerson';
+import Overview, { schema as overviewSchema } from '../forms/fragments/Overview';
 
 const Content = styled.div`
   background-color: white;
@@ -26,9 +25,9 @@ const BoatPage = () => (
     </Legend>
     <Content>
       <Wizard>
-        <RegisteredBoat validate={validation(RegisteredBoatSchema)} />
-        <PrivatePerson validate={validation(PrivatePersonSchema)} />
-        <Overview validate={validation(OverviewSchema)} />
+        <PrivatePerson prefix="privatePerson" schema={privatePersonSchema} />
+        <Overview prefix="overview" schema={overviewSchema} />
+        <RegisteredBoat prefix="registeredBoat" schema={registeredBoatSchema} />
       </Wizard>
     </Content>
   </Layout>

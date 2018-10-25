@@ -7,8 +7,8 @@ import Joi from 'joi';
 import { Text, Checkbox } from '../Fields';
 
 export const schema = Joi.object().keys({
-  name: Joi.string().required(),
-  model: Joi.string().required(),
+  boat_name: Joi.string().required(),
+  boat_model: Joi.string().required(),
   accessibility: Joi.boolean()
 });
 
@@ -19,7 +19,7 @@ const RegistrationAdditionalInfo = ({ prefix }) => (
       <Col sm={4}>
         <Text
           id={`${prefix}.name`}
-          name={`${prefix}.name`}
+          name={`${prefix}.boat_name`}
           label="page.boat.form.name.label"
           placeholder="page.boat.form.name.placeholder"
           required
@@ -28,7 +28,7 @@ const RegistrationAdditionalInfo = ({ prefix }) => (
       <Col sm={4}>
         <Text
           id={`${prefix}.model`}
-          name={`${prefix}.model`}
+          name={`${prefix}.boat_model`}
           label="page.boat.form.model.label"
           placeholder="page.boat.form.model.placeholder"
           required
