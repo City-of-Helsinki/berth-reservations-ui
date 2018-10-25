@@ -42,6 +42,7 @@ const TopKoro = styled(KoroSection).attrs({
     h1 {
       font-size: 5em;
       color: #fff;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
     }
   }
 `;
