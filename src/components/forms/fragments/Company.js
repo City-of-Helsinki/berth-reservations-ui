@@ -11,16 +11,15 @@ import FullName, { schema as fullNameSchema } from './FullName';
 import PostalDetails, { schema as postalDetailsSchema } from './PostalDetails';
 import ContactDetails, { schema as contactDetailsSchema } from './ContactDetails';
 
-export const schema = Joi.object().keys({
-  company: Joi.object().keys({
+export const schema = Joi.object()
+  .keys({
     name: Joi.string().required(),
     businessId: Joi.string().required(),
-    ssn: Joi.string().required(),
-    postal: postalDetailsSchema.required(),
-    fullName: fullNameSchema.required(),
-    contact: contactDetailsSchema.required()
+    ssn: Joi.string().required()
   })
-});
+  .concat(fullNameSchema)
+  .concat(postalDetailsSchema)
+  .concat(contactDetailsSchema);
 
 type Props = {
   prefix: string
