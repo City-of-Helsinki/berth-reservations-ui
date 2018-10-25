@@ -74,10 +74,14 @@ const Footer = () => (
               </a>
             </li>
             <li>
-              <FormattedMessage tagName="span" id="site.footer.apply" />
+              <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/">
+                <FormattedMessage tagName="span" id="site.footer.boating_info" />
+              </a>
             </li>
             <li>
-              <FormattedMessage tagName="span" id="site.footer.ukk" />
+              <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/ajankohtaista/">
+                <FormattedMessage tagName="span" id="site.footer.news" />
+              </a>
             </li>
           </VerticalList>
         </FooterSection>
