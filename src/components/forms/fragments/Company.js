@@ -13,7 +13,7 @@ import ContactDetails, { schema as contactDetailsSchema } from '../groups/Contac
 
 export const schema = Joi.object().keys({
   company: Joi.object().keys({
-    companyName: Joi.string().required(),
+    name: Joi.string().required(),
     businessId: Joi.string().required(),
     ssn: Joi.string().required(),
     postal: postalDetailsSchema.required(),
@@ -29,7 +29,7 @@ const CompanyForm = () => (
       <Col sm={5}>
         <Text
           id="form.company.company_name"
-          name="company.companyName"
+          name="company.name"
           label="form.company.field.name.label"
           placeholder="form.company.field.name.placeholder"
         />
