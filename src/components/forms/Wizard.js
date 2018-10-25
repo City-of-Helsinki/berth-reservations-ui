@@ -35,14 +35,18 @@ export default class Wizard extends Component<Props, State> {
   };
 
   handleSubmit = (values: any) => {
-    const { onSubmit, localePush } = this.props;
-    onSubmit(values);
-    localePush('thank-you');
+    const { nextStep, onSubmit, localePush } = this.props;
+    if (this.hasNextStep()) {
+      nextStep();
+    } else {
+      onSubmit(values);
+      localePush('thank-you');
+    }
   };
 
   render() {
     const { initialValues } = this.state;
-    const { prevStep, nextStep } = this.props;
+    const { prevStep } = this.props;
     const activePage = this.getActiveStep();
 
     return (
@@ -57,9 +61,7 @@ export default class Wizard extends Component<Props, State> {
                 </Button>
               )}
               {this.hasNextStep() ? (
-                <Button type="button" onClick={nextStep} disabled={invalid}>
-                  Next »
-                </Button>
+                <Button type="submit">{invalid ? 'Fill the form to proceed' : 'Next »'}</Button>
               ) : (
                 <Button type="submit" disabled={submitting || invalid}>
                   Submit
