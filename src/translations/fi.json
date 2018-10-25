@@ -13,8 +13,8 @@
 
   "site.footer.bearth_search": "Venepaikkahaku",
   "site.footer.browse_berths": "Selaa venesatamia",
-  "site.footer.apply": "Hae venepaikkaa",
-  "site.footer.ukk": "UKK",
+  "site.footer.boating_info": "Veneilytietoa",
+  "site.footer.news": "Ajankohtaista",
   "site.footer.send_feedback": "Lähetä palautetta",
   "site.footer.contact_us": "Ota yhteyttä",
   "site.footer.copyright": "2018 Helsingin kaupunki",
@@ -22,8 +22,15 @@
   "page.berths.title": "Satamahaku",
   "page.berths.link.boat_information": "Veneen tiedot",
 
-  "page.boat.title": "Veneen tiedot",
-  "page.boat.legend": "Venepaikkaa haetaan venekohtaisesti. Anna tässä haettavalla venepaikalla pidettävän veneen tiedot. Voit myös hakea venepaikkaa vaikka sinulla ei ole vielä venettä.",
+  "legend.berths.title": "Millaista venepaikkaa olet hakemassa?",
+  "legend.berths.legend": "Selaa kaupungin tarjoamia satamia ja venepaikkoja. Valitse eneintään kymmenen sopivaa satamaa hakemukseesi.",
+  "legend.boat.title": "Veneen tiedot",
+  "legend.boat.legend": "Venepaikkaa haetaan venekohtaisesti. Anna tässä haettavalla venepaikalla pidettävän veneen tiedot. Voit myös hakea venepaikkaa vaikka sinulla ei ole vielä venettä.",
+  "legend.person.title": "Hakijan tiedot",
+  "legend.person.legend": "Venepaikkaa voivat hakea yksityishenkilöt ja yritykset. Ei-helsinkiläisiltä hakijoilta ja yrityksiltä peritään korotettua vuosivuokraa.",
+  "legend.overview.title": "Yhteenveto",
+  "legend.overview.legend": "Tarkista vielä tietojen oikeellisuus ennen hakemuksen lähettämistä.",
+
   "page.boat.form.section.boat_info": "Rekisteröidyn veneen tiedot",
   "page.boat.form.section.boat_measures": "Veneen mitat",
   "page.boat.form.section.boat_additional_info": "Lisätiedot",

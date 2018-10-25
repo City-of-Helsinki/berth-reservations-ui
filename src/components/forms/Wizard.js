@@ -18,7 +18,7 @@ export default class Wizard extends Component<Props, State> {
 
   hasNextStep = () => {
     const { step, children } = this.props;
-    return step < React.Children.count(children) - 1;
+    return step < React.Children.count(children);
   };
 
   hasPreviousStep = () => {
@@ -28,7 +28,7 @@ export default class Wizard extends Component<Props, State> {
 
   getActiveStep = () => {
     const { step, children } = this.props;
-    return React.Children.toArray(children)[step];
+    return React.Children.toArray(children)[step - 1];
   };
 
   validate = (values: any) => {

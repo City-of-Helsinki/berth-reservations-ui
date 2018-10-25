@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 import { Col, Row, Container } from 'reactstrap';
-
+import LocalizedLink from './LocalizedLink';
 import Icon from './Icon';
 
 const Wrapper = styled.div`
@@ -10,6 +10,10 @@ const Wrapper = styled.div`
   color: #fff;
   padding-top: 4em;
   height: 15em;
+
+  & a {
+    color: #fff;
+  }
 `;
 
 const OptionsContainer = styled(Container)`
@@ -21,7 +25,7 @@ const LinksContainer = styled(Container)`
   max-width: ${props => props.theme.maxWidth.xl};
 `;
 
-const List = styled.ul`
+const HorizontalList = styled.ul`
   margin: 0;
   padding: 0;
 
@@ -37,6 +41,15 @@ const List = styled.ul`
   }
 `;
 
+const VerticalList = styled.ul`
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style-type: none;
+  }
+`;
+
 const FooterSection = styled(Col)`
   text-align: center;
 `;
@@ -46,26 +59,46 @@ const Footer = () => (
     <OptionsContainer>
       <Row>
         <FooterSection md="4">
-          <FormattedMessage id="site.footer.bearth_search" />
+          <LocalizedLink to={`/`}>
+            <FormattedMessage id="site.footer.bearth_search" />
+          </LocalizedLink>
         </FooterSection>
         <FooterSection md="4">
           <Icon name="helsinkiLogo" width="120" color="#fff" />
         </FooterSection>
         <FooterSection md="4">
-          <FormattedMessage tagName="div" id="site.footer.browse_berths" />
-          <FormattedMessage tagName="div" id="site.footer.apply" />
-          <FormattedMessage tagName="div" id="site.footer.ukk" />
+          <VerticalList>
+            <li>
+              <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/">
+                <FormattedMessage tagName="span" id="site.footer.browse_berths" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/">
+                <FormattedMessage tagName="span" id="site.footer.boating_info" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/ajankohtaista/">
+                <FormattedMessage tagName="span" id="site.footer.news" />
+              </a>
+            </li>
+          </VerticalList>
         </FooterSection>
       </Row>
     </OptionsContainer>
     <LinksContainer>
       <Row>
         <FooterSection md="12">
-          <List>
-            <FormattedMessage tagName="li" id="site.footer.send_feedback" />
-            <FormattedMessage tagName="li" id="site.footer.contact_us" />
+          <HorizontalList>
+            <a href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute">
+              <FormattedMessage tagName="li" id="site.footer.send_feedback" />
+            </a>
+            <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/">
+              <FormattedMessage tagName="li" id="site.footer.contact_us" />
+            </a>
             <FormattedMessage tagName="li" id="site.footer.copyright" />
-          </List>
+          </HorizontalList>
         </FooterSection>
       </Row>
     </LinksContainer>
