@@ -9,6 +9,7 @@ import LanguageDropdown from '../LanguageDropdown';
 import Icon from '../Icon';
 import KoroSection from '../KoroSection';
 import Footer from '../Footer';
+import heroImage from '../../assets/images/hero_image_berth.jpg';
 
 type Props = {
   children: any
@@ -33,7 +34,8 @@ const TopNavbar = styled(Navbar)`
 const TopKoro = styled(KoroSection).attrs({
   top: true
 })`
-  background-image: url('https://images.unsplash.com/photo-1539522264456-269fca8fd3ce?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1600&h=450&fit=crop&ixid=eyJhcHBfaWQiOjF9&s=d82dcc254b7d3329f7ae5c61c6bc1f1b');
+  background-image: url(${heroImage});
+  background-size: cover;
   & > div {
     padding: 4em;
     height: 25em;
