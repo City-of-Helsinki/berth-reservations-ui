@@ -6,20 +6,20 @@ import Joi from 'joi';
 
 import { Text, Checkbox } from '../Fields';
 
-export const registrationAdditionalInfoSchema = {
-  boatName: Joi.string().required(),
-  boatModel: Joi.string().required(),
-  accessibility: Joi.boolean().required()
-};
+export const schema = Joi.object().keys({
+  boat_name: Joi.string().required(),
+  boat_model: Joi.string().required(),
+  accessibility: Joi.boolean()
+});
 
-const RegistrationAdditionalInfo = () => (
+const RegistrationAdditionalInfo = ({ prefix }) => (
   <Fragment>
     <FormattedMessage tagName="h3" id="page.boat.form.section.boat_additional_info" />
     <Row>
       <Col sm={4}>
         <Text
-          id="boatName"
-          name="boatName"
+          id={`${prefix}.name`}
+          name={`${prefix}.boat_name`}
           label="page.boat.form.name.label"
           placeholder="page.boat.form.name.placeholder"
           required
@@ -27,8 +27,8 @@ const RegistrationAdditionalInfo = () => (
       </Col>
       <Col sm={4}>
         <Text
-          id="boatModel"
-          name="boatModel"
+          id={`${prefix}.model`}
+          name={`${prefix}.boat_model`}
           label="page.boat.form.model.label"
           placeholder="page.boat.form.model.placeholder"
           required
@@ -37,8 +37,8 @@ const RegistrationAdditionalInfo = () => (
     </Row>
     <FormattedMessage tagName="h3" id="page.boat.form.section.boat_accessibility" />
     <Checkbox
-      id="accessibility"
-      name="accessibility"
+      id={`${prefix}.accessibility`}
+      name={`${prefix}.accessibility`}
       label="page.boat.form.accessibility"
       inline={false}
     />

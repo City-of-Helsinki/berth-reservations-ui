@@ -13,6 +13,8 @@ import ContactDetails, { schema as contactDetailsSchema } from './ContactDetails
 
 export const schema = Joi.object()
   .keys({
+    name: Joi.string().required(),
+    businessId: Joi.string().required(),
     ssn: Joi.string().required()
   })
   .concat(fullNameSchema)
@@ -23,23 +25,34 @@ type Props = {
   prefix: string
 };
 
-const PrivatePersonForm = ({ prefix }: Props) => (
+const CompanyForm = ({ prefix }: Props) => (
   <Container fluid>
-    <FormattedMessage tagName="h3" id="form.person.person_info" />
-    <FullName prefix={prefix} />
+    <FormattedMessage tagName="h3" id="form.company.title" />
     <Row>
-      <Col sm={3}>
+      <Col sm={5}>
         <Text
-          id="form.person.ssn"
-          name={`${prefix}.ssn`}
-          label="form.person.field.ssn.label"
-          placeholder="form.person.field.ssn.placeholder"
+          id="form.company.company_name"
+          name={`${prefix}.name`}
+          label="form.company.field.name.label"
+          placeholder="form.company.field.name.placeholder"
+        />
+      </Col>
+    </Row>
+    <Row>
+      <Col sm={5}>
+        <Text
+          id="form.company.business_id"
+          name={`${prefix}.businessId`}
+          label="form.company.field.business_id.label"
+          placeholder="form.company.field.business_id.placeholder"
         />
       </Col>
     </Row>
     <PostalDetails prefix={prefix} />
+    <FormattedMessage tagName="h3" id="form.company.contact_person" />
+    <FullName prefix={prefix} />
     <ContactDetails prefix={prefix} />
   </Container>
 );
 
-export default PrivatePersonForm;
+export default CompanyForm;

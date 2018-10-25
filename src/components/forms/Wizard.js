@@ -1,6 +1,9 @@
 // @flow
 import React, { Component, Fragment } from 'react';
+import { Button } from 'reactstrap';
+import Joi from 'joi';
 import Form from './Form';
+import validation from '../../utils/formValidation';
 
 type State = any;
 type Props = any;
@@ -29,8 +32,11 @@ export default class Wizard extends Component<Props, State> {
   };
 
   validate = (values: any) => {
-    const activePage = this.getActiveStep();
-    return activePage.props.validate ? activePage.props.validate(values) : {};
+    const { props } = this.getActiveStep();
+    const schema = Joi.object().keys({
+      [props.prefix]: props.schema.required()
+    });
+    return validation(schema)(values);
   };
 
   handleSubmit = (values: any) => {
@@ -50,21 +56,21 @@ export default class Wizard extends Component<Props, State> {
 
     return (
       <Form initialValues={initialValues} validate={this.validate} onSubmit={this.handleSubmit}>
-        {({ submitting }) => (
+        {({ submitting, invalid }) => (
           <Fragment>
             {activePage}
             <div>
               {this.hasPreviousStep() && (
-                <button type="button" onClick={prevStep}>
+                <Button type="button" onClick={prevStep}>
                   « Previous
-                </button>
+                </Button>
               )}
               {this.hasNextStep() ? (
-                <button type="submit">Next »</button>
+                <Button type="submit">{invalid ? 'Fill the form to proceed' : 'Next »'}</Button>
               ) : (
-                <button type="submit" disabled={submitting}>
+                <Button type="submit" disabled={submitting || invalid}>
                   Submit
-                </button>
+                </Button>
               )}
             </div>
           </Fragment>

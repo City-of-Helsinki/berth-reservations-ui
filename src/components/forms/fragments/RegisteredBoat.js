@@ -8,38 +8,39 @@ import { injectIntl, FormattedMessage, type intlShape } from 'react-intl';
 import { Text, Select, Number } from '../Fields';
 
 import RegistrationAdditionalInfo, {
-  registrationAdditionalInfoSchema
+  schema as registrationAdditionalInfoSchema
 } from './RegistrationAdditionalInfo';
 
 type Props = {
   intl: intlShape
 };
 
-export const schema = Joi.object().keys({
-  registerNumber: Joi.string().required(),
-  boatType: Joi.string().required(),
-  boatWidth: Joi.number().required(),
-  boatLength: Joi.number().required(),
-  boatDepth: Joi.number().required(),
-  boatWeight: Joi.number().required(),
-  ...registrationAdditionalInfoSchema
-});
+export const schema = Joi.object()
+  .keys({
+    registerNumber: Joi.string().required(),
+    type: Joi.string().required(),
+    width: Joi.number().required(),
+    length: Joi.number().required(),
+    depth: Joi.number().required(),
+    weight: Joi.number().required()
+  })
+  .concat(registrationAdditionalInfoSchema);
 
-const RegisteredBoatForm = ({ intl }: Props) => (
+const RegisteredBoatForm = ({ prefix, intl }: Props) => (
   <Container fluid>
     <FormattedMessage tagName="h3" id="page.boat.form.section.boat_info" />
     <Row>
       <Col sm={6}>
         <Text
           id="registerNumber"
-          name="registerNumber"
+          name={`${prefix}.registerNumber`}
           label="page.boat.form.registernumber.label"
           placeholder="page.boat.form.registernumber.placeholder"
           required
         />
       </Col>
       <Col sm={6}>
-        <Select id="boatType" name="boatType" label="page.boat.form.type.label" required>
+        <Select id="boatType" name={`${prefix}.type`} label="page.boat.form.type.label" required>
           <option>{intl.messages['page.boat.form.type.placeholder']}</option>
           <option>a</option>
           <option>b</option>
@@ -52,7 +53,7 @@ const RegisteredBoatForm = ({ intl }: Props) => (
       <Col sm={3}>
         <Number
           id="boatWidth"
-          name="boatWidth"
+          name={`${prefix}.width`}
           label="page.boat.form.width.label"
           append="m"
           required
@@ -61,7 +62,7 @@ const RegisteredBoatForm = ({ intl }: Props) => (
       <Col sm={3}>
         <Number
           id="boatLength"
-          name="boatLength"
+          name={`${prefix}.length`}
           label="page.boat.form.length.label"
           append="m"
           required
@@ -70,7 +71,7 @@ const RegisteredBoatForm = ({ intl }: Props) => (
       <Col sm={3}>
         <Number
           id="boatDepth"
-          name="boatDepth"
+          name={`${prefix}.depth`}
           label="page.boat.form.depth.label"
           append="m"
           required
@@ -79,14 +80,14 @@ const RegisteredBoatForm = ({ intl }: Props) => (
       <Col sm={3}>
         <Number
           id="boatWeight"
-          name="boatWeight"
+          name={`${prefix}.weight`}
           label="page.boat.form.weight.label"
           append="kg"
           required
         />
       </Col>
     </Row>
-    <RegistrationAdditionalInfo />
+    <RegistrationAdditionalInfo prefix={prefix} />
   </Container>
 );
 

@@ -8,6 +8,7 @@ import { injectIntl, FormattedMessage, type intlShape } from 'react-intl';
 import { Text, Select, MultiCheckbox, MultiRadio } from '../Fields';
 
 type Props = {
+  prefix: string,
   intl: intlShape
 };
 
@@ -39,7 +40,7 @@ export const schema = Joi.object().keys({
   agreed: Joi.string().required()
 });
 
-const BigShipsForm = ({ intl }: Props) => (
+const BigShipsForm = ({ prefix, intl }: Props) => (
   <Container fluid>
     <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
     <FormattedMessage tagName="p" id="form.big_ship.summary" />
@@ -47,7 +48,12 @@ const BigShipsForm = ({ intl }: Props) => (
 
     <Row>
       <Col sm={6}>
-        <Select id="propulsion" name="propulsion" label="form.big_ship.propulsion.label" required>
+        <Select
+          id="propulsion"
+          name={`${prefix}.propulsion`}
+          label="form.big_ship.propulsion.label"
+          required
+        >
           <option>{intl.messages['form.big_ship.propulsion.placeholder']}</option>
           <option>a</option>
           <option>b</option>
@@ -57,7 +63,7 @@ const BigShipsForm = ({ intl }: Props) => (
       <Col sm={6}>
         <Select
           id="hull_material"
-          name="hull_material"
+          name={`${prefix}.hull_material`}
           label="form.big_ship.hull_material.label"
           required
         >
@@ -72,7 +78,7 @@ const BigShipsForm = ({ intl }: Props) => (
       <Col sm={12}>
         <Text
           id="usage"
-          name="usage"
+          name={`${prefix}.usage`}
           label="form.big_ship.usage.label"
           placeholder="form.big_ship.usage.placeholder"
           required
@@ -86,11 +92,15 @@ const BigShipsForm = ({ intl }: Props) => (
           id="time_period_for_now"
           items={[
             {
-              name: 'time_period',
+              name: `${prefix}.time_period`,
               label: 'form.big_ship.time_period.for_now',
               value: 'for_now'
             },
-            { name: 'time_period', label: 'form.big_ship.time_period.fixed', value: 'fixed' }
+            {
+              name: `${prefix}.time_period`,
+              label: 'form.big_ship.time_period.fixed',
+              value: 'fixed'
+            }
           ]}
           label="form.big_ship.time_period.label"
         />
@@ -100,7 +110,7 @@ const BigShipsForm = ({ intl }: Props) => (
           <Col sm={5}>
             <Text
               id="time_period.from"
-              name="time_period_from"
+              name={`${prefix}.time_period_from`}
               placeholder="form.big_ship.time_period.from.placeholder"
             />
           </Col>
@@ -110,7 +120,7 @@ const BigShipsForm = ({ intl }: Props) => (
           <Col sm={5}>
             <Text
               id="time_period.to"
-              name="time_period_to"
+              name={`${prefix}.time_period_to`}
               placeholder="form.big_ship.time_period.to.placeholder"
             />
           </Col>
@@ -123,9 +133,17 @@ const BigShipsForm = ({ intl }: Props) => (
           id="multiCheckbox"
           name="MultiCheckbox"
           items={[
-            { name: 'inspected', label: 'form.big_ship.inspected.label', value: 'inspected' },
-            { name: 'insurance', label: 'form.big_ship.insurance.label', value: 'insurance' },
-            { name: 'agreed', label: 'form.big_ship.agreed.label', value: 'agreed' }
+            {
+              name: `${prefix}.inspected`,
+              label: 'form.big_ship.inspected.label',
+              value: 'inspected'
+            },
+            {
+              name: `${prefix}.insurance`,
+              label: 'form.big_ship.insurance.label',
+              value: 'insurance'
+            },
+            { name: `${prefix}.agreed`, label: 'form.big_ship.agreed.label', value: 'agreed' }
           ]}
           label="form.big_ship.header.inspection_and_insurance"
         />
