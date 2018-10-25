@@ -21,9 +21,9 @@ const BoatPage = () => (
     <FormLegend />
     <Content>
       <Wizard>
+        <RegisteredBoat prefix="registeredBoat" schema={registeredBoatSchema} />
         <PrivatePerson prefix="privatePerson" schema={privatePersonSchema} />
         <Overview prefix="overview" schema={overviewSchema} />
-        <RegisteredBoat prefix="registeredBoat" schema={registeredBoatSchema} />
       </Wizard>
     </Content>
   </Layout>
