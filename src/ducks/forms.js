@@ -5,10 +5,10 @@ import type { Action, Forms } from '../types/ducks';
 
 const defaultState = Record({
   values: {
-    registeredBoat: {},
+    registered_boat: {},
     person: {},
     overview: {},
-    privatePerson: {}
+    private_person: {}
   },
   step: 1,
   done: false

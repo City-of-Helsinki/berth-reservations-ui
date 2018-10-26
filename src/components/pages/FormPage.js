@@ -21,8 +21,8 @@ const BoatPage = () => (
     <FormLegend />
     <Content>
       <Wizard>
-        <RegisteredBoat prefix="registeredBoat" />
-        <PrivatePerson prefix="privatePerson" />
+        <RegisteredBoat prefix="registered_boat" />
+        <PrivatePerson prefix="private_person" />
         <Overview prefix="overview" />
       </Wizard>
     </Content>
