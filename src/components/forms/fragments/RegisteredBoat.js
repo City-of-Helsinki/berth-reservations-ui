@@ -28,8 +28,8 @@ const RegisteredBoatForm = ({ prefix, intl, values }: FormFragmentPropsWithIntl)
         <Col sm={6}>
           <Text
             name={`${prefix}.register_number`}
-            label="page.boat.form.registernumber.label"
-            placeholder="page.boat.form.registernumber.placeholder"
+            label="page.boat.form.register_number.label"
+            placeholder="page.boat.form.register_number.placeholder"
             required
           />
         </Col>
