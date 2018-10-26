@@ -1,8 +1,11 @@
+// @flow
 import React from 'react';
 import { Row, Col } from 'reactstrap';
 import { Text } from '../Fields';
 
-export default ({ prefix }) => (
+import type { FormFragmentProps } from '../../../types/form';
+
+export default ({ prefix }: FormFragmentProps) => (
   <Row>
     <Col sm={4}>
       <Text

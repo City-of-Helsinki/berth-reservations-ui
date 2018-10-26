@@ -4,8 +4,9 @@ import { Row, Col } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 
 import { Text, Checkbox } from '../Fields';
+import type { FormFragmentProps } from '../../../types/form';
 
-const RegistrationAdditionalInfo = ({ prefix }) => (
+const RegistrationAdditionalInfo = ({ prefix }: FormFragmentProps) => (
   <Fragment>
     <FormattedMessage tagName="h3" id="page.boat.form.section.boat_additional_info" />
     <Row>

@@ -10,11 +10,9 @@ import FullName from './FullName';
 import PostalDetails from './PostalDetails';
 import ContactDetails from './ContactDetails';
 
-type Props = {
-  prefix: string
-};
+import type { FormFragmentProps } from '../../../types/form';
 
-const CompanyForm = ({ prefix }: Props) => (
+const CompanyForm = ({ prefix }: FormFragmentProps) => (
   <Fragment>
     <FormattedMessage tagName="h3" id="form.company.title" />
     <Row>

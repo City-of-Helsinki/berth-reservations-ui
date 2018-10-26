@@ -2,16 +2,12 @@
 
 import React, { Fragment } from 'react';
 import { Row, Col } from 'reactstrap';
-import { injectIntl, FormattedMessage, type intlShape } from 'react-intl';
+import { injectIntl, FormattedMessage } from 'react-intl';
 
 import { Select, Checkbox, Number } from '../Fields';
+import type { FormFragmentPropsWithIntl } from '../../../types/form';
 
-type Props = {
-  prefix: string,
-  intl: intlShape
-};
-
-const NoBoatForm = ({ prefix, intl }: Props) => (
+const NoBoatForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
   <Fragment>
     <FormattedMessage tagName="h3" id="page.boat.form.section.boat_info" />
     <Row>

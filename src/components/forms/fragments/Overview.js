@@ -6,12 +6,9 @@ import { FormattedMessage } from 'react-intl';
 
 import { Checkbox } from '../Fields';
 
-type Props = {
-  prefix: string,
-  values: Object
-};
+import type { FormFragmentProps } from '../../../types/form';
 
-const OverviewForm = ({ prefix, values }: Props) => (
+const OverviewForm = ({ prefix, values }: FormFragmentProps) => (
   <Fragment>
     <pre>{JSON.stringify(values)}</pre>
     <FormattedMessage tagName="h3" id="page.overview.form.section.info_options" />

@@ -2,16 +2,12 @@
 
 import React, { Fragment } from 'react';
 import { Row, Col } from 'reactstrap';
-import { injectIntl, FormattedMessage, type intlShape } from 'react-intl';
+import { injectIntl, FormattedMessage } from 'react-intl';
 
 import { Text, Select, MultiCheckbox, MultiRadio } from '../Fields';
+import type { FormFragmentPropsWithIntl } from '../../../types/form';
 
-type Props = {
-  prefix: string,
-  intl: intlShape
-};
-
-const BigShipsForm = ({ prefix, intl }: Props) => (
+const BigShipsForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
   <Fragment>
     <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
     <FormattedMessage tagName="p" id="form.big_ship.summary" />

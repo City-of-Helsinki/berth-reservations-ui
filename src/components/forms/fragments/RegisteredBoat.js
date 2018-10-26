@@ -3,7 +3,7 @@
 import React, { Fragment } from 'react';
 import { Row, Col } from 'reactstrap';
 import { get } from 'lodash';
-import { injectIntl, FormattedMessage, type intlShape } from 'react-intl';
+import { injectIntl, FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
 import { Text, Select, Number } from '../Fields';
@@ -11,16 +11,14 @@ import { Text, Select, Number } from '../Fields';
 import RegistrationAdditionalInfo from './RegistrationAdditionalInfo';
 import BigShips from './BigShips';
 
-type Props = {
-  intl: intlShape
-};
+import type { FormFragmentPropsWithIntl } from '../../../types/form';
 
 const GrayBackground = styled.div`
   background: #eee;
   padding: 1em;
 `;
 
-const RegisteredBoatForm = ({ prefix, intl, values, initFragment }: Props) => {
+const RegisteredBoatForm = ({ prefix, intl, values }: FormFragmentPropsWithIntl) => {
   const needBigBoatInfo = get(values, [prefix, 'type']) === 'bigboat';
   return (
     <Fragment>
@@ -71,7 +69,7 @@ const RegisteredBoatForm = ({ prefix, intl, values, initFragment }: Props) => {
 
       {needBigBoatInfo && (
         <GrayBackground>
-          <BigShips prefix={`${prefix}.big_ships`} initFragment={initFragment} />
+          <BigShips prefix={`${prefix}.big_ships`} />
         </GrayBackground>
       )}
       <RegistrationAdditionalInfo prefix={prefix} />

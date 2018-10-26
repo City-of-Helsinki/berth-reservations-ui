@@ -10,11 +10,9 @@ import FullName from './FullName';
 import PostalDetails from './PostalDetails';
 import ContactDetails from './ContactDetails';
 
-type Props = {
-  prefix: string
-};
+import type { FormFragmentProps } from '../../../types/form';
 
-const PrivatePersonForm = ({ prefix }: Props) => (
+const PrivatePersonForm = ({ prefix }: FormFragmentProps) => (
   <Fragment fluid>
     <FormattedMessage tagName="h3" id="form.person.person_info" />
     <FullName prefix={prefix} />
