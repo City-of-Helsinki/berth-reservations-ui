@@ -112,7 +112,7 @@
   "form.company.email.label": "Sähköpostiosoite",
   "form.company.email.placeholder": "vellamo.merenkavija@hel.fi",
 
-  "form.private_person.person_info": "Hakijan henkilötiedot",
+  "form.private_person.header.title": "Hakijan henkilötiedot",
   "form.private_person.first_name.label": "Etunimi",
   "form.private_person.first_name.placeholder": "Vellamo",
   "form.private_person.last_name.label": "Sukunimi",
