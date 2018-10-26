@@ -1,7 +1,7 @@
 // @flow
 
-import React from 'react';
-import { Row, Col, Container } from 'reactstrap';
+import React, { Fragment } from 'react';
+import { Row, Col } from 'reactstrap';
 import { get } from 'lodash';
 import { injectIntl, FormattedMessage, type intlShape } from 'react-intl';
 import styled from 'styled-components';
@@ -23,12 +23,11 @@ const GrayBackground = styled.div`
 const RegisteredBoatForm = ({ prefix, intl, values, initFragment }: Props) => {
   const needBigBoatInfo = get(values, [prefix, 'type']) === 'bigboat';
   return (
-    <Container fluid>
+    <Fragment>
       <FormattedMessage tagName="h3" id="page.boat.form.section.boat_info" />
       <Row>
         <Col sm={6}>
           <Text
-            id="registerNumber"
             name={`${prefix}.registerNumber`}
             label="page.boat.form.registernumber.label"
             placeholder="page.boat.form.registernumber.placeholder"
@@ -36,7 +35,7 @@ const RegisteredBoatForm = ({ prefix, intl, values, initFragment }: Props) => {
           />
         </Col>
         <Col sm={6}>
-          <Select id="boatType" name={`${prefix}.type`} label="page.boat.form.type.label" required>
+          <Select name={`${prefix}.type`} label="page.boat.form.type.label" required>
             <option>{intl.messages['page.boat.form.type.placeholder']}</option>
             <option value="bigboat">a</option>
             <option>b</option>
@@ -47,17 +46,10 @@ const RegisteredBoatForm = ({ prefix, intl, values, initFragment }: Props) => {
       <FormattedMessage tagName="h3" id="page.boat.form.section.boat_measures" />
       <Row>
         <Col sm={3}>
-          <Number
-            id="boatWidth"
-            name={`${prefix}.width`}
-            label="page.boat.form.width.label"
-            append="m"
-            required
-          />
+          <Number name={`${prefix}.width`} label="page.boat.form.width.label" append="m" required />
         </Col>
         <Col sm={3}>
           <Number
-            id="boatLength"
             name={`${prefix}.length`}
             label="page.boat.form.length.label"
             append="m"
@@ -65,17 +57,10 @@ const RegisteredBoatForm = ({ prefix, intl, values, initFragment }: Props) => {
           />
         </Col>
         <Col sm={3}>
-          <Number
-            id="boatDepth"
-            name={`${prefix}.depth`}
-            label="page.boat.form.depth.label"
-            append="m"
-            required
-          />
+          <Number name={`${prefix}.depth`} label="page.boat.form.depth.label" append="m" required />
         </Col>
         <Col sm={3}>
           <Number
-            id="boatWeight"
             name={`${prefix}.weight`}
             label="page.boat.form.weight.label"
             append="kg"
@@ -90,7 +75,7 @@ const RegisteredBoatForm = ({ prefix, intl, values, initFragment }: Props) => {
         </GrayBackground>
       )}
       <RegistrationAdditionalInfo prefix={prefix} />
-    </Container>
+    </Fragment>
   );
 };
 

@@ -1,9 +1,7 @@
 // @flow
 import React, { Component, Fragment } from 'react';
 import { Button } from 'reactstrap';
-import Joi from 'joi';
 import Form from './Form';
-import validation from '../../utils/formValidation';
 
 type State = any;
 type Props = any;
@@ -31,14 +29,6 @@ export default class Wizard extends Component<Props, State> {
     return React.Children.toArray(children)[step - 1];
   };
 
-  validate = (values: any) => {
-    const { props } = this.getActiveStep();
-    const schema = Joi.object().keys({
-      [props.prefix]: props.schema.required()
-    });
-    return validation(schema)(values);
-  };
-
   handleSubmit = (values: any) => {
     const { nextStep, onSubmit, localePush } = this.props;
     if (this.hasNextStep()) {
@@ -55,7 +45,7 @@ export default class Wizard extends Component<Props, State> {
     const activePage = this.getActiveStep();
 
     return (
-      <Form initialValues={initialValues} validate={this.validate} onSubmit={this.handleSubmit}>
+      <Form initialValues={initialValues} onSubmit={this.handleSubmit}>
         {({ submitting, invalid, values }) => (
           <Fragment>
             {React.cloneElement(activePage, { values })}

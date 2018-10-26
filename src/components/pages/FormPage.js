@@ -6,9 +6,9 @@ import Layout from './Layout';
 import FormLegend from '../containers/FormLegendContainer';
 import Steps from '../containers/StepsContainer';
 import Wizard from '../forms/containers/WizardContainer';
-import RegisteredBoat, { schema as registeredBoatSchema } from '../forms/fragments/RegisteredBoat';
-import PrivatePerson, { schema as privatePersonSchema } from '../forms/fragments/PrivatePerson';
-import Overview, { schema as overviewSchema } from '../forms/fragments/Overview';
+import RegisteredBoat from '../forms/fragments/RegisteredBoat';
+import PrivatePerson from '../forms/fragments/PrivatePerson';
+import Overview from '../forms/fragments/Overview';
 
 const Content = styled.div`
   background-color: white;
@@ -21,9 +21,9 @@ const BoatPage = () => (
     <FormLegend />
     <Content>
       <Wizard>
-        <RegisteredBoat prefix="registeredBoat" schema={registeredBoatSchema} />
-        <PrivatePerson prefix="privatePerson" schema={privatePersonSchema} />
-        <Overview prefix="overview" schema={overviewSchema} />
+        <RegisteredBoat prefix="registeredBoat" />
+        <PrivatePerson prefix="privatePerson" />
+        <Overview prefix="overview" />
       </Wizard>
     </Content>
   </Layout>
