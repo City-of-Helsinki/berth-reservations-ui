@@ -26,7 +26,7 @@ const RegisteredBoatForm = ({ prefix, intl, values }: FormFragmentPropsWithIntl)
       <Row>
         <Col sm={6}>
           <Text
-            name={`${prefix}.registerNumber`}
+            name={`${prefix}.register_number`}
             label="page.boat.form.registernumber.label"
             placeholder="page.boat.form.registernumber.placeholder"
             required
