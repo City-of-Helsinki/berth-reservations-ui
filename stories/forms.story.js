@@ -3,14 +3,18 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Container } from 'reactstrap';
 
+import Form from '../src/components/forms/Form';
 import BigShips from '../src/components/forms/fragments/BigShips';
 import Company from '../src/components/forms/fragments/Company';
-import Overview from '../src/components/forms/fragments/Overview';
-import RegisteredBoat from '../src/components/forms/fragments/RegisteredBoat';
-import UnRegisteredBoat from '../src/components/forms/fragments/UnRegisteredBoat';
+import ContactDetails from '../src/components/forms/fragments/ContactDetails';
+import FullName from '../src/components/forms/fragments/FullName';
 import NoBoat from '../src/components/forms/fragments/NoBoat';
+import Overview from '../src/components/forms/fragments/Overview';
+import PostalDetails from '../src/components/forms/fragments/PostalDetails';
 import PrivatePerson from '../src/components/forms/fragments/PrivatePerson';
-import Form from '../src/components/forms/Form';
+import RegisteredBoat from '../src/components/forms/fragments/RegisteredBoat';
+import RegistrationAdditionalInfo from '../src/components/forms/fragments/RegistrationAdditionalInfo';
+import UnRegisteredBoat from '../src/components/forms/fragments/UnRegisteredBoat';
 
 storiesOf('Forms/Fragments', module)
   .addDecorator(storyFn => (
@@ -19,9 +23,13 @@ storiesOf('Forms/Fragments', module)
     </Container>
   ))
   .add('BigShips', () => <BigShips />)
-  .add('Overview', () => <Overview />)
   .add('Company', () => <Company />)
-  .add('RegisteredBoat', () => <RegisteredBoat />)
-  .add('UnRegisteredBoat', () => <UnRegisteredBoat />)
+  .add('ContactDetails', () => <ContactDetails />)
+  .add('FullName', () => <FullName />)
   .add('NoBoat', () => <NoBoat />)
+  .add('Overview', () => <Overview />)
+  .add('PostalDetails', () => <PostalDetails />)
+  .add('RegisteredBoat', () => <RegisteredBoat />)
+  .add('RegistrationAdditionalInfo', () => <RegistrationAdditionalInfo />)
+  .add('UnRegisteredBoat', () => <UnRegisteredBoat />)
   .add('PrivatePerson', () => <PrivatePerson />);
