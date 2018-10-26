@@ -24,19 +24,6 @@ type Props = {
   intl: intlShape
 };
 
-/*
-  "page.overview.info.boat_info": "Veneen tiedot",
-  "page.overview.info.berths": "Veneen tiedot",
-  "page.overview.info.person": "Hakija",
-  "page.overview.info.boat_name": "Nimi",
-  "page.overview.info.boat_type": "Tyyppi",
-  "page.overview.info.boat_model": "Malli",
-  "page.overview.info.boat_width": "Leveys",
-  "page.overview.info.boat_length": "Pituus",
-  "page.overview.info.boat_depth": "Syväys",
-  "page.overview.info.boat_weight": "Paino",
-*/
-
 const OverviewInfo = ({ values, intl }: Props) => (
   <StyledInfoBox>
     <Container fluid>
@@ -47,41 +34,41 @@ const OverviewInfo = ({ values, intl }: Props) => (
       </Row>
       <Row>
         <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_name" />:{' '}
+          <FormattedMessage tagName="span" id="page.overview.info.boat_name" />
           {values.registered_boat.boat_name}
         </Col>
         <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_register_number" />:{' '}
+          <FormattedMessage tagName="span" id="page.overview.info.boat_register_number" />
           {values.registered_boat.register_number}
         </Col>
       </Row>
       <Row>
         <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:{' '}
+          <FormattedMessage tagName="span" id="page.overview.info.boat_type" />
           {values.registered_boat.type}
         </Col>
         <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_model" />:{' '}
+          <FormattedMessage tagName="span" id="page.overview.info.boat_model" />
           {values.registered_boat.boat_model}
         </Col>
       </Row>
       <Row>
         <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:{' '}
+          <FormattedMessage tagName="span" id="page.overview.info.boat_width" />
           {values.registered_boat.width}m
         </Col>
         <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:{' '}
+          <FormattedMessage tagName="span" id="page.overview.info.boat_length" />
           {values.registered_boat.length}m
         </Col>
       </Row>
       <Row>
         <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_depth" />:{' '}
+          <FormattedMessage tagName="span" id="page.overview.info.boat_depth" />
           {values.registered_boat.depth}m
         </Col>
         <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_weight" />:{' '}
+          <FormattedMessage tagName="span" id="page.overview.info.boat_weight" />
           {values.registered_boat.weight}
           kg
         </Col>
