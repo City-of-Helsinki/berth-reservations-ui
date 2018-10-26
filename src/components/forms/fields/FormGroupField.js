@@ -7,6 +7,8 @@ import Label from './Label';
 
 import { type DefaultFieldProps } from '../../../types/form';
 
+import validator, { mustBePresent } from '../../../utils/formValidation';
+
 type FormGroupFieldProps = DefaultFieldProps & {
   type: string
 };
@@ -18,11 +20,17 @@ const FormGroupField = ({
   value,
   label,
   required,
+  validate,
   text,
   children,
   ...rest
 }: FormGroupFieldProps) => (
-  <Field name={name} type={type} value={value}>
+  <Field
+    name={name}
+    type={type}
+    value={value}
+    validate={validator(required && mustBePresent, validate && validate)}
+  >
     {({ input, meta }) => (
       <Fragment>
         {label && <Label htmlFor={id} required={required || false} text={label} />}

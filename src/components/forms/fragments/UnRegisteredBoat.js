@@ -7,6 +7,7 @@ import { injectIntl, FormattedMessage } from 'react-intl';
 import { Text, Number } from '../Fields';
 
 import RegistrationAdditionalInfo from './RegistrationAdditionalInfo';
+import { mustBeNumber } from '../../../utils/formValidation';
 
 type Props = {
   prefix: string
@@ -26,6 +27,7 @@ const UnRegisteredBoatForm = ({ prefix }: Props) => (
       </Col>
       <Col sm={3}>
         <Number
+          validate={mustBeNumber}
           name={`${prefix}.width`}
           label="form.unregistered.width.label"
           append="m"
@@ -34,6 +36,7 @@ const UnRegisteredBoatForm = ({ prefix }: Props) => (
       </Col>
       <Col sm={3}>
         <Number
+          validate={mustBeNumber}
           name={`${prefix}.length`}
           label="form.unregistered.lenght.label"
           append="m"
