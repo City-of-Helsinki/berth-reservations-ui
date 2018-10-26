@@ -56,9 +56,9 @@ export default class Wizard extends Component<Props, State> {
 
     return (
       <Form initialValues={initialValues} validate={this.validate} onSubmit={this.handleSubmit}>
-        {({ submitting, invalid }) => (
+        {({ submitting, invalid, values }) => (
           <Fragment>
-            {activePage}
+            {React.cloneElement(activePage, { values })}
             <div>
               {this.hasPreviousStep() && (
                 <Button type="button" onClick={prevStep}>
