@@ -10,7 +10,7 @@ export default ({ prefix }: FormFragmentProps) => (
     <Col sm={4}>
       <Text
         name={`${prefix}.mobile_phone`}
-        label={`form.${prefix}.field.mobile_phone.label`}
+        label="form.private_person.mobile_phone.label"
         required
       />
     </Col>

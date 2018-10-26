@@ -23,18 +23,18 @@ const RegisteredBoatForm = ({ prefix, intl, values }: FormFragmentPropsWithIntl)
   const needBigBoatInfo = get(values, [prefix, 'type']) === 'bigboat';
   return (
     <Fragment>
-      <FormattedMessage tagName="h3" id="page.boat.form.section.boat_info" />
+      <FormattedMessage tagName="h3" id="form.registered.header.title" />
       <Row>
         <Col sm={6}>
           <Text
             name={`${prefix}.register_number`}
-            label="page.boat.form.register_number.label"
-            placeholder="page.boat.form.register_number.placeholder"
+            label="form.registered.register_number.label"
+            placeholder="form.registered.register_number.placeholder"
             required
           />
         </Col>
         <Col sm={6}>
-          <Select name={`${prefix}.type`} label="page.boat.form.type.label" required>
+          <Select name={`${prefix}.type`} label="form.registered.type.label" required>
             <option>{intl.messages['page.boat.form.type.placeholder']}</option>
             <option value="bigboat">a</option>
             <option>b</option>
@@ -42,13 +42,13 @@ const RegisteredBoatForm = ({ prefix, intl, values }: FormFragmentPropsWithIntl)
           </Select>
         </Col>
       </Row>
-      <FormattedMessage tagName="h3" id="page.boat.form.section.boat_measures" />
+      <FormattedMessage tagName="h3" id="form.registered.header.measures" />
       <Row>
         <Col sm={3}>
           <Number
             validate={mustBeNumber}
             name={`${prefix}.width`}
-            label="page.boat.form.width.label"
+            label="form.registered.width.label"
             append="m"
             required
           />
@@ -57,7 +57,7 @@ const RegisteredBoatForm = ({ prefix, intl, values }: FormFragmentPropsWithIntl)
           <Number
             validate={mustBeNumber}
             name={`${prefix}.length`}
-            label="page.boat.form.length.label"
+            label="form.registered.length.label"
             append="m"
             required
           />
@@ -66,7 +66,7 @@ const RegisteredBoatForm = ({ prefix, intl, values }: FormFragmentPropsWithIntl)
           <Number
             validate={mustBeNumber}
             name={`${prefix}.depth`}
-            label="page.boat.form.depth.label"
+            label="form.registered.depth.label"
             append="m"
             required
           />
@@ -75,7 +75,7 @@ const RegisteredBoatForm = ({ prefix, intl, values }: FormFragmentPropsWithIntl)
           <Number
             validate={mustBeNumber}
             name={`${prefix}.weight`}
-            label="page.boat.form.weight.label"
+            label="form.registered.weight.label"
             append="kg"
             required
           />

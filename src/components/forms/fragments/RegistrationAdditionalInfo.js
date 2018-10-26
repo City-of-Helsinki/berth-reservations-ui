@@ -8,29 +8,29 @@ import type { FormFragmentProps } from '../../../types/form';
 
 const RegistrationAdditionalInfo = ({ prefix }: FormFragmentProps) => (
   <Fragment>
-    <FormattedMessage tagName="h3" id="page.boat.form.section.boat_additional_info" />
+    <FormattedMessage tagName="h3" id="form.registered.header.additional_info" />
     <Row>
       <Col sm={4}>
         <Text
           name={`${prefix}.boat_name`}
-          label="page.boat.form.name.label"
-          placeholder="page.boat.form.name.placeholder"
+          label="form.registered.name.label"
+          placeholder="form.registered.name.placeholder"
           required
         />
       </Col>
       <Col sm={4}>
         <Text
           name={`${prefix}.boat_model`}
-          label="page.boat.form.model.label"
-          placeholder="page.boat.form.model.placeholder"
+          label="form.registered.model.label"
+          placeholder="form.registered.model.placeholder"
           required
         />
       </Col>
     </Row>
-    <FormattedMessage tagName="h3" id="page.boat.form.section.boat_accessibility" />
+    <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />
     <Checkbox
       name={`${prefix}.accessibility`}
-      label="page.boat.form.accessibility"
+      label="form.registered.accessibility.label"
       inline={false}
     />
   </Fragment>

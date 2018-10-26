@@ -14,14 +14,14 @@ import type { FormFragmentProps } from '../../../types/form';
 
 const PrivatePersonForm = ({ prefix }: FormFragmentProps) => (
   <Fragment fluid>
-    <FormattedMessage tagName="h3" id="form.person.person_info" />
+    <FormattedMessage tagName="h3" id="form.private_person.person_info" />
     <FullName prefix={prefix} />
     <Row>
       <Col sm={3}>
         <Text
           name={`${prefix}.ssn`}
-          label="form.person.field.ssn.label"
-          placeholder="form.person.field.ssn.placeholder"
+          label="form.private_person.field.ssn.label"
+          placeholder="form.private_person.field.ssn.placeholder"
         />
       </Col>
     </Row>
