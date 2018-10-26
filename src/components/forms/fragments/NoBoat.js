@@ -6,6 +6,7 @@ import { injectIntl, FormattedMessage } from 'react-intl';
 
 import { Select, Checkbox, Number } from '../Fields';
 import type { FormFragmentPropsWithIntl } from '../../../types/form';
+import { mustBeNumber } from '../../../utils/formValidation';
 
 const NoBoatForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
   <Fragment>
@@ -21,6 +22,7 @@ const NoBoatForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
       </Col>
       <Col sm={4}>
         <Number
+          validate={mustBeNumber}
           name={`${prefix}.boat_width`}
           label="page.boat.form.width.label"
           append="m"
@@ -29,6 +31,7 @@ const NoBoatForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
       </Col>
       <Col sm={4}>
         <Number
+          validate={mustBeNumber}
           name={`${prefix}.boat_length`}
           label="page.boat.form.length.label"
           append="m"

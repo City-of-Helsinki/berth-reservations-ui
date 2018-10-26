@@ -57,6 +57,7 @@ const BigShipsForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
               value: 'fixed'
             }
           ]}
+          required
           label="form.big_ship.time_period.label"
         />
       </Col>
