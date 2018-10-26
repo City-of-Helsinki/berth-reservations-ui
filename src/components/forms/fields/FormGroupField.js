@@ -14,12 +14,12 @@ type FormGroupFieldProps = DefaultFieldProps & {
 const FormGroupField = ({
   id,
   name,
+  type,
   value,
   label,
   required,
   text,
   children,
-  type,
   ...rest
 }: FormGroupFieldProps) => (
   <Field name={name} type={type} value={value}>

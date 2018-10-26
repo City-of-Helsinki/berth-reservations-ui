@@ -1,36 +1,23 @@
 // @flow
 
-import React from 'react';
-import { Row, Col, Container } from 'reactstrap';
-import Joi from 'joi';
+import React, { Fragment } from 'react';
+import { Row, Col } from 'reactstrap';
 import { injectIntl, FormattedMessage } from 'react-intl';
 
 import { Text, Number } from '../Fields';
 
-import RegistrationAdditionalInfo, {
-  schema as registrationAdditionalInfoSchema
-} from './RegistrationAdditionalInfo';
-
-export const schema = Joi.object()
-  .keys({
-    type: Joi.string().required(),
-    width: Joi.number().required(),
-    length: Joi.number().required()
-  })
-  .concat(registrationAdditionalInfoSchema);
+import RegistrationAdditionalInfo from './RegistrationAdditionalInfo';
 
 type Props = {
   prefix: string
 };
 
 const UnRegisteredBoatForm = ({ prefix }: Props) => (
-  <Container fluid>
-    {' '}
+  <Fragment>
     <FormattedMessage tagName="h3" id="form.unregistered.header.title" />
     <Row>
       <Col sm={6}>
         <Text
-          id="type"
           name={`${prefix}.type`}
           label="form.unregistered.type.label"
           placeholder="form.unregistered.type.placeholder"
@@ -39,7 +26,6 @@ const UnRegisteredBoatForm = ({ prefix }: Props) => (
       </Col>
       <Col sm={3}>
         <Number
-          id="width"
           name={`${prefix}.width`}
           label="form.unregistered.width.label"
           append="m"
@@ -48,7 +34,6 @@ const UnRegisteredBoatForm = ({ prefix }: Props) => (
       </Col>
       <Col sm={3}>
         <Number
-          id="length"
           name={`${prefix}.length`}
           label="form.unregistered.lenght.label"
           append="m"
@@ -57,7 +42,7 @@ const UnRegisteredBoatForm = ({ prefix }: Props) => (
       </Col>
     </Row>
     <RegistrationAdditionalInfo prefix={prefix} />
-  </Container>
+  </Fragment>
 );
 
 export default injectIntl(UnRegisteredBoatForm);

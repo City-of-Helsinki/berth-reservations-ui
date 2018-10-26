@@ -1,37 +1,23 @@
 // @flow
 
-import React from 'react';
-import { Row, Col, Container } from 'reactstrap';
-import Joi from 'joi';
+import React, { Fragment } from 'react';
+import { Row, Col } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 
 import { Text } from '../Fields';
 
-import FullName, { schema as fullNameSchema } from './FullName';
-import PostalDetails, { schema as postalDetailsSchema } from './PostalDetails';
-import ContactDetails, { schema as contactDetailsSchema } from './ContactDetails';
+import FullName from './FullName';
+import PostalDetails from './PostalDetails';
+import ContactDetails from './ContactDetails';
 
-export const schema = Joi.object()
-  .keys({
-    name: Joi.string().required(),
-    businessId: Joi.string().required(),
-    ssn: Joi.string().required()
-  })
-  .concat(fullNameSchema)
-  .concat(postalDetailsSchema)
-  .concat(contactDetailsSchema);
+import type { FormFragmentProps } from '../../../types/form';
 
-type Props = {
-  prefix: string
-};
-
-const CompanyForm = ({ prefix }: Props) => (
-  <Container fluid>
+const CompanyForm = ({ prefix }: FormFragmentProps) => (
+  <Fragment>
     <FormattedMessage tagName="h3" id="form.company.title" />
     <Row>
       <Col sm={5}>
         <Text
-          id="form.company.company_name"
           name={`${prefix}.name`}
           label="form.company.field.name.label"
           placeholder="form.company.field.name.placeholder"
@@ -41,7 +27,6 @@ const CompanyForm = ({ prefix }: Props) => (
     <Row>
       <Col sm={5}>
         <Text
-          id="form.company.business_id"
           name={`${prefix}.businessId`}
           label="form.company.field.business_id.label"
           placeholder="form.company.field.business_id.placeholder"
@@ -52,7 +37,7 @@ const CompanyForm = ({ prefix }: Props) => (
     <FormattedMessage tagName="h3" id="form.company.contact_person" />
     <FullName prefix={prefix} />
     <ContactDetails prefix={prefix} />
-  </Container>
+  </Fragment>
 );
 
 export default CompanyForm;
