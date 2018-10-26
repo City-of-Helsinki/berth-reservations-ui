@@ -5,74 +5,68 @@ import { Row, Col } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 
 import { Checkbox } from '../Fields';
+import OverviewInfo from './OverviewInfo';
 
 import type { FormFragmentProps } from '../../../types/form';
 
 const OverviewForm = ({ prefix, values }: FormFragmentProps) => (
   <Fragment>
-    <pre>{JSON.stringify(values)}</pre>
-    <FormattedMessage tagName="h3" id="page.overview.form.section.info_options" />
+    <OverviewInfo values={values} />
+    <FormattedMessage tagName="h3" id="form.overview.info_options" />
     <Row>
       <Col sm={3}>
         <Checkbox
           name={`${prefix}.email`}
-          label="page.overview.form.section.info_options.email"
+          label="form.overview.info_options.email"
           inline={false}
         />
       </Col>
       <Col sm={3}>
-        <Checkbox
-          name={`${prefix}.sms`}
-          label="page.overview.form.section.info_options.sms"
-          inline={false}
-        />
+        <Checkbox name={`${prefix}.sms`} label="form.overview.info_options.sms" inline={false} />
       </Col>
     </Row>
     <Row>
       <Col sm={6}>
         <Checkbox
           name={`${prefix}.guarantee`}
-          label="page.overview.form.section.info_options.guarantee"
+          label="form.overview.info_options.guarantee"
           inline={false}
         />
       </Col>
     </Row>
 
-    <FormattedMessage tagName="h5" id="page.overview.form.section.info_options.receivable_items" />
+    <FormattedMessage tagName="h5" id="form.overview.info_options.receivable_items" />
     <Row>
       <Col sm={6}>
         <Checkbox
           name={`${prefix}.receivable_boating_info`}
-          label="page.overview.form.section.info_options.receivable_items.boating_info"
+          label="form.overview.info_options.receivable_items.boating_info"
           inline={false}
         />
       </Col>
     </Row>
 
-    <FormattedMessage
-      tagName="h6"
-      id="page.overview.form.section.info_options.receivable_items.also"
-    />
+    <FormattedMessage tagName="h6" id="form.overview.info_options.receivable_items.also" />
 
     <Row>
       <Col sm={3}>
         <Checkbox
           name={`${prefix}.receivable_fitness_services`}
-          label="page.overview.form.section.info_options.receivable_items.fitness_services"
+          label="form.overview.info_options.receivable_items.fitness_services"
           inline={false}
         />
       </Col>
       <Col sm={3}>
         <Checkbox
           name={`${prefix}.receivable_library_services`}
-          label="page.overview.form.section.info_options.receivable_items.library_services"
+          label="form.overview.info_options.receivable_items.library_services"
           inline={false}
         />
       </Col>
       <Col sm={3}>
         <Checkbox
           name={`${prefix}.receivable_other_cultural_services`}
-          label="page.overview.form.section.info_options.receivable_items.other_cultural_services"
+          label="form.overview.info_options.receivable_items.other_cultural_services"
           inline={false}
         />
       </Col>
