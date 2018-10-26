@@ -13,8 +13,8 @@ const Root = () => (
     <ThemeProvider>
       <Router>
         <Switch>
-          <Redirect exact path="/" to="/fi/berths" />
-          <Redirect exact path="/:locale/" to="/:locale/berths" />
+          <Redirect exact path="/" to="/fi/form" />
+          <Redirect exact path="/:locale/" to="/:locale/form" />
           <Route path="/:locale" component={RouterInternationalized} />
         </Switch>
       </Router>

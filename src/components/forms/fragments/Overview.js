@@ -7,11 +7,13 @@ import { FormattedMessage } from 'react-intl';
 import { Checkbox } from '../Fields';
 
 type Props = {
-  prefix: string
+  prefix: string,
+  values: Object
 };
 
-const OverviewForm = ({ prefix }: Props) => (
+const OverviewForm = ({ prefix, values }: Props) => (
   <Fragment>
+    <pre>{JSON.stringify(values)}</pre>
     <FormattedMessage tagName="h3" id="page.overview.form.section.info_options" />
     <Row>
       <Col sm={3}>
