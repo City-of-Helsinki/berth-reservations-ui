@@ -12,6 +12,7 @@ import RegistrationAdditionalInfo from './RegistrationAdditionalInfo';
 import BigShips from './BigShips';
 
 import type { FormFragmentPropsWithIntl } from '../../../types/form';
+import { mustBeNumber } from '../../../utils/formValidation';
 
 const GrayBackground = styled.div`
   background: #eee;
@@ -44,10 +45,17 @@ const RegisteredBoatForm = ({ prefix, intl, values }: FormFragmentPropsWithIntl)
       <FormattedMessage tagName="h3" id="page.boat.form.section.boat_measures" />
       <Row>
         <Col sm={3}>
-          <Number name={`${prefix}.width`} label="page.boat.form.width.label" append="m" required />
+          <Number
+            validate={mustBeNumber}
+            name={`${prefix}.width`}
+            label="page.boat.form.width.label"
+            append="m"
+            required
+          />
         </Col>
         <Col sm={3}>
           <Number
+            validate={mustBeNumber}
             name={`${prefix}.length`}
             label="page.boat.form.length.label"
             append="m"
@@ -55,10 +63,17 @@ const RegisteredBoatForm = ({ prefix, intl, values }: FormFragmentPropsWithIntl)
           />
         </Col>
         <Col sm={3}>
-          <Number name={`${prefix}.depth`} label="page.boat.form.depth.label" append="m" required />
+          <Number
+            validate={mustBeNumber}
+            name={`${prefix}.depth`}
+            label="page.boat.form.depth.label"
+            append="m"
+            required
+          />
         </Col>
         <Col sm={3}>
           <Number
+            validate={mustBeNumber}
             name={`${prefix}.weight`}
             label="page.boat.form.weight.label"
             append="kg"
