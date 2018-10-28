@@ -6,6 +6,8 @@
   "site.language.sv": "På Svenska",
   "site.language.en": "In English",
 
+  "site.buttons.back_to_frontpage": "Palaa etusivulle",
+
   "site.steps.berths": "Satamat",
   "site.steps.boat_information": "Veneen tiedot",
   "site.steps.applicant": "Hakija",
@@ -30,6 +32,9 @@
   "legend.person.legend": "Venepaikkaa voivat hakea yksityishenkilöt ja yritykset. Ei-helsinkiläisiltä hakijoilta ja yrityksiltä peritään korotettua vuosivuokraa.",
   "legend.overview.title": "Yhteenveto",
   "legend.overview.legend": "Tarkista vielä tietojen oikeellisuus ennen hakemuksen lähettämistä.",
+  "legend.thankyou.title": "Kiitos hakemuksesta",
+  "legend.thankyou.legend": "Venepaikkahakemuksesi on nyt lähetetty käsiteltäväksi. Saat vahvistusviestin hakemuksesta sähköpostiisi ja ilmoituksen kun sopiva paikka ilmestyy.",
+  "legend.thankyou.legend.note": "Ota huomioon, että etenkin suosittuihin satamiin uusia paikkoja vapautuu harvoin. Venepaikkahakemukseen liittyvissä asioissa voit ottaa yhteyttä...",
 
   "page.overview.info.boat_info": "Veneen tiedot",
   "page.overview.info.berths": "Veneen tiedot",
