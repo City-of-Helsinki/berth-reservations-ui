@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router';
 
 import BerthPageContainer from './containers/BerthPageContainer';
 import FormPage from './pages/FormPage';
-import ThankyouPage from './pages/ThankyouPage';
+import ThankYouPage from './pages/ThankYouPage';
 import Internationalized from './Internationalized';
 
 type Props = {
@@ -16,7 +16,7 @@ const RouterInternationalized = ({ locale }: Props) => (
     <Switch>
       <Route exact path="/:locale/berths" component={BerthPageContainer} />
       <Route exact path="/:locale/form" component={FormPage} />
-      <Route exact path="/:locale/thank-you" component={ThankyouPage} />
+      <Route exact path="/:locale/thank-you" component={ThankYouPage} />
     </Switch>
   </Internationalized>
 );
