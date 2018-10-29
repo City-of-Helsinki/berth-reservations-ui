@@ -13,16 +13,16 @@ const RegistrationAdditionalInfo = ({ prefix }: FormFragmentProps) => (
       <Col sm={4}>
         <Text
           name={`${prefix}.boat_name`}
-          label="form.registered.name.label"
-          placeholder="form.registered.name.placeholder"
+          label="form.registered.field.name.label"
+          placeholder="form.registered.field.name.placeholder"
           required
         />
       </Col>
       <Col sm={4}>
         <Text
           name={`${prefix}.boat_model`}
-          label="form.registered.model.label"
-          placeholder="form.registered.model.placeholder"
+          label="form.registered.field.model.label"
+          placeholder="form.registered.field.model.placeholder"
           required
         />
       </Col>
@@ -30,7 +30,7 @@ const RegistrationAdditionalInfo = ({ prefix }: FormFragmentProps) => (
     <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />
     <Checkbox
       name={`${prefix}.accessibility`}
-      label="form.registered.accessibility.label"
+      label="form.registered.field.accessibility.label"
       inline={false}
     />
   </Fragment>

@@ -14,7 +14,7 @@ import type { FormFragmentProps } from '../../../types/form';
 
 const CompanyForm = ({ prefix }: FormFragmentProps) => (
   <Fragment>
-    <FormattedMessage tagName="h3" id="form.company.title" />
+    <FormattedMessage tagName="h3" id="form.company.header.title" />
     <Row>
       <Col sm={5}>
         <Text
@@ -34,7 +34,7 @@ const CompanyForm = ({ prefix }: FormFragmentProps) => (
       </Col>
     </Row>
     <PostalDetails prefix={prefix} />
-    <FormattedMessage tagName="h3" id="form.company.contact_person" />
+    <FormattedMessage tagName="h3" id="form.company.header.contact_person" />
     <FullName prefix={prefix} />
     <ContactDetails prefix={prefix} />
   </Fragment>

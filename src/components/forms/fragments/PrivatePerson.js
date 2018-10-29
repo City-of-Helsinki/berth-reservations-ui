@@ -16,15 +16,6 @@ const PrivatePersonForm = ({ prefix }: FormFragmentProps) => (
   <Fragment fluid>
     <FormattedMessage tagName="h3" id="form.private_person.header.title" />
     <FullName prefix={prefix} />
-    <Row>
-      <Col sm={3}>
-        <Text
-          name={`${prefix}.ssn`}
-          label="form.private_person.field.ssn.label"
-          placeholder="form.private_person.field.ssn.placeholder"
-        />
-      </Col>
-    </Row>
     <PostalDetails prefix={prefix} />
     <ContactDetails prefix={prefix} />
   </Fragment>

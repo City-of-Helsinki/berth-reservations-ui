@@ -5,7 +5,7 @@ import { Row, Col } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 
 import { Checkbox } from '../Fields';
-import OverviewInfo from './OverviewInfo';
+import OverviewInfo from '../../OverviewInfo';
 
 import type { FormFragmentProps } from '../../../types/form';
 

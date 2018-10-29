@@ -20,8 +20,8 @@ const UnRegisteredBoatForm = ({ prefix }: Props) => (
       <Col sm={6}>
         <Text
           name={`${prefix}.type`}
-          label="form.unregistered.type.label"
-          placeholder="form.unregistered.type.placeholder"
+          label="form.unregistered.field.type.label"
+          placeholder="form.unregistered.field.type.placeholder"
           required
         />
       </Col>
@@ -29,7 +29,7 @@ const UnRegisteredBoatForm = ({ prefix }: Props) => (
         <Number
           validate={mustBeNumber}
           name={`${prefix}.width`}
-          label="form.unregistered.width.label"
+          label="form.unregistered.field.width.label"
           append="m"
           required
         />
@@ -38,7 +38,7 @@ const UnRegisteredBoatForm = ({ prefix }: Props) => (
         <Number
           validate={mustBeNumber}
           name={`${prefix}.length`}
-          label="form.unregistered.lenght.label"
+          label="form.unregistered.field.lenght.label"
           append="m"
           required
         />
