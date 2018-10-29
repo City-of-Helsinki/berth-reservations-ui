@@ -10,11 +10,11 @@ import { mustBeNumber } from '../../../utils/formValidation';
 
 const NoBoatForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
   <Fragment>
-    <FormattedMessage tagName="h3" id="page.boat.form.section.boat_info" />
+    <FormattedMessage tagName="h3" id="form.no_boat.header.title" />
     <Row>
       <Col sm={4}>
-        <Select name={`${prefix}.boat_type`} label="page.boat.form.type.label" required>
-          <option>{intl.messages['page.boat.form.type.placeholder']}</option>
+        <Select name={`${prefix}.boat_type`} label="form.no_boat.field.type.label" required>
+          <option>{intl.messages['form.no_boat.field.type.placeholder']}</option>
           <option>a</option>
           <option>b</option>
           <option>c</option>
@@ -24,7 +24,7 @@ const NoBoatForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
         <Number
           validate={mustBeNumber}
           name={`${prefix}.boat_width`}
-          label="page.boat.form.width.label"
+          label="form.no_boat.field.width.label"
           append="m"
           required
         />
@@ -33,16 +33,16 @@ const NoBoatForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
         <Number
           validate={mustBeNumber}
           name={`${prefix}.boat_length`}
-          label="page.boat.form.length.label"
+          label="form.no_boat.field.length.label"
           append="m"
           required
         />
       </Col>
     </Row>
-    <FormattedMessage tagName="h3" id="page.boat.form.section.boat_accessibility" />
+    <FormattedMessage tagName="h3" id="form.no_boat.header.accessibility" />
     <Checkbox
       name={`${prefix}.accessibility`}
-      label="page.boat.form.accessibility"
+      label="form.no_boat.field.accessibility.label"
       inline={false}
     />
   </Fragment>
