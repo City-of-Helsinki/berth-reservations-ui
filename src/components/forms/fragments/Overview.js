@@ -5,13 +5,11 @@ import { Row, Col } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 
 import { Checkbox } from '../Fields';
-import OverviewInfo from './OverviewInfo';
 
 import type { FormFragmentProps } from '../../../types/form';
 
-const OverviewForm = ({ prefix, values }: FormFragmentProps) => (
+const OverviewForm = ({ prefix }: FormFragmentProps) => (
   <Fragment>
-    <OverviewInfo values={values} />
     <FormattedMessage tagName="h3" id="form.overview.info_options" />
     <Row>
       <Col sm={3}>

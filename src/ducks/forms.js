@@ -8,7 +8,12 @@ const defaultState = Record({
     registered_boat: {},
     person: {},
     overview: {},
-    private_person: {}
+    private_person: {},
+
+    select_form_type: {
+      applicant_details: 'private_person',
+      boat_details: 'registered_boat'
+    }
   },
   step: 1,
   done: false

@@ -5,7 +5,7 @@ import CustomInputField from './fields/CustomInputField';
 import MultiCustomInputField from './fields/MultiCustomInputField';
 import InputGroupField from './fields/InputGroupField';
 
-const mapNameAsId = withProps(({ name }) => ({ id: `form.${name}` }));
+const mapNameAsId = withProps(({ id, name }) => ({ id: id || `form.${name}` }));
 
 export const Text = mapNameAsId(injectIntl(InputField('text')));
 export const Select = mapNameAsId(injectIntl(CustomInputField('select', false)));

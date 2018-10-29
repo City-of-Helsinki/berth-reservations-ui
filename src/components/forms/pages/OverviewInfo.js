@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Row, Col, Container } from 'reactstrap';
-import { injectIntl, FormattedMessage, type intlShape } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
 const StyledInfoBox = styled.div`
@@ -20,11 +20,10 @@ const SectionHeader = styled(Col)`
 `;
 
 type Props = {
-  values: Object,
-  intl: intlShape
+  values: Object
 };
 
-const OverviewInfo = ({ values, intl }: Props) => (
+const OverviewInfo = ({ values }: Props) => (
   <StyledInfoBox>
     <Container fluid>
       <Row>
@@ -107,4 +106,4 @@ const OverviewInfo = ({ values, intl }: Props) => (
   </StyledInfoBox>
 );
 
-export default injectIntl(OverviewInfo);
+export default OverviewInfo;

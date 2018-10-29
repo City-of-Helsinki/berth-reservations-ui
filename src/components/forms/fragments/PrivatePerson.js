@@ -1,7 +1,7 @@
 // @flow
 
-import React, { Fragment } from 'react';
-import { Row, Col } from 'reactstrap';
+import React from 'react';
+import { Row, Col, Container } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 
 import { Text } from '../Fields';
@@ -13,7 +13,7 @@ import ContactDetails from './ContactDetails';
 import type { FormFragmentProps } from '../../../types/form';
 
 const PrivatePersonForm = ({ prefix }: FormFragmentProps) => (
-  <Fragment fluid>
+  <Container fluid>
     <FormattedMessage tagName="h3" id="form.person.person_info" />
     <FullName prefix={prefix} />
     <Row>
@@ -27,7 +27,7 @@ const PrivatePersonForm = ({ prefix }: FormFragmentProps) => (
     </Row>
     <PostalDetails prefix={prefix} />
     <ContactDetails prefix={prefix} />
-  </Fragment>
+  </Container>
 );
 
 export default PrivatePersonForm;

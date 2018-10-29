@@ -119,5 +119,10 @@
   "form.overview.info_options.receivable_items.also": "sekä tietoa seuraavista Helsingin kaupungin kulttuurin ja vapaa-ajan palveluista",
   "form.overview.info_options.receivable_items.fitness_services": "liikuntapalvelut",
   "form.overview.info_options.receivable_items.library_services": "kirjastopalvelut",
-  "form.overview.info_options.receivable_items.other_cultural_services": "muut kulttuuripalvelut"
+  "form.overview.info_options.receivable_items.other_cultural_services": "muut kulttuuripalvelut",
+  "form.boat_type_selector.private_person.label": "Yksityishenkilö",
+  "form.boat_type_selector.company.label": "Yritys tai yhteisö",
+  "form.boat_type_selector.registered_boat.label": "Rekisteröity vene",
+  "form.boat_type_selector.unregistered_boat.label": "Rekisteröimätön vene",
+  "form.boat_type_selector.no_boat.label": "Ei venettä"
 }
