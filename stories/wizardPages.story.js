@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { Container } from 'reactstrap';
 
 import Form from '../src/components/forms/Form';
+import { BigBoatTypeValue } from '../src/components/forms/Fields';
 import ApplicantDetailsPage from '../src/components/forms/pages/ApplicantDetails';
 import BoatDetailsPage from '../src/components/forms/pages/BoatDetails';
 import SubmitPage from '../src/components/forms/pages/Submit';
@@ -37,7 +38,7 @@ const company = { select_form_type: { applicant_details: 'company' } };
 const registeredBoat = { select_form_type: { boat_details: 'registered_boat' } };
 const bigShips = {
   select_form_type: { boat_details: 'registered_boat' },
-  boat: { type: 'bigboat' }
+  boat: { type: BigBoatTypeValue }
 };
 const unregisteredBoat = { select_form_type: { boat_details: 'unregistered_boat' } };
 const noBoat = { select_form_type: { boat_details: 'no_boat' } };

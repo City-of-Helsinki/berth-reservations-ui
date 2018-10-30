@@ -16,6 +16,8 @@ import UnRegisteredBoatDetails from '../fragments/UnRegisteredBoatDetails';
 
 import FormTypeSelector from '../fields/FormTypeSelector';
 
+import { BigBoatTypeValue } from '../Fields';
+
 const Content = styled.div``;
 
 type Props = {
@@ -29,7 +31,7 @@ const GrayBackground = styled.div`
 
 const BoatDetails = ({ values }: Props) => {
   const selected = get(values, ['select_form_type', 'boat_details']);
-  const ShowBigShips = get(values, ['boat', 'type']) === 'bigboat';
+  const ShowBigBoats = get(values, ['boat', 'type']) === BigBoatTypeValue;
   return (
     <Content>
       <FormTypeSelector
@@ -60,7 +62,7 @@ const BoatDetails = ({ values }: Props) => {
 
           <FormattedMessage tagName="h3" id="form.registered.header.measures" />
           <BoatMeasures prefix="boat.measuress" />
-          {ShowBigShips && (
+          {ShowBigBoats && (
             <GrayBackground>
               <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
               <FormattedMessage tagName="p" id="form.big_ship.text.summary" />

@@ -16,10 +16,11 @@ export const MultiCheckbox = mapNameAsId(injectIntl(MultiCustomInputField('check
 export const MultiRadio = mapNameAsId(injectIntl(MultiCustomInputField('radio')));
 export const Number = mapNameAsId(InputGroupField('number'));
 
+export const BigBoatTypeValue = 'big_boats';
 export const BoatType = injectIntl(({ prefix, intl: { formatMessage } }) => (
   <Select name={`${prefix}.type`} label="form.registered.field.type.label" required>
     <option>{formatMessage({ id: 'form.registered.field.type.placeholder' })}</option>
-    <option value="bigboat">a</option>
+    <option value={BigBoatTypeValue}>a</option>
     <option>b</option>
     <option>c</option>
   </Select>
