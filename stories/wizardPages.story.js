@@ -7,31 +7,8 @@ import Form from '../src/components/forms/Form';
 import { BigBoatTypeValue } from '../src/components/forms/Fields';
 import ApplicantDetailsPage from '../src/components/forms/pages/ApplicantDetails';
 import BoatDetailsPage from '../src/components/forms/pages/BoatDetails';
-import SubmitPage from '../src/components/forms/pages/Submit';
-
-const OverviewData = {
-  registered_boat: {
-    register_number: '153945839',
-    type: 'b',
-    width: '3',
-    length: '10',
-    draught: '3',
-    weight: '25000',
-    boat_name: 'RMS Titanic',
-    boat_model: 'Uppoava'
-  },
-  person: {},
-  overview: {},
-  private_person: {
-    first_name: 'Loso',
-    last_name: 'Lamantiini',
-    street_address: 'Saarijärventie 1',
-    postal_code: '05400',
-    munacipality: 'Helsinki',
-    mobile_phone: '+3581231234567',
-    email: 'luslus@manateez.com'
-  }
-};
+import OverviewPage from '../src/components/forms/pages/Overview';
+import values from '../mocks/values';
 
 const privatePerson = { select_form_type: { applicant_details: 'private_person' } };
 const company = { select_form_type: { applicant_details: 'company' } };
@@ -55,4 +32,4 @@ storiesOf('Forms/Pages', module)
   .add('bigShips', () => <BoatDetailsPage values={bigShips} />)
   .add('unregisteredBoat', () => <BoatDetailsPage values={unregisteredBoat} />)
   .add('noBoat', () => <BoatDetailsPage values={noBoat} />)
-  .add('submit', () => <SubmitPage values={OverviewData} />);
+  .add('overview', () => <OverviewPage values={values} />);

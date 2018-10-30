@@ -9,7 +9,7 @@ const BoatInfoFragment = ({ prefix }: FormFragmentProps) => (
   <Row>
     <Col sm={4}>
       <Text
-        name={`${prefix}.boat_name`}
+        name={`${prefix}.name`}
         label="form.registered.field.name.label"
         placeholder="form.registered.field.name.placeholder"
         required
@@ -17,7 +17,7 @@ const BoatInfoFragment = ({ prefix }: FormFragmentProps) => (
     </Col>
     <Col sm={4}>
       <Text
-        name={`${prefix}.boat_model`}
+        name={`${prefix}.model`}
         label="form.registered.field.model.label"
         placeholder="form.registered.field.model.placeholder"
         required

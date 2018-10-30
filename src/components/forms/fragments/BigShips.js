@@ -85,7 +85,6 @@ const BigShipsFragment = ({ prefix, intl: { formatMessage } }: FormFragmentProps
       <Col>
         <MultiCheckbox
           id="multiCheckbox"
-          name="MultiCheckbox"
           items={[
             {
               name: `${prefix}.inspected`,

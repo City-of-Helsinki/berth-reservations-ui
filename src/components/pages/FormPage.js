@@ -8,7 +8,7 @@ import Steps from '../containers/StepsContainer';
 import Wizard from '../forms/containers/WizardContainer';
 import ApplicantDetails from '../forms/pages/ApplicantDetails';
 import BoatDetails from '../forms/pages/BoatDetails';
-import Submit from '../forms/pages/Submit';
+import Overview from '../forms/pages/Overview';
 
 const Content = styled.div`
   background-color: white;
@@ -22,7 +22,7 @@ const BoatPage = () => (
       <Wizard>
         <ApplicantDetails values={{}} />
         <BoatDetails values={{}} />
-        <Submit values={{}} />
+        <Overview values={{}} />
       </Wizard>
     </Content>
   </Layout>
