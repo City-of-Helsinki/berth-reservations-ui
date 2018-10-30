@@ -14,17 +14,8 @@ import type { FormFragmentProps } from '../../../types/form';
 
 const PrivatePersonForm = ({ prefix }: FormFragmentProps) => (
   <Container fluid>
-    <FormattedMessage tagName="h3" id="form.person.person_info" />
+    <FormattedMessage tagName="h3" id="form.private_person.header.title" />
     <FullName prefix={prefix} />
-    <Row>
-      <Col sm={3}>
-        <Text
-          name={`${prefix}.ssn`}
-          label="form.person.field.ssn.label"
-          placeholder="form.person.field.ssn.placeholder"
-        />
-      </Col>
-    </Row>
     <PostalDetails prefix={prefix} />
     <ContactDetails prefix={prefix} />
   </Container>

@@ -8,13 +8,19 @@ import type { FormFragmentProps } from '../../../types/form';
 export default ({ prefix }: FormFragmentProps) => (
   <Row>
     <Col sm={4}>
-      <Text name={`${prefix}.street_address`} label={`form.${prefix}.street_address.label`} />
+      <Text
+        name={`${prefix}.street_address`}
+        label={`form.postal_details.field.street_address.label`}
+      />
     </Col>
     <Col sm={4}>
-      <Text name={`${prefix}.postal_code`} label={`form.${prefix}.postal_code.label`} />
+      <Text name={`${prefix}.postal_code`} label={`form.postal_details.field.postal_code.label`} />
     </Col>
     <Col sm={4}>
-      <Text name={`${prefix}.munacipality`} label={`form.${prefix}.munacipality.label`} />
+      <Text
+        name={`${prefix}.munacipality`}
+        label={`form.postal_details.field.munacipality.label`}
+      />
     </Col>
   </Row>
 );

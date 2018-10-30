@@ -16,6 +16,30 @@ import RegisteredBoat from '../src/components/forms/fragments/RegisteredBoat';
 import RegistrationAdditionalInfo from '../src/components/forms/fragments/RegistrationAdditionalInfo';
 import UnRegisteredBoat from '../src/components/forms/fragments/UnRegisteredBoat';
 
+const OverviewData = {
+  registered_boat: {
+    register_number: '153945839',
+    type: 'b',
+    width: '3',
+    length: '10',
+    depth: '3',
+    weight: '25000',
+    boat_name: 'RMS Titanic',
+    boat_model: 'Uppoava'
+  },
+  person: {},
+  overview: {},
+  private_person: {
+    first_name: 'Loso',
+    last_name: 'Lamantiini',
+    street_address: 'Saarijärventie 1',
+    postal_code: '05400',
+    munacipality: 'Helsinki',
+    mobile_phone: '+3581231234567',
+    email: 'luslus@manateez.com'
+  }
+};
+
 storiesOf('Forms/Fragments', module)
   .addDecorator(storyFn => (
     <Container fluid>
@@ -27,7 +51,7 @@ storiesOf('Forms/Fragments', module)
   .add('ContactDetails', () => <ContactDetails />)
   .add('FullName', () => <FullName />)
   .add('NoBoat', () => <NoBoat />)
-  .add('Overview', () => <Overview />)
+  .add('Overview', () => <Overview values={OverviewData} />)
   .add('PostalDetails', () => <PostalDetails />)
   .add('RegisteredBoat', () => <RegisteredBoat />)
   .add('RegistrationAdditionalInfo', () => <RegistrationAdditionalInfo />)

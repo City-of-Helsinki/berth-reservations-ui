@@ -10,12 +10,12 @@ import type { FormFragmentPropsWithIntl } from '../../../types/form';
 const BigShipsForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
   <Fragment>
     <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
-    <FormattedMessage tagName="p" id="form.big_ship.summary" />
+    <FormattedMessage tagName="p" id="form.big_ship.text.summary" />
     <FormattedMessage tagName="h3" id="form.big_ship.header.details" />
 
     <Row>
       <Col sm={6}>
-        <Select name={`${prefix}.propulsion`} label="form.big_ship.propulsion.label" required>
+        <Select name={`${prefix}.propulsion`} label="form.big_ship.field.propulsion.label" required>
           <option>{intl.messages['form.big_ship.propulsion.placeholder']}</option>
           <option>a</option>
           <option>b</option>
@@ -23,8 +23,12 @@ const BigShipsForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
         </Select>
       </Col>
       <Col sm={6}>
-        <Select name={`${prefix}.hull_material`} label="form.big_ship.hull_material.label" required>
-          <option>{intl.messages['form.big_ship.hull_material.placeholder']}</option>
+        <Select
+          name={`${prefix}.hull_material`}
+          label="form.big_ship.field.hull_material.label"
+          required
+        >
+          <option>{intl.messages['form.big_ship.field.hull_material.placeholder']}</option>
           <option>a</option>
           <option>b</option>
           <option>c</option>
@@ -35,11 +39,11 @@ const BigShipsForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
       <Col sm={12}>
         <Text
           name={`${prefix}.usage`}
-          label="form.big_ship.usage.label"
-          placeholder="form.big_ship.usage.placeholder"
+          label="form.big_ship.field.usage.label"
+          placeholder="form.big_ship.field.usage.placeholder"
           required
         />
-        <FormattedMessage tagName="p" id="form.big_ship.usage.info" />
+        <FormattedMessage tagName="p" id="form.big_ship.field.usage.info" />
       </Col>
     </Row>
     <Row>
@@ -48,17 +52,17 @@ const BigShipsForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
           items={[
             {
               name: `${prefix}.time_period`,
-              label: 'form.big_ship.time_period.for_now',
+              label: 'form.big_ship.field.time_period.for_now',
               value: 'for_now'
             },
             {
               name: `${prefix}.time_period`,
-              label: 'form.big_ship.time_period.fixed',
+              label: 'form.big_ship.field.time_period.fixed',
               value: 'fixed'
             }
           ]}
           required
-          label="form.big_ship.time_period.label"
+          label="form.big_ship.field.time_period.label"
         />
       </Col>
       <Col sm={6}>
@@ -66,7 +70,7 @@ const BigShipsForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
           <Col sm={5}>
             <Text
               name={`${prefix}.time_period_from`}
-              placeholder="form.big_ship.time_period.from.placeholder"
+              placeholder="form.big_ship.field.time_period.from.placeholder"
             />
           </Col>
           <Col sm={1}>
@@ -75,7 +79,7 @@ const BigShipsForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
           <Col sm={5}>
             <Text
               name={`${prefix}.time_period_to`}
-              placeholder="form.big_ship.time_period.to.placeholder"
+              placeholder="form.big_ship.field.time_period.to.placeholder"
             />
           </Col>
         </Row>
@@ -89,19 +93,19 @@ const BigShipsForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
           items={[
             {
               name: `${prefix}.inspected`,
-              label: 'form.big_ship.inspected.label',
+              label: 'form.big_ship.field.inspected.label',
               value: 'inspected'
             },
             {
               name: `${prefix}.insurance`,
-              label: 'form.big_ship.insurance.label',
+              label: 'form.big_ship.field.insurance.label',
               value: 'insurance'
             },
-            { name: `${prefix}.agreed`, label: 'form.big_ship.agreed.label', value: 'agreed' }
+            { name: `${prefix}.agreed`, label: 'form.big_ship.field.agreed.label', value: 'agreed' }
           ]}
           label="form.big_ship.header.inspection_and_insurance"
         />
-        <FormattedMessage tagName="p" id="form.big_ship.inspection_and_insurance" />
+        <FormattedMessage tagName="p" id="form.big_ship.text.inspection_and_insurance" />
       </Col>
     </Row>
   </Fragment>

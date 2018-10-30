@@ -10,61 +10,57 @@ import type { FormFragmentProps } from '../../../types/form';
 
 const OverviewForm = ({ prefix }: FormFragmentProps) => (
   <Fragment>
-    <FormattedMessage tagName="h3" id="form.overview.info_options" />
+    <FormattedMessage tagName="h3" id="form.overview.header.title" />
     <Row>
       <Col sm={3}>
-        <Checkbox
-          name={`${prefix}.email`}
-          label="form.overview.info_options.email"
-          inline={false}
-        />
+        <Checkbox name={`${prefix}.email`} label="form.overview.field.email.label" inline={false} />
       </Col>
       <Col sm={3}>
-        <Checkbox name={`${prefix}.sms`} label="form.overview.info_options.sms" inline={false} />
+        <Checkbox name={`${prefix}.sms`} label="form.overview.field.sms.label" inline={false} />
       </Col>
     </Row>
     <Row>
       <Col sm={6}>
         <Checkbox
           name={`${prefix}.guarantee`}
-          label="form.overview.info_options.guarantee"
+          label="form.overview.field.guarantee.label"
           inline={false}
         />
       </Col>
     </Row>
 
-    <FormattedMessage tagName="h5" id="form.overview.info_options.receivable_items" />
+    <FormattedMessage tagName="h5" id="form.overview.header.receivable_items.title" />
     <Row>
       <Col sm={6}>
         <Checkbox
           name={`${prefix}.receivable_boating_info`}
-          label="form.overview.info_options.receivable_items.boating_info"
+          label="form.overview.field.boating_info.label"
           inline={false}
         />
       </Col>
     </Row>
 
-    <FormattedMessage tagName="h6" id="form.overview.info_options.receivable_items.also" />
+    <FormattedMessage tagName="h6" id="form.overview.header.also.title" />
 
     <Row>
       <Col sm={3}>
         <Checkbox
           name={`${prefix}.receivable_fitness_services`}
-          label="form.overview.info_options.receivable_items.fitness_services"
+          label="form.overview.field.fitness_services.label"
           inline={false}
         />
       </Col>
       <Col sm={3}>
         <Checkbox
           name={`${prefix}.receivable_library_services`}
-          label="form.overview.info_options.receivable_items.library_services"
+          label="form.overview.field.library_services.label"
           inline={false}
         />
       </Col>
       <Col sm={3}>
         <Checkbox
           name={`${prefix}.receivable_other_cultural_services`}
-          label="form.overview.info_options.receivable_items.other_cultural_services"
+          label="form.overview.field.other_cultural_services.label"
           inline={false}
         />
       </Col>
