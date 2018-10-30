@@ -55,7 +55,7 @@ const FormGroupField = ({
         })}
         {meta.touched &&
           meta.error && <FormFeedback>{formatMessage({ id: meta.error })}</FormFeedback>}
-        {text && <FormText>{text}</FormText>}
+        {text && <FormText>{formatMessage({ id: text })}</FormText>}
       </Fragment>
     )}
   </Field>

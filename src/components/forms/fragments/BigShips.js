@@ -2,17 +2,17 @@
 
 import React, { Fragment } from 'react';
 import { Row, Col } from 'reactstrap';
-import { injectIntl, FormattedMessage } from 'react-intl';
+import { injectIntl } from 'react-intl';
 
 import { Text, Select, MultiCheckbox, MultiRadio } from '../Fields';
 import type { FormFragmentPropsWithIntl } from '../../../types/form';
 
-const BigShipsFragment = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
+const BigShipsFragment = ({ prefix, intl: { formatMessage } }: FormFragmentPropsWithIntl) => (
   <Fragment>
     <Row>
       <Col sm={6}>
         <Select name={`${prefix}.propulsion`} label="form.big_ship.field.propulsion.label" required>
-          <option>{intl.messages['form.big_ship.propulsion.placeholder']}</option>
+          <option>{formatMessage({ id: 'form.big_ship.propulsion.placeholder' })}</option>
           <option>a</option>
           <option>b</option>
           <option>c</option>
@@ -24,7 +24,7 @@ const BigShipsFragment = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
           label="form.big_ship.field.hull_material.label"
           required
         >
-          <option>{intl.messages['form.big_ship.field.hull_material.placeholder']}</option>
+          <option>{formatMessage({ id: 'form.big_ship.field.hull_material.placeholder' })}</option>
           <option>a</option>
           <option>b</option>
           <option>c</option>
