@@ -70,8 +70,8 @@ const OverviewInfo = ({ values }: Props) => {
         </Row>
         <Row>
           <Col md={6}>
-            <FormattedMessage tagName="span" id="page.overview.info.boat_depth" />:
-            <Data>{values.registered_boat.depth}m</Data>
+            <FormattedMessage tagName="span" id="page.overview.info.boat_draught" />:
+            <Data>{values.registered_boat.draught}m</Data>
           </Col>
           <Col md={6}>
             <FormattedMessage tagName="span" id="page.overview.info.boat_weight" />:

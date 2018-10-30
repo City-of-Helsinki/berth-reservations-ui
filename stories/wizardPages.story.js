@@ -14,7 +14,7 @@ const OverviewData = {
     type: 'b',
     width: '3',
     length: '10',
-    depth: '3',
+    draught: '3',
     weight: '25000',
     boat_name: 'RMS Titanic',
     boat_model: 'Uppoava'

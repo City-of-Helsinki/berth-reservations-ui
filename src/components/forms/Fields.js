@@ -1,3 +1,4 @@
+import React from 'react';
 import { injectIntl } from 'react-intl';
 import { withProps } from 'recompose';
 import InputField from './fields/InputField';
@@ -14,3 +15,12 @@ export const Radio = mapNameAsId(injectIntl(CustomInputField('radio', true)));
 export const MultiCheckbox = mapNameAsId(injectIntl(MultiCustomInputField('checkbox')));
 export const MultiRadio = mapNameAsId(injectIntl(MultiCustomInputField('radio')));
 export const Number = mapNameAsId(InputGroupField('number'));
+
+export const BoatType = injectIntl(({ prefix, intl: { formatMessage } }) => (
+  <Select name={`${prefix}.type`} label="form.registered.field.type.label" required>
+    <option>{formatMessage({ id: 'form.registered.field.type.placeholder' })}</option>
+    <option value="bigboat">a</option>
+    <option>b</option>
+    <option>c</option>
+  </Select>
+));

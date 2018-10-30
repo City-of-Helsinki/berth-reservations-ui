@@ -63,8 +63,8 @@ const OverviewInfo = ({ values }: Props) => (
       </Row>
       <Row>
         <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_depth" />
-          {values.registered_boat.depth}m
+          <FormattedMessage tagName="span" id="page.overview.info.boat_draught" />
+          {values.registered_boat.draught}m
         </Col>
         <Col md={6}>
           <FormattedMessage tagName="span" id="page.overview.info.boat_weight" />

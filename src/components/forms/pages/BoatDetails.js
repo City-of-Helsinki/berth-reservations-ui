@@ -59,7 +59,7 @@ const BoatDetails = ({ values }: Props) => {
           <RegisteredBoatDetails prefix="boat" />
 
           <FormattedMessage tagName="h3" id="form.registered.header.measures" />
-          <BoatMeasures prefix="boat" />
+          <BoatMeasures prefix="boat.measuress" />
           {ShowBigShips && (
             <GrayBackground>
               <FormattedMessage tagName="h3" id="form.big_ship.header.title" />

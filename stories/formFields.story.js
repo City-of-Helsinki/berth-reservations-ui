@@ -8,11 +8,12 @@ import {
   Radio,
   MultiCheckbox,
   MultiRadio,
-  Number
+  Number,
+  BoatType
 } from '../src/components/forms/Fields';
 import Form from '../src/components/forms/Form';
 
-storiesOf('Forms/Components', module)
+storiesOf('Forms', module)
   .addDecorator(storyFn => <Form onSubmit={action('onSubmit')}>{() => storyFn()}</Form>)
   .add('InputFields', () => (
     <div>
@@ -44,21 +45,10 @@ storiesOf('Forms/Components', module)
         ]}
         label="storybook.dummy.label"
       />
-    </div>
-  ))
-  .add('InputGroup', () => (
-    <div>
-      <div>
-        Prepend
-        <Number id="number" name="Number" label="storybook.dummy.label" prepend="m" />
-      </div>
-      <div>
-        append
-        <Number id="number" name="Number" label="storybook.dummy.label" append="m" />
-      </div>
-      <div>
-        both
-        <Number id="number" name="Number" label="storybook.dummy.label" prepend="m" append="m" />
-      </div>
+      <BoatType />
+
+      <Number id="number" name="Number" label="storybook.dummy.label" prepend="m" />
+      <Number id="number" name="Number" label="storybook.dummy.label" append="m" />
+      <Number id="number" name="Number" label="storybook.dummy.label" prepend="m" append="m" />
     </div>
   ));

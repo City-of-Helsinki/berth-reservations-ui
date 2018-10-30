@@ -12,7 +12,7 @@ const BigShipsFragment = ({ prefix, intl: { formatMessage } }: FormFragmentProps
     <Row>
       <Col sm={6}>
         <Select name={`${prefix}.propulsion`} label="form.big_ship.field.propulsion.label" required>
-          <option>{formatMessage({ id: 'form.big_ship.propulsion.placeholder' })}</option>
+          <option>{formatMessage({ id: 'form.big_ship.field.propulsion.placeholder' })}</option>
           <option>a</option>
           <option>b</option>
           <option>c</option>

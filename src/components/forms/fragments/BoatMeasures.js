@@ -31,8 +31,8 @@ const RegisteredBoatFragment = ({ prefix }: FormFragmentProps) => (
     <Col sm={3}>
       <Number
         validate={mustBeNumber}
-        name={`${prefix}.depth`}
-        label="form.registered.field.depth.label"
+        name={`${prefix}.draught`}
+        label="form.registered.field.draught.label"
         append="m"
         required
       />

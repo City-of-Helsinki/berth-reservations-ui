@@ -2,12 +2,11 @@
 
 import React from 'react';
 import { Row, Col } from 'reactstrap';
-import { injectIntl } from 'react-intl';
-import { Text, Select } from '../Fields';
+import { Text, BoatType } from '../Fields';
 
-import type { FormFragmentPropsWithIntl } from '../../../types/form';
+import type { FormFragmentProps } from '../../../types/form';
 
-const RegisteredBoatDetailsFragment = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
+const RegisteredBoatDetailsFragment = ({ prefix }: FormFragmentProps) => (
   <Row>
     <Col sm={6}>
       <Text
@@ -18,14 +17,9 @@ const RegisteredBoatDetailsFragment = ({ prefix, intl }: FormFragmentPropsWithIn
       />
     </Col>
     <Col sm={6}>
-      <Select name={`${prefix}.type`} label="form.registered.field.type.label" required>
-        <option>{intl.messages['page.boat.form.field.type.placeholder']}</option>
-        <option value="bigboat">a</option>
-        <option>b</option>
-        <option>c</option>
-      </Select>
+      <BoatType />
     </Col>
   </Row>
 );
 
-export default injectIntl(RegisteredBoatDetailsFragment);
+export default RegisteredBoatDetailsFragment;
