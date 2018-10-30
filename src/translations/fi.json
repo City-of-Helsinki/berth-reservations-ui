@@ -21,6 +21,9 @@
   "site.footer.contact_us": "Ota yhteyttä",
   "site.footer.copyright": "2018 Helsingin kaupunki",
 
+  "validation.message.required": "Pakollinen kenttä",
+  "validation.message.must_be_number": "Arvon pitää olla numero",
+
   "page.berths.title": "Satamahaku",
   "page.berths.link.boat_information": "Veneen tiedot",
 
