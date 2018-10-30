@@ -32,8 +32,8 @@ const BoatPage = ({
       nextStep={nextStep}
       prevStep={prevStep}
     >
-      <ApplicantDetails values={{}} />
       <BoatDetails values={{}} />
+      <ApplicantDetails values={{}} />
       <Overview values={{}} />
     </Wizard>
   </Layout>
