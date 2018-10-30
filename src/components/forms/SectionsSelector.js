@@ -3,8 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'reactstrap';
 
-import { Radio } from '../Fields';
-import Icon from '../../common/Icon';
+import { Radio } from './Fields';
+import Icon from '../common/Icon';
 
 const ButtonWrapper = styled.div`
   background-color: ${props => props.theme.helLight};
@@ -25,7 +25,7 @@ type Props = {
   selected: any
 };
 
-const FormTypeSelector = ({ name, types, selected }: Props) => (
+const SectionsSelector = ({ name, types, selected }: Props) => (
   <ButtonWrapper>
     <Container>
       <Row>
@@ -33,7 +33,7 @@ const FormTypeSelector = ({ name, types, selected }: Props) => (
           <Col xs={3} key={`${name}.${value}`}>
             <FormSelectWrapper selected={selected === value}>
               <StyledIcon name={iconName} width="50%" color="black" />
-              <Radio id={label} name={`select_form_type.${name}`} value={value} label={label} />
+              <Radio id={label} name={`sections.${name}`} value={value} label={label} />
             </FormSelectWrapper>
           </Col>
         ))}
@@ -42,4 +42,4 @@ const FormTypeSelector = ({ name, types, selected }: Props) => (
   </ButtonWrapper>
 );
 
-export default FormTypeSelector;
+export default SectionsSelector;

@@ -3,8 +3,8 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router';
 
 import BerthPage from './pages/containers/BerthPageContainer';
-import FormPage from './pages/FormPage';
-import ThankYouPage from './pages/ThankYouPage';
+import FormPage from './pages/containers/FormPageContainer';
+import ThankYouPage from './pages/containers/ThankYouPageContainer';
 import IntlProvider from './IntlProvider';
 
 type Props = {

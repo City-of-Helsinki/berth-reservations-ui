@@ -10,13 +10,25 @@ import Overview from '../forms/sections/Overview';
 
 type Props = any;
 
-const BoatPage = ({ initialValues, step, done, onSubmit, nextStep, prevStep }: Props) => (
+const BoatPage = ({
+  initialValues,
+  step,
+  done,
+  onSubmit,
+  nextStep,
+  prevStep,
+  localePush
+}: Props) => (
   <Layout>
     <Steps step={step} done={done} />
     <FormLegend step={step} />
     <Wizard
+      step={step}
       initialValues={initialValues}
-      onSubmit={onSubmit}
+      onSubmit={async values => {
+        await onSubmit(values);
+        localePush('thank-you');
+      }}
       nextStep={nextStep}
       prevStep={prevStep}
     >

@@ -1,9 +1,9 @@
 import faker from 'faker';
 
 export const developmentValues = {
-  select_form_type: {
-    applicant_details: 'private_person',
-    boat_details: 'registered_boat'
+  sections: {
+    applicant: 'private_person',
+    boat: 'registered_boat'
   },
   applicant: {
     company: {

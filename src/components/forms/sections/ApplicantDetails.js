@@ -10,7 +10,7 @@ import PostalDetails from '../fragments/PostalDetails';
 import ContactDetails from '../fragments/ContactDetails';
 import CompanyDetails from '../fragments/CompanyDetails';
 
-import FormTypeSelector from '../fields/FormTypeSelector';
+import SectionsSelector from '../SectionsSelector';
 
 const Content = styled.div``;
 
@@ -19,11 +19,11 @@ type Props = {
 };
 
 const ApplicantDetails = ({ values }: Props) => {
-  const selected = get(values, ['select_form_type', 'applicant_details']);
+  const selected = get(values, ['sections', 'applicant']);
   return (
     <Content>
-      <FormTypeSelector
-        name="applicant_details"
+      <SectionsSelector
+        name="applicant"
         selected={selected}
         types={[
           {
