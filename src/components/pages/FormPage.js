@@ -6,13 +6,12 @@ import Layout from './Layout';
 import FormLegend from '../containers/FormLegendContainer';
 import Steps from '../containers/StepsContainer';
 import Wizard from '../forms/containers/WizardContainer';
-import RegisteredBoat from '../forms/fragments/RegisteredBoat';
-import PrivatePerson from '../forms/fragments/PrivatePerson';
-import Overview from '../forms/fragments/Overview';
+import ApplicantDetails from '../forms/pages/ApplicantDetails';
+import BoatDetails from '../forms/pages/BoatDetails';
+import Overview from '../forms/pages/Overview';
 
 const Content = styled.div`
   background-color: white;
-  padding: 4em 8em 2em 8em;
 `;
 
 const BoatPage = () => (
@@ -21,9 +20,9 @@ const BoatPage = () => (
     <FormLegend />
     <Content>
       <Wizard>
-        <RegisteredBoat prefix="registered_boat" />
-        <PrivatePerson prefix="private_person" />
-        <Overview prefix="overview" />
+        <ApplicantDetails values={{}} />
+        <BoatDetails values={{}} />
+        <Overview values={{}} />
       </Wizard>
     </Content>
   </Layout>

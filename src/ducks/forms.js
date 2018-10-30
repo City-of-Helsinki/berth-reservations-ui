@@ -2,14 +2,13 @@
 import { Record } from 'immutable';
 import { createAction } from 'redux-actions';
 import type { Action, Forms } from '../types/ducks';
+import { productionValues, developmentValues } from './mocks/forms';
+
+const { NODE_ENV } = process.env;
+const values = NODE_ENV === 'development' ? developmentValues : productionValues;
 
 const defaultState = Record({
-  values: {
-    registered_boat: {},
-    person: {},
-    overview: {},
-    private_person: {}
-  },
+  values,
   step: 1,
   done: false
 });

@@ -39,6 +39,12 @@
   "legend.thankyou.legend": "Venepaikkahakemuksesi on nyt lähetetty käsiteltäväksi. Saat vahvistusviestin hakemuksesta sähköpostiisi ja ilmoituksen kun sopiva paikka ilmestyy.",
   "legend.thankyou.legend.note": "Ota huomioon, että etenkin suosittuihin satamiin uusia paikkoja vapautuu harvoin. Venepaikkahakemukseen liittyvissä asioissa voit ottaa yhteyttä...",
 
+  "form.boat_type_selector.private_person.label": "Yksityishenkilö",
+  "form.boat_type_selector.company.label": "Yritys tai yhteisö",
+  "form.boat_type_selector.registered_boat.label": "Rekisteröity vene",
+  "form.boat_type_selector.unregistered_boat.label": "Rekisteröimätön vene",
+  "form.boat_type_selector.no_boat.label": "Ei venettä",
+
   "form.big_ship.header.title": "Suurten alusten laituripaikat",
   "form.big_ship.text.summary": "loren ipsum",
   "form.big_ship.header.details": "Suuria aluksia koskevat lisätiedot",
@@ -68,7 +74,7 @@
   "form.registered.field.type.placeholder": "Valitse veneen tyyppi",
   "form.registered.field.width.label": "Leveys",
   "form.registered.field.length.label": "Pituus",
-  "form.registered.field.depth.label": "Syväys",
+  "form.registered.field.draught.label": "Syväys",
   "form.registered.field.weight.label": "Paino",
   "form.registered.header.additional_info": "Lisätiedot",
   "form.registered.field.name.label": "Nimi",
@@ -76,7 +82,7 @@
   "form.registered.field.model.label": "Merkki",
   "form.registered.field.model.placeholder": "Veneen merkki",
   "form.registered.header.accessibility": "Esteettömyys",
-  "form.registered.field.accessibility.label": "Tarvitsen esteettömän paikan",
+  "form.accessibility.field.accessibility.label": "Tarvitsen esteettömän paikan",
 
   "form.unregistered.header.title": "Rekisteröimättömän veneen teidot",
   "form.unregistered.header.additional_info": "Lisätiedot",
@@ -104,10 +110,6 @@
 
   "form.company.header.title": "Yrityksen tai yhteisön tiedot",
   "form.company.header.contact_person": "Yhteyshenkilö",
-  "form.company.field.name.label": "Yrityksen tai yhteisön nimi",
-  "form.company.field.name.placeholder": "Vellamo Oy",
-  "form.company.field.business_id.label": "Y-tunnus",
-  "form.company.field.business_id.placeholder": "1234567-8",
   "form.company.field.first_name.label": "Etunimi",
   "form.company.field.first_name.placeholder": "Vellamo",
   "form.company.field.last_name.label": "Sukunimi",
@@ -116,6 +118,11 @@
   "form.company.field.mobile_phone.placeholder": "+358 555 245 555",
   "form.company.field.email.label": "Sähköpostiosoite",
   "form.company.field.email.placeholder": "vellamo.merenkavija@hel.fi",
+
+  "form.company_details.field.name.label": "Yrityksen tai yhteisön nimi",
+  "form.company_details.field.name.placeholder": "Vellamo Oy",
+  "form.company_details.field.business_id.label": "Y-tunnus",
+  "form.company_details.field.business_id.placeholder": "1234567-8",
 
   "form.postal_details.field.street_address.label": "Jakeluosoite",
   "form.postal_details.field.postal_code.label": "Postinumero",
@@ -152,6 +159,6 @@
   "page.overview.info.boat_model": "Malli",
   "page.overview.info.boat_width": "Leveys",
   "page.overview.info.boat_length": "Pituus",
-  "page.overview.info.boat_depth": "Syväys",
+  "page.overview.info.boat_draught": "Syväys",
   "page.overview.info.boat_weight": "Paino"
 }

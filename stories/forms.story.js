@@ -4,17 +4,18 @@ import { action } from '@storybook/addon-actions';
 import { Container } from 'reactstrap';
 
 import Form from '../src/components/forms/Form';
+import Accessibility from '../src/components/forms/fragments/Accessibility';
 import BigShips from '../src/components/forms/fragments/BigShips';
-import Company from '../src/components/forms/fragments/Company';
+import BoatInfo from '../src/components/forms/fragments/BoatInfo';
+import BoatMeasures from '../src/components/forms/fragments/BoatMeasures';
+import CompanyDetails from '../src/components/forms/fragments/CompanyDetails';
+import ContactBy from '../src/components/forms/fragments/ContactBy';
 import ContactDetails from '../src/components/forms/fragments/ContactDetails';
 import FullName from '../src/components/forms/fragments/FullName';
-import NoBoat from '../src/components/forms/fragments/NoBoat';
-import Overview from '../src/components/forms/fragments/Overview';
+import Newsletter from '../src/components/forms/fragments/Newsletter';
 import PostalDetails from '../src/components/forms/fragments/PostalDetails';
-import PrivatePerson from '../src/components/forms/fragments/PrivatePerson';
-import RegisteredBoat from '../src/components/forms/fragments/RegisteredBoat';
-import RegistrationAdditionalInfo from '../src/components/forms/fragments/RegistrationAdditionalInfo';
-import UnRegisteredBoat from '../src/components/forms/fragments/UnRegisteredBoat';
+import RegisteredBoatDetails from '../src/components/forms/fragments/RegisteredBoatDetails';
+import UnRegisteredBoatDetails from '../src/components/forms/fragments/UnRegisteredBoatDetails';
 
 const OverviewData = {
   registered_boat: {
@@ -22,7 +23,7 @@ const OverviewData = {
     type: 'b',
     width: '3',
     length: '10',
-    depth: '3',
+    draught: '3',
     weight: '25000',
     boat_name: 'RMS Titanic',
     boat_model: 'Uppoava'
@@ -46,14 +47,15 @@ storiesOf('Forms/Fragments', module)
       <Form onSubmit={action('onSubmit')}>{() => storyFn()}</Form>
     </Container>
   ))
+  .add('Accessibility', () => <Accessibility />)
   .add('BigShips', () => <BigShips />)
-  .add('Company', () => <Company />)
+  .add('BoatInfo', () => <BoatInfo />)
+  .add('BoatMeasures', () => <BoatMeasures />)
+  .add('CompanyDetails', () => <CompanyDetails />)
+  .add('ContactBy', () => <ContactBy values={OverviewData} />)
   .add('ContactDetails', () => <ContactDetails />)
   .add('FullName', () => <FullName />)
-  .add('NoBoat', () => <NoBoat />)
-  .add('Overview', () => <Overview values={OverviewData} />)
+  .add('Newsletter', () => <Newsletter />)
   .add('PostalDetails', () => <PostalDetails />)
-  .add('RegisteredBoat', () => <RegisteredBoat />)
-  .add('RegistrationAdditionalInfo', () => <RegistrationAdditionalInfo />)
-  .add('UnRegisteredBoat', () => <UnRegisteredBoat />)
-  .add('PrivatePerson', () => <PrivatePerson />);
+  .add('RegisteredBoatDetails', () => <RegisteredBoatDetails />)
+  .add('UnRegisteredBoatDetails', () => <UnRegisteredBoatDetails />);

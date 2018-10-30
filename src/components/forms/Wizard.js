@@ -1,6 +1,6 @@
 // @flow
 import React, { Component, Fragment } from 'react';
-import { Button } from 'reactstrap';
+import { Button, Container, Row, Col } from 'reactstrap';
 import Form from './Form';
 
 type State = any;
@@ -49,20 +49,24 @@ export default class Wizard extends Component<Props, State> {
         {({ submitting, invalid, values }) => (
           <Fragment>
             {React.cloneElement(activePage, { values })}
-            <div>
-              {this.hasPreviousStep() && (
-                <Button type="button" onClick={prevStep}>
-                  « Previous
-                </Button>
-              )}
-              {this.hasNextStep() ? (
-                <Button type="submit">{invalid ? 'Fill the form to proceed' : 'Next »'}</Button>
-              ) : (
-                <Button type="submit" disabled={submitting || invalid}>
-                  Submit
-                </Button>
-              )}
-            </div>
+            <Container>
+              <Row>
+                <Col>
+                  {this.hasPreviousStep() && (
+                    <Button type="button" onClick={prevStep}>
+                      « Previous
+                    </Button>
+                  )}
+                  {this.hasNextStep() ? (
+                    <Button type="submit">{invalid ? 'Fill the form to proceed' : 'Next »'}</Button>
+                  ) : (
+                    <Button type="submit" disabled={submitting || invalid}>
+                      Submit
+                    </Button>
+                  )}
+                </Col>
+              </Row>
+            </Container>
           </Fragment>
         )}
       </Form>

@@ -41,41 +41,41 @@ const OverviewInfo = ({ values }: Props) => {
         <Row>
           <Col md={6}>
             <FormattedMessage tagName="span" id="page.overview.info.boat_name" />:
-            <Data>{values.registered_boat.boat_name}</Data>
+            <Data>{values.boat.name}</Data>
           </Col>
           <Col md={6}>
             <FormattedMessage tagName="span" id="page.overview.info.boat_register_number" />:
-            <Data>{values.registered_boat.register_number}</Data>
+            <Data>{values.boat.register_number}</Data>
           </Col>
         </Row>
         <Row>
           <Col md={6}>
             <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
-            <Data>{values.registered_boat.type}</Data>
+            <Data>{values.boat.type}</Data>
           </Col>
           <Col md={6}>
             <FormattedMessage tagName="span" id="page.overview.info.boat_model" />:
-            <Data>{values.registered_boat.boat_model}</Data>
+            <Data>{values.boat.model}</Data>
           </Col>
         </Row>
         <Row>
           <Col md={6}>
             <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:
-            <Data>{values.registered_boat.width}m</Data>
+            <Data>{values.boat.width}m</Data>
           </Col>
           <Col md={6}>
             <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:
-            <Data>{values.registered_boat.length}m</Data>
+            <Data>{values.boat.length}m</Data>
           </Col>
         </Row>
         <Row>
           <Col md={6}>
-            <FormattedMessage tagName="span" id="page.overview.info.boat_depth" />:
-            <Data>{values.registered_boat.depth}m</Data>
+            <FormattedMessage tagName="span" id="page.overview.info.boat_draught" />:
+            <Data>{values.boat.draught}m</Data>
           </Col>
           <Col md={6}>
             <FormattedMessage tagName="span" id="page.overview.info.boat_weight" />:
-            <Data>{values.registered_boat.weight}</Data>
+            <Data>{values.boat.weight}</Data>
             kg
           </Col>
         </Row>
@@ -100,14 +100,11 @@ const OverviewInfo = ({ values }: Props) => {
         </Row>
         <Row>
           <Col md={12}>
-            {values.private_person.first_name} {values.private_person.last_name}
+            {values.applicant.name.first_name} {values.applicant.name.last_name}
           </Col>
         </Row>
         <Row>
-          <Col md={12}>{values.private_person.ssn}</Col>
-        </Row>
-        <Row>
-          <Col md={12}>{values.private_person.email}</Col>
+          <Col md={12}>{values.applicant.contact.email}</Col>
         </Row>
       </Container>
     </StyledInfoBox>

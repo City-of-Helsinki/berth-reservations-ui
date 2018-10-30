@@ -2,21 +2,17 @@
 
 import React, { Fragment } from 'react';
 import { Row, Col } from 'reactstrap';
-import { injectIntl, FormattedMessage } from 'react-intl';
+import { injectIntl } from 'react-intl';
 
 import { Text, Select, MultiCheckbox, MultiRadio } from '../Fields';
 import type { FormFragmentPropsWithIntl } from '../../../types/form';
 
-const BigShipsForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
+const BigShipsFragment = ({ prefix, intl: { formatMessage } }: FormFragmentPropsWithIntl) => (
   <Fragment>
-    <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
-    <FormattedMessage tagName="p" id="form.big_ship.text.summary" />
-    <FormattedMessage tagName="h3" id="form.big_ship.header.details" />
-
     <Row>
       <Col sm={6}>
         <Select name={`${prefix}.propulsion`} label="form.big_ship.field.propulsion.label" required>
-          <option>{intl.messages['form.big_ship.propulsion.placeholder']}</option>
+          <option>{formatMessage({ id: 'form.big_ship.field.propulsion.placeholder' })}</option>
           <option>a</option>
           <option>b</option>
           <option>c</option>
@@ -28,7 +24,7 @@ const BigShipsForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
           label="form.big_ship.field.hull_material.label"
           required
         >
-          <option>{intl.messages['form.big_ship.field.hull_material.placeholder']}</option>
+          <option>{formatMessage({ id: 'form.big_ship.field.hull_material.placeholder' })}</option>
           <option>a</option>
           <option>b</option>
           <option>c</option>
@@ -42,8 +38,8 @@ const BigShipsForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
           label="form.big_ship.field.usage.label"
           placeholder="form.big_ship.field.usage.placeholder"
           required
+          text="form.big_ship.field.usage.info"
         />
-        <FormattedMessage tagName="p" id="form.big_ship.field.usage.info" />
       </Col>
     </Row>
     <Row>
@@ -89,7 +85,6 @@ const BigShipsForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
       <Col>
         <MultiCheckbox
           id="multiCheckbox"
-          name="MultiCheckbox"
           items={[
             {
               name: `${prefix}.inspected`,
@@ -105,10 +100,9 @@ const BigShipsForm = ({ prefix, intl }: FormFragmentPropsWithIntl) => (
           ]}
           label="form.big_ship.header.inspection_and_insurance"
         />
-        <FormattedMessage tagName="p" id="form.big_ship.text.inspection_and_insurance" />
       </Col>
     </Row>
   </Fragment>
 );
 
-export default injectIntl(BigShipsForm);
+export default injectIntl(BigShipsFragment);

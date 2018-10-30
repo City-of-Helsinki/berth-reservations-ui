@@ -5,33 +5,11 @@ import { Row, Col } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 
 import { Checkbox } from '../Fields';
-import OverviewInfo from '../../OverviewInfo';
 
 import type { FormFragmentProps } from '../../../types/form';
 
-const OverviewForm = ({ prefix, values }: FormFragmentProps) => (
+const NewsletterFragment = ({ prefix }: FormFragmentProps) => (
   <Fragment>
-    <OverviewInfo values={values} />
-    <FormattedMessage tagName="h3" id="form.overview.header.title" />
-    <Row>
-      <Col sm={3}>
-        <Checkbox name={`${prefix}.email`} label="form.overview.field.email.label" inline={false} />
-      </Col>
-      <Col sm={3}>
-        <Checkbox name={`${prefix}.sms`} label="form.overview.field.sms.label" inline={false} />
-      </Col>
-    </Row>
-    <Row>
-      <Col sm={6}>
-        <Checkbox
-          name={`${prefix}.guarantee`}
-          label="form.overview.field.guarantee.label"
-          inline={false}
-        />
-      </Col>
-    </Row>
-
-    <FormattedMessage tagName="h5" id="form.overview.header.receivable_items.title" />
     <Row>
       <Col sm={6}>
         <Checkbox
@@ -41,9 +19,7 @@ const OverviewForm = ({ prefix, values }: FormFragmentProps) => (
         />
       </Col>
     </Row>
-
     <FormattedMessage tagName="h6" id="form.overview.header.also.title" />
-
     <Row>
       <Col sm={3}>
         <Checkbox
@@ -70,4 +46,4 @@ const OverviewForm = ({ prefix, values }: FormFragmentProps) => (
   </Fragment>
 );
 
-export default OverviewForm;
+export default NewsletterFragment;
