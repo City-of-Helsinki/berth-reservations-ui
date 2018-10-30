@@ -2,13 +2,13 @@ import React from 'react';
 import { configure, addDecorator } from '@storybook/react';
 
 import ThemeProvider from '../src/components/ThemeProvider';
-import Internationalized from '../src/components/Internationalized';
+import IntlProvider from '../src/components/IntlProvider';
 
 function loadStories() {
   addDecorator(stories => (
-    <Internationalized locale="fi">
+    <IntlProvider locale="fi">
       <ThemeProvider>{stories()}</ThemeProvider>
-    </Internationalized>
+    </IntlProvider>
   ));
   const req = require.context('../stories', true, /story\.js$/);
   req.keys().forEach(req);

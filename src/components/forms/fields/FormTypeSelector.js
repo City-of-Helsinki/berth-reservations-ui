@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Container, Row, Col } from 'reactstrap';
 
 import { Radio } from '../Fields';
-import Icon from '../../Icon';
+import Icon from '../../common/Icon';
 
 const ButtonWrapper = styled.div`
   background-color: ${props => props.theme.helLight};

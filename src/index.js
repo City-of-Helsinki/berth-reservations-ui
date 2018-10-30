@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import * as serviceWorker from './serviceWorker';
 import configureStore from './config/configureStore';
 import ThemeProvider from './components/ThemeProvider';
-import RouterInternationalized from './components/containers/RouterInternationalizedContainer';
+import App from './components/containers/AppContainer';
 
 const Root = () => (
   <Provider store={configureStore()}>
@@ -14,8 +14,7 @@ const Root = () => (
       <Router>
         <Switch>
           <Redirect exact path="/" to="/fi/form" />
-          <Redirect exact path="/:locale/" to="/:locale/form" />
-          <Route path="/:locale" component={RouterInternationalized} />
+          <Route path="/:locale" component={App} />
         </Switch>
       </Router>
     </ThemeProvider>
