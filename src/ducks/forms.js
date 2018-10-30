@@ -5,11 +5,6 @@ import type { Action, Forms } from '../types/ducks';
 
 const defaultState = Record({
   values: {
-    registered_boat: {},
-    person: {},
-    overview: {},
-    private_person: {},
-
     select_form_type: {
       applicant_details: 'private_person',
       boat_details: 'registered_boat'
