@@ -37,7 +37,8 @@
     "eject": "react-scripts eject",
     "api": "node api",
     "flow": "flow",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "develop": "yarn run storybook & yarn run start"
   },
   "devDependencies": {
     "@babel/preset-flow": "^7.0.0",

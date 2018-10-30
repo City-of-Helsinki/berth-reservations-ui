@@ -1,8 +1,15 @@
 # Berth Reservation UI
 
-### Prerequisites
+## Prerequisites
 
-* Yarn
+- Yarn
+- Strong recommendation for an IDE: VSCode
+
+### Recommended VSCode plugins:
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Flow Language Support](https://marketplace.visualstudio.com/items?itemName=flowtype.flow-for-vscode)
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
 ### Setup
 
@@ -12,18 +19,20 @@ After cloning this repository, create a new `.env.local` file from the provided 
 $ cp .env.example .env.local
 ```
 
-### Running
+## Development
+
+To start development environment, run command:
+
+```
+$ yarn develop
+```
+
+This will start [the application](http://localhost:3000) and [the storybook](http://localhost:9001) for ports `3000` & `9001`
+
+## Running Client Only
 
 Run both commands below in seperate windows:
 
 ```
 $ yarn start
 ```
-
-This will start the application in your browser at http://localhost:3000
-
-```
-$ yarn api
-```
-
-API will be accessible at http://localhost:3001

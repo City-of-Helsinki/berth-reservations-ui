@@ -8,7 +8,7 @@ import { BigBoatTypeValue } from '../src/components/forms/Fields';
 import ApplicantDetailsPage from '../src/components/forms/pages/ApplicantDetails';
 import BoatDetailsPage from '../src/components/forms/pages/BoatDetails';
 import OverviewPage from '../src/components/forms/pages/Overview';
-import values from '../mocks/values';
+import { developmentValues } from '../src/ducks/mocks/forms';
 
 const privatePerson = { select_form_type: { applicant_details: 'private_person' } };
 const company = { select_form_type: { applicant_details: 'company' } };
@@ -32,4 +32,4 @@ storiesOf('Forms/Pages', module)
   .add('bigShips', () => <BoatDetailsPage values={bigShips} />)
   .add('unregisteredBoat', () => <BoatDetailsPage values={unregisteredBoat} />)
   .add('noBoat', () => <BoatDetailsPage values={noBoat} />)
-  .add('overview', () => <OverviewPage values={values} />);
+  .add('overview', () => <OverviewPage values={developmentValues} />);
