@@ -4,12 +4,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container } from 'reactstrap';
 import { get } from 'lodash';
+import { injectIntl, FormattedMessage } from 'react-intl';
 
-import RegisteredBoat from '../fragments/RegisteredBoat';
-import UnRegisteredBoat from '../fragments/UnRegisteredBoat';
-import NoBoat from '../fragments/NoBoat';
+import BoatMeasures from '../fragments/BoatMeasures';
+import RegisteredBoatDetails from '../fragments/RegisteredBoatDetails';
+import BoatInfo from '../fragments/BoatInfo';
+import BigShips from '../fragments/BigShips';
 
-import FormTypeSelector from '../fragments/FormTypeSelector';
+import Accessibility from '../fragments/Accessibility';
+import UnRegisteredBoatDetails from '../fragments/UnRegisteredBoatDetails';
+
+import FormTypeSelector from '../fields/FormTypeSelector';
 
 const Content = styled.div``;
 
@@ -17,8 +22,14 @@ type Props = {
   values: any
 };
 
+const GrayBackground = styled.div`
+  background: #eee;
+  padding: 1em;
+`;
+
 const BoatDetails = ({ values }: Props) => {
   const selected = get(values, ['select_form_type', 'boat_details']);
+  const ShowBigShips = get(values, ['boat', 'type']) === 'bigboat';
   return (
     <Content>
       <FormTypeSelector
@@ -42,13 +53,49 @@ const BoatDetails = ({ values }: Props) => {
           }
         ]}
       />
-      <Container>
-        {selected === 'registered_boat' && <RegisteredBoat prefix="registered_boat" />}
-        {selected === 'unregistered_boat' && <UnRegisteredBoat prefix="unregistered_boat" />}
-        {selected === 'no_boat' && <NoBoat prefix="no_boat" />}
-      </Container>
+      {selected === 'registered_boat' && (
+        <Container>
+          <FormattedMessage tagName="h3" id="form.registered.header.title" />
+          <RegisteredBoatDetails prefix="boat" />
+
+          <FormattedMessage tagName="h3" id="form.registered.header.measures" />
+          <BoatMeasures prefix="boat" />
+          {ShowBigShips && (
+            <GrayBackground>
+              <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
+              <FormattedMessage tagName="p" id="form.big_ship.text.summary" />
+              <FormattedMessage tagName="h3" id="form.big_ship.header.details" />
+              <BigShips prefix="boat.big_ships" />
+              <FormattedMessage tagName="p" id="form.big_ship.text.inspection_and_insurance" />
+            </GrayBackground>
+          )}
+          <FormattedMessage tagName="h3" id="form.registered.header.additional_info" />
+
+          <BoatInfo prefix="boat" />
+          <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />
+
+          <Accessibility prefix="boat" />
+        </Container>
+      )}
+      {selected === 'unregistered_boat' && (
+        <Container>
+          <FormattedMessage tagName="h3" id="form.unregistered.header.title" />
+          <UnRegisteredBoatDetails prefix="boat" />
+          <BoatInfo prefix="boat" />
+          <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />
+          <Accessibility prefix="boat" />
+        </Container>
+      )}
+      {selected === 'no_boat' && (
+        <Container>
+          <FormattedMessage tagName="h3" id="form.no_boat.header.title" />
+          <UnRegisteredBoatDetails prefix="boat" />
+          <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />
+          <Accessibility prefix="boat" />
+        </Container>
+      )}
     </Content>
   );
 };
 
-export default BoatDetails;
+export default injectIntl(BoatDetails);

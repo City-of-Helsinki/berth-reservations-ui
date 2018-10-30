@@ -5,7 +5,7 @@ import { Text } from '../Fields';
 
 import type { FormFragmentProps } from '../../../types/form';
 
-export default ({ prefix }: FormFragmentProps) => (
+const ContactDetailsFragment = ({ prefix }: FormFragmentProps) => (
   <Row>
     <Col sm={4}>
       <Text
@@ -19,3 +19,5 @@ export default ({ prefix }: FormFragmentProps) => (
     </Col>
   </Row>
 );
+
+export default ContactDetailsFragment;

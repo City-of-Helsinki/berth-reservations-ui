@@ -5,7 +5,7 @@ import { Row, Col } from 'reactstrap';
 import { Text } from '../Fields';
 import type { FormFragmentProps } from '../../../types/form';
 
-export default ({ prefix }: FormFragmentProps) => (
+const PostalDetailsFragment = ({ prefix }: FormFragmentProps) => (
   <Row>
     <Col sm={4}>
       <Text
@@ -24,3 +24,4 @@ export default ({ prefix }: FormFragmentProps) => (
     </Col>
   </Row>
 );
+export default PostalDetailsFragment;

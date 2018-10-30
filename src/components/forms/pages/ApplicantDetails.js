@@ -3,11 +3,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container } from 'reactstrap';
 import { get } from 'lodash';
+import { FormattedMessage } from 'react-intl';
 
-import PrivatePerson from '../fragments/PrivatePerson';
-import Company from '../fragments/Company';
+import FullName from '../fragments/FullName';
+import PostalDetails from '../fragments/PostalDetails';
+import ContactDetails from '../fragments/ContactDetails';
+import CompanyDetails from '../fragments/CompanyDetails';
 
-import FormTypeSelector from '../fragments/FormTypeSelector';
+import FormTypeSelector from '../fields/FormTypeSelector';
 
 const Content = styled.div``;
 
@@ -35,10 +38,24 @@ const ApplicantDetails = ({ values }: Props) => {
           }
         ]}
       />
-      <Container>
-        {selected === 'private_person' && <PrivatePerson prefix="private_person" />}
-        {selected === 'company' && <Company prefix="company" />}
-      </Container>
+      {selected === 'private_person' && (
+        <Container>
+          <FormattedMessage tagName="h3" id="form.private_person.header.title" />
+          <FullName prefix="applicant.name" />
+          <PostalDetails prefix="applicant.postal" />
+          <ContactDetails prefix="applicant.contact" />
+        </Container>
+      )}
+      {selected === 'company' && (
+        <Container>
+          <FormattedMessage tagName="h3" id="form.company.header.title" />
+          <CompanyDetails prefix="applicant.company" />
+          <PostalDetails prefix="applicant.postal" />
+          <FormattedMessage tagName="h3" id="form.company.header.contact_person" />
+          <FullName prefix="applicant.name" />
+          <ContactDetails prefix="applicant.contact" />
+        </Container>
+      )}
     </Content>
   );
 };
