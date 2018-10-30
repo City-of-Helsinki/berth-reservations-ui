@@ -17,7 +17,7 @@ const RegisteredBoatDetailsFragment = ({ prefix }: FormFragmentProps) => (
       />
     </Col>
     <Col sm={6}>
-      <BoatType />
+      <BoatType prefix={prefix} />
     </Col>
   </Row>
 );

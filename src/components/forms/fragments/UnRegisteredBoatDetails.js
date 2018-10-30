@@ -10,7 +10,7 @@ import { mustBeNumber } from '../../../utils/formValidation';
 const UnRegisteredBoatDetailsFragment = ({ prefix }: FormFragmentProps) => (
   <Row>
     <Col sm={4}>
-      <BoatType />
+      <BoatType prefix={prefix} />
     </Col>
     <Col sm={4}>
       <Number
