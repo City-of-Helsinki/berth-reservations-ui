@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 import { Field } from 'react-final-form';
 import { get } from 'lodash';
 import { FormText, FormFeedback } from 'reactstrap';
+import { type IntlShape, injectIntl } from 'react-intl';
 import Label from './Label';
 
 import { type DefaultFieldProps } from '../../../types/form';
@@ -10,7 +11,8 @@ import { type DefaultFieldProps } from '../../../types/form';
 import validator, { mustBePresent } from '../../../utils/formValidation';
 
 type FormGroupFieldProps = DefaultFieldProps & {
-  type: string
+  type: string,
+  intl: IntlShape
 };
 
 const FormGroupField = ({
@@ -23,6 +25,7 @@ const FormGroupField = ({
   validate,
   text,
   children,
+  intl: { formatMessage },
   ...rest
 }: FormGroupFieldProps) => (
   <Field
@@ -50,11 +53,12 @@ const FormGroupField = ({
           }
           return child;
         })}
-        {meta.touched && meta.error && <FormFeedback>{meta.error}</FormFeedback>}
+        {meta.touched &&
+          meta.error && <FormFeedback>{formatMessage({ id: meta.error })}</FormFeedback>}
         {text && <FormText>{text}</FormText>}
       </Fragment>
     )}
   </Field>
 );
 
-export default FormGroupField;
+export default injectIntl(FormGroupField);
