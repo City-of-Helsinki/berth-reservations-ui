@@ -38,7 +38,8 @@
     "flow": "flow",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "dev": "yarn run storybook & yarn run start",
-    "test": "cypress run --browser chrome"
+    "test:ci": "cypress run --browser chrome",
+    "test": "cypress open"
   },
   "devDependencies": {
     "@babel/preset-flow": "^7.0.0",

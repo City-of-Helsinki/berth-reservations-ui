@@ -16,7 +16,7 @@
 After cloning this repository, create a new `.env.local` file from the provided `.env.example` file and configure it as needed:
 
 ```
-$ cp .env.example .env.local
+$ cp .env.example .env.development.local
 ```
 
 ## Development
