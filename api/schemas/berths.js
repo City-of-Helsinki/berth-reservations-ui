@@ -49,8 +49,8 @@ module.exports = array(
       type: fakedString('address.city'),
       coordinates: array([fakedInteger('address.latitude'), fakedInteger('address.longitude')])
     }),
-    image_file: fakedMultilingual('image.imageUrl'),
-    image_link: fakedMultilingual('internet.url'),
+    image_file: fakedString('image.imageUrl'),
+    image_link: fakedString('internet.url'),
     mooring: boolean(),
     electricity: boolean(),
     water: boolean(),
