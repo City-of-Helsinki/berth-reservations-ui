@@ -13,7 +13,7 @@ import {
 } from '../src/components/forms/Fields';
 import Form from '../src/components/forms/Form';
 import OverViewInfo from '../src/components/forms/sections/OverviewInfo';
-import { developmentValues } from '../src/ducks/mocks/forms';
+import { developmentValues } from '../src/ducks/defaultStates/forms';
 
 storiesOf('Forms', module)
   .addDecorator(storyFn => <Form onSubmit={action('onSubmit')}>{() => storyFn()}</Form>)

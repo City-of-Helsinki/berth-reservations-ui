@@ -8,7 +8,7 @@ import { BigBoatTypeValue } from '../src/components/forms/Fields';
 import ApplicantDetailsPage from '../src/components/forms/sections/ApplicantDetails';
 import BoatDetailsPage from '../src/components/forms/sections/BoatDetails';
 import OverviewPage from '../src/components/forms/sections/Overview';
-import { developmentValues } from '../src/ducks/mocks/forms';
+import { developmentValues } from '../src/ducks/defaultStates/forms';
 
 const privatePerson = { sections: { applicant: 'private_person' } };
 const company = { sections: { applicant: 'company' } };

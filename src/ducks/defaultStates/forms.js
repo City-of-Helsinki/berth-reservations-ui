@@ -1,6 +1,6 @@
 import faker from 'faker';
 
-const developmentValues = {
+export const developmentValues = {
   sections: {
     applicant: 'private_person',
     boat: 'registered_boat'
