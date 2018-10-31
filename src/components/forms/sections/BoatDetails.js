@@ -14,7 +14,7 @@ import BigShips from '../fragments/BigShips';
 import Accessibility from '../fragments/Accessibility';
 import UnRegisteredBoatDetails from '../fragments/UnRegisteredBoatDetails';
 
-import SectionsSelector from '../SectionsSelector';
+import SectionSelector from '../SectionSelector';
 
 import { BigBoatTypeValue } from '../Fields';
 
@@ -34,7 +34,7 @@ const BoatDetails = ({ values }: Props) => {
   const ShowBigBoats = get(values, ['boat', 'type']) === BigBoatTypeValue;
   return (
     <Content>
-      <SectionsSelector
+      <SectionSelector
         name="boat"
         selected={selected}
         types={[

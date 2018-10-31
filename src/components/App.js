@@ -1,18 +1,19 @@
 // @flow
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router';
+import { IntlProvider } from 'react-intl';
+import messages from '../config/translations';
 
 import BerthPage from './pages/containers/BerthPageContainer';
 import FormPage from './pages/containers/FormPageContainer';
 import ThankYouPage from './pages/containers/ThankYouPageContainer';
-import IntlProvider from './IntlProvider';
 
 type Props = {
   locale: string
 };
 
 const App = ({ locale }: Props) => (
-  <IntlProvider locale={locale}>
+  <IntlProvider locale={locale} key={locale} messages={messages[locale]}>
     <Switch>
       <Redirect exact path="/:locale/" to="/:locale/form" />
       <Route exact path="/:locale/berths" component={BerthPage} />

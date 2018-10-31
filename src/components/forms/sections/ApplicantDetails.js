@@ -10,7 +10,7 @@ import PostalDetails from '../fragments/PostalDetails';
 import ContactDetails from '../fragments/ContactDetails';
 import CompanyDetails from '../fragments/CompanyDetails';
 
-import SectionsSelector from '../SectionsSelector';
+import SectionSelector from '../SectionSelector';
 
 const Content = styled.div``;
 
@@ -22,7 +22,7 @@ const ApplicantDetails = ({ values }: Props) => {
   const selected = get(values, ['sections', 'applicant']);
   return (
     <Content>
-      <SectionsSelector
+      <SectionSelector
         name="applicant"
         selected={selected}
         types={[

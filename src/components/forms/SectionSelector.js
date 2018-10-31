@@ -25,7 +25,7 @@ type Props = {
   selected: any
 };
 
-const SectionsSelector = ({ name, types, selected }: Props) => (
+const SectionSelector = ({ name, types, selected }: Props) => (
   <ButtonWrapper>
     <Container>
       <Row>
@@ -42,4 +42,4 @@ const SectionsSelector = ({ name, types, selected }: Props) => (
   </ButtonWrapper>
 );
 
-export default SectionsSelector;
+export default SectionSelector;
