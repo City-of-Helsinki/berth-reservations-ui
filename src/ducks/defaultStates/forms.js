@@ -1,6 +1,6 @@
 import faker from 'faker';
 
-export const developmentValues = {
+const developmentValues = {
   sections: {
     applicant: 'private_person',
     boat: 'registered_boat'
@@ -55,9 +55,12 @@ export const developmentValues = {
   }
 };
 
-export const productionValues = {
-  select_form_type: {
-    applicant_details: 'private_person',
-    boat_details: 'registered_boat'
+const productionValues = {
+  sections: {
+    applicant: 'private_person',
+    boat: 'registered_boat'
   }
 };
+
+const { REACT_APP_PREFILLED_FORMS } = process.env;
+export default (REACT_APP_PREFILLED_FORMS ? developmentValues : productionValues);

@@ -2,10 +2,7 @@
 import { Record } from 'immutable';
 import { createAction } from 'redux-actions';
 import type { Action, Forms } from '../types/ducks';
-import { productionValues, developmentValues } from './mocks/forms';
-
-const { NODE_ENV } = process.env;
-const values = NODE_ENV === 'development' ? developmentValues : productionValues;
+import values from './defaultStates/forms';
 
 const defaultState = Record({
   values,
