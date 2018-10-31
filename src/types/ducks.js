@@ -7,6 +7,10 @@ export type Forms = RecordOf<{
   done: boolean
 }>;
 
+export type Berths = RecordOf<{
+  berths: Object
+}>;
+
 export type Action = {
   type: string,
   payload: any

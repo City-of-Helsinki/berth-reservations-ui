@@ -38,6 +38,7 @@ const fakedMultilingual = faked =>
 
 module.exports = array(
   object({
+    id: fakedString('random.uuid'),
     name: fakedMultilingual('address.streetName'),
     street_address: fakedMultilingual('address.streetAddress'),
     municipality: fakedMultilingual('address.city'),
