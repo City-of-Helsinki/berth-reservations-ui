@@ -24,7 +24,7 @@ $ cp .env.example .env.local
 To start development environment, run command:
 
 ```
-$ yarn develop
+$ yarn dev
 ```
 
 This will start [the application](http://localhost:3000) and [the storybook](http://localhost:9001) for ports `3000` & `9001`
