@@ -1,5 +1,5 @@
-const users = require('./users');
+const berths = require('./berths');
 
 module.exports = {
-  users
+  berths
 };
