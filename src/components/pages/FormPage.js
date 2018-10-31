@@ -17,7 +17,8 @@ const BoatPage = ({
   onSubmit,
   nextStep,
   prevStep,
-  localePush
+  localePush,
+  resetValues
 }: Props) => (
   <Layout>
     <Steps step={step} done={done} />
@@ -27,6 +28,7 @@ const BoatPage = ({
       initialValues={initialValues}
       onSubmit={async values => {
         await onSubmit(values);
+        await resetValues();
         localePush('thank-you');
       }}
       nextStep={nextStep}

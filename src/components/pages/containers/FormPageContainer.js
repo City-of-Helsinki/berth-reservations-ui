@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { withLocaleHandlers } from '../../../utils/container';
-import { onSubmit, nextStep, prevStep } from '../../../ducks/forms';
+import { onSubmit, nextStep, prevStep, resetValues } from '../../../ducks/forms';
 import FormPage from '../FormPage';
 
 export default compose(
@@ -13,6 +13,6 @@ export default compose(
       step: state.forms.step,
       done: state.forms.done
     }),
-    { onSubmit, nextStep, prevStep }
+    { onSubmit, nextStep, prevStep, resetValues }
   )
 )(FormPage);
