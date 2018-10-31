@@ -63,4 +63,4 @@ const productionValues = {
 };
 
 const { REACT_APP_PREFILLED_FORMS } = process.env;
-export default (REACT_APP_PREFILLED_FORMS ? developmentValues : productionValues);
+export default (REACT_APP_PREFILLED_FORMS === 'true' ? developmentValues : productionValues);
