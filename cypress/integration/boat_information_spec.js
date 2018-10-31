@@ -1,28 +1,26 @@
 describe('Boat information', () => {
   const firstPageFillForm = () => {
-    cy.get('input[name="registered_boat.register_number"]')
+    cy.get('input[name="boat.register_number"]')
       .type('12345')
-      .get('select[name="registered_boat.type"]')
+      .get('select[name="boat.type"]')
       .select('b')
-      .get('input[name="registered_boat.width"]')
+      .get('input[name="boat.width"]')
       .type('5')
-      .get('input[name="registered_boat.length"]')
+      .get('input[name="boat.length"]')
       .type('20')
-      .get('input[name="registered_boat.depth"]')
+      .get('input[name="boat.draught"]')
       .type('3')
-      .get('input[name="registered_boat.weight"]')
+      .get('input[name="boat.weight"]')
       .type('10500')
-      .get('input[name="registered_boat.boat_name"]')
+      .get('input[name="boat.name"]')
       .type('RMS Titanic')
-      .get('input[name="registered_boat.boat_model"]')
+      .get('input[name="boat.model"]')
       .type('Sinking type');
   };
 
   it('gives validation errors', () => {
     cy.visit('http://localhost:3000');
-    firstPageFillForm();
-    cy.get('[type="submit"]');
-    cy.click();
+    cy.get('[type="submit"]').click();
     cy.contains('Pakollinen kenttä');
   });
 
