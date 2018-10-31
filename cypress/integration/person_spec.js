@@ -1,30 +1,16 @@
-import {
-  gotoRegisteredBoat,
-  clickSubmit,
-  registeredBoatPageFillForm,
-  personPageFillForm
-} from './actions';
+import { gotoPersonPage, clickSubmit, personPageFillForm } from './actions';
 
 describe('Person', () => {
-  it('gives validation errors', () => {
-    cy.visit('http://localhost:3000');
+  it('gives validation errors when form is not filled', () => {
+    gotoPersonPage();
     clickSubmit();
     cy.contains('Pakollinen kenttä');
   });
 
-  it('takes us to person details page on form fill', () => {
-    cy.visit('http://localhost:3000');
-    registeredBoatPageFillForm();
-    clickSubmit();
-    cy.contains('Hakijan tiedot');
-  });
-
-  it('takes us to overview page on form fill', () => {
-    cy.visit('http://localhost:3000');
-    registeredBoatPageFillForm();
-    clickSubmit();
+  it('successfully goes to next step', () => {
+    gotoPersonPage();
     personPageFillForm();
-    cy.get('[type="submit"]').click();
+    clickSubmit();
     cy.contains('Yhteenveto');
   });
 });
