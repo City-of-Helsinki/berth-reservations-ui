@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
-import Layout from './Layout';
-import ThankYouLegend from '../ThankYouLegend';
+import Layout from '../layout/Layout';
+import ThankYouLegend from '../legends/ThankYouLegend';
 
 const ButtonSection = styled.div`
   display: flex;

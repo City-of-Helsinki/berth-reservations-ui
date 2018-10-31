@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { injectIntl, type intlShape } from 'react-intl';
 import { Col, Row, Container } from 'reactstrap';
 import Step from './Step';
-import media from '../utils/responsive';
+import media from '../../utils/responsive';
 
 const StepIndicatorSection = styled.div`
   background-color: ${props => props.theme.colors.helFog};
@@ -51,8 +51,8 @@ const Steps = ({ intl, step, done }: Props) => (
         </Col>
         <Col sm="3">
           <Step
-            completed={step > 2 || done}
-            current={step === 2}
+            completed={step > 3 || done}
+            current={step === 3}
             label={intl.messages['site.steps.send_application']}
           />
         </Col>

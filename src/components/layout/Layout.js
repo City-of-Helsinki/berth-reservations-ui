@@ -5,10 +5,10 @@ import { FormattedMessage } from 'react-intl';
 import { Navbar, NavbarBrand, Nav } from 'reactstrap';
 import styled from 'styled-components';
 
-import LanguageDropdown from '../LanguageDropdown';
-import Icon from '../Icon';
-import KoroSection from '../KoroSection';
-import Footer from '../Footer';
+import LanguageDropdown from './LanguageDropdown';
+import Icon from '../common/Icon';
+import KoroSection from './KoroSection';
+import Footer from './Footer';
 import heroImage from '../../assets/images/hero_image_berth.jpg';
 
 type Props = {

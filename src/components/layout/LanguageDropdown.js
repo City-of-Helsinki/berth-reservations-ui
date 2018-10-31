@@ -5,7 +5,7 @@ import { FormattedMessage, injectIntl, type intlShape } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { Dropdown, DropdownMenu, DropdownItem, DropdownToggle } from 'reactstrap';
 import styled from 'styled-components';
-import Icon from './Icon';
+import Icon from '../common/Icon';
 
 type Props = {
   children: Node,

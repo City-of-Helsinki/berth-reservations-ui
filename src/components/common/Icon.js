@@ -2,14 +2,14 @@
 
 import React from 'react';
 import Svg from 'react-svg';
-import helsinkiLogo from '../assets/shapes/helsinki-logo.svg';
-import globe from '../assets/shapes/globe.svg';
-import check from '../assets/shapes/check.svg';
-import registeredBoat from '../assets/shapes/registered.svg';
-import unregisteredBoat from '../assets/shapes/unregistered.svg';
-import noBoat from '../assets/shapes/noboat.svg';
-import business from '../assets/shapes/business.svg';
-import individual from '../assets/shapes/individual.svg';
+import helsinkiLogo from './icons/helsinki-logo.svg';
+import globe from './icons/globe.svg';
+import check from './icons/check.svg';
+import registeredBoat from './icons/registered.svg';
+import unregisteredBoat from './icons/unregistered.svg';
+import noBoat from './icons/noboat.svg';
+import business from './icons/business.svg';
+import individual from './icons/individual.svg';
 
 const icons = {
   helsinkiLogo,

@@ -30,12 +30,11 @@ export default class Wizard extends Component<Props, State> {
   };
 
   handleSubmit = (values: any) => {
-    const { nextStep, onSubmit, localePush } = this.props;
+    const { nextStep, onSubmit } = this.props;
     if (this.hasNextStep()) {
       nextStep();
     } else {
       onSubmit(values);
-      localePush('thank-you');
     }
   };
 

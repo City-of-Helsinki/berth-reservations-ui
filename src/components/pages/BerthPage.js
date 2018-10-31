@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import LocalizedLink from '../LocalizedLink';
-import Layout from './Layout';
+import LocalizedLink from '../common/LocalizedLink';
+import Layout from '../layout/Layout';
 
 const BerthPage = () => (
   <Layout>

@@ -5,22 +5,22 @@ import { Container } from 'reactstrap';
 
 import Form from '../src/components/forms/Form';
 import { BigBoatTypeValue } from '../src/components/forms/Fields';
-import ApplicantDetailsPage from '../src/components/forms/pages/ApplicantDetails';
-import BoatDetailsPage from '../src/components/forms/pages/BoatDetails';
-import OverviewPage from '../src/components/forms/pages/Overview';
+import ApplicantDetailsPage from '../src/components/forms/sections/ApplicantDetails';
+import BoatDetailsPage from '../src/components/forms/sections/BoatDetails';
+import OverviewPage from '../src/components/forms/sections/Overview';
 import { developmentValues } from '../src/ducks/mocks/forms';
 
-const privatePerson = { select_form_type: { applicant_details: 'private_person' } };
-const company = { select_form_type: { applicant_details: 'company' } };
-const registeredBoat = { select_form_type: { boat_details: 'registered_boat' } };
+const privatePerson = { sections: { applicant: 'private_person' } };
+const company = { sections: { applicant: 'company' } };
+const registeredBoat = { sections: { boat: 'registered_boat' } };
 const bigShips = {
-  select_form_type: { boat_details: 'registered_boat' },
+  sections: { boat: 'registered_boat' },
   boat: { type: BigBoatTypeValue }
 };
-const unregisteredBoat = { select_form_type: { boat_details: 'unregistered_boat' } };
-const noBoat = { select_form_type: { boat_details: 'no_boat' } };
+const unregisteredBoat = { sections: { boat: 'unregistered_boat' } };
+const noBoat = { sections: { boat: 'no_boat' } };
 
-storiesOf('Forms/Pages', module)
+storiesOf('Forms/Sections', module)
   .addDecorator(storyFn => (
     <Container fluid>
       <Form onSubmit={action('onSubmit')}>{() => storyFn()}</Form>

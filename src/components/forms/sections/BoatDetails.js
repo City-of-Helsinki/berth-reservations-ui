@@ -14,7 +14,7 @@ import BigShips from '../fragments/BigShips';
 import Accessibility from '../fragments/Accessibility';
 import UnRegisteredBoatDetails from '../fragments/UnRegisteredBoatDetails';
 
-import FormTypeSelector from '../fields/FormTypeSelector';
+import SectionSelector from '../SectionSelector';
 
 import { BigBoatTypeValue } from '../Fields';
 
@@ -30,12 +30,12 @@ const GrayBackground = styled.div`
 `;
 
 const BoatDetails = ({ values }: Props) => {
-  const selected = get(values, ['select_form_type', 'boat_details']);
+  const selected = get(values, ['sections', 'boat']);
   const ShowBigBoats = get(values, ['boat', 'type']) === BigBoatTypeValue;
   return (
     <Content>
-      <FormTypeSelector
-        name="boat_details"
+      <SectionSelector
+        name="boat"
         selected={selected}
         types={[
           {
