@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import {
   Text,
   Select,
@@ -11,12 +10,12 @@ import {
   Number,
   BoatType
 } from '../src/components/forms/Fields';
-import Form from '../src/components/forms/Form';
 import OverViewInfo from '../src/components/forms/sections/OverviewInfo';
 import { developmentValues } from '../src/ducks/defaultStates/forms';
+import { form } from './decorators';
 
 storiesOf('Forms', module)
-  .addDecorator(storyFn => <Form onSubmit={action('onSubmit')}>{() => storyFn()}</Form>)
+  .addDecorator(form)
   .add('OverViewInfo', () => <OverViewInfo values={developmentValues} />)
   .add('InputFields', () => (
     <div>

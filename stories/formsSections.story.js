@@ -1,14 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { Container } from 'reactstrap';
-
-import Form from '../src/components/forms/Form';
 import { BigBoatTypeValue } from '../src/components/forms/Fields';
 import ApplicantDetailsPage from '../src/components/forms/sections/ApplicantDetails';
 import BoatDetailsPage from '../src/components/forms/sections/BoatDetails';
 import OverviewPage from '../src/components/forms/sections/Overview';
 import { developmentValues } from '../src/ducks/defaultStates/forms';
+
+import { form } from './decorators';
 
 const privatePerson = { sections: { applicant: 'private_person' } };
 const company = { sections: { applicant: 'company' } };
@@ -21,11 +19,7 @@ const unregisteredBoat = { sections: { boat: 'unregistered_boat' } };
 const noBoat = { sections: { boat: 'no_boat' } };
 
 storiesOf('Forms/Sections', module)
-  .addDecorator(storyFn => (
-    <Container fluid>
-      <Form onSubmit={action('onSubmit')}>{() => storyFn()}</Form>
-    </Container>
-  ))
+  .addDecorator(form)
   .add('privatePerson', () => <ApplicantDetailsPage values={privatePerson} />)
   .add('company', () => <ApplicantDetailsPage values={company} />)
   .add('registeredBoat', () => <BoatDetailsPage values={registeredBoat} />)
