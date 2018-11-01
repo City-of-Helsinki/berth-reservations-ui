@@ -29,10 +29,16 @@ $ yarn dev
 
 This will start [the application](http://localhost:3000) and [the storybook](http://localhost:9001) for ports `3000` & `9001`
 
-## Running Client Only
-
-Run both commands below in seperate windows:
+To only start the client:
 
 ```
 $ yarn start
+```
+
+## Testing
+
+End-to-end testing is created with Cypress.io framework. To run tests:
+
+```
+$ yarn test
 ```
