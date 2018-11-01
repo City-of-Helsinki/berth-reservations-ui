@@ -1,10 +1,7 @@
 sudo: false
 language: node_js
 node_js:
-  - "11"
-branches:
-  only:
-    - master
+  - '11'
 cache:
   yarn: true
   directories:
