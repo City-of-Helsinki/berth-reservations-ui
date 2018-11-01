@@ -1,41 +1,65 @@
+import values from '../fixtures/values';
+
 export const clickSubmit = () => {
   cy.get('[type="submit"]').click();
 };
 
 export const registeredBoatPageFillForm = () => {
   cy.get('input[name="boat.register_number"]')
-    .type('12345')
+    .type(values.boat.register_number)
     .get('select[name="boat.type"]')
-    .select('b')
+    .select(values.boat.type)
     .get('input[name="boat.width"]')
-    .type('5')
+    .type(values.boat.width)
     .get('input[name="boat.length"]')
-    .type('20')
+    .type(values.boat.length)
     .get('input[name="boat.draught"]')
-    .type('3')
+    .type(values.boat.draught)
     .get('input[name="boat.weight"]')
-    .type('10500')
+    .type(values.boat.weight)
     .get('input[name="boat.name"]')
-    .type('RMS Titanic')
+    .type(values.boat.name)
     .get('input[name="boat.model"]')
-    .type('Sinking type');
+    .type(values.boat.model);
+};
+
+export const unregisteredBoatPageFillForm = () => {
+  cy.get('select[name="boat.type"]')
+    .select(values.boat.type)
+    .get('input[name="boat.width"]')
+    .type(values.boat.width)
+    .get('input[name="boat.length"]')
+    .type(values.boat.length)
+    .get('input[name="boat.name"]')
+    .type(values.boat.name)
+    .get('input[name="boat.model"]')
+    .type(values.boat.model);
+};
+
+export const noBoatPageFillForm = () => {
+  cy.get('select[name="boat.type"]')
+    .select(values.boat.type)
+    .get('input[name="boat.width"]')
+    .type(values.boat.width)
+    .get('input[name="boat.length"]')
+    .type(values.boat.length);
 };
 
 export const personPageFillForm = () => {
   cy.get('input[name="applicant.name.first_name"]')
-    .type('Lusso')
+    .type(values.applicant.name.first_name)
     .get('input[name="applicant.name.last_name"]')
-    .type('Manatee')
+    .type(values.applicant.name.last_name)
     .get('input[name="applicant.postal.street_address"]')
-    .type('Glöö Street 123')
+    .type(values.applicant.name.street_address)
     .get('input[name="applicant.postal.postal_code"]')
-    .type('12345')
+    .type(values.applicant.name.postal_code)
     .get('input[name="applicant.postal.munacipality"]')
-    .type('Manatee Island')
+    .type(values.applicant.name.munacipality)
     .get('input[name="applicant.contact.mobile_phone"]')
-    .type('+358121231234')
+    .type(values.applicant.name.mobile_phone)
     .get('input[name="applicant.contact.email"]')
-    .type('vector@manatees.net');
+    .type(values.applicant.name.email);
 };
 
 export const gotoRegisteredBoatPage = () => {
@@ -56,5 +80,13 @@ export const gotoNoBoatPage = () => {
 export const gotoPersonPage = () => {
   cy.visit('http://localhost:3000');
   registeredBoatPageFillForm();
+  clickSubmit();
+};
+
+export const gotoOverviewPage = () => {
+  gotoRegisteredBoatPage();
+  registeredBoatPageFillForm();
+  clickSubmit();
+  personPageFillForm();
   clickSubmit();
 };
