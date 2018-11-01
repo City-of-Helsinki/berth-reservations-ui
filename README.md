@@ -1,5 +1,7 @@
 # Berth Reservation UI
 
+[![Build Status](https://travis-ci.com/City-of-Helsinki/berth-reservations-ui.svg?branch=master)](https://travis-ci.com/City-of-Helsinki/berth-reservations-ui)
+
 ## Prerequisites
 
 - Yarn
@@ -21,7 +23,7 @@ $ cp .env.example .env.development.local
 
 ## Development
 
-To start development environment, run command:
+To start development environment, run:
 
 ```
 $ yarn dev
