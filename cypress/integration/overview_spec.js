@@ -13,7 +13,7 @@ describe('Overview', () => {
     cy.contains(`Syväys:${values.boat.draught}m`);
     cy.contains(`Paino:${values.boat.weight}kg`);
     cy.contains(`${values.applicant.name.first_name} ${values.applicant.name.last_name}`);
-    cy.contains(values.applicant.name.email);
+    cy.contains(values.applicant.contact.email);
     clickSubmit();
     cy.contains('Kiitos hakemuksesta');
   });

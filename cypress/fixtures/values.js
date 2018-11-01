@@ -12,10 +12,14 @@ export default {
   applicant: {
     name: {
       first_name: 'Lusso',
-      last_name: 'Manatee',
+      last_name: 'Manatee'
+    },
+    postal: {
       street_address: 'Glöö Street 123',
       postal_code: '12345',
-      munacipality: 'Manatee Island',
+      munacipality: 'Manatee Island'
+    },
+    contact: {
       mobile_phone: '+358121231234',
       email: 'vector@manatees.net'
     }

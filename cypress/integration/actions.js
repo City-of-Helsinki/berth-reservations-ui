@@ -51,15 +51,15 @@ export const personPageFillForm = () => {
     .get('input[name="applicant.name.last_name"]')
     .type(values.applicant.name.last_name)
     .get('input[name="applicant.postal.street_address"]')
-    .type(values.applicant.name.street_address)
+    .type(values.applicant.postal.street_address)
     .get('input[name="applicant.postal.postal_code"]')
-    .type(values.applicant.name.postal_code)
+    .type(values.applicant.postal.postal_code)
     .get('input[name="applicant.postal.munacipality"]')
-    .type(values.applicant.name.munacipality)
+    .type(values.applicant.postal.munacipality)
     .get('input[name="applicant.contact.mobile_phone"]')
-    .type(values.applicant.name.mobile_phone)
+    .type(values.applicant.contact.mobile_phone)
     .get('input[name="applicant.contact.email"]')
-    .type(values.applicant.name.email);
+    .type(values.applicant.contact.email);
 };
 
 export const gotoRegisteredBoatPage = () => {
