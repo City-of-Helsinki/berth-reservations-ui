@@ -21,7 +21,7 @@ $ cp .env.example .env.development.local
 
 ## Development
 
-To start development environment, run command:
+To start development environment, run:
 
 ```
 $ yarn dev
