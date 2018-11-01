@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default ({ berths, selected }) => (
+export default ({ berths }) => (
   <div>
     <h1>Selected Berths</h1>
     <div>
-      {berths.filter(b => selected.includes(b.id)).map(b => (
-        <span key={b.id}>{b.name.fi}</span>
+      {berths.map(b => (
+        <h3 key={b.id}>{b.name.fi}</h3>
       ))}
     </div>
   </div>

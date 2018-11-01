@@ -63,8 +63,7 @@ class BerthPage extends Component<Props> {
                   <BerthsOnMap tabHeader="Kartalla" berths={filtered} />
                   <SelectedBerths
                     tabHeader={`Valitut ${selectedBerths.size}/${berths.size}`}
-                    berths={berths}
-                    selected={selectedBerths}
+                    berths={berths.filter(b => selectedBerths.includes(b.id))}
                   />
                 </TabSelector>
               </Fragment>
