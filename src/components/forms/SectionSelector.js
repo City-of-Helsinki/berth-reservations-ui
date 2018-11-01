@@ -25,15 +25,22 @@ type Props = {
   selected: any
 };
 
+type TypeProps = {
+  id: string,
+  label: string,
+  value: string,
+  iconName: string
+};
+
 const SectionSelector = ({ name, types, selected }: Props) => (
   <ButtonWrapper>
     <Container>
       <Row>
-        {types.map(({ label, value, iconName }) => (
+        {types.map(({ id, label, value, iconName }: TypeProps) => (
           <Col xs={3} key={`${name}.${value}`}>
             <FormSelectWrapper selected={selected === value}>
               <StyledIcon name={iconName} width="50%" color="black" />
-              <Radio id={label} name={`sections.${name}`} value={value} label={label} />
+              <Radio id={id} name={`sections.${name}`} value={value} label={label} />
             </FormSelectWrapper>
           </Col>
         ))}

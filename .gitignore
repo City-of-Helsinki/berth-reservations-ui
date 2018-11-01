@@ -5,7 +5,7 @@
 
 # testing
 /coverage
-/cypress/integration/screenshots
+/cypress/screenshots
 
 # production
 /build

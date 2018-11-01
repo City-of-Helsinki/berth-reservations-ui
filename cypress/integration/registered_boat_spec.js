@@ -11,7 +11,6 @@ describe('Registered boat', () => {
     gotoRegisteredBoatPage();
     registeredBoatPageFillForm();
     clickSubmit();
-
     cy.contains('Hakijan tiedot');
   });
 });
