@@ -1,5 +1,7 @@
 # Berth Reservation UI
 
+[![Build Status](https://travis-ci.com/City-of-Helsinki/berth-reservations-ui.svg?branch=master)](https://travis-ci.com/City-of-Helsinki/berth-reservations-ui)
+
 ## Prerequisites
 
 - Yarn
