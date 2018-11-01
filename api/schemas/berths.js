@@ -59,8 +59,9 @@ module.exports = array(
     gate: boolean(),
     lighting: boolean(),
     number_of_places: integer(10, 50),
-    maximum_depth: integer(100, 1000),
-    maximum_width: integer(100, 1000)
+    maximum_depth: integer(0, 10),
+    maximum_width: integer(0, 10),
+    maximum_length: integer(0, 10)
   }),
   20,
   30

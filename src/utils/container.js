@@ -1,4 +1,4 @@
-import { withHandlers, withStateHandlers, withProps, compose } from 'recompose';
+import { withHandlers, withProps, compose } from 'recompose';
 import { withRouter } from 'react-router';
 
 export const withLocale = compose(
@@ -16,13 +16,4 @@ export const withLocaleHandlers = compose(
       history.push(`/${locale}/${uri}`);
     }
   })
-);
-
-export const formTypeSelection = withStateHandlers(
-  ({ selected = 0 }) => ({
-    selected
-  }),
-  {
-    selectFormType: () => selected => ({ selected })
-  }
 );
