@@ -40,17 +40,17 @@ export const personPageFillForm = () => {
 
 export const gotoRegisteredBoatPage = () => {
   cy.visit('http://localhost:3000');
-  cy.get('input[id="boat_type.selector.registered_boat"]').click();
+  cy.get('label[for="boat_type.selector.registered_boat"]').click();
 };
 
 export const gotoUnregisteredBoatPage = () => {
   cy.visit('http://localhost:3000');
-  cy.get('input[id="boat_type.selector.unregistered_boat"]').click();
+  cy.get('label[for="boat_type.selector.unregistered_boat"]').click();
 };
 
 export const gotoNoBoatPage = () => {
   cy.visit('http://localhost:3000');
-  cy.get('input[id="boat_type.selector.no_boat"]').click();
+  cy.get('label[for="boat_type.selector.no_boat"]').click();
 };
 
 export const gotoPersonPage = () => {
