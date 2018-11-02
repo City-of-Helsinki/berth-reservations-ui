@@ -5,7 +5,7 @@ import Layout from '../layout/Layout';
 import Form from '../forms/Form';
 import BerthsLegend from '../legends/BerthsLegend';
 import BerthsOnMap from '../berths/BerthsOnMap';
-import ListBerths from '../berths/ListBerths';
+import Berths from '../berths/Berths';
 import SelectedBerths from '../berths/SelectedBerths';
 import TabSelector from '../berths/TabSelector';
 
@@ -54,7 +54,7 @@ class BerthPage extends Component<Props> {
               <Fragment>
                 <BerthsLegend />
                 <TabSelector>
-                  <ListBerths
+                  <Berths
                     tabHeader="Lista"
                     berths={filtered}
                     selected={selectedBerths}
