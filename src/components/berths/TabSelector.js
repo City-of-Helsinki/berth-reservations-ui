@@ -1,10 +1,13 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import { StickyContainer, Sticky } from 'react-sticky';
 
 const TabsWrapper = styled.div`
   background-color: ${props => props.theme.helFog};
   display: flex;
+  z-index: 999;
   justify-content: center;
+  border-bottom: 4px solid white;
 `;
 const TabButton = styled.button.attrs({
   type: 'button'
@@ -47,18 +50,22 @@ class TabSelector extends Component {
     const { tab } = this.state;
     const { children } = this.props;
 
-    const headers = children.map(c => c.props.tabHeader);
+    const headers = children.map(c => c.props.TabHeader);
     return (
-      <Fragment>
-        <TabsWrapper>
-          {headers.map((t, i) => (
-            <TabButton key={i} onClick={() => this.selectTab(i)} active={i === tab}>
-              {t}
-            </TabButton>
-          ))}
-        </TabsWrapper>
+      <StickyContainer>
+        <Sticky>
+          {({ style }) => (
+            <TabsWrapper style={style}>
+              {headers.map((T, i) => (
+                <TabButton key={i} onClick={() => this.selectTab(i)} active={i === tab}>
+                  <T />
+                </TabButton>
+              ))}
+            </TabsWrapper>
+          )}
+        </Sticky>
         <Tabs>{this.getActiveTab()}</Tabs>
-      </Fragment>
+      </StickyContainer>
     );
   }
 }

@@ -1,6 +1,8 @@
 // @flow
 import React, { Component, Fragment } from 'react';
 import { get } from 'lodash';
+import { Badge } from 'reactstrap';
+
 import Layout from '../layout/Layout';
 import Form from '../forms/Form';
 import BerthsLegend from '../legends/BerthsLegend';
@@ -18,7 +20,9 @@ class BerthPage extends Component<Props> {
   }
 
   onSubmit = (values: any) => {
-    console.log(values);
+    const { onSubmit, localePush } = this.props;
+    onSubmit(values);
+    localePush('form');
   };
 
   getFilterByValues = (values: any) => {
@@ -55,14 +59,21 @@ class BerthPage extends Component<Props> {
                 <BerthsLegend />
                 <TabSelector>
                   <Berths
-                    tabHeader="Lista"
+                    TabHeader={() => <span>Lista</span>}
                     berths={filtered}
                     selected={selectedBerths}
                     onClick={this.toggleBerthSelect}
                   />
-                  <BerthsOnMap tabHeader="Kartalla" berths={filtered} />
+                  <BerthsOnMap TabHeader={() => <span>Kartalla</span>} berths={filtered} />
                   <SelectedBerths
-                    tabHeader={`Valitut ${selectedBerths.size}/${berths.size}`}
+                    TabHeader={() => (
+                      <span>
+                        Valitut:
+                        <Badge pill>
+                          {selectedBerths.size} / {berths.size}
+                        </Badge>
+                      </span>
+                    )}
                     berths={berths.filter(b => selectedBerths.includes(b.id))}
                   />
                 </TabSelector>

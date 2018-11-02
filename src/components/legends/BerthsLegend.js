@@ -27,8 +27,8 @@ export default () => (
       </Row>
       <Row>
         <Col md="12">
-          <UnRegisteredBoatDetails prefix="boat" />
-          <Services prefix="services" />
+          <UnRegisteredBoatDetails prefix="boat" noValidate />
+          <Services prefix="services" noValidate />
         </Col>
       </Row>
     </LegendContainer>

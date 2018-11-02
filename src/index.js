@@ -16,7 +16,7 @@ const Root = () => (
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
-          <Redirect exact path="/" to="/fi/form" />
+          <Redirect exact path="/" to="/fi" />
           <Route path="/:locale" component={App} />
         </Switch>
       </Router>
