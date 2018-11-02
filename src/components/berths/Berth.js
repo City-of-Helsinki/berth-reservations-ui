@@ -69,7 +69,7 @@ const Berth = ({ berth, className, onClick, selected }) => (
     <Col xs={3}>
       <BerthImage src={berth.image_file} alt={berth.name.fi} />
     </Col>
-    <Col xs={3}>
+    <Col xs={4}>
       <SummaryWrapper>
         <span>{berth.municipality.fi}</span>
         <strong>{berth.name.fi}</strong>
@@ -87,7 +87,7 @@ const Berth = ({ berth, className, onClick, selected }) => (
         <a href={berth.www_url}>Verkkosivu</a>
       </SummaryWrapper>
     </Col>
-    <Col xs={6}>
+    <Col xs={5}>
       <DetailsWrapper>
         <Details available={true}>
           <DetailsValue>{berth.number_of_places}</DetailsValue>
