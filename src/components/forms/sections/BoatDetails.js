@@ -39,16 +39,19 @@ const BoatDetails = ({ values }: Props) => {
         selected={selected}
         types={[
           {
+            id: 'boat_type.selector.registered_boat',
             label: 'form.boat_type_selector.registered_boat.label',
             value: 'registered_boat',
             iconName: 'registeredBoat'
           },
           {
+            id: 'boat_type.selector.unregistered_boat',
             label: 'form.boat_type_selector.unregistered_boat.label',
             value: 'unregistered_boat',
             iconName: 'unregisteredBoat'
           },
           {
+            id: 'boat_type.selector.no_boat',
             label: 'form.boat_type_selector.no_boat.label',
             value: 'no_boat',
             iconName: 'noBoat'
