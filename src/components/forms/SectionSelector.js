@@ -21,7 +21,7 @@ const FormSelectWrapper = styled.div`
 
 type Props = {
   name: string,
-  types: Array<any>,
+  types: Array<TypeProps>,
   selected: any
 };
 
