@@ -20,8 +20,9 @@ class BerthPage extends Component<Props> {
   }
 
   onSubmit = (values: any) => {
-    const { onSubmit, localePush } = this.props;
+    const { onSubmit, localePush, nextStep } = this.props;
     onSubmit(values);
+    nextStep();
     localePush('form');
   };
 

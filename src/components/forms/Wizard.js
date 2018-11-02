@@ -21,7 +21,7 @@ export default class Wizard extends Component<Props, State> {
 
   hasPreviousStep = () => {
     const { step } = this.props;
-    return step > 0;
+    return step > 1;
   };
 
   getActiveStep = () => {

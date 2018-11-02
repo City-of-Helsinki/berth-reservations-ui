@@ -18,4 +18,4 @@ storiesOf('Berths/Components', module)
 storiesOf('Berths/Sections', module)
   .add('BerthsOnMap', () => <BerthsOnMap berths={berths} />)
   .add('Berths', () => <Berths berths={berths} />)
-  .add('SelectedBerths', () => <SelectedBerths berths={selectedBerths} />);
+  .add('SelectedBerths', () => <SelectedBerths berths={berths} selected={selectedBerths} />);
