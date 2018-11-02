@@ -5,10 +5,11 @@ import { Row, Col } from 'reactstrap';
 import { Text } from '../Fields';
 import type { FormFragmentProps } from '../../../types/form';
 
-const FullNameFragment = ({ prefix }: FormFragmentProps) => (
+const FullNameFragment = ({ prefix, noValidate = false }: FormFragmentProps) => (
   <Row>
     <Col sm={4}>
       <Text
+        noValidate={noValidate}
         name={`${prefix}.first_name`}
         label="form.private_person.field.first_name.label"
         required
@@ -16,6 +17,7 @@ const FullNameFragment = ({ prefix }: FormFragmentProps) => (
     </Col>
     <Col sm={4}>
       <Text
+        noValidate={noValidate}
         name={`${prefix}.last_name`}
         label="form.private_person.field.last_name.label"
         required

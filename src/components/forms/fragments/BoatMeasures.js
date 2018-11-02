@@ -8,10 +8,11 @@ import { Number } from '../Fields';
 import type { FormFragmentProps } from '../../../types/form';
 import { mustBeNumber } from '../../../utils/formValidation';
 
-const RegisteredBoatFragment = ({ prefix }: FormFragmentProps) => (
+const RegisteredBoatFragment = ({ prefix, noValidate = false }: FormFragmentProps) => (
   <Row>
     <Col sm={3}>
       <Number
+        noValidate={noValidate}
         validate={mustBeNumber}
         name={`${prefix}.width`}
         label="form.registered.field.width.label"
@@ -21,6 +22,7 @@ const RegisteredBoatFragment = ({ prefix }: FormFragmentProps) => (
     </Col>
     <Col sm={3}>
       <Number
+        noValidate={noValidate}
         validate={mustBeNumber}
         name={`${prefix}.length`}
         label="form.registered.field.length.label"
@@ -30,6 +32,7 @@ const RegisteredBoatFragment = ({ prefix }: FormFragmentProps) => (
     </Col>
     <Col sm={3}>
       <Number
+        noValidate={noValidate}
         validate={mustBeNumber}
         name={`${prefix}.draught`}
         label="form.registered.field.draught.label"
@@ -39,6 +42,7 @@ const RegisteredBoatFragment = ({ prefix }: FormFragmentProps) => (
     </Col>
     <Col sm={3}>
       <Number
+        noValidate={noValidate}
         validate={mustBeNumber}
         name={`${prefix}.weight`}
         label="form.registered.field.weight.label"

@@ -17,8 +17,13 @@ export const MultiRadio = mapNameAsId(injectIntl(MultiCustomInputField('radio'))
 export const Number = mapNameAsId(InputGroupField('number'));
 
 export const BigBoatTypeValue = 'big_boats';
-export const BoatType = injectIntl(({ prefix, intl: { formatMessage } }) => (
-  <Select name={`${prefix}.type`} label="form.registered.field.type.label" required>
+export const BoatType = injectIntl(({ prefix, noValidate = false, intl: { formatMessage } }) => (
+  <Select
+    noValidate={noValidate}
+    name={`${prefix}.type`}
+    label="form.registered.field.type.label"
+    required
+  >
     <option>{formatMessage({ id: 'form.registered.field.type.placeholder' })}</option>
     <option value={BigBoatTypeValue}>a</option>
     <option>b</option>

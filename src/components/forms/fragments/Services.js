@@ -6,10 +6,11 @@ import { Row, Col } from 'reactstrap';
 import { MultiCheckbox } from '../Fields';
 import type { FormFragmentProps } from '../../../types/form';
 
-const Services = ({ prefix }: FormFragmentProps) => (
+const Services = ({ prefix, noValidate = false }: FormFragmentProps) => (
   <Row>
     <Col sm={12}>
       <MultiCheckbox
+        noValidate={noValidate}
         label="form.services.field.services.label"
         inline
         items={[

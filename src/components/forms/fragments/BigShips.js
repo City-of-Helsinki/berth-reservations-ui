@@ -7,11 +7,20 @@ import { injectIntl } from 'react-intl';
 import { Text, Select, MultiCheckbox, MultiRadio } from '../Fields';
 import type { FormFragmentPropsWithIntl } from '../../../types/form';
 
-const BigShipsFragment = ({ prefix, intl: { formatMessage } }: FormFragmentPropsWithIntl) => (
+const BigShipsFragment = ({
+  prefix,
+  noValidate = false,
+  intl: { formatMessage }
+}: FormFragmentPropsWithIntl) => (
   <Fragment>
     <Row>
       <Col sm={6}>
-        <Select name={`${prefix}.propulsion`} label="form.big_ship.field.propulsion.label" required>
+        <Select
+          noValidate={noValidate}
+          name={`${prefix}.propulsion`}
+          label="form.big_ship.field.propulsion.label"
+          required
+        >
           <option>{formatMessage({ id: 'form.big_ship.field.propulsion.placeholder' })}</option>
           <option>a</option>
           <option>b</option>
@@ -20,6 +29,7 @@ const BigShipsFragment = ({ prefix, intl: { formatMessage } }: FormFragmentProps
       </Col>
       <Col sm={6}>
         <Select
+          noValidate={noValidate}
           name={`${prefix}.hull_material`}
           label="form.big_ship.field.hull_material.label"
           required
@@ -34,6 +44,7 @@ const BigShipsFragment = ({ prefix, intl: { formatMessage } }: FormFragmentProps
     <Row>
       <Col sm={12}>
         <Text
+          noValidate={noValidate}
           name={`${prefix}.usage`}
           label="form.big_ship.field.usage.label"
           placeholder="form.big_ship.field.usage.placeholder"
@@ -45,6 +56,7 @@ const BigShipsFragment = ({ prefix, intl: { formatMessage } }: FormFragmentProps
     <Row>
       <Col sm={3}>
         <MultiRadio
+          noValidate={noValidate}
           items={[
             {
               name: `${prefix}.time_period`,
@@ -65,6 +77,7 @@ const BigShipsFragment = ({ prefix, intl: { formatMessage } }: FormFragmentProps
         <Row>
           <Col sm={5}>
             <Text
+              noValidate={noValidate}
               name={`${prefix}.time_period_from`}
               placeholder="form.big_ship.field.time_period.from.placeholder"
             />
@@ -74,6 +87,7 @@ const BigShipsFragment = ({ prefix, intl: { formatMessage } }: FormFragmentProps
           </Col>
           <Col sm={5}>
             <Text
+              noValidate={noValidate}
               name={`${prefix}.time_period_to`}
               placeholder="form.big_ship.field.time_period.to.placeholder"
             />
@@ -84,6 +98,7 @@ const BigShipsFragment = ({ prefix, intl: { formatMessage } }: FormFragmentProps
     <Row>
       <Col>
         <MultiCheckbox
+          noValidate={noValidate}
           id="multiCheckbox"
           items={[
             {

@@ -1,9 +1,9 @@
 import React from 'react';
-import { injectIntl, FormattedMessage } from 'react-intl';
-import { Alert, Button, Container } from 'reactstrap';
+import { FormattedMessage } from 'react-intl';
+import { Alert, Container, Button } from 'reactstrap';
 import SelectedBerth from './SelectedBerth';
 
-const SelectedBerths = ({ berths, intl: { formatMessage } }) => (
+const SelectedBerths = ({ berths }) => (
   <Container>
     <FormattedMessage tagName="h1" id="page.berth.selected.title" />
     <FormattedMessage tagName="p" id="page.berth.selected.paragraph.first" />
@@ -20,8 +20,10 @@ const SelectedBerths = ({ berths, intl: { formatMessage } }) => (
         <FormattedMessage tagName="h1" id="page.berth.selected.alert.paragraph" />
       </Alert>
     )}
-    <Button>{formatMessage({ id: 'page.berth.selected.submit' })}</Button>
+    <Button type="submit">
+      <FormattedMessage tagName="span" id="page.berth.selected.submit" />
+    </Button>
   </Container>
 );
 
-export default injectIntl(SelectedBerths);
+export default SelectedBerths;
