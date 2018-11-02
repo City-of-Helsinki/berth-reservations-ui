@@ -14,6 +14,10 @@ export default {
       first_name: 'Lusso',
       last_name: 'Manatee'
     },
+    company: {
+      name: 'Manatee Ltd',
+      business_id: '1234567-1'
+    },
     postal: {
       street_address: 'Glöö Street 123',
       postal_code: '12345',

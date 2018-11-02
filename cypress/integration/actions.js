@@ -62,6 +62,27 @@ export const personPageFillForm = () => {
     .type(values.applicant.contact.email);
 };
 
+export const companyPageFillForm = () => {
+  cy.get('input[name="applicant.company.name"]')
+    .type(values.applicant.company.name)
+    .get('input[name="applicant.company.businessId"]')
+    .type(values.applicant.company.business_id)
+    .get('input[name="applicant.postal.street_address"]')
+    .type(values.applicant.postal.street_address)
+    .get('input[name="applicant.postal.postal_code"]')
+    .type(values.applicant.postal.postal_code)
+    .get('input[name="applicant.postal.munacipality"]')
+    .type(values.applicant.postal.munacipality)
+    .get('input[name="applicant.name.first_name"]')
+    .type(values.applicant.name.first_name)
+    .get('input[name="applicant.name.last_name"]')
+    .type(values.applicant.name.last_name)
+    .get('input[name="applicant.contact.mobile_phone"]')
+    .type(values.applicant.contact.mobile_phone)
+    .get('input[name="applicant.contact.email"]')
+    .type(values.applicant.contact.email);
+};
+
 export const gotoRegisteredBoatPage = () => {
   cy.visit('http://localhost:3000');
   cy.get('label[for="boat_type.selector.registered_boat"]').click();
@@ -81,6 +102,13 @@ export const gotoPersonPage = () => {
   cy.visit('http://localhost:3000');
   registeredBoatPageFillForm();
   clickSubmit();
+};
+
+export const gotoCompanyPage = () => {
+  cy.visit('http://localhost:3000');
+  registeredBoatPageFillForm();
+  clickSubmit();
+  cy.get('label[for="boat_type_selector.company"]').click();
 };
 
 export const gotoOverviewPage = () => {

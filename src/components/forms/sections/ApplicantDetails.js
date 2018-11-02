@@ -27,11 +27,13 @@ const ApplicantDetails = ({ values }: Props) => {
         selected={selected}
         types={[
           {
+            id: 'boat_type_selector.private_person',
             label: 'form.boat_type_selector.private_person.label',
             value: 'private_person',
             iconName: 'individual'
           },
           {
+            id: 'boat_type_selector.company',
             label: 'form.boat_type_selector.company.label',
             value: 'company',
             iconName: 'business'
