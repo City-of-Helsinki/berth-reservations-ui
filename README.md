@@ -1,5 +1,7 @@
 # Berth Reservation UI
 
+[![Build Status](https://travis-ci.com/City-of-Helsinki/berth-reservations-ui.svg?branch=master)](https://travis-ci.com/City-of-Helsinki/berth-reservations-ui)
+
 ## Prerequisites
 
 - Yarn
@@ -16,12 +18,12 @@
 After cloning this repository, create a new `.env.local` file from the provided `.env.example` file and configure it as needed:
 
 ```
-$ cp .env.example .env.local
+$ cp .env.example .env.development.local
 ```
 
 ## Development
 
-To start development environment, run command:
+To start development environment, run:
 
 ```
 $ yarn dev
@@ -29,10 +31,16 @@ $ yarn dev
 
 This will start [the application](http://localhost:3000) and [the storybook](http://localhost:9001) for ports `3000` & `9001`
 
-## Running Client Only
-
-Run both commands below in seperate windows:
+To only start the client:
 
 ```
 $ yarn start
+```
+
+## Testing
+
+End-to-end testing is created with Cypress.io framework. To run tests:
+
+```
+$ yarn test
 ```
