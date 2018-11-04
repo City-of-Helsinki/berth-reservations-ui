@@ -60,7 +60,12 @@ class BerthPage extends Component<Props> {
                     selected={selectedBerths}
                     onClick={this.toggleBerthSelect}
                   />
-                  <BerthsOnMap tabHeader="Kartalla" berths={filtered} />
+                  <BerthsOnMap
+                    tabHeader="Kartalla"
+                    berths={filtered}
+                    selected={selectedBerths}
+                    onClick={this.toggleBerthSelect}
+                  />
                   <SelectedBerths
                     tabHeader={`Valitut ${selectedBerths.size}/${berths.size}`}
                     berths={berths.filter(b => selectedBerths.includes(b.id))}

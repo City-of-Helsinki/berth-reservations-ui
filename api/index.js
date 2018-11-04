@@ -4,7 +4,7 @@ const jsf = require('json-schema-faker');
 const faker = require('faker');
 const schemas = require('./schemas');
 
-require('dotenv').config({ path: '.env.local' });
+require('dotenv').config({ path: '.env.development.local' });
 
 jsf.extend('faker', () => faker);
 
