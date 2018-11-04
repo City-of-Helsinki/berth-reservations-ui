@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Container, Row, Col, Button } from 'reactstrap';
+import styled from 'styled-components';
 import L from 'leaflet';
 
 const iconRetina = require('leaflet/dist/images/marker-icon-2x.png');
@@ -20,7 +21,7 @@ L.Icon.Default.mergeOptions({
 });
 
 const style = {
-  width: '100%',
+  width: '80%',
   height: '100%'
 };
 
