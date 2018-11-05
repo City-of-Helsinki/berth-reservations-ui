@@ -14,4 +14,6 @@ install:
   - yarn
   - cypress install
 script:
+  - yarn lint
+  - yarn flow
   - yarn test:ci
