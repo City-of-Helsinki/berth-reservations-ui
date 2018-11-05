@@ -16,15 +16,15 @@ const fakedString = faked => ({
   faker: faked
 });
 
-const fakedInteger = faked => ({
-  type: 'integer',
-  faker: faked
-});
 const integer = (minimum, maximum) => ({
   type: 'integer',
   minimum,
   maximum
 });
+
+// 24666948 60116468
+// 25234917 60243053
+const fakedCoordinates = () => array([integer(60116468, 60243053), integer(24666948, 25234917)]);
 
 const boolean = () => ({
   type: 'boolean'
@@ -48,7 +48,7 @@ module.exports = array(
     www_url: fakedString('internet.url'),
     location: object({
       type: fakedString('address.city'),
-      coordinates: array([fakedInteger('address.latitude'), fakedInteger('address.longitude')])
+      coordinates: fakedCoordinates()
     }),
     image_file: fakedString('image.imageUrl'),
     image_link: fakedString('internet.url'),
