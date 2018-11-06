@@ -32,7 +32,7 @@ const FormGroupField = ({
     name={name}
     type={type}
     value={value}
-    validate={validator(required && mustBePresent, validate && validate)}
+    validate={validator(required ? mustBePresent : null, validate || null)}
   >
     {({ input, meta }) => (
       <Fragment>
