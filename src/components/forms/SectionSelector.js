@@ -12,6 +12,11 @@ const ButtonWrapper = styled.div`
 `;
 
 const StyledIcon = styled(Icon)``;
+type Props = {
+  name: string,
+  types: Array<TypeProps>,
+  selected: any
+};
 
 type TypeProps = {
   id: string,
@@ -20,11 +25,6 @@ type TypeProps = {
   iconName: string
 };
 
-type Props = {
-  name: string,
-  types: Array<TypeProps>,
-  selected: any
-};
 const FormSelectWrapper = styled.div`
   padding: 1em;
   ${StyledIcon} {
