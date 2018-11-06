@@ -24,7 +24,7 @@ const Data = styled.span`
 `;
 
 type Props = {
-  values: Objec
+  values: Object
 };
 
 const OverviewInfo = ({ values }: Props) => (
