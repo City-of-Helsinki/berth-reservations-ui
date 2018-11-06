@@ -1,6 +1,6 @@
 {
   "hooks": {
     "pre-commit": "lint-staged",
-    "pre-push": "yarn eslint './src/**/*"
+    "pre-push": "yarn eslint ./src/**/*"
   }
 }
