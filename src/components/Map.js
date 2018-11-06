@@ -3,21 +3,27 @@
 import React, { Component } from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Container, Row, Col, Button } from 'reactstrap';
-import styled from 'styled-components';
 import L from 'leaflet';
 
-const iconRetina = require('leaflet/dist/images/marker-icon-2x.png');
-const icon = require('leaflet/dist/images/marker-icon.png');
-const shadow = require('leaflet/dist/images/marker-shadow.png');
+import fence from './common/icons/fence.svg';
+import plug from './common/icons/plug.svg';
 
 /* eslint-disable */
 delete L.Icon.Default.prototype._getIconUrl;
 /* eslint-enable */
 
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: iconRetina,
-  iconUrl: icon,
-  shadowUrl: shadow
+const iconSelected = new L.Icon({
+  iconUrl: fence,
+  iconRetinaUrl: fence,
+  iconSize: new L.Point(60, 75),
+  className: 'map-marker'
+});
+
+const iconUnselected = new L.Icon({
+  iconUrl: plug,
+  iconRetinaUrl: plug,
+  iconSize: new L.Point(60, 75),
+  className: 'map-marker'
 });
 
 const style = {
@@ -48,11 +54,9 @@ export default class SimpleExample extends Component<Props, State> {
       <Map center={position} zoom={this.state.zoom} style={style}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {berths.map(berth => {
-          console.log(selected);
-          console.log(berth.id);
-          console.log(selected.includes(berth.id));
+          const markerIcon = selected.includes(berth.id) ? iconSelected : iconUnselected;
           return (
-            <Marker key={berth.id} position={berth.location.coordinates}>
+            <Marker icon={markerIcon} key={berth.id} position={berth.location.coordinates}>
               <Popup>
                 <Container>
                   <Row>
@@ -66,11 +70,11 @@ export default class SimpleExample extends Component<Props, State> {
                       <div>{berth.street_address.fi}</div>
                       <div>{berth.municipality.fi}</div>
                       {selected.includes(berth.id) ? (
-                        <Button color="secondary" onClick={onClick}>
+                        <Button color="secondary" onClick={() => onClick(berth.id)}>
                           Valittu
                         </Button>
                       ) : (
-                        <Button outline primary="true" onClick={onClick}>
+                        <Button outline primary="true" onClick={() => onClick(berth.id)}>
                           + Lisää
                         </Button>
                       )}
