@@ -8,7 +8,7 @@ import Icon from '../common/Icon';
 
 const ButtonWrapper = styled.div`
   background-color: ${props => props.theme.helLight};
-  padding: 1em;
+  padding: 10em;
 `;
 
 type TypeProps = {
