@@ -15,14 +15,16 @@ type Props = any;
 
 class BerthPage extends Component<Props> {
   componentDidMount() {
-    const { getBerths } = this.props;
-    getBerths();
+    const { getBerths, berths } = this.props;
+    if (berths.size === 0) {
+      getBerths();
+    }
   }
 
-  onSubmit = (values: any) => {
+  onSubmit = async (values: any) => {
     const { onSubmit, localePush, nextStep } = this.props;
-    onSubmit(values);
-    nextStep();
+    await onSubmit(values);
+    await nextStep();
     localePush('form');
   };
 
