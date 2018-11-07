@@ -16,7 +16,7 @@ app.use(cors());
 const replaceImageUrlProvider = arr =>
   arr.map(obj => ({
     ...obj,
-    image_file: obj.image_file.replace('lorempixel.com', 'picsum.photos'),
+    image_file: obj.image.replace('lorempixel.com', 'picsum.photos'),
     location: {
       type: obj.location.type,
       coordinates: obj.location.coordinates.map(a => a / 1000000)

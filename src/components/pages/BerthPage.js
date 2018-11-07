@@ -84,7 +84,9 @@ class BerthPage extends Component<Props> {
                     )}
                     moveUp={moveUp}
                     moveDown={moveDown}
-                    berths={selectedBerths.map(key => berths.find(berth => key === berth.id))}
+                    berths={selectedBerths.map(key =>
+                      berths.find(berth => key === berth.identifier)
+                    )}
                   />
                 </TabSelector>
               </Fragment>

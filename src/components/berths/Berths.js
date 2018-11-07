@@ -15,10 +15,10 @@ export default ({ berths, onClick, selected }) => (
   <Wrapper>
     {berths.map(berth => (
       <StyledBerth
-        key={berth.id}
+        key={berth.identifier}
         berth={berth}
-        onClick={() => onClick(berth.id)}
-        selected={selected.includes(berth.id)}
+        onClick={() => onClick(berth.identifier)}
+        selected={selected.includes(berth.identifier)}
       />
     ))}
   </Wrapper>

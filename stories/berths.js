@@ -1,954 +1,998 @@
 export default [
   {
-    id: '41752a9e-a13d-41d5-bdd3-ee7189a447e1',
+    identifier: '46c22eac-4765-4325-97b8-cf781097f8a3',
+    suitable_boat_types: ['motorboat_direct_drive', 'rowing_boat', 'big_boat'],
     name: {
-      fi: 'Shyanne Drive',
-      sv: 'Bins Extensions'
+      fi: 'Ullrich Corners',
+      sv: 'Kole Village'
     },
     street_address: {
-      fi: '307 Ronaldo Trail',
-      sv: '620 Modesto Ports'
+      fi: '7785 Tate Dale',
+      sv: '7323 Logan Stravenue'
     },
     municipality: {
-      fi: 'Dooleyshire',
-      sv: 'South Noelhaven'
+      fi: 'Abernathybury',
+      sv: 'Loraside'
     },
-    zip_code: '38732',
-    phone: '1-797-093-7618 x57708',
-    email: 'Eleanora.Rempel@hotmail.com',
-    www_url: 'https://fermin.biz',
+    zip_code: '52087',
+    phone: '(929) 426-3988 x286',
+    email: 'Danyka_Bosco98@yahoo.com',
+    www_url: 'https://rosamond.info',
     location: {
-      type: 'Douglasburgh',
-      coordinates: [-79, 72]
+      type: 'Rueckermouth',
+      coordinates: [60.201959, 25.088514]
     },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'http://marianna.info',
-    mooring: false,
-    electricity: true,
+    image: 'http://lorempixel.com/640/480',
+    mooring: true,
+    electricity: false,
     water: false,
-    waste_collection: true,
-    gate: false,
-    lighting: true,
-    number_of_places: 45,
-    maximum_depth: 565,
-    maximum_width: 606
+    waste_collection: false,
+    gate: true,
+    lighting: false,
+    number_of_places: 19,
+    maximum_width: 424,
+    image_file: 'http://picsum.photos/640/480'
   },
   {
-    id: 'f5566326-246f-4b30-b33e-67f885238076',
+    identifier: '8b0691a3-8988-47f6-8465-7437b60a34d7',
+    suitable_boat_types: ['rowing_boat', 'sailboat', 'dinghy', 'motorboat_direct_drive'],
     name: {
-      fi: 'Gregory Summit',
-      sv: 'McLaughlin Camp'
+      fi: 'Jaeden Pines',
+      sv: 'Bahringer Causeway'
     },
     street_address: {
-      fi: '337 Nienow Place',
-      sv: '3813 Karlie Key'
+      fi: '08894 Tomas Stravenue',
+      sv: '027 Senger Haven'
     },
     municipality: {
-      fi: 'North Verlamouth',
-      sv: 'Lavernastad'
+      fi: 'Stanleyfurt',
+      sv: 'Katrinebury'
     },
-    zip_code: '79318',
-    phone: '799.338.6016 x74174',
-    email: 'Willis89@hotmail.com',
-    www_url: 'http://monty.name',
+    zip_code: '77133',
+    phone: '(444) 811-8505',
+    email: 'Letha_Mraz28@hotmail.com',
+    www_url: 'https://zula.net',
     location: {
-      type: 'Rempeltown',
-      coordinates: [-88, 171]
+      type: 'Gleasonburgh',
+      coordinates: [60.181788, 25.075565]
     },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'http://jadon.biz',
+    image: 'http://lorempixel.com/640/480',
     mooring: true,
-    electricity: false,
-    water: true,
-    waste_collection: true,
-    gate: false,
-    lighting: true,
-    number_of_places: 16,
-    maximum_depth: 157,
-    maximum_width: 327
-  },
-  {
-    id: '886ec33f-a580-41f6-ad68-6ae98dd573d9',
-    name: {
-      fi: 'Troy Union',
-      sv: 'Kiehn Land'
-    },
-    street_address: {
-      fi: '3256 Nayeli Circles',
-      sv: '200 McKenzie Ranch'
-    },
-    municipality: {
-      fi: 'New Sydney',
-      sv: 'Homenickport'
-    },
-    zip_code: '01939',
-    phone: '(275) 081-7120',
-    email: 'Quinten_Cummerata12@gmail.com',
-    www_url: 'https://magnolia.com',
-    location: {
-      type: 'Kulasfort',
-      coordinates: [-46, -101]
-    },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://neha.com',
-    mooring: true,
-    electricity: false,
+    electricity: true,
     water: false,
     waste_collection: false,
     gate: false,
     lighting: false,
-    number_of_places: 22,
-    maximum_depth: 938,
-    maximum_width: 123
+    number_of_places: 24,
+    maximum_width: 488,
+    image_file: 'http://picsum.photos/640/480'
   },
   {
-    id: '05664727-0db6-4765-a82a-40ab92c3f6b6',
+    identifier: '5eb1d978-daca-4e9d-8693-04b6cae116c7',
+    suitable_boat_types: ['sailboat', 'big_boat', 'motorboat_direct_drive'],
     name: {
-      fi: 'Donny Courts',
-      sv: 'Rory Point'
+      fi: 'Huel Lock',
+      sv: 'Kling Spur'
     },
     street_address: {
-      fi: '730 Buckridge Lane',
-      sv: '3264 Lang Brooks'
+      fi: '1647 Reece Square',
+      sv: '799 Lucinda Cliffs'
     },
     municipality: {
-      fi: 'North Lesterchester',
-      sv: 'Balistreriburgh'
+      fi: 'East Kolemouth',
+      sv: 'West Ismael'
     },
-    zip_code: '57811',
-    phone: '(725) 994-0292',
-    email: 'Arnaldo17@yahoo.com',
-    www_url: 'http://buford.com',
+    zip_code: '83039',
+    phone: '1-393-361-3773',
+    email: 'Easter_Fay94@hotmail.com',
+    www_url: 'http://brannon.biz',
     location: {
-      type: 'New Oscar',
-      coordinates: [-21, -158]
+      type: 'Keelingborough',
+      coordinates: [60.119793, 24.963572]
     },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://brycen.net',
-    mooring: true,
-    electricity: false,
-    water: false,
-    waste_collection: false,
-    gate: false,
-    lighting: true,
-    number_of_places: 35,
-    maximum_depth: 901,
-    maximum_width: 965
-  },
-  {
-    id: 'aa6db576-33f1-43dc-a212-e9f9b1f018ae',
-    name: {
-      fi: 'Kathryne Court',
-      sv: 'Thomas Pines'
-    },
-    street_address: {
-      fi: '183 Ellie Islands',
-      sv: '24256 Kenton Shore'
-    },
-    municipality: {
-      fi: 'East Karleystad',
-      sv: 'East Hayleyton'
-    },
-    zip_code: '05279',
-    phone: '1-206-657-3970 x505',
-    email: 'Louisa12@hotmail.com',
-    www_url: 'https://torey.com',
-    location: {
-      type: 'Emelybury',
-      coordinates: [-44, 38]
-    },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://jesus.info',
+    image: 'http://lorempixel.com/640/480',
     mooring: false,
     electricity: false,
     water: true,
-    waste_collection: true,
+    waste_collection: false,
     gate: true,
     lighting: true,
-    number_of_places: 44,
-    maximum_depth: 968,
-    maximum_width: 428
+    number_of_places: 24,
+    maximum_width: 433,
+    image_file: 'http://picsum.photos/640/480'
   },
   {
-    id: 'c4637a50-ad94-406d-8630-f5e60132f8e1',
+    identifier: '133f68ce-5578-4b99-ac9d-3fd8e4d02090',
+    suitable_boat_types: ['big_boat'],
     name: {
-      fi: 'Glover Roads',
-      sv: 'Michael Ville'
+      fi: 'Christ Forges',
+      sv: 'Harber Ports'
     },
     street_address: {
-      fi: '07143 Katlynn Mills',
-      sv: '9809 Chanelle Freeway'
+      fi: '6639 Sabina Mission',
+      sv: '8902 Seth Ferry'
     },
     municipality: {
-      fi: 'Clarkside',
-      sv: 'Kuhnfurt'
+      fi: 'South Alvenaview',
+      sv: 'Elsieville'
     },
-    zip_code: '62696-4135',
-    phone: '415.268.3860 x12165',
-    email: 'Abigayle_Gusikowski@yahoo.com',
-    www_url: 'https://garrick.com',
+    zip_code: '37276-9448',
+    phone: '293-530-4629 x91881',
+    email: 'Timmothy_Oberbrunner13@hotmail.com',
+    www_url: 'https://vicenta.info',
     location: {
-      type: 'Rohanmouth',
-      coordinates: [30, -101]
+      type: 'Gorczanyhaven',
+      coordinates: [60.207739, 25.054125]
     },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'http://ivah.org',
-    mooring: true,
-    electricity: false,
-    water: true,
-    waste_collection: false,
-    gate: false,
-    lighting: false,
-    number_of_places: 33,
-    maximum_depth: 344,
-    maximum_width: 273
-  },
-  {
-    id: 'b1f0fa49-673f-427a-9e56-21ef6fed3460',
-    name: {
-      fi: 'Craig Plains',
-      sv: 'Kerluke Rue'
-    },
-    street_address: {
-      fi: '2290 Maggio Falls',
-      sv: "6438 O'Conner Point"
-    },
-    municipality: {
-      fi: 'South Kirstin',
-      sv: 'South Tamara'
-    },
-    zip_code: '67344',
-    phone: '888.234.6145 x62198',
-    email: 'Amos52@yahoo.com',
-    www_url: 'https://michale.org',
-    location: {
-      type: 'South Gabriellatown',
-      coordinates: [51, -24]
-    },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://brad.info',
+    image: 'http://lorempixel.com/640/480',
     mooring: true,
     electricity: true,
     water: true,
+    waste_collection: true,
+    gate: true,
+    lighting: false,
+    number_of_places: 31,
+    maximum_width: 184,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: 'ed6c6145-efd4-4a5f-adad-d724e8bcc46d',
+    suitable_boat_types: ['motorboat_direct_drive', 'dinghy', 'sailboat', 'motorboat_sterndrive'],
+    name: {
+      fi: 'Candida Via',
+      sv: 'Mitchell Light'
+    },
+    street_address: {
+      fi: '469 Wisoky Wells',
+      sv: '356 Hermiston View'
+    },
+    municipality: {
+      fi: 'Zaneton',
+      sv: 'New Darryl'
+    },
+    zip_code: '21290-1728',
+    phone: '507.358.4852 x3887',
+    email: 'Annie93@gmail.com',
+    www_url: 'http://shannon.biz',
+    location: {
+      type: 'West Felicita',
+      coordinates: [60.217169, 24.943048]
+    },
+    image: 'http://lorempixel.com/640/480',
+    mooring: true,
+    electricity: true,
+    water: true,
+    waste_collection: true,
+    gate: false,
+    lighting: false,
+    number_of_places: 17,
+    maximum_width: 638,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: 'dc5283d6-397c-40b6-b90c-6657e9cb1f43',
+    suitable_boat_types: ['motorboat_direct_drive'],
+    name: {
+      fi: 'Fadel Forge',
+      sv: 'Eddie Port'
+    },
+    street_address: {
+      fi: '7182 Dooley Harbors',
+      sv: '7602 Watsica Circles'
+    },
+    municipality: {
+      fi: 'Stephanton',
+      sv: 'South Myrtle'
+    },
+    zip_code: '61269-7318',
+    phone: '446-690-9023',
+    email: 'Tanner38@yahoo.com',
+    www_url: 'https://mack.info',
+    location: {
+      type: 'Lake Jensen',
+      coordinates: [60.226892, 24.779372]
+    },
+    image: 'http://lorempixel.com/640/480',
+    mooring: false,
+    electricity: true,
+    water: false,
     waste_collection: false,
     gate: true,
-    lighting: true,
+    lighting: false,
     number_of_places: 48,
-    maximum_depth: 608,
-    maximum_width: 249
+    maximum_width: 439,
+    image_file: 'http://picsum.photos/640/480'
   },
   {
-    id: 'e540374d-7b19-4fd3-b2cd-b879b372533d',
+    identifier: 'cecaa0b7-439d-46b3-a4ec-a81f7311754c',
+    suitable_boat_types: ['sailboat', 'motorboat_outboard', 'trawler'],
     name: {
-      fi: 'Leola Drive',
-      sv: 'Laura Crest'
+      fi: 'Green Islands',
+      sv: 'Chaya Mountain'
     },
     street_address: {
-      fi: '8897 Cathrine River',
-      sv: '25783 Wyman Radial'
+      fi: '77877 Ortiz Lights',
+      sv: '15796 Homenick Summit'
     },
     municipality: {
-      fi: 'Dillanport',
-      sv: 'North Vladimir'
+      fi: 'Lake Enos',
+      sv: 'New Itzelfort'
     },
-    zip_code: '88945',
-    phone: '614-589-2373',
-    email: 'Tony_Hettinger@yahoo.com',
-    www_url: 'https://elisa.biz',
+    zip_code: '18671-8772',
+    phone: '(681) 483-7933 x10679',
+    email: 'Carey21@gmail.com',
+    www_url: 'https://elmer.name',
     location: {
-      type: 'East Kaelaview',
-      coordinates: [-37, -64]
+      type: 'New Jalenview',
+      coordinates: [60.205521, 25.154686]
     },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://tremayne.info',
-    mooring: true,
+    image: 'http://lorempixel.com/640/480',
+    mooring: false,
+    electricity: false,
+    water: false,
+    waste_collection: true,
+    gate: true,
+    lighting: true,
+    number_of_places: 43,
+    maximum_width: 947,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: 'd0f8e8dd-ca75-402f-8cf9-c15a4159ed09',
+    suitable_boat_types: ['rowing_boat', 'motorboat_direct_drive', 'motorboat_sterndrive'],
+    name: {
+      fi: 'Moshe Trail',
+      sv: 'Orn Ridge'
+    },
+    street_address: {
+      fi: '318 Vincenzo Islands',
+      sv: '820 Harris Hills'
+    },
+    municipality: {
+      fi: 'West Madonna',
+      sv: 'New Claudborough'
+    },
+    zip_code: '88116-3878',
+    phone: '(653) 256-9758 x55132',
+    email: 'Eloisa.Wolff9@hotmail.com',
+    www_url: 'http://jimmy.info',
+    location: {
+      type: 'South Ambroseton',
+      coordinates: [60.205793, 25.109538]
+    },
+    image: 'http://lorempixel.com/640/480',
+    mooring: false,
+    electricity: false,
+    water: true,
+    waste_collection: false,
+    gate: true,
+    lighting: true,
+    number_of_places: 42,
+    maximum_width: 149,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: '53036050-999d-4ab4-a8e9-160befa99c6c',
+    suitable_boat_types: [
+      'motorboat_direct_drive',
+      'sailboat',
+      'motorboat_outboard',
+      'motorboat_sterndrive'
+    ],
+    name: {
+      fi: 'Thelma Mall',
+      sv: 'Julian Terrace'
+    },
+    street_address: {
+      fi: '55837 Destin Overpass',
+      sv: '096 Lauren Estates'
+    },
+    municipality: {
+      fi: 'West Emeliaborough',
+      sv: 'Gisselleport'
+    },
+    zip_code: '29907-8003',
+    phone: '905-238-7672 x89145',
+    email: 'Sebastian51@hotmail.com',
+    www_url: 'http://carolanne.net',
+    location: {
+      type: 'West Zitabury',
+      coordinates: [60.139537, 24.67669]
+    },
+    image: 'http://lorempixel.com/640/480',
+    mooring: false,
     electricity: false,
     water: true,
     waste_collection: true,
+    gate: true,
+    lighting: true,
+    number_of_places: 32,
+    maximum_width: 506,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: '5465dd3f-e471-4445-916e-10c9388d2737',
+    suitable_boat_types: ['sailboat', 'motorboat_direct_drive'],
+    name: {
+      fi: 'Elda Track',
+      sv: 'Hilpert Dam'
+    },
+    street_address: {
+      fi: '398 Tremaine Plains',
+      sv: '54300 Walker Plains'
+    },
+    municipality: {
+      fi: 'North Ray',
+      sv: 'Dickiton'
+    },
+    zip_code: '79674-4504',
+    phone: '(172) 531-0361 x98381',
+    email: 'Precious80@hotmail.com',
+    www_url: 'https://emerson.com',
+    location: {
+      type: 'North Daltonstad',
+      coordinates: [60.152053, 25.200628]
+    },
+    image: 'http://lorempixel.com/640/480',
+    mooring: true,
+    electricity: true,
+    water: false,
+    waste_collection: false,
     gate: true,
     lighting: false,
-    number_of_places: 23,
-    maximum_depth: 248,
-    maximum_width: 886
+    number_of_places: 48,
+    maximum_width: 996,
+    image_file: 'http://picsum.photos/640/480'
   },
   {
-    id: '0add9f4c-3fee-4220-a9a0-62a890d1976d',
+    identifier: '50d0b073-65cc-4da3-ac40-44a9aa1a52b4',
+    suitable_boat_types: ['trawler', 'motorboat_sterndrive', 'motorboat_direct_drive', 'sailboat'],
     name: {
-      fi: 'Hoyt Tunnel',
-      sv: 'Tromp Streets'
+      fi: 'Botsford Alley',
+      sv: 'Percival Road'
     },
     street_address: {
-      fi: '825 Giovanni Parkway',
-      sv: '72176 Swift Meadows'
+      fi: '11599 Hillary Bypass',
+      sv: '2099 Anne Rapid'
     },
     municipality: {
-      fi: 'Kiehnchester',
-      sv: 'Lake Pascale'
+      fi: 'Morrisbury',
+      sv: 'Lake Alayna'
     },
-    zip_code: '63443',
-    phone: '688.779.7206 x2129',
-    email: 'Johnathan30@yahoo.com',
-    www_url: 'https://adrian.name',
+    zip_code: '01272-0518',
+    phone: '756.391.2768 x2329',
+    email: 'Elyse88@hotmail.com',
+    www_url: 'http://mariana.biz',
     location: {
-      type: 'Adrianaberg',
-      coordinates: [-81, 147]
+      type: 'East Larissa',
+      coordinates: [60.116487, 24.734397]
     },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://yoshiko.name',
+    image: 'http://lorempixel.com/640/480',
+    mooring: false,
+    electricity: true,
+    water: true,
+    waste_collection: true,
+    gate: true,
+    lighting: true,
+    number_of_places: 28,
+    maximum_width: 940,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: '7977e4f8-22ff-4682-abf4-93e2e81e7d02',
+    suitable_boat_types: ['trawler'],
+    name: {
+      fi: 'Hirthe Haven',
+      sv: 'Jon Park'
+    },
+    street_address: {
+      fi: '54519 Gottlieb Field',
+      sv: '6672 Orland Shore'
+    },
+    municipality: {
+      fi: 'Bednarchester',
+      sv: 'Lake Glendaside'
+    },
+    zip_code: '31634-9956',
+    phone: '1-998-202-8738 x22346',
+    email: 'Lula_Botsford16@yahoo.com',
+    www_url: 'http://vaughn.biz',
+    location: {
+      type: 'Port Jada',
+      coordinates: [60.17624, 25.075336]
+    },
+    image: 'http://lorempixel.com/640/480',
     mooring: false,
     electricity: false,
-    water: false,
-    waste_collection: false,
-    gate: true,
-    lighting: true,
-    number_of_places: 50,
-    maximum_depth: 318,
-    maximum_width: 813
-  },
-  {
-    id: '9f28d6cd-70cc-418d-bb76-c60f2f76f1ff',
-    name: {
-      fi: 'Lupe Harbor',
-      sv: 'Lehner Park'
-    },
-    street_address: {
-      fi: '351 Modesta Mountain',
-      sv: '08956 Herman Crossroad'
-    },
-    municipality: {
-      fi: 'South Dena',
-      sv: 'North Jacksonberg'
-    },
-    zip_code: '94955',
-    phone: '(928) 955-6465 x4109',
-    email: 'Reyes.Okuneva@hotmail.com',
-    www_url: 'http://carter.com',
-    location: {
-      type: 'Langoshland',
-      coordinates: [85, 155]
-    },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'http://narciso.org',
-    mooring: false,
-    electricity: true,
-    water: false,
-    waste_collection: false,
-    gate: true,
-    lighting: true,
-    number_of_places: 37,
-    maximum_depth: 130,
-    maximum_width: 255
-  },
-  {
-    id: 'acf93703-fc8a-41ed-9257-3b9a17598cac',
-    name: {
-      fi: 'Arely Brooks',
-      sv: 'Wisoky Glen'
-    },
-    street_address: {
-      fi: '785 Brigitte Extensions',
-      sv: '324 Sadie Light'
-    },
-    municipality: {
-      fi: 'Maggieville',
-      sv: 'East Ray'
-    },
-    zip_code: '94841-0230',
-    phone: '023.237.6937 x492',
-    email: 'Moriah44@yahoo.com',
-    www_url: 'https://marta.biz',
-    location: {
-      type: 'Lake Immanuelton',
-      coordinates: [24, -166]
-    },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://candace.name',
-    mooring: false,
-    electricity: true,
     water: true,
-    waste_collection: true,
-    gate: true,
-    lighting: true,
-    number_of_places: 37,
-    maximum_depth: 176,
-    maximum_width: 625
-  },
-  {
-    id: 'c033f05e-f8a6-4222-b4a8-6157b193053e',
-    name: {
-      fi: 'Marques Parkway',
-      sv: 'Bogan Forks'
-    },
-    street_address: {
-      fi: '089 Kaylie Bridge',
-      sv: '14378 Garret View'
-    },
-    municipality: {
-      fi: 'Gradybury',
-      sv: 'West Kennachester'
-    },
-    zip_code: '05973',
-    phone: '1-796-319-7641',
-    email: 'Addison28@hotmail.com',
-    www_url: 'http://lynn.info',
-    location: {
-      type: 'Predovicberg',
-      coordinates: [47, -40]
-    },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://nayeli.info',
-    mooring: true,
-    electricity: true,
-    water: false,
-    waste_collection: false,
-    gate: true,
-    lighting: true,
-    number_of_places: 30,
-    maximum_depth: 948,
-    maximum_width: 862
-  },
-  {
-    id: '81f70e54-fa8c-40ee-a354-c0378cf604bc',
-    name: {
-      fi: 'Jaclyn Route',
-      sv: 'Funk Branch'
-    },
-    street_address: {
-      fi: '703 Tevin Camp',
-      sv: '04866 Jerod Coves'
-    },
-    municipality: {
-      fi: 'Lake Sydnee',
-      sv: 'Daughertyfurt'
-    },
-    zip_code: '94243-3505',
-    phone: '(924) 242-3644 x841',
-    email: 'Eda39@yahoo.com',
-    www_url: 'https://stacy.org',
-    location: {
-      type: 'Port Arlofurt',
-      coordinates: [40, 159]
-    },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://martina.name',
-    mooring: true,
-    electricity: true,
-    water: true,
-    waste_collection: true,
-    gate: false,
-    lighting: true,
-    number_of_places: 39,
-    maximum_depth: 360,
-    maximum_width: 173
-  },
-  {
-    id: 'feeba9ba-6d2b-470f-ba32-7265c5d5f69e',
-    name: {
-      fi: 'Jenkins Via',
-      sv: 'Reginald Fork'
-    },
-    street_address: {
-      fi: '1784 Lakin Via',
-      sv: '1356 Langosh Lake'
-    },
-    municipality: {
-      fi: 'Port Chadd',
-      sv: 'North Marleneside'
-    },
-    zip_code: '39662',
-    phone: '196.304.0910',
-    email: 'Chadrick_Senger@gmail.com',
-    www_url: 'http://ramiro.com',
-    location: {
-      type: 'South Liam',
-      coordinates: [-78, 145]
-    },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'http://tatyana.biz',
-    mooring: true,
-    electricity: true,
-    water: false,
     waste_collection: true,
     gate: true,
     lighting: false,
     number_of_places: 46,
-    maximum_depth: 827,
-    maximum_width: 367
+    maximum_width: 364,
+    image_file: 'http://picsum.photos/640/480'
   },
   {
-    id: 'af8e1d07-8866-4611-885b-b037885adb2d',
+    identifier: '0a9b3caa-267b-49cb-b7b2-192ea07c8c99',
+    suitable_boat_types: ['rowing_boat'],
     name: {
-      fi: 'Fritsch Run',
-      sv: 'Preston Point'
+      fi: 'McCullough Gateway',
+      sv: 'Klocko Tunnel'
     },
     street_address: {
-      fi: '900 Catherine Mills',
-      sv: '15133 Karl Course'
+      fi: '438 Bella Rapids',
+      sv: '97707 Kay Forest'
     },
     municipality: {
-      fi: 'Darrylbury',
-      sv: 'New Pinkieport'
+      fi: 'East Dillanmouth',
+      sv: 'New Ivyton'
     },
-    zip_code: '75766',
-    phone: '1-887-109-8703 x9700',
-    email: 'Diana.Lemke73@hotmail.com',
-    www_url: 'http://mittie.net',
+    zip_code: '62553',
+    phone: '419.832.2962 x729',
+    email: 'William_Schmitt92@hotmail.com',
+    www_url: 'http://jerrold.org',
     location: {
-      type: 'Millsstad',
-      coordinates: [-65, 47]
+      type: 'North Rudyton',
+      coordinates: [60.222859, 25.229677]
     },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://vergie.net',
-    mooring: true,
-    electricity: false,
-    water: false,
-    waste_collection: false,
-    gate: false,
-    lighting: false,
-    number_of_places: 44,
-    maximum_depth: 653,
-    maximum_width: 852
-  },
-  {
-    id: 'e8849659-aaf3-4849-bbfd-d6e771159350',
-    name: {
-      fi: 'Rodger Corners',
-      sv: 'Crist Loaf'
-    },
-    street_address: {
-      fi: '159 Ayana Trail',
-      sv: '39775 Dominic Radial'
-    },
-    municipality: {
-      fi: 'Port Stefan',
-      sv: 'Jermainetown'
-    },
-    zip_code: '92882',
-    phone: '(730) 986-6907',
-    email: 'Cathrine_Von@hotmail.com',
-    www_url: 'http://magnus.org',
-    location: {
-      type: 'Juliefort',
-      coordinates: [-56, 107]
-    },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'http://alexandra.name',
+    image: 'http://lorempixel.com/640/480',
     mooring: false,
-    electricity: false,
+    electricity: true,
     water: true,
-    waste_collection: false,
-    gate: false,
-    lighting: false,
-    number_of_places: 48,
-    maximum_depth: 552,
-    maximum_width: 848
-  },
-  {
-    id: '7e52e80e-659f-4a0e-87b1-17a65645ced4',
-    name: {
-      fi: 'Keenan Fall',
-      sv: 'Chyna Radial'
-    },
-    street_address: {
-      fi: '963 Alana River',
-      sv: '012 Crooks Burg'
-    },
-    municipality: {
-      fi: 'West Larry',
-      sv: 'Wizatown'
-    },
-    zip_code: '79003',
-    phone: '233-194-8770 x5564',
-    email: 'Caroline_Hodkiewicz@yahoo.com',
-    www_url: 'https://aaliyah.name',
-    location: {
-      type: 'Margretside',
-      coordinates: [-82, -59]
-    },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'http://emery.com',
-    mooring: false,
-    electricity: false,
-    water: false,
     waste_collection: false,
     gate: true,
     lighting: false,
-    number_of_places: 30,
-    maximum_depth: 256,
-    maximum_width: 103
+    number_of_places: 47,
+    maximum_width: 338,
+    image_file: 'http://picsum.photos/640/480'
   },
   {
-    id: 'd3c0e295-6bf5-45ce-8147-619a7a888657',
+    identifier: '9fdad19f-bb91-4d96-addd-1094fb6ae2c3',
+    suitable_boat_types: ['motorboat_direct_drive', 'trawler', 'big_boat', 'rowing_boat'],
     name: {
-      fi: 'Prosacco Throughway',
-      sv: 'Lebsack Street'
+      fi: 'Justus Dale',
+      sv: 'Rowland Estates'
     },
     street_address: {
-      fi: '05356 Angie Mill',
-      sv: '362 Bianka Dale'
+      fi: '831 Halie Station',
+      sv: '6956 Icie Loop'
     },
     municipality: {
-      fi: 'East Jaren',
-      sv: 'New Norrisberg'
+      fi: 'Krajcikfurt',
+      sv: 'West Dorothea'
     },
-    zip_code: '69931',
-    phone: '678.099.6842 x365',
-    email: 'Mozell3@yahoo.com',
-    www_url: 'https://lucious.biz',
+    zip_code: '85691-0983',
+    phone: '315-439-9214',
+    email: 'Bud.Walter69@hotmail.com',
+    www_url: 'https://jody.com',
     location: {
-      type: 'North Chris',
-      coordinates: [-83, 79]
+      type: 'Harberfurt',
+      coordinates: [60.211343, 24.854663]
     },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'http://geo.name',
-    mooring: false,
-    electricity: false,
+    image: 'http://lorempixel.com/640/480',
+    mooring: true,
+    electricity: true,
     water: false,
     waste_collection: false,
     gate: true,
     lighting: true,
-    number_of_places: 45,
-    maximum_depth: 122,
-    maximum_width: 303
+    number_of_places: 38,
+    maximum_width: 949,
+    image_file: 'http://picsum.photos/640/480'
   },
   {
-    id: 'f9a7ba62-ce77-4c5d-a2cd-f521b6ffb0a2',
+    identifier: 'ef2706f6-e0e6-4f63-876d-052302111f25',
+    suitable_boat_types: ['rowing_boat'],
     name: {
-      fi: 'Colt Shoals',
-      sv: 'Williamson Forks'
+      fi: 'Alexandria Mission',
+      sv: 'Block Plains'
     },
     street_address: {
-      fi: '76802 Kiehn Village',
-      sv: '8322 Williamson Dale'
+      fi: '72588 Rippin Islands',
+      sv: '01200 Crona Hollow'
     },
     municipality: {
-      fi: 'Port Gertrude',
-      sv: 'North Darionberg'
+      fi: 'Hamillborough',
+      sv: 'Collinsport'
     },
-    zip_code: '72847-4725',
-    phone: '344-224-3913 x83875',
-    email: 'Brown_Keebler@gmail.com',
-    www_url: 'https://dillan.org',
+    zip_code: '79397-3025',
+    phone: '070-806-5372 x828',
+    email: 'Gregoria3@gmail.com',
+    www_url: 'http://emmie.com',
     location: {
-      type: 'Leonelside',
-      coordinates: [55, -73]
+      type: 'Lake Raleigh',
+      coordinates: [60.118944, 24.991701]
     },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'http://mekhi.net',
-    mooring: false,
-    electricity: false,
-    water: true,
-    waste_collection: false,
-    gate: false,
-    lighting: false,
-    number_of_places: 40,
-    maximum_depth: 646,
-    maximum_width: 735
-  },
-  {
-    id: '1443788c-8627-4016-a5bb-974e297f6c24',
-    name: {
-      fi: 'Dooley Flats',
-      sv: 'Carter Fields'
-    },
-    street_address: {
-      fi: '48847 Romaine Views',
-      sv: '082 Boyer Mountains'
-    },
-    municipality: {
-      fi: 'Lemkemouth',
-      sv: 'Augustineland'
-    },
-    zip_code: '53273-3295',
-    phone: '160-689-3778 x4357',
-    email: 'Darrell.Conroy92@yahoo.com',
-    www_url: 'http://janet.name',
-    location: {
-      type: 'Candicemouth',
-      coordinates: [-11, 11]
-    },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://nyasia.org',
+    image: 'http://lorempixel.com/640/480',
     mooring: true,
     electricity: false,
     water: false,
     waste_collection: true,
     gate: false,
-    lighting: true,
-    number_of_places: 39,
-    maximum_depth: 324,
-    maximum_width: 849
+    lighting: false,
+    number_of_places: 33,
+    maximum_width: 209,
+    image_file: 'http://picsum.photos/640/480'
   },
   {
-    id: '746ef69a-692e-480e-9014-b082ac815f0e',
+    identifier: '64003981-c9fe-40ab-9094-6cd52050bf82',
+    suitable_boat_types: ['big_boat', 'motorboat_outboard', 'motorboat_direct_drive', 'trawler'],
     name: {
-      fi: 'Sam Roads',
-      sv: 'Wolff Trace'
+      fi: 'Schamberger View',
+      sv: 'Beatty Garden'
     },
     street_address: {
-      fi: '52964 Russell Mission',
-      sv: '3730 Nils Terrace'
+      fi: '3894 Hodkiewicz Radial',
+      sv: '354 Christ Gateway'
     },
     municipality: {
-      fi: 'East Macyfort',
-      sv: 'Kuhnfort'
+      fi: 'Lake Glendaland',
+      sv: 'New Trenton'
     },
-    zip_code: '90458',
-    phone: '(059) 396-6152',
-    email: 'Jacinthe_Schultz23@hotmail.com',
-    www_url: 'http://melisa.info',
+    zip_code: '43810-6856',
+    phone: '617.103.0872 x195',
+    email: 'Raul_Herzog83@hotmail.com',
+    www_url: 'https://charlotte.biz',
     location: {
-      type: 'South Gunnerburgh',
-      coordinates: [-41, 77]
+      type: 'Lake Zechariah',
+      coordinates: [60.205969, 24.786842]
     },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'http://osborne.name',
+    image: 'http://lorempixel.com/640/480',
+    mooring: false,
+    electricity: false,
+    water: true,
+    waste_collection: false,
+    gate: true,
+    lighting: false,
+    number_of_places: 10,
+    maximum_width: 369,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: '931c91ad-5608-43a9-88b0-bbacdc38e9bd',
+    suitable_boat_types: ['sailboat', 'motorboat_sterndrive', 'dinghy', 'motorboat_direct_drive'],
+    name: {
+      fi: 'Champlin Ways',
+      sv: 'Marco Land'
+    },
+    street_address: {
+      fi: '73642 Kuhn Mountain',
+      sv: '1702 Dariana Island'
+    },
+    municipality: {
+      fi: 'Kimland',
+      sv: 'Amiestad'
+    },
+    zip_code: '62113-2359',
+    phone: '(598) 204-7096',
+    email: 'Hortense.Glover@gmail.com',
+    www_url: 'https://brooke.biz',
+    location: {
+      type: 'Noratown',
+      coordinates: [60.149784, 24.715302]
+    },
+    image: 'http://lorempixel.com/640/480',
+    mooring: true,
+    electricity: false,
+    water: false,
+    waste_collection: true,
+    gate: true,
+    lighting: true,
+    number_of_places: 18,
+    maximum_width: 640,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: '59897a02-003b-4c30-a026-4320b8bc4a6d',
+    suitable_boat_types: ['big_boat', 'motorboat_sterndrive', 'sailboat', 'motorboat_direct_drive'],
+    name: {
+      fi: 'Louie Ports',
+      sv: 'Schmeler Field'
+    },
+    street_address: {
+      fi: '91363 Cleta Manor',
+      sv: '2515 Zackary Trace'
+    },
+    municipality: {
+      fi: 'Port Terence',
+      sv: 'Mauricemouth'
+    },
+    zip_code: '29155',
+    phone: '331.893.7593 x650',
+    email: 'Larry_Wuckert@hotmail.com',
+    www_url: 'http://holden.net',
+    location: {
+      type: 'Lake Giovanimouth',
+      coordinates: [60.207423, 24.926754]
+    },
+    image: 'http://lorempixel.com/640/480',
     mooring: true,
     electricity: true,
     water: true,
-    waste_collection: true,
-    gate: false,
+    waste_collection: false,
+    gate: true,
     lighting: true,
-    number_of_places: 45,
-    maximum_depth: 642,
-    maximum_width: 753
+    number_of_places: 49,
+    maximum_width: 474,
+    image_file: 'http://picsum.photos/640/480'
   },
   {
-    id: 'feb3f2a8-a44e-4577-8c37-9a99aeb2cdb3',
+    identifier: '03225f25-7f88-4277-84a1-0a5683ca28dd',
+    suitable_boat_types: [
+      'motorboat_direct_drive',
+      'rowing_boat',
+      'motorboat_outboard',
+      'motorboat_sterndrive'
+    ],
     name: {
-      fi: 'Hailie Harbors',
-      sv: 'Effertz Parks'
+      fi: 'Isac River',
+      sv: 'Torphy Burg'
     },
     street_address: {
-      fi: '61543 Prohaska Cape',
-      sv: '522 Gutmann Dam'
+      fi: '102 Jacobs Canyon',
+      sv: "978 D'Amore Summit"
     },
     municipality: {
-      fi: 'Lake Haleigh',
-      sv: 'Olinchester'
+      fi: 'Kuvalisfort',
+      sv: 'Dougmouth'
     },
-    zip_code: '68177-1076',
-    phone: '(052) 101-1537 x55733',
-    email: 'Paula.Price0@yahoo.com',
-    www_url: 'https://kenneth.net',
+    zip_code: '54123',
+    phone: '599-163-9543',
+    email: 'Hettie_Grimes@gmail.com',
+    www_url: 'http://bobby.com',
     location: {
-      type: 'Port Christa',
-      coordinates: [-88, 73]
+      type: 'Neldahaven',
+      coordinates: [60.223178, 24.766471]
     },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'http://dessie.biz',
-    mooring: true,
+    image: 'http://lorempixel.com/640/480',
+    mooring: false,
     electricity: false,
     water: false,
-    waste_collection: true,
+    waste_collection: false,
     gate: true,
+    lighting: true,
+    number_of_places: 22,
+    maximum_width: 541,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: 'f0a5a297-03c5-40d4-b062-692f1440ded1',
+    suitable_boat_types: ['trawler', 'sailboat', 'rowing_boat', 'big_boat'],
+    name: {
+      fi: 'Monte Keys',
+      sv: 'Vivienne Lodge'
+    },
+    street_address: {
+      fi: '671 Grover Wells',
+      sv: '74380 Keven Junctions'
+    },
+    municipality: {
+      fi: 'Clarefort',
+      sv: 'New Armani'
+    },
+    zip_code: '04046',
+    phone: '737-769-4220',
+    email: 'Lora.Jenkins@gmail.com',
+    www_url: 'https://camilla.com',
+    location: {
+      type: 'Hauckfort',
+      coordinates: [60.22181, 24.941255]
+    },
+    image: 'http://lorempixel.com/640/480',
+    mooring: true,
+    electricity: false,
+    water: true,
+    waste_collection: true,
+    gate: false,
     lighting: false,
+    number_of_places: 11,
+    maximum_width: 695,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: '50eb62f5-ec44-4459-bb81-51ef62943813',
+    suitable_boat_types: ['rowing_boat', 'dinghy'],
+    name: {
+      fi: 'Tara Burgs',
+      sv: 'Raoul Summit'
+    },
+    street_address: {
+      fi: '5963 McDermott Meadows',
+      sv: '785 Antonette Garden'
+    },
+    municipality: {
+      fi: 'North Annabel',
+      sv: 'Bartfort'
+    },
+    zip_code: '53873-3545',
+    phone: '(267) 181-4660 x8893',
+    email: 'Jaylen_Johnson12@hotmail.com',
+    www_url: 'http://russ.net',
+    location: {
+      type: 'North Shaynamouth',
+      coordinates: [60.239289, 24.885499]
+    },
+    image: 'http://lorempixel.com/640/480',
+    mooring: false,
+    electricity: true,
+    water: false,
+    waste_collection: false,
+    gate: false,
+    lighting: false,
+    number_of_places: 11,
+    maximum_width: 226,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: 'b915447d-f41a-48cf-8e9a-0f9ecf513c7f',
+    suitable_boat_types: ['motorboat_outboard', 'big_boat'],
+    name: {
+      fi: 'Kaleb Hill',
+      sv: 'Collier Mountains'
+    },
+    street_address: {
+      fi: '9592 Kertzmann Corners',
+      sv: '0022 Ortiz Course'
+    },
+    municipality: {
+      fi: 'Mosemouth',
+      sv: 'North Ashtonshire'
+    },
+    zip_code: '54833-2354',
+    phone: '585.933.0034 x1879',
+    email: 'Shania.Windler79@hotmail.com',
+    www_url: 'http://maida.com',
+    location: {
+      type: 'Lake Kathlynhaven',
+      coordinates: [60.239301, 25.107797]
+    },
+    image: 'http://lorempixel.com/640/480',
+    mooring: false,
+    electricity: true,
+    water: true,
+    waste_collection: false,
+    gate: true,
+    lighting: true,
+    number_of_places: 37,
+    maximum_width: 967,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: '4162dce8-9542-4adb-90b4-cda8e7b23e3c',
+    suitable_boat_types: ['trawler', 'motorboat_sterndrive'],
+    name: {
+      fi: 'Leffler Skyway',
+      sv: 'Marisol Trail'
+    },
+    street_address: {
+      fi: '0242 Fletcher Light',
+      sv: '42817 Leuschke Prairie'
+    },
+    municipality: {
+      fi: 'West Samir',
+      sv: 'West Patville'
+    },
+    zip_code: '20481',
+    phone: '476-870-4341 x4611',
+    email: 'Okey89@hotmail.com',
+    www_url: 'https://vern.org',
+    location: {
+      type: 'Christopmouth',
+      coordinates: [60.223607, 25.227339]
+    },
+    image: 'http://lorempixel.com/640/480',
+    mooring: false,
+    electricity: false,
+    water: true,
+    waste_collection: false,
+    gate: true,
+    lighting: true,
     number_of_places: 36,
-    maximum_depth: 876,
-    maximum_width: 246
+    maximum_width: 699,
+    image_file: 'http://picsum.photos/640/480'
   },
   {
-    id: '1f51b791-5408-4337-be21-0df8d147cf22',
+    identifier: 'ad2b5682-ddc4-480f-9f53-f2f3eb5e17f4',
+    suitable_boat_types: ['motorboat_sterndrive', 'motorboat_direct_drive', 'rowing_boat'],
     name: {
-      fi: 'Oliver Tunnel',
-      sv: 'Braun Station'
+      fi: 'Allison Grove',
+      sv: 'Hettinger View'
     },
     street_address: {
-      fi: '5882 McClure Cliffs',
-      sv: '258 Enos Club'
+      fi: '4057 Ernser Squares',
+      sv: '719 Heaney Courts'
     },
     municipality: {
-      fi: 'Uniquefort',
-      sv: 'Abernathyside'
+      fi: "O'Connerside",
+      sv: 'South Sigurd'
     },
-    zip_code: '24801',
-    phone: '591-272-5890 x412',
-    email: 'Clyde_Willms54@gmail.com',
-    www_url: 'https://river.org',
+    zip_code: '94709-0570',
+    phone: '018.106.1179',
+    email: 'Amara.Weber@yahoo.com',
+    www_url: 'https://maximilian.biz',
     location: {
-      type: 'Marcstad',
-      coordinates: [37, -28]
+      type: "O'Connermouth",
+      coordinates: [60.164617, 24.925953]
     },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://gabriel.biz',
+    image: 'http://lorempixel.com/640/480',
     mooring: true,
-    electricity: false,
-    water: false,
-    waste_collection: true,
-    gate: false,
-    lighting: true,
-    number_of_places: 20,
-    maximum_depth: 617,
-    maximum_width: 151
-  },
-  {
-    id: 'b5dc4afa-f1b1-4eda-898d-3420fbf4c45f',
-    name: {
-      fi: 'Enrico Loop',
-      sv: 'Mattie Wall'
-    },
-    street_address: {
-      fi: "1108 O'Reilly Club",
-      sv: '463 Beahan Tunnel'
-    },
-    municipality: {
-      fi: 'Lake Noemieview',
-      sv: 'Mantechester'
-    },
-    zip_code: '34311',
-    phone: '435.324.8331',
-    email: 'Linnea_Treutel8@hotmail.com',
-    www_url: 'https://geraldine.info',
-    location: {
-      type: 'Meganeborough',
-      coordinates: [36, -25]
-    },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://fabiola.biz',
-    mooring: true,
-    electricity: false,
-    water: true,
-    waste_collection: true,
-    gate: true,
-    lighting: true,
-    number_of_places: 40,
-    maximum_depth: 659,
-    maximum_width: 874
-  },
-  {
-    id: '048a762c-c646-4e19-b86f-ef5b97a41aa6',
-    name: {
-      fi: 'Ulises Passage',
-      sv: 'Reynolds Streets'
-    },
-    street_address: {
-      fi: '3746 Jerrell Wall',
-      sv: '25263 Ebert Bridge'
-    },
-    municipality: {
-      fi: 'North Odieport',
-      sv: 'Lake Flavioland'
-    },
-    zip_code: '04742-5619',
-    phone: '708-116-4888 x0501',
-    email: 'Kurt.Heller50@hotmail.com',
-    www_url: 'http://krystel.info',
-    location: {
-      type: 'New Shannaport',
-      coordinates: [-69, 24]
-    },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://mohammed.biz',
-    mooring: false,
-    electricity: false,
-    water: true,
-    waste_collection: true,
-    gate: true,
-    lighting: true,
-    number_of_places: 20,
-    maximum_depth: 131,
-    maximum_width: 641
-  },
-  {
-    id: '98d0dbd2-5c65-4d61-8aad-191c5f94f845',
-    name: {
-      fi: 'Janice Creek',
-      sv: 'Rhea Views'
-    },
-    street_address: {
-      fi: '743 Bashirian Port',
-      sv: '08464 Elmira Courts'
-    },
-    municipality: {
-      fi: 'Lake Bernardo',
-      sv: 'New Abigayle'
-    },
-    zip_code: '58045',
-    phone: '892.311.0960 x895',
-    email: 'Gregoria_Graham@gmail.com',
-    www_url: 'https://mario.net',
-    location: {
-      type: 'South Dagmarberg',
-      coordinates: [34, -173]
-    },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://earlene.biz',
-    mooring: false,
     electricity: true,
     water: true,
-    waste_collection: true,
+    waste_collection: false,
     gate: false,
     lighting: true,
+    number_of_places: 22,
+    maximum_width: 974,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: '2ba66996-fa9c-425a-a1c9-05b9620e04d6',
+    suitable_boat_types: ['trawler', 'sailboat', 'motorboat_outboard'],
+    name: {
+      fi: 'Ledner Mission',
+      sv: 'Bruen Junction'
+    },
+    street_address: {
+      fi: '55039 Littel Fords',
+      sv: '38346 Catherine Lock'
+    },
+    municipality: {
+      fi: 'North Alishaborough',
+      sv: 'East Cathy'
+    },
+    zip_code: '94103',
+    phone: '(613) 618-8259',
+    email: 'Dayton.Deckow16@gmail.com',
+    www_url: 'https://marilyne.info',
+    location: {
+      type: 'New Chrismouth',
+      coordinates: [60.162047, 24.708594]
+    },
+    image: 'http://lorempixel.com/640/480',
+    mooring: false,
+    electricity: false,
+    water: false,
+    waste_collection: false,
+    gate: false,
+    lighting: true,
+    number_of_places: 42,
+    maximum_width: 464,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: 'ae5229f5-a233-4fd7-81e5-ce1b87e80415',
+    suitable_boat_types: ['big_boat', 'sailboat', 'motorboat_outboard', 'rowing_boat'],
+    name: {
+      fi: 'Stroman Shoals',
+      sv: 'Justen Forks'
+    },
+    street_address: {
+      fi: '4122 Mraz Creek',
+      sv: '649 Stephen Corner'
+    },
+    municipality: {
+      fi: 'Satterfieldland',
+      sv: 'East Kayden'
+    },
+    zip_code: '02519-3622',
+    phone: '819.090.2085 x2624',
+    email: 'Leslie95@yahoo.com',
+    www_url: 'http://emanuel.net',
+    location: {
+      type: 'Helenabury',
+      coordinates: [60.229705, 24.911161]
+    },
+    image: 'http://lorempixel.com/640/480',
+    mooring: true,
+    electricity: true,
+    water: true,
+    waste_collection: false,
+    gate: true,
+    lighting: true,
+    number_of_places: 36,
+    maximum_width: 256,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: 'feff13d6-d874-47a3-b58f-191e1a946f52',
+    suitable_boat_types: ['big_boat', 'motorboat_outboard', 'motorboat_direct_drive', 'sailboat'],
+    name: {
+      fi: 'Heber Prairie',
+      sv: 'Thaddeus Lock'
+    },
+    street_address: {
+      fi: '3079 Darryl Road',
+      sv: '63106 Wiza Squares'
+    },
+    municipality: {
+      fi: 'Port Creola',
+      sv: 'North Deondreton'
+    },
+    zip_code: '28148-6048',
+    phone: '322-944-9135 x1589',
+    email: 'Roderick.Ankunding@yahoo.com',
+    www_url: 'http://angelica.info',
+    location: {
+      type: 'Hammesmouth',
+      coordinates: [60.165609, 24.948965]
+    },
+    image: 'http://lorempixel.com/640/480',
+    mooring: true,
+    electricity: false,
+    water: true,
+    waste_collection: true,
+    gate: true,
+    lighting: false,
+    number_of_places: 37,
+    maximum_width: 933,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: '8d024c3c-0625-4767-ba80-503ec783232c',
+    suitable_boat_types: ['dinghy', 'big_boat', 'motorboat_outboard', 'trawler'],
+    name: {
+      fi: 'Hermina Bridge',
+      sv: 'Jeffery Coves'
+    },
+    street_address: {
+      fi: '68885 Tiara Ridges',
+      sv: '6307 Blanda Villages'
+    },
+    municipality: {
+      fi: 'West Santiagostad',
+      sv: 'New Beauland'
+    },
+    zip_code: '39888',
+    phone: '706.489.4512',
+    email: 'Willie.Eichmann68@yahoo.com',
+    www_url: 'https://chanelle.net',
+    location: {
+      type: 'Rosannachester',
+      coordinates: [60.212739, 24.730254]
+    },
+    image: 'http://lorempixel.com/640/480',
+    mooring: false,
+    electricity: true,
+    water: false,
+    waste_collection: false,
+    gate: true,
+    lighting: true,
+    number_of_places: 49,
+    maximum_width: 984,
+    image_file: 'http://picsum.photos/640/480'
+  },
+  {
+    identifier: 'c9931870-0079-4d99-a3f5-ca49b5068ee6',
+    suitable_boat_types: ['sailboat'],
+    name: {
+      fi: 'Kacie Loaf',
+      sv: 'Schmeler Plain'
+    },
+    street_address: {
+      fi: '5553 Vern Creek',
+      sv: '19667 Jovani Roads'
+    },
+    municipality: {
+      fi: 'Nikkofort',
+      sv: 'McCulloughfurt'
+    },
+    zip_code: '99824-7083',
+    phone: '109-834-6357 x50831',
+    email: 'Hertha.Crist@yahoo.com',
+    www_url: 'http://rosetta.name',
+    location: {
+      type: 'Dietrichtown',
+      coordinates: [60.180736, 25.220485]
+    },
+    image: 'http://lorempixel.com/640/480',
+    mooring: true,
+    electricity: true,
+    water: false,
+    waste_collection: false,
+    gate: false,
+    lighting: false,
     number_of_places: 34,
-    maximum_depth: 546,
-    maximum_width: 449
-  },
-  {
-    id: '1a1c3c12-95a4-45c8-bb77-acabaa4b7708',
-    name: {
-      fi: 'Leffler Points',
-      sv: 'Janie Common'
-    },
-    street_address: {
-      fi: '29665 Stracke Center',
-      sv: '625 Trantow Rapids'
-    },
-    municipality: {
-      fi: 'Jordonfurt',
-      sv: 'North Earline'
-    },
-    zip_code: '90377-2112',
-    phone: '1-887-692-3022 x4615',
-    email: 'Kayden.Graham30@yahoo.com',
-    www_url: 'https://kody.com',
-    location: {
-      type: 'Lake Jovannychester',
-      coordinates: [28, 143]
-    },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://mariano.info',
-    mooring: false,
-    electricity: false,
-    water: false,
-    waste_collection: false,
-    gate: false,
-    lighting: true,
-    number_of_places: 45,
-    maximum_depth: 757,
-    maximum_width: 856
-  },
-  {
-    id: 'e0c3b6f1-68ad-47f4-9537-0297296be5b5',
-    name: {
-      fi: 'Nicolas Place',
-      sv: 'Bergnaum Loop'
-    },
-    street_address: {
-      fi: '42802 Milton Unions',
-      sv: '4089 Kirlin Spring'
-    },
-    municipality: {
-      fi: 'South Ellis',
-      sv: 'Trompshire'
-    },
-    zip_code: '17233-0088',
-    phone: '1-281-692-7233',
-    email: 'Camylle.Quigley58@hotmail.com',
-    www_url: 'http://fleta.biz',
-    location: {
-      type: 'Kuhicburgh',
-      coordinates: [-29, -159]
-    },
-    image_file: 'http://lorempixel.com/640/480',
-    image_link: 'https://annalise.org',
-    mooring: false,
-    electricity: true,
-    water: true,
-    waste_collection: false,
-    gate: true,
-    lighting: true,
-    number_of_places: 27,
-    maximum_depth: 588,
-    maximum_width: 708
+    maximum_width: 871,
+    image_file: 'http://picsum.photos/640/480'
   }
 ];

@@ -15,7 +15,7 @@ const SelectedBerths = ({ berths, moveUp, moveDown }) => (
     {berths.size > 0 ? (
       <div>
         {berths.map(berth => (
-          <SelectedBerth berth={berth} moveUp={moveUp} moveDown={moveDown} />
+          <SelectedBerth key={berth.identifier} berth={berth} moveUp={moveUp} moveDown={moveDown} />
         ))}
       </div>
     ) : (

@@ -54,9 +54,9 @@ export default class SimpleExample extends Component<Props, State> {
       <Map center={position} zoom={this.state.zoom} style={style}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {berths.map(berth => {
-          const markerIcon = selected.includes(berth.id) ? iconSelected : iconUnselected;
+          const markerIcon = selected.includes(berth.identifier) ? iconSelected : iconUnselected;
           return (
-            <Marker icon={markerIcon} key={berth.id} position={berth.location.coordinates}>
+            <Marker icon={markerIcon} key={berth.identifier} position={berth.location.coordinates}>
               <Popup>
                 <Container>
                   <Row>
@@ -69,12 +69,12 @@ export default class SimpleExample extends Component<Props, State> {
                       <strong>{berth.name.fi}</strong>
                       <div>{berth.street_address.fi}</div>
                       <div>{berth.municipality.fi}</div>
-                      {selected.includes(berth.id) ? (
-                        <Button color="secondary" onClick={() => onClick(berth.id)}>
+                      {selected.includes(berth.identifier) ? (
+                        <Button color="secondary" onClick={() => onClick(berth.identifier)}>
                           Valittu
                         </Button>
                       ) : (
-                        <Button outline primary="true" onClick={() => onClick(berth.id)}>
+                        <Button outline primary="true" onClick={() => onClick(berth.identifier)}>
                           + Lisää
                         </Button>
                       )}

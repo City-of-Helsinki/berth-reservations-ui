@@ -32,10 +32,14 @@ export default (state: Berths = defaultState(), action: Action) => {
         const nextInOrder = index - 1;
         const before = selectedBerths.slice(0, index - 1);
         const after = selectedBerths.slice(index + 1);
-        return new List()
-          .concat(before)
-          .concat([payload, selectedBerths.get(nextInOrder)])
-          .concat(after);
+        const swapWith = selectedBerths.get(nextInOrder);
+        if (swapWith) {
+          return new List()
+            .concat(before)
+            .concat([payload, swapWith])
+            .concat(after);
+        }
+        return selectedBerths;
       });
     case 'MOVE_BERTH_DOWN':
       return state.update('selectedBerths', selectedBerths => {
@@ -43,10 +47,14 @@ export default (state: Berths = defaultState(), action: Action) => {
         const previousInOrder = index + 1;
         const before = selectedBerths.slice(0, index);
         const after = selectedBerths.slice(index + 2);
-        return new List()
-          .concat(before)
-          .concat([selectedBerths.get(previousInOrder), payload])
-          .concat(after);
+        const swapWith = selectedBerths.get(previousInOrder);
+        if (swapWith) {
+          return new List()
+            .concat(before)
+            .concat([swapWith, payload])
+            .concat(after);
+        }
+        return selectedBerths;
       });
     default:
       return state;

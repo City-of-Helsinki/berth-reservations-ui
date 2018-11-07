@@ -23,7 +23,8 @@ module.exports = utils.array(
     gate: utils.boolean(),
     lighting: utils.boolean(),
     number_of_places: utils.integer(10, 50),
-    maximum_width: utils.integer(100, 1000)
+    maximum_width: utils.integer(10, 100),
+    maximum_length: utils.integer(10, 100)
   }),
   20,
   30

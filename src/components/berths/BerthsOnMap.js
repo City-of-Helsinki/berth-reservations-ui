@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Map from '../../components/Map';
+import Map from '../Map';
 
 const MapContainer = styled.div`
   display: flex;
