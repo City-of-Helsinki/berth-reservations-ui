@@ -1,0 +1,4 @@
+{
+    "./**/*.js": ["yarn eslint --fix", "yarn prettier --write", "git add"],
+    "./**/*.{json,scss}": ["yarn prettier --write", "git add"],
+}
