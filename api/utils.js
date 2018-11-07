@@ -49,6 +49,8 @@ const fakedBoatTypes = () =>
     4
   );
 
+const fakedCoordinates = () => array([integer(60116468, 60243053), integer(24666948, 25234917)]);
+
 module.exports = {
   object,
   array,
@@ -57,5 +59,6 @@ module.exports = {
   fakedString,
   fakedInteger,
   fakedMultilingual,
-  fakedBoatTypes
+  fakedBoatTypes,
+  fakedCoordinates
 };

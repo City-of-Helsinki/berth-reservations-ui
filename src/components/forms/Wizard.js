@@ -26,37 +26,43 @@ export default class Wizard extends Component<Props, State> {
 
   getActiveStep = () => {
     const { step, children } = this.props;
-    return React.Children.toArray(children)[step - 1];
+    return React.Children.toArray(children)[step];
   };
 
   handleSubmit = (values: any) => {
-    const { nextStep, onSubmit } = this.props;
+    const { nextStep, goForward } = this.props;
     if (this.hasNextStep()) {
       nextStep();
     } else {
-      onSubmit(values);
+      goForward(values);
+    }
+  };
+
+  handlePrevious = (values: any) => {
+    const { prevStep, goBackwards } = this.props;
+
+    if (this.hasPreviousStep()) {
+      prevStep();
+    } else {
+      goBackwards(values);
     }
   };
 
   render() {
     const { initialValues } = this.state;
-    const { prevStep } = this.props;
     const activePage = this.getActiveStep();
 
     return (
       <Form initialValues={initialValues} onSubmit={this.handleSubmit}>
         {({ submitting, invalid, values }) => (
           <Fragment>
-            {React.cloneElement(activePage, { values })}
+            {activePage && React.cloneElement(activePage, { values })}
             <Container>
               <Row>
                 <Col>
-                  {this.hasPreviousStep() && (
-                    <Button type="button" onClick={prevStep}>
-                      « Previous
-                    </Button>
-                  )}
-
+                  <Button type="button" onClick={() => this.handlePrevious(values)}>
+                    « Previous
+                  </Button>
                   {this.hasNextStep() ? (
                     <Button type="submit">{invalid ? 'Fill the form to proceed' : 'Next »'}</Button>
                   ) : (

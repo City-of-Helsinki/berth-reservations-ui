@@ -25,6 +25,7 @@ const FormGroupField = ({
   validate,
   text,
   children,
+  noValidate,
   intl: { formatMessage },
   ...rest
 }: FormGroupFieldProps) => (
@@ -32,7 +33,7 @@ const FormGroupField = ({
     name={name}
     type={type}
     value={value}
-    validate={validator(required ? mustBePresent : null, validate || null)}
+    validate={noValidate ? undefined : validator(required ? mustBePresent : null, validate || null)}
   >
     {({ input, meta }) => (
       <Fragment>

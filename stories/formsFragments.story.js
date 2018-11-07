@@ -1,9 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { Container } from 'reactstrap';
 
-import Form from '../src/components/forms/Form';
 import Accessibility from '../src/components/forms/fragments/Accessibility';
 import BigShips from '../src/components/forms/fragments/BigShips';
 import BoatInfo from '../src/components/forms/fragments/BoatInfo';
@@ -17,12 +14,10 @@ import PostalDetails from '../src/components/forms/fragments/PostalDetails';
 import RegisteredBoatDetails from '../src/components/forms/fragments/RegisteredBoatDetails';
 import UnRegisteredBoatDetails from '../src/components/forms/fragments/UnRegisteredBoatDetails';
 
+import { form } from './decorators';
+
 storiesOf('Forms/Fragments', module)
-  .addDecorator(storyFn => (
-    <Container fluid>
-      <Form onSubmit={action('onSubmit')}>{() => storyFn()}</Form>
-    </Container>
-  ))
+  .addDecorator(form)
   .add('Accessibility', () => <Accessibility />)
   .add('BigShips', () => <BigShips />)
   .add('BoatInfo', () => <BoatInfo />)

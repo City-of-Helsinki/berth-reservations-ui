@@ -15,7 +15,7 @@ type Props = {
 const App = ({ locale }: Props) => (
   <IntlProvider locale={locale} key={locale} messages={messages[locale]}>
     <Switch>
-      <Redirect exact path="/:locale/" to="/:locale/form" />
+      <Redirect exact path="/:locale/" to="/:locale/berths" />
       <Route exact path="/:locale/berths" component={BerthPage} />
       <Route exact path="/:locale/form" component={FormPage} />
       <Route exact path="/:locale/thank-you" component={ThankYouPage} />

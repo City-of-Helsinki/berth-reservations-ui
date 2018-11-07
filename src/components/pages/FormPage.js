@@ -24,12 +24,17 @@ const BoatPage = ({
     <Steps step={step} done={done} />
     <FormLegend step={step} />
     <Wizard
-      step={step}
+      step={step - 1}
       initialValues={initialValues}
-      onSubmit={async values => {
+      goForward={async values => {
         await onSubmit(values);
         await resetValues();
-        localePush('thank-you');
+        await localePush('thank-you');
+      }}
+      goBackwards={async values => {
+        await prevStep();
+        await onSubmit(values);
+        await localePush('berths');
       }}
       nextStep={nextStep}
       prevStep={prevStep}

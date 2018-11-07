@@ -1,6 +1,6 @@
 {
   "javascript.validate.enable": false,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.rulers": [100],
   "flow.enabled": true,
   "flow.runOnEdit": true,

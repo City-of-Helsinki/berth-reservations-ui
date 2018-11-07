@@ -1,6 +1,7 @@
 /* eslint-disable */
 // $SuppressFlowComment
 require('open-city-design/src/scss/main.scss');
+require('leaflet/dist/leaflet.css');
 // $SuppressFlowComment
 const extractedTheme = require('sass-extract-loader?{"plugins":["sass-extract-js"]}!./theme.scss');
 /* eslint-enable */

@@ -5,17 +5,23 @@ import { Text } from '../Fields';
 
 import type { FormFragmentProps } from '../../../types/form';
 
-const ContactDetailsFragment = ({ prefix }: FormFragmentProps) => (
+const ContactDetailsFragment = ({ prefix, noValidate = false }: FormFragmentProps) => (
   <Row>
     <Col sm={4}>
       <Text
+        noValidate={noValidate}
         name={`${prefix}.mobile_phone`}
         label="form.contact_details.field.mobile_phone.label"
         required
       />
     </Col>
     <Col sm={4}>
-      <Text name={`${prefix}.email`} label={`form.contact_details.field.email.label`} required />
+      <Text
+        noValidate={noValidate}
+        name={`${prefix}.email`}
+        label={`form.contact_details.field.email.label`}
+        required
+      />
     </Col>
   </Row>
 );

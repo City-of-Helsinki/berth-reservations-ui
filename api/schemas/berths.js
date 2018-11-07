@@ -13,10 +13,7 @@ module.exports = utils.array(
     www_url: utils.fakedString('internet.url'),
     location: utils.object({
       type: utils.fakedString('address.city'),
-      coordinates: utils.array([
-        utils.fakedInteger('address.latitude'),
-        utils.fakedInteger('address.longitude')
-      ])
+      coordinates: utils.fakedCoordinates()
     }),
     image: utils.fakedString('image.imageUrl'),
     mooring: utils.boolean(),
@@ -26,7 +23,8 @@ module.exports = utils.array(
     gate: utils.boolean(),
     lighting: utils.boolean(),
     number_of_places: utils.integer(10, 50),
-    maximum_width: utils.integer(100, 1000)
+    maximum_width: utils.integer(10, 100),
+    maximum_length: utils.integer(10, 100)
   }),
   20,
   30
