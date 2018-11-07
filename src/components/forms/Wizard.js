@@ -56,6 +56,7 @@ export default class Wizard extends Component<Props, State> {
                       « Previous
                     </Button>
                   )}
+
                   {this.hasNextStep() ? (
                     <Button type="submit">{invalid ? 'Fill the form to proceed' : 'Next »'}</Button>
                   ) : (

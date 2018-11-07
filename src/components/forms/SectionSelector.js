@@ -10,7 +10,20 @@ const ButtonWrapper = styled.div`
   background-color: ${props => props.theme.helLight};
   padding: 1em;
 `;
+type TypeProps = {
+  id: string,
+  label: string,
+  value: string,
+  iconName: string
+};
+
 const StyledIcon = styled(Icon)``;
+type Props = {
+  name: string,
+  types: Array<TypeProps>,
+  selected: any
+};
+
 const FormSelectWrapper = styled.div`
   padding: 1em;
   ${StyledIcon} {
@@ -18,19 +31,6 @@ const FormSelectWrapper = styled.div`
     background-color: ${props => (props.selected ? props.theme.helFog : 'unset')};
   }
 `;
-
-type Props = {
-  name: string,
-  types: Array<TypeProps>,
-  selected: any
-};
-
-type TypeProps = {
-  id: string,
-  label: string,
-  value: string,
-  iconName: string
-};
 
 const SectionSelector = ({ name, types, selected }: Props) => (
   <ButtonWrapper>
