@@ -50,7 +50,7 @@ class BerthPage extends Component<Props> {
   };
 
   render() {
-    const { initialValues, berths, selectedBerths } = this.props;
+    const { initialValues, berths, selectedBerths, moveUp, moveDown } = this.props;
     return (
       <Layout>
         <Form initialValues={initialValues} onSubmit={this.onSubmit}>
@@ -82,7 +82,9 @@ class BerthPage extends Component<Props> {
                         </Badge>
                       </span>
                     )}
-                    berths={berths.filter(b => selectedBerths.includes(b.id))}
+                    moveUp={moveUp}
+                    moveDown={moveDown}
+                    berths={selectedBerths.map(key => berths.find(berth => key === berth.id))}
                   />
                 </TabSelector>
               </Fragment>

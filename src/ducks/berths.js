@@ -12,6 +12,8 @@ const defaultState = Record({
 export const getBerths = createAction('GET_BERTHS', berthsService.getBerths);
 export const selectBerth = createAction('SELECT_BERTH', id => id);
 export const deselectBerth = createAction('DESELECT_BERTH', id => id);
+export const moveUp = createAction('MOVE_BERTH_UP', id => id);
+export const moveDown = createAction('MOVE_BERTH_DOWN', id => id);
 
 export default (state: Berths = defaultState(), action: Action) => {
   const { type, payload } = action;
@@ -24,6 +26,28 @@ export default (state: Berths = defaultState(), action: Action) => {
       return state.update('selectedBerths', selectedBerths =>
         selectedBerths.filterNot(b => b === payload)
       );
+    case 'MOVE_BERTH_UP':
+      return state.update('selectedBerths', selectedBerths => {
+        const index = selectedBerths.findIndex(k => k === payload);
+        const nextInOrder = index - 1;
+        const before = selectedBerths.slice(0, index - 1);
+        const after = selectedBerths.slice(index + 1);
+        return new List()
+          .concat(before)
+          .concat([payload, selectedBerths.get(nextInOrder)])
+          .concat(after);
+      });
+    case 'MOVE_BERTH_DOWN':
+      return state.update('selectedBerths', selectedBerths => {
+        const index = selectedBerths.findIndex(k => k === payload);
+        const previousInOrder = index + 1;
+        const before = selectedBerths.slice(0, index);
+        const after = selectedBerths.slice(index + 2);
+        return new List()
+          .concat(before)
+          .concat([selectedBerths.get(previousInOrder), payload])
+          .concat(after);
+      });
     default:
       return state;
   }

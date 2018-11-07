@@ -32,3 +32,4 @@ export type Berth = {
 };
 
 export type Berths = List<Berth>;
+export type SelectedBerths = List<string>;

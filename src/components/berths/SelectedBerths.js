@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { Alert, Container, Button } from 'reactstrap';
 import SelectedBerth from './SelectedBerth';
 
-const SelectedBerths = ({ berths }) => (
+const SelectedBerths = ({ berths, moveUp, moveDown }) => (
   <Container>
     <FormattedMessage tagName="h1" id="page.berth.selected.title" />
     <FormattedMessage tagName="p" id="page.berth.selected.paragraph.first" />
@@ -13,7 +13,11 @@ const SelectedBerths = ({ berths }) => (
     <hr />
 
     {berths.size > 0 ? (
-      <div>{berths.map(SelectedBerth)}</div>
+      <div>
+        {berths.map(berth => (
+          <SelectedBerth berth={berth} moveUp={moveUp} moveDown={moveDown} />
+        ))}
+      </div>
     ) : (
       <Alert color="danger">
         <FormattedMessage tagName="strong" id="page.berth.selected.alert.strong" />

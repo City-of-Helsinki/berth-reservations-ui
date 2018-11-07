@@ -1,8 +1,8 @@
 // @flow
-import type { RecordOf, List } from 'immutable';
-import type { Berths as Bs } from './berths';
+import type { RecordOf } from 'immutable';
+import type { Berths as Bs, SelectedBerths } from './berths';
 
-export type Forms = RecordOf<{
+export type FormsState = RecordOf<{
   values: Object,
   step: number,
   done: boolean
@@ -10,7 +10,7 @@ export type Forms = RecordOf<{
 
 export type Berths = RecordOf<{
   berths: Bs,
-  selectedBerths: List<string>
+  selectedBerths: SelectedBerths
 }>;
 
 export type Action = {

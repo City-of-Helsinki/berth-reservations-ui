@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { withLocaleHandlers } from '../../../utils/container';
 import { onSubmit, nextStep } from '../../../ducks/forms';
-import { getBerths, selectBerth, deselectBerth } from '../../../ducks/berths';
+import { getBerths, selectBerth, deselectBerth, moveUp, moveDown } from '../../../ducks/berths';
 import BerthPage from '../BerthPage';
 
 export default compose(
@@ -15,6 +15,6 @@ export default compose(
       berths: state.berths.berths,
       selectedBerths: state.berths.selectedBerths
     }),
-    { onSubmit, nextStep, getBerths, selectBerth, deselectBerth }
+    { onSubmit, nextStep, getBerths, selectBerth, deselectBerth, moveUp, moveDown }
   )
 )(BerthPage);
