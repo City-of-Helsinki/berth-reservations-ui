@@ -60,23 +60,23 @@ export default class SimpleExample extends Component<Props, State> {
     const { berths, filtered, selected, onClick } = this.props;
     const position = [this.state.lat, this.state.lng];
 
+    const markerIcon = isSelected => {
+      if (isSelected) {
+        return iconSelected;
+      }
+      return iconUnmatched;
+    };
+
     return (
       <Map center={position} zoom={this.state.zoom} style={style}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {berths.map(berth => {
-          const markerIcon = () => {
-            if (selected && selected.includes(berth.identifier)) {
-              return iconSelected;
-            }
-
-            return iconUnmatched;
-          };
-
+          const isSelected = selected && selected.includes(berth.identifier);
           return (
             <MapMarker
               berth={berth}
-              selected={selected}
-              markerIcon={markerIcon}
+              selected={isSelected}
+              markerIcon={markerIcon(isSelected)}
               key={berth.identifier}
               position={berth.location.coordinates}
               onClick={() => onClick(berth.identifier)}

@@ -33,7 +33,7 @@ export default class MapMarker extends Component<Props> {
                 <strong>{berth.name.fi}</strong>
                 <div>{berth.street_address.fi}</div>
                 <div>{berth.municipality.fi}</div>
-                {selected.includes(berth.identifier) ? (
+                {selected ? (
                   <Button color="secondary" onClick={() => onClick(berth.identifier)}>
                     Valittu
                   </Button>
