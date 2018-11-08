@@ -1,12 +1,12 @@
 // @flow
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import { withLocaleHandlers } from '../../../utils/container';
+import { withMatchParamsHandlers } from '../../../utils/container';
 import { onSubmit, nextStep, prevStep, resetValues } from '../../../ducks/forms';
 import FormPage from '../FormPage';
 
 export default compose(
-  withLocaleHandlers,
+  withMatchParamsHandlers,
   connect(
     state => ({
       initialValues: state.forms.values,

@@ -29,9 +29,9 @@ const GrayBackground = styled.div`
   padding: 1em;
 `;
 
-const BoatDetails = ({ values }: Props) => {
+const BoatDetails = ({ values, tab }: Props) => {
   const selected = get(values, ['sections', 'boat']);
-  const ShowBigBoats = get(values, ['boat', 'type']) === BigBoatTypeValue;
+  const ShowBigBoats = tab === 'registered_big_boat';
   return (
     <Content>
       <SectionSelector
@@ -58,7 +58,7 @@ const BoatDetails = ({ values }: Props) => {
           }
         ]}
       />
-      {selected === 'registered_boat' && (
+      {(tab === 'registered_boat' || tab === 'registered_big_boat') && (
         <Container>
           <FormattedMessage tagName="h3" id="form.registered.header.title" />
           <RegisteredBoatDetails prefix="boat" />
@@ -82,7 +82,7 @@ const BoatDetails = ({ values }: Props) => {
           <Accessibility prefix="boat" />
         </Container>
       )}
-      {selected === 'unregistered_boat' && (
+      {tab === 'unregistered_boat' && (
         <Container>
           <FormattedMessage tagName="h3" id="form.unregistered.header.title" />
           <UnRegisteredBoatDetails prefix="boat" />
@@ -91,7 +91,7 @@ const BoatDetails = ({ values }: Props) => {
           <Accessibility prefix="boat" />
         </Container>
       )}
-      {selected === 'no_boat' && (
+      {tab === 'no_boat' && (
         <Container>
           <FormattedMessage tagName="h3" id="form.no_boat.header.title" />
           <UnRegisteredBoatDetails prefix="boat" />

@@ -18,7 +18,7 @@ type Props = {
   values: any
 };
 
-const ApplicantDetails = ({ values }: Props) => {
+const ApplicantDetails = ({ values, tab }: Props) => {
   const selected = get(values, ['sections', 'applicant']);
   return (
     <Content>
@@ -40,7 +40,7 @@ const ApplicantDetails = ({ values }: Props) => {
           }
         ]}
       />
-      {selected === 'private_person' && (
+      {tab === 'private_person' && (
         <Container>
           <FormattedMessage tagName="h3" id="form.private_person.header.title" />
           <FullName prefix="applicant.name" />
@@ -48,7 +48,7 @@ const ApplicantDetails = ({ values }: Props) => {
           <ContactDetails prefix="applicant.contact" />
         </Container>
       )}
-      {selected === 'company' && (
+      {tab === 'company' && (
         <Container>
           <FormattedMessage tagName="h3" id="form.company.header.title" />
           <CompanyDetails prefix="applicant.company" />
