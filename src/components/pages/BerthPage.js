@@ -1,7 +1,8 @@
 // @flow
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { get } from 'lodash';
 import { Badge } from 'reactstrap';
+import styled from 'styled-components';
 
 import Layout from '../layout/Layout';
 import Form from '../forms/Form';
@@ -10,6 +11,10 @@ import BerthsOnMap from '../berths/BerthsOnMap';
 import Berths from '../berths/Berths';
 import SelectedBerths from '../berths/SelectedBerths';
 import TabSelector from '../berths/TabSelector';
+
+const Wrapper = styled.div`
+  margin-bottom: 5em;
+`;
 
 type Props = any;
 
@@ -58,7 +63,7 @@ class BerthPage extends Component<Props> {
             const filter = this.getFilterByValues(values);
             const filtered = berths.filter(filter);
             return (
-              <Fragment>
+              <Wrapper>
                 <BerthsLegend />
                 <TabSelector>
                   <Berths
@@ -89,7 +94,7 @@ class BerthPage extends Component<Props> {
                     )}
                   />
                 </TabSelector>
-              </Fragment>
+              </Wrapper>
             );
           }}
         </Form>

@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import './KoroSection.scss';
 
 type Props = {
-  className: string,
+  className?: string,
   children?: Node,
   color: 'fog' | 'blue' | 'white',
   top?: boolean,

@@ -15,11 +15,6 @@ type Props = {
   children: any
 };
 
-const Content = styled.div`
-  background-color: white;
-  padding-bottom: 3rem;
-`;
-
 const TopNavbar = styled(Navbar)`
   background-color: ${props => props.theme.colors.helFog};
   & a {
@@ -31,24 +26,21 @@ const TopNavbar = styled(Navbar)`
   }
 `;
 
-const TopKoro = styled(KoroSection).attrs({
-  top: true
-})`
+const Hero = styled.div`
   background-image: url(${heroImage});
   background-size: cover;
-  & > div {
-    padding: 4em;
-    height: 25em;
-    h1 {
-      font-size: 5em;
-      color: #fff;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-    }
+  padding: 4em;
+  height: 25em;
+  h1 {
+    font-size: 5em;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   }
 `;
 
-const BottomKoro = styled(KoroSection).attrs({
-  top: true
+const Content = styled(KoroSection).attrs({
+  bottom: true,
+  color: 'fog'
 })``;
 
 const Layout = ({ children }: Props) => (
@@ -66,14 +58,13 @@ const Layout = ({ children }: Props) => (
         <FormattedMessage id="site.title" />
       </NavbarBrand>
     </Navbar>
-    <TopKoro color="fog">
-      <div>
-        <FormattedMessage tagName="h1" id="site.title" />
-      </div>
-    </TopKoro>
+    <Hero>
+      <FormattedMessage tagName="h1" id="site.title" />
+    </Hero>
     <Content>{children}</Content>
-    <BottomKoro color="blue" />
-    <Footer />
+    <KoroSection bottom color="blue">
+      <Footer />
+    </KoroSection>
   </Fragment>
 );
 

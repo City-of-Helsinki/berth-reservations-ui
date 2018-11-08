@@ -11,6 +11,7 @@ const ButtonSection = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 1.5em;
+  margin-bottom: 3em;
 `;
 
 const ThankYouPage = () => (
