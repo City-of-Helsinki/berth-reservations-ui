@@ -30,10 +30,10 @@ export default (state: Berths = defaultState(), action: Action) => {
       return state.update('selectedBerths', selectedBerths => {
         const index = selectedBerths.findIndex(k => k === payload);
         const nextInOrder = index - 1;
-        const before = selectedBerths.slice(0, index - 1);
-        const after = selectedBerths.slice(index + 1);
         const swapWith = selectedBerths.get(nextInOrder);
-        if (swapWith) {
+        if (swapWith && nextInOrder >= 0) {
+          const before = selectedBerths.slice(0, index - 1);
+          const after = selectedBerths.slice(index + 1);
           return new List()
             .concat(before)
             .concat([payload, swapWith])
@@ -45,10 +45,10 @@ export default (state: Berths = defaultState(), action: Action) => {
       return state.update('selectedBerths', selectedBerths => {
         const index = selectedBerths.findIndex(k => k === payload);
         const previousInOrder = index + 1;
-        const before = selectedBerths.slice(0, index);
-        const after = selectedBerths.slice(index + 2);
         const swapWith = selectedBerths.get(previousInOrder);
-        if (swapWith) {
+        if (swapWith && previousInOrder <= selectedBerths.size - 1) {
+          const before = selectedBerths.slice(0, index);
+          const after = selectedBerths.slice(index + 2);
           return new List()
             .concat(before)
             .concat([swapWith, payload])
