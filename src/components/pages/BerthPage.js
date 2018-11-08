@@ -69,7 +69,8 @@ class BerthPage extends Component<Props> {
                   />
                   <BerthsOnMap
                     TabHeader={() => <span>Kartalla</span>}
-                    berths={filtered}
+                    berths={berths}
+                    filtered={filtered}
                     selected={selectedBerths}
                     onClick={this.toggleBerthSelect}
                   />

@@ -5,24 +5,34 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Container, Row, Col, Button } from 'reactstrap';
 import L from 'leaflet';
 
-import fence from './common/icons/fence.svg';
-import plug from './common/icons/plug.svg';
+import HarborMatchSelected from './common/icons/harbor-match-chosen.svg';
+import HarborMatchUnselected from './common/icons/harbor-match.svg';
+import HarborUnmatch from './common/icons/harbor-unmatch.svg';
+
+import MapMarker from './MapMarker';
 
 /* eslint-disable */
 delete L.Icon.Default.prototype._getIconUrl;
 /* eslint-enable */
 
 const iconSelected = new L.Icon({
-  iconUrl: fence,
-  iconRetinaUrl: fence,
-  iconSize: new L.Point(60, 75),
+  iconUrl: HarborMatchSelected,
+  iconRetinaUrl: HarborMatchSelected,
+  iconSize: new L.Point(45, 45),
   className: 'map-marker'
 });
 
 const iconUnselected = new L.Icon({
-  iconUrl: plug,
-  iconRetinaUrl: plug,
-  iconSize: new L.Point(60, 75),
+  iconUrl: HarborMatchUnselected,
+  iconRetinaUrl: HarborMatchUnselected,
+  iconSize: new L.Point(45, 45),
+  className: 'map-marker'
+});
+
+const iconUnmatched = new L.Icon({
+  iconUrl: HarborUnmatch,
+  iconRetinaUrl: HarborUnmatch,
+  iconSize: new L.Point(45, 45),
   className: 'map-marker'
 });
 
@@ -47,42 +57,30 @@ export default class SimpleExample extends Component<Props, State> {
   };
 
   render() {
-    const { berths, onClick, selected } = this.props;
+    const { berths, filtered, selected, onClick } = this.props;
     const position = [this.state.lat, this.state.lng];
 
     return (
       <Map center={position} zoom={this.state.zoom} style={style}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {berths.map(berth => {
-          const markerIcon = selected.includes(berth.identifier) ? iconSelected : iconUnselected;
+          const markerIcon = () => {
+            if (selected && selected.includes(berth.identifier)) {
+              return iconSelected;
+            }
+
+            return iconUnmatched;
+          };
+
           return (
-            <Marker icon={markerIcon} key={berth.identifier} position={berth.location.coordinates}>
-              <Popup>
-                <Container>
-                  <Row>
-                    <Col>
-                      <img alt={berth.name.fi} width="180" src={berth.image_file} />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <strong>{berth.name.fi}</strong>
-                      <div>{berth.street_address.fi}</div>
-                      <div>{berth.municipality.fi}</div>
-                      {selected.includes(berth.identifier) ? (
-                        <Button color="secondary" onClick={() => onClick(berth.identifier)}>
-                          Valittu
-                        </Button>
-                      ) : (
-                        <Button outline primary="true" onClick={() => onClick(berth.identifier)}>
-                          + Lisää
-                        </Button>
-                      )}
-                    </Col>
-                  </Row>
-                </Container>
-              </Popup>
-            </Marker>
+            <MapMarker
+              berth={berth}
+              selected={selected}
+              markerIcon={markerIcon}
+              key={berth.identifier}
+              position={berth.location.coordinates}
+              onClick={() => onClick(berth.identifier)}
+            />
           );
         })}
       </Map>
