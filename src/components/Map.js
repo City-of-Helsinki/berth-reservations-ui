@@ -1,15 +1,12 @@
 // @flow
 
 import React, { Component } from 'react';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Map, TileLayer } from 'react-leaflet';
 import L from 'leaflet';
+import MapMarker from './MapMarker';
 
 import HarborMatchSelected from './common/icons/harbor-match-chosen.svg';
-import HarborMatchUnselected from './common/icons/harbor-match.svg';
-import HarborUnmatch from './common/icons/harbor-unmatch.svg';
-
-import MapMarker from './MapMarker';
+import HarborMatchUnselected from './common/icons/harbor-unmatch.svg';
 
 /* eslint-disable */
 delete L.Icon.Default.prototype._getIconUrl;
@@ -29,13 +26,6 @@ const iconUnselected = new L.Icon({
   className: 'map-marker'
 });
 
-const iconUnmatched = new L.Icon({
-  iconUrl: HarborUnmatch,
-  iconRetinaUrl: HarborUnmatch,
-  iconSize: new L.Point(45, 45),
-  className: 'map-marker'
-});
-
 const style = {
   width: '80%',
   height: '100%'
@@ -51,27 +41,28 @@ type Props = any;
 
 export default class SimpleExample extends Component<Props, State> {
   state = {
-    lng: 25.066105,
+    lng: 24.93,
     lat: 60.18808,
-    zoom: 14
+    zoom: 11.47
   };
 
   render() {
-    const { berths, filtered, selected, onClick } = this.props;
+    const { filtered, selected, onClick } = this.props;
     const position = [this.state.lat, this.state.lng];
 
     const markerIcon = isSelected => {
       if (isSelected) {
         return iconSelected;
       }
-      return iconUnmatched;
+      return iconUnselected;
     };
 
     return (
       <Map center={position} zoom={this.state.zoom} style={style}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        {berths.map(berth => {
+        {filtered.map(berth => {
           const isSelected = selected && selected.includes(berth.identifier);
+
           return (
             <MapMarker
               berth={berth}
