@@ -1,11 +1,11 @@
 // @flow
 import React, { type Node } from 'react';
 import classnames from 'classnames';
-// $SuppressFlowComment
+// $FlowFixMe
 import './KoroSection.scss';
 
 type Props = {
-  className: string,
+  className?: string,
   children?: Node,
   color: 'fog' | 'blue' | 'white',
   top?: boolean,

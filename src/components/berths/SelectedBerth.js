@@ -1,13 +1,15 @@
 import React from 'react';
 
-export default ({ berth, moveUp, moveDown }) => (
+const SelectedBerth = ({ berth, moveUp, moveDown, first, last }) => (
   <h3 key={berth.identifier}>
     {berth.name.fi}
-    <button type="button" onClick={() => moveUp(berth.identifier)}>
+    <button type="button" onClick={() => moveUp(berth.identifier)} disabled={first}>
       ^
     </button>
-    <button type="button" onClick={() => moveDown(berth.identifier)}>
+    <button type="button" onClick={() => moveDown(berth.identifier)} disabled={last}>
       v
     </button>
   </h3>
 );
+
+export default SelectedBerth;

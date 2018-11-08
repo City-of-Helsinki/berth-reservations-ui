@@ -1,8 +1,5 @@
-[version]
-0.85.0
-
 [options]
-suppress_comment= \\(.\\|\n\\)*\\$SuppressFlowComment
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
 
 [untyped]
 ./node_modules/react-leaflet
