@@ -39,6 +39,11 @@
   "legend.thankyou.legend": "Venepaikkahakemuksesi on nyt lähetetty käsiteltäväksi. Saat vahvistusviestin hakemuksesta sähköpostiisi ja ilmoituksen kun sopiva paikka ilmestyy.",
   "legend.thankyou.legend.note": "Ota huomioon, että etenkin suosittuihin satamiin uusia paikkoja vapautuu harvoin. Venepaikkahakemukseen liittyvissä asioissa voit ottaa yhteyttä...",
 
+  "form.wizard.button.previous": "Edellinen sivu",
+  "form.wizard.button.invalid": "Täytä lomake jatkaaksesi",
+  "form.wizard.button.next": "Seuraava",
+  "form.wizard.button.submit": "Lähetä",
+
   "form.boat_type_selector.private_person.label": "Yksityishenkilö",
   "form.boat_type_selector.company.label": "Yritys tai yhteisö",
   "form.boat_type_selector.registered_boat.label": "Rekisteröity vene",
@@ -82,6 +87,7 @@
   "form.registered.field.model.label": "Merkki",
   "form.registered.field.model.placeholder": "Veneen merkki",
   "form.registered.header.accessibility": "Esteettömyys",
+
   "form.accessibility.field.accessibility.label": "Tarvitsen esteettömän paikan",
 
   "form.unregistered.header.title": "Rekisteröimättömän veneen teidot",

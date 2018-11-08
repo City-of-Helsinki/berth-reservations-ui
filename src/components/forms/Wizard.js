@@ -1,20 +1,23 @@
 // @flow
 import React, { Component, Fragment } from 'react';
-import { Button } from 'reactstrap';
+import { Button, Container, Col, Row } from 'reactstrap';
 import styled from 'styled-components';
+import { FormattedMessage } from 'react-intl';
 import Form from './Form';
 
 type State = any;
 type Props = any;
 
-const ButtonWrapper = styled.div`
+const ButtonWrapperWrapper = styled.div`
   background-color: ${props => props.theme.helLight};
-  padding: 1em;
+  padding: 3em 0;
+`;
+const ButtonWrapper = styled(Col).attrs({
+  xs: 12
+})`
   display: flex;
   justify-content: space-between;
-  padding-bottom: 3em;
 `;
-const FooterButton = styled(Button)``;
 
 class Wizard extends Component<Props, State> {
   constructor(props: Props) {
@@ -61,11 +64,11 @@ class Wizard extends Component<Props, State> {
   getSubmitText = (invalid: boolean) => {
     if (this.hasNextStep()) {
       if (invalid) {
-        return 'Fill the form to proceed';
+        return 'form.wizard.button.invalid';
       }
-      return 'Next »';
+      return 'form.wizard.button.next';
     }
-    return 'Submit';
+    return 'form.wizard.button.submit';
   };
 
   render() {
@@ -77,14 +80,20 @@ class Wizard extends Component<Props, State> {
         {({ submitting, invalid, values }) => (
           <Fragment>
             {activePage && React.cloneElement(activePage, { values })}
-            <ButtonWrapper>
-              <FooterButton type="button" onClick={() => this.handlePrevious(values)}>
-                « Previous
-              </FooterButton>
-              <FooterButton type="submit" disabled={submitting}>
-                {this.getSubmitText(invalid)}
-              </FooterButton>
-            </ButtonWrapper>
+            <ButtonWrapperWrapper>
+              <Container>
+                <Row>
+                  <ButtonWrapper>
+                    <Button color="link" type="button" onClick={() => this.handlePrevious(values)}>
+                      <FormattedMessage id="form.wizard.button.previous" />
+                    </Button>
+                    <Button type="submit" disabled={submitting}>
+                      <FormattedMessage id={this.getSubmitText(invalid)} />
+                    </Button>
+                  </ButtonWrapper>
+                </Row>
+              </Container>
+            </ButtonWrapperWrapper>
           </Fragment>
         )}
       </Form>
