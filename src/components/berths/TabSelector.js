@@ -5,7 +5,7 @@ import { StickyContainer, Sticky } from 'react-sticky';
 const TabsWrapper = styled.div`
   background-color: ${props => props.theme.helFog};
   display: flex;
-  z-index: 999;
+  z-index: 1001;
   justify-content: center;
   border-bottom: 4px solid white;
 `;
