@@ -19,7 +19,6 @@ const mapSteps = [
 const BoatPage = ({
   initialValues,
   selectedBerths,
-  done,
   onSubmit,
   localePush,
   resetValues,
@@ -31,12 +30,23 @@ const BoatPage = ({
     <Layout>
       <Steps
         steps={{
-          berths: { completed: selectedBerths.size > 0, current: false },
-          boat_information: { completed: initialValues.boat, current: step === 0 },
-          applicant: { completed: initialValues.applicant, current: step === 1 },
-          send_application: { completed: initialValues.overview, current: step === 2 }
+          berths: { completed: selectedBerths.size > 0, current: false, linkTo: `berths` },
+          boat_information: {
+            completed: step > 0,
+            current: step === 0,
+            linkTo: step > 0 ? `form/${mapSteps[0][0]}` : undefined
+          },
+          applicant: {
+            completed: step > 1,
+            current: step === 1,
+            linkTo: step > 1 ? `form/${mapSteps[1][0]}` : undefined
+          },
+          send_application: {
+            completed: step > 2,
+            current: step === 2,
+            linkTo: step > 2 ? `form/${mapSteps[2][0]}` : undefined
+          }
         }}
-        done={done}
       />
       <FormLegend step={step} />
       <Wizard

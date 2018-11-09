@@ -2,14 +2,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import Icon from '../common/Icon';
+import LocalizedLink from '../common/LocalizedLink';
 
 type Props = {
-  completed?: boolean,
-  current?: boolean,
-  label: string
+  completed: boolean,
+  current: boolean,
+  label: string,
+  linkTo: string
 };
 
 const Section = styled.div`
+  color: inherit;
+  &:hover,
+  &:active {
+    text-decoration: none;
+    color: inherit;
+  }
+  display: block;
   text-align: center;
 `;
 
@@ -41,11 +50,11 @@ export default class Step extends React.Component<Props> {
   };
 
   render() {
-    const { completed, current, label } = this.props;
+    const { completed, current, label, linkTo } = this.props;
     const content = completed ? <Icon name="check" width="50" color="#000" /> : '';
 
     return (
-      <Section>
+      <Section as={linkTo ? LocalizedLink : 'div'} to={linkTo}>
         <Circle completed={completed} current={current}>
           {content}
         </Circle>

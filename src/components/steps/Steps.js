@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { get } from 'lodash';
 import { injectIntl, type intlShape } from 'react-intl';
 import { Col, Row, Container } from 'reactstrap';
 import Step from './Step';
@@ -18,7 +17,7 @@ const StepContainer = styled(Container)`
     width: 45em;
   `};
 `;
-type StepProp = { completed: boolean, current: boolean };
+type StepProp = { completed: boolean, current: boolean, linkTo?: string };
 type StepsProp = Array<StepProp>;
 type Props = {
   intl: intlShape,
@@ -29,9 +28,10 @@ const Steps = ({ intl: { formatMessage }, steps }: Props) => (
   <StepIndicatorSection>
     <StepContainer>
       <Row>
-        {Object.entries(steps).map(([key, { completed, current }: StepProp]) => (
+        {Object.entries(steps).map(([key, { completed, current, linkTo }]) => (
           <Col sm="3" key={key}>
             <Step
+              linkTo={linkTo}
               completed={completed}
               current={current}
               label={formatMessage({ id: `site.steps.${key}` })}
