@@ -17,7 +17,7 @@ const StepContainer = styled(Container)`
     width: 45em;
   `};
 `;
-type StepProp = { completed: boolean, current: boolean, linkTo?: string };
+type StepProp = { key: string, completed: boolean, current: boolean, linkTo?: string };
 type StepsProp = Array<StepProp>;
 type Props = {
   intl: intlShape,
@@ -28,7 +28,7 @@ const Steps = ({ intl: { formatMessage }, steps }: Props) => (
   <StepIndicatorSection>
     <StepContainer>
       <Row>
-        {Object.entries(steps).map(([key, { completed, current, linkTo }]) => (
+        {steps.map(({ key, completed, current, linkTo }) => (
           <Col sm="3" key={key}>
             <Step
               linkTo={linkTo}

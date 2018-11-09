@@ -43,28 +43,32 @@ class BoatPage extends PureComponent<Props, any> {
     return (
       <Layout>
         <Steps
-          steps={{
-            berths: {
+          steps={[
+            {
+              key: 'berths',
               completed: step > -1,
               current: step === -1,
               linkTo: `berths`
             },
-            boat_information: {
+            {
+              key: 'boat_information',
               completed: step > 0,
               current: step === 0,
               linkTo: step > 0 ? `form/${tabs[0]}` : undefined
             },
-            applicant: {
+            {
+              key: 'applicant',
               completed: step > 1,
               current: step === 1,
               linkTo: step > 1 ? `form/${tabs[1]}` : undefined
             },
-            send_application: {
+            {
+              key: 'send_application',
               completed: step > 2,
               current: step === 2,
               linkTo: step > 2 ? `form/${tabs[2]}` : undefined
             }
-          }}
+          ]}
         />
         <FormLegend step={step} />
         <Wizard

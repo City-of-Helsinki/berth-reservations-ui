@@ -8,7 +8,7 @@ type Props = {
   completed: boolean,
   current: boolean,
   label: string,
-  linkTo: string
+  linkTo?: string
 };
 
 const Section = styled.div`
