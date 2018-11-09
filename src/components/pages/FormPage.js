@@ -1,5 +1,6 @@
 // @flow
-import React from 'react';
+import React, { PureComponent } from 'react';
+import { findIndex } from 'lodash';
 import Layout from '../layout/Layout';
 import FormLegend from '../legends/FormLegend';
 import Steps from '../steps/Steps';
@@ -11,70 +12,96 @@ import Overview from '../forms/sections/Overview';
 type Props = any;
 
 const mapSteps = [
-  ['registered_boat', 'registered_big_boat', 'unregistered_boat', 'no_boat'],
+  ['registered_boat', 'unregistered_boat', 'no_boat'],
   ['private_person', 'company'],
   ['overview']
 ];
 
-const BoatPage = ({
-  initialValues,
-  selectedBerths,
-  onSubmit,
-  localePush,
-  resetValues,
-  tab
-}: Props) => {
-  const step = Math.max(0, mapSteps.findIndex(s => s.includes(tab)));
-  const showTab = tab || mapSteps[0][0];
-  return (
-    <Layout>
-      <Steps
-        steps={{
-          berths: { completed: selectedBerths.size > 0, current: false, linkTo: `berths` },
-          boat_information: {
-            completed: step > 0,
-            current: step === 0,
-            linkTo: step > 0 ? `form/${mapSteps[0][0]}` : undefined
-          },
-          applicant: {
-            completed: step > 1,
-            current: step === 1,
-            linkTo: step > 1 ? `form/${mapSteps[1][0]}` : undefined
-          },
-          send_application: {
-            completed: step > 2,
-            current: step === 2,
-            linkTo: step > 2 ? `form/${mapSteps[2][0]}` : undefined
-          }
-        }}
-      />
-      <FormLegend step={step} />
-      <Wizard
-        step={step}
-        initialValues={initialValues}
-        goForward={async values => {
-          await onSubmit(values);
-          await resetValues();
-          await localePush('/thank-you');
-        }}
-        goBackwards={async values => {
-          await onSubmit(values);
-          await localePush('/berths');
-        }}
-        nextStep={values => {
-          onSubmit(values);
-          localePush(`/form/${mapSteps[step + 1][0]}`);
-        }}
-        prevStep={values => {
-          onSubmit(values);
-          localePush(`/form/${mapSteps[step - 1][0]}`);
-        }}
-      >
-        <BoatDetails tab={showTab} values={{}} />
-        <ApplicantDetails tab={showTab} values={{}} />
-        <Overview tab={showTab} values={{}} />
-      </Wizard>
-    </Layout>
-  );
-};
+class BoatPage extends PureComponent<Props, any> {
+  state = {
+    step: 0,
+    tab: '',
+    tabs: ['registered_boat', 'private_person', 'overview']
+  };
+
+  componentDidMount() {
+    const { tab } = this.props;
+    const step = Math.max(0, findIndex(mapSteps, s => s.includes(tab)));
+    this.setState(() => ({ step, tab: tab || mapSteps[step][0] }));
+  }
+
+  componentDidUpdate() {
+    const { tab } = this.props;
+    const step = Math.max(0, findIndex(mapSteps, s => s.includes(tab)));
+    this.setState(() => ({ step, tab: tab || mapSteps[step][0] }));
+  }
+
+  render() {
+    const { initialValues, onSubmit, localePush, resetValues } = this.props;
+    const { step, tabs, tab } = this.state;
+
+    return (
+      <Layout>
+        <Steps
+          steps={{
+            berths: {
+              completed: step > -1,
+              current: step === -1,
+              linkTo: `berths`
+            },
+            boat_information: {
+              completed: step > 0,
+              current: step === 0,
+              linkTo: step > 0 ? `form/${tabs[0]}` : undefined
+            },
+            applicant: {
+              completed: step > 1,
+              current: step === 1,
+              linkTo: step > 1 ? `form/${tabs[1]}` : undefined
+            },
+            send_application: {
+              completed: step > 2,
+              current: step === 2,
+              linkTo: step > 2 ? `form/${tabs[2]}` : undefined
+            }
+          }}
+        />
+        <FormLegend step={step} />
+        <Wizard
+          step={step}
+          initialValues={initialValues}
+          goForward={async values => {
+            await onSubmit(values);
+            await resetValues();
+            tabs[step] = tab;
+            this.setState(() => ({ tabs }));
+            await localePush('/thank-you');
+          }}
+          goBackwards={async values => {
+            await onSubmit(values);
+            tabs[step] = tab;
+            this.setState(() => ({ tabs }));
+            await localePush('/berths');
+          }}
+          nextStep={values => {
+            onSubmit(values);
+            tabs[step] = tab;
+            this.setState(() => ({ tabs }));
+            localePush(`/form/${tabs[step + 1]}`);
+          }}
+          prevStep={values => {
+            onSubmit(values);
+            tabs[step] = tab;
+            this.setState(() => ({ tabs }));
+            localePush(`/form/${tabs[step - 1][0]}`);
+          }}
+        >
+          <BoatDetails tab={tab} values={{}} />
+          <ApplicantDetails tab={tab} values={{}} />
+          <Overview tab={tab} values={{}} />
+        </Wizard>
+      </Layout>
+    );
+  }
+}
 export default BoatPage;
