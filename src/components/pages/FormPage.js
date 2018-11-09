@@ -18,19 +18,26 @@ const mapSteps = [
 
 const BoatPage = ({
   initialValues,
+  selectedBerths,
   done,
   onSubmit,
-  nextStep,
-  prevStep,
   localePush,
   resetValues,
   tab
 }: Props) => {
-  const step = mapSteps.findIndex(s => s.includes(tab));
-  console.debug(step, tab);
+  const step = Math.max(0, mapSteps.findIndex(s => s.includes(tab)));
+  const showTab = tab || mapSteps[0][0];
   return (
     <Layout>
-      <Steps step={step} done={done} />
+      <Steps
+        steps={{
+          berths: { completed: selectedBerths.size > 0, current: false },
+          boat_information: { completed: initialValues.boat, current: step === 0 },
+          applicant: { completed: initialValues.applicant, current: step === 1 },
+          send_application: { completed: initialValues.overview, current: step === 2 }
+        }}
+        done={done}
+      />
       <FormLegend step={step} />
       <Wizard
         step={step}
@@ -38,19 +45,24 @@ const BoatPage = ({
         goForward={async values => {
           await onSubmit(values);
           await resetValues();
-          await localePush('thank-you');
+          await localePush('/thank-you');
         }}
         goBackwards={async values => {
-          await prevStep();
           await onSubmit(values);
-          await localePush('berths');
+          await localePush('/berths');
         }}
-        nextStep={nextStep}
-        prevStep={prevStep}
+        nextStep={values => {
+          onSubmit(values);
+          localePush(`/form/${mapSteps[step + 1][0]}`);
+        }}
+        prevStep={values => {
+          onSubmit(values);
+          localePush(`/form/${mapSteps[step - 1][0]}`);
+        }}
       >
-        <BoatDetails tab={tab} values={{}} />
-        <ApplicantDetails tab={tab} values={{}} />
-        <Overview tab={tab} values={{}} />
+        <BoatDetails tab={showTab} values={{}} />
+        <ApplicantDetails tab={showTab} values={{}} />
+        <Overview tab={showTab} values={{}} />
       </Wizard>
     </Layout>
   );

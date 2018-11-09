@@ -13,7 +13,7 @@ export const withMatchParamsHandlers = compose(
   withHandlers({
     localePush: props => uri => {
       const { history, locale } = props;
-      history.push(`/${locale}/${uri}`);
+      history.push(`/${locale}${uri}`);
     }
   })
 );

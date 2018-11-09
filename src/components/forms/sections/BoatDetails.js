@@ -15,13 +15,13 @@ import Accessibility from '../fragments/Accessibility';
 import UnRegisteredBoatDetails from '../fragments/UnRegisteredBoatDetails';
 
 import SectionSelector from '../SectionSelector';
-
 import { BigBoatTypeValue } from '../Fields';
 
 const Content = styled.div``;
 
 type Props = {
-  values: any
+  values: Object,
+  tab: string
 };
 
 const GrayBackground = styled.div`
@@ -30,42 +30,38 @@ const GrayBackground = styled.div`
 `;
 
 const BoatDetails = ({ values, tab }: Props) => {
-  const selected = get(values, ['sections', 'boat']);
-  const ShowBigBoats = tab === 'registered_big_boat';
+  const ShowBigShipsForm = get(values, 'boat.type') === BigBoatTypeValue;
   return (
     <Content>
       <SectionSelector
         name="boat"
-        selected={selected}
+        selected={tab}
         types={[
           {
-            id: 'boat_type.selector.registered_boat',
             label: 'form.boat_type_selector.registered_boat.label',
-            value: 'registered_boat',
-            iconName: 'registeredBoat'
+            tab: 'registered_boat',
+            icon: 'registeredBoat'
           },
           {
-            id: 'boat_type.selector.unregistered_boat',
             label: 'form.boat_type_selector.unregistered_boat.label',
-            value: 'unregistered_boat',
-            iconName: 'unregisteredBoat'
+            tab: 'unregistered_boat',
+            icon: 'unregisteredBoat'
           },
           {
-            id: 'boat_type.selector.no_boat',
             label: 'form.boat_type_selector.no_boat.label',
-            value: 'no_boat',
-            iconName: 'noBoat'
+            tab: 'no_boat',
+            icon: 'noBoat'
           }
         ]}
       />
-      {(tab === 'registered_boat' || tab === 'registered_big_boat') && (
+      {tab === 'registered_boat' && (
         <Container>
           <FormattedMessage tagName="h3" id="form.registered.header.title" />
           <RegisteredBoatDetails prefix="boat" />
 
           <FormattedMessage tagName="h3" id="form.registered.header.measures" />
           <BoatMeasures prefix="boat" />
-          {ShowBigBoats && (
+          {ShowBigShipsForm && (
             <GrayBackground>
               <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
               <FormattedMessage tagName="p" id="form.big_ship.text.summary" />

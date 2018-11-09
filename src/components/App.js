@@ -17,6 +17,7 @@ const App = ({ locale }: Props) => (
     <Switch>
       <Redirect exact path="/:locale/" to="/:locale/berths" />
       <Route exact path="/:locale/berths" component={BerthPage} />
+      <Route exact path="/:locale/form" component={FormPage} />
       <Route exact path="/:locale/form/:tab" component={FormPage} />
       <Route exact path="/:locale/thank-you" component={ThankYouPage} />
     </Switch>

@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
+import { get } from 'lodash';
 import { injectIntl, type intlShape } from 'react-intl';
 import { Col, Row, Container } from 'reactstrap';
 import Step from './Step';
@@ -17,45 +18,26 @@ const StepContainer = styled(Container)`
     width: 45em;
   `};
 `;
-
+type StepProp = { completed: boolean, current: boolean };
+type StepsProp = Array<StepProp>;
 type Props = {
   intl: intlShape,
-  step: number,
-  done: boolean
+  steps: StepsProp
 };
 
-const Steps = ({ intl, step, done }: Props) => (
+const Steps = ({ intl: { formatMessage }, steps }: Props) => (
   <StepIndicatorSection>
     <StepContainer>
       <Row>
-        <Col sm="3">
-          <Step
-            completed={step > 0 || done}
-            current={step === 0}
-            label={intl.messages['site.steps.berths']}
-          />
-        </Col>
-        <Col sm="3">
-          <Step
-            completed={step > 1 || done}
-            current={step === 1}
-            label={intl.messages['site.steps.boat_information']}
-          />
-        </Col>
-        <Col sm="3">
-          <Step
-            completed={step > 2 || done}
-            current={step === 2}
-            label={intl.messages['site.steps.applicant']}
-          />
-        </Col>
-        <Col sm="3">
-          <Step
-            completed={step > 3 || done}
-            current={step === 3}
-            label={intl.messages['site.steps.send_application']}
-          />
-        </Col>
+        {Object.entries(steps).map(([key, { completed, current }: StepProp]) => (
+          <Col sm="3" key={key}>
+            <Step
+              completed={completed}
+              current={current}
+              label={formatMessage({ id: `site.steps.${key}` })}
+            />
+          </Col>
+        ))}
       </Row>
     </StepContainer>
   </StepIndicatorSection>

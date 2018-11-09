@@ -2,7 +2,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container } from 'reactstrap';
-import { get } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 
 import FullName from '../fragments/FullName';
@@ -15,51 +14,46 @@ import SectionSelector from '../SectionSelector';
 const Content = styled.div``;
 
 type Props = {
-  values: any
+  tab: string
 };
 
-const ApplicantDetails = ({ values, tab }: Props) => {
-  const selected = get(values, ['sections', 'applicant']);
-  return (
-    <Content>
-      <SectionSelector
-        name="applicant"
-        selected={selected}
-        types={[
-          {
-            id: 'boat_type_selector.private_person',
-            label: 'form.boat_type_selector.private_person.label',
-            value: 'private_person',
-            iconName: 'individual'
-          },
-          {
-            id: 'boat_type_selector.company',
-            label: 'form.boat_type_selector.company.label',
-            value: 'company',
-            iconName: 'business'
-          }
-        ]}
-      />
-      {tab === 'private_person' && (
-        <Container>
-          <FormattedMessage tagName="h3" id="form.private_person.header.title" />
-          <FullName prefix="applicant.name" />
-          <PostalDetails prefix="applicant.postal" />
-          <ContactDetails prefix="applicant.contact" />
-        </Container>
-      )}
-      {tab === 'company' && (
-        <Container>
-          <FormattedMessage tagName="h3" id="form.company.header.title" />
-          <CompanyDetails prefix="applicant.company" />
-          <PostalDetails prefix="applicant.postal" />
-          <FormattedMessage tagName="h3" id="form.company.header.contact_person" />
-          <FullName prefix="applicant.name" />
-          <ContactDetails prefix="applicant.contact" />
-        </Container>
-      )}
-    </Content>
-  );
-};
+const ApplicantDetails = ({ tab }: Props) => (
+  <Content>
+    <SectionSelector
+      name="boat"
+      selected={tab}
+      types={[
+        {
+          label: 'form.boat_type_selector.private_person.label',
+          tab: 'private_person',
+          icon: 'individual'
+        },
+        {
+          label: 'form.boat_type_selector.company.label',
+          tab: 'company',
+          icon: 'business'
+        }
+      ]}
+    />
+    {tab === 'private_person' && (
+      <Container>
+        <FormattedMessage tagName="h3" id="form.private_person.header.title" />
+        <FullName prefix="applicant.name" />
+        <PostalDetails prefix="applicant.postal" />
+        <ContactDetails prefix="applicant.contact" />
+      </Container>
+    )}
+    {tab === 'company' && (
+      <Container>
+        <FormattedMessage tagName="h3" id="form.company.header.title" />
+        <CompanyDetails prefix="applicant.company" />
+        <PostalDetails prefix="applicant.postal" />
+        <FormattedMessage tagName="h3" id="form.company.header.contact_person" />
+        <FullName prefix="applicant.name" />
+        <ContactDetails prefix="applicant.contact" />
+      </Container>
+    )}
+  </Content>
+);
 
 export default ApplicantDetails;
