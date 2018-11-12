@@ -29,7 +29,7 @@ class BerthPage extends Component<Props> {
   onSubmit = async (values: any) => {
     const { onSubmit, localePush } = this.props;
     await onSubmit(values);
-    localePush('/form');
+    localePush('/form/registered_boat');
   };
 
   getFilterByValues = (values: any) => {
