@@ -17,45 +17,27 @@ const StepContainer = styled(Container)`
     width: 45em;
   `};
 `;
-
+type StepProp = { key: string, completed: boolean, current: boolean, linkTo?: string };
+type StepsProp = Array<StepProp>;
 type Props = {
   intl: intlShape,
-  step: number,
-  done: boolean
+  steps: StepsProp
 };
 
-const Steps = ({ intl, step, done }: Props) => (
+const Steps = ({ intl: { formatMessage }, steps }: Props) => (
   <StepIndicatorSection>
     <StepContainer>
       <Row>
-        <Col sm="3">
-          <Step
-            completed={step > 0 || done}
-            current={step === 0}
-            label={intl.messages['site.steps.berths']}
-          />
-        </Col>
-        <Col sm="3">
-          <Step
-            completed={step > 1 || done}
-            current={step === 1}
-            label={intl.messages['site.steps.boat_information']}
-          />
-        </Col>
-        <Col sm="3">
-          <Step
-            completed={step > 2 || done}
-            current={step === 2}
-            label={intl.messages['site.steps.applicant']}
-          />
-        </Col>
-        <Col sm="3">
-          <Step
-            completed={step > 3 || done}
-            current={step === 3}
-            label={intl.messages['site.steps.send_application']}
-          />
-        </Col>
+        {steps.map(({ key, completed, current, linkTo }) => (
+          <Col sm="3" key={key}>
+            <Step
+              linkTo={linkTo}
+              completed={completed}
+              current={current}
+              label={formatMessage({ id: `site.steps.${key}` })}
+            />
+          </Col>
+        ))}
       </Row>
     </StepContainer>
   </StepIndicatorSection>

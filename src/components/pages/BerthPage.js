@@ -27,10 +27,9 @@ class BerthPage extends Component<Props> {
   }
 
   onSubmit = async (values: any) => {
-    const { onSubmit, localePush, nextStep } = this.props;
+    const { onSubmit, localePush } = this.props;
     await onSubmit(values);
-    await nextStep();
-    localePush('form');
+    localePush('/form/registered_boat');
   };
 
   getFilterByValues = (values: any) => {
