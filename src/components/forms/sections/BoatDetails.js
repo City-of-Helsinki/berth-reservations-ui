@@ -2,17 +2,12 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Container } from 'reactstrap';
 import { get } from 'lodash';
-import { injectIntl, FormattedMessage } from 'react-intl';
+import { injectIntl } from 'react-intl';
 
-import BoatMeasures from '../fragments/BoatMeasures';
-import RegisteredBoatDetails from '../fragments/RegisteredBoatDetails';
-import BoatInfo from '../fragments/BoatInfo';
-import BigShips from '../fragments/BigShips';
-
-import Accessibility from '../fragments/Accessibility';
-import UnRegisteredBoatDetails from '../fragments/UnRegisteredBoatDetails';
+import RegisteredBoat from '../tabs/RegisteredBoat';
+import UnRegisteredBoat from '../tabs/UnRegisteredBoat';
+import NoBoat from '../tabs/NoBoat';
 
 import SectionSelector from '../SectionSelector';
 import { BigBoatTypeValue } from '../Fields';
@@ -23,11 +18,6 @@ type Props = {
   values: Object,
   tab: string
 };
-
-const GrayBackground = styled.div`
-  background: #eee;
-  padding: 1em;
-`;
 
 const BoatDetails = ({ values, tab }: Props) => {
   const ShowBigShipsForm = get(values, 'boat.type') === BigBoatTypeValue;
@@ -55,46 +45,10 @@ const BoatDetails = ({ values, tab }: Props) => {
         ]}
       />
       {tab === 'registered_boat' && (
-        <Container>
-          <FormattedMessage tagName="h3" id="form.registered.header.title" />
-          <RegisteredBoatDetails prefix="boat" />
-
-          <FormattedMessage tagName="h3" id="form.registered.header.measures" />
-          <BoatMeasures prefix="boat" />
-          {ShowBigShipsForm && (
-            <GrayBackground>
-              <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
-              <FormattedMessage tagName="p" id="form.big_ship.text.summary" />
-              <FormattedMessage tagName="h3" id="form.big_ship.header.details" />
-              <BigShips prefix="boat.big_ships" />
-              <FormattedMessage tagName="p" id="form.big_ship.text.inspection_and_insurance" />
-            </GrayBackground>
-          )}
-          <FormattedMessage tagName="h3" id="form.registered.header.additional_info" />
-
-          <BoatInfo prefix="boat" />
-          <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />
-
-          <Accessibility prefix="boat" />
-        </Container>
+        <RegisteredBoat prefix="boat" ShowBigShipsForm={ShowBigShipsForm} />
       )}
-      {tab === 'unregistered_boat' && (
-        <Container>
-          <FormattedMessage tagName="h3" id="form.unregistered.header.title" />
-          <UnRegisteredBoatDetails prefix="boat" />
-          <BoatInfo prefix="boat" />
-          <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />
-          <Accessibility prefix="boat" />
-        </Container>
-      )}
-      {tab === 'no_boat' && (
-        <Container>
-          <FormattedMessage tagName="h3" id="form.no_boat.header.title" />
-          <UnRegisteredBoatDetails prefix="boat" />
-          <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />
-          <Accessibility prefix="boat" />
-        </Container>
-      )}
+      {tab === 'unregistered_boat' && <UnRegisteredBoat prefix="boat" />}
+      {tab === 'no_boat' && <NoBoat prefix="boat" />}
     </Content>
   );
 };
