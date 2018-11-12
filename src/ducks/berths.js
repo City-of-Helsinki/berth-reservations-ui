@@ -1,10 +1,10 @@
 // @flow
 import { Record, List } from 'immutable';
 import { createAction } from 'redux-actions';
-import type { Action, Berths } from '../types/ducks';
+import type { Action, BerthsFactory, BerthsState } from '../types/ducks';
 import berthsService from '../services/berths';
 
-const defaultState = Record({
+const defaultState: BerthsFactory = Record({
   berths: List(),
   selectedBerths: List()
 });
@@ -15,7 +15,7 @@ export const deselectBerth = createAction('DESELECT_BERTH', id => id);
 export const moveUp = createAction('MOVE_BERTH_UP', id => id);
 export const moveDown = createAction('MOVE_BERTH_DOWN', id => id);
 
-export default (state: Berths = defaultState(), action: Action) => {
+export default (state: BerthsState = defaultState(), action: Action): BerthsState => {
   const { type, payload } = action;
   switch (type) {
     case 'GET_BERTHS_FULFILLED':
