@@ -22,7 +22,7 @@ export default () => (
       <Row>
         <Col md="12">
           <FormattedMessage tagName="h3" id="legend.berths.title" />
-          <FormattedMessage tagName="p" id="legend.berths.body" />
+          <FormattedMessage tagName="p" id="legend.berths.legend" />
         </Col>
       </Row>
       <Row>
