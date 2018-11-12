@@ -9,8 +9,6 @@ const StyledRow = styled(Row)`
 `;
 
 const BerthName = styled(Col)`
-  display: flex;
-  align-content: center;
   background-color: #2d72c0;
   color: #fff;
   font-size: 1.5em;
@@ -18,24 +16,19 @@ const BerthName = styled(Col)`
   padding-left: 0.8em;
 `;
 
+const BerthOptions = styled(Col)`
+  display: flex;
+  align-content: center;
+`;
+
 const StyledButton = styled.button`
   background-color: none;
   height: 100%;
   margin-left: 1em;
+  border: 2px solid ${props => (props.disabled ? 'lightgray' : 'black')};
 `;
 
 const SelectedBerth = ({ berth, index, moveUp, moveDown, first, last }) => {
-  const upIconColor = first ? 'lightgray' : 'black';
-  const downIconColor = last ? 'lightgray' : 'black';
-
-  const StyledButtonUp = styled(StyledButton)`
-    border: 2px solid ${upIconColor};
-  `;
-
-  const StyledButtonDown = styled(StyledButton)`
-    border: 2px solid ${downIconColor};
-  `;
-
   return (
     <Container fluid>
       <StyledRow>
@@ -44,20 +37,14 @@ const SelectedBerth = ({ berth, index, moveUp, moveDown, first, last }) => {
             {index + 1}. {berth.name.fi}
           </span>
         </BerthName>
-        <Col sm={1}>
-          <StyledButtonUp type="button" onClick={() => moveUp(berth.identifier)} disabled={first}>
-            <Icon name="angleUp" width="30" color={upIconColor} />
-          </StyledButtonUp>
-        </Col>
-        <Col sm={1}>
-          <StyledButtonDown
-            type="button"
-            onClick={() => moveDown(berth.identifier)}
-            disabled={last}
-          >
-            <Icon name="angleDown" width="30" color={downIconColor} />
-          </StyledButtonDown>
-        </Col>
+        <BerthOptions sm={2}>
+          <StyledButton type="button" onClick={() => moveUp(berth.identifier)} disabled={first}>
+            <Icon name="angleUp" width="30" color={first ? 'lightgray' : 'black'} />
+          </StyledButton>
+          <StyledButton type="button" onClick={() => moveDown(berth.identifier)} disabled={last}>
+            <Icon name="angleDown" width="30" color={last ? 'lightgray' : 'black'} />
+          </StyledButton>
+        </BerthOptions>
       </StyledRow>
     </Container>
   );
