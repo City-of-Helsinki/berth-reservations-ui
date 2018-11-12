@@ -15,14 +15,14 @@ delete L.Icon.Default.prototype._getIconUrl;
 const iconSelected = new L.Icon({
   iconUrl: HarborMatchSelected,
   iconRetinaUrl: HarborMatchSelected,
-  iconSize: new L.Point(45, 45),
+  iconSize: new L.Point(25, 25),
   className: 'map-marker'
 });
 
 const iconUnselected = new L.Icon({
   iconUrl: HarborMatchUnselected,
   iconRetinaUrl: HarborMatchUnselected,
-  iconSize: new L.Point(45, 45),
+  iconSize: new L.Point(25, 42),
   className: 'map-marker'
 });
 
