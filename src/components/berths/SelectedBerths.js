@@ -16,6 +16,7 @@ const SelectedBerths = ({ berths, moveUp, moveDown }) => (
       <div>
         {berths.map((berth, index) => (
           <SelectedBerth
+            index={index}
             first={index === 0}
             last={index === berths.size - 1}
             key={berth.identifier}

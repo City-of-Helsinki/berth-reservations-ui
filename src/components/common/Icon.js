@@ -16,6 +16,8 @@ import waterTap from './icons/water-tap.svg';
 import trash from './icons/trash-o.svg';
 import fence from './icons/fence.svg';
 import streetLight from './icons/street-light.svg';
+import angleUp from './icons/angle-up.svg';
+import angleDown from './icons/angle-down.svg';
 
 const icons = {
   helsinkiLogo,
@@ -31,7 +33,9 @@ const icons = {
   waterTap,
   trash,
   fence,
-  streetLight
+  streetLight,
+  angleUp,
+  angleDown
 };
 
 type Names = $Keys<typeof icons>;
