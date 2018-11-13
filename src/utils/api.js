@@ -8,7 +8,7 @@ const instance = axios.create({
   timeout: 3000
 });
 
-export const get = (endPoint: string, params: {} = {}): Promise<any> =>
+export const get = (endPoint: string, params: Object = {}): Promise<any> =>
   instance.get(endPoint, { params }).then(r => r.data);
-export const post = (endPoint: string, data: {} = {}): Promise<any> =>
+export const post = (endPoint: string, data: Object = {}): Promise<any> =>
   instance.post(endPoint, data).then(r => r.data);
