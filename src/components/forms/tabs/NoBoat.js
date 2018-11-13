@@ -12,8 +12,8 @@ type Props = {
 export default ({ prefix }: Props) => (
   <Container>
     <FormattedMessage tagName="h3" id="form.no_boat.header.title" />
-    <UnRegisteredBoatDetails prefix="boat" />
+    <UnRegisteredBoatDetails prefix={prefix} />
     <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />
-    <Accessibility prefix="boat" />
+    <Accessibility prefix={prefix} />
   </Container>
 );

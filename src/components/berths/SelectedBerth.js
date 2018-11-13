@@ -28,26 +28,24 @@ const StyledButton = styled.button`
   border: 2px solid ${props => (props.disabled ? 'lightgray' : 'black')};
 `;
 
-const SelectedBerth = ({ berth, index, moveUp, moveDown, first, last }) => {
-  return (
-    <Container fluid>
-      <StyledRow>
-        <BerthName sm={10}>
-          <span key={berth.identifier}>
-            {index + 1}. {berth.name.fi}
-          </span>
-        </BerthName>
-        <BerthOptions sm={2}>
-          <StyledButton type="button" onClick={() => moveUp(berth.identifier)} disabled={first}>
-            <Icon name="angleUp" width="30" color={first ? 'lightgray' : 'black'} />
-          </StyledButton>
-          <StyledButton type="button" onClick={() => moveDown(berth.identifier)} disabled={last}>
-            <Icon name="angleDown" width="30" color={last ? 'lightgray' : 'black'} />
-          </StyledButton>
-        </BerthOptions>
-      </StyledRow>
-    </Container>
-  );
-};
+const SelectedBerth = ({ berth, index, moveUp, moveDown, first, last }) => (
+  <Container fluid>
+    <StyledRow>
+      <BerthName sm={10}>
+        <span key={berth.identifier}>
+          {index + 1}. {berth.name.fi}
+        </span>
+      </BerthName>
+      <BerthOptions sm={2}>
+        <StyledButton type="button" onClick={() => moveUp(berth.identifier)} disabled={first}>
+          <Icon name="angleUp" width="30" color={first ? 'lightgray' : 'black'} />
+        </StyledButton>
+        <StyledButton type="button" onClick={() => moveDown(berth.identifier)} disabled={last}>
+          <Icon name="angleDown" width="30" color={last ? 'lightgray' : 'black'} />
+        </StyledButton>
+      </BerthOptions>
+    </StyledRow>
+  </Container>
+);
 
 export default SelectedBerth;
