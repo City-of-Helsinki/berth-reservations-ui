@@ -36,11 +36,11 @@ export default class MapMarker extends Component<Props> {
                 <div>{berth.municipality.fi}</div>
                 {selected ? (
                   <Button color="secondary" onClick={() => onClick(berth.identifier)}>
-                    <FormattedMessage tagName="span" id="form.berths.selected" />
+                    <FormattedMessage tagName="span" id="page.berths.selected" />
                   </Button>
                 ) : (
                   <Button outline primary="true" onClick={() => onClick(berth.identifier)}>
-                    + <FormattedMessage tagName="span" id="form.berths.select" />
+                    + <FormattedMessage tagName="span" id="page.berths.select" />
                   </Button>
                 )}
               </Col>

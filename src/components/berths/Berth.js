@@ -77,16 +77,16 @@ const Berth = ({ berth, className, onClick, selected }) => (
         <small>{berth.street_address.fi}</small>
         {selected ? (
           <Button color="secondary" onClick={onClick}>
-            <FormattedMessage tagName="span" id="form.berths.selected" />
+            <FormattedMessage tagName="span" id="page.berths.selected" />
           </Button>
         ) : (
           <Button outline primary="true" onClick={onClick}>
-            + <FormattedMessage tagName="span" id="form.berths.select" />
+            + <FormattedMessage tagName="span" id="page.berths.select" />
           </Button>
         )}
 
         <a href={berth.www_url}>
-          <FormattedMessage tagName="span" id="form.berths.website" />
+          <FormattedMessage tagName="span" id="page.berths.website" />
         </a>
       </SummaryWrapper>
     </Col>
@@ -95,49 +95,49 @@ const Berth = ({ berth, className, onClick, selected }) => (
         <Details available={true}>
           <DetailsValue>{berth.number_of_places}</DetailsValue>
           <DetailsTitle>
-            <FormattedMessage tagName="span" id="form.berths.number_of_places" />
+            <FormattedMessage tagName="span" id="page.berths.number_of_places" />
           </DetailsTitle>
         </Details>
         <Details available={berth.mooring}>
           <DetailsIcon name="pole" />
           <DetailsTitle>
-            <FormattedMessage tagName="span" id="form.berths.pole" />
+            <FormattedMessage tagName="span" id="page.berths.pole" />
           </DetailsTitle>
         </Details>
         <Details available={berth.electricity}>
           <DetailsIcon name="plug" />
           <DetailsTitle>
-            <FormattedMessage tagName="span" id="form.berths.electricity" />
+            <FormattedMessage tagName="span" id="page.berths.electricity" />
           </DetailsTitle>
         </Details>
         <Details available={berth.water}>
           <DetailsIcon name="waterTap" />
           <DetailsTitle>
-            <FormattedMessage tagName="span" id="form.berths.water_tap" />
+            <FormattedMessage tagName="span" id="page.berths.water_tap" />
           </DetailsTitle>
         </Details>
         <Details available={true}>
           <DetailsValue>{berth.maximum_width}</DetailsValue>
           <DetailsTitle>
-            <FormattedMessage tagName="span" id="form.berths.maximum_width" />
+            <FormattedMessage tagName="span" id="page.berths.maximum_width" />
           </DetailsTitle>
         </Details>
         <Details available={berth.waste_collection}>
           <DetailsIcon name="trash" />
           <DetailsTitle>
-            <FormattedMessage tagName="span" id="form.berths.waste_collection" />
+            <FormattedMessage tagName="span" id="page.berths.waste_collection" />
           </DetailsTitle>
         </Details>
         <Details available={berth.gate}>
           <DetailsIcon name="fence" />
           <DetailsTitle>
-            <FormattedMessage tagName="span" id="form.berths.fence" />
+            <FormattedMessage tagName="span" id="page.berths.fence" />
           </DetailsTitle>
         </Details>
         <Details available={berth.lighting}>
           <DetailsIcon name="streetLight" />
           <DetailsTitle>
-            <FormattedMessage tagName="span" id="form.berths.lighting" />
+            <FormattedMessage tagName="span" id="page.berths.lighting" />
           </DetailsTitle>
         </Details>
       </DetailsWrapper>

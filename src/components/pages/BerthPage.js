@@ -68,13 +68,13 @@ class BerthPage extends Component<Props> {
                 <BerthsLegend />
                 <TabSelector>
                   <Berths
-                    TabHeader={() => <FormattedMessage tagName="span" id="form.berths.list" />}
+                    TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
                     berths={filtered}
                     selected={selectedBerths}
                     onClick={this.toggleBerthSelect}
                   />
                   <BerthsOnMap
-                    TabHeader={() => <FormattedMessage tagName="span" id="form.berths.map" />}
+                    TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
                     berths={berths}
                     filtered={filtered}
                     selected={selectedBerths}
@@ -83,7 +83,7 @@ class BerthPage extends Component<Props> {
                   <SelectedBerths
                     TabHeader={() => (
                       <div>
-                        <FormattedMessage tagName="span" id="form.berths.selected_list" />:
+                        <FormattedMessage tagName="span" id="page.berths.selected_list" />:
                         <Badge pill>
                           {selectedBerths.size} / {berths.size}
                         </Badge>
