@@ -14,10 +14,10 @@ type Props = {
 export default ({ prefix }: Props) => (
   <Container>
     <FormattedMessage tagName="h3" id="form.company.header.title" />
-    <CompanyDetails prefix="applicant.company" />
-    <PostalDetails prefix="applicant.postal" />
+    <CompanyDetails prefix={`${prefix}.company`} />
+    <PostalDetails prefix={`${prefix}.postal`} />
     <FormattedMessage tagName="h3" id="form.company.header.contact_person" />
-    <FullName prefix="applicant.name" />
-    <ContactDetails prefix="applicant.contact" />
+    <FullName prefix={`${prefix}.name`} />
+    <ContactDetails prefix={`${prefix}.contact`} />
   </Container>
 );

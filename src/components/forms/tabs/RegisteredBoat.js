@@ -22,24 +22,24 @@ const GrayBackground = styled.div`
 export default ({ prefix, ShowBigShipsForm }: Props) => (
   <Container>
     <FormattedMessage tagName="h3" id="form.registered.header.title" />
-    <RegisteredBoatDetails prefix="boat" />
+    <RegisteredBoatDetails prefix={prefix} />
 
     <FormattedMessage tagName="h3" id="form.registered.header.measures" />
-    <BoatMeasures prefix="boat" />
+    <BoatMeasures prefix={prefix} />
     {ShowBigShipsForm && (
       <GrayBackground>
         <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
         <FormattedMessage tagName="p" id="form.big_ship.text.summary" />
         <FormattedMessage tagName="h3" id="form.big_ship.header.details" />
-        <BigShips prefix="boat.big_ships" />
+        <BigShips prefix={`${prefix}.big_ships`} />
         <FormattedMessage tagName="p" id="form.big_ship.text.inspection_and_insurance" />
       </GrayBackground>
     )}
     <FormattedMessage tagName="h3" id="form.registered.header.additional_info" />
 
-    <BoatInfo prefix="boat" />
+    <BoatInfo prefix={prefix} />
     <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />
 
-    <Accessibility prefix="boat" />
+    <Accessibility prefix={prefix} />
   </Container>
 );
