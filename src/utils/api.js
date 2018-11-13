@@ -10,5 +10,5 @@ const instance = axios.create({
 
 export const get = (endPoint: string, params: Object = {}): Promise<any> =>
   instance.get(endPoint, { params }).then(r => r.data);
-export const post = (endPoint: string, data: {} = {}): Promise<any> =>
+export const post = (endPoint: string, data: Object = {}): Promise<any> =>
   instance.post(endPoint, data).then(r => r.data);
