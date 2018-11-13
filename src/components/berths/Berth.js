@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row, Col, Button } from 'reactstrap';
+import { FormattedMessage } from 'react-intl';
 import Icon from '../common/Icon';
 
 const Details = styled.div`
@@ -76,50 +77,68 @@ const Berth = ({ berth, className, onClick, selected }) => (
         <small>{berth.street_address.fi}</small>
         {selected ? (
           <Button color="secondary" onClick={onClick}>
-            Valittu
+            <FormattedMessage tagName="span" id="page.berths.selected" />
           </Button>
         ) : (
           <Button outline primary="true" onClick={onClick}>
-            + Lisää
+            + <FormattedMessage tagName="span" id="page.berths.select" />
           </Button>
         )}
 
-        <a href={berth.www_url}>Verkkosivu</a>
+        <a href={berth.www_url}>
+          <FormattedMessage tagName="span" id="page.berths.website" />
+        </a>
       </SummaryWrapper>
     </Col>
     <Col xs={5}>
       <DetailsWrapper>
         <Details available={true}>
           <DetailsValue>{berth.number_of_places}</DetailsValue>
-          <DetailsTitle>Paikkoja</DetailsTitle>
+          <DetailsTitle>
+            <FormattedMessage tagName="span" id="page.berths.number_of_places" />
+          </DetailsTitle>
         </Details>
         <Details available={berth.mooring}>
           <DetailsIcon name="pole" />
-          <DetailsTitle>Kiinnitys</DetailsTitle>
+          <DetailsTitle>
+            <FormattedMessage tagName="span" id="page.berths.pole" />
+          </DetailsTitle>
         </Details>
         <Details available={berth.electricity}>
           <DetailsIcon name="plug" />
-          <DetailsTitle>Sähkö</DetailsTitle>
+          <DetailsTitle>
+            <FormattedMessage tagName="span" id="page.berths.electricity" />
+          </DetailsTitle>
         </Details>
         <Details available={berth.water}>
           <DetailsIcon name="waterTap" />
-          <DetailsTitle>Vesi</DetailsTitle>
+          <DetailsTitle>
+            <FormattedMessage tagName="span" id="page.berths.water_tap" />
+          </DetailsTitle>
         </Details>
         <Details available={true}>
           <DetailsValue>{berth.maximum_width}</DetailsValue>
-          <DetailsTitle>Max. leveys</DetailsTitle>
+          <DetailsTitle>
+            <FormattedMessage tagName="span" id="page.berths.maximum_width" />
+          </DetailsTitle>
         </Details>
         <Details available={berth.waste_collection}>
           <DetailsIcon name="trash" />
-          <DetailsTitle>Jätehuolto</DetailsTitle>
+          <DetailsTitle>
+            <FormattedMessage tagName="span" id="page.berths.waste_collection" />
+          </DetailsTitle>
         </Details>
         <Details available={berth.gate}>
           <DetailsIcon name="fence" />
-          <DetailsTitle>Portti</DetailsTitle>
+          <DetailsTitle>
+            <FormattedMessage tagName="span" id="page.berths.fence" />
+          </DetailsTitle>
         </Details>
         <Details available={berth.lighting}>
           <DetailsIcon name="streetLight" />
-          <DetailsTitle>Valaistus</DetailsTitle>
+          <DetailsTitle>
+            <FormattedMessage tagName="span" id="page.berths.lighting" />
+          </DetailsTitle>
         </Details>
       </DetailsWrapper>
     </Col>
