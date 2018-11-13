@@ -2,7 +2,7 @@
 
 export const mustBePresent = (value: any): any =>
   value ? undefined : 'validation.message.required';
-export const mustBeNumber = (value: any): void | any =>
+export const mustBeNumber = (value: any): any =>
   Number.isNaN(value) ? 'validation.message.must_be_number' : undefined;
 
 export default (f1: Function | null, f2: Function | null) => (x: any): any => {
