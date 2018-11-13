@@ -102,7 +102,7 @@ class BoatPage extends PureComponent<Props, any> {
         >
           <BoatDetails tab={tab} values={{}} />
           <ApplicantDetails tab={tab} values={{}} />
-          <Overview tab={tab} values={{}} />
+          <Overview tabs={tabs} tab={tab} values={{}} />
         </Wizard>
       </Layout>
     );

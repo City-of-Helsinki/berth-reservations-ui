@@ -12,6 +12,7 @@ import business from './icons/business.svg';
 import individual from './icons/individual.svg';
 import pole from './icons/pole.svg';
 import plug from './icons/plug.svg';
+import pencil from './icons/pencil.svg';
 import waterTap from './icons/water-tap.svg';
 import trash from './icons/trash-o.svg';
 import fence from './icons/fence.svg';
@@ -30,6 +31,7 @@ const icons = {
   individual,
   pole,
   plug,
+  pencil,
   waterTap,
   trash,
   fence,
