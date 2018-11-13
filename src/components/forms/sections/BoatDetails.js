@@ -10,15 +10,14 @@ import UnRegisteredBoat from '../tabs/UnRegisteredBoat';
 import NoBoat from '../tabs/NoBoat';
 
 import SectionSelector from '../SectionSelector';
-import { BigBoatTypeValue } from '../Selects';
+import { BigBoatTypeValue, type WithBoatType } from '../Selects';
 
 const Content = styled.div``;
 
 type Props = {
   values: Object,
-  tab: string,
-  boatTypes: Object
-};
+  tab: string
+} & WithBoatType;
 
 const BoatDetails = ({ values, tab, boatTypes }: Props) => {
   const ShowBigShipsForm = get(values, 'boat.type') === BigBoatTypeValue;

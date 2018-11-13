@@ -6,12 +6,13 @@ import { Text } from '../Fields';
 import { BoatType } from '../Selects';
 
 import type { FormFragmentProps } from '../../../types/form';
+import type { WithBoatType } from '../Selects';
 
 const RegisteredBoatDetailsFragment = ({
   prefix,
   noValidate = false,
   boatTypes
-}: FormFragmentProps & any) => (
+}: FormFragmentProps & WithBoatType) => (
   <Row>
     <Col sm={6}>
       <Text

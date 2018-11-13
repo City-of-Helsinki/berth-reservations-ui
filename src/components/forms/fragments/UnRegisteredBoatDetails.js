@@ -7,12 +7,13 @@ import { Number } from '../Fields';
 import { BoatType } from '../Selects';
 import type { FormFragmentProps } from '../../../types/form';
 import { mustBeNumber } from '../../../utils/formValidation';
+import type { WithBoatType } from '../Selects';
 
 const UnRegisteredBoatDetailsFragment = ({
   prefix,
   noValidate = false,
   boatTypes
-}: FormFragmentProps & any) => (
+}: FormFragmentProps & WithBoatType) => (
   <Row>
     <Col sm={4}>
       <BoatType prefix={prefix} noValidate={noValidate} boatTypes={boatTypes} />

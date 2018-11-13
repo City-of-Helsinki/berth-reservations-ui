@@ -5,6 +5,7 @@ import { Col, Row, Container } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import UnRegisteredBoatDetails from '../forms/fragments/UnRegisteredBoatDetails';
 import Services from '../forms/fragments/Services';
+import type { WithBoatType } from '../forms/Selects';
 
 const Legend = styled.div`
   background-color: ${props => props.theme.colors.helFog};
@@ -16,7 +17,9 @@ const LegendContainer = styled(Container)`
   padding-bottom: 3em;
 `;
 
-export default ({ boatTypes }: any) => (
+type Props = WithBoatType;
+
+export default ({ boatTypes }: Props) => (
   <Legend>
     <LegendContainer>
       <Row>

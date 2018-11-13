@@ -8,12 +8,12 @@ import RegisteredBoatDetails from '../fragments/RegisteredBoatDetails';
 import BoatInfo from '../fragments/BoatInfo';
 import BigShips from '../fragments/BigShips';
 import Accessibility from '../fragments/Accessibility';
+import type { WithBoatType } from '../Selects';
 
 type Props = {
   prefix: string,
-  ShowBigShipsForm: boolean,
-  boatTypes: Object
-};
+  ShowBigShipsForm: boolean
+} & WithBoatType;
 
 const GrayBackground = styled.div`
   background: #eee;

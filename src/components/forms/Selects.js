@@ -3,6 +3,10 @@ import React from 'react';
 import { injectIntl } from 'react-intl';
 import { Select } from './Fields';
 
+export type WithBoatType = {
+  boatTypes: Object
+};
+
 export const BigBoatTypeValue = 'big_boat';
 export const BoatType = injectIntl(
   ({ prefix, noValidate = false, intl: { formatMessage, locale }, boatTypes }) => (

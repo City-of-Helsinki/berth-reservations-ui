@@ -6,11 +6,11 @@ import BoatInfo from '../fragments/BoatInfo';
 
 import Accessibility from '../fragments/Accessibility';
 import UnRegisteredBoatDetails from '../fragments/UnRegisteredBoatDetails';
+import type { WithBoatType } from '../Selects';
 
 type Props = {
-  prefix: string,
-  boatTypes: Object
-};
+  prefix: string
+} & WithBoatType;
 
 export default ({ prefix, boatTypes }: Props) => (
   <Container>
