@@ -16,7 +16,7 @@ const LegendContainer = styled(Container)`
   padding-bottom: 3em;
 `;
 
-export default () => (
+export default ({ boatTypes }: any) => (
   <Legend>
     <LegendContainer>
       <Row>
@@ -27,7 +27,7 @@ export default () => (
       </Row>
       <Row>
         <Col md="12">
-          <UnRegisteredBoatDetails prefix="boat" noValidate />
+          <UnRegisteredBoatDetails prefix="boat" noValidate boatTypes={boatTypes} />
           <Services prefix="services" noValidate />
         </Col>
       </Row>

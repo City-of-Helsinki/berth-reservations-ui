@@ -21,7 +21,10 @@ type Props = any;
 
 class BerthPage extends Component<Props> {
   componentDidMount() {
-    const { getBerths, berths } = this.props;
+    const { getBerths, berths, boatTypes, getBoatTypes } = this.props;
+    if (!boatTypes) {
+      getBoatTypes();
+    }
     if (berths.size === 0) {
       getBerths();
     }
@@ -55,7 +58,7 @@ class BerthPage extends Component<Props> {
   };
 
   render() {
-    const { initialValues, berths, selectedBerths, moveUp, moveDown } = this.props;
+    const { boatTypes, initialValues, berths, selectedBerths, moveUp, moveDown } = this.props;
     return (
       <Layout>
         <Form initialValues={initialValues} onSubmit={this.onSubmit}>
@@ -64,7 +67,7 @@ class BerthPage extends Component<Props> {
             const filtered = berths.filter(filter);
             return (
               <Wrapper>
-                <BerthsLegend />
+                <BerthsLegend boatTypes={boatTypes} />
                 <TabSelector>
                   <Berths
                     TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}

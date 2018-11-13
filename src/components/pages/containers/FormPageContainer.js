@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { withMatchParamsHandlers } from '../../../utils/container';
-import { onSubmit, resetValues } from '../../../ducks/forms';
+import { onSubmit, getBoatTypes, resetValues } from '../../../ducks/forms';
 import FormPage from '../FormPage';
 
 export default compose(
@@ -10,8 +10,9 @@ export default compose(
   connect(
     state => ({
       initialValues: state.forms.values,
+      boatTypes: state.forms.boatTypes,
       selectedBerths: state.berths.selectedBerths
     }),
-    { onSubmit, resetValues }
+    { onSubmit, getBoatTypes, resetValues }
   )
 )(FormPage);

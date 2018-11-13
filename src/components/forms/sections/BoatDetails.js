@@ -10,16 +10,17 @@ import UnRegisteredBoat from '../tabs/UnRegisteredBoat';
 import NoBoat from '../tabs/NoBoat';
 
 import SectionSelector from '../SectionSelector';
-import { BigBoatTypeValue } from '../Fields';
+import { BigBoatTypeValue } from '../Selects';
 
 const Content = styled.div``;
 
 type Props = {
   values: Object,
-  tab: string
+  tab: string,
+  boatTypes: Object
 };
 
-const BoatDetails = ({ values, tab }: Props) => {
+const BoatDetails = ({ values, tab, boatTypes }: Props) => {
   const ShowBigShipsForm = get(values, 'boat.type') === BigBoatTypeValue;
   return (
     <Content>
@@ -45,10 +46,10 @@ const BoatDetails = ({ values, tab }: Props) => {
         ]}
       />
       {tab === 'registered_boat' && (
-        <RegisteredBoat prefix="boat" ShowBigShipsForm={ShowBigShipsForm} />
+        <RegisteredBoat prefix="boat" ShowBigShipsForm={ShowBigShipsForm} boatTypes={boatTypes} />
       )}
-      {tab === 'unregistered_boat' && <UnRegisteredBoat prefix="boat" />}
-      {tab === 'no_boat' && <NoBoat prefix="boat" />}
+      {tab === 'unregistered_boat' && <UnRegisteredBoat prefix="boat" boatTypes={boatTypes} />}
+      {tab === 'no_boat' && <NoBoat prefix="boat" boatTypes={boatTypes} />}
     </Content>
   );
 };

@@ -5,9 +5,9 @@ import { Row, Col } from 'reactstrap';
 
 import { Text, MultiCheckbox, MultiRadio } from '../Fields';
 import { Propulsion, HullMaterial } from '../Selects';
-import type { FormFragmentPropsWithIntl } from '../../../types/form';
+import type { FormFragmentProps } from '../../../types/form';
 
-const BigShipsFragment = ({ prefix, noValidate = false }: FormFragmentPropsWithIntl) => (
+const BigShipsFragment = ({ prefix, noValidate = false }: FormFragmentProps) => (
   <Fragment>
     <Row>
       <Col sm={6}>

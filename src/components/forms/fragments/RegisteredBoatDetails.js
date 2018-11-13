@@ -2,11 +2,16 @@
 
 import React from 'react';
 import { Row, Col } from 'reactstrap';
-import { Text, BoatType } from '../Fields';
+import { Text } from '../Fields';
+import { BoatType } from '../Selects';
 
 import type { FormFragmentProps } from '../../../types/form';
 
-const RegisteredBoatDetailsFragment = ({ prefix, noValidate = false }: FormFragmentProps) => (
+const RegisteredBoatDetailsFragment = ({
+  prefix,
+  noValidate = false,
+  boatTypes
+}: FormFragmentProps & any) => (
   <Row>
     <Col sm={6}>
       <Text
@@ -18,7 +23,7 @@ const RegisteredBoatDetailsFragment = ({ prefix, noValidate = false }: FormFragm
       />
     </Col>
     <Col sm={6}>
-      <BoatType prefix={prefix} noValidate={noValidate} />
+      <BoatType prefix={prefix} noValidate={noValidate} boatTypes={boatTypes} />
     </Col>
   </Row>
 );

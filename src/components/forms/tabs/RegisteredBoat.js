@@ -11,7 +11,8 @@ import Accessibility from '../fragments/Accessibility';
 
 type Props = {
   prefix: string,
-  ShowBigShipsForm: boolean
+  ShowBigShipsForm: boolean,
+  boatTypes: Object
 };
 
 const GrayBackground = styled.div`
@@ -19,10 +20,10 @@ const GrayBackground = styled.div`
   padding: 1em;
 `;
 
-export default ({ prefix, ShowBigShipsForm }: Props) => (
+export default ({ prefix, ShowBigShipsForm, boatTypes }: Props) => (
   <Container>
     <FormattedMessage tagName="h3" id="form.registered.header.title" />
-    <RegisteredBoatDetails prefix={prefix} />
+    <RegisteredBoatDetails prefix={prefix} boatTypes={boatTypes} />
 
     <FormattedMessage tagName="h3" id="form.registered.header.measures" />
     <BoatMeasures prefix={prefix} />
