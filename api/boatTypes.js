@@ -3,7 +3,7 @@ module.exports = {
     fi: 'Jollavene'
   },
   rowing_boat: {
-    fi: 'Sotuvene'
+    fi: 'Soutuvene'
   },
   motorboat_outboard: {
     fi: 'Perämoottorivene'

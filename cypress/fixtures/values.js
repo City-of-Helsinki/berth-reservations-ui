@@ -1,7 +1,10 @@
 export default {
   boat: {
     register_number: '12345',
-    type: 'b',
+    type: {
+      text: 'Jollavene',
+      value: 'dinghy'
+    },
     width: '5',
     length: '15',
     draught: '3',

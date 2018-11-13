@@ -8,7 +8,7 @@ export const registeredBoatPageFillForm = () => {
   cy.get('input[name="boat.register_number"]')
     .type(values.boat.register_number)
     .get('select[name="boat.type"]')
-    .select(values.boat.type)
+    .select(values.boat.type.text)
     .get('input[name="boat.width"]')
     .type(values.boat.width)
     .get('input[name="boat.length"]')
@@ -25,7 +25,7 @@ export const registeredBoatPageFillForm = () => {
 
 export const unregisteredBoatPageFillForm = () => {
   cy.get('select[name="boat.type"]')
-    .select(values.boat.type)
+    .select(values.boat.type.text)
     .get('input[name="boat.width"]')
     .type(values.boat.width)
     .get('input[name="boat.length"]')
@@ -38,7 +38,7 @@ export const unregisteredBoatPageFillForm = () => {
 
 export const noBoatPageFillForm = () => {
   cy.get('select[name="boat.type"]')
-    .select(values.boat.type)
+    .select(values.boat.type.text)
     .get('input[name="boat.width"]')
     .type(values.boat.width)
     .get('input[name="boat.length"]')
@@ -114,7 +114,7 @@ export const gotoOverviewPage = () => {
 export const checkValuesForRegisteredBoat = () => {
   cy.contains(`Nimi:${values.boat.name}`);
   cy.contains(`Rekisterinumero:${values.boat.register_number}`);
-  cy.contains(`Tyyppi:${values.boat.type}`);
+  cy.contains(`Tyyppi:${values.boat.type.value}`);
   cy.contains(`Malli:${values.boat.model}`);
   cy.contains(`Leveys:${values.boat.width}m`);
   cy.contains(`Pituus:${values.boat.length}m`);
@@ -126,7 +126,7 @@ export const checkValuesForRegisteredBoat = () => {
 
 export const checkValuesForUnregisteredBoat = () => {
   cy.contains(`Nimi:${values.boat.name}`);
-  cy.contains(`Tyyppi:${values.boat.type}`);
+  cy.contains(`Tyyppi:${values.boat.type.value}`);
   cy.contains(`Malli:${values.boat.model}`);
   cy.contains(`Leveys:${values.boat.width}m`);
   cy.contains(`Pituus:${values.boat.length}m`);
@@ -135,7 +135,7 @@ export const checkValuesForUnregisteredBoat = () => {
 };
 
 export const checkValuesForNoBoat = () => {
-  cy.contains(`Tyyppi:${values.boat.type}`);
+  cy.contains(`Tyyppi:${values.boat.type.value}`);
   cy.contains(`Leveys:${values.boat.width}m`);
   cy.contains(`Pituus:${values.boat.length}m`);
   cy.contains(`${values.applicant.name.first_name} ${values.applicant.name.last_name}`);
