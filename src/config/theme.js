@@ -1,7 +1,5 @@
 /* eslint-disable */
-// $FlowFixMe
 require('./bootstrap.scss');
-// $FlowFixMe
 const extractedTheme = require('sass-extract-loader?{"plugins":["sass-extract-js"]}!./theme.scss');
 /* eslint-enable */
 
