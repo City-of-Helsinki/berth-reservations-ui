@@ -1,0 +1,38 @@
+@import '~leaflet/dist/leaflet.css';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/_variables';
+
+@import '../../node_modules/open-city-design/src/scss/helsinki/variables';
+
+$theme-colors: (
+  'primary': $hel-black,
+  'secondary': $hel-coat,
+  'success': $green,
+  'info': $cyan,
+  'warning': $yellow,
+  'danger': $red,
+  'light': $hel-light,
+  'dark': $hel-dark
+);
+
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/type';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/dropdown';
+@import '~bootstrap/scss/input-group';
+@import '~bootstrap/scss/custom-forms';
+@import '~bootstrap/scss/nav';
+@import '~bootstrap/scss/navbar';
+@import '~bootstrap/scss/badge';
+@import '~bootstrap/scss/alert';
+@import '~bootstrap/scss/utilities';
+@import '~bootstrap/scss/print';
+
+// Import city specific style overrides.
+
+@import '../../node_modules/open-city-design/src/scss/helsinki/mixins';
+@import '../../node_modules/open-city-design/src/scss/helsinki/custom-styles';

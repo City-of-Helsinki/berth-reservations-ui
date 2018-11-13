@@ -1,8 +1,5 @@
 /* eslint-disable */
-// $FlowFixMe
-require('open-city-design/src/scss/main.scss');
-require('leaflet/dist/leaflet.css');
-// $FlowFixMe
+require('./bootstrap.scss');
 const extractedTheme = require('sass-extract-loader?{"plugins":["sass-extract-js"]}!./theme.scss');
 /* eslint-enable */
 
