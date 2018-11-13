@@ -1,13 +1,11 @@
 // @flow
 
-export const mustBePresent = (value: string | number): void | string =>
+export const mustBePresent = (value: any): any =>
   value ? undefined : 'validation.message.required';
-export const mustBeNumber = (value: string | number): void | string =>
+export const mustBeNumber = (value: any): void | any =>
   Number.isNaN(value) ? 'validation.message.must_be_number' : undefined;
 
-export default (f1: Function | null, f2: Function | null) => (
-  x: string | number
-): void | string => {
+export default (f1: Function | null, f2: Function | null) => (x: any): any => {
   let validated;
   if (f1) {
     validated = f1(x);
