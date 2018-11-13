@@ -23,6 +23,7 @@ export const BoatType = injectIntl(
   )
 );
 
+const propulsions = ['gasoline', 'diesel', 'fuel_oil', 'electricity', 'natural_gas', 'other'];
 export const Propulsion = injectIntl(({ prefix, noValidate = false, intl: { formatMessage } }) => (
   <Select
     noValidate={noValidate}
@@ -31,11 +32,24 @@ export const Propulsion = injectIntl(({ prefix, noValidate = false, intl: { form
     required
   >
     <option>{formatMessage({ id: 'form.big_ship.field.propulsion.placeholder' })}</option>
-    <option>a</option>
-    <option>b</option>
-    <option>c</option>
+    {propulsions.map(option => (
+      <option key={option} value={option}>
+        {formatMessage({ id: `form.big_ship.field.propulsion.${option}` })}
+      </option>
+    ))}
   </Select>
 ));
+
+const hullMaterials = [
+  'aluminium',
+  'concrete',
+  'thermoplastic',
+  'rubber',
+  'fibreglass',
+  'wood',
+  'steel',
+  'other'
+];
 
 export const HullMaterial = injectIntl(
   ({ prefix, noValidate = false, intl: { formatMessage } }) => (
@@ -46,9 +60,11 @@ export const HullMaterial = injectIntl(
       required
     >
       <option>{formatMessage({ id: 'form.big_ship.field.hull_material.placeholder' })}</option>
-      <option>a</option>
-      <option>b</option>
-      <option>c</option>
+      {hullMaterials.map(option => (
+        <option key={option} value={option}>
+          {formatMessage({ id: `form.big_ship.field.hull_material.${option}` })}
+        </option>
+      ))}
     </Select>
   )
 );
