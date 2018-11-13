@@ -29,16 +29,6 @@ Object.entries(schemas).forEach(([resource, schema]) => {
   );
 });
 
-app.get(`/api/boat-types`, (req, res) =>
-  res.json({
-    count: Object.keys(boatTypes).length,
-    next: null,
-    previous: null,
-    results: Object.entries(boatTypes).map(([identifier, name]) => ({
-      identifier,
-      name
-    }))
-  })
-);
+app.get(`/api/boat-types`, (req, res) => res.json(boatTypes));
 
 app.listen(API_PORT, () => console.log(`API running on port ${API_PORT}!`));

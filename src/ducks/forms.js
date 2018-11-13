@@ -2,11 +2,10 @@
 import { Record } from 'immutable';
 import { createAction } from 'redux-actions';
 import type { Action, FormsFactory, FormsState } from '../types/ducks';
-import values from './defaultStates/forms';
 import berthsService from '../services/berths';
 
 const defaultState: FormsFactory = Record({
-  values,
+  values: {},
   boatTypes: undefined
 });
 

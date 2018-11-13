@@ -1,4 +1,3 @@
-import values from '../fixtures/values';
 import {
   gotoRegisteredBoatPage,
   gotoUnregisteredBoatPage,

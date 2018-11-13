@@ -7,16 +7,21 @@ import {
   Radio,
   MultiCheckbox,
   MultiRadio,
-  Number,
-  BoatType
+  Number
 } from '../src/components/forms/Fields';
 import OverViewInfo from '../src/components/forms/sections/OverviewInfo';
-import { developmentValues } from '../src/ducks/defaultStates/forms';
 import { form } from './decorators';
+import overViewInfoValues from './overViewInfoValues';
+
+import { BoatType } from '../src/components/forms/Selects';
+
+const boatTypes = {
+  results: []
+};
 
 storiesOf('Forms', module)
   .addDecorator(form)
-  .add('OverViewInfo', () => <OverViewInfo values={developmentValues} />)
+  .add('OverViewInfo', () => <OverViewInfo values={overViewInfoValues} />)
   .add('InputFields', () => (
     <div>
       <Text id="text" name="Text" label="storybook.dummy.label" />
@@ -47,7 +52,7 @@ storiesOf('Forms', module)
         ]}
         label="storybook.dummy.label"
       />
-      <BoatType />
+      <BoatType boatTypes={boatTypes} />
 
       <Number id="number" name="Number" label="storybook.dummy.label" prepend="m" />
       <Number id="number" name="Number" label="storybook.dummy.label" append="m" />

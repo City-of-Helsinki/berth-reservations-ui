@@ -1,4 +1,4 @@
-module.exports = {
+const boatTypes = {
   dinghy: {
     fi: 'Jollavene'
   },
@@ -23,4 +23,16 @@ module.exports = {
   big_boat: {
     fi: 'Suuri alus (yli 20t)'
   }
+};
+
+const entries = Object.entries(boatTypes);
+
+module.exports = {
+  count: entries.length,
+  next: null,
+  previous: null,
+  results: entries.map(([identifier, name]) => ({
+    identifier,
+    name
+  }))
 };
