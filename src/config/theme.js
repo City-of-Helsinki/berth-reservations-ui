@@ -1,7 +1,6 @@
 /* eslint-disable */
 // $FlowFixMe
 require('./bootstrap.scss');
-require('leaflet/dist/leaflet.css');
 // $FlowFixMe
 const extractedTheme = require('sass-extract-loader?{"plugins":["sass-extract-js"]}!./theme.scss');
 /* eslint-enable */
