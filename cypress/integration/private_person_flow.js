@@ -1,7 +1,7 @@
-import values from '../fixtures/values';
 import {
   gotoRegisteredBoatPage,
   gotoUnregisteredBoatPage,
+  gotoNoBoatPage,
   clickSubmit,
   registeredBoatPageFillForm,
   unregisteredBoatPageFillForm,
@@ -56,7 +56,7 @@ describe('Private person', () => {
   });
 
   it('creates an application without a boat', () => {
-    gotoUnregisteredBoatPage();
+    gotoNoBoatPage();
     clickSubmit();
     cy.contains('Pakollinen kenttä');
 

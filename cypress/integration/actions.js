@@ -42,11 +42,7 @@ export const noBoatPageFillForm = () => {
     .get('input[name="boat.width"]')
     .type(values.boat.width)
     .get('input[name="boat.length"]')
-    .type(values.boat.length)
-    .get('input[name="boat.name"]')
-    .type(values.boat.name)
-    .get('input[name="boat.model"]')
-    .type(values.boat.model);
+    .type(values.boat.length);
 };
 
 export const personPageFillForm = () => {
@@ -139,7 +135,6 @@ export const checkValuesForUnregisteredBoat = () => {
 };
 
 export const checkValuesForNoBoat = () => {
-  cy.contains(`Nimi:${values.boat.name}`);
   cy.contains(`Tyyppi:${values.boat.type}`);
   cy.contains(`Leveys:${values.boat.width}m`);
   cy.contains(`Pituus:${values.boat.length}m`);
