@@ -11,12 +11,13 @@ import OverviewInfo from './OverviewInfo';
 const Content = styled(Container)``;
 
 type Props = {
-  values: {}
+  values: {},
+  tabs: Array<string>
 };
 
-const Submit = ({ values }: Props) => (
+const Submit = ({ values, tabs }: Props) => (
   <Content>
-    <OverviewInfo values={values} />
+    <OverviewInfo tabs={tabs} values={values} />
     <FormattedMessage tagName="h3" id="form.overview.header.title" />
     <ContactBy prefix="overview" />
     <FormattedMessage tagName="h5" id="form.overview.header.receivable_items.title" />

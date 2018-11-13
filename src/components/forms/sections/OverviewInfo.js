@@ -4,6 +4,8 @@ import React from 'react';
 import { Row, Col, Container } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
+import LocalizedLink from '../../common/LocalizedLink';
+import Icon from '../../common/Icon';
 
 const StyledInfoBox = styled.div`
   background-color: #efefef;
@@ -19,21 +21,34 @@ const SectionHeader = styled(Col)`
   font-weight: bold;
 `;
 
+const EditIcon = styled(Col)`
+  margin-bottom: 1em;
+  margin-top: 1em;
+  font-weight: bold;
+  text-align: right;
+`;
+
 const Data = styled.span`
   margin-left: 0.5em;
 `;
 
 type Props = {
-  values: Object
+  values: Object,
+  tabs: Array<string>
 };
 
-const OverviewInfo = ({ values }: Props) => (
+const OverviewInfo = ({ values, tabs }: Props) => (
   <StyledInfoBox>
     <Container fluid>
       <Row>
-        <SectionHeader md={12}>
+        <SectionHeader md={11}>
           <FormattedMessage tagName="h6" id="page.overview.info.boat_info" />
         </SectionHeader>
+        <EditIcon md={1}>
+          <LocalizedLink to={`form/${tabs[0]}`}>
+            <Icon name="pencil" width="30" color="black" />
+          </LocalizedLink>
+        </EditIcon>
       </Row>
       <Row>
         <Col md={6}>
@@ -77,9 +92,14 @@ const OverviewInfo = ({ values }: Props) => (
         </Col>
       </Row>
       <Row>
-        <SectionHeader md={12}>
+        <SectionHeader md={11}>
           <FormattedMessage tagName="h6" id="page.overview.info.berths" />
         </SectionHeader>
+        <EditIcon md={1}>
+          <LocalizedLink to="berths">
+            <Icon name="pencil" width="30" color="black" />
+          </LocalizedLink>
+        </EditIcon>
       </Row>
       <Row>
         <Col md={12}>Kipparilahden satama</Col>
@@ -91,9 +111,14 @@ const OverviewInfo = ({ values }: Props) => (
         <Col md={12}>Ramsaynrannan venesatama</Col>
       </Row>
       <Row>
-        <SectionHeader md={12}>
+        <SectionHeader md={11}>
           <FormattedMessage tagName="h6" id="page.overview.info.person" />
         </SectionHeader>
+        <EditIcon md={1}>
+          <LocalizedLink to={`form/${tabs[1]}`}>
+            <Icon name="pencil" width="30" color="black" />
+          </LocalizedLink>
+        </EditIcon>
       </Row>
       <Row>
         <Col md={12}>
