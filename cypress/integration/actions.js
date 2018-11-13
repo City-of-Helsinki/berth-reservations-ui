@@ -42,7 +42,11 @@ export const noBoatPageFillForm = () => {
     .get('input[name="boat.width"]')
     .type(values.boat.width)
     .get('input[name="boat.length"]')
-    .type(values.boat.length);
+    .type(values.boat.length)
+    .get('input[name="boat.name"]')
+    .type(values.boat.name)
+    .get('input[name="boat.model"]')
+    .type(values.boat.model);
 };
 
 export const personPageFillForm = () => {
@@ -84,31 +88,23 @@ export const companyPageFillForm = () => {
 };
 
 export const gotoRegisteredBoatPage = () => {
-  cy.visit('http://localhost:3000');
-  cy.get('label[for="boat_type.selector.registered_boat"]').click();
+  cy.visit('http://localhost:3000/fi/form/registered_boat');
 };
 
 export const gotoUnregisteredBoatPage = () => {
-  cy.visit('http://localhost:3000');
-  cy.get('label[for="boat_type.selector.unregistered_boat"]').click();
+  cy.visit('http://localhost:3000/fi/form/unregistered_boat');
 };
 
 export const gotoNoBoatPage = () => {
-  cy.visit('http://localhost:3000');
-  cy.get('label[for="boat_type.selector.no_boat"]').click();
+  cy.visit('http://localhost:3000/fi/form/no_boat');
 };
 
-export const gotoPersonPage = () => {
-  cy.visit('http://localhost:3000');
-  registeredBoatPageFillForm();
-  clickSubmit();
+export const selectPrivatePersonTab = () => {
+  cy.get('#private_person_selection').click();
 };
 
-export const gotoCompanyPage = () => {
-  cy.visit('http://localhost:3000');
-  registeredBoatPageFillForm();
-  clickSubmit();
-  cy.get('label[for="boat_type_selector.company"]').click();
+export const selectCompanyTab = () => {
+  cy.get('#company_selection').click();
 };
 
 export const gotoOverviewPage = () => {
@@ -117,4 +113,36 @@ export const gotoOverviewPage = () => {
   clickSubmit();
   personPageFillForm();
   clickSubmit();
+};
+
+export const checkValuesForRegisteredBoat = () => {
+  cy.contains(`Nimi:${values.boat.name}`);
+  cy.contains(`Rekisterinumero:${values.boat.register_number}`);
+  cy.contains(`Tyyppi:${values.boat.type}`);
+  cy.contains(`Malli:${values.boat.model}`);
+  cy.contains(`Leveys:${values.boat.width}m`);
+  cy.contains(`Pituus:${values.boat.length}m`);
+  cy.contains(`Syväys:${values.boat.draught}m`);
+  cy.contains(`Paino:${values.boat.weight}kg`);
+  cy.contains(`${values.applicant.name.first_name} ${values.applicant.name.last_name}`);
+  cy.contains(values.applicant.contact.email);
+};
+
+export const checkValuesForUnregisteredBoat = () => {
+  cy.contains(`Nimi:${values.boat.name}`);
+  cy.contains(`Tyyppi:${values.boat.type}`);
+  cy.contains(`Malli:${values.boat.model}`);
+  cy.contains(`Leveys:${values.boat.width}m`);
+  cy.contains(`Pituus:${values.boat.length}m`);
+  cy.contains(`${values.applicant.name.first_name} ${values.applicant.name.last_name}`);
+  cy.contains(values.applicant.contact.email);
+};
+
+export const checkValuesForNoBoat = () => {
+  cy.contains(`Nimi:${values.boat.name}`);
+  cy.contains(`Tyyppi:${values.boat.type}`);
+  cy.contains(`Leveys:${values.boat.width}m`);
+  cy.contains(`Pituus:${values.boat.length}m`);
+  cy.contains(`${values.applicant.name.first_name} ${values.applicant.name.last_name}`);
+  cy.contains(values.applicant.contact.email);
 };

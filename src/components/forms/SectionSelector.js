@@ -46,7 +46,7 @@ const SectionSelector = ({ name, selected, types }: Props) => (
     <Container>
       <Row>
         {types.map(({ label, tab, icon }: TypeProps) => (
-          <Col xs={3} key={`${name}.${tab}`}>
+          <Col id={`${tab}_selection`} xs={3} key={`${name}.${tab}`}>
             <FormSelectWrapper to={`form/${tab}`} selected={selected === tab}>
               <StyledIcon name={icon} width="50%" color="black" />
               <FormattedMessage id={label} />
