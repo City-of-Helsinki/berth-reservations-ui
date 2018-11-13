@@ -29,7 +29,7 @@ class Wizard extends Component<Props, State> {
 
   hasNextStep = () => {
     const { step, children } = this.props;
-    return step < React.Children.count(children);
+    return step < React.Children.count(children) - 1;
   };
 
   hasPreviousStep = () => {
@@ -45,7 +45,7 @@ class Wizard extends Component<Props, State> {
   handleSubmit = (values: any) => {
     const { nextStep, goForward } = this.props;
     if (this.hasNextStep()) {
-      nextStep();
+      nextStep(values);
     } else {
       goForward(values);
     }
@@ -55,7 +55,7 @@ class Wizard extends Component<Props, State> {
     const { prevStep, goBackwards } = this.props;
 
     if (this.hasPreviousStep()) {
-      prevStep();
+      prevStep(values);
     } else {
       goBackwards(values);
     }

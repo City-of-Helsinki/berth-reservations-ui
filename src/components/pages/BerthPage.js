@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { get } from 'lodash';
 import { Badge } from 'reactstrap';
+import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
 import Layout from '../layout/Layout';
@@ -27,10 +28,9 @@ class BerthPage extends Component<Props> {
   }
 
   onSubmit = async (values: any) => {
-    const { onSubmit, localePush, nextStep } = this.props;
+    const { onSubmit, localePush } = this.props;
     await onSubmit(values);
-    await nextStep();
-    localePush('form');
+    localePush('/form/registered_boat');
   };
 
   getFilterByValues = (values: any) => {
@@ -67,13 +67,13 @@ class BerthPage extends Component<Props> {
                 <BerthsLegend />
                 <TabSelector>
                   <Berths
-                    TabHeader={() => <span>Lista</span>}
+                    TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
                     berths={filtered}
                     selected={selectedBerths}
                     onClick={this.toggleBerthSelect}
                   />
                   <BerthsOnMap
-                    TabHeader={() => <span>Kartalla</span>}
+                    TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
                     berths={berths}
                     filtered={filtered}
                     selected={selectedBerths}
@@ -81,12 +81,12 @@ class BerthPage extends Component<Props> {
                   />
                   <SelectedBerths
                     TabHeader={() => (
-                      <span>
-                        Valitut:
+                      <div>
+                        <FormattedMessage tagName="span" id="page.berths.selected_list" />:
                         <Badge pill>
                           {selectedBerths.size} / {berths.size}
                         </Badge>
-                      </span>
+                      </div>
                     )}
                     moveUp={moveUp}
                     moveDown={moveDown}

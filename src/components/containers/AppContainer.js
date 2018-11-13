@@ -1,5 +1,5 @@
 // @flow
 import App from '../App';
-import { withLocale } from '../../utils/container';
+import { withMatchParams } from '../../utils/container';
 
-export default withLocale(App);
+export default withMatchParams(App);

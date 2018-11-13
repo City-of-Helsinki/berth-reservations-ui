@@ -1,6 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Marker, Popup } from 'react-leaflet';
 import { Container, Row, Col, Button } from 'reactstrap';
 import { List } from 'immutable';
@@ -35,11 +36,11 @@ export default class MapMarker extends Component<Props> {
                 <div>{berth.municipality.fi}</div>
                 {selected ? (
                   <Button color="secondary" onClick={() => onClick(berth.identifier)}>
-                    Valittu
+                    <FormattedMessage tagName="span" id="page.berths.selected" />
                   </Button>
                 ) : (
                   <Button outline primary="true" onClick={() => onClick(berth.identifier)}>
-                    + Lisää
+                    + <FormattedMessage tagName="span" id="page.berths.select" />
                   </Button>
                 )}
               </Col>

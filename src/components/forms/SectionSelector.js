@@ -3,7 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'reactstrap';
 
-import { Radio } from './Fields';
+import { FormattedMessage } from 'react-intl';
+import LocalizedLink from '../common/LocalizedLink';
 import Icon from '../common/Icon';
 
 const ButtonWrapper = styled.div`
@@ -11,36 +12,44 @@ const ButtonWrapper = styled.div`
   padding: 1em;
 `;
 type TypeProps = {
-  id: string,
   label: string,
-  value: string,
-  iconName: string
+  tab: string,
+  icon: string
 };
 
 const StyledIcon = styled(Icon)``;
+
 type Props = {
   name: string,
-  types: Array<TypeProps>,
-  selected: any
+  selected: any,
+  types: Array<TypeProps>
 };
 
-const FormSelectWrapper = styled.div`
+const FormSelectWrapper = styled(LocalizedLink)`
+  display: block;
+  color: inherit;
   padding: 1em;
-  ${StyledIcon} {
-    text-align: center;
-    background-color: ${props => (props.selected ? props.theme.helFog : 'unset')};
+  text-align: center;
+  &:hover,
+  &:active {
+    text-decoration: none;
+    color: inherit;
   }
+
+  background-color: ${props => (props.selected ? props.theme.helFog : 'unset')};
+  font-weight: ${props => (props.selected ? '600' : '400')};
+  letter-spacing: ${props => (props.selected ? '1.05px' : 'inherit')};
 `;
 
-const SectionSelector = ({ name, types, selected }: Props) => (
+const SectionSelector = ({ name, selected, types }: Props) => (
   <ButtonWrapper>
     <Container>
       <Row>
-        {types.map(({ id, label, value, iconName }: TypeProps) => (
-          <Col xs={3} key={`${name}.${value}`}>
-            <FormSelectWrapper selected={selected === value}>
-              <StyledIcon name={iconName} width="50%" color="black" />
-              <Radio id={id} name={`sections.${name}`} value={value} label={label} />
+        {types.map(({ label, tab, icon }: TypeProps) => (
+          <Col xs={3} key={`${name}.${tab}`}>
+            <FormSelectWrapper to={`form/${tab}`} selected={selected === tab}>
+              <StyledIcon name={icon} width="50%" color="black" />
+              <FormattedMessage id={label} />
             </FormSelectWrapper>
           </Col>
         ))}
