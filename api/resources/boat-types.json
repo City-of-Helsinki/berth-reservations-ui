@@ -1,0 +1,55 @@
+{
+  "count": 8,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "identifier": "dinghy",
+      "name": {
+        "fi": "Jollavene"
+      }
+    },
+    {
+      "identifier": "rowing_boat",
+      "name": {
+        "fi": "Soutuvene"
+      }
+    },
+    {
+      "identifier": "motorboat_outboard",
+      "name": {
+        "fi": "Perämoottorivene"
+      }
+    },
+    {
+      "identifier": "motorboat_sterndrive",
+      "name": {
+        "fi": "Sisäperämoottorivene"
+      }
+    },
+    {
+      "identifier": "motorboat_direct_drive",
+      "name": {
+        "fi": "Keskimoottorivene"
+      }
+    },
+    {
+      "identifier": "sailboat",
+      "name": {
+        "fi": "Purjevene / moottoripursi"
+      }
+    },
+    {
+      "identifier": "trawler",
+      "name": {
+        "fi": "Troolari"
+      }
+    },
+    {
+      "identifier": "big_boat",
+      "name": {
+        "fi": "Suuri alus (yli 20t)"
+      }
+    }
+  ]
+}
