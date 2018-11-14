@@ -11,10 +11,6 @@ const Wrapper = styled(Container)`
   }
 `;
 
-const StyledCol = styled(Col)`
-  padding: 0em;
-`;
-
 const BerthCount = styled.div`
   width: 100%;
   margin-bottom: 2em;
@@ -28,9 +24,9 @@ const BerthCount = styled.div`
 export default ({ berths, onClick, selected }) => (
   <Wrapper>
     <Row>
-      <StyledCol xs={12}>
+      <Col xs={12}>
         <BerthCount>{berths.size} hakuehdot täyttävää satamaa</BerthCount>
-      </StyledCol>
+      </Col>
     </Row>
     {berths.map(berth => (
       <StyledBerth
