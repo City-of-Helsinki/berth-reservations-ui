@@ -5,7 +5,7 @@ import type { Berths } from '../types/berths';
 
 export default {
   getBerths: async (query: Object): Promise<Berths> => {
-    const data = await get('berths', query);
+    const data = await get('harbors', query);
     return List(data);
   }
 };
