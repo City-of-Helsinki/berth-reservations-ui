@@ -10,6 +10,7 @@ export default compose(
   connect(
     state => ({
       initialValues: state.forms.values,
+      berths: state.berths.berths,
       selectedBerths: state.berths.selectedBerths
     }),
     { onSubmit, resetValues }
