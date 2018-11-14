@@ -1,11 +1,17 @@
 // @flow
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Row, Col, Container } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 import LocalizedLink from '../../common/LocalizedLink';
 import Icon from '../../common/Icon';
+import BoatInfo from '../fragments/overview/BoatInfo';
+import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
+import BoatMeasures from '../fragments/overview/BoatMeasures';
+import BoatDraughtAndWeight from '../fragments/overview/BoatDraughtAndWeight';
+import Person from '../fragments/overview/Person';
+import type { Berths } from '../../../types/berths';
 
 const StyledInfoBox = styled.div`
   background-color: #efefef;
@@ -28,16 +34,13 @@ const EditIcon = styled(Col)`
   text-align: right;
 `;
 
-const Data = styled.span`
-  margin-left: 0.5em;
-`;
-
 type Props = {
   values: Object,
+  selectedBerths: Berths,
   tabs: Array<string>
 };
 
-const OverviewInfo = ({ values, tabs }: Props) => (
+const OverviewInfo = ({ values, selectedBerths, tabs }: Props) => (
   <StyledInfoBox>
     <Container fluid>
       <Row>
@@ -50,47 +53,27 @@ const OverviewInfo = ({ values, tabs }: Props) => (
           </LocalizedLink>
         </EditIcon>
       </Row>
-      <Row>
-        <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_name" />:
-          <Data>{values.boat.name}</Data>
-        </Col>
-        <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_register_number" />:
-          <Data>{values.boat.register_number}</Data>
-        </Col>
-      </Row>
-      <Row>
-        <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
-          <Data>{values.boat.type}</Data>
-        </Col>
-        <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_model" />:
-          <Data>{values.boat.model}</Data>
-        </Col>
-      </Row>
-      <Row>
-        <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:
-          <Data>{values.boat.width}m</Data>
-        </Col>
-        <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:
-          <Data>{values.boat.length}m</Data>
-        </Col>
-      </Row>
-      <Row>
-        <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_draught" />:
-          <Data>{values.boat.draught}m</Data>
-        </Col>
-        <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_weight" />:
-          <Data>{values.boat.weight}</Data>
-          kg
-        </Col>
-      </Row>
+      {tabs[0] === 'registered_boat' && (
+        <Fragment>
+          <BoatInfo boat={values.boat} />
+          <BoatTypeAndModel boat={values.boat} />
+          <BoatMeasures boat={values.boat} />
+          <BoatDraughtAndWeight boat={values.boat} />
+        </Fragment>
+      )}
+      {tabs[0] === 'unregistered_boat' && (
+        <Fragment>
+          <BoatInfo boat={values.boat} />
+          <BoatTypeAndModel boat={values.boat} />
+          <BoatMeasures boat={values.boat} />
+        </Fragment>
+      )}
+      {tabs[0] === 'no_boat' && (
+        <Fragment>
+          <BoatTypeAndModel boat={values.boat} />
+          <BoatMeasures boat={values.boat} />
+        </Fragment>
+      )}
       <Row>
         <SectionHeader md={11}>
           <FormattedMessage tagName="h6" id="page.overview.info.berths" />
@@ -102,13 +85,11 @@ const OverviewInfo = ({ values, tabs }: Props) => (
         </EditIcon>
       </Row>
       <Row>
-        <Col md={12}>Kipparilahden satama</Col>
-      </Row>
-      <Row>
-        <Col md={12}>Sarvaston satama</Col>
-      </Row>
-      <Row>
-        <Col md={12}>Ramsaynrannan venesatama</Col>
+        <Col md={12}>
+          {selectedBerths.map(berth => (
+            <div key={berth.identifier}>{berth.name.fi}</div>
+          ))}
+        </Col>
       </Row>
       <Row>
         <SectionHeader md={11}>
@@ -120,14 +101,7 @@ const OverviewInfo = ({ values, tabs }: Props) => (
           </LocalizedLink>
         </EditIcon>
       </Row>
-      <Row>
-        <Col md={12}>
-          {values.applicant.name.first_name} {values.applicant.name.last_name}
-        </Col>
-      </Row>
-      <Row>
-        <Col md={12}>{values.applicant.contact.email}</Col>
-      </Row>
+      <Person person={values.applicant} />
     </Container>
   </StyledInfoBox>
 );

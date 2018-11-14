@@ -7,6 +7,7 @@ type Multilingual = {
 };
 
 export type Berth = {
+  identifier: string,
   name: Multilingual,
   street_address: Multilingual,
   municipality: Multilingual,

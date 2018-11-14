@@ -12,11 +12,18 @@ import {
 } from '../src/components/forms/Fields';
 import OverViewInfo from '../src/components/forms/sections/OverviewInfo';
 import { developmentValues } from '../src/ducks/defaultStates/forms';
-import { form } from './decorators';
+import { form, router } from './decorators';
+import berths from './berths';
+
+const tabs = ['registered_boat', 'private_person', 'overview'];
+const selectedBerths = berths.slice(0, 3);
 
 storiesOf('Forms', module)
   .addDecorator(form)
-  .add('OverViewInfo', () => <OverViewInfo values={developmentValues} />)
+  .addDecorator(router)
+  .add('OverViewInfo', () => (
+    <OverViewInfo selectedBerths={selectedBerths} tabs={tabs} values={developmentValues} />
+  ))
   .add('InputFields', () => (
     <div>
       <Text id="text" name="Text" label="storybook.dummy.label" />

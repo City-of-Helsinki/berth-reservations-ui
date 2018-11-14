@@ -37,7 +37,7 @@ class BoatPage extends PureComponent<Props, any> {
   }
 
   render() {
-    const { initialValues, onSubmit, localePush, resetValues } = this.props;
+    const { initialValues, berths, selectedBerths, onSubmit, localePush, resetValues } = this.props;
     const { step, tabs, tab } = this.state;
 
     return (
@@ -102,7 +102,14 @@ class BoatPage extends PureComponent<Props, any> {
         >
           <BoatDetails tab={tab} values={{}} />
           <ApplicantDetails tab={tab} values={{}} />
-          <Overview tabs={tabs} tab={tab} values={{}} />
+          <Overview
+            selectedBerths={selectedBerths.map(key =>
+              berths.find(berth => key === berth.identifier)
+            )}
+            tabs={tabs}
+            tab={tab}
+            values={{}}
+          />
         </Wizard>
       </Layout>
     );
