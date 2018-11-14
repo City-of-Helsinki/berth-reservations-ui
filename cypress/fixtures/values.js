@@ -2,8 +2,8 @@ export default {
   boat: {
     register_number: '12345',
     type: {
-      text: 'Jollavene',
-      value: 'dinghy'
+      text: 'Perämoottorivene',
+      value: 'motorboat_outboard'
     },
     width: '5',
     length: '15',

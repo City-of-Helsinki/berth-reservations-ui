@@ -114,7 +114,7 @@ export const gotoOverviewPage = () => {
 export const checkValuesForRegisteredBoat = () => {
   cy.contains(`Nimi:${values.boat.name}`);
   cy.contains(`Rekisterinumero:${values.boat.register_number}`);
-  cy.contains(`Tyyppi:${values.boat.type.value}`);
+  cy.contains(`Tyyppi:${values.boat.type.text}`);
   cy.contains(`Malli:${values.boat.model}`);
   cy.contains(`Leveys:${values.boat.width}m`);
   cy.contains(`Pituus:${values.boat.length}m`);
@@ -126,7 +126,7 @@ export const checkValuesForRegisteredBoat = () => {
 
 export const checkValuesForUnregisteredBoat = () => {
   cy.contains(`Nimi:${values.boat.name}`);
-  cy.contains(`Tyyppi:${values.boat.type.value}`);
+  cy.contains(`Tyyppi:${values.boat.type.text}`);
   cy.contains(`Malli:${values.boat.model}`);
   cy.contains(`Leveys:${values.boat.width}m`);
   cy.contains(`Pituus:${values.boat.length}m`);
@@ -135,7 +135,7 @@ export const checkValuesForUnregisteredBoat = () => {
 };
 
 export const checkValuesForNoBoat = () => {
-  cy.contains(`Tyyppi:${values.boat.type.value}`);
+  cy.contains(`Tyyppi:${values.boat.type.text}`);
   cy.contains(`Leveys:${values.boat.width}m`);
   cy.contains(`Pituus:${values.boat.length}m`);
   cy.contains(`${values.applicant.name.first_name} ${values.applicant.name.last_name}`);
