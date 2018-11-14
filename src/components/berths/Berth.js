@@ -48,6 +48,7 @@ const BerthImage = styled.img`
   height: 100%;
   width: 100%;
 `;
+
 const SummaryWrapper = styled.div`
   padding: 1em 0;
   > * {
@@ -64,6 +65,7 @@ const SummaryWrapper = styled.div`
   }
   a {
     font-size: 12px;
+    color: #000;
   }
 `;
 
@@ -72,6 +74,14 @@ const ButtonIcon = styled(Icon)`
   margin-right: 0.5em;
   width: 1em;
   height: 1em;
+`;
+
+const BerthAddress = styled.div`
+  margin-bottom: 1em;
+`;
+
+const WebsiteLink = styled.a`
+  margin-top: 1em;
 `;
 
 type Props = {
@@ -88,9 +98,12 @@ export default ({ berth, className, onClick, selected }: Props) => (
     </Col>
     <Col xs={4}>
       <SummaryWrapper>
-        <span>{berth.municipality.fi}</span>
         <strong>{berth.name.fi}</strong>
-        <small>{berth.street_address.fi}</small>
+
+        <BerthAddress>
+          {berth.street_address.fi}, {berth.zip_code} {berth.municipality.fi}
+        </BerthAddress>
+
         {selected ? (
           <Button color="secondary" onClick={onClick}>
             <ButtonIcon name="check" width="1em" height="1em" />
@@ -102,9 +115,9 @@ export default ({ berth, className, onClick, selected }: Props) => (
           </Button>
         )}
 
-        <a href={berth.www_url}>
+        <WebsiteLink href={berth.www_url}>
           <FormattedMessage tagName="span" id="page.berths.website" />
-        </a>
+        </WebsiteLink>
       </SummaryWrapper>
     </Col>
     <Col xs={5}>
