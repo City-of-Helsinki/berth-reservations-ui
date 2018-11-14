@@ -45,7 +45,7 @@
     "flow": "flow",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "dev": "yarn run api & yarn run storybook & yarn run start",
-    "test:ci": "yarn start & cypress run --browser chrome",
+    "test:ci": "yarn api & yarn start & cypress run --browser chrome",
     "test": "cypress open"
   },
   "devDependencies": {
