@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { BigBoatTypeValue } from '../src/components/forms/Fields';
+import { BigBoatTypeValue } from '../src/components/forms/Selects';
 import ApplicantDetailsPage from '../src/components/forms/sections/ApplicantDetails';
 import BoatDetailsPage from '../src/components/forms/sections/BoatDetails';
 import OverviewPage from '../src/components/forms/sections/Overview';
-import { developmentValues } from '../src/ducks/defaultStates/forms';
+import formValues from './form';
 
 import { form, router } from './decorators';
 
@@ -28,4 +28,4 @@ storiesOf('Forms/Sections', module)
   .add('bigShips', () => <BoatDetailsPage values={bigShips} />)
   .add('unregisteredBoat', () => <BoatDetailsPage values={unregisteredBoat} />)
   .add('noBoat', () => <BoatDetailsPage values={noBoat} />)
-  .add('overview', () => <OverviewPage tabs={tabs} values={developmentValues} />);
+  .add('overview', () => <OverviewPage tabs={tabs} values={formValues} />);

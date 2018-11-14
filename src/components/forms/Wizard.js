@@ -87,7 +87,12 @@ class Wizard extends Component<Props, State> {
                     <Button color="link" type="button" onClick={() => this.handlePrevious(values)}>
                       <FormattedMessage id="form.wizard.button.previous" />
                     </Button>
-                    <Button type="submit" disabled={submitting}>
+                    <Button
+                      type="submit"
+                      outline={this.hasNextStep()}
+                      color="primary"
+                      disabled={submitting}
+                    >
                       <FormattedMessage id={this.getSubmitText(invalid)} />
                     </Button>
                   </ButtonWrapper>

@@ -1,8 +1,10 @@
+// @flow
 import React from 'react';
 import styled from 'styled-components';
 import { Row, Col, Button } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import Icon from '../common/Icon';
+import type { Berth } from '../../types/berths';
 
 const Details = styled.div`
   display: flex;
@@ -65,7 +67,21 @@ const SummaryWrapper = styled.div`
   }
 `;
 
-const Berth = ({ berth, className, onClick, selected }) => (
+const ButtonIcon = styled(Icon)`
+  display: inline-block;
+  margin-right: 0.5em;
+  width: 1em;
+  height: 1em;
+`;
+
+type Props = {
+  berth: Berth,
+  className: string,
+  onClick: Function,
+  selected: boolean
+};
+
+export default ({ berth, className, onClick, selected }: Props) => (
   <StyledRow className={className}>
     <Col xs={3}>
       <BerthImage src={berth.image_file} alt={berth.name.fi} />
@@ -77,6 +93,7 @@ const Berth = ({ berth, className, onClick, selected }) => (
         <small>{berth.street_address.fi}</small>
         {selected ? (
           <Button color="secondary" onClick={onClick}>
+            <ButtonIcon name="check" width="1em" height="1em" />
             <FormattedMessage tagName="span" id="page.berths.selected" />
           </Button>
         ) : (
@@ -144,5 +161,3 @@ const Berth = ({ berth, className, onClick, selected }) => (
     </Col>
   </StyledRow>
 );
-
-export default Berth;

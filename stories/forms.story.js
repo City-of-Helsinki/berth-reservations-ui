@@ -10,18 +10,24 @@ import {
   Number
 } from '../src/components/forms/Fields';
 import OverViewInfo from '../src/components/forms/sections/OverviewInfo';
-import { form } from './decorators';
-import overViewInfoValues from './overViewInfoValues';
-
 import { BoatType } from '../src/components/forms/Selects';
+import { form, router } from './decorators';
+import berths from './berths';
+import formValue from './form';
 
 const boatTypes = {
   results: []
 };
 
+const tabs = ['registered_boat', 'private_person', 'overview'];
+const selectedBerths = berths.slice(0, 3);
+
 storiesOf('Forms', module)
   .addDecorator(form)
-  .add('OverViewInfo', () => <OverViewInfo values={overViewInfoValues} />)
+  .addDecorator(router)
+  .add('OverViewInfo', () => (
+    <OverViewInfo selectedBerths={selectedBerths} tabs={tabs} values={formValue} />
+  ))
   .add('InputFields', () => (
     <div>
       <Text id="text" name="Text" label="storybook.dummy.label" />

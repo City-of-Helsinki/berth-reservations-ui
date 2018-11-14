@@ -50,8 +50,12 @@ type Props = {
   className?: string
 };
 
-const Icon = ({ name, color: fill, width = 'auto', height = 'auto', className }: Props) => (
-  <Svg className={className} svgStyle={{ width, height, fill }} src={icons[name]} />
-);
+const Icon = ({
+  name,
+  color: fill = 'currentColor',
+  width = 'auto',
+  height = 'auto',
+  className
+}: Props) => <Svg className={className} svgStyle={{ width, height, fill }} src={icons[name]} />;
 
 export default Icon;

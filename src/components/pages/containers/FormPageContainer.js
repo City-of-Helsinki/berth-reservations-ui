@@ -11,6 +11,7 @@ export default compose(
     state => ({
       initialValues: state.forms.values,
       boatTypes: state.forms.boatTypes,
+      berths: state.berths.berths,
       selectedBerths: state.berths.selectedBerths
     }),
     { onSubmit, getBoatTypes, resetValues }
