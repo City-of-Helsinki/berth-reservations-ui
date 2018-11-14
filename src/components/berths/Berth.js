@@ -54,6 +54,7 @@ const SummaryWrapper = styled.div`
   }
   strong {
     font-size: 32px;
+    line-height: 1em;
   }
   small {
     font-size: 14px;
@@ -72,6 +73,7 @@ const ButtonIcon = styled(Icon)`
 `;
 
 const BerthAddress = styled.div`
+  margin-top: 0.8em;
   margin-bottom: 1em;
 `;
 
