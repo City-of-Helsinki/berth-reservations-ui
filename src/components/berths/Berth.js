@@ -73,6 +73,7 @@ const ButtonIcon = styled(Icon)`
   width: 1em;
   height: 1em;
 `;
+
 type Props = {
   berth: Berth,
   className: string,
