@@ -1,11 +1,11 @@
 // @flow
 import type { RecordOf, RecordFactory } from 'immutable';
 import type { Berths as Bs, SelectedBerths } from './berths';
+import type { BoatTypes } from './boatTypes';
 
 type FormProps = {
   values: Object,
-  step: number,
-  done: boolean
+  boatTypes: BoatTypes
 };
 
 type BerthsProps = {

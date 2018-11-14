@@ -12,6 +12,7 @@ import BoatMeasures from '../fragments/overview/BoatMeasures';
 import BoatDraughtAndWeight from '../fragments/overview/BoatDraughtAndWeight';
 import Person from '../fragments/overview/Person';
 import type { Berths } from '../../../types/berths';
+import { type WithBoatType } from '../Selects';
 
 const StyledInfoBox = styled.div`
   background-color: #efefef;
@@ -38,9 +39,9 @@ type Props = {
   values: Object,
   selectedBerths: Berths,
   tabs: Array<string>
-};
+} & WithBoatType;
 
-const OverviewInfo = ({ values, selectedBerths, tabs }: Props) => (
+const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
   <StyledInfoBox>
     <Container fluid>
       <Row>
@@ -56,7 +57,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs }: Props) => (
       {tabs[0] === 'registered_boat' && (
         <Fragment>
           <BoatInfo boat={values.boat} />
-          <BoatTypeAndModel boat={values.boat} />
+          <BoatTypeAndModel boat={values.boat} boatTypes={boatTypes} />
           <BoatMeasures boat={values.boat} />
           <BoatDraughtAndWeight boat={values.boat} />
         </Fragment>
@@ -64,13 +65,13 @@ const OverviewInfo = ({ values, selectedBerths, tabs }: Props) => (
       {tabs[0] === 'unregistered_boat' && (
         <Fragment>
           <BoatInfo boat={values.boat} />
-          <BoatTypeAndModel boat={values.boat} />
+          <BoatTypeAndModel boat={values.boat} boatTypes={boatTypes} />
           <BoatMeasures boat={values.boat} />
         </Fragment>
       )}
       {tabs[0] === 'no_boat' && (
         <Fragment>
-          <BoatTypeAndModel boat={values.boat} />
+          <BoatTypeAndModel boat={values.boat} boatTypes={boatTypes} />
           <BoatMeasures boat={values.boat} />
         </Fragment>
       )}

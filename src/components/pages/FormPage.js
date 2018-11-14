@@ -25,7 +25,12 @@ class BoatPage extends PureComponent<Props, any> {
   };
 
   componentDidMount() {
-    const { tab } = this.props;
+    const { tab, boatTypes, getBoatTypes } = this.props;
+
+    if (!boatTypes) {
+      getBoatTypes();
+    }
+
     const step = Math.max(0, findIndex(mapSteps, s => s.includes(tab)));
     this.setState(() => ({ step, tab: tab || mapSteps[step][0] }));
   }
@@ -37,9 +42,8 @@ class BoatPage extends PureComponent<Props, any> {
   }
 
   render() {
-    const { initialValues, berths, selectedBerths, onSubmit, localePush, resetValues } = this.props;
+    const { initialValues, boatTypes, berths, selectedBerths, onSubmit, localePush } = this.props;
     const { step, tabs, tab } = this.state;
-
     return (
       <Layout>
         <Steps
@@ -76,7 +80,6 @@ class BoatPage extends PureComponent<Props, any> {
           initialValues={initialValues}
           goForward={async values => {
             await onSubmit(values);
-            await resetValues();
             tabs[step] = tab;
             this.setState(() => ({ tabs }));
             await localePush('/thank-you');
@@ -88,6 +91,7 @@ class BoatPage extends PureComponent<Props, any> {
             await localePush('/berths');
           }}
           nextStep={values => {
+            console.debug('nextStep');
             onSubmit(values);
             tabs[step] = tab;
             this.setState(() => ({ tabs }));
@@ -97,15 +101,16 @@ class BoatPage extends PureComponent<Props, any> {
             onSubmit(values);
             tabs[step] = tab;
             this.setState(() => ({ tabs }));
-            localePush(`/form/${tabs[step - 1][0]}`);
+            localePush(`/form/${tabs[step - 1]}`);
           }}
         >
-          <BoatDetails tab={tab} values={{}} />
+          <BoatDetails tab={tab} values={{}} boatTypes={boatTypes} />
           <ApplicantDetails tab={tab} values={{}} />
           <Overview
             selectedBerths={selectedBerths.map(key =>
               berths.find(berth => key === berth.identifier)
             )}
+            boatTypes={boatTypes}
             tabs={tabs}
             tab={tab}
             values={{}}

@@ -18,7 +18,12 @@ storiesOf('Berths/Components', module)
 
 storiesOf('Berths/Sections', module)
   .add('BerthsOnMap', () => (
-    <BerthsOnMap berths={berths} onClick={action('onClick')} selected={selectedBerths} />
+    <BerthsOnMap
+      berths={berths}
+      filtered={berths}
+      onClick={action('onClick')}
+      selected={selectedBerths}
+    />
   ))
   .add('Berths', () => (
     <Berths berths={berths} onClick={action('onClick')} selected={selectedBerths} />

@@ -8,6 +8,7 @@ import ContactBy from '../fragments/ContactBy';
 import Newsletter from '../fragments/Newsletter';
 import OverviewInfo from './OverviewInfo';
 import type { Berths } from '../../../types/berths';
+import { type WithBoatType } from '../Selects';
 
 const Content = styled(Container)``;
 
@@ -15,11 +16,16 @@ type Props = {
   values: {},
   selectedBerths: Berths,
   tabs: Array<string>
-};
+} & WithBoatType;
 
-const Submit = ({ values, selectedBerths, tabs }: Props) => (
+const Submit = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
   <Content>
-    <OverviewInfo selectedBerths={selectedBerths} tabs={tabs} values={values} />
+    <OverviewInfo
+      selectedBerths={selectedBerths}
+      tabs={tabs}
+      values={values}
+      boatTypes={boatTypes}
+    />
     <FormattedMessage tagName="h3" id="form.overview.header.title" />
     <ContactBy prefix="overview" />
     <FormattedMessage tagName="h5" id="form.overview.header.receivable_items.title" />

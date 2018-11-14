@@ -2,43 +2,19 @@
 
 import React, { Fragment } from 'react';
 import { Row, Col } from 'reactstrap';
-import { injectIntl } from 'react-intl';
 
-import { Text, Select, MultiCheckbox, MultiRadio } from '../Fields';
-import type { FormFragmentPropsWithIntl } from '../../../types/form';
+import { Text, MultiCheckbox, MultiRadio } from '../Fields';
+import { Propulsion, HullMaterial } from '../Selects';
+import type { FormFragmentProps } from '../../../types/form';
 
-const BigShipsFragment = ({
-  prefix,
-  noValidate = false,
-  intl: { formatMessage }
-}: FormFragmentPropsWithIntl) => (
+const BigShipsFragment = ({ prefix, noValidate = false }: FormFragmentProps) => (
   <Fragment>
     <Row>
       <Col sm={6}>
-        <Select
-          noValidate={noValidate}
-          name={`${prefix}.propulsion`}
-          label="form.big_ship.field.propulsion.label"
-          required
-        >
-          <option>{formatMessage({ id: 'form.big_ship.field.propulsion.placeholder' })}</option>
-          <option>a</option>
-          <option>b</option>
-          <option>c</option>
-        </Select>
+        <Propulsion prefix={prefix} noValidate={noValidate} />
       </Col>
       <Col sm={6}>
-        <Select
-          noValidate={noValidate}
-          name={`${prefix}.hull_material`}
-          label="form.big_ship.field.hull_material.label"
-          required
-        >
-          <option>{formatMessage({ id: 'form.big_ship.field.hull_material.placeholder' })}</option>
-          <option>a</option>
-          <option>b</option>
-          <option>c</option>
-        </Select>
+        <HullMaterial prefix={prefix} noValidate={noValidate} />
       </Col>
     </Row>
     <Row>
@@ -120,4 +96,4 @@ const BigShipsFragment = ({
   </Fragment>
 );
 
-export default injectIntl(BigShipsFragment);
+export default BigShipsFragment;

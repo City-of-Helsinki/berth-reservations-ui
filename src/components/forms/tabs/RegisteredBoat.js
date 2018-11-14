@@ -8,21 +8,22 @@ import RegisteredBoatDetails from '../fragments/RegisteredBoatDetails';
 import BoatInfo from '../fragments/BoatInfo';
 import BigShips from '../fragments/BigShips';
 import Accessibility from '../fragments/Accessibility';
+import type { WithBoatType } from '../Selects';
 
 type Props = {
   prefix: string,
   ShowBigShipsForm: boolean
-};
+} & WithBoatType;
 
 const GrayBackground = styled.div`
   background: #eee;
   padding: 1em;
 `;
 
-export default ({ prefix, ShowBigShipsForm }: Props) => (
+export default ({ prefix, ShowBigShipsForm, boatTypes }: Props) => (
   <Container>
     <FormattedMessage tagName="h3" id="form.registered.header.title" />
-    <RegisteredBoatDetails prefix={prefix} />
+    <RegisteredBoatDetails prefix={prefix} boatTypes={boatTypes} />
 
     <FormattedMessage tagName="h3" id="form.registered.header.measures" />
     <BoatMeasures prefix={prefix} />
