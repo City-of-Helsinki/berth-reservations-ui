@@ -1,7 +1,14 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Alert, Container, Button } from 'reactstrap';
+import styled from 'styled-components';
 import SelectedBerth from './SelectedBerth';
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+`;
 
 const SelectedBerths = ({ berths, moveUp, moveDown }) => (
   <Container>
@@ -32,9 +39,11 @@ const SelectedBerths = ({ berths, moveUp, moveDown }) => (
         <FormattedMessage tagName="h1" id="page.berth.selected.alert.paragraph" />
       </Alert>
     )}
-    <Button type="submit">
-      <FormattedMessage tagName="span" id="page.berth.selected.submit" />
-    </Button>
+    <ButtonWrapper>
+      <Button type="submit" outline color="primary" size="lg" disabled={berths.size === 0}>
+        <FormattedMessage tagName="span" id="page.berth.selected.submit" />
+      </Button>
+    </ButtonWrapper>
   </Container>
 );
 
