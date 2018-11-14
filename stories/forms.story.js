@@ -15,9 +15,7 @@ import { form, router } from './decorators';
 import berths from './berths';
 import formValue from './form';
 
-const boatTypes = {
-  results: []
-};
+const boatTypes = [];
 
 const tabs = ['registered_boat', 'private_person', 'overview'];
 const selectedBerths = berths.slice(0, 3);

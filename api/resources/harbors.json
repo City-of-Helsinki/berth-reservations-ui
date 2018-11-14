@@ -1,0 +1,1618 @@
+{
+  "count": 41,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "suitable_boat_types": ["rowing_boat", "motorboat_outboard"],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "airoranta",
+      "zip_code": "00830",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/airorannan-venesatama",
+      "mooring": true,
+      "electricity": false,
+      "water": false,
+      "waste_collection": false,
+      "gate": false,
+      "lighting": false,
+      "number_of_places": 11,
+      "maximum_width": 200,
+      "maximum_length": 500,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.066105, 60.18808]
+      },
+      "name": {
+        "fi": "Airorannan venesatama",
+        "sv": "Årstrands småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Airoranta 2",
+        "sv": "Årstrand 2"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "aurinkolahti",
+      "zip_code": "00990",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/aurinkolahden-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 96,
+      "maximum_width": 400,
+      "maximum_length": 2100,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.147854, 60.200363]
+      },
+      "name": {
+        "fi": "Aurinkolahden venesatama (Aurinkoranta)",
+        "sv": "Solvikens småbåtshamn (Solstranden)"
+      },
+      "street_address": {
+        "fi": "Aurinkoranta",
+        "sv": "Solstranden"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "ehrenstromintie",
+      "zip_code": "00140",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/merisatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 142,
+      "maximum_width": 350,
+      "maximum_length": 1500,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.95244, 60.154793]
+      },
+      "name": {
+        "fi": "Merisatama (Ehrenströmintie) / Venesatama",
+        "sv": "Havshamnen (Ehrenströmsvägen) / Småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Ehrenströmintie 1a",
+        "sv": "Ehrenströmsvägen 1a"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "elaintarhanlahti",
+      "zip_code": "00530",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/elaintarhanlahden-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 84,
+      "maximum_width": 300,
+      "maximum_length": 800,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.941782, 60.18]
+      },
+      "name": {
+        "fi": "Eläintarhanlahden venesatama",
+        "sv": "Djurgårdsvikens småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Eläintarhantie 10",
+        "sv": "Djurgårdsvägen 10"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "hietalahdenallas",
+      "zip_code": "00180",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/hietalahdenallas",
+      "mooring": true,
+      "electricity": false,
+      "water": false,
+      "waste_collection": true,
+      "gate": false,
+      "lighting": true,
+      "number_of_places": 74,
+      "maximum_width": 500,
+      "maximum_length": 1800,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.929077, 60.161552]
+      },
+      "name": {
+        "fi": "Hietalahdenallas / Venesatama",
+        "sv": "Sandviksbassängen / Småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Hietalahdenranta 10",
+        "sv": "Sandvikskajen 10"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "honkaluoto",
+      "zip_code": "00570",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/honkaluoto",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": false,
+      "gate": false,
+      "lighting": true,
+      "number_of_places": 20,
+      "maximum_width": 275,
+      "maximum_length": 1400,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.00117, 60.181072]
+      },
+      "name": {
+        "fi": "Honkaluoto / Venesatama",
+        "sv": "Furuskär / Småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Mustikkamaantie 6",
+        "sv": "Blåbärslandsvägen 6"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "hopeasalmi",
+      "zip_code": "00570",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/hopeasalmen-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 35,
+      "maximum_width": 300,
+      "maximum_length": 1500,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.995731, 60.184475]
+      },
+      "name": {
+        "fi": "Hopeasalmen venesatama",
+        "sv": "Silversundets småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Hopeasalmenranta 7",
+        "sv": "Silversundsstranden 7"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "iso-sarvasto",
+      "zip_code": "00840",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/sarvaston-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 321,
+      "maximum_width": 400,
+      "maximum_length": 1600,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.058702, 60.16716]
+      },
+      "name": {
+        "fi": "Sarvaston venesatama",
+        "sv": "Fladans småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Isonsarvastontie 3",
+        "sv": "Storfladavägen 3"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "jaalaranta",
+      "zip_code": "00180",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/ruoholahden-venesatama",
+      "mooring": true,
+      "electricity": false,
+      "water": false,
+      "waste_collection": false,
+      "gate": false,
+      "lighting": true,
+      "number_of_places": 50,
+      "maximum_width": 400,
+      "maximum_length": 1500,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.91271, 60.161034]
+      },
+      "name": {
+        "fi": "Ruoholahden venesatama (Jaalaranta)",
+        "sv": "Gräsvikens småbåtshamn (Skutstranden)"
+      },
+      "street_address": {
+        "fi": "Jaalaranta 7a",
+        "sv": "Skutstranden 7a"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "katajanokka",
+      "zip_code": "00170",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/katajanokan-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 27,
+      "maximum_width": 300,
+      "maximum_length": 1300,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.965878, 60.169144]
+      },
+      "name": {
+        "fi": "Katajanokan venesatama",
+        "sv": "Skatuddens småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Laivastokatu 1c",
+        "sv": "Maringatan 1 C"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "kellosaarenranta",
+      "zip_code": "00180",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/ruoholahden-venesatama",
+      "mooring": true,
+      "electricity": false,
+      "water": false,
+      "waste_collection": false,
+      "gate": false,
+      "lighting": true,
+      "number_of_places": 27,
+      "maximum_width": 500,
+      "maximum_length": 2000,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.912563, 60.161633]
+      },
+      "name": {
+        "fi": "Ruoholahden venesatama (Kellosaarenranta)",
+        "sv": "Gräsvikens båthamn (Skällarstranden)"
+      },
+      "street_address": {
+        "fi": "Kellosaarenranta 4",
+        "sv": "Skällarstranden 4"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "kipparlahti",
+      "zip_code": "00810",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/kipparlahden-venesatama",
+      "mooring": true,
+      "electricity": false,
+      "water": false,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": false,
+      "number_of_places": 50,
+      "maximum_width": 300,
+      "maximum_length": 1000,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.023306, 60.191067]
+      },
+      "name": {
+        "fi": "Kipparlahden venesatama",
+        "sv": "Skepparvikens småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Kipparlahdenkuja 3",
+        "sv": "Skepparviksgränden 3"
+      }
+    },
+    {
+      "suitable_boat_types": ["rowing_boat", "motorboat_outboard"],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "koivuniemen-venesatama",
+      "zip_code": "00930",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/koivuniemen-venesatama",
+      "mooring": true,
+      "electricity": false,
+      "water": false,
+      "waste_collection": true,
+      "gate": false,
+      "lighting": false,
+      "number_of_places": 18,
+      "maximum_width": 250,
+      "maximum_length": 500,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.097727, 60.200787]
+      },
+      "name": {
+        "fi": "Koivuniemen venesatama",
+        "sv": "Björknäsets småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Marjaniemenranta 1a",
+        "sv": "Maruddsstrand 1a"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat",
+        "trawler",
+        "big_boat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "laivalahti",
+      "zip_code": "00810",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/laivalahden-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 248,
+      "maximum_width": 700,
+      "maximum_length": 2500,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.027122, 60.186985]
+      },
+      "name": {
+        "fi": "Laivalahden venesatama",
+        "sv": "Båtsvikens småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Simppukarinkatu 2",
+        "sv": "Simpörsgatan 2"
+      }
+    },
+    {
+      "suitable_boat_types": ["rowing_boat", "motorboat_outboard"],
+      "municipality": {
+        "fi": "Kirkkonummi",
+        "sv": "Kyrkslätt"
+      },
+      "image": null,
+      "identifier": "lahteela",
+      "zip_code": "02480",
+      "phone": "040 827 8310",
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/lahteela",
+      "mooring": true,
+      "electricity": false,
+      "water": false,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": false,
+      "number_of_places": 54,
+      "maximum_width": 650,
+      "maximum_length": 1200,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.439137, 59.981045]
+      },
+      "name": {
+        "fi": "Lähteelä retkisatama",
+        "sv": "Källvik utflyktshamn"
+      },
+      "street_address": {
+        "fi": "Läntinen Källvikintie",
+        "sv": ""
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "merihaka",
+      "zip_code": "00530",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/merihaan-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 41,
+      "maximum_width": 400,
+      "maximum_length": 2100,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.959497, 60.178135]
+      },
+      "name": {
+        "fi": "Merihaan venesatama (Hakaniemenranta 13)",
+        "sv": "Havshagens småbåtshamn (Hakaniemenranta 13)"
+      },
+      "street_address": {
+        "fi": "Hakaniemenranta 13",
+        "sv": "Hagnäskajen 13"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "dinghy",
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "meri-rastila",
+      "zip_code": "00980",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/meri-rastilan-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 115,
+      "maximum_width": 450,
+      "maximum_length": 1400,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.113478, 60.20614]
+      },
+      "name": {
+        "fi": "Meri-Rastilan venesatama",
+        "sv": "Havsrastböle småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Märssykuja",
+        "sv": "Märsgränden"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "merisatama",
+      "zip_code": "00140",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/merisatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 129,
+      "maximum_width": 450,
+      "maximum_length": 2000,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.948095, 60.15481]
+      },
+      "name": {
+        "fi": "Merisatamanranta / Venesatama",
+        "sv": "Havshamn / Småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Merisatamanranta 2",
+        "sv": "Havshamnensstrand 2"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "merisatamaranta",
+      "zip_code": "00150",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/merisatama",
+      "mooring": true,
+      "electricity": false,
+      "water": false,
+      "waste_collection": true,
+      "gate": false,
+      "lighting": true,
+      "number_of_places": 123,
+      "maximum_width": 400,
+      "maximum_length": 1500,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.944992, 60.154316]
+      },
+      "name": {
+        "fi": "Merisatamanranta 8 / Venesatama",
+        "sv": "Havshamn 8 / Småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Merisatamanranta 6",
+        "sv": "Havshamnensstrand 6"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "mustikkamaa",
+      "zip_code": "00570",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/mustikkamaan-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 76,
+      "maximum_width": 350,
+      "maximum_length": 1100,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.994574, 60.182472]
+      },
+      "name": {
+        "fi": "Mustikkamaan venesatama",
+        "sv": "Blåbärslandets småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Mustikkamaantie 1",
+        "sv": "Blåbärslandsvägen 1"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "dinghy",
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "nandelstadh",
+      "zip_code": "00570",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/nandelstadhin-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 55,
+      "maximum_width": 350,
+      "maximum_length": 1300,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.015247, 60.182655]
+      },
+      "name": {
+        "fi": "Nandelstadhin venesatama",
+        "sv": "Nandelstadhs småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Lars Sonckin tie 8a",
+        "sv": "Lars Soncks väg 8a"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "dinghy",
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "naurissalmi",
+      "zip_code": "00810",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/naurissalmen-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 112,
+      "maximum_width": 300,
+      "maximum_length": 1000,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.015923, 60.191486]
+      },
+      "name": {
+        "fi": "Naurissalmen venesatama (Kipparlahdensilmukka 9)",
+        "sv": "Rovholmssundets småbåtshamn (Kipparlahdensilmukka 9)"
+      },
+      "street_address": {
+        "fi": "Kipparlahdensilmukka 9",
+        "sv": ""
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "pajalahti",
+      "zip_code": "00210",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/pajalahden-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 189,
+      "maximum_width": 400,
+      "maximum_length": 1700,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.889048, 60.158226]
+      },
+      "name": {
+        "fi": "Pajalahden venesatama (Meripuistotie) / Venesatama",
+        "sv": "Smedjevikens småbåtshamn (Meripuistotie) / Båthamn"
+      },
+      "street_address": {
+        "fi": "Meripuistotie 1a",
+        "sv": "Hallonnässtranden 5"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "pikku-kallahden-venesatama",
+      "zip_code": "00980",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/pikku-kallahden-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 14,
+      "maximum_width": 500,
+      "maximum_length": 2200,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.141315, 60.19891]
+      },
+      "name": {
+        "fi": "Pikku Kallahden venesatama",
+        "sv": "Lilla Kallviks småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Kalkkihiekantori 4",
+        "sv": "Kalksandstorget 4"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "pitkansillanranta",
+      "zip_code": "00530",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/elaintarhanlahden-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": false,
+      "waste_collection": true,
+      "gate": false,
+      "lighting": true,
+      "number_of_places": 69,
+      "maximum_width": 300,
+      "maximum_length": 1200,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.946941, 60.177357]
+      },
+      "name": {
+        "fi": "Eläintarhanlahden venesatama (Pitkänsillanranta)",
+        "sv": "Djurgårdsvikens småbåtshamn (Långbrokajen)"
+      },
+      "street_address": {
+        "fi": "Pitkänsillanranta",
+        "sv": "Långbrokajen"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat",
+        "trawler",
+        "big_boat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "pohjoisranta",
+      "zip_code": "00170",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/pohjoisranta",
+      "mooring": true,
+      "electricity": false,
+      "water": true,
+      "waste_collection": true,
+      "gate": false,
+      "lighting": true,
+      "number_of_places": 60,
+      "maximum_width": 600,
+      "maximum_length": 2000,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.961151, 60.172394]
+      },
+      "name": {
+        "fi": "Pohjoisranta 3 / Venesatama",
+        "sv": "Norra kajen 3 / Småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Pohjoisranta 3",
+        "sv": "Norra kajen 3"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "porslahden-venesatama",
+      "zip_code": "00990",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/porslahden-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 61,
+      "maximum_width": 350,
+      "maximum_length": 800,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.177235, 60.207714]
+      },
+      "name": {
+        "fi": "Porslahden venesatama",
+        "sv": "Porslax småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Eteläreimarintie 8",
+        "sv": "Sydremmarvägen 8"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "dinghy",
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "puotila",
+      "zip_code": "00930",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/puotilan-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 462,
+      "maximum_width": 400,
+      "maximum_length": 1500,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.104332, 60.207024]
+      },
+      "name": {
+        "fi": "Puotilan venesatama",
+        "sv": "Botby gårds småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Meripellontie 11",
+        "sv": "Sjöåkervägen 11"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat",
+        "trawler"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "pursilahti",
+      "zip_code": "00990",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/aurinkolahden-venesatama",
+      "mooring": true,
+      "electricity": false,
+      "water": false,
+      "waste_collection": false,
+      "gate": false,
+      "lighting": true,
+      "number_of_places": 51,
+      "maximum_width": 400,
+      "maximum_length": 1200,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.148188, 60.20053]
+      },
+      "name": {
+        "fi": "Aurinkolahden venesatama (Pursilahdenranta)",
+        "sv": "Solvikens småbåtshamn (Slupviksstranden)"
+      },
+      "street_address": {
+        "fi": "Pursilahdenranta",
+        "sv": "Slupviksstranden"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "ramsaynranta",
+      "zip_code": "00330",
+      "phone": null,
+      "email": "venepaikkavaraukset@hel.fi",
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/ramsaynrannan-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 224,
+      "maximum_width": 300,
+      "maximum_length": 800,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.884083, 60.193653]
+      },
+      "name": {
+        "fi": "Ramsaynrannan venesatama (Ramsaynranta 4)",
+        "sv": "Ramsays strands småbåtshamn (Ramsays strand 4)"
+      },
+      "street_address": {
+        "fi": "Ramsaynranta 4",
+        "sv": "Ramsays strand 4"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "ruoholahden-kanava",
+      "zip_code": "00180",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/ruoholahden-venesatama",
+      "mooring": true,
+      "electricity": false,
+      "water": false,
+      "waste_collection": false,
+      "gate": false,
+      "lighting": true,
+      "number_of_places": 22,
+      "maximum_width": 300,
+      "maximum_length": 1200,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.915993, 60.161858]
+      },
+      "name": {
+        "fi": "Ruoholahden venesatama (Ruoholahden kanava)",
+        "sv": "Gräsvikens småbåtshamn (Gräsvikskanalen)"
+      },
+      "street_address": {
+        "fi": "Ruoholahdenkanava",
+        "sv": "Gräsvikskanalen"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "salmisaari",
+      "zip_code": "00180",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/salmisaaren-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 52,
+      "maximum_width": 600,
+      "maximum_length": 1400,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.900002, 60.165295]
+      },
+      "name": {
+        "fi": "Salmisaaren venesatama",
+        "sv": "Sundholmens småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Salmisaarenranta",
+        "sv": "Sundholmsstranden"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "saukonpaasi",
+      "zip_code": "00180",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/saukonpaaden-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 42,
+      "maximum_width": 400,
+      "maximum_length": 1000,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.907322, 60.159313]
+      },
+      "name": {
+        "fi": "Saukonpaaden venesatama",
+        "sv": "Utterhällens småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Saukonpaadenranta 7",
+        "sv": "Utterhällsstranden 7"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "saunalahti",
+      "zip_code": "00330",
+      "phone": null,
+      "email": "venepaikkavaraukset@hel.fi",
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/saunalahden-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 69,
+      "maximum_width": 250,
+      "maximum_length": 800,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.882168, 60.19231]
+      },
+      "name": {
+        "fi": "Saunalahden venesatama (Ramsaynranta 2)",
+        "sv": "Bastuvikens småbåtshamn (Ramsays strand 2)"
+      },
+      "street_address": {
+        "fi": "Ramsaynranta 2",
+        "sv": "Ramsays strand 2"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "siltavuoren-venesatama",
+      "zip_code": "00170",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/sltavuoren-enesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": false,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 69,
+      "maximum_width": 300,
+      "maximum_length": 800,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.955912, 60.176636]
+      },
+      "name": {
+        "fi": "Siltavuoren venesatama",
+        "sv": "Brobergets småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Siltavuorenranta",
+        "sv": "Brobergskajen"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "stromsinlahti",
+      "zip_code": "00820",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/stromsinlahden-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 93,
+      "maximum_width": 350,
+      "maximum_length": 1750,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.065271, 60.19764]
+      },
+      "name": {
+        "fi": "Strömsinlahden venesatama",
+        "sv": "Strömsvikens småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Abraham Wetterin tie 26",
+        "sv": "Abraham Wetters väg 26"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "tammasaarenallas",
+      "zip_code": "00180",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/tammasaarenallas",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": false,
+      "lighting": true,
+      "number_of_places": 75,
+      "maximum_width": 500,
+      "maximum_length": 1700,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.906261, 60.160984]
+      },
+      "name": {
+        "fi": "Tammasaarenallas / Venesatama",
+        "sv": "Märaholmsbassängen / Småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Tammasaarenaukio 4",
+        "sv": "Märaholmsplatsen 4"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat",
+        "trawler"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "tervasaari",
+      "zip_code": "00170",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/tervasaari",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 237,
+      "maximum_width": 700,
+      "maximum_length": 2000,
+      "location": {
+        "type": "Point",
+        "coordinates": [24.965092, 60.173992]
+      },
+      "name": {
+        "fi": "Tervasaari (Tervasaarenkannas 1) / Venesatama",
+        "sv": "Tjärholmen (Tjärholmnäset 1) / Småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Tervasaarenkannas 1",
+        "sv": "Tjärholmsnäset 1"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "vasikkasaari",
+      "zip_code": "00860",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/vasikkasaaren-venesatama",
+      "mooring": true,
+      "electricity": false,
+      "water": false,
+      "waste_collection": false,
+      "gate": false,
+      "lighting": false,
+      "number_of_places": 32,
+      "maximum_width": 350,
+      "maximum_length": 1500,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.014528, 60.15483]
+      },
+      "name": {
+        "fi": "Vasikkasaaren venesatama",
+        "sv": "Kalvholmens småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Vasikkasaari",
+        "sv": "Kalvholmen"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "vuosaarenlahden-venesatama",
+      "zip_code": "00980",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/vuosaarenlahden-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 250,
+      "maximum_width": 500,
+      "maximum_length": 1800,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.18622, 60.210037]
+      },
+      "name": {
+        "fi": "Vuosaarenlahden venesatama",
+        "sv": "Nordsjövikens småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Merenkulkijankuja 7",
+        "sv": "Sjöfarargränden 7"
+      }
+    },
+    {
+      "suitable_boat_types": [
+        "rowing_boat",
+        "motorboat_outboard",
+        "motorboat_sterndrive",
+        "motorboat_direct_drive",
+        "sailboat"
+      ],
+      "municipality": {
+        "fi": "Helsinki",
+        "sv": "Helsingfors"
+      },
+      "image": null,
+      "identifier": "vahaniitty",
+      "zip_code": "00570",
+      "phone": null,
+      "email": null,
+      "www_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/vahaniityn-venesatama",
+      "mooring": true,
+      "electricity": true,
+      "water": true,
+      "waste_collection": true,
+      "gate": true,
+      "lighting": true,
+      "number_of_places": 35,
+      "maximum_width": 350,
+      "maximum_length": 1200,
+      "location": {
+        "type": "Point",
+        "coordinates": [25.0165, 60.183987]
+      },
+      "name": {
+        "fi": "Vähäniityn venesatama",
+        "sv": "Lillängens småbåtshamn"
+      },
+      "street_address": {
+        "fi": "Vähäniityntie 3a",
+        "sv": "Lillängsvägen 3a"
+      }
+    }
+  ]
+}

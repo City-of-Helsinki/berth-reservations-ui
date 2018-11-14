@@ -15,7 +15,7 @@ type Props = {
 } & WithBoatType;
 
 const BoatTypeAndModel = ({ boat, boatTypes, intl: { locale } }: Props) => {
-  const boatType = boatTypes.results.find(type => type.identifier === boat.type);
+  const boatType = boatTypes.find(type => type.identifier === boat.type);
   return (
     <Row>
       <Col md={boat.model ? 6 : 12}>

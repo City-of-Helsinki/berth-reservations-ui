@@ -18,7 +18,7 @@ export const BoatType = injectIntl(
     >
       <option>{formatMessage({ id: 'form.registered.field.type.placeholder' })}</option>
       {boatTypes &&
-        boatTypes.results.map(type => (
+        boatTypes.map(type => (
           <option key={type.identifier} value={type.identifier}>
             {type.name[locale]}
           </option>

@@ -62,14 +62,13 @@ export default class SimpleExample extends Component<Props, State> {
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {filtered.map(berth => {
           const isSelected = selected && selected.includes(berth.identifier);
-
           return (
             <MapMarker
               berth={berth}
               selected={isSelected}
               markerIcon={markerIcon(isSelected)}
               key={berth.identifier}
-              position={berth.location.coordinates}
+              position={berth.location.coordinates.reverse()}
               onClick={() => onClick(berth.identifier)}
             />
           );
