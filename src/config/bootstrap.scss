@@ -36,3 +36,7 @@ $theme-colors: (
 
 @import '../../node_modules/open-city-design/src/scss/helsinki/mixins';
 @import '../../node_modules/open-city-design/src/scss/helsinki/custom-styles';
+
+.custom-select {
+  background-color: transparent;
+}
