@@ -43,11 +43,14 @@ class BerthPage extends Component<Props> {
     const services = get(values, 'services.service', []);
     const width = get(values, 'boat.width', 0);
     const length = get(values, 'boat.length', 0);
+    const boatType = get(values, 'boat.type', 0);
+
     return (b: any) => {
       const filterByService = services.reduce((acc, cur) => acc && b[cur], true);
       const filterByWidth = b.maximum_width >= width;
       const filterByLenght = b.maximum_length >= length;
-      return filterByService && filterByWidth && filterByLenght;
+      const filterByBoatTypeIds = boatType ? b.suitable_boat_types.includes(boatType) : true;
+      return filterByService && filterByWidth && filterByLenght && filterByBoatTypeIds;
     };
   };
 
