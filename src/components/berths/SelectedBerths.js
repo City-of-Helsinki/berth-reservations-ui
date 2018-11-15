@@ -10,7 +10,7 @@ const ButtonWrapper = styled.div`
   margin: 1em;
 `;
 
-const SelectedBerths = ({ berths, moveUp, moveDown }) => (
+const SelectedBerths = ({ berths, moveUp, moveDown, progress }) => (
   <Container>
     <FormattedMessage tagName="h1" id="page.berth.selected.title" />
     <FormattedMessage tagName="p" id="page.berth.selected.paragraph.first" />
@@ -40,7 +40,7 @@ const SelectedBerths = ({ berths, moveUp, moveDown }) => (
       </Alert>
     )}
     <ButtonWrapper>
-      <Button type="submit" outline color="primary" size="lg" disabled={berths.size === 0}>
+      <Button onClick={progress} outline color="primary" size="lg" disabled={berths.size === 0}>
         <FormattedMessage tagName="span" id="page.berth.selected.submit" />
       </Button>
     </ButtonWrapper>

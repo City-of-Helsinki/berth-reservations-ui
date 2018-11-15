@@ -6,7 +6,6 @@ import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
 import Layout from '../layout/Layout';
-import Form from '../forms/Form';
 import BerthsLegend from '../legends/BerthsLegend';
 import BerthsOnMap from '../berths/BerthsOnMap';
 import Berths from '../berths/Berths';
@@ -31,9 +30,13 @@ class BerthPage extends Component<Props> {
   }
 
   onSubmit = async (values: any) => {
-    const { onSubmit, localePush } = this.props;
+    const { onSubmit } = this.props;
     await onSubmit(values);
-    localePush('/form/registered_boat');
+  };
+
+  moveToForm = async () => {
+    const { localePush } = this.props;
+    await localePush('/form/registered_boat');
   };
 
   getFilterByValues = (values: any) => {
@@ -59,49 +62,46 @@ class BerthPage extends Component<Props> {
 
   render() {
     const { boatTypes, initialValues, berths, selectedBerths, moveUp, moveDown } = this.props;
+    const filter = this.getFilterByValues(initialValues);
+    const filtered = berths.filter(filter);
     return (
       <Layout>
-        <Form initialValues={initialValues} onSubmit={this.onSubmit}>
-          {({ values }) => {
-            const filter = this.getFilterByValues(values);
-            const filtered = berths.filter(filter);
-            return (
-              <Wrapper>
-                <BerthsLegend boatTypes={boatTypes} />
-                <TabSelector>
-                  <Berths
-                    TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
-                    berths={filtered}
-                    selected={selectedBerths}
-                    onClick={this.toggleBerthSelect}
-                  />
-                  <BerthsOnMap
-                    TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
-                    berths={berths}
-                    filtered={filtered}
-                    selected={selectedBerths}
-                    onClick={this.toggleBerthSelect}
-                  />
-                  <SelectedBerths
-                    TabHeader={() => (
-                      <div>
-                        <FormattedMessage tagName="span" id="page.berths.selected_list" />:
-                        <Badge pill>
-                          {selectedBerths.size} / {berths.size}
-                        </Badge>
-                      </div>
-                    )}
-                    moveUp={moveUp}
-                    moveDown={moveDown}
-                    berths={selectedBerths.map(key =>
-                      berths.find(berth => key === berth.identifier)
-                    )}
-                  />
-                </TabSelector>
-              </Wrapper>
-            );
-          }}
-        </Form>
+        <Wrapper>
+          <BerthsLegend
+            boatTypes={boatTypes}
+            initialValues={initialValues}
+            onSubmit={this.onSubmit}
+          />
+          <TabSelector>
+            <Berths
+              TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
+              berths={filtered}
+              selected={selectedBerths}
+              onClick={this.toggleBerthSelect}
+            />
+            <BerthsOnMap
+              TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
+              berths={berths}
+              filtered={filtered}
+              selected={selectedBerths}
+              onClick={this.toggleBerthSelect}
+            />
+            <SelectedBerths
+              TabHeader={() => (
+                <div>
+                  <FormattedMessage tagName="span" id="page.berths.selected_list" />:
+                  <Badge pill>
+                    {selectedBerths.size} / {berths.size}
+                  </Badge>
+                </div>
+              )}
+              progress={this.moveToForm}
+              moveUp={moveUp}
+              moveDown={moveDown}
+              berths={selectedBerths.map(key => berths.find(berth => key === berth.identifier))}
+            />
+          </TabSelector>
+        </Wrapper>
       </Layout>
     );
   }
