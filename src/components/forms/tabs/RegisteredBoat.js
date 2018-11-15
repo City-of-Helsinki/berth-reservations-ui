@@ -12,7 +12,8 @@ import type { WithBoatType } from '../Selects';
 
 type Props = {
   prefix: string,
-  ShowBigShipsForm: boolean
+  ShowBigShipsForm: boolean,
+  datesRequired: boolean
 } & WithBoatType;
 
 const GrayBackground = styled.div`
@@ -20,7 +21,7 @@ const GrayBackground = styled.div`
   padding: 1em;
 `;
 
-export default ({ prefix, ShowBigShipsForm, boatTypes }: Props) => (
+export default ({ prefix, ShowBigShipsForm, datesRequired, boatTypes }: Props) => (
   <Container>
     <FormattedMessage tagName="h3" id="form.registered.header.title" />
     <RegisteredBoatDetails prefix={prefix} boatTypes={boatTypes} />
@@ -32,7 +33,7 @@ export default ({ prefix, ShowBigShipsForm, boatTypes }: Props) => (
         <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
         <FormattedMessage tagName="p" id="form.big_ship.text.summary" />
         <FormattedMessage tagName="h3" id="form.big_ship.header.details" />
-        <BigShips prefix={`${prefix}.big_ships`} />
+        <BigShips prefix={`${prefix}.big_ships`} datesRequired={datesRequired} />
         <FormattedMessage tagName="p" id="form.big_ship.text.inspection_and_insurance" />
       </GrayBackground>
     )}

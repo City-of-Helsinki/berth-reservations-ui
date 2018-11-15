@@ -6,10 +6,15 @@ import { Row, Col } from 'reactstrap';
 import { Text, DatePicker, MultiCheckbox, MultiRadio } from '../Fields';
 import { Propulsion, HullMaterial } from '../Selects';
 import type { FormFragmentProps } from '../../../types/form';
+import { mustBeAfter, mustBeBefore } from '../../../utils/formValidation';
 
-class BigShipsFragment extends Component {
+type Props = {
+  datesRequired: boolean
+} & FormFragmentProps;
+
+class BigShipsFragment extends Component<Props> {
   render() {
-    const { prefix, noValidate = false }: FormFragmentProps = this.props;
+    const { prefix, noValidate = false, datesRequired = false } = this.props;
 
     return (
       <Fragment>
@@ -57,6 +62,8 @@ class BigShipsFragment extends Component {
             <Row>
               <Col sm={5}>
                 <DatePicker
+                  required={datesRequired}
+                  validate={datesRequired ? mustBeBefore('') : undefined}
                   noValidate={noValidate}
                   name={`${prefix}.time_period_from`}
                   placeholder="form.big_ship.field.time_period.from.placeholder"
@@ -66,7 +73,9 @@ class BigShipsFragment extends Component {
                 <center>-</center>
               </Col>
               <Col sm={5}>
-                <Text
+                <DatePicker
+                  required={datesRequired}
+                  validate={datesRequired ? mustBeAfter('') : undefined}
                   noValidate={noValidate}
                   name={`${prefix}.time_period_to`}
                   placeholder="form.big_ship.field.time_period.to.placeholder"

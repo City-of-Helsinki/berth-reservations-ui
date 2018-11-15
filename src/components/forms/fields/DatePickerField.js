@@ -12,7 +12,7 @@ export type InputFieldProps = DefaultFieldProps & {
   placeholder?: string
 };
 
-const DatePickerField = ({
+const DatePickerField = () => ({
   intl: { formatMessage },
   placeholder,
   ...inputProps
@@ -22,10 +22,7 @@ const DatePickerField = ({
     placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
     {...inputProps}
   >
-    <SingleDatePicker
-      onDateChange={() => console.log('moi')}
-      onFocusChangee={() => console.log('moi')}
-    />
+    <SingleDatePicker onDateChange={() => null} onFocusChange={() => null} />
   </FormGroupField>
 );
 

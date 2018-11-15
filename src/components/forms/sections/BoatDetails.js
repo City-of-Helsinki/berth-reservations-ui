@@ -21,6 +21,8 @@ type Props = {
 
 const BoatDetails = ({ values, tab, boatTypes }: Props) => {
   const ShowBigShipsForm = get(values, 'boat.type') === BigBoatTypeValue;
+  const datesRequired = get(values, 'boat.big_ships.time_period') === 'fixed';
+  console.log(datesRequired);
   return (
     <Content>
       <SectionSelector
@@ -45,7 +47,12 @@ const BoatDetails = ({ values, tab, boatTypes }: Props) => {
         ]}
       />
       {tab === 'registered_boat' && (
-        <RegisteredBoat prefix="boat" ShowBigShipsForm={ShowBigShipsForm} boatTypes={boatTypes} />
+        <RegisteredBoat
+          prefix="boat"
+          ShowBigShipsForm={ShowBigShipsForm}
+          datesRequired={datesRequired}
+          boatTypes={boatTypes}
+        />
       )}
       {tab === 'unregistered_boat' && <UnRegisteredBoat prefix="boat" boatTypes={boatTypes} />}
       {tab === 'no_boat' && <NoBoat prefix="boat" boatTypes={boatTypes} />}

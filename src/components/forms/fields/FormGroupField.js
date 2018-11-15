@@ -41,8 +41,6 @@ const FormGroupField = ({
         {React.Children.map(children, child => {
           const childType = get(child, ['type', 'name']);
 
-          //console.log(childType);
-
           if (childType === 'Input' || childType === 'CustomInput') {
             return React.cloneElement(child, {
               id,
@@ -54,17 +52,18 @@ const FormGroupField = ({
               ...rest
             });
           }
+
           if (childType === 'WithStyles') {
-            console.log(input);
-            const a = React.cloneElement(child, {
+            console.log(meta, input);
+            return React.cloneElement(child, {
               id,
               required,
               ...rest,
-              onDateChange: test => console.debug(test),
-              onFocusChange: test => console.debug(test)
+              date: typeof input.value === 'object' ? input.value : undefined,
+              focused: meta.active,
+              onDateChange: date => input.onChange(date),
+              onFocusChange: ({ focused }) => (focused ? input.onFocus() : input.onBlur())
             });
-            debugger;
-            return a;
           }
           return child;
         })}
