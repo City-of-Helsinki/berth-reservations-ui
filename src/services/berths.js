@@ -11,6 +11,12 @@ export default {
   },
   getBerths: async (): Promise<Berths> => {
     const data = await get('harbors');
-    return List(data.results);
+    return List(
+      data.results.map(berth => ({
+        ...berth,
+        maximum_width: berth.maximum_width / 100,
+        maximum_length: berth.maximum_length / 100
+      }))
+    );
   }
 };
