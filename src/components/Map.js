@@ -39,7 +39,7 @@ type State = {
 
 type Props = any;
 
-export default class SimpleExample extends Component<Props, State> {
+export default class MapCanvas extends Component<Props, State> {
   state = {
     lng: 24.93,
     lat: 60.18808,
@@ -50,6 +50,8 @@ export default class SimpleExample extends Component<Props, State> {
     const { filtered, selected, onClick } = this.props;
     const position = [this.state.lat, this.state.lng];
 
+    const bounds = new L.LatLngBounds(filtered.map(berth => berth.location.coordinates).toArray());
+
     const markerIcon = isSelected => {
       if (isSelected) {
         return iconSelected;
@@ -58,7 +60,13 @@ export default class SimpleExample extends Component<Props, State> {
     };
 
     return (
-      <Map center={position} zoom={this.state.zoom} style={style}>
+      <Map
+        bounds={bounds}
+        boundsOptions={{ padding: [50, 50] }}
+        center={position}
+        zoom={this.state.zoom}
+        style={style}
+      >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {filtered.map(berth => {
           const isSelected = selected && selected.includes(berth.identifier);
@@ -68,7 +76,7 @@ export default class SimpleExample extends Component<Props, State> {
               selected={isSelected}
               markerIcon={markerIcon(isSelected)}
               key={berth.identifier}
-              position={berth.location.coordinates.reverse()}
+              position={berth.location.coordinates}
               onClick={() => onClick(berth.identifier)}
             />
           );
