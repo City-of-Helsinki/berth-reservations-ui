@@ -39,7 +39,7 @@ type State = {
 
 type Props = any;
 
-export default class SimpleExample extends Component<Props, State> {
+export default class MapCanvas extends Component<Props, State> {
   state = {
     lng: 24.93,
     lat: 60.18808,
