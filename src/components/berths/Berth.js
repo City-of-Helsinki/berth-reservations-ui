@@ -150,7 +150,7 @@ export default ({ berth, className, onClick, selected }: Props) => (
                 </DetailsTitle>
               </Details>
               <Details available={true}>
-                <DetailsValue>{berth.maximum_width}</DetailsValue>
+                <DetailsValue>{berth.maximum_width} m</DetailsValue>
                 <DetailsTitle>
                   <FormattedMessage tagName="span" id="page.berths.maximum_width" />
                 </DetailsTitle>
