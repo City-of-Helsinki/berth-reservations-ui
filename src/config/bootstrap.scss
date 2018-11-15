@@ -37,6 +37,12 @@ $theme-colors: (
 @import '../../node_modules/open-city-design/src/scss/helsinki/mixins';
 @import '../../node_modules/open-city-design/src/scss/helsinki/custom-styles';
 
+// Import 3rd party styles
+
+@import '~react-dates/lib/css/_datepicker.css';
+
+// Custom style overrides
+
 .custom-select {
   background-color: transparent;
 }
