@@ -19,7 +19,7 @@ export type Berth = {
     type: string,
     coordinates: Array<number>
   },
-  image_file: string,
+  image: string,
   image_link: string,
   mooring: boolean,
   electricity: boolean,

@@ -50,13 +50,7 @@ export default class MapCanvas extends Component<Props, State> {
     const { filtered, selected, onClick } = this.props;
     const position = [this.state.lat, this.state.lng];
 
-    const bounds = new L.LatLngBounds(
-      filtered
-        .map(berth => {
-          return berth.location.coordinates;
-        })
-        .toArray()
-    );
+    const bounds = new L.LatLngBounds(filtered.map(berth => berth.location.coordinates).toArray());
 
     const markerIcon = isSelected => {
       if (isSelected) {
