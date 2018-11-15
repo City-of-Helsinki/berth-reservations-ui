@@ -98,7 +98,7 @@ export default ({ berth, className, onClick, selected }: Props) => (
       <StyledDiv>
         <Row>
           <Col xs={3}>
-            <BerthImage src={berth.image_file} alt={berth.name.fi} />
+            <BerthImage src={berth.image} alt={berth.name.fi} />
           </Col>
           <Col xs={4}>
             <SummaryWrapper>
