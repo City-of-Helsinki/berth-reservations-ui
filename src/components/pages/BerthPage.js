@@ -34,6 +34,11 @@ class BerthPage extends Component<Props> {
     await onSubmit(values);
   };
 
+  moveToForm = async () => {
+    const { localePush } = this.props;
+    await localePush('/form/registered_boat');
+  };
+
   getFilterByValues = (values: any) => {
     const services = get(values, 'services.service', []);
     const width = get(values, 'boat.width', 0);
@@ -90,6 +95,7 @@ class BerthPage extends Component<Props> {
                   </Badge>
                 </div>
               )}
+              progress={this.moveToForm}
               moveUp={moveUp}
               moveDown={moveDown}
               berths={selectedBerths.map(key => berths.find(berth => key === berth.identifier))}
