@@ -9,7 +9,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "airoranta",
       "zip_code": "00830",
       "phone": null,
@@ -35,7 +34,8 @@
       "street_address": {
         "fi": "Airoranta 2",
         "sv": "Årstrand 2"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/airoranta/40393.jpg"
     },
     {
       "suitable_boat_types": [
@@ -49,7 +49,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "aurinkolahti",
       "zip_code": "00990",
       "phone": null,
@@ -75,7 +74,8 @@
       "street_address": {
         "fi": "Aurinkoranta",
         "sv": "Solstranden"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/aurinkolahti/41636.jpg"
     },
     {
       "suitable_boat_types": [
@@ -89,7 +89,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "ehrenstromintie",
       "zip_code": "00140",
       "phone": null,
@@ -115,7 +114,8 @@
       "street_address": {
         "fi": "Ehrenströmintie 1a",
         "sv": "Ehrenströmsvägen 1a"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/ehrenstromintie/40971.jpg"
     },
     {
       "suitable_boat_types": [
@@ -128,7 +128,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "elaintarhanlahti",
       "zip_code": "00530",
       "phone": null,
@@ -154,7 +153,8 @@
       "street_address": {
         "fi": "Eläintarhantie 10",
         "sv": "Djurgårdsvägen 10"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/elaintarhanlahti/39913.jpg"
     },
     {
       "suitable_boat_types": [
@@ -167,7 +167,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "hietalahdenallas",
       "zip_code": "00180",
       "phone": null,
@@ -193,7 +192,8 @@
       "street_address": {
         "fi": "Hietalahdenranta 10",
         "sv": "Sandvikskajen 10"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/hietalahdenallas/41390.jpg"
     },
     {
       "suitable_boat_types": [
@@ -206,7 +206,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "honkaluoto",
       "zip_code": "00570",
       "phone": null,
@@ -232,7 +231,8 @@
       "street_address": {
         "fi": "Mustikkamaantie 6",
         "sv": "Blåbärslandsvägen 6"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/honkaluoto/40672.jpg"
     },
     {
       "suitable_boat_types": [
@@ -245,7 +245,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "hopeasalmi",
       "zip_code": "00570",
       "phone": null,
@@ -271,7 +270,8 @@
       "street_address": {
         "fi": "Hopeasalmenranta 7",
         "sv": "Silversundsstranden 7"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/hopeasalmi/41926.jpg"
     },
     {
       "suitable_boat_types": [
@@ -285,7 +285,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "iso-sarvasto",
       "zip_code": "00840",
       "phone": null,
@@ -311,7 +310,8 @@
       "street_address": {
         "fi": "Isonsarvastontie 3",
         "sv": "Storfladavägen 3"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/iso-sarvasto/40166.jpg"
     },
     {
       "suitable_boat_types": [
@@ -324,7 +324,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "jaalaranta",
       "zip_code": "00180",
       "phone": null,
@@ -350,7 +349,8 @@
       "street_address": {
         "fi": "Jaalaranta 7a",
         "sv": "Skutstranden 7a"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/jaalaranta/40827.jpg"
     },
     {
       "suitable_boat_types": [
@@ -364,7 +364,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "katajanokka",
       "zip_code": "00170",
       "phone": null,
@@ -384,13 +383,14 @@
         "coordinates": [24.965878, 60.169144]
       },
       "name": {
-        "fi": "Katajanokan venesatama",
-        "sv": "Skatuddens småbåtshamn"
+        "sv": "Skatuddens småbåtshamn",
+        "fi": "Katajanokan venesatama"
       },
       "street_address": {
-        "fi": "Laivastokatu 1c",
-        "sv": "Maringatan 1 C"
-      }
+        "sv": "Maringatan 1 C",
+        "fi": "Laivastokatu 1c"
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/katajanokka/48272.jpg"
     },
     {
       "suitable_boat_types": [
@@ -402,7 +402,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "kellosaarenranta",
       "zip_code": "00180",
       "phone": null,
@@ -428,7 +427,8 @@
       "street_address": {
         "fi": "Kellosaarenranta 4",
         "sv": "Skällarstranden 4"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/kellosaarenranta/40310.jpg"
     },
     {
       "suitable_boat_types": [
@@ -442,7 +442,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "kipparlahti",
       "zip_code": "00810",
       "phone": null,
@@ -468,7 +467,8 @@
       "street_address": {
         "fi": "Kipparlahdenkuja 3",
         "sv": "Skepparviksgränden 3"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/kipparlahti/41189.jpg"
     },
     {
       "suitable_boat_types": ["rowing_boat", "motorboat_outboard"],
@@ -476,7 +476,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "koivuniemen-venesatama",
       "zip_code": "00930",
       "phone": null,
@@ -502,7 +501,8 @@
       "street_address": {
         "fi": "Marjaniemenranta 1a",
         "sv": "Maruddsstrand 1a"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/koivuniemen-venesatama/39950.jpg"
     },
     {
       "suitable_boat_types": [
@@ -518,7 +518,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "laivalahti",
       "zip_code": "00810",
       "phone": null,
@@ -544,7 +543,8 @@
       "street_address": {
         "fi": "Simppukarinkatu 2",
         "sv": "Simpörsgatan 2"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/laivalahti/40864.jpg"
     },
     {
       "suitable_boat_types": ["rowing_boat", "motorboat_outboard"],
@@ -552,7 +552,6 @@
         "fi": "Kirkkonummi",
         "sv": "Kyrkslätt"
       },
-      "image": null,
       "identifier": "lahteela",
       "zip_code": "02480",
       "phone": "040 827 8310",
@@ -578,7 +577,8 @@
       "street_address": {
         "fi": "Läntinen Källvikintie",
         "sv": ""
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/lahteela/40290.jpg"
     },
     {
       "suitable_boat_types": [
@@ -592,7 +592,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "merihaka",
       "zip_code": "00530",
       "phone": null,
@@ -618,7 +617,8 @@
       "street_address": {
         "fi": "Hakaniemenranta 13",
         "sv": "Hagnäskajen 13"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/merihaka/41454.jpg"
     },
     {
       "suitable_boat_types": [
@@ -633,7 +633,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "meri-rastila",
       "zip_code": "00980",
       "phone": null,
@@ -659,7 +658,8 @@
       "street_address": {
         "fi": "Märssykuja",
         "sv": "Märsgränden"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/meri-rastila/41066.jpg"
     },
     {
       "suitable_boat_types": [
@@ -673,7 +673,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "merisatama",
       "zip_code": "00140",
       "phone": null,
@@ -699,7 +698,8 @@
       "street_address": {
         "fi": "Merisatamanranta 2",
         "sv": "Havshamnensstrand 2"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/merisatama/40948.jpg"
     },
     {
       "suitable_boat_types": [
@@ -712,7 +712,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "merisatamaranta",
       "zip_code": "00150",
       "phone": null,
@@ -738,7 +737,8 @@
       "street_address": {
         "fi": "Merisatamanranta 6",
         "sv": "Havshamnensstrand 6"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/merisatamaranta/45995.jpg"
     },
     {
       "suitable_boat_types": [
@@ -751,7 +751,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "mustikkamaa",
       "zip_code": "00570",
       "phone": null,
@@ -777,7 +776,8 @@
       "street_address": {
         "fi": "Mustikkamaantie 1",
         "sv": "Blåbärslandsvägen 1"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/mustikkamaa/40359.jpg"
     },
     {
       "suitable_boat_types": [
@@ -792,7 +792,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "nandelstadh",
       "zip_code": "00570",
       "phone": null,
@@ -818,7 +817,8 @@
       "street_address": {
         "fi": "Lars Sonckin tie 8a",
         "sv": "Lars Soncks väg 8a"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/nandelstadh/42225.jpg"
     },
     {
       "suitable_boat_types": [
@@ -832,7 +832,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "naurissalmi",
       "zip_code": "00810",
       "phone": null,
@@ -858,7 +857,8 @@
       "street_address": {
         "fi": "Kipparlahdensilmukka 9",
         "sv": ""
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/naurissalmi/40712.jpg"
     },
     {
       "suitable_boat_types": [
@@ -872,7 +872,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "pajalahti",
       "zip_code": "00210",
       "phone": null,
@@ -898,7 +897,8 @@
       "street_address": {
         "fi": "Meripuistotie 1a",
         "sv": "Hallonnässtranden 5"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/pajalahti/41359.jpg"
     },
     {
       "suitable_boat_types": [
@@ -911,7 +911,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "pikku-kallahden-venesatama",
       "zip_code": "00980",
       "phone": null,
@@ -937,7 +936,8 @@
       "street_address": {
         "fi": "Kalkkihiekantori 4",
         "sv": "Kalksandstorget 4"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/pikku-kallahden-venesatama/40590.jpg"
     },
     {
       "suitable_boat_types": [
@@ -950,7 +950,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "pitkansillanranta",
       "zip_code": "00530",
       "phone": null,
@@ -976,7 +975,8 @@
       "street_address": {
         "fi": "Pitkänsillanranta",
         "sv": "Långbrokajen"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/pitkansillanranta/41669.jpg"
     },
     {
       "suitable_boat_types": [
@@ -991,7 +991,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "pohjoisranta",
       "zip_code": "00170",
       "phone": null,
@@ -1017,7 +1016,8 @@
       "street_address": {
         "fi": "Pohjoisranta 3",
         "sv": "Norra kajen 3"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/pohjoisranta/41150.jpg"
     },
     {
       "suitable_boat_types": [
@@ -1031,7 +1031,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "porslahden-venesatama",
       "zip_code": "00990",
       "phone": null,
@@ -1057,7 +1056,8 @@
       "street_address": {
         "fi": "Eteläreimarintie 8",
         "sv": "Sydremmarvägen 8"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/porslahden-venesatama/40842.jpg"
     },
     {
       "suitable_boat_types": [
@@ -1072,7 +1072,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "puotila",
       "zip_code": "00930",
       "phone": null,
@@ -1098,7 +1097,8 @@
       "street_address": {
         "fi": "Meripellontie 11",
         "sv": "Sjöåkervägen 11"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/puotila/40897.jpg"
     },
     {
       "suitable_boat_types": [
@@ -1113,7 +1113,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "pursilahti",
       "zip_code": "00990",
       "phone": null,
@@ -1139,7 +1138,8 @@
       "street_address": {
         "fi": "Pursilahdenranta",
         "sv": "Slupviksstranden"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/pursilahti/40800.jpg"
     },
     {
       "suitable_boat_types": [
@@ -1152,7 +1152,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "ramsaynranta",
       "zip_code": "00330",
       "phone": null,
@@ -1178,7 +1177,8 @@
       "street_address": {
         "fi": "Ramsaynranta 4",
         "sv": "Ramsays strand 4"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/ramsaynranta/41074.jpg"
     },
     {
       "suitable_boat_types": [
@@ -1191,7 +1191,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "ruoholahden-kanava",
       "zip_code": "00180",
       "phone": null,
@@ -1217,7 +1216,8 @@
       "street_address": {
         "fi": "Ruoholahdenkanava",
         "sv": "Gräsvikskanalen"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/ruoholahden-kanava/40203.jpg"
     },
     {
       "suitable_boat_types": [
@@ -1230,7 +1230,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "salmisaari",
       "zip_code": "00180",
       "phone": null,
@@ -1256,7 +1255,8 @@
       "street_address": {
         "fi": "Salmisaarenranta",
         "sv": "Sundholmsstranden"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/salmisaari/40535.jpg"
     },
     {
       "suitable_boat_types": [
@@ -1269,7 +1269,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "saukonpaasi",
       "zip_code": "00180",
       "phone": null,
@@ -1295,7 +1294,8 @@
       "street_address": {
         "fi": "Saukonpaadenranta 7",
         "sv": "Utterhällsstranden 7"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/saukonpaasi/40627.jpg"
     },
     {
       "suitable_boat_types": [
@@ -1308,7 +1308,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "saunalahti",
       "zip_code": "00330",
       "phone": null,
@@ -1334,7 +1333,8 @@
       "street_address": {
         "fi": "Ramsaynranta 2",
         "sv": "Ramsays strand 2"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/saunalahti/41857.jpg"
     },
     {
       "suitable_boat_types": [
@@ -1347,7 +1347,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "siltavuoren-venesatama",
       "zip_code": "00170",
       "phone": null,
@@ -1373,7 +1372,8 @@
       "street_address": {
         "fi": "Siltavuorenranta",
         "sv": "Brobergskajen"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/siltavuoren-venesatama/40876.jpg"
     },
     {
       "suitable_boat_types": [
@@ -1387,7 +1387,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "stromsinlahti",
       "zip_code": "00820",
       "phone": null,
@@ -1413,7 +1412,8 @@
       "street_address": {
         "fi": "Abraham Wetterin tie 26",
         "sv": "Abraham Wetters väg 26"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/stromsinlahti/42276.jpg"
     },
     {
       "suitable_boat_types": [
@@ -1426,7 +1426,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "tammasaarenallas",
       "zip_code": "00180",
       "phone": null,
@@ -1452,7 +1451,8 @@
       "street_address": {
         "fi": "Tammasaarenaukio 4",
         "sv": "Märaholmsplatsen 4"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/tammasaarenallas/41472.jpg"
     },
     {
       "suitable_boat_types": [
@@ -1467,7 +1467,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "tervasaari",
       "zip_code": "00170",
       "phone": null,
@@ -1493,7 +1492,8 @@
       "street_address": {
         "fi": "Tervasaarenkannas 1",
         "sv": "Tjärholmsnäset 1"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/tervasaari/42136.jpg"
     },
     {
       "suitable_boat_types": [
@@ -1506,7 +1506,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "vasikkasaari",
       "zip_code": "00860",
       "phone": null,
@@ -1532,7 +1531,8 @@
       "street_address": {
         "fi": "Vasikkasaari",
         "sv": "Kalvholmen"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/vasikkasaari/41415.jpg"
     },
     {
       "suitable_boat_types": [
@@ -1546,7 +1546,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "vuosaarenlahden-venesatama",
       "zip_code": "00980",
       "phone": null,
@@ -1572,7 +1571,8 @@
       "street_address": {
         "fi": "Merenkulkijankuja 7",
         "sv": "Sjöfarargränden 7"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/vuosaarenlahden-venesatama/41637.jpg"
     },
     {
       "suitable_boat_types": [
@@ -1586,7 +1586,6 @@
         "fi": "Helsinki",
         "sv": "Helsingfors"
       },
-      "image": null,
       "identifier": "vahaniitty",
       "zip_code": "00570",
       "phone": null,
@@ -1612,7 +1611,8 @@
       "street_address": {
         "fi": "Vähäniityntie 3a",
         "sv": "Lillängsvägen 3a"
-      }
+      },
+      "image": "https://venepaikka-api.test.hel.ninja/media/harbors/vahaniitty/42130.jpg"
     }
   ]
 }
