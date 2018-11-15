@@ -76,6 +76,7 @@ const BigShipsFragment = ({ prefix, noValidate = false }: FormFragmentProps) => 
         <MultiCheckbox
           noValidate={noValidate}
           id="multiCheckbox"
+          required
           items={[
             {
               name: `${prefix}.inspected`,
