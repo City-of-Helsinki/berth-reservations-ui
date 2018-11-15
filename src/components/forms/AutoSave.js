@@ -1,13 +1,7 @@
 import React from 'react';
 import { FormSpy } from 'react-final-form';
-import diff from 'object-diff';
 
 class AutoSave extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { values: props.values, submitting: false };
-  }
-
   componentWillReceiveProps() {
     if (this.timeout) {
       clearTimeout(this.timeout);
@@ -19,20 +13,16 @@ class AutoSave extends React.Component {
     if (this.promise) {
       await this.promise;
     }
+
     const { values, save } = this.props;
 
-    const difference = diff(this.state.values, values);
-    if (Object.keys(difference).length) {
-      this.setState({ submitting: true, values });
-      this.promise = save(difference);
-      await this.promise;
-      delete this.promise;
-      this.setState({ submitting: false });
-    }
+    this.promise = save(values);
+    await this.promise;
+    delete this.promise;
   };
 
   render() {
-    return this.state.submitting && <div className="submitting">Submitting...</div>;
+    return this.promise ? 'submitting' : null;
   }
 }
 export default props => <FormSpy {...props} subscription={{ values: true }} component={AutoSave} />;
