@@ -1,8 +1,10 @@
 // @flow
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import { Col, Row, Container } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
+import Form from '../forms/Form';
+import AutoSave from '../forms/AutoSave';
 import UnRegisteredBoatDetails from '../forms/fragments/UnRegisteredBoatDetails';
 import Services from '../forms/fragments/Services';
 import type { WithBoatType } from '../forms/Selects';
@@ -17,9 +19,12 @@ const LegendContainer = styled(Container)`
   padding-bottom: 3em;
 `;
 
-type Props = WithBoatType;
+type Props = {
+  initialValues: Object,
+  onSubmit: Function
+} & WithBoatType;
 
-export default ({ boatTypes }: Props) => (
+export default ({ boatTypes, initialValues, onSubmit }: Props) => (
   <Legend>
     <LegendContainer>
       <Row>
@@ -30,8 +35,15 @@ export default ({ boatTypes }: Props) => (
       </Row>
       <Row>
         <Col md="12">
-          <UnRegisteredBoatDetails prefix="boat" noValidate boatTypes={boatTypes} />
-          <Services prefix="services" noValidate />
+          <Form initialValues={initialValues} onSubmit={onSubmit}>
+            {() => (
+              <Fragment>
+                <UnRegisteredBoatDetails prefix="boat" noValidate boatTypes={boatTypes} />
+                <Services prefix="services" noValidate />
+                <AutoSave debounce={500} save={onSubmit} />
+              </Fragment>
+            )}
+          </Form>
         </Col>
       </Row>
     </LegendContainer>
