@@ -9,7 +9,7 @@ export type WithBoatType = {
 
 export const BigBoatTypeValue = 'big_boat';
 export const BoatType = injectIntl(
-  ({ prefix, noValidate = false, intl: { formatMessage, locale }, boatTypes }) => (
+  ({ prefix, noValidate = false, intl: { locale }, boatTypes }) => (
     <Select
       noValidate={noValidate}
       name={`${prefix}.type`}
