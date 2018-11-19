@@ -9,14 +9,14 @@ export type WithBoatType = {
 
 export const BigBoatTypeValue = 'big_boat';
 export const BoatType = injectIntl(
-  ({ prefix, noValidate = false, intl: { formatMessage, locale }, boatTypes }) => (
+  ({ prefix, noValidate = false, intl: { locale }, boatTypes }) => (
     <Select
       noValidate={noValidate}
       name={`${prefix}.type`}
       label="form.registered.field.type.label"
       required
     >
-      <option>{formatMessage({ id: 'form.registered.field.type.placeholder' })}</option>
+      <option />
       {boatTypes &&
         boatTypes.map(type => (
           <option key={type.identifier} value={type.identifier}>
@@ -35,7 +35,7 @@ export const Propulsion = injectIntl(({ prefix, noValidate = false, intl: { form
     label="form.big_ship.field.propulsion.label"
     required
   >
-    <option>{formatMessage({ id: 'form.big_ship.field.propulsion.placeholder' })}</option>
+    <option />
     {propulsions.map(option => (
       <option key={option} value={option}>
         {formatMessage({ id: `form.big_ship.field.propulsion.${option}` })}
@@ -63,7 +63,7 @@ export const HullMaterial = injectIntl(
       label="form.big_ship.field.hull_material.label"
       required
     >
-      <option>{formatMessage({ id: 'form.big_ship.field.hull_material.placeholder' })}</option>
+      <option />
       {hullMaterials.map(option => (
         <option key={option} value={option}>
           {formatMessage({ id: `form.big_ship.field.hull_material.${option}` })}
