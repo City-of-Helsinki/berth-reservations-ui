@@ -34,6 +34,7 @@ export default ({ berths, onClick, selected }) => (
         berth={berth}
         onClick={() => onClick(berth.identifier)}
         selected={selected.includes(berth.identifier)}
+        disabled={selected.size >= 10}
       />
     ))}
   </Wrapper>

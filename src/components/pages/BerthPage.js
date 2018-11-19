@@ -97,10 +97,8 @@ class BerthPage extends Component<Props> {
             <SelectedBerths
               TabHeader={() => (
                 <div>
-                  <FormattedMessage tagName="span" id="page.berths.selected_list" />:
-                  <StyledBadge pill>
-                    {selectedBerths.size} / {berths.size}
-                  </StyledBadge>
+                  <FormattedMessage tagName="span" id="page.berths.selected_list" />
+                  <StyledBadge pill>{selectedBerths.size} / 10</StyledBadge>
                 </div>
               )}
               progress={this.moveToForm}
