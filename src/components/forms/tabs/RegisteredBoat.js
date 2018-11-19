@@ -20,8 +20,13 @@ const GrayBackground = styled.div`
   padding: 1em;
 `;
 
+const StyledContainer = styled(Container)`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+`;
+
 export default ({ prefix, ShowBigShipsForm, boatTypes }: Props) => (
-  <Container>
+  <StyledContainer>
     <FormattedMessage tagName="h3" id="form.registered.header.title" />
     <RegisteredBoatDetails prefix={prefix} boatTypes={boatTypes} />
 
@@ -42,5 +47,5 @@ export default ({ prefix, ShowBigShipsForm, boatTypes }: Props) => (
     <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />
 
     <Accessibility prefix={prefix} />
-  </Container>
+  </StyledContainer>
 );
