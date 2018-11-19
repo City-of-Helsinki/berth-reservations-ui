@@ -40,3 +40,16 @@ $theme-colors: (
 .custom-select {
   background-color: transparent;
 }
+
+.btn-link {
+  color: $hel-black !important;
+  background-color: transparent;
+  border-color: transparent;
+  text-decoration: none !important;
+  &:active {
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
