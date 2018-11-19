@@ -17,6 +17,7 @@ type Props = {
 
 const TopNavbar = styled(Navbar)`
   background-color: ${props => props.theme.colors.helFog};
+  height: 3.5em;
   & a {
     color: #000;
   }
@@ -24,6 +25,10 @@ const TopNavbar = styled(Navbar)`
     text-decoration: none;
     color: #000;
   }
+`;
+
+const BottomNavbar = styled(Navbar)`
+  height: 3.5em;
 `;
 
 const Hero = styled.div`
@@ -47,17 +52,17 @@ const Layout = ({ children }: Props) => (
   <Fragment>
     <TopNavbar expand="md">
       <NavbarBrand href="/">
-        <Icon name="helsinkiLogo" width="100" color="#000" />
+        <Icon name="helsinkiLogo" width="90" color="#000" />
       </NavbarBrand>
       <Nav className="ml-auto" navbar>
         <LanguageDropdown />
       </Nav>
     </TopNavbar>
-    <Navbar color="white" light expand="md">
+    <BottomNavbar color="white" light expand="md">
       <NavbarBrand href="/">
         <FormattedMessage id="site.title" />
       </NavbarBrand>
-    </Navbar>
+    </BottomNavbar>
     <Hero>
       <FormattedMessage tagName="h1" id="site.title" />
     </Hero>
