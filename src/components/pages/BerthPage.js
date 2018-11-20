@@ -69,7 +69,15 @@ class BerthPage extends Component<Props> {
   };
 
   render() {
-    const { boatTypes, initialValues, berths, selectedBerths, moveUp, moveDown } = this.props;
+    const {
+      boatTypes,
+      initialValues,
+      berths,
+      selectedBerths,
+      moveUp,
+      moveDown,
+      deselectBerth
+    } = this.props;
     const filter = this.getFilterByValues(initialValues);
     const filtered = berths.filter(filter);
     return (
@@ -106,6 +114,7 @@ class BerthPage extends Component<Props> {
               progress={this.moveToForm}
               moveUp={moveUp}
               moveDown={moveDown}
+              deselectBerth={deselectBerth}
               berths={selectedBerths.map(key => berths.find(berth => key === berth.identifier))}
             />
           </TabSelector>

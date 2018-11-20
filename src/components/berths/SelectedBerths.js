@@ -10,7 +10,7 @@ const ButtonWrapper = styled.div`
   margin: 1em;
 `;
 
-const SelectedBerths = ({ berths, moveUp, moveDown, progress }) => (
+const SelectedBerths = ({ berths, moveUp, moveDown, progress, deselectBerth }) => (
   <Container>
     <FormattedMessage tagName="h1" id="page.berth.selected.title" />
     <FormattedMessage tagName="p" id="page.berth.selected.paragraph.first" />
@@ -30,6 +30,7 @@ const SelectedBerths = ({ berths, moveUp, moveDown, progress }) => (
             berth={berth}
             moveUp={moveUp}
             moveDown={moveDown}
+            deselectBerth={deselectBerth}
           />
         ))}
       </div>
