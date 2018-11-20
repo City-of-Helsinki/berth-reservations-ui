@@ -72,6 +72,7 @@ class BerthPage extends Component<Props> {
     const { boatTypes, initialValues, berths, selectedBerths, moveUp, moveDown } = this.props;
     const filter = this.getFilterByValues(initialValues);
     const filtered = berths.filter(filter);
+    const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
     return (
       <Layout>
         <Wrapper>
@@ -98,7 +99,9 @@ class BerthPage extends Component<Props> {
               TabHeader={() => (
                 <div>
                   <FormattedMessage tagName="span" id="page.berths.selected_list" />
-                  <StyledBadge pill>{selectedBerths.size} / 10</StyledBadge>
+                  <StyledBadge pill>
+                    {selectedBerths.size} / {REACT_APP_MAX_SELECTED_BERTHS}
+                  </StyledBadge>
                 </div>
               )}
               progress={this.moveToForm}
