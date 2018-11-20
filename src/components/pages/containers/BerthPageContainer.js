@@ -3,7 +3,15 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { withMatchParamsHandlers } from '../../../utils/container';
 import { onSubmit, getBoatTypes } from '../../../ducks/forms';
-import { getBerths, selectBerth, deselectBerth, moveUp, moveDown } from '../../../ducks/berths';
+import {
+  getBerths,
+  selectBerth,
+  deselectBerth,
+  moveUp,
+  moveDown,
+  selectService,
+  deselectService
+} from '../../../ducks/berths';
 import BerthPage from '../BerthPage';
 
 export default compose(
@@ -13,8 +21,19 @@ export default compose(
       initialValues: state.forms.values,
       boatTypes: state.forms.boatTypes,
       berths: state.berths.berths,
-      selectedBerths: state.berths.selectedBerths
+      selectedBerths: state.berths.selectedBerths,
+      selectedServices: state.berths.selectedServices
     }),
-    { onSubmit, getBoatTypes, getBerths, selectBerth, deselectBerth, moveUp, moveDown }
+    {
+      onSubmit,
+      getBoatTypes,
+      getBerths,
+      selectBerth,
+      deselectBerth,
+      moveUp,
+      moveDown,
+      selectService,
+      deselectService
+    }
   )
 )(BerthPage);
