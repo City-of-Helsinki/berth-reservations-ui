@@ -48,10 +48,12 @@ const services = [
     icon: 'streetLight'
   }
 ];
+
 const Services = styled(Col)`
   display: flex;
   justify-content: space-between;
 `;
+
 const ServiceIcon = styled(Icon)`
   border: 2px solid black;
   border-radius: 50%;
@@ -59,6 +61,7 @@ const ServiceIcon = styled(Icon)`
 
   padding: 4px;
 `;
+
 const ServiceButton = styled.button`
   border: none;
   display: flex;
@@ -69,6 +72,16 @@ const ServiceButton = styled.button`
   && {
     outline: none;
   }
+`;
+
+const ServicesHeader = styled.div`
+  margin-bottom: 1em;
+  font-weight: 500;
+`;
+
+const ServiceTitle = styled.div`
+  margin-top: 0.5em;
+  font-weight: 500;
 `;
 
 const BerthsLegend = ({
@@ -101,7 +114,9 @@ const BerthsLegend = ({
       </Row>
       <Row>
         <Col sm={12}>
-          <FormattedMessage id="form.services.field.services.label" />
+          <ServicesHeader>
+            <FormattedMessage tagName="span" id="form.services.field.services.label" />
+          </ServicesHeader>
         </Col>
       </Row>
       <Row>
@@ -116,7 +131,9 @@ const BerthsLegend = ({
                 }
               >
                 <ServiceIcon selected={selected} name={service.icon} width="42px" height="42px" />
-                <FormattedMessage id={service.label} />
+                <ServiceTitle>
+                  <FormattedMessage id={service.label} />
+                </ServiceTitle>
               </ServiceButton>
             );
           })}
