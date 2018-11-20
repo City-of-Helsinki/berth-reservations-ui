@@ -21,6 +21,8 @@ const BerthCount = styled.div`
   border-bottom: 2px solid black;
 `;
 
+const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
+
 export default ({ berths, onClick, selected }) => (
   <Wrapper>
     <Row>
@@ -34,6 +36,7 @@ export default ({ berths, onClick, selected }) => (
         berth={berth}
         onClick={() => onClick(berth.identifier)}
         selected={selected.includes(berth.identifier)}
+        disabled={selected.size >= REACT_APP_MAX_SELECTED_BERTHS}
       />
     ))}
   </Wrapper>

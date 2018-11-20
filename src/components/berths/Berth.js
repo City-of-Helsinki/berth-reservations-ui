@@ -92,7 +92,7 @@ type Props = {
   selected: boolean
 };
 
-export default ({ berth, className, onClick, selected }: Props) => (
+export default ({ berth, className, onClick, selected, disabled }: Props) => (
   <Row className={className}>
     <Col xs={12}>
       <StyledDiv>
@@ -113,7 +113,7 @@ export default ({ berth, className, onClick, selected }: Props) => (
                   <FormattedMessage tagName="span" id="page.berths.selected" />
                 </Button>
               ) : (
-                <Button outline primary="true" onClick={onClick}>
+                <Button outline primary="true" onClick={onClick} disabled={disabled}>
                   + <FormattedMessage tagName="span" id="page.berths.select" />
                 </Button>
               )}

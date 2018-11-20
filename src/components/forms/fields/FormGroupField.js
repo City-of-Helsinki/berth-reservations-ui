@@ -46,7 +46,6 @@ const FormGroupField = ({
               id,
               type,
               required,
-              valid: meta.touched && meta.valid,
               invalid: meta.touched && meta.invalid,
               ...input,
               ...rest
