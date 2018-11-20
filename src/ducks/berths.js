@@ -14,6 +14,7 @@ export const selectBerth = createAction('SELECT_BERTH', id => id);
 export const deselectBerth = createAction('DESELECT_BERTH', id => id);
 export const moveUp = createAction('MOVE_BERTH_UP', id => id);
 export const moveDown = createAction('MOVE_BERTH_DOWN', id => id);
+export const resetBerths = createAction('RESET_BERTHS');
 
 export default (state: BerthsState = defaultState(), action: Action): BerthsState => {
   const { type, payload } = action;
@@ -56,6 +57,8 @@ export default (state: BerthsState = defaultState(), action: Action): BerthsStat
         }
         return selectedBerths;
       });
+    case 'RESET_BERTHS':
+      return defaultState();
     default:
       return state;
   }
