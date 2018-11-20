@@ -16,6 +16,11 @@ const Wrapper = styled.div`
   margin-bottom: 5em;
 `;
 
+const StyledBadge = styled(Badge)`
+  margin-left: 1em;
+  padding: 1em;
+`;
+
 type Props = any;
 
 class BerthPage extends Component<Props> {
@@ -93,9 +98,9 @@ class BerthPage extends Component<Props> {
               TabHeader={() => (
                 <div>
                   <FormattedMessage tagName="span" id="page.berths.selected_list" />:
-                  <Badge pill>
+                  <StyledBadge pill>
                     {selectedBerths.size} / {berths.size}
-                  </Badge>
+                  </StyledBadge>
                 </div>
               )}
               progress={this.moveToForm}

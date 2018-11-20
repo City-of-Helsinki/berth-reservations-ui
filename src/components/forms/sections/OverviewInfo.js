@@ -87,8 +87,10 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
       </Row>
       <Row>
         <Col md={12}>
-          {selectedBerths.map(berth => (
-            <div key={berth.identifier}>{berth.name.fi}</div>
+          {selectedBerths.map((berth, index) => (
+            <div key={berth.identifier}>
+              {index + 1}. {berth.name.fi}
+            </div>
           ))}
         </Col>
       </Row>
