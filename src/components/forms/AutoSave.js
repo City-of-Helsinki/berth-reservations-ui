@@ -25,4 +25,5 @@ class AutoSave extends React.Component {
     return this.promise ? 'submitting' : null;
   }
 }
+
 export default props => <FormSpy {...props} subscription={{ values: true }} component={AutoSave} />;

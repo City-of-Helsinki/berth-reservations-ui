@@ -1,18 +1,17 @@
 // @flow
 import React, { type Node } from 'react';
-import { Form as FinalForm } from 'react-final-form';
+import { Form as FinalForm, Field } from 'react-final-form';
 import { Form as BootstrapForm } from 'reactstrap';
 
 type Props = {
   onSubmit: Function,
   initialValues: Object,
-  subscription?: any,
   children: any => Node
 };
 
-export default ({ onSubmit, initialValues, children, subscription }: Props) => (
+export default ({ onSubmit, initialValues, children }: Props) => (
   <FinalForm
-    subscription={subscription}
+    debug={console.debug}
     onSubmit={formData => onSubmit(formData)}
     initialValues={initialValues}
     render={({ handleSubmit, ...renderProps }) => (
