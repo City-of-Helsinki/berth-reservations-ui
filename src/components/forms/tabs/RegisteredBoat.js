@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import { Container } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 import BoatMeasures from '../fragments/BoatMeasures';
@@ -9,6 +8,7 @@ import BoatInfo from '../fragments/BoatInfo';
 import BigShips from '../fragments/BigShips';
 import Accessibility from '../fragments/Accessibility';
 import type { WithBoatType } from '../Selects';
+import StyledContainer from '../StyledContainer';
 
 type Props = {
   prefix: string,
@@ -18,11 +18,6 @@ type Props = {
 const GrayBackground = styled.div`
   background: #eee;
   padding: 1em;
-`;
-
-const StyledContainer = styled(Container)`
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 `;
 
 export default ({ prefix, ShowBigShipsForm, boatTypes }: Props) => (

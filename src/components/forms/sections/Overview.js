@@ -1,8 +1,6 @@
 // @flow
 
 import React from 'react';
-import styled from 'styled-components';
-import { Container } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 
 import ContactBy from '../fragments/ContactBy';
@@ -10,11 +8,7 @@ import Newsletter from '../fragments/Newsletter';
 import OverviewInfo from './OverviewInfo';
 import type { Berths } from '../../../types/berths';
 import { type WithBoatType } from '../Selects';
-
-const StyledContainer = styled(Container)`
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-`;
+import StyledContainer from '../StyledContainer';
 
 type Props = {
   values: {},
