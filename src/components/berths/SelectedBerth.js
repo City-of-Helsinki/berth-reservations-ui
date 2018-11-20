@@ -22,19 +22,31 @@ const BerthOptions = styled(Col)`
 `;
 
 const StyledButton = styled.button`
-  background-color: none;
+  background: none;
   height: 100%;
   margin-left: 1em;
   border: 2px solid ${props => (props.disabled ? 'lightgray' : 'black')};
 `;
+const DeselectButton = styled.button`
+  background: none;
+  height: 100%;
+  margin-left: 1em;
+  border: none;
+  float: right;
+  color: white;
+`;
 
-const SelectedBerth = ({ berth, index, moveUp, moveDown, first, last }) => (
+const SelectedBerth = ({ berth, index, moveUp, moveDown, first, last, deselectBerth }) => (
   <Container fluid>
     <StyledRow>
       <BerthName sm={10}>
         <span key={berth.identifier}>
           {index + 1}. {berth.name.fi}
         </span>
+
+        <DeselectButton type="button" onClick={() => deselectBerth(berth.identifier)}>
+          <Icon name="times" width="30" />
+        </DeselectButton>
       </BerthName>
       <BerthOptions sm={2}>
         <StyledButton type="button" onClick={() => moveUp(berth.identifier)} disabled={first}>

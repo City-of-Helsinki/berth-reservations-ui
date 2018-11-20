@@ -19,6 +19,7 @@ import fence from './icons/fence.svg';
 import streetLight from './icons/street-light.svg';
 import angleUp from './icons/angle-up.svg';
 import angleDown from './icons/angle-down.svg';
+import times from './icons/times.svg';
 
 const icons = {
   helsinkiLogo,
@@ -37,7 +38,8 @@ const icons = {
   fence,
   streetLight,
   angleUp,
-  angleDown
+  angleDown,
+  times
 };
 
 type Names = $Keys<typeof icons>;
