@@ -80,9 +80,9 @@
     "style-loader": "^0.23.1"
   },
   "browserslist": [
-    ">0.2%",
+    "last 2 major versions",
+    "ie 11",
     "not dead",
-    "not ie <= 11",
     "not op_mini all"
   ]
 }
