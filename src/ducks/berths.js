@@ -4,9 +4,19 @@ import { createAction } from 'redux-actions';
 import type { Action, BerthsFactory, BerthsState } from '../types/ducks';
 import berthsService from '../services/berths';
 
+const selectedServices = Record({
+  mooring: false,
+  electricity: false,
+  water: false,
+  waste_collection: false,
+  gate: false,
+  lighting: false
+});
+
 const defaultState: BerthsFactory = Record({
   berths: List(),
-  selectedBerths: List()
+  selectedBerths: List(),
+  selectedServices: selectedServices()
 });
 
 export const getBerths = createAction('GET_BERTHS', berthsService.getBerths);
@@ -14,12 +24,18 @@ export const selectBerth = createAction('SELECT_BERTH', id => id);
 export const deselectBerth = createAction('DESELECT_BERTH', id => id);
 export const moveUp = createAction('MOVE_BERTH_UP', id => id);
 export const moveDown = createAction('MOVE_BERTH_DOWN', id => id);
+export const selectService = createAction('SELECT_SERVICE', type => type);
+export const deselectService = createAction('DESELECT_SERVICE', type => type);
 
 export default (state: BerthsState = defaultState(), action: Action): BerthsState => {
   const { type, payload } = action;
   switch (type) {
     case 'GET_BERTHS_FULFILLED':
       return state.set('berths', payload);
+    case 'SELECT_SERVICE':
+      return state.setIn(['selectedServices', payload], true);
+    case 'DESELECT_SERVICE':
+      return state.setIn(['selectedServices', payload], false);
     case 'SELECT_BERTH':
       return state.update('selectedBerths', selectedBerths => selectedBerths.push(payload));
     case 'DESELECT_BERTH':
