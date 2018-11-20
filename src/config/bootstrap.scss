@@ -41,6 +41,14 @@ $theme-colors: (
   background-color: transparent;
 }
 
+.btn-link.btn-link {
+  color: $hel-black;
+  &:active,
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 h3 {
   margin-top: 2rem;
   margin-bottom: 1rem;

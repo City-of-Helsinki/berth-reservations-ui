@@ -2,6 +2,7 @@
 import type { RecordOf, RecordFactory } from 'immutable';
 import type { Berths as Bs, SelectedBerths } from './berths';
 import type { BoatTypes } from './boatTypes';
+import type { SelectedServices } from './services';
 
 type FormProps = {
   values: Object,
@@ -10,7 +11,8 @@ type FormProps = {
 
 type BerthsProps = {
   berths: Bs,
-  selectedBerths: SelectedBerths
+  selectedBerths: SelectedBerths,
+  selectedServices: SelectedServices
 };
 
 export type FormsFactory = RecordFactory<FormProps>;

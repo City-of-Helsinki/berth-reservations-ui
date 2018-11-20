@@ -6,8 +6,8 @@ import { FormattedMessage } from 'react-intl';
 import Form from '../forms/Form';
 import AutoSave from '../forms/AutoSave';
 import UnRegisteredBoatDetails from '../forms/fragments/UnRegisteredBoatDetails';
-import Services from '../forms/fragments/Services';
 import type { WithBoatType } from '../forms/Selects';
+import Icon from '../common/Icon';
 
 const Legend = styled.div`
   background-color: ${props => props.theme.colors.helFog};
@@ -24,7 +24,74 @@ type Props = {
   onSubmit: Function
 } & WithBoatType;
 
-export default ({ boatTypes, initialValues, onSubmit }: Props) => (
+const services = [
+  {
+    label: 'form.services.field.mooring.label',
+    value: 'mooring',
+    icon: 'pole'
+  },
+  {
+    label: 'form.services.field.electricity.label',
+    value: 'electricity',
+    icon: 'plug'
+  },
+  { label: 'form.services.field.water.label', value: 'water', icon: 'waterTap' },
+  {
+    label: 'form.services.field.waste_collection.label',
+    value: 'waste_collection',
+    icon: 'trash'
+  },
+  { label: 'form.services.field.gate.label', value: 'gate', icon: 'fence' },
+  {
+    label: 'form.services.field.lighting.label',
+    value: 'lighting',
+    icon: 'streetLight'
+  }
+];
+
+const Services = styled(Col)`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const ServiceIcon = styled(Icon)`
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: ${props => (props.selected ? 'white' : 'transparent')};
+
+  padding: 4px;
+`;
+
+const ServiceButton = styled.button`
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  background-color: transparent;
+  && {
+    outline: none;
+  }
+`;
+
+const ServicesHeader = styled.div`
+  margin-bottom: 1em;
+  font-weight: 500;
+`;
+
+const ServiceTitle = styled.div`
+  margin-top: 0.5em;
+  font-weight: 500;
+`;
+
+const BerthsLegend = ({
+  boatTypes,
+  initialValues,
+  onSubmit,
+  selectService,
+  deselectService,
+  selectedServices
+}: Props) => (
   <Legend>
     <LegendContainer>
       <Row>
@@ -39,13 +106,41 @@ export default ({ boatTypes, initialValues, onSubmit }: Props) => (
             {() => (
               <Fragment>
                 <UnRegisteredBoatDetails prefix="boat" noValidate boatTypes={boatTypes} />
-                <Services prefix="services" noValidate />
                 <AutoSave debounce={500} save={onSubmit} />
               </Fragment>
             )}
           </Form>
         </Col>
       </Row>
+      <Row>
+        <Col sm={12}>
+          <ServicesHeader>
+            <FormattedMessage tagName="span" id="form.services.field.services.label" />
+          </ServicesHeader>
+        </Col>
+      </Row>
+      <Row>
+        <Services sm={8}>
+          {services.map((service, index) => {
+            const selected = selectedServices.get(service.value);
+            return (
+              <ServiceButton
+                key={index}
+                onClick={() =>
+                  selected ? deselectService(service.value) : selectService(service.value)
+                }
+              >
+                <ServiceIcon selected={selected} name={service.icon} width="42px" height="42px" />
+                <ServiceTitle>
+                  <FormattedMessage id={service.label} />
+                </ServiceTitle>
+              </ServiceButton>
+            );
+          })}
+        </Services>
+      </Row>
     </LegendContainer>
   </Legend>
 );
+
+export default BerthsLegend;

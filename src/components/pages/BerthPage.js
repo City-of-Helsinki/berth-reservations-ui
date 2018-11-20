@@ -44,12 +44,13 @@ class BerthPage extends Component<Props> {
     await localePush('/form/registered_boat');
   };
 
-  getFilterByValues = (values: any) => {
-    const services = get(values, 'services.service', []);
+  getFilterByValues = (values: any, selectedServices: any) => {
     const width = get(values, 'boat.width', 0);
     const length = get(values, 'boat.length', 0);
     const boatType = get(values, 'boat.type', 0);
-
+    const services = Object.entries(selectedServices.toObject())
+      .filter(([, state]) => state)
+      .map(([type]) => type);
     return (b: any) => {
       const filterByService = services.reduce((acc, cur) => acc && b[cur], true);
       const filterByWidth = b.maximum_width >= width;
@@ -69,9 +70,20 @@ class BerthPage extends Component<Props> {
   };
 
   render() {
-    const { boatTypes, initialValues, berths, selectedBerths, moveUp, moveDown } = this.props;
-    const filter = this.getFilterByValues(initialValues);
+    const {
+      boatTypes,
+      initialValues,
+      berths,
+      selectedBerths,
+      moveUp,
+      moveDown,
+      selectedServices,
+      selectService,
+      deselectService
+    } = this.props;
+    const filter = this.getFilterByValues(initialValues, selectedServices);
     const filtered = berths.filter(filter);
+    const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
     return (
       <Layout>
         <Wrapper>
@@ -79,6 +91,9 @@ class BerthPage extends Component<Props> {
             boatTypes={boatTypes}
             initialValues={initialValues}
             onSubmit={this.onSubmit}
+            selectedServices={selectedServices}
+            selectService={selectService}
+            deselectService={deselectService}
           />
           <TabSelector>
             <Berths
@@ -97,9 +112,9 @@ class BerthPage extends Component<Props> {
             <SelectedBerths
               TabHeader={() => (
                 <div>
-                  <FormattedMessage tagName="span" id="page.berths.selected_list" />:
+                  <FormattedMessage tagName="span" id="page.berths.selected_list" />
                   <StyledBadge pill>
-                    {selectedBerths.size} / {berths.size}
+                    {selectedBerths.size} / {REACT_APP_MAX_SELECTED_BERTHS}
                   </StyledBadge>
                 </div>
               )}
