@@ -41,14 +41,9 @@ $theme-colors: (
   background-color: transparent;
 }
 
-.btn-link {
-  color: $hel-black !important;
-  background-color: transparent;
-  border-color: transparent;
-  text-decoration: none !important;
-  &:active {
-    text-decoration: none;
-  }
+.btn-link.btn-link {
+  color: $hel-black;
+  &:active,
   &:hover {
     text-decoration: none;
   }
