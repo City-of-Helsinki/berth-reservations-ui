@@ -83,6 +83,7 @@ class BerthPage extends Component<Props> {
     } = this.props;
     const filter = this.getFilterByValues(initialValues, selectedServices);
     const filtered = berths.filter(filter);
+    const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
     return (
       <Layout>
         <Wrapper>
@@ -111,9 +112,9 @@ class BerthPage extends Component<Props> {
             <SelectedBerths
               TabHeader={() => (
                 <div>
-                  <FormattedMessage tagName="span" id="page.berths.selected_list" />:
+                  <FormattedMessage tagName="span" id="page.berths.selected_list" />
                   <StyledBadge pill>
-                    {selectedBerths.size} / {berths.size}
+                    {selectedBerths.size} / {REACT_APP_MAX_SELECTED_BERTHS}
                   </StyledBadge>
                 </div>
               )}
