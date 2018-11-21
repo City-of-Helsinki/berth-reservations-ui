@@ -6,13 +6,11 @@ import { Form as BootstrapForm } from 'reactstrap';
 type Props = {
   onSubmit: Function,
   initialValues: Object,
-  subscription?: any,
   children: any => Node
 };
 
-export default ({ onSubmit, initialValues, children, subscription }: Props) => (
+export default ({ onSubmit, initialValues, children }: Props) => (
   <FinalForm
-    subscription={subscription}
     onSubmit={formData => onSubmit(formData)}
     initialValues={initialValues}
     render={({ handleSubmit, ...renderProps }) => (
