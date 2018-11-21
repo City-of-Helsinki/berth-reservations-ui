@@ -4,21 +4,46 @@ import { FormGroup, CustomInput, FormText, FormFeedback } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 
 import { Field } from 'react-final-form';
+import validator, { mustBePresent } from '../../../utils/formValidation';
 
 import Label from './Label';
 
-const TextInput = type => ({ id, name, label, required, items, text, ...rest }) => (
-  <Field name={name} type={type}>
+const TextInput = type => ({
+  id,
+  name,
+  label,
+  required,
+  items,
+  text,
+  noValidate,
+  validate,
+  placeholder,
+  intl: { formatMessage },
+  ...rest
+}) => (
+  <Field
+    name={name}
+    type={type}
+    validate={noValidate ? undefined : validator(required ? mustBePresent : null, validate || null)}
+  >
     {({ input, meta }) => (
       <FormGroup>
-        <Label htmlFor={id} required={required} text={label || 'abs'} />
+        {label && <Label htmlFor={id} required={required} text={label} />}
         {items.map(({ name: itemName, label: itemLabel, value: itemValue }) => {
           const key = `${id}_${itemName}_${itemValue}`;
           return (
-            <CustomInput {...input} key={key} id={key} type={type} label={itemLabel} {...rest} />
+            <CustomInput
+              key={key}
+              id={key}
+              type={type}
+              label={formatMessage({ id: itemLabel })}
+              invalid={meta.touched && meta.error}
+              {...input}
+              {...rest}
+            />
           );
         })}
-        {meta.touched && meta.error && (
+        {meta.error && (
           <FormFeedback>
             <FormattedMessage id={meta.error} />
           </FormFeedback>

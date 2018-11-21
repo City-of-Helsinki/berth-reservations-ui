@@ -3,16 +3,39 @@ import React from 'react';
 import { FormGroup, Input, FormText, FormFeedback } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import { Field } from 'react-final-form';
+import validator, { mustBePresent } from '../../../utils/formValidation';
 
 import Label from './Label';
 
-const TextInput = type => ({ id, name, label, required, text, ...rest }) => (
-  <Field name={name} type={type} required={required}>
+const TextInput = type => ({
+  id,
+  name,
+  label,
+  required,
+  text,
+  noValidate,
+  validate,
+  placeholder,
+  intl: { formatMessage },
+  ...rest
+}) => (
+  <Field
+    name={name}
+    type={type}
+    required={required}
+    validate={noValidate ? undefined : validator(required ? mustBePresent : null, validate || null)}
+  >
     {({ input, meta }) => (
       <FormGroup>
-        <Label htmlFor={id} required={required} text={label || 'abs'} />
-        <Input {...input} {...rest} required={required} {...rest} />
-        {meta.touched && meta.error && (
+        {label && <Label htmlFor={id} required={required} text={label} />}
+        <Input
+          required={required}
+          invalid={meta.touched && meta.error}
+          placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
+          {...input}
+          {...rest}
+        />
+        {meta.error && (
           <FormFeedback>
             <FormattedMessage id={meta.error} />
           </FormFeedback>

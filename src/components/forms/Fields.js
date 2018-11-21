@@ -8,10 +8,10 @@ import InputGroup from './fields/InputGroup';
 
 const mapNameAsId = withProps(({ id, name }) => ({ id: id || `form.${name}` }));
 
-export const Text = mapNameAsId(Input('text'));
-export const Select = mapNameAsId(CustomInput('select'));
-export const Checkbox = mapNameAsId(CustomInput('checkbox'));
-export const Radio = mapNameAsId(CustomInput('radio'));
-export const Number = mapNameAsId(InputGroup('number'));
+export const Text = mapNameAsId(injectIntl(Input('text')));
+export const Select = mapNameAsId(injectIntl(CustomInput('select', false)));
+export const Checkbox = mapNameAsId(injectIntl(CustomInput('checkbox', true)));
+export const Radio = mapNameAsId(injectIntl(CustomInput('radio', true)));
+export const Number = mapNameAsId(injectIntl(InputGroup('number')));
 export const MultiCheckbox = mapNameAsId(injectIntl(MultiInput('checkbox')));
 export const MultiRadio = mapNameAsId(injectIntl(MultiInput('radio')));
