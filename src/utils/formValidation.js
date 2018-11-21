@@ -7,7 +7,9 @@ export const mustBeNumber = (value: any): any =>
   Number.isNaN(value) ? 'validation.message.must_be_number' : undefined;
 
 export const mustBePhoneNumber = (value: any): any => {
+  /* eslint-disable */
   const phoneRe = /^([0-9\(\)\s\+\-])+$/im;
+  /* eslint-enable */
   if (phoneRe.test(value)) {
     return undefined;
   }
@@ -15,7 +17,9 @@ export const mustBePhoneNumber = (value: any): any => {
 };
 
 export const mustBeEmail = (value: any): any => {
+  /* eslint-disable */
   const emailRe = /^.*\@.*\..*$/im;
+  /* eslint-enable */
   if (emailRe.test(value)) {
     return undefined;
   }
