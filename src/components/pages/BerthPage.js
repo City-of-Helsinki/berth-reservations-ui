@@ -77,6 +77,7 @@ class BerthPage extends Component<Props> {
       selectedBerths,
       moveUp,
       moveDown,
+      deselectBerth,
       selectedServices,
       selectService,
       deselectService
@@ -121,6 +122,7 @@ class BerthPage extends Component<Props> {
               progress={this.moveToForm}
               moveUp={moveUp}
               moveDown={moveDown}
+              deselectBerth={deselectBerth}
               berths={selectedBerths.map(key => berths.find(berth => key === berth.identifier))}
             />
           </TabSelector>
