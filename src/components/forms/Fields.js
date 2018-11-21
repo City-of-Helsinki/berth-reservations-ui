@@ -1,18 +1,17 @@
 import { injectIntl } from 'react-intl';
 import { withProps } from 'recompose';
-import InputField from './fields/InputField';
-import CustomInputField from './fields/CustomInputField';
-import MultiCustomInputField from './fields/MultiCustomInputField';
-import InputGroupField from './fields/InputGroupField';
-import TextInput from './fields/TextInput';
+
+import Input from './fields/Input';
 import CustomInput from './fields/CustomInput';
+import MultiInput from './fields/MultiInput';
+import InputGroup from './fields/InputGroup';
 
 const mapNameAsId = withProps(({ id, name }) => ({ id: id || `form.${name}` }));
 
-export const Text = mapNameAsId(TextInput('text'));
+export const Text = mapNameAsId(Input('text'));
 export const Select = mapNameAsId(CustomInput('select'));
 export const Checkbox = mapNameAsId(CustomInput('checkbox'));
-export const Number = mapNameAsId(CustomInput('number'));
 export const Radio = mapNameAsId(CustomInput('radio'));
-export const MultiCheckbox = mapNameAsId(injectIntl(MultiCustomInputField('checkbox')));
-export const MultiRadio = mapNameAsId(injectIntl(MultiCustomInputField('radio')));
+export const Number = mapNameAsId(InputGroup('number'));
+export const MultiCheckbox = mapNameAsId(injectIntl(MultiInput('checkbox')));
+export const MultiRadio = mapNameAsId(injectIntl(MultiInput('radio')));

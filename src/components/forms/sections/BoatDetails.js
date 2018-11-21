@@ -11,7 +11,6 @@ import NoBoat from '../tabs/NoBoat';
 
 import SectionSelector from '../SectionSelector';
 import { BigBoatTypeValue, type WithBoatType } from '../Selects';
-import TextInput from '../fields/TextInput';
 
 const Content = styled.div``;
 
@@ -45,7 +44,6 @@ const BoatDetails = ({ values, tab, boatTypes }: Props) => {
           }
         ]}
       />
-      <TextInput name="test" />
       {tab === 'registered_boat' && (
         <RegisteredBoat prefix="boat" ShowBigShipsForm={ShowBigShipsForm} boatTypes={boatTypes} />
       )}

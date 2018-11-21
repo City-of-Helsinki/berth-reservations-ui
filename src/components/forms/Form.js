@@ -17,16 +17,6 @@ export default ({ onSubmit, initialValues, children }: Props) => (
     render={({ handleSubmit, ...renderProps }) => (
       <BootstrapForm noValidate onSubmit={handleSubmit}>
         {children(renderProps)}
-        <Field
-          name="bio"
-          render={({ input, meta }) => (
-            <div>
-              <label>Bio</label>
-              <textarea {...input} />
-              {meta.touched && meta.error && <span>{meta.error}</span>}
-            </div>
-          )}
-        />
       </BootstrapForm>
     )}
   />
