@@ -23,6 +23,8 @@
 
   "validation.message.required": "Pakollinen kenttä",
   "validation.message.must_be_number": "Arvon pitää olla numero",
+  "validation.message.must_be_phone_number": "Arvon pitää olla puhelinnumero",
+  "validation.message.must_be_email": "Arvon pitää olla sähköpostiosoite",
 
   "page.berths.title": "Satamahaku",
   "page.berths.link.boat_information": "Veneen tiedot",
