@@ -1,6 +1,6 @@
 // @flow
 import React, { type Node } from 'react';
-import { Form as FinalForm, Field } from 'react-final-form';
+import { Form as FinalForm } from 'react-final-form';
 import { Form as BootstrapForm } from 'reactstrap';
 
 type Props = {
