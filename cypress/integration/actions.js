@@ -84,15 +84,15 @@ export const companyPageFillForm = () => {
 };
 
 export const gotoRegisteredBoatPage = () => {
-  cy.visit('http://localhost:3000/fi/form/registered_boat');
+  cy.visit('http://localhost:5000/fi/form/registered_boat');
 };
 
 export const gotoUnregisteredBoatPage = () => {
-  cy.visit('http://localhost:3000/fi/form/unregistered_boat');
+  cy.visit('http://localhost:5000/fi/form/unregistered_boat');
 };
 
 export const gotoNoBoatPage = () => {
-  cy.visit('http://localhost:3000/fi/form/no_boat');
+  cy.visit('http://localhost:5000/fi/form/no_boat');
 };
 
 export const selectPrivatePersonTab = () => {
