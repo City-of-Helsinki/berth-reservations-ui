@@ -51,7 +51,7 @@ export default class Step extends React.Component<Props> {
 
   render() {
     const { completed, current, label, linkTo } = this.props;
-    const content = completed ? <Icon name="check" width="50" color="#000" /> : '';
+    const content = completed ? <Icon name="check" width="50px" color="#000" /> : '';
 
     return (
       <Section as={linkTo ? LocalizedLink : 'div'} to={linkTo}>
