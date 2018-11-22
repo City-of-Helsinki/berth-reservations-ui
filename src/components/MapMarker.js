@@ -26,7 +26,7 @@ export default class MapMarker extends Component<Props> {
           <Container>
             <Row>
               <Col>
-                <img alt={berth.name.fi} width="180px" src={berth.image} />
+                <img alt={berth.name.fi} width="180" src={berth.image} />
               </Col>
             </Row>
             <Row>
