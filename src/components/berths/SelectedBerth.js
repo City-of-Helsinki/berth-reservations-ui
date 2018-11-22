@@ -45,15 +45,15 @@ const SelectedBerth = ({ berth, index, moveUp, moveDown, first, last, deselectBe
         </span>
 
         <DeselectButton type="button" onClick={() => deselectBerth(berth.identifier)}>
-          <Icon name="times" width="30" />
+          <Icon name="times" width="30px" />
         </DeselectButton>
       </BerthName>
       <BerthOptions sm={2}>
         <StyledButton type="button" onClick={() => moveUp(berth.identifier)} disabled={first}>
-          <Icon name="angleUp" width="30" color={first ? 'lightgray' : 'black'} />
+          <Icon name="angleUp" width="30px" color={first ? 'lightgray' : 'black'} />
         </StyledButton>
         <StyledButton type="button" onClick={() => moveDown(berth.identifier)} disabled={last}>
-          <Icon name="angleDown" width="30" color={last ? 'lightgray' : 'black'} />
+          <Icon name="angleDown" width="30px" color={last ? 'lightgray' : 'black'} />
         </StyledButton>
       </BerthOptions>
     </StyledRow>

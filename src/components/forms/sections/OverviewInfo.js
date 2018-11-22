@@ -50,7 +50,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
         </SectionHeader>
         <EditIcon md={1}>
           <LocalizedLink to={`form/${tabs[0]}`}>
-            <Icon name="pencil" width="30" color="black" />
+            <Icon name="pencil" width="30px" color="black" />
           </LocalizedLink>
         </EditIcon>
       </Row>
@@ -81,7 +81,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
         </SectionHeader>
         <EditIcon md={1}>
           <LocalizedLink to="berths">
-            <Icon name="pencil" width="30" color="black" />
+            <Icon name="pencil" width="30px" color="black" />
           </LocalizedLink>
         </EditIcon>
       </Row>
@@ -100,7 +100,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
         </SectionHeader>
         <EditIcon md={1}>
           <LocalizedLink to={`form/${tabs[1]}`}>
-            <Icon name="pencil" width="30" color="black" />
+            <Icon name="pencil" width="30px" color="black" />
           </LocalizedLink>
         </EditIcon>
       </Row>

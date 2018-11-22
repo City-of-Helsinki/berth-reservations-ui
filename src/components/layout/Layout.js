@@ -52,7 +52,7 @@ const Layout = ({ children }: Props) => (
   <Fragment>
     <TopNavbar expand="md">
       <NavbarBrand href="/">
-        <Icon name="helsinkiLogo" width="90" color="#000" />
+        <Icon name="helsinkiLogo" width="90px" color="#000" />
       </NavbarBrand>
       <Nav className="ml-auto" navbar>
         <LanguageDropdown />

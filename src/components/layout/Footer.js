@@ -64,7 +64,7 @@ const Footer = () => (
           </LocalizedLink>
         </FooterSection>
         <FooterSection md="4">
-          <Icon name="helsinkiLogo" width="120" color="#fff" />
+          <Icon name="helsinkiLogo" width="120px" color="#fff" />
         </FooterSection>
         <FooterSection md="4">
           <VerticalList>
