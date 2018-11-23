@@ -21,7 +21,10 @@ const LegendContainer = styled(Container)`
 
 type Props = {
   initialValues: Object,
-  onSubmit: Function
+  onSubmit: Function,
+  selectService: Function,
+  deselectService: Function,
+  selectedServices: Function
 } & WithBoatType;
 
 const services = [
@@ -51,7 +54,8 @@ const services = [
 
 const Services = styled(Col)`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  flex-flow: wrap;
 `;
 
 const ServiceIcon = styled(Icon)`
@@ -120,7 +124,7 @@ const BerthsLegend = ({
         </Col>
       </Row>
       <Row>
-        <Services sm={8}>
+        <Services sm={12}>
           {services.map((service, index) => {
             const selected = selectedServices.get(service.value);
             return (

@@ -8,7 +8,7 @@ import validator, { mustBePresent } from '../../../utils/formValidation';
 
 import Label from './Label';
 
-const TextInput = type => ({
+const TextInput = (type: any) => ({
   id,
   name,
   label,
@@ -21,7 +21,7 @@ const TextInput = type => ({
   placeholder,
   intl: { formatMessage },
   ...rest
-}) => (
+}: any) => (
   <Field
     name={name}
     type={type}
@@ -35,7 +35,7 @@ const TextInput = type => ({
           {prepend && <InputGroupAddon addonType="prepend">{prepend}</InputGroupAddon>}
           <Input
             required={required}
-            invalid={meta.touched && meta.error}
+            invalid={!!(meta.touched && meta.error)}
             placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
             {...input}
             {...rest}

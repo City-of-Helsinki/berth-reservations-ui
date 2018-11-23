@@ -40,13 +40,12 @@ const SelectedBerth = ({ berth, index, moveUp, moveDown, first, last, deselectBe
   <Container fluid>
     <StyledRow>
       <BerthName sm={10}>
-        <span key={berth.identifier}>
-          {index + 1}. {berth.name.fi}
-        </span>
-
         <DeselectButton type="button" onClick={() => deselectBerth(berth.identifier)}>
           <Icon name="times" width="30px" />
         </DeselectButton>
+        <span key={berth.identifier}>
+          {index + 1}. {berth.name.fi}
+        </span>
       </BerthName>
       <BerthOptions sm={2}>
         <StyledButton type="button" onClick={() => moveUp(berth.identifier)} disabled={first}>

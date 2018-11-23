@@ -6,6 +6,7 @@ import { Container, Row, Col } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import LocalizedLink from '../common/LocalizedLink';
 import Icon from '../common/Icon';
+import resposive from '../../utils/responsive';
 
 const ButtonWrapper = styled.div`
   background-color: ${props => props.theme.helLight};
@@ -22,7 +23,12 @@ const StyledIcon = styled(Icon)``;
 type Props = {
   name: string,
   selected: any,
-  types: Array<TypeProps>
+  types: Array<TypeProps>,
+  sizes: {
+    xs?: number,
+    md?: number,
+    lg?: number
+  }
 };
 
 const FormSelectWrapper = styled(LocalizedLink)`
@@ -36,17 +42,25 @@ const FormSelectWrapper = styled(LocalizedLink)`
     color: inherit;
   }
 
+  svg {
+    max-height: 6em;
+  }
+
   background-color: ${props => (props.selected ? props.theme.helFog : 'unset')};
-  font-weight: ${props => (props.selected ? '600' : '400')};
-  letter-spacing: ${props => (props.selected ? '1.05px' : 'inherit')};
+  font-size: 0.8em;
+  ${resposive.sm`
+    font-size: 1em;
+    font-weight: ${props => (props.selected ? '600' : '400')};
+    letter-spacing: ${props => (props.selected ? '1.05px' : 'inherit')};
+  `}
 `;
 
-const SectionSelector = ({ name, selected, types }: Props) => (
+const SectionSelector = ({ name, selected, types, sizes }: Props) => (
   <ButtonWrapper>
     <Container>
       <Row>
         {types.map(({ label, tab, icon }: TypeProps) => (
-          <Col id={`${tab}_selection`} xs={3} key={`${name}.${tab}`}>
+          <Col id={`${tab}_selection`} key={`${name}.${tab}`} {...sizes}>
             <FormSelectWrapper to={`form/${tab}`} selected={selected === tab}>
               <StyledIcon name={icon} width="50%" color="black" />
               <FormattedMessage id={label} />

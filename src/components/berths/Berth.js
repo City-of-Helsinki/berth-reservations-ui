@@ -5,15 +5,28 @@ import { Row, Col, Button } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import Icon from '../common/Icon';
 import type { Berth } from '../../types/berths';
+import responsive from '../../utils/responsive';
 
 const Details = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+
+  flex-direction: row;
+  justify-content: flex-start;
+  flex: 0 0 33.33%;
+  height: auto;
+
   opacity: ${props => (props.available ? 1 : 0.15)};
 
-  flex: 1 0 25%;
+  &:last-child {
+    flex-grow: 1;
+  }
+
+  ${responsive.lg`
+    justify-content: center;
+    flex: 1 0 50%;
+    flex-direction: column;
+    height: 1px;
+  `}
 `;
 
 const DetailsWrapper = styled.div`
@@ -22,18 +35,31 @@ const DetailsWrapper = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
   height: 100%;
-  padding: 1em 0;
+  padding: 2em;
+  padding-top: 0px;
+  white-space: nowrap;
+  ${responsive.lg`
+    flex-direction: column;
+    padding: 1em 0;
+  `}
 `;
 
 const DetailsIcon = styled(Icon).attrs({
   height: '42px'
 })`
   margin: 0.25em;
+  display: none;
+  ${responsive.lg`
+    display: unset;
+  `}
 `;
 
 const DetailsValue = styled.span`
-  line-height: 42px;
-  font-size: 24px;
+  margin-right: 1ch;
+  ${responsive.lg`
+    line-height: 42px;
+    font-size: 24px;
+  `}
 `;
 
 const DetailsTitle = styled.span``;
@@ -42,10 +68,15 @@ const BerthImage = styled.img`
   object-fit: cover;
   height: 100%;
   width: 100%;
+  max-height: 16em;
 `;
 
 const SummaryWrapper = styled.div`
-  padding: 1em 0;
+  padding: 2em;
+  padding-bottom: 1em;
+  ${responsive.lg`
+    padding: 1em 0;
+  `}
   > * {
     display: block;
   }
@@ -66,7 +97,10 @@ const SummaryWrapper = styled.div`
 `;
 
 const ButtonIcon = styled(Icon)`
-  display: inline-block;
+  display: none;
+  ${responsive.lg`
+    display: inline-block;
+  `}
   margin-right: 0.5em;
   width: 1em;
   height: 1em;
@@ -97,10 +131,10 @@ export default ({ berth, className, onClick, selected, disabled }: Props) => (
     <Col xs={12}>
       <StyledDiv>
         <Row>
-          <Col xs={3}>
+          <Col lg={3}>
             <BerthImage src={berth.image} alt={berth.name.fi} />
           </Col>
-          <Col xs={4}>
+          <Col lg={4}>
             <SummaryWrapper>
               <strong>{berth.name.fi}</strong>
 
@@ -123,30 +157,12 @@ export default ({ berth, className, onClick, selected, disabled }: Props) => (
               </WebsiteLink>
             </SummaryWrapper>
           </Col>
-          <Col xs={5}>
+          <Col lg={5}>
             <DetailsWrapper>
               <Details available={true}>
                 <DetailsValue>{berth.number_of_places}</DetailsValue>
                 <DetailsTitle>
                   <FormattedMessage tagName="span" id="page.berths.number_of_places" />
-                </DetailsTitle>
-              </Details>
-              <Details available={berth.mooring}>
-                <DetailsIcon name="pole" />
-                <DetailsTitle>
-                  <FormattedMessage tagName="span" id="page.berths.pole" />
-                </DetailsTitle>
-              </Details>
-              <Details available={berth.electricity}>
-                <DetailsIcon name="plug" />
-                <DetailsTitle>
-                  <FormattedMessage tagName="span" id="page.berths.electricity" />
-                </DetailsTitle>
-              </Details>
-              <Details available={berth.water}>
-                <DetailsIcon name="waterTap" />
-                <DetailsTitle>
-                  <FormattedMessage tagName="span" id="page.berths.water_tap" />
                 </DetailsTitle>
               </Details>
               <Details available={true}>
@@ -155,16 +171,34 @@ export default ({ berth, className, onClick, selected, disabled }: Props) => (
                   <FormattedMessage tagName="span" id="page.berths.maximum_width" />
                 </DetailsTitle>
               </Details>
+              <Details available={berth.mooring}>
+                <DetailsIcon name="pole" />
+                <DetailsTitle>
+                  <FormattedMessage tagName="span" id="page.berths.pole" />
+                </DetailsTitle>
+              </Details>
               <Details available={berth.waste_collection}>
                 <DetailsIcon name="trash" />
                 <DetailsTitle>
                   <FormattedMessage tagName="span" id="page.berths.waste_collection" />
                 </DetailsTitle>
               </Details>
+              <Details available={berth.electricity}>
+                <DetailsIcon name="plug" />
+                <DetailsTitle>
+                  <FormattedMessage tagName="span" id="page.berths.electricity" />
+                </DetailsTitle>
+              </Details>
               <Details available={berth.gate}>
                 <DetailsIcon name="fence" />
                 <DetailsTitle>
                   <FormattedMessage tagName="span" id="page.berths.fence" />
+                </DetailsTitle>
+              </Details>
+              <Details available={berth.water}>
+                <DetailsIcon name="waterTap" />
+                <DetailsTitle>
+                  <FormattedMessage tagName="span" id="page.berths.water_tap" />
                 </DetailsTitle>
               </Details>
               <Details available={berth.lighting}>

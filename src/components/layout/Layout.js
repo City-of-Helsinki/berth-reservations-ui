@@ -10,6 +10,7 @@ import Icon from '../common/Icon';
 import KoroSection from './KoroSection';
 import Footer from './Footer';
 import heroImage from '../../assets/images/hero_image_berth.jpg';
+import responsive from '../../utils/responsive';
 
 type Props = {
   children: any
@@ -34,10 +35,21 @@ const BottomNavbar = styled(Navbar)`
 const Hero = styled.div`
   background-image: url(${heroImage});
   background-size: cover;
-  padding: 4em;
-  height: 25em;
+  padding: 5.5vw;
   h1 {
-    font-size: 5em;
+    font-size: 1em;
+    ${responsive.sm`
+      font-size: 2em;
+    `}
+    ${responsive.md`
+      font-size: 3em;
+    `}
+    ${responsive.lg`
+      font-size: 4em;
+    `}
+    ${responsive.xl`
+      font-size: 5em;
+    `}
     color: #fff;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   }

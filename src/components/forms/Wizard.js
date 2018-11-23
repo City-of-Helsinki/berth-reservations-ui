@@ -4,6 +4,7 @@ import { Button, Container, Col, Row } from 'reactstrap';
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 import Form from './Form';
+import responsive from '../../utils/responsive';
 
 type State = any;
 type Props = any;
@@ -17,6 +18,10 @@ const ButtonWrapper = styled(Col).attrs({
 })`
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  ${responsive.sm`
+    flex-direction: row;
+  `}
 `;
 
 class Wizard extends Component<Props, State> {

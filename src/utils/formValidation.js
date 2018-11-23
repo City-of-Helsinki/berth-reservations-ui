@@ -4,7 +4,8 @@ export const mustBePresent = (value: any): any =>
   value ? undefined : 'validation.message.required';
 
 export const mustBeNumber = (value: any): any =>
-  Number.isNaN(value) ? 'validation.message.must_be_number' : undefined;
+  // eslint-disable-next-line no-restricted-globals
+  isNaN(value) ? 'validation.message.must_be_number' : undefined;
 
 export const mustBePhoneNumber = (value: any): any => {
   /* eslint-disable */
