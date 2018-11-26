@@ -9,7 +9,8 @@ const Wrapper = styled.div`
   background-color: ${props => props.theme.colors.blue};
   color: #fff;
   padding-top: 4em;
-  height: 15em;
+  padding-bottom: 4em;
+  min-height: 15em;
 
   & a {
     color: #fff;

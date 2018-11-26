@@ -73,6 +73,7 @@ const ServiceButton = styled.button`
   align-items: center;
   color: black;
   background-color: transparent;
+  margin: 0.5em;
   && {
     outline: none;
   }

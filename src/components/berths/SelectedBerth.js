@@ -12,7 +12,7 @@ const StyledRow = styled(Row)`
 const BerthName = styled(Col)`
   background-color: #2d72c0;
   color: #fff;
-  font-size: 1em;
+  font-size: 14px;
   padding: 0.3em;
   padding-left: 0.8em;
   ${responsive.sm`
@@ -43,7 +43,7 @@ const DeselectButton = styled.button`
 const SelectedBerth = ({ berth, index, moveUp, moveDown, first, last, deselectBerth }) => (
   <Container fluid>
     <StyledRow>
-      <BerthName xs={8} md={10}>
+      <BerthName xs={9} md={10}>
         <DeselectButton type="button" onClick={() => deselectBerth(berth.identifier)}>
           <Icon name="times" width="30px" />
         </DeselectButton>
@@ -51,7 +51,7 @@ const SelectedBerth = ({ berth, index, moveUp, moveDown, first, last, deselectBe
           {index + 1}. {berth.name.fi}
         </span>
       </BerthName>
-      <BerthOptions xs={4} md={2}>
+      <BerthOptions xs={3} md={2}>
         <Row>
           <Col xs={12} sm={6}>
             <StyledButton type="button" onClick={() => moveUp(berth.identifier)} disabled={first}>
