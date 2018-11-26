@@ -11,7 +11,6 @@ type Props = {
 
 export default ({ onSubmit, initialValues, children }: Props) => (
   <FinalForm
-    debug={console.debug}
     onSubmit={formData => onSubmit(formData)}
     initialValues={initialValues}
     render={({ handleSubmit, ...renderProps }) => (

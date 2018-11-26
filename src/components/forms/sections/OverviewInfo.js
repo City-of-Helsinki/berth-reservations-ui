@@ -45,10 +45,10 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
   <StyledInfoBox>
     <Container fluid>
       <Row>
-        <SectionHeader md={11}>
+        <SectionHeader xs={11}>
           <FormattedMessage tagName="h6" id="page.overview.info.boat_info" />
         </SectionHeader>
-        <EditIcon md={1}>
+        <EditIcon xs={1}>
           <LocalizedLink to={`form/${tabs[0]}`}>
             <Icon name="pencil" width="30px" color="black" />
           </LocalizedLink>
@@ -76,17 +76,17 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
         </Fragment>
       )}
       <Row>
-        <SectionHeader md={11}>
+        <SectionHeader xs={11}>
           <FormattedMessage tagName="h6" id="page.overview.info.berths" />
         </SectionHeader>
-        <EditIcon md={1}>
+        <EditIcon xs={1}>
           <LocalizedLink to="berths">
             <Icon name="pencil" width="30px" color="black" />
           </LocalizedLink>
         </EditIcon>
       </Row>
       <Row>
-        <Col md={12}>
+        <Col xs={12}>
           {selectedBerths.map((berth, index) => (
             <div key={berth.identifier}>
               {index + 1}. {berth.name.fi}
@@ -95,10 +95,10 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
         </Col>
       </Row>
       <Row>
-        <SectionHeader md={11}>
+        <SectionHeader xs={11}>
           <FormattedMessage tagName="h6" id="page.overview.info.person" />
         </SectionHeader>
-        <EditIcon md={1}>
+        <EditIcon xs={1}>
           <LocalizedLink to={`form/${tabs[1]}`}>
             <Icon name="pencil" width="30px" color="black" />
           </LocalizedLink>

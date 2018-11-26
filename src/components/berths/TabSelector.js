@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { StickyContainer, Sticky } from 'react-sticky';
+import responsive from '../../utils/responsive';
 
 const TabsWrapper = styled.div`
   background-color: ${props => props.theme.helFog};
@@ -15,12 +16,15 @@ const TabButton = styled.button.attrs({
   outline: none;
   border: none;
   color: black;
-  padding: 1em 2em;
+  padding: 0.5em 1em;
   background-color: ${props => (props.active ? 'white' : 'unset')};
   :active,
   :focus {
     outline: none;
   }
+  ${responsive.sm`
+    padding: 1em 2em;
+  `}
 `;
 
 const Tabs = styled.div`

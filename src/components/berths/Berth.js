@@ -84,7 +84,6 @@ const SummaryWrapper = styled.div`
     font-size: 16px;
   }
   strong {
-    font-size: 32px;
     line-height: 1em;
   }
   small {
@@ -123,8 +122,15 @@ type Props = {
   berth: Berth,
   className: string,
   onClick: Function,
-  selected: boolean
+  selected: boolean,
+  disabled?: boolean
 };
+const Heading = styled.strong`
+  font-size: 18px;
+  ${responsive.lg`
+    font-size: 32px;
+  `}
+`;
 
 export default ({ berth, className, onClick, selected, disabled }: Props) => (
   <Row className={className}>
@@ -136,7 +142,7 @@ export default ({ berth, className, onClick, selected, disabled }: Props) => (
           </Col>
           <Col lg={4}>
             <SummaryWrapper>
-              <strong>{berth.name.fi}</strong>
+              <Heading>{berth.name.fi}</Heading>
 
               <BerthAddress>
                 {berth.street_address.fi}, {berth.zip_code} {berth.municipality.fi}

@@ -32,6 +32,7 @@ const TextInput = (type: any) => ({
             name={itemName}
             type={type}
             required={required}
+            value={itemValue}
             validate={
               noValidate ? undefined : validator(required ? mustBePresent : null, validate || null)
             }
