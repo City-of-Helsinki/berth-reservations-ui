@@ -7,6 +7,7 @@ import {
   unregisteredBoatPageFillForm,
   noBoatPageFillForm,
   personPageFillForm,
+  overViewPageFillForm,
   checkValuesForRegisteredBoat,
   checkValuesForUnregisteredBoat,
   checkValuesForNoBoat
@@ -30,6 +31,9 @@ describe('Private person', () => {
 
     checkValuesForRegisteredBoat();
     clickSubmit();
+    cy.contains('Pakollinen kenttä');
+    overViewPageFillForm();
+    clickSubmit();
 
     cy.contains('Kiitos hakemuksesta');
   });
@@ -51,6 +55,9 @@ describe('Private person', () => {
 
     checkValuesForUnregisteredBoat();
     clickSubmit();
+    cy.contains('Pakollinen kenttä');
+    overViewPageFillForm();
+    clickSubmit();
 
     cy.contains('Kiitos hakemuksesta');
   });
@@ -71,6 +78,9 @@ describe('Private person', () => {
     clickSubmit();
 
     checkValuesForNoBoat();
+    clickSubmit();
+    cy.contains('Pakollinen kenttä');
+    overViewPageFillForm();
     clickSubmit();
 
     cy.contains('Kiitos hakemuksesta');

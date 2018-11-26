@@ -83,6 +83,10 @@ export const companyPageFillForm = () => {
     .type(values.applicant.contact.email);
 };
 
+export const overViewPageFillForm = () => {
+  cy.get('label[for="form.overview.guarantee"]').click();
+};
+
 export const gotoRegisteredBoatPage = () => {
   cy.visit('http://localhost:5000/fi/form/registered_boat');
 };
@@ -95,20 +99,8 @@ export const gotoNoBoatPage = () => {
   cy.visit('http://localhost:5000/fi/form/no_boat');
 };
 
-export const selectPrivatePersonTab = () => {
-  cy.get('#private_person_selection').click();
-};
-
 export const selectCompanyTab = () => {
   cy.get('#company_selection').click();
-};
-
-export const gotoOverviewPage = () => {
-  gotoRegisteredBoatPage();
-  registeredBoatPageFillForm();
-  clickSubmit();
-  personPageFillForm();
-  clickSubmit();
 };
 
 export const checkValuesForRegisteredBoat = () => {
