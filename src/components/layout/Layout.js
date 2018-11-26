@@ -36,6 +36,7 @@ const Hero = styled.div`
   background-image: url(${heroImage});
   background-size: cover;
   padding: 5.5vw;
+  min-height:20em;
   h1 {
     font-size: 1em;
     ${responsive.sm`
