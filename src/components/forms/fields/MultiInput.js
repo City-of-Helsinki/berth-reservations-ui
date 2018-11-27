@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { Fragment } from 'react';
 import { FormGroup, CustomInput, FormText, FormFeedback } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 
@@ -8,7 +8,7 @@ import validator, { mustBePresent } from '../../../utils/formValidation';
 
 import Label from './Label';
 
-const TextInput = type => ({
+const TextInput = (type: any) => ({
   id,
   name,
   label,
@@ -20,42 +20,49 @@ const TextInput = type => ({
   placeholder,
   intl: { formatMessage },
   ...rest
-}) => (
-  <Field
-    name={name}
-    type={type}
-    validate={noValidate ? undefined : validator(required ? mustBePresent : null, validate || null)}
-  >
-    {({ input, meta }) => (
-      <FormGroup>
-        {label && <Label htmlFor={id} required={required} text={label} />}
-        {items.map(({ name: itemName, label: itemLabel, value: itemValue }) => {
-          const key = `${id}_${itemName}_${itemValue}`;
-          return (
-            <CustomInput
-              key={key}
-              id={key}
-              type={type}
-              label={formatMessage({ id: itemLabel })}
-              invalid={meta.touched && meta.error}
-              {...input}
-              {...rest}
-            />
-          );
-        })}
-        {meta.error && (
-          <FormFeedback>
-            <FormattedMessage id={meta.error} />
-          </FormFeedback>
-        )}
-        {text && (
-          <FormText>
-            <FormattedMessage id={text} />
-          </FormText>
-        )}
-      </FormGroup>
-    )}
-  </Field>
+}: any) => (
+  <Fragment>
+    <FormGroup>
+      {label && <Label htmlFor={id} required={required} text={label} />}
+      {items.map(({ name: itemName, label: itemLabel, value: itemValue }) => {
+        const key = `${id}_${itemName}_${itemValue}`;
+        return (
+          <Field
+            key={key}
+            name={itemName}
+            type={type}
+            required={required}
+            value={itemValue}
+            validate={
+              noValidate ? undefined : validator(required ? mustBePresent : null, validate || null)
+            }
+          >
+            {({ input, meta }) => (
+              <CustomInput
+                id={key}
+                type={type}
+                label={formatMessage({ id: itemLabel })}
+                invalid={!!(meta.touched && meta.error)}
+                {...input}
+                {...rest}
+              >
+                {meta.error && (
+                  <FormFeedback>
+                    <FormattedMessage id={meta.error} />
+                  </FormFeedback>
+                )}
+              </CustomInput>
+            )}
+          </Field>
+        );
+      })}
+      {text && (
+        <FormText>
+          <FormattedMessage id={text} />
+        </FormText>
+      )}
+    </FormGroup>
+  </Fragment>
 );
 
 export default TextInput;

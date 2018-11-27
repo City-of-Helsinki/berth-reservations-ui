@@ -15,7 +15,6 @@ const ContactByFragment = ({ prefix, noValidate = false }: FormFragmentProps) =>
           noValidate={noValidate}
           name={`${prefix}.email`}
           label="form.overview.field.email.label"
-          inline={false}
         />
       </Col>
       <Col sm={3}>
@@ -23,7 +22,6 @@ const ContactByFragment = ({ prefix, noValidate = false }: FormFragmentProps) =>
           noValidate={noValidate}
           name={`${prefix}.sms`}
           label="form.overview.field.sms.label"
-          inline={false}
         />
       </Col>
     </Row>
@@ -33,7 +31,7 @@ const ContactByFragment = ({ prefix, noValidate = false }: FormFragmentProps) =>
           noValidate={noValidate}
           name={`${prefix}.guarantee`}
           label="form.overview.field.guarantee.label"
-          inline={false}
+          required
         />
       </Col>
     </Row>

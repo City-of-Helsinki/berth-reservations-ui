@@ -7,7 +7,7 @@ import validator, { mustBePresent } from '../../../utils/formValidation';
 
 import Label from './Label';
 
-const TextInput = (type, inlineLabel) => ({
+const TextInput = (type: any, inlineLabel: any) => ({
   id,
   name,
   label,
@@ -18,7 +18,7 @@ const TextInput = (type, inlineLabel) => ({
   placeholder,
   intl: { formatMessage },
   ...rest
-}) => (
+}: any) => (
   <Field
     name={name}
     type={type}
@@ -32,7 +32,7 @@ const TextInput = (type, inlineLabel) => ({
           type={type}
           placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
           label={inlineLabel ? formatMessage({ id: label }) : undefined}
-          invalid={meta.touched && meta.error}
+          invalid={!!(meta.touched && meta.error)}
           {...input}
           {...rest}
         />

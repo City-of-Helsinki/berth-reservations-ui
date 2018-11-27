@@ -8,6 +8,7 @@ import {
   unregisteredBoatPageFillForm,
   noBoatPageFillForm,
   companyPageFillForm,
+  overViewPageFillForm,
   checkValuesForRegisteredBoat,
   checkValuesForUnregisteredBoat,
   checkValuesForNoBoat
@@ -31,6 +32,9 @@ describe('Company', () => {
 
     checkValuesForRegisteredBoat();
     clickSubmit();
+    cy.get('input.is-invalid');
+    overViewPageFillForm();
+    clickSubmit();
 
     cy.contains('Kiitos hakemuksesta');
   });
@@ -46,11 +50,14 @@ describe('Company', () => {
 
     selectCompanyTab();
     clickSubmit();
-    cy.contains('Pakollinen kenttä');
+    cy.get('input.is-invalid');
     companyPageFillForm();
     clickSubmit();
 
     checkValuesForUnregisteredBoat();
+    clickSubmit();
+    cy.contains('Pakollinen kenttä');
+    overViewPageFillForm();
     clickSubmit();
 
     cy.contains('Kiitos hakemuksesta');
@@ -67,11 +74,14 @@ describe('Company', () => {
 
     selectCompanyTab();
     clickSubmit();
-    cy.contains('Pakollinen kenttä');
+    cy.get('input.is-invalid');
     companyPageFillForm();
     clickSubmit();
 
     checkValuesForNoBoat();
+    clickSubmit();
+    cy.get('input.is-invalid');
+    overViewPageFillForm();
     clickSubmit();
 
     cy.contains('Kiitos hakemuksesta');

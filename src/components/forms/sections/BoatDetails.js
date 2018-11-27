@@ -26,6 +26,11 @@ const BoatDetails = ({ values, tab, boatTypes }: Props) => {
       <SectionSelector
         name="boat"
         selected={tab}
+        sizes={{
+          xs: 12,
+          md: 4,
+          lg: 3
+        }}
         types={[
           {
             label: 'form.boat_type_selector.registered_boat.label',

@@ -29,7 +29,7 @@ const Steps = ({ intl: { formatMessage }, steps }: Props) => (
     <StepContainer>
       <Row>
         {steps.map(({ key, completed, current, linkTo }) => (
-          <Col sm="3" key={key}>
+          <Col xs="3" key={key}>
             <Step
               linkTo={linkTo}
               completed={completed}

@@ -42,7 +42,15 @@ class BoatPage extends PureComponent<Props, any> {
   }
 
   render() {
-    const { initialValues, boatTypes, berths, selectedBerths, onSubmit, localePush } = this.props;
+    const {
+      initialValues,
+      boatTypes,
+      berths,
+      selectedBerths,
+      onSubmit,
+      onSend,
+      localePush
+    } = this.props;
     const { step, tabs, tab } = this.state;
     return (
       <Layout>
@@ -80,6 +88,7 @@ class BoatPage extends PureComponent<Props, any> {
           initialValues={initialValues}
           goForward={async values => {
             await onSubmit(values);
+            await onSend(values);
             tabs[step] = tab;
             this.setState(() => ({ tabs }));
             await localePush('/thank-you');

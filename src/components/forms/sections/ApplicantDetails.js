@@ -17,6 +17,11 @@ const ApplicantDetails = ({ tab }: Props) => (
     <SectionSelector
       name="boat"
       selected={tab}
+      sizes={{
+        xs: 6,
+        md: 4,
+        lg: 3
+      }}
       types={[
         {
           label: 'form.boat_type_selector.private_person.label',
