@@ -34,6 +34,7 @@ const TextInput = (type: any) => ({
         <InputGroup>
           {prepend && <InputGroupAddon addonType="prepend">{prepend}</InputGroupAddon>}
           <Input
+            type={type}
             required={required}
             invalid={!!(meta.touched && meta.error)}
             placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
