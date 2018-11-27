@@ -10,7 +10,7 @@ const defaultState: FormsFactory = Record({
   boatTypes: undefined
 });
 
-export const onSend = createAction('SEND_FORM_VALUES', formService.submit);
+export const onSend = createAction('SEND_FORM', formService.submit);
 export const onSubmit = createAction('SUBMIT_FORM', formData => formData);
 export const getBoatTypes = createAction('GET_BOAT_TYPES', berthsService.getBoatTypes);
 export const resetValues = createAction('RESET_FORM');
@@ -20,8 +20,6 @@ export default (state: FormsState = defaultState(), action: Action): FormsState 
   switch (type) {
     case 'SUBMIT_FORM':
       return state.set('values', payload);
-    case 'SEND_FORM_VALUES_FULFILLED':
-      return state;
     case 'GET_BOAT_TYPES_FULFILLED':
       return state.set('boatTypes', payload);
     case 'RESET_FORM':
