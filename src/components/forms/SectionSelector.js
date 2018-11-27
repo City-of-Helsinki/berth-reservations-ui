@@ -51,7 +51,7 @@ const FormSelectWrapper = styled(LocalizedLink)`
   ${resposive.sm`
     font-size: 1em;
     font-weight: ${props => (props.selected ? '600' : '400')};
-    letter-spacing: ${props => (props.selected ? '1.05px' : 'inherit')};
+    letter-spacing: ${props => (props.selected ? '0.065em' : 'inherit')};
   `}
 `;
 
