@@ -52,18 +52,24 @@ const SelectedBerth = ({ berth, index, moveUp, moveDown, first, last, deselectBe
         </span>
       </BerthName>
       <BerthOptions xs={3} md={2}>
-        <Row>
-          <Col xs={12} sm={6}>
-            <StyledButton type="button" onClick={() => moveUp(berth.identifier)} disabled={first}>
-              <Icon name="angleUp" width="30px" color={first ? 'lightgray' : 'black'} />
-            </StyledButton>
-          </Col>
-          <Col xs={12} sm={6}>
-            <StyledButton type="button" onClick={() => moveDown(berth.identifier)} disabled={last}>
-              <Icon name="angleDown" width="30px" color={last ? 'lightgray' : 'black'} />
-            </StyledButton>
-          </Col>
-        </Row>
+        <Container fluid>
+          <Row>
+            <Col xs={12} sm={6}>
+              <StyledButton type="button" onClick={() => moveUp(berth.identifier)} disabled={first}>
+                <Icon name="angleUp" width="30px" color={first ? 'lightgray' : 'black'} />
+              </StyledButton>
+            </Col>
+            <Col xs={12} sm={6}>
+              <StyledButton
+                type="button"
+                onClick={() => moveDown(berth.identifier)}
+                disabled={last}
+              >
+                <Icon name="angleDown" width="30px" color={last ? 'lightgray' : 'black'} />
+              </StyledButton>
+            </Col>
+          </Row>
+        </Container>
       </BerthOptions>
     </StyledRow>
   </Container>

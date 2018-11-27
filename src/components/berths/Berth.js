@@ -45,24 +45,30 @@ const DetailsWrapper = styled.div`
 `;
 
 const DetailsIcon = styled(Icon).attrs({
-  height: '42px'
+  height: '42px',
+  width: '42px'
 })`
   margin: 0.25em;
   display: none;
+  text-align: center;
   ${responsive.lg`
-    display: unset;
+    display: block;
   `}
 `;
 
 const DetailsValue = styled.span`
   margin-right: 1ch;
+  text-align: center;
   ${responsive.lg`
+    margin-right: 0;
     line-height: 42px;
     font-size: 24px;
   `}
 `;
 
-const DetailsTitle = styled.span``;
+const DetailsTitle = styled.span`
+  text-align: center;
+`;
 
 const BerthImage = styled.img`
   object-fit: cover;
