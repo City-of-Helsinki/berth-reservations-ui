@@ -12,7 +12,7 @@ const StyledRow = styled(Row)`
 const BerthName = styled(Col)`
   background-color: #2d72c0;
   color: #fff;
-  font-size: 14px;
+  font-size: 0.875em;
   padding: 0.3em;
   padding-left: 0.8em;
   ${responsive.sm`
