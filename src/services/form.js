@@ -7,7 +7,7 @@ export default {
     const firstName = get(data, 'applicant.name.first_name');
     const lastName = get(data, 'applicant.name.last_name');
     const email = get(data, 'applicant.contact.email');
-    await post('reservations', {
+    await post('reservations/', {
       first_name: firstName,
       last_name: lastName,
       email,
