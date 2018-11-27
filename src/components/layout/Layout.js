@@ -38,10 +38,7 @@ const Hero = styled.div`
   padding: 5.5vw;
   min-height:20em;
   h1 {
-    font-size: 1em;
-    ${responsive.sm`
-      font-size: 2em;
-    `}
+    font-size: 2em;
     ${responsive.md`
       font-size: 3em;
     `}
