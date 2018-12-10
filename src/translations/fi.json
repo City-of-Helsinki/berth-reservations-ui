@@ -197,6 +197,7 @@
   "form.services.field.gate.label": "Portti",
   "form.services.field.lighting.label": "Valaistus",
 
+  "page.overview.info.edit": "Muokkaa",
   "page.overview.info.boat_info": "Veneen tiedot",
   "page.overview.info.berths": "Valitut satamat",
   "page.overview.info.person": "Hakija",

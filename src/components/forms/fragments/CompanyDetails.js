@@ -15,6 +15,7 @@ const CompanyDetailsFragment = ({ prefix, noValidate = false }: FormFragmentProp
           name={`${prefix}.name`}
           label="form.company_details.field.name.label"
           placeholder="form.company_details.field.name.placeholder"
+          required
         />
       </Col>
     </Row>
@@ -25,6 +26,7 @@ const CompanyDetailsFragment = ({ prefix, noValidate = false }: FormFragmentProp
           name={`${prefix}.businessId`}
           label="form.company_details.field.business_id.label"
           placeholder="form.company_details.field.business_id.placeholder"
+          required
         />
       </Col>
     </Row>
