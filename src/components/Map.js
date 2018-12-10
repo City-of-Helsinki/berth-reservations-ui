@@ -7,9 +7,11 @@ import L from 'leaflet';
 
 import MapMarker from './MapMarker';
 import HarborMatchSelected from './common/icons/harbor-match-chosen.svg';
-import HarborMatchUnselected from './common/icons/harbor-unmatch.svg';
+import HarborMatchUnselected from './common/icons/harbor-match.svg';
 import HarborMatchActive from './common/icons/harbor-match-active.svg';
 import HarborMatchActiveAndSelected from './common/icons/harbor-match-chosen-active.svg';
+import HarborUnmatched from './common/icons/harbor-unmatch.svg';
+
 import Berth from './berths/Berth';
 import { type Berth as BerthType } from '../types/berths';
 
@@ -45,6 +47,13 @@ const iconPreviewedAndSelected = new L.Icon({
   className: 'map-marker'
 });
 
+const iconUnmatched = new L.Icon({
+  iconUrl: HarborUnmatched,
+  iconRetinaUrl: HarborUnmatched,
+  iconSize: new L.Point(25, 25),
+  className: 'map-marker'
+});
+
 const style = {
   width: '100%',
   height: '40em'
@@ -73,7 +82,7 @@ export default class MapCanvas extends Component<Props, State> {
   };
 
   render() {
-    const { filtered, selected, onClick } = this.props;
+    const { filtered, filteredNot, selected, onClick } = this.props;
     const { selectedBerth } = this.state;
     const position = [this.state.lat, this.state.lng];
     const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
@@ -109,6 +118,16 @@ export default class MapCanvas extends Component<Props, State> {
               />
             );
           })}
+          {filteredNot.map(berth => (
+            <MapMarker
+              berth={berth}
+              selected={false}
+              markerIcon={iconUnmatched}
+              key={berth.identifier}
+              position={berth.location.coordinates}
+              onClick={null}
+            />
+          ))}
         </Map>
         {selectedBerth && (
           <Berth
