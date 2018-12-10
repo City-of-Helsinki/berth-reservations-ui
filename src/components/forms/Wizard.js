@@ -27,6 +27,8 @@ const ButtonWrapper = styled(Col).attrs({
 class Wizard extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
+
+    window.scrollTo(0, 0);
     this.state = {
       initialValues: props.initialValues
     };
@@ -50,6 +52,7 @@ class Wizard extends Component<Props, State> {
   handleSubmit = (values: any) => {
     const { nextStep, goForward } = this.props;
     if (this.hasNextStep()) {
+      window.scrollTo(0, 0);
       nextStep(values);
     } else {
       goForward(values);
