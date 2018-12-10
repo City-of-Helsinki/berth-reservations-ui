@@ -22,14 +22,18 @@ const TextInput = (type: any, inlineLabel: any) => ({
   <Field
     name={name}
     type={type}
+    required={noValidate ? false : required}
     validate={noValidate ? undefined : validator(required ? mustBePresent : null, validate || null)}
   >
     {({ input, meta }) => (
       <FormGroup>
-        {!inlineLabel && label && <Label htmlFor={id} required={required} text={label} />}
+        {!inlineLabel && label && (
+          <Label htmlFor={id} required={noValidate ? false : required} text={label} />
+        )}
         <CustomInput
           id={id}
           type={type}
+          required={noValidate ? false : required}
           placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
           label={inlineLabel ? formatMessage({ id: label }) : undefined}
           invalid={!!(meta.touched && meta.error)}
