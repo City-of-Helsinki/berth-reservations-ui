@@ -35,6 +35,11 @@ const EditIcon = styled(Col)`
   text-align: right;
 `;
 
+const EditLink = styled(LocalizedLink)`
+  display: flex;
+  color: currentColor;
+`;
+
 type Props = {
   values: Object,
   selectedBerths: Berths,
@@ -45,13 +50,14 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
   <StyledInfoBox>
     <Container fluid>
       <Row>
-        <SectionHeader xs={10} md={11}>
+        <SectionHeader xs={8} md={10}>
           <FormattedMessage tagName="h6" id="page.overview.info.boat_info" />
         </SectionHeader>
-        <EditIcon xs={2} md={1}>
-          <LocalizedLink to={`form/${tabs[0]}`}>
+        <EditIcon xs={4} md={2}>
+          <EditLink to={`form/${tabs[0]}`}>
             <Icon name="pencil" width="30px" color="black" />
-          </LocalizedLink>
+            <FormattedMessage tagName="span" id="page.overview.info.edit" />
+          </EditLink>
         </EditIcon>
       </Row>
       {tabs[0] === 'registered_boat' && (
@@ -76,13 +82,14 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
         </Fragment>
       )}
       <Row>
-        <SectionHeader xs={10} md={11}>
+        <SectionHeader xs={8} md={10}>
           <FormattedMessage tagName="h6" id="page.overview.info.berths" />
         </SectionHeader>
-        <EditIcon xs={2} md={1}>
-          <LocalizedLink to="berths">
+        <EditIcon xs={4} md={2}>
+          <EditLink to="berths">
             <Icon name="pencil" width="30px" color="black" />
-          </LocalizedLink>
+            <FormattedMessage tagName="span" id="page.overview.info.edit" />
+          </EditLink>
         </EditIcon>
       </Row>
       <Row>
@@ -95,13 +102,14 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
         </Col>
       </Row>
       <Row>
-        <SectionHeader xs={10} md={11}>
+        <SectionHeader xs={8} md={10}>
           <FormattedMessage tagName="h6" id="page.overview.info.person" />
         </SectionHeader>
-        <EditIcon xs={2} md={1}>
-          <LocalizedLink to={`form/${tabs[1]}`}>
+        <EditIcon xs={4} md={2}>
+          <EditLink to={`form/${tabs[1]}`}>
             <Icon name="pencil" width="30px" color="black" />
-          </LocalizedLink>
+            <FormattedMessage tagName="span" id="page.overview.info.edit" />
+          </EditLink>
         </EditIcon>
       </Row>
       <Person person={values.applicant} />
