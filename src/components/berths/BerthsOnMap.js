@@ -6,7 +6,6 @@ const MapContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 600px;
 `;
 
 export default ({ berths, onClick, selected, filtered }) => (
