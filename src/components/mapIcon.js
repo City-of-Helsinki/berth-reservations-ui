@@ -72,7 +72,7 @@ const IconUnmatchActiveAndSelected = new L.Icon({
   className: 'map-marker'
 });
 
-export default (isSelected: boolean, isPreviewed: boolean, isFilteredNot: boolean) => {
+export default (isSelected: ?boolean, isPreviewed: ?boolean, isFilteredNot: ?boolean) => {
   if (isFilteredNot) {
     if (isPreviewed && isSelected) {
       return IconUnmatchActiveAndSelected;

@@ -5,7 +5,7 @@ import { Map, TileLayer } from 'react-leaflet';
 import styled from 'styled-components';
 
 import MapMarker from './MapMarker';
-import MapIcon from './MapIcon';
+import mapIcon from './mapIcon';
 
 import Berth from './berths/Berth';
 import { type Berth as BerthType } from '../types/berths';
@@ -54,7 +54,7 @@ export default class MapCanvas extends Component<Props, State> {
               <MapMarker
                 berth={berth}
                 selected={isSelected}
-                markerIcon={MapIcon(isSelected, isPreviewed, false)}
+                markerIcon={mapIcon(isSelected, isPreviewed, false)}
                 key={berth.identifier}
                 position={berth.location.coordinates}
                 onClick={() => this.setState({ selectedBerth: berth })}
@@ -68,7 +68,7 @@ export default class MapCanvas extends Component<Props, State> {
               <MapMarker
                 berth={berth}
                 selected={isSelected}
-                markerIcon={MapIcon(isSelected, isPreviewed, true)}
+                markerIcon={mapIcon(isSelected, isPreviewed, true)}
                 key={berth.identifier}
                 position={berth.location.coordinates}
                 onClick={() => this.setState({ selectedBerth: berth })}
