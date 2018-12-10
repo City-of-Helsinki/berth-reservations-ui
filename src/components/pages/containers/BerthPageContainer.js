@@ -7,8 +7,6 @@ import {
   getBerths,
   selectBerth,
   deselectBerth,
-  moveUp,
-  moveDown,
   selectService,
   deselectService
 } from '../../../ducks/berths';
@@ -30,8 +28,6 @@ export default compose(
       getBerths,
       selectBerth,
       deselectBerth,
-      moveUp,
-      moveDown,
       selectService,
       deselectService
     }
