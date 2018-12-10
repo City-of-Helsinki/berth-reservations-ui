@@ -44,6 +44,7 @@
     "eslint": "eslint",
     "prettier": "prettier",
     "flow": "flow",
+    "chk": "yarn eslint './src/**/*.js' & yarn flow",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "dev": "yarn run api & yarn run storybook & yarn run start",
     "test:ci": "yarn api & serve -s build & cypress run --browser chrome",
