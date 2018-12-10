@@ -7,6 +7,7 @@ import messages from '../config/translations';
 import BerthPage from './pages/containers/BerthPageContainer';
 import FormPage from './pages/containers/FormPageContainer';
 import ThankYouPage from './pages/containers/ThankYouPageContainer';
+import SelectedBerthPage from './pages/containers/SelectedBerthPageContainer';
 
 type Props = {
   locale: string
@@ -17,6 +18,7 @@ const App = ({ locale }: Props) => (
     <Switch>
       <Redirect exact path="/:locale/" to="/:locale/berths" />
       <Route exact path="/:locale/berths" component={BerthPage} />
+      <Route exact path="/:locale/selected_berths" component={SelectedBerthPage} />
       <Route exact path="/:locale/form" component={FormPage} />
       <Route exact path="/:locale/form/:tab" component={FormPage} />
       <Route exact path="/:locale/thank-you" component={ThankYouPage} />

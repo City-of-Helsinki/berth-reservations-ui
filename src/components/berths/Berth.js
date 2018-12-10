@@ -164,7 +164,7 @@ export default ({ berth, className, onClick, selected, disabled }: Props) => (
                 </Button>
               )}
 
-              <WebsiteLink href={berth.www_url}>
+              <WebsiteLink rel="noopener" target="_blank" href={berth.www_url}>
                 <FormattedMessage tagName="span" id="page.berths.website" />
               </WebsiteLink>
             </SummaryWrapper>

@@ -1,7 +1,6 @@
 // @flow
 import React, { Component } from 'react';
 import { get } from 'lodash';
-import { Badge } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
@@ -9,16 +8,10 @@ import Layout from '../layout/Layout';
 import BerthsLegend from '../legends/BerthsLegend';
 import BerthsOnMap from '../berths/BerthsOnMap';
 import Berths from '../berths/Berths';
-import SelectedBerths from '../berths/SelectedBerths';
 import TabSelector from '../berths/TabSelector';
 
 const Wrapper = styled.div`
   margin-bottom: 5em;
-`;
-
-const StyledBadge = styled(Badge)`
-  margin-left: 1em;
-  padding: 1em;
 `;
 
 type Props = any;
@@ -41,7 +34,7 @@ class BerthPage extends Component<Props> {
 
   moveToForm = async () => {
     const { localePush } = this.props;
-    await localePush('/form/registered_boat');
+    await localePush('/selected_berths');
   };
 
   getFilterByValues = (values: any, selectedServices: any) => {
@@ -75,9 +68,6 @@ class BerthPage extends Component<Props> {
       initialValues,
       berths,
       selectedBerths,
-      moveUp,
-      moveDown,
-      deselectBerth,
       selectedServices,
       selectService,
       deselectService
@@ -85,7 +75,6 @@ class BerthPage extends Component<Props> {
     const filter = this.getFilterByValues(initialValues, selectedServices);
     const filtered = berths.filter(filter);
     const FilteredNot = berths.filterNot(filter);
-    const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
     return (
       <Layout>
         <Wrapper>
@@ -98,13 +87,6 @@ class BerthPage extends Component<Props> {
             deselectService={deselectService}
           />
           <TabSelector>
-            <Berths
-              TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
-              filtered={filtered}
-              filteredNot={FilteredNot}
-              selected={selectedBerths}
-              onClick={this.toggleBerthSelect}
-            />
             <BerthsOnMap
               TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
               berths={berths}
@@ -112,21 +94,14 @@ class BerthPage extends Component<Props> {
               selected={selectedBerths}
               onClick={this.toggleBerthSelect}
             />
-            <SelectedBerths
-              TabHeader={() => (
-                <div>
-                  <FormattedMessage tagName="span" id="page.berths.selected_list" />
-                  <StyledBadge pill>
-                    {selectedBerths.size} / {REACT_APP_MAX_SELECTED_BERTHS}
-                  </StyledBadge>
-                </div>
-              )}
-              progress={this.moveToForm}
-              moveUp={moveUp}
-              moveDown={moveDown}
-              deselectBerth={deselectBerth}
-              berths={selectedBerths.map(key => berths.find(berth => key === berth.identifier))}
+            <Berths
+              TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
+              filtered={filtered}
+              filteredNot={FilteredNot}
+              selected={selectedBerths}
+              onClick={this.toggleBerthSelect}
             />
+            <div TabHeader={() => <button onClick={this.moveToForm}>Jatka</button>} />
           </TabSelector>
         </Wrapper>
       </Layout>
