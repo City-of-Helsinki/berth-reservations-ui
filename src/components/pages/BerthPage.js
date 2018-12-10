@@ -89,8 +89,8 @@ class BerthPage extends Component<Props> {
           <TabSelector>
             <BerthsOnMap
               TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
-              berths={berths}
               filtered={filtered}
+              filteredNot={FilteredNot}
               selected={selectedBerths}
               onClick={this.toggleBerthSelect}
             />

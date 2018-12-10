@@ -8,10 +8,10 @@ const MapContainer = styled.div`
   width: 100%;
 `;
 
-export default ({ berths, onClick, selected, filtered }) => (
+export default ({ onClick, selected, filtered, filteredNot }) => (
   <div>
     <MapContainer>
-      <Map berths={berths} onClick={onClick} selected={selected} filtered={filtered} />
+      <Map onClick={onClick} selected={selected} filtered={filtered} filteredNot={filteredNot} />
     </MapContainer>
   </div>
 );
