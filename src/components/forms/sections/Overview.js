@@ -3,6 +3,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import Agreement from '../fragments/Agreement';
 import ContactBy from '../fragments/ContactBy';
 import Newsletter from '../fragments/Newsletter';
 import OverviewInfo from './OverviewInfo';
@@ -28,6 +29,8 @@ const Submit = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
     <ContactBy prefix="overview" />
     <FormattedMessage tagName="h5" id="form.overview.header.receivable_items.title" />
     <Newsletter prefix="overview" />
+    <FormattedMessage tagName="h3" id="form.overview.header.agreement.title" />
+    <Agreement prefix="overview" />
   </StyledContainer>
 );
 

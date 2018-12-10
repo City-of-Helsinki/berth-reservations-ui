@@ -188,6 +188,7 @@
   "form.overview.field.fitness_services.label": "liikuntapalvelut",
   "form.overview.field.library_services.label": "kirjastopalvelut",
   "form.overview.field.other_cultural_services.label": "muut kulttuuripalvelut",
+  "form.overview.header.agreement.title": "Vakuutan tietoni oikeaksi",
 
   "form.services.field.services.label": "Palvelut",
   "form.services.field.mooring.label": "Kiinnitys",
