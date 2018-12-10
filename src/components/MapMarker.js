@@ -1,9 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import { FormattedMessage } from 'react-intl';
-import { Marker, Popup } from 'react-leaflet';
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Marker } from 'react-leaflet';
 import { List } from 'immutable';
 
 type Props = any;
