@@ -126,7 +126,7 @@ const StyledDiv = styled.div`
 
 type Props = {
   berth: Berth,
-  className: string,
+  className?: string,
   onClick: Function,
   selected: boolean,
   disabled?: boolean
