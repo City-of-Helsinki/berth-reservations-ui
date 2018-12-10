@@ -42,6 +42,9 @@
   "page.berths.waste_collection": "Jätehuolto",
   "page.berths.fence": "Portti",
   "page.berths.lighting": "Valaistus",
+  "page.berths.list.berth_count": "{count} hakuehdot täyttävää satamaa",
+  "page.berths.list.header.hits": "Hakukriteerit täyttävät satamat:",
+  "page.berths.list.header.others": "Muut satamat:",
 
   "legend.berths.title": "Millaista venepaikkaa olet hakemassa?",
   "legend.berths.legend": "Selaa kaupungin tarjoamia satamia ja venepaikkoja. Valitse enintään kymmenen sopivaa satamaa hakemukseesi.",

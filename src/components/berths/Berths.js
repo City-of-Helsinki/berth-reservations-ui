@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'reactstrap';
+import { FormattedMessage } from 'react-intl';
+
 import Berth from './Berth';
 
-const StyledBerth = styled(Berth)``;
+const StyledBerth = styled(Berth)`
+  opacity: ${props => (props.dimmed ? '0.5' : '1')};
+`;
 
 const Wrapper = styled(Container)`
   ${StyledBerth} + ${StyledBerth} {
@@ -23,15 +27,41 @@ const BerthCount = styled.div`
 
 const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
 
-export default ({ berths, onClick, selected }) => (
+export default ({ filtered, filteredNot, onClick, selected }) => (
   <Wrapper>
     <Row>
       <Col xs={12}>
-        <BerthCount>{berths.size} hakuehdot täyttävää satamaa</BerthCount>
+        <BerthCount>
+          <FormattedMessage id="page.berths.list.berth_count" values={{ count: filtered.size }} />
+        </BerthCount>
       </Col>
     </Row>
-    {berths.map(berth => (
+    {filtered.size > 0 && (
+      <Row>
+        <Col xs={12}>
+          <FormattedMessage tagName="h2" id="page.berths.list.header.hits" />
+        </Col>
+      </Row>
+    )}
+    {filtered.map(berth => (
       <StyledBerth
+        key={berth.identifier}
+        berth={berth}
+        onClick={() => onClick(berth.identifier)}
+        selected={selected.includes(berth.identifier)}
+        disabled={selected.size >= REACT_APP_MAX_SELECTED_BERTHS}
+      />
+    ))}
+    {filteredNot.size > 0 && (
+      <Row>
+        <Col xs={12}>
+          <FormattedMessage tagName="h2" id="page.berths.list.header.others" />
+        </Col>
+      </Row>
+    )}
+    {filteredNot.map(berth => (
+      <StyledBerth
+        dimmed
         key={berth.identifier}
         berth={berth}
         onClick={() => onClick(berth.identifier)}

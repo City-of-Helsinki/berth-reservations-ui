@@ -84,6 +84,7 @@ class BerthPage extends Component<Props> {
     } = this.props;
     const filter = this.getFilterByValues(initialValues, selectedServices);
     const filtered = berths.filter(filter);
+    const FilteredNot = berths.filterNot(filter);
     const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
     return (
       <Layout>
@@ -99,7 +100,8 @@ class BerthPage extends Component<Props> {
           <TabSelector>
             <Berths
               TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
-              berths={filtered}
+              filtered={filtered}
+              filteredNot={FilteredNot}
               selected={selectedBerths}
               onClick={this.toggleBerthSelect}
             />
