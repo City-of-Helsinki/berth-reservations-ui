@@ -191,6 +191,7 @@
   "form.overview.field.fitness_services.label": "liikuntapalvelut",
   "form.overview.field.library_services.label": "kirjastopalvelut",
   "form.overview.field.other_cultural_services.label": "muut kulttuuripalvelut",
+  "form.overview.header.agreement.title": "Vakuutan tietoni oikeiksi",
 
   "form.services.field.services.label": "Valitse haluamasi sataman palvelut:",
   "form.services.field.mooring.label": "Kiinnitys",

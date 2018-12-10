@@ -25,16 +25,6 @@ const ContactByFragment = ({ prefix, noValidate = false }: FormFragmentProps) =>
         />
       </Col>
     </Row>
-    <Row>
-      <Col sm={6}>
-        <Checkbox
-          noValidate={noValidate}
-          name={`${prefix}.guarantee`}
-          label="form.overview.field.guarantee.label"
-          required
-        />
-      </Col>
-    </Row>
   </Fragment>
 );
 
