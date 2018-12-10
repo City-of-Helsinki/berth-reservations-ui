@@ -76,6 +76,7 @@ export default class MapCanvas extends Component<Props, State> {
     const { filtered, selected, onClick } = this.props;
     const { selectedBerth } = this.state;
     const position = [this.state.lat, this.state.lng];
+    const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
 
     const markerIcon = (isSelected, isPreviewed) => {
       if (isPreviewed && isSelected) {
@@ -115,7 +116,7 @@ export default class MapCanvas extends Component<Props, State> {
             berth={selectedBerth}
             onClick={() => onClick(selectedBerth.identifier)}
             selected={selected.includes(selectedBerth.identifier)}
-            disabled={selected.size >= 10}
+            disabled={selected.size >= REACT_APP_MAX_SELECTED_BERTHS}
           />
         )}
       </StyledDiv>
