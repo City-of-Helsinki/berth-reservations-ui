@@ -83,7 +83,7 @@ class SelectedBerth extends Component {
             <span key={berth.identifier}>
               {index + 1}. {berth.name.fi}
             </span>
-            {missingServices && (
+            {missingServices.length > 0 && (
               <Invalid
                 onMouseEnter={() => this.toggle(true)}
                 onMouseLeave={() => this.toggle(false)}
