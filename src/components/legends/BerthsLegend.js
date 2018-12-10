@@ -67,6 +67,7 @@ const ServiceIcon = styled(Icon)`
 `;
 
 const ServiceButton = styled.button`
+  cursor: pointer;
   border: none;
   display: flex;
   flex-direction: column;
@@ -76,6 +77,11 @@ const ServiceButton = styled.button`
   margin: 0.5em;
   && {
     outline: none;
+  }
+  &:hover {
+    ${ServiceIcon} {
+      background-color: ${props => (props.selected ? props.theme.helDark : props.theme.helGray)};
+    }
   }
 `;
 
@@ -131,6 +137,7 @@ const BerthsLegend = ({
             return (
               <ServiceButton
                 key={index}
+                selected={selected}
                 onClick={() =>
                   selected ? deselectService(service.value) : selectService(service.value)
                 }
