@@ -2,7 +2,6 @@
 import type { RecordOf, RecordFactory } from 'immutable';
 
 type SelectedServicesProps = {
-  mooring: boolean,
   electricity: boolean,
   water: boolean,
   waste_collection: boolean,

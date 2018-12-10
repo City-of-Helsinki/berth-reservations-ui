@@ -5,7 +5,6 @@ import type { Action, BerthsFactory, BerthsState } from '../types/ducks';
 import berthsService from '../services/berths';
 
 const selectedServices = Record({
-  mooring: false,
   electricity: false,
   water: false,
   waste_collection: false,

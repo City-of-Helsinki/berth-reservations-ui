@@ -183,12 +183,6 @@ export default ({ berth, className, onClick, selected, disabled }: Props) => (
                   <FormattedMessage tagName="span" id="page.berths.maximum_width" />
                 </DetailsTitle>
               </Details>
-              <Details available={berth.mooring}>
-                <DetailsIcon name="pole" />
-                <DetailsTitle>
-                  <FormattedMessage tagName="span" id="page.berths.pole" />
-                </DetailsTitle>
-              </Details>
               <Details available={berth.waste_collection}>
                 <DetailsIcon name="trash" />
                 <DetailsTitle>
