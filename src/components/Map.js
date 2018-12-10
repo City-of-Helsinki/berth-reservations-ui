@@ -125,7 +125,7 @@ export default class MapCanvas extends Component<Props, State> {
               markerIcon={iconUnmatched}
               key={berth.identifier}
               position={berth.location.coordinates}
-              onClick={null}
+              onClick={() => this.setState({ selectedBerth: berth })}
             />
           ))}
         </Map>
