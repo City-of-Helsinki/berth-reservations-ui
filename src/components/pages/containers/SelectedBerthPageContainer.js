@@ -10,7 +10,8 @@ export default compose(
   connect(
     state => ({
       berths: state.berths.berths,
-      selectedBerths: state.berths.selectedBerths
+      selectedBerths: state.berths.selectedBerths,
+      selectedServices: state.berths.selectedServices
     }),
     {
       deselectBerth,

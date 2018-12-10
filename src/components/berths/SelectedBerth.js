@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
+
 import Icon from '../common/Icon';
 import responsive from '../../utils/responsive';
 
@@ -40,39 +41,92 @@ const DeselectButton = styled.button`
   color: white;
 `;
 
-const SelectedBerth = ({ berth, index, moveUp, moveDown, first, last, deselectBerth }) => (
-  <Container fluid>
-    <StyledRow>
-      <BerthName xs={9} md={10}>
-        <DeselectButton type="button" onClick={() => deselectBerth(berth.identifier)}>
-          <Icon name="times" width="30px" />
-        </DeselectButton>
-        <span key={berth.identifier}>
-          {index + 1}. {berth.name.fi}
-        </span>
-      </BerthName>
-      <BerthOptions xs={3} md={2}>
-        <Container fluid>
-          <Row>
-            <Col xs={12} sm={6}>
-              <StyledButton type="button" onClick={() => moveUp(berth.identifier)} disabled={first}>
-                <Icon name="angleUp" width="30px" color={first ? 'lightgray' : 'black'} />
-              </StyledButton>
-            </Col>
-            <Col xs={12} sm={6}>
-              <StyledButton
-                type="button"
-                onClick={() => moveDown(berth.identifier)}
-                disabled={last}
+const Invalid = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+const ToolTip = styled.div`
+  display: ${props => (props.show ? 'block' : 'none')};
+  position: absolute;
+  background-color: red;
+  border: 1px solid black;
+  z-index: 1;
+`;
+
+class SelectedBerth extends Component {
+  state = {
+    show: false
+  };
+
+  toggle = visibility => this.setState(() => ({ show: visibility }));
+
+  render() {
+    const { show } = this.state;
+    const {
+      berth,
+      index,
+      moveUp,
+      moveDown,
+      first,
+      last,
+      deselectBerth,
+      missingServices
+    } = this.props;
+
+    return (
+      <Container fluid>
+        <StyledRow>
+          <BerthName xs={9} md={10}>
+            <DeselectButton type="button" onClick={() => deselectBerth(berth.identifier)}>
+              <Icon name="times" width="30px" />
+            </DeselectButton>
+            <span key={berth.identifier}>
+              {index + 1}. {berth.name.fi}
+            </span>
+            {missingServices && (
+              <Invalid
+                onMouseEnter={() => this.toggle(true)}
+                onMouseLeave={() => this.toggle(false)}
               >
-                <Icon name="angleDown" width="30px" color={last ? 'lightgray' : 'black'} />
-              </StyledButton>
-            </Col>
-          </Row>
-        </Container>
-      </BerthOptions>
-    </StyledRow>
-  </Container>
-);
+                <Icon color="red" name="commenting" width="1em" height="1em" />
+                <ToolTip show={show}>
+                  <ul>
+                    {missingServices.map(a => (
+                      <li key={a}>{a}</li>
+                    ))}
+                  </ul>
+                </ToolTip>
+              </Invalid>
+            )}
+          </BerthName>
+          <BerthOptions xs={3} md={2}>
+            <Container fluid>
+              <Row>
+                <Col xs={12} sm={6}>
+                  <StyledButton
+                    type="button"
+                    onClick={() => moveUp(berth.identifier)}
+                    disabled={first}
+                  >
+                    <Icon name="angleUp" width="30px" color={first ? 'lightgray' : 'black'} />
+                  </StyledButton>
+                </Col>
+                <Col xs={12} sm={6}>
+                  <StyledButton
+                    type="button"
+                    onClick={() => moveDown(berth.identifier)}
+                    disabled={last}
+                  >
+                    <Icon name="angleDown" width="30px" color={last ? 'lightgray' : 'black'} />
+                  </StyledButton>
+                </Col>
+              </Row>
+            </Container>
+          </BerthOptions>
+        </StyledRow>
+      </Container>
+    );
+  }
+}
 
 export default SelectedBerth;

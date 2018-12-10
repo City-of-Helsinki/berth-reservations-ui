@@ -20,6 +20,7 @@ import streetLight from './icons/street-light.svg';
 import angleUp from './icons/angle-up.svg';
 import angleDown from './icons/angle-down.svg';
 import times from './icons/times.svg';
+import commenting from './icons/commenting-o.svg';
 
 const icons = {
   helsinkiLogo,
@@ -39,7 +40,8 @@ const icons = {
   streetLight,
   angleUp,
   angleDown,
-  times
+  times,
+  commenting
 };
 
 type Names = $Keys<typeof icons>;
@@ -57,7 +59,10 @@ const Icon = ({
   color: fill = 'currentColor',
   width = 'auto',
   height = 'auto',
-  className
-}: Props) => <Svg className={className} svgStyle={{ width, height, fill }} src={icons[name]} />;
+  className,
+  ...rest
+}: Props) => (
+  <Svg className={className} svgStyle={{ width, height, fill }} src={icons[name]} {...rest} />
+);
 
 export default Icon;

@@ -18,7 +18,14 @@ class BerthPage extends Component<Props> {
   };
 
   render() {
-    const { berths, selectedBerths, deselectBerth, moveUp, moveDown } = this.props;
+    const {
+      berths,
+      selectedBerths,
+      deselectBerth,
+      moveUp,
+      moveDown,
+      selectedServices
+    } = this.props;
     return (
       <Layout>
         <Wrapper>
@@ -27,6 +34,7 @@ class BerthPage extends Component<Props> {
             moveUp={moveUp}
             moveDown={moveDown}
             deselectBerth={deselectBerth}
+            selectedServices={selectedServices}
             berths={selectedBerths.map(key => berths.find(berth => key === berth.identifier))}
           />
         </Wrapper>
