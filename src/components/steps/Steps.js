@@ -14,7 +14,7 @@ const StepIndicatorSection = styled.div`
 
 const StepContainer = styled(Container)`
   ${media.md`
-    width: 65em;
+    width: ${props => props.theme.maxWidth.xl};
   `};
 `;
 type StepProp = { key: string, completed: boolean, current: boolean, linkTo?: string };
