@@ -29,11 +29,6 @@ type Props = {
 
 const services = [
   {
-    label: 'form.services.field.mooring.label',
-    value: 'mooring',
-    icon: 'pole'
-  },
-  {
     label: 'form.services.field.electricity.label',
     value: 'electricity',
     icon: 'plug'
