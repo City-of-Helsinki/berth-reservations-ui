@@ -16,6 +16,7 @@ const RegisteredBoatFragment = ({ prefix, noValidate = false }: FormFragmentProp
         validate={mustBeNumber}
         name={`${prefix}.width`}
         label="form.registered.field.width.label"
+        placeholder="form.registered.field.width.placeholder"
         append="m"
         required
       />
@@ -26,6 +27,7 @@ const RegisteredBoatFragment = ({ prefix, noValidate = false }: FormFragmentProp
         validate={mustBeNumber}
         name={`${prefix}.length`}
         label="form.registered.field.length.label"
+        placeholder="form.registered.field.length.placeholder"
         append="m"
         required
       />
@@ -36,6 +38,7 @@ const RegisteredBoatFragment = ({ prefix, noValidate = false }: FormFragmentProp
         validate={mustBeNumber}
         name={`${prefix}.draught`}
         label="form.registered.field.draught.label"
+        placeholder="form.registered.field.draught.placeholder"
         append="m"
         required
       />
@@ -45,7 +48,9 @@ const RegisteredBoatFragment = ({ prefix, noValidate = false }: FormFragmentProp
         noValidate={noValidate}
         validate={mustBeNumber}
         name={`${prefix}.weight`}
+        step={100}
         label="form.registered.field.weight.label"
+        placeholder="form.registered.field.weight.placeholder"
         append="kg"
         required
       />

@@ -24,6 +24,7 @@ const UnRegisteredBoatDetailsFragment = ({
         validate={mustBeNumber}
         name={`${prefix}.width`}
         label="form.no_boat.field.width.label"
+        placeholder="form.no_boat.field.width.placeholder"
         append="m"
         required
       />
@@ -34,6 +35,7 @@ const UnRegisteredBoatDetailsFragment = ({
         validate={mustBeNumber}
         name={`${prefix}.length`}
         label="form.no_boat.field.length.label"
+        placeholder="form.no_boat.field.length.placeholder"
         append="m"
         required
       />

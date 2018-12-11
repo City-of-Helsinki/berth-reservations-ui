@@ -14,6 +14,7 @@ type Props = {
 export default ({ prefix }: Props) => (
   <StyledContainer>
     <FormattedMessage tagName="h3" id="form.private_person.header.title" />
+    <FormattedMessage tagName="p" id="form.private_person.header.paragraph" />
     <FullName prefix={`${prefix}.name`} />
     <PostalDetails prefix={`${prefix}.postal`} />
     <ContactDetails prefix={`${prefix}.contact`} />
