@@ -106,8 +106,8 @@ class SelectedBerth extends Component {
                 <ToolTip show={show}>
                   {notSuitable && <span>DOES NOT MATCH WITH BOAT TYPE</span>}
                   <ul>
-                    {missingServices.map(a => (
-                      <li key={a}>{a}</li>
+                    {missingServices.map(service => (
+                      <li key={service}>{service}</li>
                     ))}
                   </ul>
                 </ToolTip>
