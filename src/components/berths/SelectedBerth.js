@@ -63,6 +63,7 @@ class SelectedBerth extends Component {
 
   render() {
     const { show } = this.state;
+
     const {
       berth,
       index,
