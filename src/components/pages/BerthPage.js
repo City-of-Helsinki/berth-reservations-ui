@@ -27,11 +27,6 @@ class BerthPage extends Component<Props> {
     }
   }
 
-  onSubmit = async (values: any) => {
-    const { onSubmit } = this.props;
-    await onSubmit(values);
-  };
-
   moveToForm = async () => {
     const { localePush } = this.props;
     await localePush('/selected_berths');
@@ -70,7 +65,8 @@ class BerthPage extends Component<Props> {
       selectedBerths,
       selectedServices,
       selectService,
-      deselectService
+      deselectService,
+      onSubmit
     } = this.props;
     const filter = this.getFilterByValues(initialValues, selectedServices);
     const filtered = berths.filter(filter);
@@ -81,7 +77,7 @@ class BerthPage extends Component<Props> {
           <BerthsLegend
             boatTypes={boatTypes}
             initialValues={initialValues}
-            onSubmit={this.onSubmit}
+            onSubmit={onSubmit}
             selectedServices={selectedServices}
             selectService={selectService}
             deselectService={deselectService}
