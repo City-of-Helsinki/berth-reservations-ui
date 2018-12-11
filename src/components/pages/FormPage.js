@@ -58,9 +58,15 @@ class BoatPage extends PureComponent<Props, any> {
           steps={[
             {
               key: 'berths',
-              completed: step > -1,
-              current: step === -1,
+              completed: true,
+              current: false,
               linkTo: `berths`
+            },
+            {
+              key: 'selected_berths',
+              completed: true,
+              current: false,
+              linkTo: `selected_berths`
             },
             {
               key: 'boat_information',

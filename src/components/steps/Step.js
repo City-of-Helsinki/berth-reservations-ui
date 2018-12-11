@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import Icon from '../common/Icon';
 import LocalizedLink from '../common/LocalizedLink';
 
 type Props = {
@@ -19,28 +18,30 @@ const Section = styled.div`
     color: inherit;
   }
   display: block;
-  text-align: center;
+  text-align: left;
 `;
 
-const Circle = styled.div`
-  width: 3em;
-  height: 3em;
-  font-size: 1.2em;
+const StatusBox = styled.div`
+  height: 1.25em;
   color: #000;
   margin: auto;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
   padding-top: 0.1em;
-  border: 0.1em solid #000;
-  border-radius: 50%;
+  border-radius: 0.67em;
   background-color: ${props => {
     if (props.current) {
       return props.theme.colors.blue;
     }
     if (props.completed) {
-      return props.theme.colors.light;
+      return props.theme.colors.blue;
     }
-    return 'none';
+    return props.theme.colors.light;
   }}};
+`;
+
+const StatusTitle = styled.div`
+  font-weight: 500;
+  padding-left: 0.3em;
 `;
 
 export default class Step extends React.Component<Props> {
@@ -51,14 +52,11 @@ export default class Step extends React.Component<Props> {
 
   render() {
     const { completed, current, label, linkTo } = this.props;
-    const content = completed ? <Icon name="check" width="50px" color="#000" /> : '';
 
     return (
       <Section as={linkTo ? LocalizedLink : 'div'} to={linkTo}>
-        <Circle completed={completed} current={current}>
-          {content}
-        </Circle>
-        <div>{label}</div>
+        <StatusBox completed={completed} current={current} />
+        <StatusTitle>{label}</StatusTitle>
       </Section>
     );
   }
