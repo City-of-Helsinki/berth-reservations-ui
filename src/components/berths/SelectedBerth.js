@@ -70,8 +70,20 @@ class SelectedBerth extends Component {
       first,
       last,
       deselectBerth,
-      missingServices
+      requiredServices,
+      selectedBoatType
     } = this.props;
+
+    const missingServices = requiredServices.reduce((acc, service) => {
+      if (!berth[service]) {
+        acc.push(service);
+      }
+      return acc;
+    }, []);
+
+    const notSuitable = !berth.suitable_boat_types.includes(selectedBoatType);
+
+    const isInvalid = notSuitable || missingServices.length > 0;
 
     return (
       <Container fluid>
@@ -83,13 +95,14 @@ class SelectedBerth extends Component {
             <span key={berth.identifier}>
               {index + 1}. {berth.name.fi}
             </span>
-            {missingServices.length > 0 && (
+            {isInvalid && (
               <Invalid
                 onMouseEnter={() => this.toggle(true)}
                 onMouseLeave={() => this.toggle(false)}
               >
                 <Icon color="red" name="commenting" width="1em" height="1em" />
                 <ToolTip show={show}>
+                  {notSuitable && <span>DOES NOT MATCH WITH BOAT TYPE</span>}
                   <ul>
                     {missingServices.map(a => (
                       <li key={a}>{a}</li>

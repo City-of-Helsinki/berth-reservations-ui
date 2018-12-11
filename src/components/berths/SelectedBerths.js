@@ -16,12 +16,12 @@ const SelectedBerths = ({
   moveDown,
   progress,
   deselectBerth,
-  selectedServices
+  selectedServices,
+  selectedBoatType
 }) => {
   const requiredServices = Array.from(selectedServices.entries())
     .filter(([, value]) => value)
     .map(([key]) => key);
-
   return (
     <Container>
       <FormattedMessage tagName="h1" id="page.berth.selected.title" />
@@ -43,12 +43,8 @@ const SelectedBerths = ({
               moveUp={moveUp}
               moveDown={moveDown}
               deselectBerth={deselectBerth}
-              missingServices={requiredServices.reduce((acc, service) => {
-                if (!berth[service]) {
-                  acc.push(service);
-                }
-                return acc;
-              }, [])}
+              selectedBoatType={selectedBoatType}
+              requiredServices={requiredServices}
             />
           ))}
         </div>

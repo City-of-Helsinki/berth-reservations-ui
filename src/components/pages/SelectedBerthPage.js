@@ -24,7 +24,8 @@ class BerthPage extends Component<Props> {
       deselectBerth,
       moveUp,
       moveDown,
-      selectedServices
+      selectedServices,
+      selectedBoatType
     } = this.props;
     return (
       <Layout>
@@ -35,6 +36,7 @@ class BerthPage extends Component<Props> {
             moveDown={moveDown}
             deselectBerth={deselectBerth}
             selectedServices={selectedServices}
+            selectedBoatType={selectedBoatType}
             berths={selectedBerths.map(key => berths.find(berth => key === berth.identifier))}
           />
         </Wrapper>
