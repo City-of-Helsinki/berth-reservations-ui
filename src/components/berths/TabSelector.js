@@ -2,7 +2,9 @@
 import React, { Component, type Node } from 'react';
 import styled from 'styled-components';
 import { StickyContainer, Sticky } from 'react-sticky';
+import { FormattedMessage } from 'react-intl';
 import responsive from '../../utils/responsive';
+import IntlComponent from '../common/IntlComponent';
 
 const TabsWrapper = styled.div`
   background-color: ${props => props.theme.helLight};
@@ -46,14 +48,32 @@ const Tabs = styled.div`
   margin-top: 3em;
 `;
 
+const ProgressButton = styled.button`
+  margin-left: 1ch;
+`;
+
 type Props = {
   children: Array<Node>,
   progress: Function,
-  progressDisabled: boolean
+  selectedCount: number
 };
 
 type State = {
   tab: number
+};
+const { REACT_APP_MAX_SELECTED_BERTHS = 0 } = process.env;
+
+// $FlowFixMe
+const maxSelected: number = Number.parseInt(REACT_APP_MAX_SELECTED_BERTHS, 10) || 0;
+
+const getFormatedMessageId = (count, total) => {
+  if (count) {
+    if (count === total) {
+      return 'tab_selector.progress.message.max';
+    }
+    return 'tab_selector.progress.message.other';
+  }
+  return 'tab_selector.progress.message.zero';
 };
 
 class TabSelector extends Component<Props, State> {
@@ -77,7 +97,7 @@ class TabSelector extends Component<Props, State> {
 
   render() {
     const { tab } = this.state;
-    const { children, progress, progressDisabled } = this.props;
+    const { children, progress, selectedCount } = this.props;
 
     // $FlowFixMe
     const headers = children.map(c => c.props.TabHeader);
@@ -88,17 +108,26 @@ class TabSelector extends Component<Props, State> {
             <TabsWrapper style={style}>
               <TabsInnerWrapper>
                 <div>
-                  {headers.map((T, i) => (
+                  {headers.map((TabComponent, i) => (
                     <TabButton block key={i} onClick={() => this.selectTab(i)} active={i === tab}>
-                      <T />
+                      <TabComponent />
                     </TabButton>
                   ))}
                 </div>
                 <div>
-                  <span>Sinulla on vielä maksimissaan 10 satamaa valittavissa</span>
-                  <button onClick={progress} disabled={progressDisabled}>
-                    JATKA
-                  </button>
+                  <FormattedMessage
+                    id={getFormatedMessageId(selectedCount, maxSelected)}
+                    values={{
+                      total: REACT_APP_MAX_SELECTED_BERTHS,
+                      count: maxSelected - selectedCount
+                    }}
+                  />
+                  <IntlComponent
+                    id="tab_selector.progress.button"
+                    Component={ProgressButton}
+                    onClick={progress}
+                    disabled={selectedCount === 0}
+                  />
                 </div>
               </TabsInnerWrapper>
             </TabsWrapper>

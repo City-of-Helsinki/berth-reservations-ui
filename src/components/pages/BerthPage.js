@@ -82,7 +82,7 @@ class BerthPage extends Component<Props> {
             selectService={selectService}
             deselectService={deselectService}
           />
-          <TabSelector progress={this.moveToForm} progressDisabled={selectedBerths.size === 0}>
+          <TabSelector progress={this.moveToForm} selectedCount={selectedBerths.size}>
             <BerthsOnMap
               TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
               filtered={filtered}
