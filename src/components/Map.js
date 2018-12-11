@@ -17,6 +17,9 @@ const style = {
 
 const StyledDiv = styled.div`
   max-width: ${props => props.theme.maxWidth.xl};
+
+  margin-left: 15px;
+  margin-right: 15px;
   flex-grow: 1;
 `;
 

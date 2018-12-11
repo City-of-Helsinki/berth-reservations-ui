@@ -82,7 +82,7 @@ class BerthPage extends Component<Props> {
             selectService={selectService}
             deselectService={deselectService}
           />
-          <TabSelector>
+          <TabSelector progress={this.moveToForm} selectedCount={selectedBerths.size}>
             <BerthsOnMap
               TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
               filtered={filtered}
@@ -97,7 +97,6 @@ class BerthPage extends Component<Props> {
               selected={selectedBerths}
               onClick={this.toggleBerthSelect}
             />
-            <div TabHeader={() => <button onClick={this.moveToForm}>Jatka</button>} />
           </TabSelector>
         </Wrapper>
       </Layout>
