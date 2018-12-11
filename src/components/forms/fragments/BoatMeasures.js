@@ -48,6 +48,7 @@ const RegisteredBoatFragment = ({ prefix, noValidate = false }: FormFragmentProp
         noValidate={noValidate}
         validate={mustBeNumber}
         name={`${prefix}.weight`}
+        step={100}
         label="form.registered.field.weight.label"
         placeholder="form.registered.field.weight.placeholder"
         append="kg"

@@ -15,7 +15,6 @@ const ContactByFragment = ({ prefix, noValidate = false }: FormFragmentProps) =>
           noValidate={noValidate}
           name={`${prefix}.email`}
           label="form.overview.field.email.label"
-          placeholder="form.overview.field.email.placeholder"
         />
       </Col>
       <Col sm={3}>
@@ -23,7 +22,6 @@ const ContactByFragment = ({ prefix, noValidate = false }: FormFragmentProps) =>
           noValidate={noValidate}
           name={`${prefix}.sms`}
           label="form.overview.field.sms.label"
-          placeholder="form.overview.field.sms.placeholder"
         />
       </Col>
     </Row>
