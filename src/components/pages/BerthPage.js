@@ -72,7 +72,7 @@ class BerthPage extends Component<Props> {
     const filtered = berths.filter(filter);
     const FilteredNot = berths.filterNot(filter);
     return (
-      <Layout>
+      <Layout hero>
         <Wrapper>
           <BerthsLegend
             boatTypes={boatTypes}
