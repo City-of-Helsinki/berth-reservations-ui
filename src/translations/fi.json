@@ -54,6 +54,8 @@
 
   "legend.berths.title": "Millaista venepaikkaa olet hakemassa?",
   "legend.berths.legend": "Selaa kaupungin tarjoamia satamia ja venepaikkoja. Valitse enintään kymmenen sopivaa satamaa hakemukseesi.",
+  "legend.selected_berths.title": "Satamien tarkistus",
+  "legend.selected_berths.legend": "Tarkista valitsemasi satamat ja niiden soveltuvuus veneellesi. Järjestä valitsemasi satamat toivejärjestykseen.",
   "legend.boat.title": "Veneen tiedot",
   "legend.boat.legend": "Venepaikkaa haetaan venekohtaisesti. Anna tässä haettavalla venepaikalla pidettävän veneen tiedot. Voit myös hakea venepaikkaa vaikka sinulla ei ole vielä venettä.",
   "legend.person.title": "Hakijan tiedot",
