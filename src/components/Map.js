@@ -37,6 +37,12 @@ export default class MapCanvas extends Component<Props, State> {
     selectedBerth: null
   };
 
+  toggleBerthSelect = (berth: BerthType) => {
+    this.setState(({ selectedBerth }) => ({
+      selectedBerth: selectedBerth && selectedBerth.identifier === berth.identifier ? null : berth
+    }));
+  };
+
   render() {
     const { filtered, filteredNot, selected, onClick } = this.props;
     const { selectedBerth } = this.state;
@@ -57,7 +63,7 @@ export default class MapCanvas extends Component<Props, State> {
                 markerIcon={mapIcon(isSelected, isPreviewed, false)}
                 key={berth.identifier}
                 position={berth.location.coordinates}
-                onClick={() => this.setState({ selectedBerth: berth })}
+                onClick={() => this.toggleBerthSelect(berth)}
               />
             );
           })}
@@ -71,7 +77,7 @@ export default class MapCanvas extends Component<Props, State> {
                 markerIcon={mapIcon(isSelected, isPreviewed, true)}
                 key={berth.identifier}
                 position={berth.location.coordinates}
-                onClick={() => this.setState({ selectedBerth: berth })}
+                onClick={() => this.toggleBerthSelect(berth)}
               />
             );
           })}
