@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import SelectedBerths from '../berths/SelectedBerths';
+import SelectedBerthsLegend from '../legends/SelectedBerthsLegend';
 
 import Layout from '../layout/Layout';
 
@@ -22,6 +23,8 @@ class BerthPage extends Component<Props> {
     return (
       <Layout>
         <Wrapper>
+          <SelectedBerthsLegend />
+
           <SelectedBerths
             progress={this.moveToForm}
             moveUp={moveUp}

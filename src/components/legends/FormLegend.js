@@ -6,7 +6,6 @@ import { FormattedMessage } from 'react-intl';
 
 const Legend = styled.div`
   background-color: ${props => props.theme.colors.helFog};
-  padding-top: 3em;
 `;
 
 const LegendContainer = styled(Container)`
