@@ -108,7 +108,7 @@ const BerthsLegend = ({
                 key: 'berths',
                 completed: false,
                 current: true,
-                linkTo: `berths`
+                linkTo: undefined
               },
               {
                 key: 'selected_berths',

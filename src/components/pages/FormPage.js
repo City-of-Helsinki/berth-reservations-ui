@@ -59,30 +59,30 @@ class BoatPage extends PureComponent<Props, any> {
             {
               key: 'berths',
               completed: true,
-              current: step === -1,
+              current: false,
               linkTo: `berths`
             },
             {
               key: 'selected_berths',
               completed: true,
-              current: step === 0,
-              linkTo: step > -1 ? `selected_berths` : undefined
+              current: false,
+              linkTo: `selected_berths`
             },
             {
               key: 'boat_information',
-              completed: step > -1,
+              completed: step > 0,
               current: step === 0,
               linkTo: step > 0 ? `form/${tabs[0]}` : undefined
             },
             {
               key: 'applicant',
-              completed: step > 0,
+              completed: step > 1,
               current: step === 1,
               linkTo: step > 1 ? `form/${tabs[1]}` : undefined
             },
             {
               key: 'send_application',
-              completed: step > 1,
+              completed: step > 2,
               current: step === 2,
               linkTo: step > 2 ? `form/${tabs[2]}` : undefined
             }

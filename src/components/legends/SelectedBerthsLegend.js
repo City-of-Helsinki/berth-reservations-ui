@@ -22,8 +22,8 @@ const BerthsLegend = () => (
             steps={[
               {
                 key: 'berths',
-                completed: false,
-                current: true,
+                completed: true,
+                current: false,
                 linkTo: `berths`
               },
               {
