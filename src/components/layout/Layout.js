@@ -13,7 +13,8 @@ import heroImage from '../../assets/images/hero_image_berth.jpg';
 import responsive from '../../utils/responsive';
 
 type Props = {
-  children: any
+  children: any,
+  hero?: boolean
 };
 
 const TopNavbar = styled(Navbar)`
@@ -58,7 +59,7 @@ const Content = styled(KoroSection).attrs({
   color: 'fog'
 })``;
 
-const Layout = ({ children }: Props) => (
+const Layout = ({ children, hero }: Props) => (
   <Fragment>
     <TopNavbar expand="md">
       <NavbarBrand href="/">
@@ -73,9 +74,11 @@ const Layout = ({ children }: Props) => (
         <FormattedMessage id="site.title" />
       </NavbarBrand>
     </BottomNavbar>
-    <Hero>
-      <FormattedMessage tagName="h1" id="site.title" />
-    </Hero>
+    {hero && (
+      <Hero>
+        <FormattedMessage tagName="h1" id="site.title" />
+      </Hero>
+    )}
     <Content>{children}</Content>
     <KoroSection bottom color="blue">
       <Footer />

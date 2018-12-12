@@ -12,6 +12,7 @@ const FullNameFragment = ({ prefix, noValidate = false }: FormFragmentProps) => 
         noValidate={noValidate}
         name={`${prefix}.first_name`}
         label="form.private_person.field.first_name.label"
+        placeholder="form.private_person.field.first_name.placeholder"
         required
       />
     </Col>
@@ -20,6 +21,7 @@ const FullNameFragment = ({ prefix, noValidate = false }: FormFragmentProps) => 
         noValidate={noValidate}
         name={`${prefix}.last_name`}
         label="form.private_person.field.last_name.label"
+        placeholder="form.private_person.field.last_name.placeholder"
         required
       />
     </Col>

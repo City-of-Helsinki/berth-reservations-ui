@@ -21,7 +21,6 @@ export type Berth = {
   },
   image: string,
   image_link: string,
-  mooring: boolean,
   electricity: boolean,
   water: boolean,
   waste_collection: boolean,

@@ -14,7 +14,7 @@ const StepIndicatorSection = styled.div`
 
 const StepContainer = styled(Container)`
   ${media.md`
-    width: 45em;
+    width: ${props => props.theme.maxWidth.xl};
   `};
 `;
 type StepProp = { key: string, completed: boolean, current: boolean, linkTo?: string };
@@ -29,7 +29,7 @@ const Steps = ({ intl: { formatMessage }, steps }: Props) => (
     <StepContainer>
       <Row>
         {steps.map(({ key, completed, current, linkTo }) => (
-          <Col xs="3" key={key}>
+          <Col xs="2" key={key}>
             <Step
               linkTo={linkTo}
               completed={completed}

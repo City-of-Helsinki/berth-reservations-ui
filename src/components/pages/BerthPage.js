@@ -27,11 +27,6 @@ class BerthPage extends Component<Props> {
     }
   }
 
-  onSubmit = async (values: any) => {
-    const { onSubmit } = this.props;
-    await onSubmit(values);
-  };
-
   moveToForm = async () => {
     const { localePush } = this.props;
     await localePush('/selected_berths');
@@ -54,27 +49,28 @@ class BerthPage extends Component<Props> {
       selectedBerths,
       selectedServices,
       selectService,
-      deselectService
+      deselectService,
+      onSubmit
     } = this.props;
     const filter = getBerthFilterByValues(initialValues, selectedServices);
     const filtered = berths.filter(filter);
     const FilteredNot = berths.filterNot(filter);
     return (
-      <Layout>
+      <Layout hero>
         <Wrapper>
           <BerthsLegend
             boatTypes={boatTypes}
             initialValues={initialValues}
-            onSubmit={this.onSubmit}
+            onSubmit={onSubmit}
             selectedServices={selectedServices}
             selectService={selectService}
             deselectService={deselectService}
           />
-          <TabSelector>
+          <TabSelector progress={this.moveToForm} selectedCount={selectedBerths.size}>
             <BerthsOnMap
               TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
-              berths={berths}
               filtered={filtered}
+              filteredNot={FilteredNot}
               selected={selectedBerths}
               onClick={this.toggleBerthSelect}
             />
@@ -85,7 +81,6 @@ class BerthPage extends Component<Props> {
               selected={selectedBerths}
               onClick={this.toggleBerthSelect}
             />
-            <div TabHeader={() => <button onClick={this.moveToForm}>Jatka</button>} />
           </TabSelector>
         </Wrapper>
       </Layout>

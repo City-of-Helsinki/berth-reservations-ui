@@ -14,6 +14,7 @@ const ContactDetailsFragment = ({ prefix, noValidate = false }: FormFragmentProp
         validate={mustBePhoneNumber}
         name={`${prefix}.mobile_phone`}
         label="form.contact_details.field.mobile_phone.label"
+        placeholder="form.contact_details.field.mobile_phone.placeholder"
         required
       />
     </Col>
@@ -23,6 +24,7 @@ const ContactDetailsFragment = ({ prefix, noValidate = false }: FormFragmentProp
         validate={mustBeEmail}
         name={`${prefix}.email`}
         label={`form.contact_details.field.email.label`}
+        placeholder={`form.contact_details.field.email.placeholder`}
         required
       />
     </Col>

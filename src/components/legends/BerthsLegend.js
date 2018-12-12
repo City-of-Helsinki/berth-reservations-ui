@@ -8,10 +8,10 @@ import AutoSave from '../forms/AutoSave';
 import UnRegisteredBoatDetails from '../forms/fragments/UnRegisteredBoatDetails';
 import type { WithBoatType } from '../forms/Selects';
 import Icon from '../common/Icon';
+import Steps from '../steps/Steps';
 
 const Legend = styled.div`
   background-color: ${props => props.theme.colors.helFog};
-  padding-top: 3em;
 `;
 
 const LegendContainer = styled(Container)`
@@ -28,11 +28,6 @@ type Props = {
 } & WithBoatType;
 
 const services = [
-  {
-    label: 'form.services.field.mooring.label',
-    value: 'mooring',
-    icon: 'pole'
-  },
   {
     label: 'form.services.field.electricity.label',
     value: 'electricity',
@@ -105,6 +100,44 @@ const BerthsLegend = ({
 }: Props) => (
   <Legend>
     <LegendContainer>
+      <Row>
+        <Col md="12">
+          <Steps
+            steps={[
+              {
+                key: 'berths',
+                completed: false,
+                current: true,
+                linkTo: undefined
+              },
+              {
+                key: 'selected_berths',
+                completed: false,
+                current: false,
+                linkTo: undefined
+              },
+              {
+                key: 'boat_information',
+                completed: false,
+                current: false,
+                linkTo: undefined
+              },
+              {
+                key: 'applicant',
+                completed: false,
+                current: false,
+                linkTo: undefined
+              },
+              {
+                key: 'send_application',
+                completed: false,
+                current: false,
+                linkTo: undefined
+              }
+            ]}
+          />
+        </Col>
+      </Row>
       <Row>
         <Col md="12">
           <FormattedMessage tagName="h3" id="legend.berths.title" />
