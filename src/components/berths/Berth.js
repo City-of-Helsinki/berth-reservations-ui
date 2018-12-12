@@ -160,7 +160,7 @@ export default ({ berth, className, onClick, selected, disabled, excluded }: Pro
               Component={ErrorAlert}
               id="error.message.invalid_berth"
               // $FlowFixMe
-              visible={(selected && excluded).toString()}
+              visible={excluded ? 'true' : 'false'}
             />
             <BerthImage src={berth.image} alt={berth.name.fi} />
           </Col>

@@ -27,8 +27,7 @@ type State = {
   lat: number,
   lng: number,
   zoom: number,
-  selectedBerth: BerthType | null,
-  excluded: boolean
+  selectedBerth: BerthType | null
 };
 
 type Props = any;
@@ -38,22 +37,23 @@ export default class MapCanvas extends Component<Props, State> {
     lng: 25.02,
     lat: 60.17908,
     zoom: 11.5,
-    selectedBerth: null,
-    excluded: false
+    selectedBerth: null
   };
 
-  toggleBerthSelect = (berth: BerthType, excluded: boolean) => {
+  toggleBerthSelect = (berth: BerthType) => {
     this.setState(({ selectedBerth }) => ({
-      excluded,
       selectedBerth: selectedBerth && selectedBerth.identifier === berth.identifier ? null : berth
     }));
   };
 
   render() {
     const { filtered, filteredNot, selected, onClick } = this.props;
-    const { selectedBerth, excluded } = this.state;
+    const { selectedBerth } = this.state;
     const position = [this.state.lat, this.state.lng];
     const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
+
+    const excluded =
+      selectedBerth && filteredNot.some(berth => berth.identifier === selectedBerth.identifier);
 
     return (
       <StyledDiv>
@@ -69,7 +69,7 @@ export default class MapCanvas extends Component<Props, State> {
                 markerIcon={mapIcon(isSelected, isPreviewed, false)}
                 key={berth.identifier}
                 position={berth.location.coordinates}
-                onClick={() => this.toggleBerthSelect(berth, false)}
+                onClick={() => this.toggleBerthSelect(berth)}
               />
             );
           })}
@@ -83,14 +83,14 @@ export default class MapCanvas extends Component<Props, State> {
                 markerIcon={mapIcon(isSelected, isPreviewed, true)}
                 key={berth.identifier}
                 position={berth.location.coordinates}
-                onClick={() => this.toggleBerthSelect(berth, true)}
+                onClick={() => this.toggleBerthSelect(berth)}
               />
             );
           })}
         </Map>
         {selectedBerth && (
           <Berth
-            excluded={excluded}
+            excluded={!!excluded}
             key={selectedBerth.identifier}
             berth={selectedBerth}
             onClick={() => onClick(selectedBerth.identifier)}
