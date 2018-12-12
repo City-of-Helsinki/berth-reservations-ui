@@ -1,5 +1,5 @@
 // @flow
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Row, Col, Button, Alert } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
@@ -172,12 +172,10 @@ export default ({ berth, className, onClick, selected, disabled, excluded }: Pro
                 {berth.street_address.fi}, {berth.zip_code} {berth.municipality.fi}
               </BerthAddress>
               {selected ? (
-                <Fragment>
-                  <Button color={excluded ? 'danger' : 'secondary'} onClick={onClick}>
-                    <ButtonIcon name="check" width="1em" height="1em" />
-                    <FormattedMessage tagName="span" id="page.berths.selected" />
-                  </Button>
-                </Fragment>
+                <Button color={excluded ? 'danger' : 'secondary'} onClick={onClick}>
+                  <ButtonIcon name="check" width="1em" height="1em" />
+                  <FormattedMessage tagName="span" id="page.berths.selected" />
+                </Button>
               ) : (
                 <Button outline primary="true" onClick={onClick} disabled={disabled}>
                   + <FormattedMessage tagName="span" id="page.berths.select" />
