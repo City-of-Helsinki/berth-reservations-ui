@@ -20,6 +20,11 @@ export type FormsState = RecordOf<FormProps>;
 export type BerthsFactory = RecordFactory<BerthsProps>;
 export type BerthsState = RecordOf<BerthsProps>;
 
+export type Store = {
+  forms: FormsState,
+  berths: BerthsState
+};
+
 export type Action = {
   type: string,
   payload: any

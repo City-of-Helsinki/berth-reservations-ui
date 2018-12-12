@@ -1,11 +1,12 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { Row, Col, Button } from 'reactstrap';
+import { Row, Col, Button, Alert } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import Icon from '../common/Icon';
 import type { Berth } from '../../types/berths';
 import responsive from '../../utils/responsive';
+import IntlComponent from '../common/IntlComponent';
 
 const Details = styled.div`
   display: flex;
@@ -129,7 +130,8 @@ type Props = {
   className?: string,
   onClick: Function,
   selected: boolean,
-  disabled?: boolean
+  disabled?: boolean,
+  excluded?: boolean
 };
 const Heading = styled.strong`
   font-size: 18px;
@@ -138,12 +140,28 @@ const Heading = styled.strong`
   `}
 `;
 
-export default ({ berth, className, onClick, selected, disabled }: Props) => (
+const ErrorAlert = styled(Alert).attrs({
+  color: 'danger'
+})`
+  display: ${props => (props.visible === 'true' ? 'block' : 'none')};
+  position: absolute;
+  margin: 10px 25px 0px 10px;
+  padding: 8px;
+  font-size: 12px;
+`;
+
+export default ({ berth, className, onClick, selected, disabled, excluded }: Props) => (
   <Row className={className}>
     <Col xs={12}>
       <StyledDiv>
         <Row>
           <Col lg={3}>
+            <IntlComponent
+              Component={ErrorAlert}
+              id="error.message.invalid_berth"
+              // $FlowFixMe
+              visible={excluded ? 'true' : 'false'}
+            />
             <BerthImage src={berth.image} alt={berth.name.fi} />
           </Col>
           <Col lg={4}>
@@ -154,7 +172,7 @@ export default ({ berth, className, onClick, selected, disabled }: Props) => (
                 {berth.street_address.fi}, {berth.zip_code} {berth.municipality.fi}
               </BerthAddress>
               {selected ? (
-                <Button color="secondary" onClick={onClick}>
+                <Button color={excluded ? 'danger' : 'secondary'} onClick={onClick}>
                   <ButtonIcon name="check" width="1em" height="1em" />
                   <FormattedMessage tagName="span" id="page.berths.selected" />
                 </Button>

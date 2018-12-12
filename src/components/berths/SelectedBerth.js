@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
+
 import Icon from '../common/Icon';
 import responsive from '../../utils/responsive';
+import InvalidSelection from './InvalidSelection';
 
 const StyledRow = styled(Row)`
   margin-top: 0.2em;
@@ -10,8 +12,9 @@ const StyledRow = styled(Row)`
 `;
 
 const BerthName = styled(Col)`
-  background-color: #2d72c0;
-  color: #fff;
+  background-color: ${props =>
+    props.errors === 'true' ? props.theme.helCoat : props.theme.helLight};
+  color: ${props => (props.errors === 'true' ? props.theme.helWhite : props.theme.helGray)};
   font-size: 0.875em;
   padding: 0.3em;
   padding-left: 0.8em;
@@ -31,6 +34,7 @@ const StyledButton = styled.button`
   margin-left: 1em;
   border: 2px solid ${props => (props.disabled ? 'lightgray' : 'black')};
 `;
+
 const DeselectButton = styled.button`
   background: none;
   height: 100%;
@@ -40,39 +44,51 @@ const DeselectButton = styled.button`
   color: white;
 `;
 
-const SelectedBerth = ({ berth, index, moveUp, moveDown, first, last, deselectBerth }) => (
-  <Container fluid>
-    <StyledRow>
-      <BerthName xs={9} md={10}>
-        <DeselectButton type="button" onClick={() => deselectBerth(berth.identifier)}>
-          <Icon name="times" width="30px" />
-        </DeselectButton>
-        <span key={berth.identifier}>
-          {index + 1}. {berth.name.fi}
-        </span>
-      </BerthName>
-      <BerthOptions xs={3} md={2}>
-        <Container fluid>
-          <Row>
-            <Col xs={12} sm={6}>
-              <StyledButton type="button" onClick={() => moveUp(berth.identifier)} disabled={first}>
-                <Icon name="angleUp" width="30px" color={first ? 'lightgray' : 'black'} />
-              </StyledButton>
-            </Col>
-            <Col xs={12} sm={6}>
-              <StyledButton
-                type="button"
-                onClick={() => moveDown(berth.identifier)}
-                disabled={last}
-              >
-                <Icon name="angleDown" width="30px" color={last ? 'lightgray' : 'black'} />
-              </StyledButton>
-            </Col>
-          </Row>
-        </Container>
-      </BerthOptions>
-    </StyledRow>
-  </Container>
-);
+class SelectedBerth extends Component<any, any> {
+  render() {
+    const { berth, index, moveUp, moveDown, first, last, deselectBerth, isValid } = this.props;
+
+    const id = `tooltip_${berth.identifier}`;
+    return (
+      <Container fluid>
+        <StyledRow>
+          <BerthName xs={9} md={10} errors={isValid.toString()}>
+            <DeselectButton type="button" onClick={() => deselectBerth(berth.identifier)}>
+              <Icon name="times" width="30px" />
+            </DeselectButton>
+            <span key={berth.identifier}>
+              {index + 1}. {berth.name.fi}
+            </span>
+            {!isValid && <InvalidSelection id={id} />}
+          </BerthName>
+          <BerthOptions xs={3} md={2}>
+            <Container fluid>
+              <Row>
+                <Col xs={12} sm={6}>
+                  <StyledButton
+                    type="button"
+                    onClick={() => moveUp(berth.identifier)}
+                    disabled={first}
+                  >
+                    <Icon name="angleUp" width="30px" color={first ? 'lightgray' : 'black'} />
+                  </StyledButton>
+                </Col>
+                <Col xs={12} sm={6}>
+                  <StyledButton
+                    type="button"
+                    onClick={() => moveDown(berth.identifier)}
+                    disabled={last}
+                  >
+                    <Icon name="angleDown" width="30px" color={last ? 'lightgray' : 'black'} />
+                  </StyledButton>
+                </Col>
+              </Row>
+            </Container>
+          </BerthOptions>
+        </StyledRow>
+      </Container>
+    );
+  }
+}
 
 export default SelectedBerth;

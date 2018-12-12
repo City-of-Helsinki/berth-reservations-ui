@@ -52,6 +52,9 @@ export default class MapCanvas extends Component<Props, State> {
     const position = [this.state.lat, this.state.lng];
     const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
 
+    const excluded =
+      selectedBerth && filteredNot.some(berth => berth.identifier === selectedBerth.identifier);
+
     return (
       <StyledDiv>
         <Map center={position} zoom={this.state.zoom} style={style}>
@@ -87,6 +90,7 @@ export default class MapCanvas extends Component<Props, State> {
         </Map>
         {selectedBerth && (
           <Berth
+            excluded={!!excluded}
             key={selectedBerth.identifier}
             berth={selectedBerth}
             onClick={() => onClick(selectedBerth.identifier)}
