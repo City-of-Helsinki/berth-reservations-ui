@@ -2,6 +2,7 @@
 import React, { Component, type Node } from 'react';
 import styled from 'styled-components';
 import { StickyContainer, Sticky } from 'react-sticky';
+import { Button } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import responsive from '../../utils/responsive';
 import IntlComponent from '../common/IntlComponent';
@@ -48,7 +49,7 @@ const Tabs = styled.div`
   margin-top: 3em;
 `;
 
-const ProgressButton = styled.button`
+const ProgressButton = styled(Button)`
   margin-left: 1ch;
 `;
 
