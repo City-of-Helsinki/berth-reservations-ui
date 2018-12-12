@@ -25,7 +25,7 @@
   "site.footer.contact_us": "Ota yhteyttä",
   "site.footer.copyright": "2018 Helsingin kaupunki",
 
-  "tab_selector.progress.button": "JATKA",
+  "tab_selector.progress.button": "Aloita hakemus",
   "tab_selector.progress.message.zero": "Valitse enintään { total } satamaa hakemukseesi",
   "tab_selector.progress.message.other": "Voit vielä valita { count } satamaa hakemukseesi",
   "tab_selector.progress.message.max": "Enimmäismäärä ({ total }) satamaa valittu",
