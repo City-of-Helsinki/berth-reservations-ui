@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Col, Row, Container } from 'reactstrap';
+import { FormattedMessage } from 'react-intl';
 import Steps from '../steps/Steps';
 
 const Legend = styled.div`
@@ -52,6 +53,13 @@ const BerthsLegend = () => (
               }
             ]}
           />
+        </Col>
+      </Row>
+
+      <Row>
+        <Col md="12">
+          <FormattedMessage tagName="h3" id="legend.selected_berths.title" />
+          <FormattedMessage tagName="p" id="legend.selected_berths.legend" />
         </Col>
       </Row>
     </LegendContainer>
