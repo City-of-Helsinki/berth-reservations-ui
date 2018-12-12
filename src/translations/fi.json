@@ -1,4 +1,6 @@
 {
+  "error.message.invalid_berth_selection": "Kaikissa valitsemissasi satamissa ei todennäköisesti ole paikkoja venetyypillesi",
+  "error.message.invalid_berth": "Tässä valitussa satamassa ei todennäköisesti ole paikkoja venetyypillesi",
   "storybook.dummy.label": "dummy",
   "site.title": "Venepaikkahaku",
   "site.link.front_page": "Etusivulle",
@@ -240,6 +242,7 @@
   "page.berth.selected.paragraph.first": "Valitse 1 - 10 satamaa joista olet valmis ottamaan vastaan venepaikan. Jos paikkoja vapautuu useammasta satamasta, saat tarjouksen toivomusjärjestykseltään ensimmäisestä.",
   "page.berth.selected.paragraph.second": "Mitä useampia satamia valitset listaan, sitä todennäköisemmin sinulle löytyy venepaikka. Venepaikkahakemusten käsittelyssä vaihtohakemukset ovat etusijalla.  Tästä johtuen sinun kannattaa ottaa tarjottu paikka vastaan, vaikka se ei sijaitsisi sinulle mieluisimmassa satamassa. Saatuasi venepaikan voit hakea vaihtoa toivomaasi satamaan. Tämä on useimmiten nopein tapa saada paikka sinulle mieluisimmasta satamasta.",
   "page.berth.selected.info_text": "Valitse sijoitettavan veneen tyyppi ja koko nähdäksesi onko valituissa satamissa sopivia paikkoja",
+  "page.berth.selected.warning.heading": "Huomio: Olet valinnut satamia joissa ei ole sopivia paikkoja.",
   "page.berth.selected.alert.strong": "Huomio: Sinulla ei ole vielä valittuja satamia",
   "page.berth.selected.alert.paragraph": "Valitse satamalistasta satamat joista haluat hakea venepaikkaa",
   "page.berth.selected.submit": "Hae venepaikkaa"

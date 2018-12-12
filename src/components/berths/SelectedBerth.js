@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Icon from '../common/Icon';
 import responsive from '../../utils/responsive';
+import InvalidSelection from './InvalidSelection';
 
 const StyledRow = styled(Row)`
   margin-top: 0.2em;
@@ -11,8 +12,9 @@ const StyledRow = styled(Row)`
 `;
 
 const BerthName = styled(Col)`
-  background-color: #2d72c0;
-  color: #fff;
+  background-color: ${props =>
+    props.errors === 'true' ? props.theme.helCoat : props.theme.helLight};
+  color: ${props => (props.errors === 'true' ? props.theme.helWhite : props.theme.helGray)};
   font-size: 0.875em;
   padding: 0.3em;
   padding-left: 0.8em;
@@ -32,6 +34,7 @@ const StyledButton = styled.button`
   margin-left: 1em;
   border: 2px solid ${props => (props.disabled ? 'lightgray' : 'black')};
 `;
+
 const DeselectButton = styled.button`
   background: none;
   height: 100%;
@@ -41,51 +44,22 @@ const DeselectButton = styled.button`
   color: white;
 `;
 
-const Invalid = styled.div`
-  position: relative;
-  display: inline-block;
-`;
-
-const ToolTip = styled.div`
-  display: ${props => (props.show ? 'block' : 'none')};
-  position: absolute;
-  background-color: red;
-  border: 1px solid black;
-  z-index: 1;
-`;
-
-class SelectedBerth extends Component {
-  state = {
-    show: false
-  };
-
-  toggle = visibility => this.setState(() => ({ show: visibility }));
-
+class SelectedBerth extends Component<any, any> {
   render() {
-    const { show } = this.state;
+    const { berth, index, moveUp, moveDown, first, last, deselectBerth, isValid } = this.props;
 
-    const { berth, index, moveUp, moveDown, first, last, deselectBerth } = this.props;
-    const isInvalid = true;
-
+    const id = `tooltip_${berth.identifier}`;
     return (
       <Container fluid>
         <StyledRow>
-          <BerthName xs={9} md={10}>
+          <BerthName xs={9} md={10} errors={isValid.toString()}>
             <DeselectButton type="button" onClick={() => deselectBerth(berth.identifier)}>
               <Icon name="times" width="30px" />
             </DeselectButton>
             <span key={berth.identifier}>
               {index + 1}. {berth.name.fi}
             </span>
-            {isInvalid && (
-              <Invalid
-                onMouseEnter={() => this.toggle(true)}
-                onMouseLeave={() => this.toggle(false)}
-              >
-                <Icon color="red" name="commenting" width="1em" height="1em" />
-                <ToolTip show={show}>NOT STUFF</ToolTip>
-              </Invalid>
-            )}
+            {!isValid && <InvalidSelection id={id} />}
           </BerthName>
           <BerthOptions xs={3} md={2}>
             <Container fluid>

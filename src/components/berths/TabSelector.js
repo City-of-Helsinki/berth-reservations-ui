@@ -5,6 +5,7 @@ import { StickyContainer, Sticky } from 'react-sticky';
 import { FormattedMessage } from 'react-intl';
 import responsive from '../../utils/responsive';
 import IntlComponent from '../common/IntlComponent';
+import InvalidSelection from './InvalidSelection';
 
 const TabsWrapper = styled.div`
   background-color: ${props => props.theme.helLight};
@@ -123,7 +124,7 @@ class TabSelector extends Component<Props, State> {
                       count: maxSelected - selectedCount
                     }}
                   />
-                  {!validSelection && <span>FAIL</span>}
+                  {!validSelection && <InvalidSelection />}
                   <IntlComponent
                     id="tab_selector.progress.button"
                     Component={ProgressButton}
