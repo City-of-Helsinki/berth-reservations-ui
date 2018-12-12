@@ -41,11 +41,20 @@ $theme-colors: (
   background-color: transparent;
 }
 
+.btn {
+  outline: 0px !important;
+  box-shadow: 0px !important;
+}
+
 .btn-link.btn-link {
   color: $hel-black;
+  text-decoration: none !important;
   &:active,
   &:hover {
-    text-decoration: none;
+    color: $hel-black !important;
+    background-color: #fff !important;
+    outline: none !important;
+    box-shadow: none !important;
   }
 }
 

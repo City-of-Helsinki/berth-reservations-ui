@@ -19,7 +19,7 @@ type State = {
 
 const LanguageSelector = styled(DropdownToggle)`
   color: #000;
-  background-color: ${props => props.theme.colors.helFog};
+  background-color: ${props => props.theme.colors.helWhite};
   box-shadow: none;
   border: 0em;
   width: 7.2em;

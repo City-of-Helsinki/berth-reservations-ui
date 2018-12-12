@@ -18,7 +18,8 @@ type Props = {
 };
 
 const TopNavbar = styled(Navbar)`
-  background-color: ${props => props.theme.colors.helFog};
+  background-color: ${props => props.theme.colors.helWhite};
+  border-bottom: 1px solid ${props => props.theme.colors.light};
   height: 3.5em;
   & a {
     color: #000;
