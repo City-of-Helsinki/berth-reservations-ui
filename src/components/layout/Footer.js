@@ -1,6 +1,8 @@
+// @flow
+
 import React from 'react';
 import styled from 'styled-components';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl, type IntlShape } from 'react-intl';
 import { Col, Row, Container } from 'reactstrap';
 import LocalizedLink from '../common/LocalizedLink';
 import Icon from '../common/Icon';
@@ -55,55 +57,71 @@ const FooterSection = styled(Col)`
   text-align: center;
 `;
 
-const Footer = () => (
-  <Wrapper>
-    <OptionsContainer>
-      <Row>
-        <FooterSection md="4">
-          <LocalizedLink to="/">
-            <FormattedMessage id="site.footer.bearth_search" />
-          </LocalizedLink>
-        </FooterSection>
-        <FooterSection md="4">
-          <Icon name="helsinkiLogo" width="120px" color="#fff" />
-        </FooterSection>
-        <FooterSection md="4">
-          <VerticalList>
-            <li>
-              <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/">
-                <FormattedMessage tagName="span" id="site.footer.browse_berths" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/">
-                <FormattedMessage tagName="span" id="site.footer.boating_info" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/ajankohtaista/">
-                <FormattedMessage tagName="span" id="site.footer.news" />
-              </a>
-            </li>
-          </VerticalList>
-        </FooterSection>
-      </Row>
-    </OptionsContainer>
-    <LinksContainer>
-      <Row>
-        <FooterSection md="12">
-          <HorizontalList>
-            <a href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute">
-              <FormattedMessage tagName="li" id="site.footer.send_feedback" />
-            </a>
-            <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/">
-              <FormattedMessage tagName="li" id="site.footer.contact_us" />
-            </a>
-            <FormattedMessage tagName="li" id="site.footer.copyright" />
-          </HorizontalList>
-        </FooterSection>
-      </Row>
-    </LinksContainer>
-  </Wrapper>
-);
+type Props = {
+  intl: IntlShape
+};
 
-export default Footer;
+const Footer = ({ intl }: Props) => {
+  const termsOfServiceUrl =
+    intl.locale === 'sv'
+      ? 'https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri-SV.pdf'
+      : 'https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri.pdf';
+
+  return (
+    <Wrapper>
+      <OptionsContainer>
+        <Row>
+          <FooterSection md="4">
+            <LocalizedLink to="/">
+              <FormattedMessage id="site.footer.bearth_search" />
+            </LocalizedLink>
+          </FooterSection>
+          <FooterSection md="4">
+            <Icon name="helsinkiLogo" width="120px" color="#fff" />
+          </FooterSection>
+          <FooterSection md="4">
+            <VerticalList>
+              <li>
+                <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/">
+                  <FormattedMessage tagName="span" id="site.footer.browse_berths" />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/">
+                  <FormattedMessage tagName="span" id="site.footer.boating_info" />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/ajankohtaista/">
+                  <FormattedMessage tagName="span" id="site.footer.news" />
+                </a>
+              </li>
+              <li>
+                <a href={termsOfServiceUrl}>
+                  <FormattedMessage tagName="span" id="site.footer.terms_of_service" />
+                </a>
+              </li>
+            </VerticalList>
+          </FooterSection>
+        </Row>
+      </OptionsContainer>
+      <LinksContainer>
+        <Row>
+          <FooterSection md="12">
+            <HorizontalList>
+              <a href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute">
+                <FormattedMessage tagName="li" id="site.footer.send_feedback" />
+              </a>
+              <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/">
+                <FormattedMessage tagName="li" id="site.footer.contact_us" />
+              </a>
+              <FormattedMessage tagName="li" id="site.footer.copyright" />
+            </HorizontalList>
+          </FooterSection>
+        </Row>
+      </LinksContainer>
+    </Wrapper>
+  );
+};
+
+export default injectIntl(Footer);
