@@ -24,6 +24,10 @@ const BoatValue = styled.span`
   margin-left: 1ch;
 `;
 
+const PageContainer = styled(Container)`
+  padding: 3em;
+`;
+
 type Props = any;
 
 class BerthPage extends Component<Props> {
@@ -57,7 +61,7 @@ class BerthPage extends Component<Props> {
         <Wrapper>
           <SelectedBerthsLegend />
 
-          <Container>
+          <PageContainer>
             <FormattedMessage tagName="h1" id="page.berth.selected.title" />
             <FormattedMessage tagName="p" id="page.berth.selected.paragraph.first" />
             <FormattedMessage tagName="p" id="page.berth.selected.paragraph.second" />
@@ -114,7 +118,7 @@ class BerthPage extends Component<Props> {
                 <FormattedMessage tagName="span" id="page.berth.selected.submit" />
               </Button>
             </ButtonWrapper>
-          </Container>
+          </PageContainer>
         </Wrapper>
       </Layout>
     );
