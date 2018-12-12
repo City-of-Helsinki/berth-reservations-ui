@@ -1,9 +1,9 @@
 // @flow
 import React, { Component } from 'react';
-import { get } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
+import { getBerthFilterByValues } from '../../utils/berths';
 import Layout from '../layout/Layout';
 import BerthsLegend from '../legends/BerthsLegend';
 import BerthsOnMap from '../berths/BerthsOnMap';
@@ -37,22 +37,6 @@ class BerthPage extends Component<Props> {
     await localePush('/selected_berths');
   };
 
-  getFilterByValues = (values: any, selectedServices: any) => {
-    const width = get(values, 'boat.width', 0);
-    const length = get(values, 'boat.length', 0);
-    const boatType = get(values, 'boat.type', 0);
-    const services = Object.entries(selectedServices.toObject())
-      .filter(([, state]) => state)
-      .map(([type]) => type);
-    return (b: any) => {
-      const filterByService = services.reduce((acc, cur) => acc && b[cur], true);
-      const filterByWidth = b.maximum_width >= width;
-      const filterByLenght = b.maximum_length >= length;
-      const filterByBoatTypeIds = boatType ? b.suitable_boat_types.includes(boatType) : true;
-      return filterByService && filterByWidth && filterByLenght && filterByBoatTypeIds;
-    };
-  };
-
   toggleBerthSelect = (id: string) => {
     const { selectedBerths, selectBerth, deselectBerth } = this.props;
     if (selectedBerths.includes(id)) {
@@ -72,7 +56,7 @@ class BerthPage extends Component<Props> {
       selectService,
       deselectService
     } = this.props;
-    const filter = this.getFilterByValues(initialValues, selectedServices);
+    const filter = getBerthFilterByValues(initialValues, selectedServices);
     const filtered = berths.filter(filter);
     const FilteredNot = berths.filterNot(filter);
     return (
