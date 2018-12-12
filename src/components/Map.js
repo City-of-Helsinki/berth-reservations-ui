@@ -27,7 +27,8 @@ type State = {
   lat: number,
   lng: number,
   zoom: number,
-  selectedBerth: BerthType | null
+  selectedBerth: BerthType | null,
+  excluded: boolean
 };
 
 type Props = any;
@@ -37,18 +38,20 @@ export default class MapCanvas extends Component<Props, State> {
     lng: 25.02,
     lat: 60.17908,
     zoom: 11.5,
-    selectedBerth: null
+    selectedBerth: null,
+    excluded: false
   };
 
-  toggleBerthSelect = (berth: BerthType) => {
+  toggleBerthSelect = (berth: BerthType, excluded: boolean) => {
     this.setState(({ selectedBerth }) => ({
+      excluded,
       selectedBerth: selectedBerth && selectedBerth.identifier === berth.identifier ? null : berth
     }));
   };
 
   render() {
     const { filtered, filteredNot, selected, onClick } = this.props;
-    const { selectedBerth } = this.state;
+    const { selectedBerth, excluded } = this.state;
     const position = [this.state.lat, this.state.lng];
     const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
 
@@ -66,7 +69,7 @@ export default class MapCanvas extends Component<Props, State> {
                 markerIcon={mapIcon(isSelected, isPreviewed, false)}
                 key={berth.identifier}
                 position={berth.location.coordinates}
-                onClick={() => this.toggleBerthSelect(berth)}
+                onClick={() => this.toggleBerthSelect(berth, false)}
               />
             );
           })}
@@ -80,13 +83,14 @@ export default class MapCanvas extends Component<Props, State> {
                 markerIcon={mapIcon(isSelected, isPreviewed, true)}
                 key={berth.identifier}
                 position={berth.location.coordinates}
-                onClick={() => this.toggleBerthSelect(berth)}
+                onClick={() => this.toggleBerthSelect(berth, true)}
               />
             );
           })}
         </Map>
         {selectedBerth && (
           <Berth
+            excluded={excluded}
             key={selectedBerth.identifier}
             berth={selectedBerth}
             onClick={() => onClick(selectedBerth.identifier)}

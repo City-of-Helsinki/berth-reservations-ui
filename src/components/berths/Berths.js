@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import Berth from './Berth';
 
 const StyledBerth = styled(Berth)`
-  opacity: ${props => (props.dimmed ? '0.5' : '1')};
+  opacity: ${props => (props.excluded ? '0.5' : '1')};
 `;
 
 const Wrapper = styled(Container)`
@@ -61,7 +61,7 @@ export default ({ filtered, filteredNot, onClick, selected }) => (
     )}
     {filteredNot.map(berth => (
       <StyledBerth
-        dimmed
+        excluded
         key={berth.identifier}
         berth={berth}
         onClick={() => onClick(berth.identifier)}

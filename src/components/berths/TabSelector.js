@@ -55,7 +55,8 @@ const ProgressButton = styled.button`
 type Props = {
   children: Array<Node>,
   progress: Function,
-  selectedCount: number
+  selectedCount: number,
+  validSelection: boolean
 };
 
 type State = {
@@ -97,7 +98,7 @@ class TabSelector extends Component<Props, State> {
 
   render() {
     const { tab } = this.state;
-    const { children, progress, selectedCount } = this.props;
+    const { children, progress, selectedCount, validSelection } = this.props;
 
     // $FlowFixMe
     const headers = children.map(c => c.props.TabHeader);
@@ -122,6 +123,7 @@ class TabSelector extends Component<Props, State> {
                       count: maxSelected - selectedCount
                     }}
                   />
+                  {!validSelection && <span>FAIL</span>}
                   <IntlComponent
                     id="tab_selector.progress.button"
                     Component={ProgressButton}

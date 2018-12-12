@@ -129,7 +129,8 @@ type Props = {
   className?: string,
   onClick: Function,
   selected: boolean,
-  disabled?: boolean
+  disabled?: boolean,
+  excluded?: boolean
 };
 const Heading = styled.strong`
   font-size: 18px;
@@ -138,7 +139,7 @@ const Heading = styled.strong`
   `}
 `;
 
-export default ({ berth, className, onClick, selected, disabled }: Props) => (
+export default ({ berth, className, onClick, selected, disabled, excluded }: Props) => (
   <Row className={className}>
     <Col xs={12}>
       <StyledDiv>
@@ -149,6 +150,7 @@ export default ({ berth, className, onClick, selected, disabled }: Props) => (
           <Col lg={4}>
             <SummaryWrapper>
               <Heading>{berth.name.fi}</Heading>
+              {selected && excluded && <span>INVALID</span>}
 
               <BerthAddress>
                 {berth.street_address.fi}, {berth.zip_code} {berth.municipality.fi}

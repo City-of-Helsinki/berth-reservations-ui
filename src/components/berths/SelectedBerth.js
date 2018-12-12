@@ -64,28 +64,8 @@ class SelectedBerth extends Component {
   render() {
     const { show } = this.state;
 
-    const {
-      berth,
-      index,
-      moveUp,
-      moveDown,
-      first,
-      last,
-      deselectBerth,
-      requiredServices,
-      selectedBoatType
-    } = this.props;
-
-    const missingServices = requiredServices.reduce((acc, service) => {
-      if (!berth[service]) {
-        acc.push(service);
-      }
-      return acc;
-    }, []);
-
-    const notSuitable = !berth.suitable_boat_types.includes(selectedBoatType);
-
-    const isInvalid = notSuitable || missingServices.length > 0;
+    const { berth, index, moveUp, moveDown, first, last, deselectBerth } = this.props;
+    const isInvalid = true;
 
     return (
       <Container fluid>
@@ -103,14 +83,7 @@ class SelectedBerth extends Component {
                 onMouseLeave={() => this.toggle(false)}
               >
                 <Icon color="red" name="commenting" width="1em" height="1em" />
-                <ToolTip show={show}>
-                  {notSuitable && <span>DOES NOT MATCH WITH BOAT TYPE</span>}
-                  <ul>
-                    {missingServices.map(service => (
-                      <li key={service}>{service}</li>
-                    ))}
-                  </ul>
-                </ToolTip>
+                <ToolTip show={show}>NOT STUFF</ToolTip>
               </Invalid>
             )}
           </BerthName>

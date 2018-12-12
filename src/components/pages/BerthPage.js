@@ -55,6 +55,10 @@ class BerthPage extends Component<Props> {
     const filter = getBerthFilterByValues(initialValues, selectedServices);
     const filtered = berths.filter(filter);
     const FilteredNot = berths.filterNot(filter);
+    const validSelection = berths
+      .filter(berth => selectedBerths.includes(berth.identifier))
+      .every(filter);
+
     return (
       <Layout hero>
         <Wrapper>
@@ -66,7 +70,11 @@ class BerthPage extends Component<Props> {
             selectService={selectService}
             deselectService={deselectService}
           />
-          <TabSelector progress={this.moveToForm} selectedCount={selectedBerths.size}>
+          <TabSelector
+            progress={this.moveToForm}
+            selectedCount={selectedBerths.size}
+            validSelection={validSelection}
+          >
             <BerthsOnMap
               TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
               filtered={filtered}
