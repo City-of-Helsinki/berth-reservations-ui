@@ -1,8 +1,8 @@
 // @flow
 
 import React, { Fragment } from 'react';
-import { FormattedMessage } from 'react-intl';
-import { Navbar, NavbarBrand, Nav } from 'reactstrap';
+import { FormattedMessage, FormattedHTMLMessage, injectIntl, type intlShape } from 'react-intl';
+import { Navbar, NavbarBrand, Nav, Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
 
 import LanguageDropdown from './LanguageDropdown';
@@ -14,7 +14,8 @@ import responsive from '../../utils/responsive';
 
 type Props = {
   children: any,
-  hero?: boolean
+  hero?: boolean,
+  intl: intlShape
 };
 
 const TopNavbar = styled(Navbar)`
@@ -60,7 +61,26 @@ const Content = styled(KoroSection).attrs({
   color: 'fog'
 })``;
 
-const Layout = ({ children, hero }: Props) => (
+const HeroContent = styled(KoroSection).attrs({
+  bottom: true,
+  color: 'white'
+})`
+  > div {
+    margin-top: 3em;
+    margin-bottom: 4em;
+  }
+`;
+
+const getHeroContentLink = locale => {
+  switch (locale) {
+    case 'fi':
+      return 'https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/varausohjeet-ja-maksut';
+    default:
+      return 'https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/varausohjeet-ja-maksut';
+  }
+};
+
+const Layout = ({ children, hero, intl: { locale } }: Props) => (
   <Fragment>
     <TopNavbar expand="md">
       <NavbarBrand href="/">
@@ -76,9 +96,26 @@ const Layout = ({ children, hero }: Props) => (
       </NavbarBrand>
     </BottomNavbar>
     {hero && (
-      <Hero>
-        <FormattedMessage tagName="h1" id="site.title" />
-      </Hero>
+      <Fragment>
+        <Hero>
+          <FormattedMessage tagName="h1" id="site.title" />
+        </Hero>
+        <HeroContent>
+          <Container>
+            <Row>
+              <Col>
+                <FormattedMessage tagName="h1" id="hero.title" />
+                <FormattedMessage tagName="p" id="hero.paragraph.first" />
+                <FormattedHTMLMessage
+                  tagName="p"
+                  id="hero.paragraph.second"
+                  values={{ url: getHeroContentLink(locale) }}
+                />
+              </Col>
+            </Row>
+          </Container>
+        </HeroContent>
+      </Fragment>
     )}
     <Content>{children}</Content>
     <KoroSection bottom color="blue">
@@ -87,4 +124,4 @@ const Layout = ({ children, hero }: Props) => (
   </Fragment>
 );
 
-export default Layout;
+export default injectIntl(Layout);
