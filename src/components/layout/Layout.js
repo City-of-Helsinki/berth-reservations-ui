@@ -67,7 +67,7 @@ const HeroContent = styled(KoroSection).attrs({
 })`
   > div {
     margin-top: 3em;
-    margin-bottom: 3em;
+    margin-bottom: 4em;
   }
 `;
 
