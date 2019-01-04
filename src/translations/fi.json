@@ -13,7 +13,6 @@
   "hero.title": "Venepaikan hakeminen Helsingin venesatamista",
   "hero.paragraph.first": "Tässä palvelussa voit selata Helsingin kaupungin venesatamia ja tehdä uuden venepaikkahakemuksen valitsemiisi satamiin. ",
   "hero.paragraph.second": "Tarkempia tietoja venepaikkojen jakoperusteista, hinnoista ja hakemusten käsittelystä löydät <a href='{url}'>hel.fi</a> -sivustolta.",
-
   "site.steps.berths": "Satamien valinta",
   "site.steps.selected_berths": "Valitut satamat",
   "site.steps.boat_information": "Veneen tiedot",
@@ -31,6 +30,7 @@
 
   "tab_selector.progress.button": "Aloita hakemus",
   "tab_selector.progress.message.zero": "Valitse enintään { total } satamaa hakemukseesi",
+  "tab_selector.progress.message.zero": "Select at least { total } berths for your application",
   "tab_selector.progress.message.other": "Voit vielä valita { count } satamaa hakemukseesi",
   "tab_selector.progress.message.max": "Enimmäismäärä ({ total }) satamaa valittu",
 
