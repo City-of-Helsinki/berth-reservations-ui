@@ -30,7 +30,6 @@
 
   "tab_selector.progress.button": "Börja ansökan",
   "tab_selector.progress.message.zero": "Välj högst { total } hamnar i din ansökan",
-  "tab_selector.progress.message.zero": "Select at least { total } berths for your application",
   "tab_selector.progress.message.other": "Du kan ännu välja { count } hamnar i din ansökan",
   "tab_selector.progress.message.max": "Maximiantalet hamnar ({ total }) har valts",
 

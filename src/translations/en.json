@@ -30,7 +30,6 @@
 
   "tab_selector.progress.button": "Start application",
   "tab_selector.progress.message.zero": "Choose a maximum of { total } harbours for your application",
-  "tab_selector.progress.message.zero": "Select at least { total } berths for your application",
   "tab_selector.progress.message.other": "You can still select { count } harbours for your application",
   "tab_selector.progress.message.max": "Maximum number of ({ total }) harbours selected",
 
