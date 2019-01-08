@@ -38,18 +38,22 @@ const BottomNavbar = styled(Navbar)`
 const Hero = styled.div`
   background-image: url(${heroImage});
   background-size: cover;
-  padding: 5.5vw;
-  min-height:20em;
+  background-position: right top;
+  padding: 4em 0;
+  min-height: 10em;
+  ${responsive.md`
+      min-height: 20em;
+    `}
+  ${responsive.xl`
+      min-height: 30em;
+    `}
   h1 {
     font-size: 2em;
-    ${responsive.md`
+    ${responsive.sm`
       font-size: 3em;
     `}
     ${responsive.lg`
       font-size: 4em;
-    `}
-    ${responsive.xl`
-      font-size: 5em;
     `}
     color: #fff;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
@@ -83,27 +87,33 @@ const getHeroContentLink = locale => {
 const Layout = ({ children, hero, intl: { locale } }: Props) => (
   <Fragment>
     <TopNavbar expand="md">
-      <NavbarBrand href="/">
-        <Icon name="helsinkiLogo" width="90px" color="#000" />
-      </NavbarBrand>
-      <Nav className="ml-auto" navbar>
-        <LanguageDropdown />
-      </Nav>
+      <Container>
+        <NavbarBrand href="/">
+          <Icon name="helsinkiLogo" width="90px" color="#000" />
+        </NavbarBrand>
+        <Nav className="ml-auto" navbar>
+          <LanguageDropdown />
+        </Nav>
+      </Container>
     </TopNavbar>
     <BottomNavbar color="white" light expand="md">
-      <NavbarBrand href="/">
-        <FormattedMessage id="site.title" />
-      </NavbarBrand>
+      <Container>
+        <NavbarBrand href="/">
+          <FormattedMessage id="site.title" />
+        </NavbarBrand>
+      </Container>
     </BottomNavbar>
     {hero && (
       <Fragment>
         <Hero>
-          <FormattedMessage tagName="h1" id="site.title" />
+          <Container>
+            <FormattedMessage tagName="h1" id="site.title" />
+          </Container>
         </Hero>
         <HeroContent>
           <Container>
             <Row>
-              <Col>
+              <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
                 <FormattedMessage tagName="h1" id="hero.title" />
                 <FormattedMessage tagName="p" id="hero.paragraph.first" />
                 <FormattedHTMLMessage
