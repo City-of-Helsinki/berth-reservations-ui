@@ -17,6 +17,12 @@ const Wrapper = styled.div`
 type Props = any;
 
 class BerthPage extends Component<Props> {
+  constructor(props: Props) {
+    super(props);
+
+    window.scrollTo(0, 0);
+  }
+
   componentDidMount() {
     const { getBerths, berths, boatTypes, getBoatTypes } = this.props;
     if (!boatTypes) {

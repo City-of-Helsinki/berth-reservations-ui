@@ -72,7 +72,7 @@ const Footer = ({ intl }: Props) => {
       <OptionsContainer>
         <Row>
           <FooterSection md="4">
-            <LocalizedLink to="/">
+            <LocalizedLink to="">
               <FormattedMessage id="site.footer.bearth_search" />
             </LocalizedLink>
           </FooterSection>
