@@ -19,12 +19,14 @@ const TextInput = (type: any) => ({
   noValidate,
   validate,
   placeholder,
+  parse,
   intl: { formatMessage },
   ...rest
 }: any) => (
   <Field
     name={name}
     type={type}
+    parse={parse}
     required={noValidate ? false : required}
     validate={noValidate ? undefined : validator(required ? mustBePresent : null, validate || null)}
   >
