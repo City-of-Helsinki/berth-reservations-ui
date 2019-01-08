@@ -26,6 +26,8 @@ const UnRegisteredBoatDetailsFragment = ({
         label="form.no_boat.field.width.label"
         placeholder="form.no_boat.field.width.placeholder"
         append="m"
+        min="0"
+        parse={value => Math.max(0, parseInt(value, 10)).toString()}
         required
       />
     </Col>
@@ -37,6 +39,8 @@ const UnRegisteredBoatDetailsFragment = ({
         label="form.no_boat.field.length.label"
         placeholder="form.no_boat.field.length.placeholder"
         append="m"
+        min="0"
+        parse={value => Math.max(0, parseInt(value, 10)).toString()}
         required
       />
     </Col>
