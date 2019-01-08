@@ -19,10 +19,6 @@ const stepLegends = [
     legend: 'legend.berths.legend'
   },
   {
-    title: 'legend.boat.title',
-    legend: 'legend.boat.legend'
-  },
-  {
     title: 'legend.person.title',
     legend: 'legend.person.legend'
   },
