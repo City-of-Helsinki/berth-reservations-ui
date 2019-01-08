@@ -27,7 +27,7 @@ const UnRegisteredBoatDetailsFragment = ({
         placeholder="form.no_boat.field.width.placeholder"
         append="m"
         min="0"
-        parse={value => Math.max(0, parseInt(value, 10)).toString()}
+        parse={value => Math.max(0, parseFloat(value)).toString()}
         required
       />
     </Col>
@@ -40,7 +40,7 @@ const UnRegisteredBoatDetailsFragment = ({
         placeholder="form.no_boat.field.length.placeholder"
         append="m"
         min="0"
-        parse={value => Math.max(0, parseInt(value, 10)).toString()}
+        parse={value => Math.max(0, parseFloat(value)).toString()}
         required
       />
     </Col>

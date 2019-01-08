@@ -19,7 +19,7 @@ const RegisteredBoatFragment = ({ prefix, noValidate = false }: FormFragmentProp
         placeholder="form.registered.field.width.placeholder"
         append="m"
         min="0"
-        parse={value => Math.max(0, parseInt(value, 10)).toString()}
+        parse={value => Math.max(0, parseFloat(value)).toString()}
         required
       />
     </Col>
@@ -32,7 +32,7 @@ const RegisteredBoatFragment = ({ prefix, noValidate = false }: FormFragmentProp
         placeholder="form.registered.field.length.placeholder"
         append="m"
         min="0"
-        parse={value => Math.max(0, parseInt(value, 10)).toString()}
+        parse={value => Math.max(0, parseFloat(value)).toString()}
         required
       />
     </Col>
@@ -45,7 +45,7 @@ const RegisteredBoatFragment = ({ prefix, noValidate = false }: FormFragmentProp
         placeholder="form.registered.field.draught.placeholder"
         append="m"
         min="0"
-        parse={value => Math.max(0, parseInt(value, 10)).toString()}
+        parse={value => Math.max(0, parseFloat(value)).toString()}
         required
       />
     </Col>
@@ -59,7 +59,7 @@ const RegisteredBoatFragment = ({ prefix, noValidate = false }: FormFragmentProp
         placeholder="form.registered.field.weight.placeholder"
         append="kg"
         min="0"
-        parse={value => Math.max(0, parseInt(value, 10)).toString()}
+        parse={value => Math.max(0, parseFloat(value)).toString()}
         required
       />
     </Col>
