@@ -109,7 +109,7 @@ const Footer = ({ intl }: Props) => {
         <Row>
           <FooterSection md="12">
             <HorizontalList>
-              <a href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute">
+              <a href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute/">
                 <FormattedMessage tagName="li" id="site.footer.send_feedback" />
               </a>
               <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/">
