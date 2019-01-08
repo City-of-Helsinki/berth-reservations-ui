@@ -31,6 +31,12 @@ const PageContainer = styled(Container)`
 type Props = any;
 
 class BerthPage extends Component<Props> {
+  constructor(props: Props) {
+    super(props);
+
+    window.scrollTo(0, 0);
+  }
+
   moveToForm = async () => {
     const { localePush } = this.props;
     await localePush('/form/registered_boat');
