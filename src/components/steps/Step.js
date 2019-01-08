@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import LocalizedLink from '../common/LocalizedLink';
+import media from '../../utils/responsive';
 
 type Props = {
   completed: boolean,
@@ -11,18 +12,19 @@ type Props = {
 };
 
 const Section = styled.div`
+  flex: 1;
+  padding: 0 0.25em;
   color: inherit;
   &:hover,
   &:active {
     text-decoration: none;
     color: inherit;
   }
-  display: block;
   text-align: left;
 `;
 
 const StatusBox = styled.div`
-  height: 1.25em;
+  height: 1em;
   color: #000;
   margin: auto;
   margin-bottom: 0.5em;
@@ -41,7 +43,12 @@ const StatusBox = styled.div`
 
 const StatusTitle = styled.div`
   font-weight: 500;
+  font-size: 0.66rem;
+  line-height: 1;
   padding-left: 0.3em;
+  ${media.md`
+    font-size: 0.8rem;
+  `};
 `;
 
 export default class Step extends React.Component<Props> {
