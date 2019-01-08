@@ -36,6 +36,7 @@ const FormSelectWrapper = styled(LocalizedLink)`
   color: inherit;
   padding: 1em;
   text-align: center;
+  min-height: 8em;
   &:hover,
   &:active {
     text-decoration: none;
@@ -48,10 +49,10 @@ const FormSelectWrapper = styled(LocalizedLink)`
 
   background-color: ${props => (props.selected ? props.theme.helFog : 'unset')};
   font-size: 0.8em;
+  line-height: 1;
   ${resposive.sm`
     font-size: 1em;
     font-weight: ${props => (props.selected ? '600' : '400')};
-    letter-spacing: ${props => (props.selected ? '0.065em' : 'inherit')};
   `}
 `;
 
@@ -59,14 +60,18 @@ const SectionSelector = ({ name, selected, types, sizes }: Props) => (
   <ButtonWrapper>
     <Container>
       <Row>
-        {types.map(({ label, tab, icon }: TypeProps) => (
-          <Col id={`${tab}_selection`} key={`${name}.${tab}`} {...sizes}>
-            <FormSelectWrapper to={`form/${tab}`} selected={selected === tab}>
-              <StyledIcon name={icon} width="50%" color="black" />
-              <FormattedMessage id={label} />
-            </FormSelectWrapper>
-          </Col>
-        ))}
+        <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
+          <Row>
+            {types.map(({ label, tab, icon }: TypeProps) => (
+              <Col id={`${tab}_selection`} key={`${name}.${tab}`} {...sizes}>
+                <FormSelectWrapper to={`form/${tab}`} selected={selected === tab}>
+                  <StyledIcon name={icon} width="50%" color="black" />
+                  <FormattedMessage id={label} />
+                </FormSelectWrapper>
+              </Col>
+            ))}
+          </Row>
+        </Col>
       </Row>
     </Container>
   </ButtonWrapper>

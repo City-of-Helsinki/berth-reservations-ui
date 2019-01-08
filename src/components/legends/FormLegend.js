@@ -1,16 +1,10 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { Col, Row, Container } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 
 const Legend = styled.div`
-  background-color: ${props => props.theme.colors.helFog};
-`;
-
-const LegendContainer = styled(Container)`
-  width: 80%;
-  padding-bottom: 3em;
+  padding-bottom: 2em;
 `;
 
 const stepLegends = [
@@ -38,13 +32,7 @@ type Props = {
 
 export default ({ step }: Props) => (
   <Legend>
-    <LegendContainer>
-      <Row>
-        <Col md="12">
-          <FormattedMessage tagName="h3" id={stepLegends[step].title} />
-          <FormattedMessage tagName="p" id={stepLegends[step].legend} />
-        </Col>
-      </Row>
-    </LegendContainer>
+    <FormattedMessage tagName="h3" id={stepLegends[step].title} />
+    <FormattedMessage tagName="p" id={stepLegends[step].legend} />
   </Legend>
 );

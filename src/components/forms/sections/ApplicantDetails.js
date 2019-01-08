@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-
+import { Col, Row, Container } from 'reactstrap';
 import SectionSelector from '../SectionSelector';
 import PrivatePerson from '../tabs/PrivatePerson';
 import Company from '../tabs/Company';
@@ -35,8 +35,14 @@ const ApplicantDetails = ({ tab }: Props) => (
         }
       ]}
     />
-    {tab === 'private_person' && <PrivatePerson prefix="applicant" />}
-    {tab === 'company' && <Company prefix="applicant" />}
+    <Container>
+      <Row>
+        <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
+          {tab === 'private_person' && <PrivatePerson prefix="applicant" />}
+          {tab === 'company' && <Company prefix="applicant" />}
+        </Col>
+      </Row>
+    </Container>
   </Content>
 );
 

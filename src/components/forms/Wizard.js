@@ -11,7 +11,7 @@ type Props = any;
 
 const ButtonWrapperWrapper = styled.div`
   background-color: ${props => props.theme.helLight};
-  padding: 3em 0;
+  padding: 1em 0 3em;
 `;
 const ButtonWrapper = styled(Col).attrs({
   xs: 12

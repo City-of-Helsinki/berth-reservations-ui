@@ -2,6 +2,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import { Col, Row, Container } from 'reactstrap';
 import { get } from 'lodash';
 import { injectIntl } from 'react-intl';
 
@@ -49,11 +50,23 @@ const BoatDetails = ({ values, tab, boatTypes }: Props) => {
           }
         ]}
       />
-      {tab === 'registered_boat' && (
-        <RegisteredBoat prefix="boat" ShowBigShipsForm={ShowBigShipsForm} boatTypes={boatTypes} />
-      )}
-      {tab === 'unregistered_boat' && <UnRegisteredBoat prefix="boat" boatTypes={boatTypes} />}
-      {tab === 'no_boat' && <NoBoat prefix="boat" boatTypes={boatTypes} />}
+      <Container>
+        <Row>
+          <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
+            {tab === 'registered_boat' && (
+              <RegisteredBoat
+                prefix="boat"
+                ShowBigShipsForm={ShowBigShipsForm}
+                boatTypes={boatTypes}
+              />
+            )}
+            {tab === 'unregistered_boat' && (
+              <UnRegisteredBoat prefix="boat" boatTypes={boatTypes} />
+            )}
+            {tab === 'no_boat' && <NoBoat prefix="boat" boatTypes={boatTypes} />}
+          </Col>
+        </Row>
+      </Container>
     </Content>
   );
 };
