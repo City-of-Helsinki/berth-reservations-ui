@@ -1,6 +1,6 @@
 {
   "error.message.invalid_berth_selection": "Kaikissa valitsemissasi satamissa ei todennäköisesti ole paikkoja venetyypillesi",
-  "error.message.invalid_berth": "Tässä valitussa satamassa ei todennäköisesti ole paikkoja venetyypillesi",
+  "error.message.invalid_berth": "Tässä valitussa satamassa ei todennäköisesti ole paikkoja venetyypillesi.",
   "storybook.dummy.label": "dummy",
   "site.title": "Venepaikkahaku",
   "site.link.front_page": "Etusivulle",
