@@ -168,7 +168,6 @@ const AvailabilityLevelMarker = styled.span`
   width: 14px;
   height: 14px;
   margin-right: 0.3em;
-  background-color: green;
   border-radius: 50%;
   background-color: ${props => {
     switch (props.level) {
