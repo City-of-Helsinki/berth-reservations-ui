@@ -47,7 +47,7 @@ const TabButton = styled.button.attrs({
 `;
 
 const Tabs = styled.div`
-  margin-top: 3em;
+  margin-top: 1em;
 `;
 
 const ProgressButton = styled(Button)`
