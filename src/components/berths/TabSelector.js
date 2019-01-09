@@ -2,7 +2,7 @@
 import React, { Component, type Node } from 'react';
 import styled from 'styled-components';
 import { StickyContainer, Sticky } from 'react-sticky';
-import { Button } from 'reactstrap';
+import { Button, Container } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import responsive from '../../utils/responsive';
 import IntlComponent from '../common/IntlComponent';
@@ -13,16 +13,10 @@ const TabsWrapper = styled.div`
   border-bottom: 4px solid white;
   z-index: 1001;
 `;
-const TabsInnerWrapper = styled.div`
-  max-width: ${props => props.theme.maxWidth.xl};
+const TabsInnerWrapper = styled(Container)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
-  margin: auto;
   flex-direction: column-reverse;
   ${responsive.sm`
     flex-direction: row;
@@ -47,7 +41,7 @@ const TabButton = styled.button.attrs({
 `;
 
 const Tabs = styled.div`
-  margin-top: 1em;
+  margin-top: 0;
 `;
 
 const ProgressButton = styled(Button)`

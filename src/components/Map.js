@@ -2,7 +2,9 @@
 
 import React, { Component } from 'react';
 import { Map, TileLayer } from 'react-leaflet';
+import { Container } from 'reactstrap';
 import styled from 'styled-components';
+import { FormattedMessage } from 'react-intl';
 
 import MapMarker from './MapMarker';
 import mapIcon from './mapIcon';
@@ -10,18 +12,14 @@ import mapIcon from './mapIcon';
 import Berth from './berths/Berth';
 import { type Berth as BerthType } from '../types/berths';
 
+const ListHeader = styled.h3`
+  margin: 1em 0;
+`;
+
 const style = {
   width: '100%',
   height: '40em'
 };
-
-const StyledDiv = styled.div`
-  max-width: ${props => props.theme.maxWidth.xl};
-
-  margin-left: 15px;
-  margin-right: 15px;
-  flex-grow: 1;
-`;
 
 type State = {
   lat: number,
@@ -56,7 +54,10 @@ export default class MapCanvas extends Component<Props, State> {
       selectedBerth && filteredNot.some(berth => berth.identifier === selectedBerth.identifier);
 
     return (
-      <StyledDiv>
+      <Container>
+        <ListHeader>
+          <FormattedMessage id="page.berths.list.berth_count" values={{ count: filtered.size }} />
+        </ListHeader>
         <Map center={position} zoom={this.state.zoom} style={style}>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {filtered.map(berth => {
@@ -98,7 +99,7 @@ export default class MapCanvas extends Component<Props, State> {
             disabled={selected.size >= REACT_APP_MAX_SELECTED_BERTHS}
           />
         )}
-      </StyledDiv>
+      </Container>
     );
   }
 }

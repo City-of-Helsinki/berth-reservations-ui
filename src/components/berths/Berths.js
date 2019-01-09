@@ -15,7 +15,7 @@ const Wrapper = styled(Container)`
   }
 `;
 
-const ListHeader = styled.h2`
+const ListHeader = styled.h3`
   margin: 1em 0;
 `;
 
