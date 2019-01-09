@@ -17,3 +17,6 @@ export const getBerthFilterByValues = (values: any, selectedServices: any) => {
     return filterByService && filterByWidth && filterByLenght && filterByBoatTypeIds;
   };
 };
+
+export const getLocalizedText = (keyId: Object, locale: string) =>
+  locale === 'sv' ? keyId.sv : keyId.fi;

@@ -2,10 +2,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row, Col, Button, Alert } from 'reactstrap';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl, type IntlShape } from 'react-intl';
 import Icon from '../common/Icon';
-import type { Berth } from '../../types/berths';
+import type { Berth as BerthType } from '../../types/berths';
 import responsive from '../../utils/responsive';
+import { getLocalizedText } from '../../utils/berths';
 import IntlComponent from '../common/IntlComponent';
 
 const Details = styled.div`
@@ -126,13 +127,15 @@ const StyledDiv = styled.div`
 `;
 
 type Props = {
-  berth: Berth,
+  berth: BerthType,
   className?: string,
   onClick: Function,
   selected: boolean,
   disabled?: boolean,
-  excluded?: boolean
+  excluded?: boolean,
+  intl: IntlShape
 };
+
 const Heading = styled.strong`
   font-size: 18px;
   ${responsive.lg`
@@ -150,7 +153,7 @@ const ErrorAlert = styled(Alert).attrs({
   font-size: 12px;
 `;
 
-export default ({ berth, className, onClick, selected, disabled, excluded }: Props) => (
+const Berth = ({ berth, className, onClick, selected, disabled, excluded, intl }: Props) => (
   <Row className={className}>
     <Col xs={12}>
       <StyledDiv>
@@ -162,14 +165,15 @@ export default ({ berth, className, onClick, selected, disabled, excluded }: Pro
               // $FlowFixMe
               visible={excluded ? 'true' : 'false'}
             />
-            <BerthImage src={berth.image} alt={berth.name.fi} />
+            <BerthImage src={berth.image} alt={getLocalizedText(berth.name, intl.locale)} />
           </Col>
           <Col lg={4}>
             <SummaryWrapper>
-              <Heading>{berth.name.fi}</Heading>
+              <Heading>{getLocalizedText(berth.name, intl.locale)}</Heading>
 
               <BerthAddress>
-                {berth.street_address.fi}, {berth.zip_code} {berth.municipality.fi}
+                {getLocalizedText(berth.street_address, intl.locale)}, {berth.zip_code}{' '}
+                {getLocalizedText(berth.municipality, intl.locale)}
               </BerthAddress>
               {selected ? (
                 <Button color={excluded ? 'danger' : 'secondary'} onClick={onClick}>
@@ -238,3 +242,5 @@ export default ({ berth, className, onClick, selected, disabled, excluded }: Pro
     </Col>
   </Row>
 );
+
+export default injectIntl(Berth);

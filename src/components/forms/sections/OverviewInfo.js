@@ -2,8 +2,9 @@
 
 import React, { Fragment } from 'react';
 import { Row, Col, Container } from 'reactstrap';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl, type IntlShape } from 'react-intl';
 import styled from 'styled-components';
+
 import LocalizedLink from '../../common/LocalizedLink';
 import Icon from '../../common/Icon';
 import BoatInfo from '../fragments/overview/BoatInfo';
@@ -13,6 +14,7 @@ import BoatDraughtAndWeight from '../fragments/overview/BoatDraughtAndWeight';
 import Person from '../fragments/overview/Person';
 import type { Berths } from '../../../types/berths';
 import { type WithBoatType } from '../Selects';
+import { getLocalizedText } from '../../../utils/berths';
 
 const StyledInfoBox = styled.div`
   background-color: #efefef;
@@ -43,10 +45,11 @@ const EditLink = styled(LocalizedLink)`
 type Props = {
   values: Object,
   selectedBerths: Berths,
-  tabs: Array<string>
+  tabs: Array<string>,
+  intl: IntlShape
 } & WithBoatType;
 
-const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
+const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) => (
   <StyledInfoBox>
     <Container fluid>
       <Row>
@@ -96,7 +99,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
         <Col xs={12}>
           {selectedBerths.map((berth, index) => (
             <div key={berth.identifier}>
-              {index + 1}. {berth.name.fi}
+              {index + 1}. {getLocalizedText(berth.name, intl.locale)}
             </div>
           ))}
         </Col>
@@ -117,4 +120,4 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
   </StyledInfoBox>
 );
 
-export default OverviewInfo;
+export default injectIntl(OverviewInfo);
