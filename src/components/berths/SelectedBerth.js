@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
+import { injectIntl } from 'react-intl';
 
 import Icon from '../common/Icon';
 import responsive from '../../utils/responsive';
+import { getLocalizedText } from '../../utils/berths';
 import InvalidSelection from './InvalidSelection';
 
 const StyledRow = styled(Row)`
@@ -46,7 +48,17 @@ const DeselectButton = styled.button`
 
 class SelectedBerth extends Component<any, any> {
   render() {
-    const { berth, index, moveUp, moveDown, first, last, deselectBerth, isValid } = this.props;
+    const {
+      berth,
+      index,
+      moveUp,
+      moveDown,
+      first,
+      last,
+      deselectBerth,
+      isValid,
+      intl
+    } = this.props;
 
     const id = `tooltip_${berth.identifier}`;
     return (
@@ -57,7 +69,7 @@ class SelectedBerth extends Component<any, any> {
               <Icon name="times" width="30px" />
             </DeselectButton>
             <span key={berth.identifier}>
-              {index + 1}. {berth.name.fi}
+              {index + 1}. {getLocalizedText(berth.name, intl.locale)}
             </span>
             {!isValid && <InvalidSelection id={id} />}
           </BerthName>
@@ -91,4 +103,4 @@ class SelectedBerth extends Component<any, any> {
   }
 }
 
-export default SelectedBerth;
+export default injectIntl(SelectedBerth);
