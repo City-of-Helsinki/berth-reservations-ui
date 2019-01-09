@@ -73,10 +73,12 @@ const HeroContent = styled(KoroSection).attrs({
 
 const getHeroContentLink = locale => {
   switch (locale) {
-    case 'fi':
-      return 'https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/varausohjeet-ja-maksut';
+    case 'en':
+      return 'https://www.hel.fi/helsinki/en/culture/recreation/boating/berths';
+    case 'sv':
+      return 'https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv/batplatser/';
     default:
-      return 'https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/varausohjeet-ja-maksut';
+      return 'https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/venepaikan-hakeminen/';
   }
 };
 
