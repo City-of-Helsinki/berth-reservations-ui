@@ -10,7 +10,6 @@ const Legend = styled.div`
 `;
 
 const LegendContainer = styled(Container)`
-  width: 80%;
   padding-bottom: 3em;
 `;
 
@@ -18,7 +17,7 @@ const BerthsLegend = () => (
   <Legend>
     <LegendContainer>
       <Row>
-        <Col md="12">
+        <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
           <Steps
             steps={[
               {
@@ -53,11 +52,7 @@ const BerthsLegend = () => (
               }
             ]}
           />
-        </Col>
-      </Row>
 
-      <Row>
-        <Col md="12">
           <FormattedMessage tagName="h3" id="legend.selected_berths.title" />
           <FormattedMessage tagName="p" id="legend.selected_berths.legend" />
         </Col>

@@ -15,7 +15,6 @@ const Legend = styled.div`
 `;
 
 const LegendContainer = styled(Container)`
-  width: 80%;
   padding-bottom: 3em;
 `;
 
@@ -47,17 +46,21 @@ const services = [
   }
 ];
 
-const Services = styled(Col)`
+const FormHeader = styled.div`
+  margin-bottom: 2em;
+`;
+
+const Services = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-flow: wrap;
+  margin: -0.75em;
 `;
 
 const ServiceIcon = styled(Icon)`
   border: 2px solid black;
   border-radius: 50%;
   background-color: ${props => (props.selected ? 'white' : 'transparent')};
-
   padding: 4px;
 `;
 
@@ -69,7 +72,7 @@ const ServiceButton = styled.button`
   align-items: center;
   color: black;
   background-color: transparent;
-  margin: 0.5em;
+  padding: 0 0.75em;
   && {
     outline: none;
   }
@@ -81,12 +84,13 @@ const ServiceButton = styled.button`
 `;
 
 const ServicesHeader = styled.div`
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
   font-weight: 500;
 `;
 
 const ServiceTitle = styled.div`
-  margin-top: 0.5em;
+  margin: 0.5em 0;
+  font-size: 0.8rem;
   font-weight: 500;
 `;
 
@@ -101,7 +105,7 @@ const BerthsLegend = ({
   <Legend>
     <LegendContainer>
       <Row>
-        <Col md="12">
+        <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
           <Steps
             steps={[
               {
@@ -136,16 +140,12 @@ const BerthsLegend = ({
               }
             ]}
           />
-        </Col>
-      </Row>
-      <Row>
-        <Col md="12">
-          <FormattedMessage tagName="h3" id="legend.berths.title" />
-          <FormattedMessage tagName="p" id="legend.berths.legend" />
-        </Col>
-      </Row>
-      <Row>
-        <Col md="12">
+
+          <FormHeader>
+            <FormattedMessage tagName="h3" id="legend.berths.title" />
+            <FormattedMessage tagName="p" id="legend.berths.legend" />
+          </FormHeader>
+
           <Form initialValues={initialValues} onSubmit={onSubmit}>
             {() => (
               <Fragment>
@@ -154,35 +154,31 @@ const BerthsLegend = ({
               </Fragment>
             )}
           </Form>
-        </Col>
-      </Row>
-      <Row>
-        <Col sm={12}>
+
           <ServicesHeader>
             <FormattedMessage tagName="span" id="form.services.field.services.label" />
           </ServicesHeader>
+
+          <Services>
+            {services.map((service, index) => {
+              const selected = selectedServices.get(service.value);
+              return (
+                <ServiceButton
+                  key={index}
+                  selected={selected}
+                  onClick={() =>
+                    selected ? deselectService(service.value) : selectService(service.value)
+                  }
+                >
+                  <ServiceIcon selected={selected} name={service.icon} width="42px" height="42px" />
+                  <ServiceTitle>
+                    <FormattedMessage id={service.label} />
+                  </ServiceTitle>
+                </ServiceButton>
+              );
+            })}
+          </Services>
         </Col>
-      </Row>
-      <Row>
-        <Services sm={12}>
-          {services.map((service, index) => {
-            const selected = selectedServices.get(service.value);
-            return (
-              <ServiceButton
-                key={index}
-                selected={selected}
-                onClick={() =>
-                  selected ? deselectService(service.value) : selectService(service.value)
-                }
-              >
-                <ServiceIcon selected={selected} name={service.icon} width="42px" height="42px" />
-                <ServiceTitle>
-                  <FormattedMessage id={service.label} />
-                </ServiceTitle>
-              </ServiceButton>
-            );
-          })}
-        </Services>
       </Row>
     </LegendContainer>
   </Legend>
