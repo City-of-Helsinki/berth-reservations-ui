@@ -25,7 +25,7 @@ const BoatValue = styled.span`
 `;
 
 const PageContainer = styled(Container)`
-  padding: 3em;
+  padding: 3em 0;
 `;
 
 type Props = any;
@@ -66,64 +66,67 @@ class BerthPage extends Component<Props> {
       <Layout>
         <Wrapper>
           <SelectedBerthsLegend />
-
           <PageContainer>
-            <FormattedMessage tagName="h1" id="page.berth.selected.title" />
-            <FormattedMessage tagName="p" id="page.berth.selected.paragraph.first" />
-            <FormattedMessage tagName="p" id="page.berth.selected.paragraph.second" />
-            <hr />
-            {boatType ? (
-              <Container>
-                <Row>
-                  {type && (
-                    <Col md="5">
-                      <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
-                      <BoatValue>{boatType.name[locale]}</BoatValue>
-                    </Col>
-                  )}
-                  {width && (
-                    <Col md="3">
-                      <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:
-                      <BoatValue>{width} m</BoatValue>
-                    </Col>
-                  )}
-                  {length && (
-                    <Col md="3">
-                      <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:
-                      <BoatValue>{length} m</BoatValue>
-                    </Col>
-                  )}
-                </Row>
-              </Container>
-            ) : (
-              <FormattedMessage tagName="span" id="page.berth.selected.info_text" />
-            )}
-            <hr />
-            {validSelection || (
-              <Alert color="warning">
-                <FormattedMessage tagName="strong" id="page.berth.selected.warning.heading" />
-              </Alert>
-            )}
+            <Row>
+              <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
+                <FormattedMessage tagName="h1" id="page.berth.selected.title" />
+                <FormattedMessage tagName="p" id="page.berth.selected.paragraph.first" />
+                <FormattedMessage tagName="p" id="page.berth.selected.paragraph.second" />
+                <hr />
+                {boatType ? (
+                  <Container>
+                    <Row>
+                      {type && (
+                        <Col md="5">
+                          <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
+                          <BoatValue>{boatType.name[locale]}</BoatValue>
+                        </Col>
+                      )}
+                      {width && (
+                        <Col md="3">
+                          <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:
+                          <BoatValue>{width} m</BoatValue>
+                        </Col>
+                      )}
+                      {length && (
+                        <Col md="3">
+                          <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:
+                          <BoatValue>{length} m</BoatValue>
+                        </Col>
+                      )}
+                    </Row>
+                  </Container>
+                ) : (
+                  <FormattedMessage tagName="span" id="page.berth.selected.info_text" />
+                )}
+                <hr />
+                {validSelection || (
+                  <Alert color="warning">
+                    <FormattedMessage tagName="strong" id="page.berth.selected.warning.heading" />
+                  </Alert>
+                )}
 
-            <SelectedBerths
-              moveUp={moveUp}
-              moveDown={moveDown}
-              deselectBerth={deselectBerth}
-              berthValidator={filter}
-              berths={selectedBerths.map(key => berths.find(berth => key === berth.identifier))}
-            />
+                <SelectedBerths
+                  moveUp={moveUp}
+                  moveDown={moveDown}
+                  deselectBerth={deselectBerth}
+                  berthValidator={filter}
+                  berths={selectedBerths.map(key => berths.find(berth => key === berth.identifier))}
+                />
 
-            <ButtonWrapper>
-              <Button
-                onClick={this.moveToForm}
-                outline
-                color="primary"
-                size="lg"
-                disabled={berths.size === 0}
-              >
-                <FormattedMessage tagName="span" id="page.berth.selected.submit" />
-              </Button>
-            </ButtonWrapper>
+                <ButtonWrapper>
+                  <Button
+                    onClick={this.moveToForm}
+                    outline
+                    color="primary"
+                    size="lg"
+                    disabled={berths.size === 0}
+                  >
+                    <FormattedMessage tagName="span" id="page.berth.selected.submit" />
+                  </Button>
+                </ButtonWrapper>
+              </Col>
+            </Row>
           </PageContainer>
         </Wrapper>
       </Layout>
