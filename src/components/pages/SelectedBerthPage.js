@@ -25,7 +25,8 @@ const BoatValue = styled.span`
 `;
 
 const PageContainer = styled(Container)`
-  padding: 3em 0;
+  padding-top: 3em;
+  padding-bottom: 3em;
 `;
 
 type Props = any;
