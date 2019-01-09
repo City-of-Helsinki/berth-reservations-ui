@@ -119,10 +119,8 @@
   "form.big_ship.field.inspected.label": "I confirm that the vessel has been inspected.",
   "form.big_ship.field.insurance.label": "I confirm that the vessel is insured, and that the insurance covers any costs arising from having to lift the vessel.",
   "form.big_ship.field.agreed.label": "I have read the terms and conditions of the contract and I commit to adhering by them.",
-  "form.big_ship.text.inspection_and_insurance": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet nisi at tellus cursus aliquet. Aliquam erat volutpat. Integer non metus risus. Maecenas interdum venenatis molestie. Aliquam gravida lorem ut nisl viverra blandit. Quisque euismod, tellus at mollis consectetur, justo eros tincidunt nibh, ut luctus magna sapien ut ex. Suspendisse viverra id risus non varius. Mauris tincidunt velit et elit tempus, sit amet iaculis mauris scelerisque. Vestibulum id hendrerit mi, eu pulvinar risus. Etiam vitae sollicitudin risus, in volutpat neque. Nulla rutrum justo vitae ante pellentesque feugiat. Sed eget venenatis massa, ut",
 
   "form.registered.header.title": "Information on a registered boat",
-  "form.registered.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.registered.header.measures": "Boat measurements",
   "form.registered.field.register_number.label": "Register number",
   "form.registered.field.register_number.placeholder": "Boat register number",
@@ -146,7 +144,6 @@
   "form.accessibility.field.accessibility.label": "I need an accessible berth",
 
   "form.unregistered.header.title": "Information on an unregistered boat",
-  "form.unregistered.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.unregistered.header.additional_info": "Further information",
   "form.unregistered.header.accessibility": "Accessibility",
   "form.unregistered.field.type.label": "Type",
@@ -160,7 +157,6 @@
   "form.unregistered.field.accessibility.label": "I need an accessible berth",
 
   "form.no_boat.header.title": "Information on the boat to be purchased",
-  "form.no_boat.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.no_boat.header.additional_info": "Further information",
   "form.no_boat.header.accessibility": "Accessibility",
   "form.no_boat.field.accessibility.label": "I need an accessible berth",
@@ -176,7 +172,6 @@
   "form.no_boat.field.brand.placeholder": "Name",
 
   "form.company.header.title": "Company or community information",
-  "form.company.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.company.header.contact_person": "Contact person",
   "form.company.field.first_name.label": "First name",
   "form.company.field.first_name.placeholder": "Betty",
@@ -205,14 +200,12 @@
   "form.contact_details.field.email.placeholder": "betty.boatman@hel.fi",
 
   "form.private_person.header.title": "Applicant’s personal information",
-  "form.private_person.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.private_person.field.first_name.label": "First name",
   "form.private_person.field.first_name.placeholder": "Betty",
   "form.private_person.field.last_name.label": "Last name",
   "form.private_person.field.last_name.placeholder": "Boatman",
 
   "form.overview.header.title": "If I am offered a berth I want to be notified",
-  "form.overview.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.overview.field.email.label": "Via e-mail",
   "form.overview.field.sms.label": "By SMS",
   "form.overview.field.guarantee.label": "I confirm that the information I have provided is correct.",

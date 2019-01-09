@@ -15,7 +15,6 @@ type Props = {
 export default ({ prefix, boatTypes }: Props) => (
   <StyledContainer>
     <FormattedMessage tagName="h3" id="form.unregistered.header.title" />
-    <FormattedMessage tagName="p" id="form.unregistered.header.paragraph" />
     <UnRegisteredBoatDetails prefix={prefix} boatTypes={boatTypes} />
     <BoatInfo prefix={prefix} />
     <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />

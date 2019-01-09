@@ -23,7 +23,6 @@ const GrayBackground = styled.div`
 export default ({ prefix, ShowBigShipsForm, boatTypes }: Props) => (
   <StyledContainer>
     <FormattedMessage tagName="h3" id="form.registered.header.title" />
-    <FormattedMessage tagName="p" id="form.registered.header.paragraph" />
     <RegisteredBoatDetails prefix={prefix} boatTypes={boatTypes} />
 
     <FormattedMessage tagName="h3" id="form.registered.header.measures" />
