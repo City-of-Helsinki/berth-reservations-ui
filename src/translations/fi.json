@@ -119,10 +119,8 @@
   "form.big_ship.field.inspected.label": "Vakuutan että alus on katsastettu.",
   "form.big_ship.field.insurance.label": "Vakuutan että aluksella on voimassa oleva vakuutus, joka kattaa aluksen nostosta johtuvat kustannukset.",
   "form.big_ship.field.agreed.label": "Olen tutustunut sopimusehtoihin ja sitoudun noudattamaan niitä.",
-  "form.big_ship.text.inspection_and_insurance": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet nisi at tellus cursus aliquet. Aliquam erat volutpat. Integer non metus risus. Maecenas interdum venenatis molestie. Aliquam gravida lorem ut nisl viverra blandit. Quisque euismod, tellus at mollis consectetur, justo eros tincidunt nibh, ut luctus magna sapien ut ex. Suspendisse viverra id risus non varius. Mauris tincidunt velit et elit tempus, sit amet iaculis mauris scelerisque. Vestibulum id hendrerit mi, eu pulvinar risus. Etiam vitae sollicitudin risus, in volutpat neque. Nulla rutrum justo vitae ante pellentesque feugiat. Sed eget venenatis massa, ut",
 
   "form.registered.header.title": "Rekisteröidyn veneen tiedot",
-  "form.registered.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.registered.header.measures": "Veneen mitat",
   "form.registered.field.register_number.label": "Rekisterinumero",
   "form.registered.field.register_number.placeholder": "Veneen rekisterinumero",
@@ -145,8 +143,7 @@
 
   "form.accessibility.field.accessibility.label": "Tarvitsen esteettömän paikan",
 
-  "form.unregistered.header.title": "Rekisteröimättömän veneen tiedot",
-  "form.unregistered.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
+  "form.unregistered.header.title": "Rekisteröimättömän veneen teidot",
   "form.unregistered.header.additional_info": "Lisätiedot",
   "form.unregistered.header.accessibility": "Esteettömyys",
   "form.unregistered.field.type.label": "Tyyppi",
@@ -160,7 +157,6 @@
   "form.unregistered.field.accessibility.label": "Tarvisen esteettömän venepaikan",
 
   "form.no_boat.header.title": "Hankittavan veneen tiedot",
-  "form.no_boat.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.no_boat.header.additional_info": "Lisätiedot",
   "form.no_boat.header.accessibility": "Esteettömyys",
   "form.no_boat.field.accessibility.label": "Tarvisen esteettömän venepaikan",
@@ -176,7 +172,6 @@
   "form.no_boat.field.brand.placeholder": "Nimi",
 
   "form.company.header.title": "Yrityksen tai yhteisön tiedot",
-  "form.company.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.company.header.contact_person": "Yhteyshenkilö",
   "form.company.field.first_name.label": "Etunimi",
   "form.company.field.first_name.placeholder": "Vellamo",
@@ -205,14 +200,12 @@
   "form.contact_details.field.email.placeholder": "vellamo.merenkavija@hel.fi",
 
   "form.private_person.header.title": "Hakijan henkilötiedot",
-  "form.private_person.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.private_person.field.first_name.label": "Etunimi",
   "form.private_person.field.first_name.placeholder": "Vellamo",
   "form.private_person.field.last_name.label": "Sukunimi",
   "form.private_person.field.last_name.placeholder": "Merenkävijä",
 
   "form.overview.header.title": "Haluan tiedon tarjotusta venepaikasta",
-  "form.overview.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.overview.field.email.label": "Sähköpostilla",
   "form.overview.field.sms.label": "Tekstiviestillä",
   "form.overview.field.guarantee.label": "Vakuutan antamani tiedot oikeiksi.",

@@ -119,10 +119,8 @@
   "form.big_ship.field.inspected.label": "Jag intygar att fartyget har besiktigats.",
   "form.big_ship.field.insurance.label": "Jag intygar att fartyget har en gällande försäkring som täcker kostnaderna för lyft av fartyget.",
   "form.big_ship.field.agreed.label": "Jag har läst igenom avtalsvillkoren och förbinder mig att iaktta dem.",
-  "form.big_ship.text.inspection_and_insurance": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet nisi at tellus cursus aliquet. Aliquam erat volutpat. Integer non metus risus. Maecenas interdum venenatis molestie. Aliquam gravida lorem ut nisl viverra blandit. Quisque euismod, tellus at mollis consectetur, justo eros tincidunt nibh, ut luctus magna sapien ut ex. Suspendisse viverra id risus non varius. Mauris tincidunt velit et elit tempus, sit amet iaculis mauris scelerisque. Vestibulum id hendrerit mi, eu pulvinar risus. Etiam vitae sollicitudin risus, in volutpat neque. Nulla rutrum justo vitae ante pellentesque feugiat. Sed eget venenatis massa, ut",
 
   "form.registered.header.title": "Uppgifter om en registrerad båt",
-  "form.registered.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.registered.header.measures": "Båtens dimensioner",
   "form.registered.field.register_number.label": "Registernummer",
   "form.registered.field.register_number.placeholder": "Båtens registernummer",
@@ -146,7 +144,6 @@
   "form.accessibility.field.accessibility.label": "Jag behöver en tillgänglig plats",
 
   "form.unregistered.header.title": "Uppgifter om en icke-registrerad båt",
-  "form.unregistered.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.unregistered.header.additional_info": "Tilläggsuppgifter",
   "form.unregistered.header.accessibility": "Tillgänglighet",
   "form.unregistered.field.type.label": "Typ",
@@ -160,7 +157,6 @@
   "form.unregistered.field.accessibility.label": "Jag behöver en tillgänglig båtplats",
 
   "form.no_boat.header.title": "Uppgifter om en båt som ska köpas",
-  "form.no_boat.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.no_boat.header.additional_info": "Tilläggsuppgifter",
   "form.no_boat.header.accessibility": "Tillgänglighet",
   "form.no_boat.field.accessibility.label": "Jag behöver en tillgänglig båtplats",
@@ -176,7 +172,6 @@
   "form.no_boat.field.brand.placeholder": "Namn",
 
   "form.company.header.title": "Uppgifter om företaget eller sammanslutningen",
-  "form.company.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.company.header.contact_person": "Kontaktperson",
   "form.company.field.first_name.label": "Förnamn",
   "form.company.field.first_name.placeholder": "Vellamo",
@@ -205,14 +200,12 @@
   "form.contact_details.field.email.placeholder": "vellamo.merenkavija@hel.fi",
 
   "form.private_person.header.title": "Den sökandes personuppgifter",
-  "form.private_person.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.private_person.field.first_name.label": "Förnamn",
   "form.private_person.field.first_name.placeholder": "Vellamo",
   "form.private_person.field.last_name.label": "Efternamn",
   "form.private_person.field.last_name.placeholder": "Merenkävijä",
 
   "form.overview.header.title": "Jag vill få besked om erbjuden båtplats",
-  "form.overview.header.paragraph": "Lorem ipsum dolor sit amet, errem adipisci sea ex. Audiam neglegentur ius ei, in nam laoreet probatus. Mucius inermis veritus sea id, postulant delicatissimi qui id. Facer propriae offendit ad nec. Pro id tamquam mandamus persequeris, mel agam sanctus ornatus an. Et impetus oporteat vix.",
   "form.overview.field.email.label": "per e-post",
   "form.overview.field.sms.label": "per SMS",
   "form.overview.field.guarantee.label": "Jag intygar att de uppgifter som jag angett är korrekta.",
