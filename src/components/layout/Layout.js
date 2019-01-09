@@ -74,7 +74,7 @@ const HeroContent = styled(KoroSection).attrs({
 const getHeroContentLink = locale => {
   switch (locale) {
     case 'en':
-      return 'https://www.hel.fi/helsinki/en/culture/recreation/boating/berths';
+      return 'https://www.hel.fi/helsinki/en/culture/recreation/boating/boat-berths/';
     case 'sv':
       return 'https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv/batplatser/';
     default:
