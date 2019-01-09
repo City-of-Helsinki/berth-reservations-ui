@@ -23,7 +23,7 @@ const Details = styled.div`
     flex-grow: 1;
   }
 
-  ${responsive.lg`
+  ${responsive.md`
     justify-content: right;
     flex: 1 0 50%;
     flex-direction: column;
@@ -40,7 +40,7 @@ const DetailsWrapper = styled.div`
   padding: 1em;
   padding-top: 0px;
   white-space: nowrap;
-  ${responsive.lg`
+  ${responsive.md`
     flex-direction: column;
     padding: 1em 0;
   `}
@@ -53,7 +53,7 @@ const DetailsIcon = styled(Icon).attrs({
   margin: 4px;
   display: none;
   text-align: center;
-  ${responsive.lg`
+  ${responsive.md`
     display: block;
   `}
 `;
@@ -65,7 +65,7 @@ const DetailsValue = styled.span`
   font-weight: 700;
   order: 2;
 
-  ${responsive.lg`
+  ${responsive.md`
     margin: 4px 0;
     line-height: 42px;
     height: 42px;
@@ -76,6 +76,13 @@ const DetailsValue = styled.span`
 
 const DetailsTitle = styled.span`
   text-align: center;
+
+  ${responsive.md`
+    font-size: 14px;
+  `}
+  ${responsive.lg`
+    font-size: inherit;
+  `}
 `;
 
 const BerthImage = styled.img`
@@ -83,7 +90,7 @@ const BerthImage = styled.img`
   height: 12em;
   width: 100%;
 
-  ${responsive.lg`
+  ${responsive.md`
     height: 100%;
     display: block;
   `}
@@ -92,7 +99,7 @@ const BerthImage = styled.img`
 const SummaryWrapper = styled.div`
   padding: 1em;
 
-  ${responsive.lg`
+  ${responsive.md`
     padding: 1em 0;
   `}
   > * {
@@ -111,7 +118,7 @@ const SummaryWrapper = styled.div`
 
 const ButtonIcon = styled(Icon)`
   display: none;
-  ${responsive.lg`
+  ${responsive.md`
     display: inline-block;
   `}
   margin-right: 0.5em;
@@ -144,6 +151,9 @@ type Props = {
 
 const Heading = styled.strong`
   font-size: 22px;
+  ${responsive.md`
+    font-size: 24px;
+  `}
   ${responsive.lg`
     font-size: 28px;
   `}
@@ -195,7 +205,7 @@ const Berth = ({ berth, className, onClick, selected, disabled, excluded, intl }
     <Col xs={12}>
       <StyledDiv>
         <Row>
-          <Col lg={3}>
+          <Col md={3}>
             <IntlComponent
               Component={ErrorAlert}
               id="error.message.invalid_berth"
@@ -204,7 +214,7 @@ const Berth = ({ berth, className, onClick, selected, disabled, excluded, intl }
             />
             <BerthImage src={berth.image} alt={getLocalizedText(berth.name, intl.locale)} />
           </Col>
-          <Col lg={4}>
+          <Col md={4}>
             <SummaryWrapper>
               <Heading>{getLocalizedText(berth.name, intl.locale)}</Heading>
 
@@ -233,7 +243,7 @@ const Berth = ({ berth, className, onClick, selected, disabled, excluded, intl }
               </WebsiteLink>
             </SummaryWrapper>
           </Col>
-          <Col lg={5}>
+          <Col md={5}>
             <DetailsWrapper>
               <Details available={true}>
                 <DetailsValue>{berth.number_of_places}</DetailsValue>
