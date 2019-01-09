@@ -24,7 +24,7 @@ const Details = styled.div`
   }
 
   ${responsive.lg`
-    justify-content: center;
+    justify-content: right;
     flex: 1 0 50%;
     flex-direction: column;
     height: 1px;
@@ -37,7 +37,7 @@ const DetailsWrapper = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
   height: 100%;
-  padding: 2em;
+  padding: 1em;
   padding-top: 0px;
   white-space: nowrap;
   ${responsive.lg`
@@ -50,7 +50,7 @@ const DetailsIcon = styled(Icon).attrs({
   height: '42px',
   width: '42px'
 })`
-  margin: 0.25em;
+  margin: 4px;
   display: none;
   text-align: center;
   ${responsive.lg`
@@ -59,12 +59,18 @@ const DetailsIcon = styled(Icon).attrs({
 `;
 
 const DetailsValue = styled.span`
-  margin-right: 1ch;
+  margin-left: 1ch;
   text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  order: 2;
+
   ${responsive.lg`
-    margin-right: 0;
+    margin: 4px 0;
     line-height: 42px;
-    font-size: 24px;
+    height: 42px;
+    font-size: 28px;
+    order: -1;
   `}
 `;
 
@@ -74,22 +80,23 @@ const DetailsTitle = styled.span`
 
 const BerthImage = styled.img`
   object-fit: cover;
-  height: 100%;
+  height: 12em;
   width: 100%;
-  max-height: 16em;
+
+  ${responsive.lg`
+    height: 100%;
+    display: block;
+  `}
 `;
 
 const SummaryWrapper = styled.div`
-  padding: 2em;
-  padding-bottom: 1em;
+  padding: 1em;
+
   ${responsive.lg`
     padding: 1em 0;
   `}
   > * {
     display: block;
-  }
-  span {
-    font-size: 16px;
   }
   strong {
     line-height: 1em;
@@ -98,7 +105,6 @@ const SummaryWrapper = styled.div`
     font-size: 14px;
   }
   a {
-    font-size: 12px;
     color: black;
   }
 `;
@@ -114,12 +120,12 @@ const ButtonIcon = styled(Icon)`
 `;
 
 const BerthAddress = styled.div`
-  margin-top: 0.8em;
-  margin-bottom: 1em;
+  margin: 0.5em 0;
 `;
 
 const WebsiteLink = styled.a`
-  margin-top: 1em;
+  margin-top: 0.5em;
+  font-weight: 700;
 `;
 
 const StyledDiv = styled.div`
@@ -137,9 +143,9 @@ type Props = {
 };
 
 const Heading = styled.strong`
-  font-size: 18px;
+  font-size: 22px;
   ${responsive.lg`
-    font-size: 32px;
+    font-size: 28px;
   `}
 `;
 
@@ -151,6 +157,38 @@ const ErrorAlert = styled(Alert).attrs({
   margin: 10px 25px 0px 10px;
   padding: 8px;
   font-size: 12px;
+`;
+
+const AvailabilityLevel = styled.div`
+  margin-top: 0.5em;
+`;
+
+const AvailabilityLevelMarker = styled.span`
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 0.3em;
+  background-color: green;
+  border-radius: 50%;
+  background-color: ${props => {
+    switch (props.level) {
+      case 'red':
+        return props.theme.helBrick;
+      case 'yellow':
+        return props.theme.helSummer;
+      case 'green':
+        return props.theme.helTram;
+      default:
+        return '#ffffff';
+    }
+  }};
+`;
+
+const TypeIcon = styled(Icon).attrs({
+  height: '1em',
+  width: '1em'
+})`
+  display: inline-block;
 `;
 
 const Berth = ({ berth, className, onClick, selected, disabled, excluded, intl }: Props) => (
@@ -185,9 +223,14 @@ const Berth = ({ berth, className, onClick, selected, disabled, excluded, intl }
                   + <FormattedMessage tagName="span" id="page.berths.select" />
                 </Button>
               )}
-
+              {/* TODO: Bring the actual value for availability level */}
+              <AvailabilityLevel>
+                <AvailabilityLevelMarker level="green" />
+                <span>Vähän jonoa</span>
+              </AvailabilityLevel>
               <WebsiteLink rel="noopener" target="_blank" href={berth.www_url}>
                 <FormattedMessage tagName="span" id="page.berths.website" />
+                <TypeIcon name="arrowRight" />
               </WebsiteLink>
             </SummaryWrapper>
           </Col>
@@ -200,7 +243,7 @@ const Berth = ({ berth, className, onClick, selected, disabled, excluded, intl }
                 </DetailsTitle>
               </Details>
               <Details available={true}>
-                <DetailsValue>{berth.maximum_width} m</DetailsValue>
+                <DetailsValue>{berth.maximum_width}&#8202;m</DetailsValue>
                 <DetailsTitle>
                   <FormattedMessage tagName="span" id="page.berths.maximum_width" />
                 </DetailsTitle>
