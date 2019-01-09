@@ -12,7 +12,7 @@
 
   "hero.title": "Ansökan om båtplats i Helsingfors båthamnar",
   "hero.paragraph.first": "I denna tjänst kan du bläddra bland Helsingfors stads båthamnar och göra en ny ansökan om båtplats i önskade hamnar. ",
-  "hero.paragraph.second": "Mer information om grunderna för utdelningen av båtplatser, priser och handläggningen av ansökningar finns på webbplatsen <a href='{url}’>hel.fi</a>.",
+  "hero.paragraph.second": "Mer information om grunderna för utdelningen av båtplatser, priser och handläggningen av ansökningar finns på webbplatsen <a href='{url}'>hel.fi</a>.",
   "site.steps.berths": "Val av hamnar",
   "site.steps.selected_berths": "Valda hamnar",
   "site.steps.boat_information": "Uppgifter om båten",
