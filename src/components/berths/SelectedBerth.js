@@ -33,7 +33,6 @@ const BerthOptions = styled(Col)`
 const StyledButton = styled.button`
   background: none;
   height: 100%;
-  margin-left: 1em;
   border: 2px solid ${props => (props.disabled ? 'lightgray' : 'black')};
 `;
 
@@ -64,7 +63,7 @@ class SelectedBerth extends Component<any, any> {
     return (
       <Container fluid>
         <StyledRow>
-          <BerthName xs={9} md={10} errors={isValid.toString()}>
+          <BerthName xs={8} md={9} errors={isValid.toString()}>
             <DeselectButton type="button" onClick={() => deselectBerth(berth.identifier)}>
               <Icon name="times" width="30px" />
             </DeselectButton>
@@ -73,7 +72,7 @@ class SelectedBerth extends Component<any, any> {
             </span>
             {!isValid && <InvalidSelection id={id} />}
           </BerthName>
-          <BerthOptions xs={3} md={2}>
+          <BerthOptions xs={4} md={3}>
             <Container fluid>
               <Row>
                 <Col xs={12} sm={6}>
