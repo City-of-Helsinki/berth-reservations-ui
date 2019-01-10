@@ -23,8 +23,8 @@ const Details = styled.div`
     flex-grow: 1;
   }
 
-  ${responsive.lg`
-    justify-content: center;
+  ${responsive.md`
+    justify-content: right;
     flex: 1 0 50%;
     flex-direction: column;
     height: 1px;
@@ -37,10 +37,10 @@ const DetailsWrapper = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
   height: 100%;
-  padding: 2em;
+  padding: 1em;
   padding-top: 0px;
   white-space: nowrap;
-  ${responsive.lg`
+  ${responsive.md`
     flex-direction: column;
     padding: 1em 0;
   `}
@@ -50,46 +50,60 @@ const DetailsIcon = styled(Icon).attrs({
   height: '42px',
   width: '42px'
 })`
-  margin: 0.25em;
+  margin: 4px;
   display: none;
   text-align: center;
-  ${responsive.lg`
+  ${responsive.md`
     display: block;
   `}
 `;
 
 const DetailsValue = styled.span`
-  margin-right: 1ch;
+  margin-left: 1ch;
   text-align: center;
-  ${responsive.lg`
-    margin-right: 0;
+  font-size: 16px;
+  font-weight: 700;
+  order: 2;
+
+  ${responsive.md`
+    margin: 4px 0;
     line-height: 42px;
-    font-size: 24px;
+    height: 42px;
+    font-size: 28px;
+    order: -1;
   `}
 `;
 
 const DetailsTitle = styled.span`
   text-align: center;
+
+  ${responsive.md`
+    font-size: 14px;
+  `}
+  ${responsive.lg`
+    font-size: inherit;
+  `}
 `;
 
 const BerthImage = styled.img`
   object-fit: cover;
-  height: 100%;
+  height: 12em;
   width: 100%;
-  max-height: 16em;
+
+  ${responsive.md`
+    height: 100%;
+    display: block;
+  `}
 `;
 
 const SummaryWrapper = styled.div`
-  padding: 2em;
-  padding-bottom: 1em;
-  ${responsive.lg`
+  padding: 1em;
+
+  ${responsive.md`
     padding: 1em 0;
   `}
   > * {
     display: block;
-  }
-  span {
-    font-size: 16px;
   }
   strong {
     line-height: 1em;
@@ -98,14 +112,13 @@ const SummaryWrapper = styled.div`
     font-size: 14px;
   }
   a {
-    font-size: 12px;
     color: black;
   }
 `;
 
 const ButtonIcon = styled(Icon)`
   display: none;
-  ${responsive.lg`
+  ${responsive.md`
     display: inline-block;
   `}
   margin-right: 0.5em;
@@ -114,12 +127,12 @@ const ButtonIcon = styled(Icon)`
 `;
 
 const BerthAddress = styled.div`
-  margin-top: 0.8em;
-  margin-bottom: 1em;
+  margin: 0.5em 0;
 `;
 
 const WebsiteLink = styled.a`
-  margin-top: 1em;
+  margin-top: 0.5em;
+  font-weight: 700;
 `;
 
 const StyledDiv = styled.div`
@@ -137,9 +150,12 @@ type Props = {
 };
 
 const Heading = styled.strong`
-  font-size: 18px;
+  font-size: 22px;
+  ${responsive.md`
+    font-size: 24px;
+  `}
   ${responsive.lg`
-    font-size: 32px;
+    font-size: 28px;
   `}
 `;
 
@@ -153,12 +169,43 @@ const ErrorAlert = styled(Alert).attrs({
   font-size: 12px;
 `;
 
+const AvailabilityLevel = styled.div`
+  margin-top: 0.5em;
+`;
+
+const AvailabilityLevelMarker = styled.span`
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 0.3em;
+  border-radius: 50%;
+  background-color: ${props => {
+    switch (props.level) {
+      case 'red':
+        return props.theme.helBrick;
+      case 'yellow':
+        return props.theme.helSummer;
+      case 'green':
+        return props.theme.helTram;
+      default:
+        return '#ffffff';
+    }
+  }};
+`;
+
+const TypeIcon = styled(Icon).attrs({
+  height: '1em',
+  width: '1em'
+})`
+  display: inline-block;
+`;
+
 const Berth = ({ berth, className, onClick, selected, disabled, excluded, intl }: Props) => (
   <Row className={className}>
     <Col xs={12}>
       <StyledDiv>
         <Row>
-          <Col lg={3}>
+          <Col md={3}>
             <IntlComponent
               Component={ErrorAlert}
               id="error.message.invalid_berth"
@@ -167,7 +214,7 @@ const Berth = ({ berth, className, onClick, selected, disabled, excluded, intl }
             />
             <BerthImage src={berth.image} alt={getLocalizedText(berth.name, intl.locale)} />
           </Col>
-          <Col lg={4}>
+          <Col md={4}>
             <SummaryWrapper>
               <Heading>{getLocalizedText(berth.name, intl.locale)}</Heading>
 
@@ -185,13 +232,23 @@ const Berth = ({ berth, className, onClick, selected, disabled, excluded, intl }
                   + <FormattedMessage tagName="span" id="page.berths.select" />
                 </Button>
               )}
-
+              {/* TODO: Bring the actual value for availability level */}
+              <AvailabilityLevel>
+                <AvailabilityLevelMarker level={berth.availability_level} />
+                <span>
+                  <FormattedMessage
+                    tagName="span"
+                    id={`page.berths.status.${berth.availability_level}`}
+                  />
+                </span>
+              </AvailabilityLevel>
               <WebsiteLink rel="noopener" target="_blank" href={berth.www_url}>
                 <FormattedMessage tagName="span" id="page.berths.website" />
+                <TypeIcon name="arrowRight" />
               </WebsiteLink>
             </SummaryWrapper>
           </Col>
-          <Col lg={5}>
+          <Col md={5}>
             <DetailsWrapper>
               <Details available={true}>
                 <DetailsValue>{berth.number_of_places}</DetailsValue>
@@ -200,7 +257,7 @@ const Berth = ({ berth, className, onClick, selected, disabled, excluded, intl }
                 </DetailsTitle>
               </Details>
               <Details available={true}>
-                <DetailsValue>{berth.maximum_width} m</DetailsValue>
+                <DetailsValue>{berth.maximum_width}&#8202;m</DetailsValue>
                 <DetailsTitle>
                   <FormattedMessage tagName="span" id="page.berths.maximum_width" />
                 </DetailsTitle>

@@ -2,7 +2,7 @@
 import React, { Component, type Node } from 'react';
 import styled from 'styled-components';
 import { StickyContainer, Sticky } from 'react-sticky';
-import { Button } from 'reactstrap';
+import { Button, Container } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import responsive from '../../utils/responsive';
 import IntlComponent from '../common/IntlComponent';
@@ -13,18 +13,12 @@ const TabsWrapper = styled.div`
   border-bottom: 4px solid white;
   z-index: 1001;
 `;
-const TabsInnerWrapper = styled.div`
-  max-width: ${props => props.theme.maxWidth.xl};
+const TabsInnerWrapper = styled(Container)`
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
-  margin: auto;
+  align-items: left;
   flex-direction: column-reverse;
-  ${responsive.sm`
+  ${responsive.md`
     flex-direction: row;
   `}
 `;
@@ -47,11 +41,29 @@ const TabButton = styled.button.attrs({
 `;
 
 const Tabs = styled.div`
-  margin-top: 3em;
+  margin-top: 0;
+`;
+
+const ApplicationPrompt = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 14px;
+  line-height: 1;
+  text-align: right;
+  margin: 0.5em 0;
+  ${responsive.md`
+    font-size: inherit;
+  `}
 `;
 
 const ProgressButton = styled(Button)`
+  float: right;
   margin-left: 1ch;
+  font-size: 14px;
+  ${responsive.md`
+    font-size: inherit;
+  `}
 `;
 
 type Props = {
@@ -117,14 +129,16 @@ class TabSelector extends Component<Props, State> {
                     </TabButton>
                   ))}
                 </div>
-                <div>
-                  <FormattedMessage
-                    id={getFormatedMessageId(selectedCount, maxSelected)}
-                    values={{
-                      total: REACT_APP_MAX_SELECTED_BERTHS,
-                      count: maxSelected - selectedCount
-                    }}
-                  />
+                <ApplicationPrompt>
+                  <div>
+                    <FormattedMessage
+                      id={getFormatedMessageId(selectedCount, maxSelected)}
+                      values={{
+                        total: REACT_APP_MAX_SELECTED_BERTHS,
+                        count: maxSelected - selectedCount
+                      }}
+                    />
+                  </div>
                   {!validSelection && <InvalidSelection />}
                   <IntlComponent
                     id="tab_selector.progress.button"
@@ -132,7 +146,7 @@ class TabSelector extends Component<Props, State> {
                     onClick={progress}
                     disabled={selectedCount === 0}
                   />
-                </div>
+                </ApplicationPrompt>
               </TabsInnerWrapper>
             </TabsWrapper>
           )}

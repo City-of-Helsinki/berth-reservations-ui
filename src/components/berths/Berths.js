@@ -15,31 +15,20 @@ const Wrapper = styled(Container)`
   }
 `;
 
-const BerthCount = styled.div`
-  width: 100%;
-  margin-bottom: 2em;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  font-weight: 500;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+const ListHeader = styled.h3`
+  margin: 1em 0;
 `;
 
 const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
 
 export default ({ filtered, filteredNot, onClick, selected }) => (
   <Wrapper>
-    <Row>
-      <Col xs={12}>
-        <BerthCount>
-          <FormattedMessage id="page.berths.list.berth_count" values={{ count: filtered.size }} />
-        </BerthCount>
-      </Col>
-    </Row>
     {filtered.size > 0 && (
       <Row>
         <Col xs={12}>
-          <FormattedMessage tagName="h2" id="page.berths.list.header.hits" />
+          <ListHeader>
+            <FormattedMessage id="page.berths.list.berth_count" values={{ count: filtered.size }} />
+          </ListHeader>
         </Col>
       </Row>
     )}
@@ -55,7 +44,9 @@ export default ({ filtered, filteredNot, onClick, selected }) => (
     {filteredNot.size > 0 && (
       <Row>
         <Col xs={12}>
-          <FormattedMessage tagName="h2" id="page.berths.list.header.others" />
+          <ListHeader>
+            <FormattedMessage id="page.berths.list.header.others" />
+          </ListHeader>
         </Col>
       </Row>
     )}

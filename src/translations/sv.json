@@ -57,6 +57,9 @@
   "page.berths.list.berth_count": "{count} hamnar motsvarar sökkriterierna",
   "page.berths.list.header.hits": "Hamnarna som motsvarar sökkriterierna:",
   "page.berths.list.header.others": "Övriga hamnar:",
+  "page.berths.status.green": "Lite kö",
+  "page.berths.status.yellow": "En del kö",
+  "page.berths.status.red": "Långa väntetider",
 
   "legend.berths.title": "Hurdan båtplats söker du?",
   "legend.berths.legend": "Bläddra bland stadens hamnar och båtplatser. Välj högst tio lämpliga hamnar i din ansökan.",
