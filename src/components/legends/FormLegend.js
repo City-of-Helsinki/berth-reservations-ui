@@ -9,8 +9,8 @@ const Legend = styled.div`
 
 const stepLegends = [
   {
-    title: 'legend.berths.title',
-    legend: 'legend.berths.legend'
+    title: 'legend.boat.title',
+    legend: 'legend.boat.legend'
   },
   {
     title: 'legend.person.title',
