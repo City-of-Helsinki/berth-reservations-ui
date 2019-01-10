@@ -57,6 +57,9 @@
   "page.berths.list.berth_count": "{count} hamnar motsvarar sökkriterierna",
   "page.berths.list.header.hits": "Hamnarna som motsvarar sökkriterierna:",
   "page.berths.list.header.others": "Övriga hamnar:",
+  "page.berths.status.green": "Minst kö",
+  "page.berths.status.yellow": "Lite kö",
+  "page.berths.status.red": "Hamnar med många sökande och i regel flera års kötid. I röda hamnar blir platser lediga huvudsakligen för dem som byter båtplats.",
 
   "legend.berths.title": "Hurdan båtplats söker du?",
   "legend.berths.legend": "Bläddra bland stadens hamnar och båtplatser. Välj högst tio lämpliga hamnar i din ansökan.",

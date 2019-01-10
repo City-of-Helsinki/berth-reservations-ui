@@ -57,6 +57,9 @@
   "page.berths.list.berth_count": "{count} harbours match the search criteria",
   "page.berths.list.header.hits": "Harbours matching the search criteria:",
   "page.berths.list.header.others": "Other harbours:",
+  "page.berths.status.green": "The shortest waiting periods",
+  "page.berths.status.yellow": "Medium waiting periods",
+  "page.berths.status.red": "harbours with many applicants and, usually, waiting periods of several years. Berths in these harbours are typically only available to those who exchange berths.",
 
   "legend.berths.title": "What type of berths are you looking for?",
   "legend.berths.legend": "Browse the harbours and berths offered by the City. Choose up to ten suitable harbours for your application.",

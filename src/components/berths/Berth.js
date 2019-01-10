@@ -234,8 +234,13 @@ const Berth = ({ berth, className, onClick, selected, disabled, excluded, intl }
               )}
               {/* TODO: Bring the actual value for availability level */}
               <AvailabilityLevel>
-                <AvailabilityLevelMarker level="green" />
-                <span>Vähän jonoa</span>
+                <AvailabilityLevelMarker level={berth.availability_level} />
+                <span>
+                  <FormattedMessage
+                    tagName="span"
+                    id={`page.berths.status.${berth.availability_level}`}
+                  />
+                </span>
               </AvailabilityLevel>
               <WebsiteLink rel="noopener" target="_blank" href={berth.www_url}>
                 <FormattedMessage tagName="span" id="page.berths.website" />

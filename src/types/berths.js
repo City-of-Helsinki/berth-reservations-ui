@@ -28,7 +28,8 @@ export type Berth = {
   lighting: boolean,
   number_of_places: number,
   maximum_depth: number,
-  maximum_width: number
+  maximum_width: number,
+  availability_level: string
 };
 
 export type Berths = List<Berth>;
