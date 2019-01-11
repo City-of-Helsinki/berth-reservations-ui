@@ -84,6 +84,6 @@ describe('Company', () => {
     overViewPageFillForm();
     clickSubmit();
 
-    cy.contains('Kiitos hakemuksesta');
+    cy.contains('Kiitos, hakemuksesi on lähetetty!');
   });
 });
