@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { Row, Col, Button, Alert } from 'reactstrap';
+import { Row, Col, Button, Alert, UncontrolledTooltip } from 'reactstrap';
 import { FormattedMessage, injectIntl, type IntlShape } from 'react-intl';
 import Icon from '../common/Icon';
 import type { Berth as BerthType } from '../../types/berths';
@@ -200,6 +200,13 @@ const TypeIcon = styled(Icon).attrs({
   display: inline-block;
 `;
 
+const Tooltip = styled(UncontrolledTooltip)`
+  border: 1px solid black;
+  background-color: white;
+  padding: 0.5em;
+  margin-left: 1em;
+`;
+
 const Berth = ({ berth, className, onClick, selected, disabled, excluded, intl }: Props) => (
   <Row className={className}>
     <Col xs={12}>
@@ -232,15 +239,20 @@ const Berth = ({ berth, className, onClick, selected, disabled, excluded, intl }
                   + <FormattedMessage tagName="span" id="page.berths.select" />
                 </Button>
               )}
-              {/* TODO: Bring the actual value for availability level */}
               <AvailabilityLevel>
                 <AvailabilityLevelMarker level={berth.availability_level} />
-                <span>
+                <span id={`availability_${berth.identifier}`}>
                   <FormattedMessage
                     tagName="span"
-                    id={`page.berths.status.${berth.availability_level}`}
+                    id={`page.berths.status.${berth.availability_level}.title`}
                   />
                 </span>
+                <Tooltip placement="top" target={`availability_${berth.identifier}`}>
+                  <FormattedMessage
+                    tagName="span"
+                    id={`page.berths.status.${berth.availability_level}.description`}
+                  />
+                </Tooltip>
               </AvailabilityLevel>
               <WebsiteLink rel="noopener" target="_blank" href={berth.www_url}>
                 <FormattedMessage tagName="span" id="page.berths.website" />

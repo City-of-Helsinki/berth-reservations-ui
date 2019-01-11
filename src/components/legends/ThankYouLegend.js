@@ -2,11 +2,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Col, Row, Container } from 'reactstrap';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 
 const Legend = styled.div`
   background-color: ${props => props.theme.colors.helFog};
-  padding-top: 3em;
+  padding-top: 1em;
 `;
 
 const LegendContainer = styled(Container)`
@@ -25,8 +25,8 @@ export default () => (
           <ThankYouHeader>
             <FormattedMessage tagName="h3" id="legend.thankyou.title" />
           </ThankYouHeader>
-          <FormattedMessage tagName="p" id="legend.thankyou.legend" />
-          <FormattedMessage tagName="p" id="legend.thankyou.legend.note" />
+          <FormattedMessage tagName="p" id="legend.thankyou.legend.regards" />
+          <FormattedHTMLMessage tagName="p" id="legend.thankyou.legend.contact_information" />
         </Col>
       </Row>
     </LegendContainer>
