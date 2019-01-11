@@ -35,7 +35,7 @@ describe('Private person', () => {
     overViewPageFillForm();
     clickSubmit();
 
-    cy.contains('Kiitos hakemuksesta');
+    cy.contains('Kiitos, hakemuksesi on lähetetty!');
   });
 
   it('creates an application with unregistered boat', () => {
@@ -59,7 +59,7 @@ describe('Private person', () => {
     overViewPageFillForm();
     clickSubmit();
 
-    cy.contains('Kiitos hakemuksesta');
+    cy.contains('Kiitos, hakemuksesi on lähetetty!');
   });
 
   it('creates an application without a boat', () => {
@@ -83,6 +83,6 @@ describe('Private person', () => {
     overViewPageFillForm();
     clickSubmit();
 
-    cy.contains('Kiitos hakemuksesta');
+    cy.contains('Kiitos, hakemuksesi on lähetetty!');
   });
 });

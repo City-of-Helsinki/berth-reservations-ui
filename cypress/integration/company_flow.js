@@ -36,7 +36,7 @@ describe('Company', () => {
     overViewPageFillForm();
     clickSubmit();
 
-    cy.contains('Kiitos hakemuksesta');
+    cy.contains('Kiitos, hakemuksesi on lähetetty!');
   });
 
   it('creates an appliation with unregistered boat', () => {
@@ -60,7 +60,7 @@ describe('Company', () => {
     overViewPageFillForm();
     clickSubmit();
 
-    cy.contains('Kiitos hakemuksesta');
+    cy.contains('Kiitos, hakemuksesi on lähetetty!');
   });
 
   it('creates an appliation without a boat', () => {
