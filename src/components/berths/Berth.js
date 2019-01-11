@@ -244,13 +244,13 @@ const Berth = ({ berth, className, onClick, selected, disabled, excluded, intl }
                 <span id={`availability_${berth.identifier}`}>
                   <FormattedMessage
                     tagName="span"
-                    id={`page.berths.status.title.${berth.availability_level}`}
+                    id={`page.berths.status.${berth.availability_level}.title`}
                   />
                 </span>
                 <Tooltip placement="top" target={`availability_${berth.identifier}`}>
                   <FormattedMessage
                     tagName="span"
-                    id={`page.berths.status.description.${berth.availability_level}`}
+                    id={`page.berths.status.${berth.availability_level}.description`}
                   />
                 </Tooltip>
               </AvailabilityLevel>
