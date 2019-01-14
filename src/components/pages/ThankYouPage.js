@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import styled from 'styled-components';
@@ -14,17 +14,30 @@ const ButtonSection = styled.div`
   margin-bottom: 3em;
 `;
 
-const ThankYouPage = () => (
-  <Layout>
-    <ThankYouLegend />
-    <ButtonSection>
-      <Link to="/">
-        <Button type="button">
-          <FormattedMessage tagName="span" id="site.buttons.back_to_frontpage" />
-        </Button>
-      </Link>
-    </ButtonSection>
-  </Layout>
-);
+type Props = any;
+
+class ThankYouPage extends Component<Props> {
+  constructor(props: Props) {
+    super(props);
+
+    window.scrollTo(0, 0);
+  }
+
+  /* eslint-disable class-methods-use-this */
+  render() {
+    return (
+      <Layout>
+        <ThankYouLegend />
+        <ButtonSection>
+          <Link to="/">
+            <Button type="button">
+              <FormattedMessage tagName="span" id="site.buttons.back_to_frontpage" />
+            </Button>
+          </Link>
+        </ButtonSection>
+      </Layout>
+    );
+  }
+}
 
 export default ThankYouPage;
