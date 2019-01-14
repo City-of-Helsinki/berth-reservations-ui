@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { FormattedMessage, injectIntl, type intlShape } from 'react-intl';
-import { Link } from 'react-router-dom';
 import { Dropdown, DropdownMenu, DropdownItem, DropdownToggle } from 'reactstrap';
 import styled from 'styled-components';
 import Icon from '../common/Icon';
@@ -64,20 +63,14 @@ class LanguageDropdown extends React.Component<Props, State> {
           </StyledSelector>
         </LanguageSelector>
         <DropdownMenu>
-          <DropdownItem>
-            <Link to="/fi">
-              <FormattedMessage id="site.language.fi" />
-            </Link>
+          <DropdownItem tag="a" href="/fi" active>
+            <FormattedMessage id="site.language.fi" />
           </DropdownItem>
-          <DropdownItem>
-            <Link to="/sv">
-              <FormattedMessage id="site.language.sv" />
-            </Link>
+          <DropdownItem tag="a" href="/sv" active>
+            <FormattedMessage id="site.language.sv" />
           </DropdownItem>
-          <DropdownItem>
-            <Link to="/en">
-              <FormattedMessage id="site.language.en" />
-            </Link>
+          <DropdownItem tag="a" href="/en" active>
+            <FormattedMessage id="site.language.en" />
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>
