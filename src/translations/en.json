@@ -90,8 +90,9 @@
   "form.boat_type_selector.no_boat.label": "No boat",
 
   "form.big_ship.header.title": "Spaces for larger vessels",
-  "form.big_ship.text.summary": "loren ipsum",
+  "form.big_ship.text.summary": "Vessels weighing more than 20,000 kg are moored in designated berths. Berths for larger vessels are reserved either on a fixed-term basis or until further notice.",
   "form.big_ship.header.details": "Additional information concerning larger vessels",
+  "form.big_ship.text.inspection_and_insurance": "The inspection certificate and an extract from the insurance policy must be provided prior to berth assignment. The inspection and insurance must remain valid with no interruptions. The lessor has the right to demand that the inspection certificate and the extract from the insurance policy are presented at any time.",
 
   "form.big_ship.field.propulsion.label": "Propulsion",
   "form.big_ship.field.propulsion.placeholder": "Select boat propulsion",
