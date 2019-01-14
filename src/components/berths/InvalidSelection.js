@@ -29,7 +29,7 @@ class InvalidSelection extends PureComponent<any, any> {
         onMouseEnter={() => this.toggle(true)}
         onMouseLeave={() => this.toggle(false)}
       >
-        <Icon color="red" name="commenting" width="1em" height="1em" />
+        <Icon color="red" name="exclamationCircle" width="1em" height="1em" />
         <Popover placement="bottom" isOpen={show} target={id} toggle={() => this.toggle(false)}>
           <IntlComponent Component={PopoverBody} id={errorMessageId} />
         </Popover>

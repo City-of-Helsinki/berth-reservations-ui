@@ -138,11 +138,11 @@ class SelectedBerth extends Component<Props, State> {
             <BerthName errors={isValid.toString()} className={`moving-${state}`}>
               <span key={berth.identifier}>
                 {index + 1}. {getLocalizedText(berth.name, intl.locale)}
+                {!isValid && <InvalidSelection id={id} />}
               </span>
               <DeselectButton type="button" onClick={() => this.doDelete()}>
                 <Icon name="times" width="30px" />
               </DeselectButton>
-              {!isValid && <InvalidSelection id={id} />}
             </BerthName>
             <BerthOptions>
               <StyledButton

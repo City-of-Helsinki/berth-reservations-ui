@@ -22,6 +22,7 @@ import angleDown from './icons/angle-down.svg';
 import times from './icons/times.svg';
 import commenting from './icons/commenting-o.svg';
 import arrowRight from './icons/arrow-right.svg';
+import exclamationCircle from './icons/exclamation-circle.svg';
 
 const icons = {
   helsinkiLogo,
@@ -43,7 +44,8 @@ const icons = {
   angleDown,
   times,
   commenting,
-  arrowRight
+  arrowRight,
+  exclamationCircle
 };
 
 type Names = $Keys<typeof icons>;
