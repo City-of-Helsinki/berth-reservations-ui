@@ -12,7 +12,11 @@ const TabsWrapper = styled.div`
   background-color: ${props => props.theme.helLight};
   border-bottom: 4px solid white;
   z-index: 1001;
+  &.is-sticky {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  }
 `;
+
 const TabsInnerWrapper = styled(Container)`
   display: flex;
   justify-content: space-between;
@@ -34,6 +38,9 @@ const TabButton = styled.button.attrs({
   :active,
   :focus {
     outline: none;
+  }
+  :hover {
+    cursor: pointer;
   }
   ${responsive.sm`
     padding: 1em 2em;
@@ -119,8 +126,8 @@ class TabSelector extends Component<Props, State> {
     return (
       <StickyContainer>
         <Sticky>
-          {({ style }) => (
-            <TabsWrapper style={style}>
+          {({ style, isSticky }) => (
+            <TabsWrapper style={style} className={isSticky && 'is-sticky'}>
               <TabsInnerWrapper>
                 <div>
                   {headers.map((TabComponent, i) => (
