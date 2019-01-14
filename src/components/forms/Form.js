@@ -11,7 +11,7 @@ type Props = {
   intl: any
 };
 
-const a = ({ onSubmit, initialValues, children, intl }: Props) => (
+const form = ({ onSubmit, initialValues, children, intl }: Props) => (
   <FinalForm
     onSubmit={formData => onSubmit(formData)}
     initialValues={{ ...initialValues, locale: intl.locale }}
@@ -23,4 +23,5 @@ const a = ({ onSubmit, initialValues, children, intl }: Props) => (
     )}
   />
 );
-export default injectIntl(a);
+
+export default injectIntl(form);
