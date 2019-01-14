@@ -25,6 +25,7 @@ const BerthName = styled.div`
   color: ${props => (props.errors === 'true' ? props.theme.helWhite : props.theme.helGray)};
   font-size: 0.875em;
   line-height: 1;
+  hyphens: auto;
   padding: 0.3em;
   padding-left: 0.8em;
   margin-right: 0.5em;
@@ -67,10 +68,16 @@ const StyledButton = styled(Button)`
 `;
 
 const DeselectButton = styled(Button)`
+  padding-left: 0;
+  padding-right: 0;
   height: 100%;
   margin-left: 1em;
   background-color: transparent;
   border: 0;
+  ${responsive.sm`
+    padding-left:  0.75rem;
+    padding-right: 0.75rem;
+  `}
 `;
 
 type Props = {
