@@ -164,10 +164,13 @@ const ErrorAlert = styled(Alert).attrs({
   color: 'danger'
 })`
   display: ${props => (props.visible === 'true' ? 'block' : 'none')};
-  position: absolute;
   margin: 10px 25px 0px 10px;
   padding: 8px;
   font-size: 12px;
+
+  ${responsive.md`
+    position: absolute;
+  `}
 `;
 
 const AvailabilityLevel = styled.div`
