@@ -1,7 +1,10 @@
+// @flow
+
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import styled from 'styled-components';
 import { injectIntl } from 'react-intl';
+import Transition from 'react-transition-group/Transition';
 
 import Icon from '../common/Icon';
 import responsive from '../../utils/responsive';
@@ -25,6 +28,15 @@ const BerthName = styled.div`
   padding: 0.3em;
   padding-left: 0.8em;
   margin-right: 0.5em;
+  transition: background-color 200ms ease-in;
+
+  &.moving-entering {
+    background-color: ${props => props.theme.helFog};
+  }
+
+  &.moving-exiting {
+    background-color: ${props => props.theme.helFog};
+  }
   ${responsive.sm`
     font-size: 1.2em;
   `}
@@ -57,54 +69,103 @@ const StyledButton = styled(Button)`
 const DeselectButton = styled(Button)`
   height: 100%;
   margin-left: 1em;
+  background-color: transparent;
+  border: 0;
 `;
 
-class SelectedBerth extends Component<any, any> {
+type Props = {
+  berth: Object,
+  deselectBerth: Function,
+  first: boolean,
+  index: number,
+  intl: Object,
+  isValid: boolean,
+  last: boolean,
+  moveDown: Function,
+  moveUp: Function
+};
+
+type State = {
+  changed: string
+};
+
+class SelectedBerth extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      changed: 'nothing'
+    };
+  }
+
+  toggleEnterState = () => {
+    if (this.state.changed === 'down') {
+      this.props.moveDown(this.props.berth.identifier);
+    }
+    if (this.state.changed === 'up') {
+      this.props.moveUp(this.props.berth.identifier);
+    }
+    if (this.state.changed === 'delete') {
+      this.props.deselectBerth(this.props.berth.identifier);
+    }
+    this.setState({ changed: 'nothing' });
+  };
+
+  doMoveUp() {
+    this.setState({ changed: 'up' });
+  }
+
+  doMoveDown() {
+    this.setState({ changed: 'down' });
+  }
+
+  doDelete() {
+    this.setState({ changed: 'delete' });
+  }
+
   render() {
-    const {
-      berth,
-      index,
-      moveUp,
-      moveDown,
-      first,
-      last,
-      deselectBerth,
-      isValid,
-      intl
-    } = this.props;
+    const { berth, index, first, last, isValid, intl } = this.props;
 
     const id = `tooltip_${berth.identifier}`;
     return (
-      <BerthRow>
-        <BerthName errors={isValid.toString()}>
-          <span key={berth.identifier}>
-            {index + 1}. {getLocalizedText(berth.name, intl.locale)}
-          </span>
-          <DeselectButton type="button" onClick={() => deselectBerth(berth.identifier)}>
-            <Icon name="times" width="30px" />
-          </DeselectButton>
-          {!isValid && <InvalidSelection id={id} />}
-        </BerthName>
-        <BerthOptions>
-          <StyledButton
-            outline
-            color="primary"
-            onClick={() => moveUp(berth.identifier)}
-            disabled={first}
-          >
-            <Icon name="angleUp" width="36px" color={first ? 'lightgray' : 'black'} />
-          </StyledButton>
+      <Transition
+        in={this.state.changed !== 'nothing'}
+        timeout={300}
+        onEntered={this.toggleEnterState}
+      >
+        {state => (
+          <BerthRow>
+            <BerthName errors={isValid.toString()} className={`moving-${state}`}>
+              <span key={berth.identifier}>
+                {index + 1}. {getLocalizedText(berth.name, intl.locale)}
+              </span>
+              <DeselectButton type="button" onClick={() => this.doDelete()}>
+                <Icon name="times" width="30px" />
+              </DeselectButton>
+              {!isValid && <InvalidSelection id={id} />}
+            </BerthName>
+            <BerthOptions>
+              <StyledButton
+                outline
+                color="primary"
+                onClick={() => this.doMoveUp()}
+                disabled={first}
+              >
+                <Icon name="angleUp" width="36px" color={first ? 'lightgray' : 'black'} />
+              </StyledButton>
 
-          <StyledButton
-            outline
-            color="primary"
-            onClick={() => moveDown(berth.identifier)}
-            disabled={last}
-          >
-            <Icon name="angleDown" width="36px" color={last ? 'lightgray' : 'black'} />
-          </StyledButton>
-        </BerthOptions>
-      </BerthRow>
+              <StyledButton
+                outline
+                color="primary"
+                onClick={() => this.doMoveDown()}
+                disabled={last}
+              >
+                <Icon name="angleDown" width="36px" color={last ? 'lightgray' : 'black'} />
+              </StyledButton>
+            </BerthOptions>
+          </BerthRow>
+        )}
+      </Transition>
     );
   }
 }
