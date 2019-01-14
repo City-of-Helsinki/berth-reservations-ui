@@ -63,13 +63,13 @@ class LanguageDropdown extends React.Component<Props, State> {
           </StyledSelector>
         </LanguageSelector>
         <DropdownMenu>
-          <DropdownItem tag="a" href="/fi" active>
+          <DropdownItem tag="a" href="/fi">
             <FormattedMessage id="site.language.fi" />
           </DropdownItem>
-          <DropdownItem tag="a" href="/sv" active>
+          <DropdownItem tag="a" href="/sv">
             <FormattedMessage id="site.language.sv" />
           </DropdownItem>
-          <DropdownItem tag="a" href="/en" active>
+          <DropdownItem tag="a" href="/en">
             <FormattedMessage id="site.language.en" />
           </DropdownItem>
         </DropdownMenu>
