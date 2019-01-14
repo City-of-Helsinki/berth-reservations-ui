@@ -54,6 +54,13 @@ $theme-colors: (
   }
 }
 
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #000;
+  text-decoration: none;
+  background-color: #fff;
+}
+
 h1 {
   line-height: 1;
   margin-bottom: 2rem;
