@@ -34,7 +34,7 @@ const Details = styled.div`
 const DetailsWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-wrap: wrap;
   height: 100%;
   padding: 1em;
@@ -59,7 +59,7 @@ const DetailsIcon = styled(Icon).attrs({
 `;
 
 const DetailsValue = styled.span`
-  margin-left: 1ch;
+  margin-left: 0.5ch;
   text-align: center;
   font-size: 16px;
   font-weight: 700;
@@ -89,6 +89,7 @@ const BerthImage = styled.img`
   object-fit: cover;
   height: 12em;
   width: 100%;
+  display: none;
 
   ${responsive.md`
     height: 100%;
