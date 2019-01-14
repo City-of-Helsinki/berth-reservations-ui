@@ -7,6 +7,18 @@ export const mustBeNumber = (value: any): any =>
   // eslint-disable-next-line no-restricted-globals
   isNaN(value) ? 'validation.message.must_be_number' : undefined;
 
+export const mustBePositiveNumber = (value: any): any => {
+  // eslint-disable-next-line no-restricted-globals
+  if (isNaN(value)) {
+    return 'validation.message.must_be_number';
+  }
+  if (value < 0) {
+    return 'validation.message.must_be_positive_number';
+  }
+
+  return undefined;
+};
+
 export const mustBePhoneNumber = (value: any): any => {
   /* eslint-disable */
   const phoneRe = /^([0-9\(\)\s\+\-])+$/im;

@@ -35,6 +35,7 @@
 
   "validation.message.required": "Pakollinen kenttä",
   "validation.message.must_be_number": "Arvon pitää olla numero",
+  "validation.message.must_be_positive_number": "Arvon pitää olla suurempi kuin nolla",
   "validation.message.must_be_phone_number": "Arvon pitää olla puhelinnumero",
   "validation.message.must_be_email": "Arvon pitää olla sähköpostiosoite",
 
