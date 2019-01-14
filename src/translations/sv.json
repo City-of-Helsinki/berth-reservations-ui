@@ -90,8 +90,9 @@
   "form.boat_type_selector.no_boat.label": "Ingen båt",
 
   "form.big_ship.header.title": "Kajplatser för stora fartyg",
-  "form.big_ship.text.summary": "loren ipsum",
+  "form.big_ship.text.summary": "Fartyg som väger mer än 20 000 kg läggs upp vid kajplatser som reserverats för dem. Kajplatser för stora fartyg reserveras antingen för en viss tid eller tills vidare.",
   "form.big_ship.header.details": "Tilläggsuppgifter om stora fartyg",
+  "form.big_ship.text.inspection_and_insurance": "Ett besiktningsintyg och ett utdrag ur försäkringsbrevet ska lämnas in innan en kajplats kan beviljas. Besiktningen och försäkringen ska vara i kraft utan avbrott. Uthyraren har när som helst rätt att kräva att besiktningsintyget och utdraget ur försäkringsbrevet visas upp.",
 
   "form.big_ship.field.propulsion.label": "Drivkraft",
   "form.big_ship.field.propulsion.placeholder": "Ange fartygets drivkraft",

@@ -32,6 +32,7 @@ const TextInput = (type: any) => ({
           required={noValidate ? false : required}
           invalid={!!(meta.touched && meta.error)}
           placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
+          type={type}
           {...input}
           {...rest}
         />

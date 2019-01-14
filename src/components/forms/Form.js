@@ -1,22 +1,26 @@
 // @flow
 import React, { type Node } from 'react';
-import { Form as FinalForm } from 'react-final-form';
+import { Form as FinalForm, Field } from 'react-final-form';
 import { Form as BootstrapForm } from 'reactstrap';
+import { injectIntl } from 'react-intl';
 
 type Props = {
   onSubmit: Function,
   initialValues: Object,
-  children: any => Node
+  children: any => Node,
+  intl: any
 };
 
-export default ({ onSubmit, initialValues, children }: Props) => (
+const a = ({ onSubmit, initialValues, children, intl }: Props) => (
   <FinalForm
     onSubmit={formData => onSubmit(formData)}
-    initialValues={initialValues}
+    initialValues={{ ...initialValues, locale: intl.locale }}
     render={({ handleSubmit, ...renderProps }) => (
       <BootstrapForm noValidate onSubmit={handleSubmit}>
         {children(renderProps)}
+        <Field name="locale" component="input" type="hidden" />
       </BootstrapForm>
     )}
   />
 );
+export default injectIntl(a);

@@ -90,8 +90,9 @@
   "form.boat_type_selector.no_boat.label": "Ei venettä",
 
   "form.big_ship.header.title": "Suurten alusten laituripaikat",
-  "form.big_ship.text.summary": "loren ipsum",
+  "form.big_ship.text.summary": "Yli 20 000 kg painavat alukset säilytetään niille varatuilla laituripaikoilla. Suurten alusten laituripaikat varataan joko määräaikaisena tai toistaiseksi.",
   "form.big_ship.header.details": "Suuria aluksia koskevat lisätiedot",
+  "form.big_ship.text.inspection_and_insurance": "Katsastustodistus ja ote vakuutuskirjasta on toimitettava ennen kuin laituripaikka voidaan myöntää. Katsastuksen ja vakuutuksen on jatkuttava katkeamatta. Vuokranantajalla on koska tahansa oikeus vaatia katsastustodistuksen ja vakuutuskirjaotteen esittämistä.",
 
   "form.big_ship.field.propulsion.label": "Käyttövoima",
   "form.big_ship.field.propulsion.placeholder": "Valitse aluksen käyttövoima",
