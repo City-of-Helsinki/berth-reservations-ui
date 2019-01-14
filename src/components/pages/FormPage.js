@@ -117,7 +117,7 @@ class BoatPage extends PureComponent<Props, any> {
             await onSubmit(values);
             tabs[step] = tab;
             this.setState(() => ({ tabs }));
-            await localePush('/berths');
+            await localePush('/selected_berths');
           }}
           nextStep={values => {
             onSubmit(values);
