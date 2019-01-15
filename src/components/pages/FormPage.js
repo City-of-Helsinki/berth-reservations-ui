@@ -108,7 +108,6 @@ class BoatPage extends PureComponent<Props, any> {
           initialValues={initialValues}
           goForward={async values => {
             await onSubmit(values);
-            //aagee
             await onSend({ ...values, selectedBerths });
             tabs[step] = tab;
             this.setState(() => ({ tabs }));
