@@ -213,9 +213,6 @@
   "form.private_person.field.last_name.label": "Sukunimi",
   "form.private_person.field.last_name.placeholder": "Merenkävijä",
 
-  "form.overview.header.title": "Haluan tiedon tarjotusta venepaikasta",
-  "form.overview.field.email.label": "Sähköpostilla",
-  "form.overview.field.sms.label": "Tekstiviestillä",
   "form.overview.field.guarantee.label": "Vakuutan antamani tiedot oikeiksi.",
   "form.overview.header.receivable_items.title": "Haluan vastaanottaa sähköpostiini",
   "form.overview.field.boating_info.label": "Veneily Helsingissä -uutiskirjeen",

@@ -4,7 +4,6 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Row, Container } from 'reactstrap';
 import Agreement from '../fragments/Agreement';
-import ContactBy from '../fragments/ContactBy';
 import Newsletter from '../fragments/Newsletter';
 import OverviewInfo from './OverviewInfo';
 import type { Berths } from '../../../types/berths';
@@ -28,8 +27,6 @@ const Submit = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
             values={values}
             boatTypes={boatTypes}
           />
-          <FormattedMessage tagName="h3" id="form.overview.header.title" />
-          <ContactBy prefix="overview" />
           <FormattedMessage tagName="h5" id="form.overview.header.receivable_items.title" />
           <Newsletter prefix="overview" />
           <FormattedMessage tagName="h3" id="form.overview.header.agreement.title" />

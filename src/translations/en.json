@@ -213,9 +213,6 @@
   "form.private_person.field.last_name.label": "Last name",
   "form.private_person.field.last_name.placeholder": "Boatman",
 
-  "form.overview.header.title": "If I am offered a berth I want to be notified",
-  "form.overview.field.email.label": "Via e-mail",
-  "form.overview.field.sms.label": "By SMS",
   "form.overview.field.guarantee.label": "I confirm that the information I have provided is correct.",
   "form.overview.header.receivable_items.title": "I want to subscribe to the following via e-mail",
   "form.overview.field.boating_info.label": "The Veneily Helsingissä newsletter (in Finnish)",

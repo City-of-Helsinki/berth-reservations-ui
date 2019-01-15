@@ -213,9 +213,6 @@
   "form.private_person.field.last_name.label": "Efternamn",
   "form.private_person.field.last_name.placeholder": "Merenkävijä",
 
-  "form.overview.header.title": "Jag vill få besked om erbjuden båtplats",
-  "form.overview.field.email.label": "per e-post",
-  "form.overview.field.sms.label": "per SMS",
   "form.overview.field.guarantee.label": "Jag intygar att de uppgifter som jag angett är korrekta.",
   "form.overview.header.receivable_items.title": "Jag vill få följande per e-post:",
   "form.overview.field.boating_info.label": "nyhetsbrevet om båtlivet i Helsingfors",
