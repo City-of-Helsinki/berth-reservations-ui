@@ -12,7 +12,7 @@
 
   "hero.title": "Applying for a berth in the boat harbours of the City of Helsinki",
   "hero.paragraph.first": "This service allows for you to browse through the boat harbours in Helsinki and submit new applications to the harbours of your choice. ",
-  "hero.paragraph.second": "More detailed information on the grounds for assigning berths, prices and application processing is available on the <a href='{url}'>hel.fi</a> website.",
+  "hero.paragraph.second": "NOTE! Please read the instructions on selecting harbours as well as further details concerning the principles of assigning berths and the processing times for applications on the <a href='{url}'>hel.fi</a> website before completing your application.",
   "site.steps.berths": "Select harbours",
   "site.steps.selected_berths": "Selected harbours",
   "site.steps.boat_information": "Boat information",
