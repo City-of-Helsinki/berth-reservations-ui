@@ -1,7 +1,7 @@
 // @flow
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Row, Col, Button, Alert, UncontrolledTooltip } from 'reactstrap';
+import { Row, Col, Button, Alert, Popover, PopoverBody } from 'reactstrap';
 import { FormattedMessage, injectIntl, type IntlShape } from 'react-intl';
 import Icon from '../common/Icon';
 import type { Berth as BerthType } from '../../types/berths';
@@ -34,7 +34,7 @@ const Details = styled.div`
 const DetailsWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-wrap: wrap;
   height: 100%;
   padding: 1em;
@@ -59,7 +59,7 @@ const DetailsIcon = styled(Icon).attrs({
 `;
 
 const DetailsValue = styled.span`
-  margin-left: 1ch;
+  margin-left: 0.5ch;
   text-align: center;
   font-size: 16px;
   font-weight: 700;
@@ -89,6 +89,7 @@ const BerthImage = styled.img`
   object-fit: cover;
   height: 12em;
   width: 100%;
+  display: none;
 
   ${responsive.md`
     height: 100%;
@@ -163,14 +164,24 @@ const ErrorAlert = styled(Alert).attrs({
   color: 'danger'
 })`
   display: ${props => (props.visible === 'true' ? 'block' : 'none')};
-  position: absolute;
   margin: 10px 25px 0px 10px;
   padding: 8px;
   font-size: 12px;
+
+  ${responsive.md`
+    position: absolute;
+  `}
 `;
 
 const AvailabilityLevel = styled.div`
   margin-top: 0.5em;
+`;
+
+const AvailabilityButton = styled(Button)`
+  padding: 0;
+  &.btn-link.btn-link:hover {
+    background-color: transparent !important;
+  }
 `;
 
 const AvailabilityLevelMarker = styled.span`
@@ -200,116 +211,140 @@ const TypeIcon = styled(Icon).attrs({
   display: inline-block;
 `;
 
-const Tooltip = styled(UncontrolledTooltip)`
-  border: 1px solid black;
-  background-color: white;
-  padding: 0.5em;
-  margin-left: 1em;
-`;
+class Berth extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
 
-const Berth = ({ berth, className, onClick, selected, disabled, excluded, intl }: Props) => (
-  <Row className={className}>
-    <Col xs={12}>
-      <StyledDiv>
-        <Row>
-          <Col md={3}>
-            <IntlComponent
-              Component={ErrorAlert}
-              id="error.message.invalid_berth"
-              // $FlowFixMe
-              visible={excluded ? 'true' : 'false'}
-            />
-            <BerthImage src={berth.image} alt={getLocalizedText(berth.name, intl.locale)} />
-          </Col>
-          <Col md={4}>
-            <SummaryWrapper>
-              <Heading>{getLocalizedText(berth.name, intl.locale)}</Heading>
+    this.state = {
+      popoverOpen: false
+    };
+  }
 
-              <BerthAddress>
-                {getLocalizedText(berth.street_address, intl.locale)}, {berth.zip_code}{' '}
-                {getLocalizedText(berth.municipality, intl.locale)}
-              </BerthAddress>
-              {selected ? (
-                <Button color={excluded ? 'danger' : 'secondary'} onClick={onClick}>
-                  <ButtonIcon name="check" width="1em" height="1em" />
-                  <FormattedMessage tagName="span" id="page.berths.selected" />
-                </Button>
-              ) : (
-                <Button outline primary="true" onClick={onClick} disabled={disabled}>
-                  + <FormattedMessage tagName="span" id="page.berths.select" />
-                </Button>
-              )}
-              <AvailabilityLevel>
-                <AvailabilityLevelMarker level={berth.availability_level} />
-                <span id={`availability_${berth.identifier}`}>
-                  <FormattedMessage
-                    tagName="span"
-                    id={`page.berths.status.${berth.availability_level}.title`}
-                  />
-                </span>
-                <Tooltip placement="top" target={`availability_${berth.identifier}`}>
-                  <FormattedMessage
-                    tagName="span"
-                    id={`page.berths.status.${berth.availability_level}.description`}
-                  />
-                </Tooltip>
-              </AvailabilityLevel>
-              <WebsiteLink rel="noopener" target="_blank" href={berth.www_url}>
-                <FormattedMessage tagName="span" id="page.berths.website" />
-                <TypeIcon name="arrowRight" />
-              </WebsiteLink>
-            </SummaryWrapper>
-          </Col>
-          <Col md={5}>
-            <DetailsWrapper>
-              <Details available={true}>
-                <DetailsValue>{berth.number_of_places}</DetailsValue>
-                <DetailsTitle>
-                  <FormattedMessage tagName="span" id="page.berths.number_of_places" />
-                </DetailsTitle>
-              </Details>
-              <Details available={true}>
-                <DetailsValue>{berth.maximum_width}&#8202;m</DetailsValue>
-                <DetailsTitle>
-                  <FormattedMessage tagName="span" id="page.berths.maximum_width" />
-                </DetailsTitle>
-              </Details>
-              <Details available={berth.waste_collection}>
-                <DetailsIcon name="trash" />
-                <DetailsTitle>
-                  <FormattedMessage tagName="span" id="page.berths.waste_collection" />
-                </DetailsTitle>
-              </Details>
-              <Details available={berth.electricity}>
-                <DetailsIcon name="plug" />
-                <DetailsTitle>
-                  <FormattedMessage tagName="span" id="page.berths.electricity" />
-                </DetailsTitle>
-              </Details>
-              <Details available={berth.gate}>
-                <DetailsIcon name="fence" />
-                <DetailsTitle>
-                  <FormattedMessage tagName="span" id="page.berths.fence" />
-                </DetailsTitle>
-              </Details>
-              <Details available={berth.water}>
-                <DetailsIcon name="waterTap" />
-                <DetailsTitle>
-                  <FormattedMessage tagName="span" id="page.berths.water_tap" />
-                </DetailsTitle>
-              </Details>
-              <Details available={berth.lighting}>
-                <DetailsIcon name="streetLight" />
-                <DetailsTitle>
-                  <FormattedMessage tagName="span" id="page.berths.lighting" />
-                </DetailsTitle>
-              </Details>
-            </DetailsWrapper>
-          </Col>
-        </Row>
-      </StyledDiv>
-    </Col>
-  </Row>
-);
+  togglePopover(isOpen) {
+    this.setState({
+      popoverOpen: isOpen
+    });
+  }
+
+  render() {
+    const { berth, className, onClick, selected, disabled, excluded, intl } = this.props;
+
+    return (
+      <Row className={className}>
+        <Col xs={12}>
+          <StyledDiv>
+            <Row>
+              <Col md={3}>
+                <IntlComponent
+                  Component={ErrorAlert}
+                  id="error.message.invalid_berth"
+                  // $FlowFixMe
+                  visible={excluded ? 'true' : 'false'}
+                />
+                <BerthImage src={berth.image} alt={getLocalizedText(berth.name, intl.locale)} />
+              </Col>
+              <Col md={4}>
+                <SummaryWrapper>
+                  <Heading>{getLocalizedText(berth.name, intl.locale)}</Heading>
+
+                  <BerthAddress>
+                    {getLocalizedText(berth.street_address, intl.locale)}, {berth.zip_code}{' '}
+                    {getLocalizedText(berth.municipality, intl.locale)}
+                  </BerthAddress>
+                  {selected ? (
+                    <Button color={excluded ? 'danger' : 'secondary'} onClick={onClick}>
+                      <ButtonIcon name="check" width="1em" height="1em" />
+                      <FormattedMessage tagName="span" id="page.berths.selected" />
+                    </Button>
+                  ) : (
+                    <Button outline primary="true" onClick={onClick} disabled={disabled}>
+                      + <FormattedMessage tagName="span" id="page.berths.select" />
+                    </Button>
+                  )}
+                  <AvailabilityLevel>
+                    <AvailabilityButton
+                      id={`availability_${berth.identifier}`}
+                      color="link"
+                      onMouseEnter={() => this.togglePopover(true)}
+                      onMouseLeave={() => this.togglePopover(false)}
+                    >
+                      <AvailabilityLevelMarker level={berth.availability_level} />
+                      <FormattedMessage
+                        tagName="span"
+                        id={`page.berths.status.${berth.availability_level}.title`}
+                      />
+                    </AvailabilityButton>
+                    <Popover
+                      placement="right"
+                      target={`availability_${berth.identifier}`}
+                      isOpen={this.state.popoverOpen}
+                    >
+                      <PopoverBody>
+                        <FormattedMessage
+                          tagName="span"
+                          id={`page.berths.status.${berth.availability_level}.description`}
+                        />
+                      </PopoverBody>
+                    </Popover>
+                  </AvailabilityLevel>
+                  <WebsiteLink rel="noopener" target="_blank" href={berth.www_url}>
+                    <FormattedMessage tagName="span" id="page.berths.website" />
+                    <TypeIcon name="arrowRight" />
+                  </WebsiteLink>
+                </SummaryWrapper>
+              </Col>
+              <Col md={5}>
+                <DetailsWrapper>
+                  <Details available={true}>
+                    <DetailsValue>{berth.number_of_places}</DetailsValue>
+                    <DetailsTitle>
+                      <FormattedMessage tagName="span" id="page.berths.number_of_places" />
+                    </DetailsTitle>
+                  </Details>
+                  <Details available={true}>
+                    <DetailsValue>{berth.maximum_width}&#8202;m</DetailsValue>
+                    <DetailsTitle>
+                      <FormattedMessage tagName="span" id="page.berths.maximum_width" />
+                    </DetailsTitle>
+                  </Details>
+                  <Details available={berth.waste_collection}>
+                    <DetailsIcon name="trash" />
+                    <DetailsTitle>
+                      <FormattedMessage tagName="span" id="page.berths.waste_collection" />
+                    </DetailsTitle>
+                  </Details>
+                  <Details available={berth.electricity}>
+                    <DetailsIcon name="plug" />
+                    <DetailsTitle>
+                      <FormattedMessage tagName="span" id="page.berths.electricity" />
+                    </DetailsTitle>
+                  </Details>
+                  <Details available={berth.gate}>
+                    <DetailsIcon name="fence" />
+                    <DetailsTitle>
+                      <FormattedMessage tagName="span" id="page.berths.fence" />
+                    </DetailsTitle>
+                  </Details>
+                  <Details available={berth.water}>
+                    <DetailsIcon name="waterTap" />
+                    <DetailsTitle>
+                      <FormattedMessage tagName="span" id="page.berths.water_tap" />
+                    </DetailsTitle>
+                  </Details>
+                  <Details available={berth.lighting}>
+                    <DetailsIcon name="streetLight" />
+                    <DetailsTitle>
+                      <FormattedMessage tagName="span" id="page.berths.lighting" />
+                    </DetailsTitle>
+                  </Details>
+                </DetailsWrapper>
+              </Col>
+            </Row>
+          </StyledDiv>
+        </Col>
+      </Row>
+    );
+  }
+}
 
 export default injectIntl(Berth);

@@ -25,6 +25,7 @@
     "react-scripts": "2.1.1",
     "react-sticky": "^6.0.3",
     "react-svg": "^7.1.0",
+    "react-transition-group": "^2.5.2",
     "reactstrap": "6.5.0",
     "recompose": "^0.30.0",
     "redux": "^4.0.1",

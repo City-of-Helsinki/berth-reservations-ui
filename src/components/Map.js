@@ -18,7 +18,7 @@ const ListHeader = styled.h3`
 
 const style = {
   width: '100%',
-  height: '40em'
+  height: '30em'
 };
 
 type State = {
