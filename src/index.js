@@ -16,11 +16,13 @@ import configureStore from './config/configureStore';
 
 import App from './components/containers/AppContainer';
 
+const { REACT_APP_PIWIK_URL, REACT_APP_PIWIK_ID } = process.env;
+
 const history = createHistory();
 
 const piwik = PiwikReactRouter({
-  url: 'your-piwik-installation.com',
-  siteId: 1
+  url: REACT_APP_PIWIK_URL,
+  siteId: REACT_APP_PIWIK_ID
 });
 
 const Root = () => (
