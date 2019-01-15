@@ -35,6 +35,7 @@
 
   "validation.message.required": "Mandatory field",
   "validation.message.must_be_number": "The value must be a number",
+  "validation.message.must_be_positive_number": "The value must be positive",
   "validation.message.must_be_phone_number": "The value must be a telephone number",
   "validation.message.must_be_email": "The value must be an e-mail address",
 

@@ -35,6 +35,7 @@
 
   "validation.message.required": "Obligatoriskt fält",
   "validation.message.must_be_number": "Värdet ska vara en siffra",
+  "validation.message.must_be_positive_number": "Värdet måste vara positivt",
   "validation.message.must_be_phone_number": "Värdet ska vara ett telefonnummer",
   "validation.message.must_be_email": "Värdet ska vara en e-postadress",
 
