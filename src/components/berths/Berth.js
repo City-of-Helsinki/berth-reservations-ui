@@ -210,6 +210,7 @@ const TypeIcon = styled(Icon).attrs({
 })`
   display: inline-block;
 `;
+
 type State = {
   popoverOpen: boolean
 };
