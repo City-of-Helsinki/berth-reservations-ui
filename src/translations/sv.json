@@ -243,8 +243,6 @@
   "page.overview.info.boat_weight": "Vikt",
 
   "page.berth.selected.title": "Egna val",
-  "page.berth.selected.paragraph.first": "Välj 1–10 hamnar där du vill ta emot en båtplats. Om platser blir lediga i flera hamnar, erbjuds platsen i den hamn som står högst i din prioritetsordning.",
-  "page.berth.selected.paragraph.second": "Ju flera hamnar du väljer, desto mera sannolikt är det att du får en båtplats. Vid behandlingen av ansökningar prioriteras ansökningar om byte av båtplats.  Därför lönar det sig att ta emot en erbjuden plats även om den inte ligger i din favorithamn. Efter att du har fått en båtplats kan du ansöka om byte till önskad hamn. Det är oftast det snabbaste sättet att få en plats i önskad hamn.",
   "page.berth.selected.info_text": "Ange typ för och storlek på båten som ska placeras för att se om det finns lämpliga platser i de valda hamnarna.",
   "page.berth.selected.warning.heading": "Obs! Du har valt hamnar som saknar lämpliga platser.",
   "page.berth.selected.alert.strong": "Obs! Du har inga valda hamnar ännu.",
