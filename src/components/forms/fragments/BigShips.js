@@ -25,7 +25,6 @@ const BigShipsFragment = ({ prefix, noValidate = false }: FormFragmentProps) => 
           label="form.big_ship.field.usage.label"
           placeholder="form.big_ship.field.usage.placeholder"
           required
-          text="form.big_ship.field.usage.info"
         />
       </Col>
     </Row>

@@ -77,7 +77,7 @@
   "legend.overview.legend": "Kontrollera ännu uppgifternas riktighet innan du skickar in ansökan.",
   "legend.thankyou.title": "Tack, din ansökan har skickats!",
   "legend.thankyou.legend.regards": "Med vänlig hälsning,",
-  "legend.thankyou.legend.contact_information": "Helsingfors stads båtplatsbokningar<br/>venepaikkavaraukset@hel.fi<br/>Telefonrådgivning må–fr kl. 9–14 på numret 09 310 87900.<br/>Betjäningstid vardagar kl. 9–16 i Tölö Sporthall på Paavo Nurmis gränd 1 E",
+  "legend.thankyou.legend.contact_information": "Helsingfors stads båtplatsbokningar<br/>venepaikkavaraukset@hel.fi<br/>Telefonrådgivning må–fr kl. 9–14 på numret 09 310 87900.<br/>Betjäningstid vardagar kl. 9–16 i Tölö Sporthall på Paavo Nurmis gränd 1 E.",
 
   "form.wizard.button.previous": "Föregående sida",
   "form.wizard.button.invalid": "Fyll i formuläret för att fortsätta",
@@ -117,7 +117,6 @@
 
   "form.big_ship.field.usage.label": "Användningsändamål",
   "form.big_ship.field.usage.placeholder": "Fartygets användningsändamål",
-  "form.big_ship.field.usage.info": "Vid utdelningen av kajplatser prioriteras de fartyg som förbättrar stadsbilden och erbjuder tjänster åt stadsbor.",
   "form.big_ship.field.time_period.label": "Hyrestid",
   "form.big_ship.field.time_period.for_now": "tills vidare",
   "form.big_ship.field.time_period.fixed": "tidsbestämd",
@@ -215,7 +214,7 @@
 
   "form.overview.field.guarantee.label": "Jag intygar att de uppgifter som jag angett är korrekta.",
   "form.overview.header.receivable_items.title": "Jag vill få följande per e-post:",
-  "form.overview.field.boating_info.label": "nyhetsbrevet om båtlivet i Helsingfors",
+  "form.overview.field.boating_info.label": "nyhetsbrevet om Båtliv i Helsingfors",
   "form.overview.header.also.title": "samt information om Helsingfors stads följande kultur- och fritidstjänster",
   "form.overview.field.fitness_services.label": "idrottstjänster",
   "form.overview.field.library_services.label": "bibliotekstjänster",

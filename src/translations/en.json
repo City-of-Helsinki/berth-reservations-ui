@@ -117,7 +117,6 @@
 
   "form.big_ship.field.usage.label": "Intended use",
   "form.big_ship.field.usage.placeholder": "Intended use of the vessel",
-  "form.big_ship.field.usage.info": "Vessels that improve the urban landscape or offer services to residents take precedence when berths are assigned.",
   "form.big_ship.field.time_period.label": "Rental period",
   "form.big_ship.field.time_period.for_now": "until further notice",
   "form.big_ship.field.time_period.fixed": "Temporary",
@@ -215,7 +214,7 @@
 
   "form.overview.field.guarantee.label": "I confirm that the information I have provided is correct.",
   "form.overview.header.receivable_items.title": "I want to subscribe to the following via e-mail",
-  "form.overview.field.boating_info.label": "The Veneily Helsingissä newsletter (in Finnish)",
+  "form.overview.field.boating_info.label": "The Vene Helsingissä - veneilijän uutiskirje newsletter (in Finnish)",
   "form.overview.header.also.title": "and information on the following culture and leisure-time services offered by the City of Helsinki",
   "form.overview.field.fitness_services.label": "sports services",
   "form.overview.field.library_services.label": "library services",
