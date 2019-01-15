@@ -81,8 +81,6 @@ class BerthPage extends Component<Props> {
           <Row>
             <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
               <FormattedMessage tagName="h1" id="page.berth.selected.title" />
-              <FormattedMessage tagName="p" id="page.berth.selected.paragraph.first" />
-              <FormattedMessage tagName="p" id="page.berth.selected.paragraph.second" />
               <hr />
               {boatType ? (
                 <Container>

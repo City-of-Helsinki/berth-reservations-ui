@@ -243,8 +243,6 @@
   "page.overview.info.boat_weight": "Weight",
 
   "page.berth.selected.title": "Your selection",
-  "page.berth.selected.paragraph.first": "Select 1–10 harbours that you are willing to accept a berth at. If berths become available in several harbours, you will be offered the berth that you indicated as your preferred berth.",
-  "page.berth.selected.paragraph.second": "The more harbours you select for your preference list, the likelier it is that you will be offered a berth. Applications for the exchange of berths are processed first.  This is why you should accept any berth offered to you, even if it is not located in the harbour of your choice. Once you have been assigned a berth, you can apply to move to your desired harbour. This is often the fastest way of receiving a berth in the harbour of your choice.",
   "page.berth.selected.info_text": "Select the type and size of your boat to see if the selected harbour has any available berths.",
   "page.berth.selected.warning.heading": "Please note! You have selected harbours with no available berths.",
   "page.berth.selected.alert.strong": "Please note! You have not yet selected any harbours.",
