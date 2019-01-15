@@ -239,7 +239,7 @@ class Berth extends Component<Props, State> {
                   Component={ErrorAlert}
                   id="error.message.invalid_berth"
                   // $FlowFixMe
-                  visible={excluded ? 'true' : 'false'}
+                  visible={selected && excluded ? 'true' : 'false'}
                 />
                 <BerthImage src={berth.image} alt={getLocalizedText(berth.name, intl.locale)} />
               </Col>
