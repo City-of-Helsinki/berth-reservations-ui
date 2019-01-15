@@ -210,6 +210,9 @@ const TypeIcon = styled(Icon).attrs({
 })`
   display: inline-block;
 `;
+type State = {
+  popoverOpen: boolean
+};
 
 class Berth extends Component<Props, State> {
   constructor(props: Props) {

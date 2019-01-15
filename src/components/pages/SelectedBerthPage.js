@@ -129,7 +129,7 @@ class BerthPage extends Component<Props> {
           <Container>
             <Row>
               <PrevnextWrapper>
-                <Button color="link" type="button" onClick={() => this.handlePrevious(values)}>
+                <Button color="link" type="button" onClick={this.handlePrevious}>
                   <FormattedMessage id="form.wizard.button.previous" />
                 </Button>
                 <Button

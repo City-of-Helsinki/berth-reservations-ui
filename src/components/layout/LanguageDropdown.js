@@ -1,10 +1,11 @@
 // @flow
 
 import React from 'react';
-import { FormattedMessage, injectIntl, type intlShape } from 'react-intl';
+import { injectIntl, type intlShape } from 'react-intl';
 import { Dropdown, DropdownMenu, DropdownItem, DropdownToggle } from 'reactstrap';
 import styled from 'styled-components';
 import Icon from '../common/Icon';
+import IntlComponent from '../common/IntlComponent';
 
 type Props = {
   children: Node,
@@ -56,22 +57,16 @@ class LanguageDropdown extends React.Component<Props, State> {
 
     return (
       <Dropdown size="lg" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <LanguageSelector className="btn-link">
+        <LanguageSelector color="link">
           <StyledSelector>
             <Icon name="globe" width="30px" color="black" />
             <span>{intl.locale.toUpperCase()}</span>
           </StyledSelector>
         </LanguageSelector>
         <DropdownMenu>
-          <DropdownItem tag="a" href="/fi">
-            <FormattedMessage id="site.language.fi" />
-          </DropdownItem>
-          <DropdownItem tag="a" href="/sv">
-            <FormattedMessage id="site.language.sv" />
-          </DropdownItem>
-          <DropdownItem tag="a" href="/en">
-            <FormattedMessage id="site.language.en" />
-          </DropdownItem>
+          <IntlComponent Component={DropdownItem} href="/fi" id="site.language.fi" />
+          <IntlComponent Component={DropdownItem} href="/sv" id="site.language.sv" />
+          <IntlComponent Component={DropdownItem} href="/en" id="site.language.en" />
         </DropdownMenu>
       </Dropdown>
     );
