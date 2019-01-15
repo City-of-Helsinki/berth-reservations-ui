@@ -4,7 +4,9 @@ import '@babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { Router, Redirect, Route, Switch } from 'react-router-dom';
+import PiwikReactRouter from 'piwik-react-router';
+import createHistory from 'history/createBrowserHistory';
 
 import { ThemeProvider } from 'styled-components';
 import theme from './config/theme';
@@ -14,10 +16,19 @@ import configureStore from './config/configureStore';
 
 import App from './components/containers/AppContainer';
 
+const { REACT_APP_PIWIK_URL, REACT_APP_PIWIK_ID } = process.env;
+
+const history = createHistory();
+
+const piwik = PiwikReactRouter({
+  url: REACT_APP_PIWIK_URL,
+  siteId: REACT_APP_PIWIK_ID
+});
+
 const Root = () => (
   <Provider store={configureStore()}>
     <ThemeProvider theme={theme}>
-      <Router>
+      <Router history={piwik.connectToHistory(history)}>
         <Switch>
           <Redirect exact path="/" to="/fi" />
           <Route path="/:locale" component={App} />
