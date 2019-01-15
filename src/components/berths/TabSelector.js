@@ -1,6 +1,6 @@
 // @flow
 import React, { Component, type Node } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { Button, Container } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
@@ -12,9 +12,11 @@ const TabsWrapper = styled.div`
   background-color: ${props => props.theme.helLight};
   border-bottom: 4px solid white;
   z-index: 1001;
-  &.is-sticky {
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
-  }
+  ${props =>
+    props.sticky &&
+    css`
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    `};
 `;
 
 const TabsInnerWrapper = styled(Container)`
@@ -127,7 +129,7 @@ class TabSelector extends Component<Props, State> {
       <StickyContainer>
         <Sticky>
           {({ style, isSticky }) => (
-            <TabsWrapper style={style} className={isSticky && 'is-sticky'}>
+            <TabsWrapper style={style} sticky={isSticky}>
               <TabsInnerWrapper>
                 <div>
                   {headers.map((TabComponent, i) => (
