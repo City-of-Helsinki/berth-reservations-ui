@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import Map from '../Map';
 
 export default ({ onClick, selected, filtered, filteredNot }) => (
