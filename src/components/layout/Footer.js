@@ -77,24 +77,24 @@ const Footer = ({ intl: { formatMessage } }: Props) => {
           <FooterSection md="4">
             <VerticalList>
               <li>
-                <LocalizedLink to={formatMessage({ id: 'site.footer.url.helsinki_berths' })}>
+                <a href={formatMessage({ id: 'site.footer.url.helsinki_berths' })}>
                   <FormattedMessage tagName="span" id="site.footer.browse_berths" />
-                </LocalizedLink>
+                </a>
               </li>
               <li>
-                <LocalizedLink to={formatMessage({ id: 'site.footer.url.berthing' })}>
+                <a href={formatMessage({ id: 'site.footer.url.berthing' })}>
                   <FormattedMessage tagName="span" id="site.footer.boating_info" />
-                </LocalizedLink>
+                </a>
               </li>
               <li>
-                <LocalizedLink to={formatMessage({ id: 'site.footer.url.current_news' })}>
+                <a href={formatMessage({ id: 'site.footer.url.current_news' })}>
                   <FormattedMessage tagName="span" id="site.footer.news" />
-                </LocalizedLink>
+                </a>
               </li>
               <li>
-                <LocalizedLink to={formatMessage({ id: 'site.footer.url.terms_of_service' })}>
+                <a href={formatMessage({ id: 'site.footer.url.terms_of_service' })}>
                   <FormattedMessage tagName="span" id="site.footer.terms_of_service" />
-                </LocalizedLink>
+                </a>
               </li>
             </VerticalList>
           </FooterSection>
