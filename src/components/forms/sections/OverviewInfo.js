@@ -58,7 +58,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
         </SectionHeader>
         <EditIcon xs={4} md={2}>
           <EditLink to={`form/${tabs[0]}`}>
-            <Icon name="pencil" width="30px" color="black" />
+            <Icon name="pencil" width="30px" height="30px" color="black" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
           </EditLink>
         </EditIcon>
@@ -90,7 +90,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
         </SectionHeader>
         <EditIcon xs={4} md={2}>
           <EditLink to="berths">
-            <Icon name="pencil" width="30px" color="black" />
+            <Icon name="pencil" width="30px" height="30px" color="black" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
           </EditLink>
         </EditIcon>
@@ -110,7 +110,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
         </SectionHeader>
         <EditIcon xs={4} md={2}>
           <EditLink to={`form/${tabs[1]}`}>
-            <Icon name="pencil" width="30px" color="black" />
+            <Icon name="pencil" width="30px" height="30px" color="black" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
           </EditLink>
         </EditIcon>
