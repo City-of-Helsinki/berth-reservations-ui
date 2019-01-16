@@ -9,6 +9,8 @@ import SelectedBerthsLegend from '../legends/SelectedBerthsLegend';
 import { getBerthFilterByValues } from '../../utils/berths';
 import responsive from '../../utils/responsive';
 import Layout from '../layout/Layout';
+import Icon from '../common/Icon';
+import LocalizedLink from '../common/LocalizedLink';
 
 const PrevnextWrapperWrapper = styled.div`
   background-color: ${props => props.theme.helLight};
@@ -33,6 +35,17 @@ const BoatValue = styled.span`
 const PageContainer = styled(Container)`
   padding-top: 3em;
   padding-bottom: 3em;
+`;
+
+const Notice = styled.div`
+  display: flex;
+  justify-content: left;
+  flex-direction: row;
+`;
+
+const NoticeIcon = styled(Icon)`
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 `;
 
 type Props = any;
@@ -106,7 +119,12 @@ class BerthPage extends Component<Props> {
                   </Row>
                 </Container>
               ) : (
-                <FormattedMessage tagName="span" id="page.berth.selected.info_text" />
+                <Notice>
+                  <NoticeIcon color="red" name="exclamationCircle" width="1.5em" height="1.5em" />
+                  <LocalizedLink to="">
+                    <FormattedMessage tagName="span" id="page.berth.selected.info_text" />
+                  </LocalizedLink>
+                </Notice>
               )}
               <hr />
               {validSelection || (
