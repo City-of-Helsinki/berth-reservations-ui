@@ -148,7 +148,7 @@ class SelectedBerth extends Component<Props, State> {
                 {!isValid && <InvalidSelection id={id} />}
               </span>
               <DeselectButton type="button" onClick={() => this.doDelete()}>
-                <Icon name="times" width="30px" />
+                <Icon name="times" width="30px" height="30px" />
               </DeselectButton>
             </BerthName>
             <BerthOptions>
@@ -158,7 +158,12 @@ class SelectedBerth extends Component<Props, State> {
                 onClick={() => this.doMoveUp()}
                 disabled={first}
               >
-                <Icon name="angleUp" width="36px" color={first ? 'lightgray' : 'black'} />
+                <Icon
+                  name="angleUp"
+                  width="36px"
+                  height="36px"
+                  color={first ? 'lightgray' : 'black'}
+                />
               </StyledButton>
 
               <StyledButton
@@ -167,7 +172,12 @@ class SelectedBerth extends Component<Props, State> {
                 onClick={() => this.doMoveDown()}
                 disabled={last}
               >
-                <Icon name="angleDown" width="36px" color={last ? 'lightgray' : 'black'} />
+                <Icon
+                  name="angleDown"
+                  width="36px"
+                  height="36px"
+                  color={last ? 'lightgray' : 'black'}
+                />
               </StyledButton>
             </BerthOptions>
           </BerthRow>
