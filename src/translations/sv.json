@@ -28,6 +28,12 @@
   "site.footer.contact_us": "Ta kontakt",
   "site.footer.copyright": "2018 Helsingfors stad",
 
+  "site.footer.url.terms_of_service": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri-SV.pdf",
+  "site.footer.url.helsinki_berths": "https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv/batplatser/",
+  "site.footer.url.berthing": "https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv/",
+  "site.footer.url.current_news": "https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv/batplatser/",
+  "site.footer.url.feedback": "https://www.hel.fi/helsinki/sv/stad-och-forvaltning/delta/feedback/",
+
   "tab_selector.progress.button": "Börja ansökan",
   "tab_selector.progress.message.zero": "Välj högst { total } hamnar i din ansökan",
   "tab_selector.progress.message.other": "Du kan ännu välja { count } hamnar i din ansökan",

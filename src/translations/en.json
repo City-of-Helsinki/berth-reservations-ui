@@ -27,6 +27,11 @@
   "site.footer.send_feedback": "Send feedback",
   "site.footer.contact_us": "Contact us",
   "site.footer.copyright": "2018 City of Helsinki",
+  "site.footer.url.terms_of_service": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri.pdf",
+  "site.footer.url.helsinki_berths": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/",
+  "site.footer.url.berthing": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/",
+  "site.footer.url.current_news": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/ajankohtaista/",
+  "site.footer.url.feedback": "https://www.hel.fi/helsinki/en/administration/participate/feedback/",
 
   "tab_selector.progress.button": "Start application",
   "tab_selector.progress.message.zero": "Choose a maximum of { total } harbours for your application",

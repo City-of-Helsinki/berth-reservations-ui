@@ -61,12 +61,7 @@ type Props = {
   intl: IntlShape
 };
 
-const Footer = ({ intl }: Props) => {
-  const termsOfServiceUrl =
-    intl.locale === 'sv'
-      ? 'https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri-SV.pdf'
-      : 'https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri.pdf';
-
+const Footer = ({ intl: { formatMessage } }: Props) => {
   return (
     <Wrapper>
       <OptionsContainer>
@@ -82,24 +77,24 @@ const Footer = ({ intl }: Props) => {
           <FooterSection md="4">
             <VerticalList>
               <li>
-                <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/">
+                <LocalizedLink to={formatMessage({ id: 'site.footer.url.helsinki_berths' })}>
                   <FormattedMessage tagName="span" id="site.footer.browse_berths" />
-                </a>
+                </LocalizedLink>
               </li>
               <li>
-                <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/">
+                <LocalizedLink to={formatMessage({ id: 'site.footer.url.berthing' })}>
                   <FormattedMessage tagName="span" id="site.footer.boating_info" />
-                </a>
+                </LocalizedLink>
               </li>
               <li>
-                <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/ajankohtaista/">
+                <LocalizedLink to={formatMessage({ id: 'site.footer.url.current_news' })}>
                   <FormattedMessage tagName="span" id="site.footer.news" />
-                </a>
+                </LocalizedLink>
               </li>
               <li>
-                <a href={termsOfServiceUrl}>
+                <LocalizedLink to={formatMessage({ id: 'site.footer.url.terms_of_service' })}>
                   <FormattedMessage tagName="span" id="site.footer.terms_of_service" />
-                </a>
+                </LocalizedLink>
               </li>
             </VerticalList>
           </FooterSection>
@@ -109,10 +104,10 @@ const Footer = ({ intl }: Props) => {
         <Row>
           <FooterSection md="12">
             <HorizontalList>
-              <a href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute/">
+              <a href={formatMessage({ id: 'site.footer.url.feedback' })}>
                 <FormattedMessage tagName="li" id="site.footer.send_feedback" />
               </a>
-              <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/">
+              <a href={formatMessage({ id: 'site.footer.url.berthing' })}>
                 <FormattedMessage tagName="li" id="site.footer.contact_us" />
               </a>
               <FormattedMessage tagName="li" id="site.footer.copyright" />
