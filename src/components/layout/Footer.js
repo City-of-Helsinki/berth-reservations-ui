@@ -61,62 +61,60 @@ type Props = {
   intl: IntlShape
 };
 
-const Footer = ({ intl: { formatMessage } }: Props) => {
-  return (
-    <Wrapper>
-      <OptionsContainer>
-        <Row>
-          <FooterSection md="4">
-            <LocalizedLink to="">
-              <FormattedMessage id="site.footer.bearth_search" />
-            </LocalizedLink>
-          </FooterSection>
-          <FooterSection md="4">
-            <Icon name="helsinkiLogo" width="120px" color="#fff" />
-          </FooterSection>
-          <FooterSection md="4">
-            <VerticalList>
-              <li>
-                <a href={formatMessage({ id: 'site.footer.url.helsinki_berths' })}>
-                  <FormattedMessage tagName="span" id="site.footer.browse_berths" />
-                </a>
-              </li>
-              <li>
-                <a href={formatMessage({ id: 'site.footer.url.berthing' })}>
-                  <FormattedMessage tagName="span" id="site.footer.boating_info" />
-                </a>
-              </li>
-              <li>
-                <a href={formatMessage({ id: 'site.footer.url.current_news' })}>
-                  <FormattedMessage tagName="span" id="site.footer.news" />
-                </a>
-              </li>
-              <li>
-                <a href={formatMessage({ id: 'site.footer.url.terms_of_service' })}>
-                  <FormattedMessage tagName="span" id="site.footer.terms_of_service" />
-                </a>
-              </li>
-            </VerticalList>
-          </FooterSection>
-        </Row>
-      </OptionsContainer>
-      <LinksContainer>
-        <Row>
-          <FooterSection md="12">
-            <HorizontalList>
-              <a href={formatMessage({ id: 'site.footer.url.feedback' })}>
-                <FormattedMessage tagName="li" id="site.footer.send_feedback" />
+const Footer = ({ intl: { formatMessage } }: Props) => (
+  <Wrapper>
+    <OptionsContainer>
+      <Row>
+        <FooterSection md="4">
+          <LocalizedLink to="">
+            <FormattedMessage id="site.footer.bearth_search" />
+          </LocalizedLink>
+        </FooterSection>
+        <FooterSection md="4">
+          <Icon name="helsinkiLogo" width="120px" color="#fff" />
+        </FooterSection>
+        <FooterSection md="4">
+          <VerticalList>
+            <li>
+              <a href={formatMessage({ id: 'site.footer.url.helsinki_berths' })}>
+                <FormattedMessage tagName="span" id="site.footer.browse_berths" />
               </a>
+            </li>
+            <li>
               <a href={formatMessage({ id: 'site.footer.url.berthing' })}>
-                <FormattedMessage tagName="li" id="site.footer.contact_us" />
+                <FormattedMessage tagName="span" id="site.footer.boating_info" />
               </a>
-              <FormattedMessage tagName="li" id="site.footer.copyright" />
-            </HorizontalList>
-          </FooterSection>
-        </Row>
-      </LinksContainer>
-    </Wrapper>
-  );
-};
+            </li>
+            <li>
+              <a href={formatMessage({ id: 'site.footer.url.current_news' })}>
+                <FormattedMessage tagName="span" id="site.footer.news" />
+              </a>
+            </li>
+            <li>
+              <a href={formatMessage({ id: 'site.footer.url.terms_of_service' })}>
+                <FormattedMessage tagName="span" id="site.footer.terms_of_service" />
+              </a>
+            </li>
+          </VerticalList>
+        </FooterSection>
+      </Row>
+    </OptionsContainer>
+    <LinksContainer>
+      <Row>
+        <FooterSection md="12">
+          <HorizontalList>
+            <a href={formatMessage({ id: 'site.footer.url.feedback' })}>
+              <FormattedMessage tagName="li" id="site.footer.send_feedback" />
+            </a>
+            <a href={formatMessage({ id: 'site.footer.url.berthing' })}>
+              <FormattedMessage tagName="li" id="site.footer.contact_us" />
+            </a>
+            <FormattedMessage tagName="li" id="site.footer.copyright" />
+          </HorizontalList>
+        </FooterSection>
+      </Row>
+    </LinksContainer>
+  </Wrapper>
+);
 
 export default injectIntl(Footer);
