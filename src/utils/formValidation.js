@@ -9,7 +9,7 @@ export const mustBeNumber = (value: any): any =>
 
 export const mustBePositiveNumber = (value: any): any => {
   // eslint-disable-next-line no-restricted-globals
-  if (isNaN(value.replace(',', '.'))) {
+  if (isNaN(value)) {
     return 'validation.message.must_be_number';
   }
   if (value < 0) {
