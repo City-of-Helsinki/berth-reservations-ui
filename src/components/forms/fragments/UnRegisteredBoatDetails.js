@@ -11,35 +11,36 @@ import type { WithBoatType } from '../Selects';
 
 const UnRegisteredBoatDetailsFragment = ({
   prefix,
-  noValidate = false,
+  fieldsNotRequired,
   boatTypes
-}: FormFragmentProps & WithBoatType) => (
+}: FormFragmentProps &
+  WithBoatType & {
+    fieldsNotRequired: ?boolean
+  }) => (
   <Row>
     <Col sm={4}>
-      <BoatType prefix={prefix} noValidate={noValidate} boatTypes={boatTypes} />
+      <BoatType prefix={prefix} boatTypes={boatTypes} required={!fieldsNotRequired} />
     </Col>
     <Col sm={4}>
       <Number
-        noValidate={noValidate}
         validate={mustBePositiveNumber}
         name={`${prefix}.width`}
         label="form.no_boat.field.width.label"
         placeholder="form.no_boat.field.width.placeholder"
         append="m"
         min="0"
-        required
+        required={!fieldsNotRequired}
       />
     </Col>
     <Col sm={4}>
       <Number
-        noValidate={noValidate}
         validate={mustBePositiveNumber}
         name={`${prefix}.length`}
         label="form.no_boat.field.length.label"
         placeholder="form.no_boat.field.length.placeholder"
         append="m"
         min="0"
-        required
+        required={!fieldsNotRequired}
       />
     </Col>
   </Row>

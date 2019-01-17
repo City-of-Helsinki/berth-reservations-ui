@@ -8,7 +8,7 @@ export const mustBeNumber = (value: any): any =>
   isNaN(value) ? 'validation.message.must_be_number' : undefined;
 
 export const mustBePositiveNumber = (value: string): ?string => {
-  const fixedFloatValue: any = value.replace(',', '.');
+  const fixedFloatValue: any = (value || '').replace(',', '.');
   // eslint-disable-next-line no-restricted-globals
   if (isNaN(fixedFloatValue)) {
     return 'validation.message.must_be_number';

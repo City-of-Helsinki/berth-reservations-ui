@@ -15,7 +15,6 @@ const TextInput = (type: any) => ({
   required,
   items,
   text,
-  noValidate,
   validate,
   placeholder,
   intl: { formatMessage },
@@ -23,7 +22,7 @@ const TextInput = (type: any) => ({
 }: any) => (
   <Fragment>
     <FormGroup>
-      {label && <Label htmlFor={id} required={noValidate ? false : required} text={label} />}
+      {label && <Label htmlFor={id} required={required} text={label} />}
       {items.map(({ name: itemName, label: itemLabel, value: itemValue }) => {
         const key = `${id}_${itemName}_${itemValue}`;
         return (
@@ -31,17 +30,15 @@ const TextInput = (type: any) => ({
             key={key}
             name={itemName}
             type={type}
-            required={noValidate ? false : required}
+            required={required}
             value={itemValue}
-            validate={
-              noValidate ? undefined : validator(required ? mustBePresent : null, validate || null)
-            }
+            validate={validator(required ? mustBePresent : null, validate || null)}
           >
             {({ input, meta }) => (
               <CustomInput
                 id={key}
                 type={type}
-                required={noValidate ? false : required}
+                required={required}
                 label={formatMessage({ id: itemLabel })}
                 invalid={!!(meta.touched && meta.error)}
                 {...input}
