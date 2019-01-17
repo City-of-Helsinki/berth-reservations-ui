@@ -7,12 +7,13 @@ export const mustBeNumber = (value: any): any =>
   // eslint-disable-next-line no-restricted-globals
   isNaN(value) ? 'validation.message.must_be_number' : undefined;
 
-export const mustBePositiveNumber = (value: any): any => {
+export const mustBePositiveNumber = (value: string): ?string => {
+  const fixedFloatValue: any = value.replace(',', '.');
   // eslint-disable-next-line no-restricted-globals
-  if (isNaN(value)) {
+  if (isNaN(fixedFloatValue)) {
     return 'validation.message.must_be_number';
   }
-  if (value < 0) {
+  if (fixedFloatValue < 0) {
     return 'validation.message.must_be_positive_number';
   }
 
