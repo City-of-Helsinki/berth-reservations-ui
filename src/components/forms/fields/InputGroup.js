@@ -16,7 +16,6 @@ const TextInput = (type: any) => ({
   prepend,
   append,
   text,
-  noValidate,
   validate,
   placeholder,
   parse,
@@ -27,17 +26,17 @@ const TextInput = (type: any) => ({
     name={name}
     type={type}
     parse={parse}
-    required={noValidate ? false : required}
-    validate={noValidate ? undefined : validator(required ? mustBePresent : null, validate || null)}
+    required={required}
+    validate={validator(required ? mustBePresent : null, validate || null)}
   >
     {({ input, meta }) => (
       <FormGroup>
-        {label && <Label htmlFor={id} required={noValidate ? false : required} text={label} />}
+        {label && <Label htmlFor={id} required={required} text={label} />}
         <InputGroup>
           {prepend && <InputGroupAddon addonType="prepend">{prepend}</InputGroupAddon>}
           <Input
             type={type}
-            required={noValidate ? false : required}
+            required={required}
             invalid={!!(meta.touched && meta.error)}
             placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
             {...input}

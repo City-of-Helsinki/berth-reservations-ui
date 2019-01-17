@@ -149,7 +149,7 @@ const BerthsLegend = ({
           <Form initialValues={initialValues} onSubmit={onSubmit}>
             {() => (
               <Fragment>
-                <UnRegisteredBoatDetails prefix="boat" noValidate boatTypes={boatTypes} />
+                <UnRegisteredBoatDetails prefix="boat" fieldsNotRequired boatTypes={boatTypes} />
                 <AutoSave debounce={500} save={onSubmit} />
               </Fragment>
             )}

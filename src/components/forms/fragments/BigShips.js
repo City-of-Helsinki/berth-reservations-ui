@@ -7,20 +7,19 @@ import { Text, MultiCheckbox, MultiRadio } from '../Fields';
 import { Propulsion, HullMaterial } from '../Selects';
 import type { FormFragmentProps } from '../../../types/form';
 
-const BigShipsFragment = ({ prefix, noValidate = false }: FormFragmentProps) => (
+const BigShipsFragment = ({ prefix }: FormFragmentProps) => (
   <Fragment>
     <Row>
       <Col sm={6}>
-        <Propulsion prefix={prefix} noValidate={noValidate} />
+        <Propulsion prefix={prefix} />
       </Col>
       <Col sm={6}>
-        <HullMaterial prefix={prefix} noValidate={noValidate} />
+        <HullMaterial prefix={prefix} />
       </Col>
     </Row>
     <Row>
       <Col sm={12}>
         <Text
-          noValidate={noValidate}
           name={`${prefix}.usage`}
           label="form.big_ship.field.usage.label"
           placeholder="form.big_ship.field.usage.placeholder"
@@ -31,7 +30,6 @@ const BigShipsFragment = ({ prefix, noValidate = false }: FormFragmentProps) => 
     <Row>
       <Col sm={3}>
         <MultiRadio
-          noValidate={noValidate}
           items={[
             {
               name: `${prefix}.time_period`,
@@ -52,7 +50,6 @@ const BigShipsFragment = ({ prefix, noValidate = false }: FormFragmentProps) => 
         <Row>
           <Col sm={5}>
             <Text
-              noValidate={noValidate}
               name={`${prefix}.time_period_from`}
               placeholder="form.big_ship.field.time_period.from.placeholder"
             />
@@ -62,7 +59,6 @@ const BigShipsFragment = ({ prefix, noValidate = false }: FormFragmentProps) => 
           </Col>
           <Col sm={5}>
             <Text
-              noValidate={noValidate}
               name={`${prefix}.time_period_to`}
               placeholder="form.big_ship.field.time_period.to.placeholder"
             />
@@ -73,7 +69,6 @@ const BigShipsFragment = ({ prefix, noValidate = false }: FormFragmentProps) => 
     <Row>
       <Col>
         <MultiCheckbox
-          noValidate={noValidate}
           id="multiCheckbox"
           required
           items={[
