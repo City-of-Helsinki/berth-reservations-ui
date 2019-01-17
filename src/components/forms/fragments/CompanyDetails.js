@@ -6,12 +6,11 @@ import { Row, Col } from 'reactstrap';
 import { Text } from '../Fields';
 import type { FormFragmentProps } from '../../../types/form';
 
-const CompanyDetailsFragment = ({ prefix, noValidate = false }: FormFragmentProps) => (
+const CompanyDetailsFragment = ({ prefix }: FormFragmentProps) => (
   <Fragment>
     <Row>
       <Col sm={5}>
         <Text
-          noValidate={noValidate}
           name={`${prefix}.name`}
           label="form.company_details.field.name.label"
           placeholder="form.company_details.field.name.placeholder"
@@ -22,7 +21,6 @@ const CompanyDetailsFragment = ({ prefix, noValidate = false }: FormFragmentProp
     <Row>
       <Col sm={5}>
         <Text
-          noValidate={noValidate}
           name={`${prefix}.businessId`}
           label="form.company_details.field.business_id.label"
           placeholder="form.company_details.field.business_id.placeholder"

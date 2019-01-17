@@ -8,11 +8,10 @@ import { Number } from '../Fields';
 import type { FormFragmentProps } from '../../../types/form';
 import { mustBePositiveNumber } from '../../../utils/formValidation';
 
-const RegisteredBoatFragment = ({ prefix, noValidate = false }: FormFragmentProps) => (
+const RegisteredBoatFragment = ({ prefix }: FormFragmentProps) => (
   <Row>
     <Col sm={3}>
       <Number
-        noValidate={noValidate}
         validate={mustBePositiveNumber}
         name={`${prefix}.width`}
         label="form.registered.field.width.label"
@@ -24,7 +23,6 @@ const RegisteredBoatFragment = ({ prefix, noValidate = false }: FormFragmentProp
     </Col>
     <Col sm={3}>
       <Number
-        noValidate={noValidate}
         validate={mustBePositiveNumber}
         name={`${prefix}.length`}
         label="form.registered.field.length.label"
@@ -36,7 +34,6 @@ const RegisteredBoatFragment = ({ prefix, noValidate = false }: FormFragmentProp
     </Col>
     <Col sm={3}>
       <Number
-        noValidate={noValidate}
         validate={mustBePositiveNumber}
         name={`${prefix}.draught`}
         label="form.registered.field.draught.label"
@@ -48,7 +45,6 @@ const RegisteredBoatFragment = ({ prefix, noValidate = false }: FormFragmentProp
     </Col>
     <Col sm={3}>
       <Number
-        noValidate={noValidate}
         validate={mustBePositiveNumber}
         name={`${prefix}.weight`}
         step={100}

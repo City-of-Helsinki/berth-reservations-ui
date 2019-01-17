@@ -7,15 +7,10 @@ import { Checkbox } from '../Fields';
 
 import type { FormFragmentProps } from '../../../types/form';
 
-const ContactByFragment = ({ prefix, noValidate = false }: FormFragmentProps) => (
+const ContactByFragment = ({ prefix }: FormFragmentProps) => (
   <Row>
     <Col sm={6}>
-      <Checkbox
-        noValidate={noValidate}
-        name={`${prefix}.guarantee`}
-        label="form.overview.field.guarantee.label"
-        required
-      />
+      <Checkbox name={`${prefix}.guarantee`} label="form.overview.field.guarantee.label" required />
     </Col>
   </Row>
 );
