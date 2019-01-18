@@ -30,7 +30,8 @@ class Wizard extends Component<Props, State> {
 
     window.scrollTo(0, 0);
     this.state = {
-      initialValues: props.initialValues
+      initialValues: props.initialValues,
+      isSubmitting: false
     };
   }
 
@@ -55,6 +56,7 @@ class Wizard extends Component<Props, State> {
       window.scrollTo(0, 0);
       nextStep(values);
     } else {
+      this.setState({ isSubmitting: true });
       goForward(values);
     }
   };
@@ -85,7 +87,7 @@ class Wizard extends Component<Props, State> {
 
     return (
       <Form initialValues={initialValues} onSubmit={this.handleSubmit}>
-        {({ submitting, invalid, values }) => (
+        {({ invalid, values }) => (
           <Fragment>
             {activePage && React.cloneElement(activePage, { values })}
             <ButtonWrapperWrapper>
@@ -99,7 +101,7 @@ class Wizard extends Component<Props, State> {
                       type="submit"
                       outline={this.hasNextStep()}
                       color="primary"
-                      disabled={submitting}
+                      disabled={this.state.isSubmitting}
                     >
                       <FormattedMessage id={this.getSubmitText(invalid)} />
                     </Button>
