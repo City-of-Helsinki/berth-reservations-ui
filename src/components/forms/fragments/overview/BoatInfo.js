@@ -9,18 +9,19 @@ const Data = styled.span`
 `;
 
 type Props = {
-  boat: Object
+  name: String,
+  registerNumber: String
 };
 
-const BoatInfo = ({ boat }: Props) => (
+const BoatInfo = ({ name, registerNumber }: Props) => (
   <Row>
-    <Col md={boat.register_number ? 6 : 12}>
-      <FormattedMessage tagName="span" id="page.overview.info.boat_name" />:<Data>{boat.name}</Data>
+    <Col md={registerNumber ? 6 : 12}>
+      <FormattedMessage tagName="span" id="page.overview.info.boat_name" />:<Data>{name}</Data>
     </Col>
-    {boat.register_number && (
+    {registerNumber && (
       <Col md={6}>
         <FormattedMessage tagName="span" id="page.overview.info.boat_register_number" />:
-        <Data>{boat.register_number}</Data>
+        <Data>{registerNumber}</Data>
       </Col>
     )}
   </Row>

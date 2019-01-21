@@ -108,7 +108,7 @@ class BoatPage extends PureComponent<Props, any> {
           initialValues={initialValues}
           goForward={async values => {
             await onSubmit(values);
-            await onSend({ ...values, selectedBerths });
+            await onSend({ ...values, chosen_harbors: selectedBerths });
             tabs[step] = tab;
             this.setState(() => ({ tabs }));
             await localePush('/thank-you');

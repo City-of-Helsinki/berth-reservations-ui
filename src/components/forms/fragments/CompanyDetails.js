@@ -4,14 +4,13 @@ import React, { Fragment } from 'react';
 import { Row, Col } from 'reactstrap';
 
 import { Text } from '../Fields';
-import type { FormFragmentProps } from '../../../types/form';
 
-const CompanyDetailsFragment = ({ prefix }: FormFragmentProps) => (
+const CompanyDetailsFragment = () => (
   <Fragment>
     <Row>
       <Col sm={5}>
         <Text
-          name={`${prefix}.name`}
+          name={`company_name`}
           label="form.company_details.field.name.label"
           placeholder="form.company_details.field.name.placeholder"
           required
@@ -21,7 +20,7 @@ const CompanyDetailsFragment = ({ prefix }: FormFragmentProps) => (
     <Row>
       <Col sm={5}>
         <Text
-          name={`${prefix}.businessId`}
+          name={`businessId`}
           label="form.company_details.field.business_id.label"
           placeholder="form.company_details.field.business_id.placeholder"
           required

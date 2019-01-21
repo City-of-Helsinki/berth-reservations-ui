@@ -5,12 +5,14 @@ import { Row, Col } from 'reactstrap';
 
 import { Checkbox } from '../Fields';
 
-import type { FormFragmentProps } from '../../../types/form';
-
-const ContactByFragment = ({ prefix }: FormFragmentProps) => (
+const ContactByFragment = () => (
   <Row>
     <Col sm={6}>
-      <Checkbox name={`${prefix}.guarantee`} label="form.overview.field.guarantee.label" required />
+      <Checkbox
+        name={`information_accuracy_confirmed`}
+        label="form.overview.field.guarantee.label"
+        required
+      />
     </Col>
   </Row>
 );

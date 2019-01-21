@@ -2,25 +2,30 @@
 
 import React, { Fragment } from 'react';
 import { Row, Col } from 'reactstrap';
+import { FormattedMessage } from 'react-intl';
+import styled from 'styled-components';
 
-import { Text, MultiCheckbox, MultiRadio } from '../Fields';
+import { Text, MultiRadio, Checkbox } from '../Fields';
 import { Propulsion, HullMaterial } from '../Selects';
-import type { FormFragmentProps } from '../../../types/form';
 
-const BigShipsFragment = ({ prefix }: FormFragmentProps) => (
+const InsuraneAndAgreementHeader = styled.h3`
+  margin-top: 0;
+`;
+
+const BigShipsFragment = () => (
   <Fragment>
     <Row>
       <Col sm={6}>
-        <Propulsion prefix={prefix} />
+        <Propulsion />
       </Col>
       <Col sm={6}>
-        <HullMaterial prefix={prefix} />
+        <HullMaterial />
       </Col>
     </Row>
     <Row>
       <Col sm={12}>
         <Text
-          name={`${prefix}.usage`}
+          name={`boat_intended_use`}
           label="form.big_ship.field.usage.label"
           placeholder="form.big_ship.field.usage.placeholder"
           required
@@ -32,12 +37,12 @@ const BigShipsFragment = ({ prefix }: FormFragmentProps) => (
         <MultiRadio
           items={[
             {
-              name: `${prefix}.time_period`,
+              name: `renting_period`,
               label: 'form.big_ship.field.time_period.for_now',
               value: 'for_now'
             },
             {
-              name: `${prefix}.time_period`,
+              name: `renting_period`,
               label: 'form.big_ship.field.time_period.fixed',
               value: 'fixed'
             }
@@ -50,7 +55,7 @@ const BigShipsFragment = ({ prefix }: FormFragmentProps) => (
         <Row>
           <Col sm={5}>
             <Text
-              name={`${prefix}.time_period_from`}
+              name={`rent_from`}
               placeholder="form.big_ship.field.time_period.from.placeholder"
             />
           </Col>
@@ -58,33 +63,34 @@ const BigShipsFragment = ({ prefix }: FormFragmentProps) => (
             <center>-</center>
           </Col>
           <Col sm={5}>
-            <Text
-              name={`${prefix}.time_period_to`}
-              placeholder="form.big_ship.field.time_period.to.placeholder"
-            />
+            <Text name={`rent_till`} placeholder="form.big_ship.field.time_period.to.placeholder" />
           </Col>
         </Row>
       </Col>
     </Row>
     <Row>
       <Col>
-        <MultiCheckbox
-          id="multiCheckbox"
+        <InsuraneAndAgreementHeader>
+          <FormattedMessage id="form.big_ship.header.inspection_and_insurance" />
+        </InsuraneAndAgreementHeader>
+
+        <Checkbox
           required
-          items={[
-            {
-              name: `${prefix}.inspected`,
-              label: 'form.big_ship.field.inspected.label',
-              value: 'inspected'
-            },
-            {
-              name: `${prefix}.insurance`,
-              label: 'form.big_ship.field.insurance.label',
-              value: 'insurance'
-            },
-            { name: `${prefix}.agreed`, label: 'form.big_ship.field.agreed.label', value: 'agreed' }
-          ]}
-          label="form.big_ship.header.inspection_and_insurance"
+          name="boat_is_inspected"
+          label="form.big_ship.field.inspected.label"
+          value="inspected"
+        />
+        <Checkbox
+          required
+          name="boat_is_insured"
+          label="form.big_ship.field.insurance.label"
+          value="insurance"
+        />
+        <Checkbox
+          required
+          name="agree_to_terms"
+          label="form.big_ship.field.agreed.label"
+          value="agreed"
         />
       </Col>
     </Row>

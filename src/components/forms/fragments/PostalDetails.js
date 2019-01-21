@@ -3,27 +3,26 @@ import React from 'react';
 import { Row, Col } from 'reactstrap';
 
 import { Text } from '../Fields';
-import type { FormFragmentProps } from '../../../types/form';
 
-const PostalDetailsFragment = ({ prefix }: FormFragmentProps) => (
+const PostalDetailsFragment = () => (
   <Row>
     <Col sm={4}>
       <Text
-        name={`${prefix}.street_address`}
+        name={`address`}
         label={`form.postal_details.field.street_address.label`}
         placeholder={`form.postal_details.field.street_address.placeholder`}
       />
     </Col>
     <Col sm={4}>
       <Text
-        name={`${prefix}.postal_code`}
+        name={`zip_code`}
         label={`form.postal_details.field.postal_code.label`}
         placeholder={`form.postal_details.field.postal_code.placeholder`}
       />
     </Col>
     <Col sm={4}>
       <Text
-        name={`${prefix}.munacipality`}
+        name={`municipality`}
         label={`form.postal_details.field.munacipality.label`}
         placeholder={`form.postal_details.field.munacipality.placeholder`}
       />

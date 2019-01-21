@@ -79,9 +79,9 @@ class BerthPage extends Component<Props> {
       boatTypes,
       locale
     } = this.props;
-    const type = get(values, 'boat.type');
-    const width = get(values, 'boat.width');
-    const length = get(values, 'boat.length');
+    const type = get(values, 'boat_type');
+    const width = get(values, 'boat_width');
+    const length = get(values, 'boat_length');
     const boatType = type ? boatTypes.find(t => t.identifier === type) : undefined;
     const filter = getBerthFilterByValues(values, selectedServices);
     const validSelection = berths

@@ -65,23 +65,35 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
       </Row>
       {tabs[0] === 'registered_boat' && (
         <Fragment>
-          <BoatInfo boat={values.boat} />
-          <BoatTypeAndModel boat={values.boat} boatTypes={boatTypes} />
-          <BoatMeasures boat={values.boat} />
-          <BoatDraughtAndWeight boat={values.boat} />
+          <BoatInfo name={values.boat_name} registerNumber={values.boat_registration_number} />
+          <BoatTypeAndModel
+            boatTypeId={values.boat_type}
+            boatModel={values.boat_model}
+            boatTypes={boatTypes}
+          />
+          <BoatMeasures width={values.boat_width} length={values.boat_length} />
+          <BoatDraughtAndWeight draught={values.boat_draught} weight={values.boat_weight} />
         </Fragment>
       )}
       {tabs[0] === 'unregistered_boat' && (
         <Fragment>
-          <BoatInfo boat={values.boat} />
-          <BoatTypeAndModel boat={values.boat} boatTypes={boatTypes} />
-          <BoatMeasures boat={values.boat} />
+          <BoatInfo name={values.boat_name} registerNumber={values.boat_registration_number} />
+          <BoatTypeAndModel
+            boatTypeId={values.boat_type}
+            boatModel={values.boat_model}
+            boatTypes={boatTypes}
+          />
+          <BoatMeasures width={values.boat_width} length={values.boat_length} />
         </Fragment>
       )}
       {tabs[0] === 'no_boat' && (
         <Fragment>
-          <BoatTypeAndModel boat={values.boat} boatTypes={boatTypes} />
-          <BoatMeasures boat={values.boat} />
+          <BoatTypeAndModel
+            boatTypeId={values.boat_type}
+            boatModel={values.boat_model}
+            boatTypes={boatTypes}
+          />
+          <BoatMeasures width={values.boat_width} length={values.boat_length} />
         </Fragment>
       )}
       <Row>
@@ -115,7 +127,15 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
           </EditLink>
         </EditIcon>
       </Row>
-      <Person person={values.applicant} />
+      <Person
+        firstName={values.first_name}
+        lastName={values.last_name}
+        email={values.email}
+        phoneNumber={values.phone_number}
+        address={values.address}
+        zipCode={values.zip_code}
+        municipality={values.municipality}
+      />
     </Container>
   </StyledInfoBox>
 );
