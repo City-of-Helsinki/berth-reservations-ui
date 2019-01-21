@@ -3,7 +3,13 @@ import { post } from '../utils/api';
 
 export default {
   submit: async (data: Object): Promise<boolean> => {
-    await post('reservations/', data);
+    const { selectedBerths, ...rest } = data;
+
+    await post('reservations/', {
+      ...rest,
+      chosen_harbors: selectedBerths.map((harbor, priority) => ({ priority: priority + 1, harbor }))
+    });
+
     return true;
   }
 };
