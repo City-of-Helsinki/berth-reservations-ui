@@ -20,7 +20,7 @@ const CompanyDetailsFragment = () => (
     <Row>
       <Col sm={5}>
         <Text
-          name={`businessId`}
+          name={`business_id`}
           label="form.company_details.field.business_id.label"
           placeholder="form.company_details.field.business_id.placeholder"
           required

@@ -65,7 +65,7 @@ export const personPageFillForm = () => {
 export const companyPageFillForm = () => {
   cy.get('input[name="company_name"]')
     .type(values.company_name)
-    .get('input[name="businessId"]')
+    .get('input[name="business_id"]')
     .type(values.business_id)
     .get('input[name="address"]')
     .type(values.address)
