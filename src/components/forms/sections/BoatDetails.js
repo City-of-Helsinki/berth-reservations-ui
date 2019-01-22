@@ -21,7 +21,7 @@ type Props = {
 } & WithBoatType;
 
 const BoatDetails = ({ values, tab, boatTypes }: Props) => {
-  const ShowBigShipsForm = get(values, 'boat.type') === BigBoatTypeValue;
+  const ShowBigShipsForm = get(values, 'boat_type') === BigBoatTypeValue;
   return (
     <Content>
       <SectionSelector

@@ -1,5 +1,4 @@
 // @flow
-import { type intlShape } from 'react-intl';
 
 export type DefaultFieldProps = {
   id: string,
@@ -10,13 +9,4 @@ export type DefaultFieldProps = {
   required?: boolean,
   text?: string,
   children?: any
-};
-
-export type FormFragmentProps = {
-  prefix: string,
-  values?: Object
-};
-
-export type FormFragmentPropsWithIntl = FormFragmentProps & {
-  intl: intlShape
 };

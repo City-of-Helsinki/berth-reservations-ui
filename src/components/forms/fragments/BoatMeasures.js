@@ -5,15 +5,14 @@ import { Row, Col } from 'reactstrap';
 
 import { Number } from '../Fields';
 
-import type { FormFragmentProps } from '../../../types/form';
 import { mustBePositiveNumber } from '../../../utils/formValidation';
 
-const RegisteredBoatFragment = ({ prefix }: FormFragmentProps) => (
+const RegisteredBoatFragment = () => (
   <Row>
     <Col sm={3}>
       <Number
         validate={mustBePositiveNumber}
-        name={`${prefix}.width`}
+        name={`boat_width`}
         label="form.registered.field.width.label"
         placeholder="form.registered.field.width.placeholder"
         append="m"
@@ -24,7 +23,7 @@ const RegisteredBoatFragment = ({ prefix }: FormFragmentProps) => (
     <Col sm={3}>
       <Number
         validate={mustBePositiveNumber}
-        name={`${prefix}.length`}
+        name={`boat_length`}
         label="form.registered.field.length.label"
         placeholder="form.registered.field.length.placeholder"
         append="m"
@@ -35,7 +34,7 @@ const RegisteredBoatFragment = ({ prefix }: FormFragmentProps) => (
     <Col sm={3}>
       <Number
         validate={mustBePositiveNumber}
-        name={`${prefix}.draught`}
+        name={`boat_draught`}
         label="form.registered.field.draught.label"
         placeholder="form.registered.field.draught.placeholder"
         append="m"
@@ -46,7 +45,7 @@ const RegisteredBoatFragment = ({ prefix }: FormFragmentProps) => (
     <Col sm={3}>
       <Number
         validate={mustBePositiveNumber}
-        name={`${prefix}.weight`}
+        name={`boat_weight`}
         step={100}
         label="form.registered.field.weight.label"
         placeholder="form.registered.field.weight.placeholder"

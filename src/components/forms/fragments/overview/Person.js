@@ -4,36 +4,46 @@ import { Row, Col } from 'reactstrap';
 import styled from 'styled-components';
 
 type Props = {
-  person: Object
+  firstName: String,
+  lastName: String,
+  email: String,
+  phoneNumber: String,
+  address: String,
+  zipCode: String,
+  municipality: String
 };
 
 const StyledContactSection = styled.div`
   margin-bottom: 1em;
 `;
 
-const Person = ({ person }: Props) => (
+const Person = ({
+  firstName,
+  lastName,
+  email,
+  phoneNumber,
+  address,
+  zipCode,
+  municipality
+}: Props) => (
   <Fragment>
     <Row>
       <Col md={12}>
-        {person.name.first_name} {person.name.last_name}
+        {firstName} {lastName}
       </Col>
     </Row>
     <Row>
       <Col md={12}>
-        {person.contact.email}
+        {email}
         <br />
-        {person.contact.mobile_phone}
+        {phoneNumber}
       </Col>
     </Row>
     <Row>
       <Col md={12}>
-        {person.postal && person.postal.street_address && (
-          <StyledContactSection>{person.postal.street_address}</StyledContactSection>
-        )}
-        {person.postal && person.postal.postal_code && (
-          <StyledContactSection>{person.postal.postal_code}</StyledContactSection>
-        )}
-        {person.postal && person.postal.munacipality && person.postal.munacipality}
+        {zipCode && address && <StyledContactSection>{address}</StyledContactSection>}
+        {zipCode && <StyledContactSection>{zipCode}</StyledContactSection>}
+        {municipality && municipality}
       </Col>
     </Row>
   </Fragment>

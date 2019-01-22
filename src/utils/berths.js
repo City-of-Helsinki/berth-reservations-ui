@@ -3,9 +3,9 @@ import { get } from 'lodash';
 
 // eslint-disable-next-line import/prefer-default-export
 export const getBerthFilterByValues = (values: any, selectedServices: any) => {
-  const width = get(values, 'boat.width', '').replace(',', '.');
-  const length = get(values, 'boat.length', '').replace(',', '.');
-  const boatType = get(values, 'boat.type', '').replace(',', '.');
+  const width = get(values, 'boat_width', '').replace(',', '.');
+  const length = get(values, 'boat_length', '').replace(',', '.');
+  const boatType = get(values, 'boat_type', '').replace(',', '.');
   const services = Object.entries(selectedServices.toObject())
     .filter(([, state]) => state)
     .map(([type]) => type);

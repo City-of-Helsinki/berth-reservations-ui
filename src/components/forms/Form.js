@@ -14,11 +14,11 @@ type Props = {
 const form = ({ onSubmit, initialValues, children, intl }: Props) => (
   <FinalForm
     onSubmit={formData => onSubmit(formData)}
-    initialValues={{ ...initialValues, locale: intl.locale }}
+    initialValues={{ ...initialValues, language: intl.locale }}
     render={({ handleSubmit, ...renderProps }) => (
       <BootstrapForm noValidate onSubmit={handleSubmit}>
         {children(renderProps)}
-        <Field name="locale" component="input" type="hidden" />
+        <Field name="language" component="input" type="hidden" />
       </BootstrapForm>
     )}
   />

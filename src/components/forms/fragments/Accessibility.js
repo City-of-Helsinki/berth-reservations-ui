@@ -3,11 +3,10 @@
 import React from 'react';
 
 import { Checkbox } from '../Fields';
-import type { FormFragmentProps } from '../../../types/form';
 
-const AccessibilityFragment = ({ prefix }: FormFragmentProps) => (
+const AccessibilityFragment = () => (
   <Checkbox
-    name={`${prefix}.accessibility`}
+    name={`accessibility_required`}
     label="form.accessibility.field.accessibility.label"
     inline={false}
   />

@@ -9,18 +9,17 @@ const Data = styled.span`
 `;
 
 type Props = {
-  boat: Object
+  width: number,
+  length: number
 };
 
-const BoatMeasures = ({ boat }: Props) => (
+const BoatMeasures = ({ width, length }: Props) => (
   <Row>
     <Col md={6}>
-      <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:
-      <Data>{boat.width}m</Data>
+      <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:<Data>{width}m</Data>
     </Col>
     <Col md={6}>
-      <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:
-      <Data>{boat.length}m</Data>
+      <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:<Data>{length}m</Data>
     </Col>
   </Row>
 );

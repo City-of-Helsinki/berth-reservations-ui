@@ -6,14 +6,12 @@ import { FormattedMessage } from 'react-intl';
 
 import { Checkbox } from '../Fields';
 
-import type { FormFragmentProps } from '../../../types/form';
-
-const NewsletterFragment = ({ prefix }: FormFragmentProps) => (
+const NewsletterFragment = () => (
   <Fragment>
     <Row>
       <Col sm={6}>
         <Checkbox
-          name={`${prefix}.receivable_boating_info`}
+          name={`accept_boating_newsletter`}
           label="form.overview.field.boating_info.label"
           inline={false}
         />
@@ -23,21 +21,21 @@ const NewsletterFragment = ({ prefix }: FormFragmentProps) => (
     <Row>
       <Col sm={3}>
         <Checkbox
-          name={`${prefix}.receivable_fitness_services`}
+          name={`accept_fitness_news`}
           label="form.overview.field.fitness_services.label"
           inline={false}
         />
       </Col>
       <Col sm={3}>
         <Checkbox
-          name={`${prefix}.receivable_library_services`}
+          name={`accept_library_news`}
           label="form.overview.field.library_services.label"
           inline={false}
         />
       </Col>
       <Col sm={3}>
         <Checkbox
-          name={`${prefix}.receivable_other_cultural_services`}
+          name={`accept_other_culture_news`}
           label="form.overview.field.other_cultural_services.label"
           inline={false}
         />

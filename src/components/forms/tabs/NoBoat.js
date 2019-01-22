@@ -7,15 +7,13 @@ import Accessibility from '../fragments/Accessibility';
 import type { WithBoatType } from '../Selects';
 import StyledContainer from '../StyledContainer';
 
-type Props = {
-  prefix: string
-} & WithBoatType;
+type Props = WithBoatType;
 
-export default ({ prefix, boatTypes }: Props) => (
+export default ({ boatTypes }: Props) => (
   <StyledContainer>
     <FormattedMessage tagName="h3" id="form.no_boat.header.title" />
-    <UnRegisteredBoatDetails prefix={prefix} boatTypes={boatTypes} />
+    <UnRegisteredBoatDetails boatTypes={boatTypes} />
     <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />
-    <Accessibility prefix={prefix} />
+    <Accessibility />
   </StyledContainer>
 );

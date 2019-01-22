@@ -5,86 +5,86 @@ export const clickSubmit = () => {
 };
 
 export const registeredBoatPageFillForm = () => {
-  cy.get('input[name="boat.register_number"]')
-    .type(values.boat.register_number)
-    .get('select[name="boat.type"]')
-    .select(values.boat.type.text)
-    .get('input[name="boat.width"]')
-    .type(values.boat.width)
-    .get('input[name="boat.length"]')
-    .type(values.boat.length)
-    .get('input[name="boat.draught"]')
-    .type(values.boat.draught)
-    .get('input[name="boat.weight"]')
-    .type(values.boat.weight)
-    .get('input[name="boat.name"]')
-    .type(values.boat.name)
-    .get('input[name="boat.model"]')
-    .type(values.boat.model);
+  cy.get('input[name="boat_registration_number"]')
+    .type(values.boat_registration_number)
+    .get('select[name="boat_type"]')
+    .select(values.boat_type.text)
+    .get('input[name="boat_width"]')
+    .type(values.boat_width)
+    .get('input[name="boat_length"]')
+    .type(values.boat_length)
+    .get('input[name="boat_draught"]')
+    .type(values.boat_draught)
+    .get('input[name="boat_weight"]')
+    .type(values.boat_weight)
+    .get('input[name="boat_name"]')
+    .type(values.boat_name)
+    .get('input[name="boat_model"]')
+    .type(values.boat_model);
 };
 
 export const unregisteredBoatPageFillForm = () => {
-  cy.get('select[name="boat.type"]')
-    .select(values.boat.type.text)
-    .get('input[name="boat.width"]')
-    .type(values.boat.width)
-    .get('input[name="boat.length"]')
-    .type(values.boat.length)
-    .get('input[name="boat.name"]')
-    .type(values.boat.name)
-    .get('input[name="boat.model"]')
-    .type(values.boat.model);
+  cy.get('select[name="boat_type"]')
+    .select(values.boat_type.text)
+    .get('input[name="boat_width"]')
+    .type(values.boat_width)
+    .get('input[name="boat_length"]')
+    .type(values.boat_length)
+    .get('input[name="boat_name"]')
+    .type(values.boat_name)
+    .get('input[name="boat_model"]')
+    .type(values.boat_model);
 };
 
 export const noBoatPageFillForm = () => {
-  cy.get('select[name="boat.type"]')
-    .select(values.boat.type.text)
-    .get('input[name="boat.width"]')
-    .type(values.boat.width)
-    .get('input[name="boat.length"]')
-    .type(values.boat.length);
+  cy.get('select[name="boat_type"]')
+    .select(values.boat_type.text)
+    .get('input[name="boat_width"]')
+    .type(values.boat_width)
+    .get('input[name="boat_length"]')
+    .type(values.boat_length);
 };
 
 export const personPageFillForm = () => {
-  cy.get('input[name="applicant.name.first_name"]')
-    .type(values.applicant.name.first_name)
-    .get('input[name="applicant.name.last_name"]')
-    .type(values.applicant.name.last_name)
-    .get('input[name="applicant.postal.street_address"]')
-    .type(values.applicant.postal.street_address)
-    .get('input[name="applicant.postal.postal_code"]')
-    .type(values.applicant.postal.postal_code)
-    .get('input[name="applicant.postal.munacipality"]')
-    .type(values.applicant.postal.munacipality)
-    .get('input[name="applicant.contact.mobile_phone"]')
-    .type(values.applicant.contact.mobile_phone)
-    .get('input[name="applicant.contact.email"]')
-    .type(values.applicant.contact.email);
+  cy.get('input[name="first_name"]')
+    .type(values.first_name)
+    .get('input[name="last_name"]')
+    .type(values.last_name)
+    .get('input[name="address"]')
+    .type(values.address)
+    .get('input[name="zip_code"]')
+    .type(values.zip_code)
+    .get('input[name="municipality"]')
+    .type(values.municipality)
+    .get('input[name="phone_number"]')
+    .type(values.phone_number)
+    .get('input[name="email"]')
+    .type(values.email);
 };
 
 export const companyPageFillForm = () => {
-  cy.get('input[name="applicant.company.name"]')
-    .type(values.applicant.company.name)
-    .get('input[name="applicant.company.businessId"]')
-    .type(values.applicant.company.business_id)
-    .get('input[name="applicant.postal.street_address"]')
-    .type(values.applicant.postal.street_address)
-    .get('input[name="applicant.postal.postal_code"]')
-    .type(values.applicant.postal.postal_code)
-    .get('input[name="applicant.postal.munacipality"]')
-    .type(values.applicant.postal.munacipality)
-    .get('input[name="applicant.name.first_name"]')
-    .type(values.applicant.name.first_name)
-    .get('input[name="applicant.name.last_name"]')
-    .type(values.applicant.name.last_name)
-    .get('input[name="applicant.contact.mobile_phone"]')
-    .type(values.applicant.contact.mobile_phone)
-    .get('input[name="applicant.contact.email"]')
-    .type(values.applicant.contact.email);
+  cy.get('input[name="company_name"]')
+    .type(values.company_name)
+    .get('input[name="business_id"]')
+    .type(values.business_id)
+    .get('input[name="address"]')
+    .type(values.address)
+    .get('input[name="zip_code"]')
+    .type(values.zip_code)
+    .get('input[name="municipality"]')
+    .type(values.municipality)
+    .get('input[name="first_name"]')
+    .type(values.first_name)
+    .get('input[name="last_name"]')
+    .type(values.last_name)
+    .get('input[name="phone_number"]')
+    .type(values.phone_number)
+    .get('input[name="email"]')
+    .type(values.email);
 };
 
 export const overViewPageFillForm = () => {
-  cy.get('label[for="form.overview.guarantee"]').click();
+  cy.get('label[for="form.information_accuracy_confirmed"]').click();
 };
 
 export const gotoRegisteredBoatPage = () => {
@@ -104,32 +104,32 @@ export const selectCompanyTab = () => {
 };
 
 export const checkValuesForRegisteredBoat = () => {
-  cy.contains(`Nimi:${values.boat.name}`);
-  cy.contains(`Rekisterinumero:${values.boat.register_number}`);
-  cy.contains(`Tyyppi:${values.boat.type.text}`);
-  cy.contains(`Malli:${values.boat.model}`);
-  cy.contains(`Leveys:${values.boat.width}m`);
-  cy.contains(`Pituus:${values.boat.length}m`);
-  cy.contains(`Syväys:${values.boat.draught}m`);
-  cy.contains(`Paino:${values.boat.weight}kg`);
-  cy.contains(`${values.applicant.name.first_name} ${values.applicant.name.last_name}`);
-  cy.contains(values.applicant.contact.email);
+  cy.contains(`Nimi:${values.boat_name}`);
+  cy.contains(`Rekisterinumero:${values.boat_registration_number}`);
+  cy.contains(`Tyyppi:${values.boat_type.text}`);
+  cy.contains(`Malli:${values.boat_model}`);
+  cy.contains(`Leveys:${values.boat_width}m`);
+  cy.contains(`Pituus:${values.boat_length}m`);
+  cy.contains(`Syväys:${values.boat_draught}m`);
+  cy.contains(`Paino:${values.boat_weight}kg`);
+  cy.contains(`${values.first_name} ${values.last_name}`);
+  cy.contains(values.email);
 };
 
 export const checkValuesForUnregisteredBoat = () => {
-  cy.contains(`Nimi:${values.boat.name}`);
-  cy.contains(`Tyyppi:${values.boat.type.text}`);
-  cy.contains(`Malli:${values.boat.model}`);
-  cy.contains(`Leveys:${values.boat.width}m`);
-  cy.contains(`Pituus:${values.boat.length}m`);
-  cy.contains(`${values.applicant.name.first_name} ${values.applicant.name.last_name}`);
-  cy.contains(values.applicant.contact.email);
+  cy.contains(`Nimi:${values.boat_name}`);
+  cy.contains(`Tyyppi:${values.boat_type.text}`);
+  cy.contains(`Malli:${values.boat_model}`);
+  cy.contains(`Leveys:${values.boat_width}m`);
+  cy.contains(`Pituus:${values.boat_length}m`);
+  cy.contains(`${values.first_name} ${values.last_name}`);
+  cy.contains(values.email);
 };
 
 export const checkValuesForNoBoat = () => {
-  cy.contains(`Tyyppi:${values.boat.type.text}`);
-  cy.contains(`Leveys:${values.boat.width}m`);
-  cy.contains(`Pituus:${values.boat.length}m`);
-  cy.contains(`${values.applicant.name.first_name} ${values.applicant.name.last_name}`);
-  cy.contains(values.applicant.contact.email);
+  cy.contains(`Tyyppi:${values.boat_type.text}`);
+  cy.contains(`Leveys:${values.boat_width}m`);
+  cy.contains(`Pituus:${values.boat_length}m`);
+  cy.contains(`${values.first_name} ${values.last_name}`);
+  cy.contains(values.email);
 };
