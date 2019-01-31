@@ -10,22 +10,24 @@ const Data = styled.span`
 `;
 
 type Props = {
-  boat: Object,
+  boatTypeId: String,
+  boatModel: String,
   intl: any
 } & WithBoatType;
 
-const BoatTypeAndModel = ({ boat, boatTypes, intl: { locale } }: Props) => {
-  const boatType = boatTypes.find(type => type.identifier === boat.type);
+const BoatTypeAndModel = ({ boatTypeId, boatModel, boatTypes, intl: { locale } }: Props) => {
+  const boatType = boatTypes.find(type => type.identifier === boatTypeId);
+
   return (
     <Row>
-      <Col md={boat.model ? 6 : 12}>
+      <Col md={boatModel ? 6 : 12}>
         <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
         <Data>{boatType.name[locale]}</Data>
       </Col>
-      {boat.model && (
+      {boatModel && (
         <Col md={6}>
           <FormattedMessage tagName="span" id="page.overview.info.boat_model" />:
-          <Data>{boat.model}</Data>
+          <Data>{boatModel}</Data>
         </Col>
       )}
     </Row>
