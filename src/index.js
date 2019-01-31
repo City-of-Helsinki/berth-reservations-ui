@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { Router, Redirect, Route, Switch } from 'react-router-dom';
 import PiwikReactRouter from 'piwik-react-router';
 import createHistory from 'history/createBrowserHistory';
+import * as Sentry from '@sentry/browser';
 
 import { ThemeProvider } from 'styled-components';
 import theme from './config/theme';
@@ -16,13 +17,18 @@ import configureStore from './config/configureStore';
 
 import App from './components/containers/AppContainer';
 
-const { REACT_APP_PIWIK_URL, REACT_APP_PIWIK_ID } = process.env;
+const { REACT_APP_PIWIK_URL, REACT_APP_PIWIK_ID, REACT_APP_SENTRY_DSN, NODE_ENV } = process.env;
 
 const history = createHistory();
 
 const piwik = PiwikReactRouter({
   url: REACT_APP_PIWIK_URL,
   siteId: REACT_APP_PIWIK_ID
+});
+
+Sentry.init({
+  environment: NODE_ENV,
+  dsn: REACT_APP_SENTRY_DSN
 });
 
 const Root = () => (
