@@ -10,7 +10,7 @@ import ThankYouPage from './pages/containers/ThankYouPageContainer';
 import SelectedBerthPage from './pages/containers/SelectedBerthPageContainer';
 
 type Props = {
-  locale: string
+  locale: string;
 };
 
 const App = ({ locale }: Props) => (
