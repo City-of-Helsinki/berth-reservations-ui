@@ -43,7 +43,7 @@ $ yarn start
 
 2. Make sure you have env variables in `.env`, otherwise extend it from example by:
     ```
-    $ cp .env.example .env
+    $ cp .env.example .env.development.local
     ```
 3. Start building docker image and start container:
     ```
@@ -59,7 +59,7 @@ End-to-end testing is created with Cypress.io framework. To run tests:
 $ yarn test
 ```
 
-### Useful docker command
+## Useful docker command
 - To rebuild the docker images:
     ```
     $ docker-compose up --force-recreate --build
