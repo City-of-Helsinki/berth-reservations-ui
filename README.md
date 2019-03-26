@@ -37,6 +37,20 @@ To only start the client:
 $ yarn start
 ```
 
+### Starting dockerized development environment
+
+1. Check if Docker and docker CLI installed, port `3000` and `9000` is free, not occupied by running server.
+
+2. Make sure you have env variables in `.env`, otherwise extend it from example by:
+    ```
+    $ cp .env.example .env
+    ```
+3. Start building docker image and start container:
+    ```
+    $ docker-compose up
+    ```
+4. Open `localhost:3000` on browser.
+
 ## Testing
 
 End-to-end testing is created with Cypress.io framework. To run tests:
@@ -44,3 +58,27 @@ End-to-end testing is created with Cypress.io framework. To run tests:
 ```
 $ yarn test
 ```
+
+### Useful docker command
+- To rebuild the docker images:
+    ```
+    $ docker-compose up --force-recreate --build
+    ```
+- To enter inside docker container environment:
+    ```
+    $ docker-compose exec web sh
+    ```
+- Remove docker container if needed: 
+    ```
+    $ docker rm -f berth-frontend
+    ```
+- Remove docker image:
+    ```
+    $ docker rmi berth-reservations-ui_web
+    ```
+- Running command inside Docker environment (test for example):
+(Make sure docker container is running)
+    ```
+    $ docker-compose run web YOUR_COMMAND_HERE
+    ```
+- Encounter `node-sass` issue ? try to go inside docker container environment and run `npm rebuild node-sass`
