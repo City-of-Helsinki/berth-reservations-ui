@@ -7,7 +7,13 @@
     "plugin:prettier/recommended"
   ],
   "parser": "babel-eslint",
-  "plugins": ["react", "jest", "cypress", "flowtype", "prettier"],
+  "plugins": [
+    "react",
+    "jest",
+    "cypress",
+    "flowtype",
+    "prettier"
+  ],
   "env": {
     "browser": true,
     "node": true,
@@ -19,7 +25,16 @@
     }
   },
   "rules": {
-    "prettier/prettier": ["error"],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["!/src/**/*.js"] }]
+    "prettier/prettier": [
+      "error"
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "!/src/**/*.js"
+        ]
+      }
+    ]
   }
 }
