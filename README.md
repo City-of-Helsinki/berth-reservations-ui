@@ -41,7 +41,7 @@ $ yarn start
 
 1. Check if Docker and docker CLI installed, port `3000` and `9000` is free, not occupied by running server.
 
-2. Make sure you have env variables in `.env`, otherwise extend it from example by:
+2. Make sure you have env variables in `.env.development.local`, otherwise extend it from example by:
     ```
     $ cp .env.example .env.development.local
     ```
