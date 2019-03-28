@@ -1,0 +1,23 @@
+@import './berth';
+
+.app-berths {
+  margin-top: 1em;
+
+  .app-berth {
+    opacity: 1;
+
+    &__excluded {
+      opacity: 0.5;
+    }
+  }
+
+  .list-header {
+    margin: 1em 0;
+  }
+
+  .invalid-selection {
+    position: relative;
+    display: inline-block;
+    margin-left: 0.25em;
+  }
+}

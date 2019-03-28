@@ -1,0 +1,9 @@
+.app-Label {
+  .required {
+    &::after {
+      margin-left: 1ch;
+      content: '*';
+      color: red;
+    }
+  }
+}

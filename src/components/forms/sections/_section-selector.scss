@@ -1,0 +1,35 @@
+.app-sectionSelector {
+  &-formSelect-wrapper {
+    display: block;
+    color: inherit;
+    padding: 1em;
+    text-align: center;
+    min-height: 8em;
+    background-color: 'unset';
+
+    &:hover,
+    &:active {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    svg {
+      max-height: 6em;
+    }
+
+    .selected {
+      background-color: $hel-fog;
+    }
+
+    font-size: 0.8em;
+    line-height: 1;
+
+    @include for-mobile {
+      font-size: 1em;
+      font-weight: $fontWeightRegular;
+      .selected {
+        font-weight: $fontWeightBold;
+      }
+    }
+  }
+}

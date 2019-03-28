@@ -1,0 +1,63 @@
+.app-tabSelector {
+  &-wrapper {
+    background-color: $hel-light;
+    border-bottom: 4px solid white;
+    z-index: 1001;
+
+    &.is-sticky {
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &-innerWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    flex-direction: column-reverse;
+
+    @include for-tablet {
+      flex-direction: row;
+    }
+  }
+
+  &-tabButton {
+    @extend %button;
+    outline: none;
+    border: none;
+    color: black;
+    padding: 0.5em 1em;
+
+    .active {
+      background-color: $hel-white;
+    }
+    :active,
+    :focus {
+      outline: none;
+    }
+    :hover {
+      cursor: pointer;
+    }
+
+    @include for-mobile {
+      padding: 1em 2em;
+    }
+  }
+
+  &-tabs {
+    margin-top: 0;
+  }
+
+  &-application-promt {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: $smallFontsize;
+    line-height: 1;
+    text-align: right;
+    margin: 0.5em 0;
+
+    @include for-tablet {
+      font-size: inherit;
+    }
+  }
+}

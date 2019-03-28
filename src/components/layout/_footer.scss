@@ -1,0 +1,13 @@
+.app-footer {
+  &-wrapper {
+    background-color: $hel-blue;
+    color: #fff;
+    padding-top: 4em;
+    padding-bottom: 4em;
+    min-height: 15em;
+
+    & a {
+      color: #fff;
+    }
+  }
+}

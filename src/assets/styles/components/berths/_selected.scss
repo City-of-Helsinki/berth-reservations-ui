@@ -1,0 +1,82 @@
+.app-berth-selected {
+  &__row {
+    display: flex;
+    margin-bottom: 0.5em;
+  }
+
+  &__name {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    background-color: $hel-light;
+    color: $hel-white;
+
+    &-has-error {
+      background-color: $hel-coat;
+      color: $hel-gray;
+    }
+
+    font-size: $smallFontsize;
+    line-height: 1;
+    hyphens: auto;
+    padding: 0.3em;
+    padding-left: 0.8em;
+    margin-right: 0.5em;
+    transition: background-color 200ms ease-in;
+
+    &.moving-entering {
+      background-color: $hel-fog;
+    }
+
+    &.moving-exiting {
+      background-color: $hel-fog;
+    }
+
+    @include for-mobile {
+      font-size: 1.2em;
+    }
+
+    span {
+      flex-grow: 1;
+    }
+  }
+
+  &__deselect-button {
+    @extend %button;
+
+    padding-left: 0;
+    padding-right: 0;
+    height: 100%;
+    margin-left: 1em;
+    background-color: transparent;
+    border: 0;
+
+    @include for-mobile {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+  }
+
+  &-options {
+    display: flex;
+    align-content: center;
+
+    button {
+      @extend %button;
+
+      padding-left: 0;
+      padding-right: 0;
+      &:first-child {
+        margin-right: 6px;
+      }
+      &:hover {
+        background-color: $hel-fog;
+      }
+
+      @include for-mobile {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+      }
+    }
+  }
+}

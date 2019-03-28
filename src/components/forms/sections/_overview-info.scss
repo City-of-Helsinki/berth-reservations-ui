@@ -1,0 +1,29 @@
+.app-overviewInfo {
+  &-infobox {
+    background-color: #efefef;
+    // TODO: replace this color
+    padding: 1.5em;
+    margin-bottom: 2em;
+  }
+
+  &-sectionHeader {
+    border-bottom: 1px solid $hel-black;
+    padding-left: 0px;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    font-weight: bold;
+  }
+
+  &-editIcon {
+    margin-bottom: 1em;
+    margin-top: 1em;
+    font-weight: bold;
+    text-align: right;
+  }
+
+  &-editLink {
+    display: flex;
+    // color: currentColor;
+    //TODO: fix this
+  }
+}
