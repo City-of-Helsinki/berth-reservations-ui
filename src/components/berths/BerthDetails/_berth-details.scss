@@ -1,0 +1,83 @@
+.app-berth__details {
+  &-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    height: 100%;
+    padding: 1em;
+    padding-top: 0px;
+    white-space: nowrap;
+
+    @include for-tablet {
+      flex-direction: column;
+      padding: 1em 0;
+    }
+  }
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex: 0 0 33.33%;
+  height: auto;
+
+  opacity: 1;
+
+  &:last-child {
+    flex-grow: 1;
+  }
+
+  &-not-available {
+    opacity: 0.15;
+  }
+
+  &__icon {
+    @extend %icon;
+
+    height: $berthIconSize;
+    width: $berthIconSize;
+
+    margin: 4px;
+    display: none;
+    text-align: center;
+
+    @include for-tablet {
+      display: block;
+    }
+  }
+
+  &__value {
+    margin-left: 0.5ch;
+    text-align: center;
+    font-size: $baseFontSize;
+    font-weight: $fontWeightBold;
+    order: 2;
+
+    @include for-tablet {
+      margin: 4px 0;
+      line-height: $berthIconSize;
+      height: $berthIconSize;
+      font-size: $largeFontsize;
+      order: -1;
+    }
+  }
+
+  &-title {
+    text-align: center;
+
+    @include for-tablet {
+      font-size: $smallFontSize;
+    }
+
+    @include for-desktop {
+      font-size: inherit;
+    }
+  }
+
+  @include for-tablet {
+    justify-content: right;
+    flex: 1 0 50%;
+    flex-direction: column;
+    height: 1px;
+  }
+}

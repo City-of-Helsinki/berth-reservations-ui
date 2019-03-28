@@ -1,3 +1,7 @@
+@import '~open-city-design/src/scss/helsinki/variables';
+
+@import '~open-city-design/src/scss/helsinki/mixins';
+
 $theme-colors: (
   'primary': $hel-black,
   'secondary': $hel-coat,

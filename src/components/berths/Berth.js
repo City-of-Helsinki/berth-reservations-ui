@@ -7,83 +7,8 @@ import Icon from '../common/Icon';
 import type { Berth as BerthType } from '../../types/berths';
 import responsive from '../../utils/responsive';
 import { getLocalizedText } from '../../utils/berths';
+import Details from './BerthDetails';
 import IntlComponent from '../common/IntlComponent';
-
-const Details = styled.div`
-  display: flex;
-
-  flex-direction: row;
-  justify-content: flex-start;
-  flex: 0 0 33.33%;
-  height: auto;
-
-  opacity: ${props => (props.available ? 1 : 0.15)};
-
-  &:last-child {
-    flex-grow: 1;
-  }
-
-  ${responsive.md`
-    justify-content: right;
-    flex: 1 0 50%;
-    flex-direction: column;
-    height: 1px;
-  `}
-`;
-
-const DetailsWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  height: 100%;
-  padding: 1em;
-  padding-top: 0px;
-  white-space: nowrap;
-  ${responsive.md`
-    flex-direction: column;
-    padding: 1em 0;
-  `}
-`;
-
-const DetailsIcon = styled(Icon).attrs({
-  height: '42px',
-  width: '42px'
-})`
-  margin: 4px;
-  display: none;
-  text-align: center;
-  ${responsive.md`
-    display: block;
-  `}
-`;
-
-const DetailsValue = styled.span`
-  margin-left: 0.5ch;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 700;
-  order: 2;
-
-  ${responsive.md`
-    margin: 4px 0;
-    line-height: 42px;
-    height: 42px;
-    font-size: 28px;
-    order: -1;
-  `}
-`;
-
-const DetailsTitle = styled.span`
-  text-align: center;
-
-  ${responsive.md`
-    font-size: 14px;
-  `}
-  ${responsive.lg`
-    font-size: inherit;
-  `}
-`;
 
 const BerthImage = styled.img`
   object-fit: cover;
@@ -298,50 +223,44 @@ class Berth extends Component<Props, State> {
                 </SummaryWrapper>
               </Col>
               <Col md={5}>
-                <DetailsWrapper>
-                  <Details available={true}>
-                    <DetailsValue>{berth.number_of_places}</DetailsValue>
-                    <DetailsTitle>
-                      <FormattedMessage tagName="span" id="page.berths.number_of_places" />
-                    </DetailsTitle>
-                  </Details>
-                  <Details available={true}>
-                    <DetailsValue>{berth.maximum_width}&#8202;m</DetailsValue>
-                    <DetailsTitle>
-                      <FormattedMessage tagName="span" id="page.berths.maximum_width" />
-                    </DetailsTitle>
-                  </Details>
-                  <Details available={berth.waste_collection}>
-                    <DetailsIcon name="trash" />
-                    <DetailsTitle>
-                      <FormattedMessage tagName="span" id="page.berths.waste_collection" />
-                    </DetailsTitle>
-                  </Details>
-                  <Details available={berth.electricity}>
-                    <DetailsIcon name="plug" />
-                    <DetailsTitle>
-                      <FormattedMessage tagName="span" id="page.berths.electricity" />
-                    </DetailsTitle>
-                  </Details>
-                  <Details available={berth.gate}>
-                    <DetailsIcon name="fence" />
-                    <DetailsTitle>
-                      <FormattedMessage tagName="span" id="page.berths.fence" />
-                    </DetailsTitle>
-                  </Details>
-                  <Details available={berth.water}>
-                    <DetailsIcon name="waterTap" />
-                    <DetailsTitle>
-                      <FormattedMessage tagName="span" id="page.berths.water_tap" />
-                    </DetailsTitle>
-                  </Details>
-                  <Details available={berth.lighting}>
-                    <DetailsIcon name="streetLight" />
-                    <DetailsTitle>
-                      <FormattedMessage tagName="span" id="page.berths.lighting" />
-                    </DetailsTitle>
-                  </Details>
-                </DetailsWrapper>
+                <div className="app-berth__details-wrapper">
+                  <Details
+                    available
+                    value={berth.number_of_places}
+                    titleId="page.berths.number_of_places"
+                  />
+                  <Details
+                    available
+                    value={berth.maximum_width}
+                    titleId="page.berths.maximum_width"
+                  />
+
+                  <Details
+                    available={!!berth.waste_collection}
+                    icon="trash"
+                    titleId="page.berths.waste_collection"
+                  />
+
+                  <Details
+                    available={!!berth.electricity}
+                    icon="plug"
+                    titleId="page.berths.electricity"
+                  />
+
+                  <Details available={!!berth.gate} icon="fence" titleId="page.berths.fence" />
+
+                  <Details
+                    available={!!berth.water}
+                    icon="waterTap"
+                    titleId="page.berths.water_tap"
+                  />
+
+                  <Details
+                    available={!!berth.lighting}
+                    icon="streetLight"
+                    titleId="page.berths.lighting"
+                  />
+                </div>
               </Col>
             </Row>
           </StyledDiv>
