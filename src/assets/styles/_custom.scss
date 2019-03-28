@@ -1,0 +1,33 @@
+.custom-select {
+  background-color: transparent;
+}
+
+.btn-link.btn-link {
+  color: $hel-black;
+  text-decoration: none !important;
+
+  &:active,
+  &:hover {
+    color: $hel-black !important;
+    background-color: #fff !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #000;
+  text-decoration: none;
+  background-color: #fff;
+}
+
+h1 {
+  line-height: 1;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
