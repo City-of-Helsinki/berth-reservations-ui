@@ -9,18 +9,7 @@ import responsive from '../../utils/responsive';
 import { getLocalizedText } from '../../utils/berths';
 import Details from './BerthDetails';
 import IntlComponent from '../common/IntlComponent';
-
-const BerthImage = styled.img`
-  object-fit: cover;
-  height: 12em;
-  width: 100%;
-  display: none;
-
-  ${responsive.md`
-    height: 100%;
-    display: block;
-  `}
-`;
+import Image from '../common/Image';
 
 const SummaryWrapper = styled.div`
   padding: 1em;
@@ -167,10 +156,9 @@ class Berth extends Component<Props, State> {
                 <IntlComponent
                   Component={ErrorAlert}
                   id="error.message.invalid_berth"
-                  // $FlowFixMe
-                  visible={selected && excluded ? 'true' : 'false'}
+                  visible={selected && excluded}
                 />
-                <BerthImage src={berth.image} alt={getLocalizedText(berth.name, intl.locale)} />
+                <Image src={berth.image} alt={getLocalizedText(berth.name, intl.locale)} />
               </Col>
               <Col md={4}>
                 <SummaryWrapper>

@@ -1,3 +1,8 @@
+@import 'mixin';
+@import 'custom-variable';
+
+$berthIconSize: 42px;
+
 .app-berth__details {
   &-wrapper {
     display: flex;
@@ -32,8 +37,6 @@
   }
 
   &__icon {
-    @extend %icon;
-
     height: $berthIconSize;
     width: $berthIconSize;
 
@@ -49,15 +52,15 @@
   &__value {
     margin-left: 0.5ch;
     text-align: center;
-    font-size: $baseFontSize;
-    font-weight: $fontWeightBold;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
     order: 2;
 
     @include for-tablet {
       margin: 4px 0;
       line-height: $berthIconSize;
       height: $berthIconSize;
-      font-size: $largeFontsize;
+      font-size: $font-size-lg;
       order: -1;
     }
   }
@@ -66,7 +69,7 @@
     text-align: center;
 
     @include for-tablet {
-      font-size: $smallFontSize;
+      font-size: $font-size-sm;
     }
 
     @include for-desktop {

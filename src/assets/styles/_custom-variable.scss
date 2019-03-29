@@ -1,6 +1,5 @@
-@import '~open-city-design/src/scss/helsinki/variables';
-
-@import '~open-city-design/src/scss/helsinki/mixins';
+@import 'open-city-design/src/scss/helsinki/colors';
+@import 'open-city-design/src/scss/helsinki/fonts';
 
 $theme-colors: (
   'primary': $hel-black,
@@ -22,13 +21,6 @@ $md: 768px;
 $lg: 992px;
 $xl: 1200px;
 
-$baseFontsize: 16px;
-$largeFontsize: 28px;
-$smallFontsize: 14px;
-
 $headingSm: 22px;
 $headingMd: 24px;
 $headingLg: 28px;
-
-$fontWeightBold: 700;
-$fontWeightRegular: 400;

@@ -29,7 +29,7 @@ function BerthDetails({ icon, available, value, titleId }) {
   );
 }
 
-BerthDetails.PropTypes = {
+BerthDetails.propTypes = {
   icon: PropTypes.string,
   available: PropTypes.bool,
   value: PropTypes.string,
