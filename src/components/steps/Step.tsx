@@ -1,14 +1,13 @@
-// @flow
 import React from 'react';
 import styled from 'styled-components';
 import LocalizedLink from '../common/LocalizedLink';
 import media from '../../utils/responsive';
 
 type Props = {
-  completed: boolean,
-  current: boolean,
-  label: string,
-  linkTo?: string
+  completed: boolean;
+  current: boolean;
+  label: string;
+  linkTo?: string;
 };
 
 const Section = styled.div`
@@ -23,7 +22,7 @@ const Section = styled.div`
   text-align: left;
 `;
 
-const StatusBox = styled.div`
+const StatusBox = styled.div<{ current: boolean; completed: boolean }>`
   height: 1em;
   color: #000;
   margin: auto;
@@ -61,6 +60,7 @@ export default class Step extends React.Component<Props> {
     const { completed, current, label, linkTo } = this.props;
 
     return (
+      //@ts-ignore
       <Section as={linkTo ? LocalizedLink : 'div'} to={linkTo}>
         <StatusBox completed={completed} current={current} />
         <StatusTitle>{label}</StatusTitle>

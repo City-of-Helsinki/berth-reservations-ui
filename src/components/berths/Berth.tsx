@@ -1,15 +1,18 @@
-// @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Row, Col, Button, Alert, Popover, PopoverBody } from 'reactstrap';
-import { FormattedMessage, injectIntl, type IntlShape } from 'react-intl';
+import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl';
 import Icon from '../common/Icon';
-import type { Berth as BerthType } from '../../types/berths';
+import { Berth as BerthType } from '../../types/berths';
 import responsive from '../../utils/responsive';
 import { getLocalizedText } from '../../utils/berths';
 import IntlComponent from '../common/IntlComponent';
 
-const Details = styled.div`
+interface DetailsProps {
+  readonly available: boolean;
+}
+
+const Details = styled.div<DetailsProps>`
   display: flex;
 
   flex-direction: row;
@@ -141,14 +144,13 @@ const StyledDiv = styled.div`
 `;
 
 type Props = {
-  berth: BerthType,
-  className?: string,
-  onClick: Function,
-  selected: boolean,
-  disabled?: boolean,
-  excluded?: boolean,
-  intl: IntlShape
-};
+  berth: BerthType;
+  className?: string;
+  onClick: (e: React.SyntheticEvent<HTMLButtonElement>) => void;
+  selected: boolean;
+  disabled?: boolean;
+  excluded?: boolean;
+} & InjectedIntlProps;
 
 const Heading = styled.strong`
   font-size: 22px;
@@ -160,10 +162,14 @@ const Heading = styled.strong`
   `}
 `;
 
+interface ErrorAlertProps {
+  readonly visible?: boolean;
+}
+
 const ErrorAlert = styled(Alert).attrs({
   color: 'danger'
-})`
-  display: ${props => (props.visible === 'true' ? 'block' : 'none')};
+})<ErrorAlertProps>`
+  display: ${props => (props.visible ? 'block' : 'none')};
   margin: 10px 25px 0px 10px;
   padding: 8px;
   font-size: 12px;
@@ -184,7 +190,11 @@ const AvailabilityButton = styled(Button)`
   }
 `;
 
-const AvailabilityLevelMarker = styled.span`
+interface AvailabilityLevelMarkerProps {
+  level: string;
+}
+
+const AvailabilityLevelMarker = styled.span<AvailabilityLevelMarkerProps>`
   display: inline-block;
   width: 14px;
   height: 14px;
@@ -212,7 +222,7 @@ const TypeIcon = styled(Icon).attrs({
 `;
 
 type State = {
-  popoverOpen: boolean
+  popoverOpen: boolean;
 };
 
 class Berth extends Component<Props, State> {
@@ -224,11 +234,11 @@ class Berth extends Component<Props, State> {
     };
   }
 
-  togglePopover(isOpen) {
+  togglePopover = (isOpen: boolean) => {
     this.setState({
       popoverOpen: isOpen
     });
-  }
+  };
 
   render() {
     const { berth, className, onClick, selected, disabled, excluded, intl } = this.props;
@@ -242,8 +252,7 @@ class Berth extends Component<Props, State> {
                 <IntlComponent
                   Component={ErrorAlert}
                   id="error.message.invalid_berth"
-                  // $FlowFixMe
-                  visible={selected && excluded ? 'true' : 'false'}
+                  visible={selected && excluded}
                 />
                 <BerthImage src={berth.image} alt={getLocalizedText(berth.name, intl.locale)} />
               </Col>

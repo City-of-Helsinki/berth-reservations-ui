@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { get } from 'lodash';
@@ -11,6 +10,10 @@ import responsive from '../../utils/responsive';
 import Layout from '../layout/Layout';
 import Icon from '../common/Icon';
 import LocalizedLink from '../common/LocalizedLink';
+
+import { Berths as BerthsType, SelectedBerths as SelectedBerthsType } from '../../types/berths';
+import { SelectedServices } from '../../types/services';
+import { BoatTypes } from '../../types/boatTypes';
 
 const PrevnextWrapperWrapper = styled.div`
   background-color: ${props => props.theme.helLight};
@@ -48,7 +51,18 @@ const NoticeIcon = styled(Icon)`
   margin-right: 0.5em;
 `;
 
-type Props = any;
+type Props = {
+  boatTypes: BoatTypes;
+  berths: BerthsType;
+  selectedBerths: SelectedBerthsType;
+  selectedServices: SelectedServices;
+  deselectBerth: Function;
+  moveUp: Function;
+  moveDown: Function;
+  localePush: Function;
+  locale: string;
+  values: {};
+};
 
 class BerthPage extends Component<Props> {
   constructor(props: Props) {
@@ -138,7 +152,11 @@ class BerthPage extends Component<Props> {
                 moveDown={moveDown}
                 deselectBerth={deselectBerth}
                 berthValidator={filter}
-                berths={selectedBerths.map(key => berths.find(berth => key === berth.identifier))}
+                berths={
+                  selectedBerths.map(key =>
+                    berths.find(berth => key === berth.identifier)
+                  ) as BerthsType
+                }
               />
             </Col>
           </Row>

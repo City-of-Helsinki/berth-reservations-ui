@@ -1,8 +1,8 @@
-// @flow
 import { post } from '../utils/api';
+import { SelectedBerths } from '../types/berths';
 
 export default {
-  submit: async (data: Object): Promise<boolean> => {
+  submit: async (data: { selectedBerths: SelectedBerths }): Promise<boolean> => {
     const { selectedBerths, ...rest } = data;
 
     await post('reservations/', {

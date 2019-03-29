@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
@@ -14,7 +13,10 @@ const ButtonSection = styled.div`
   margin-bottom: 3em;
 `;
 
-type Props = any;
+type Props = {
+  resetValues: Function;
+  resetBerths: Function;
+};
 
 class ThankYouPage extends Component<Props> {
   constructor(props: Props) {

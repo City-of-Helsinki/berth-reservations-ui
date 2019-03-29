@@ -15,7 +15,7 @@ const maxWidth = Object.entries(breakpoint).reduce((acc, [size, pixels]) => ({
   [size]: `${pixels / 16}em`
 }));
 
-export default {
+const theme = {
   ...extractedTheme,
   breakpoint,
   maxWidth,
@@ -25,3 +25,5 @@ export default {
     light: '#ebedf1'
   }
 };
+
+export default theme;

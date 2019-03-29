@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react';
 import styled from 'styled-components';
 import { Col, Row, Container } from 'reactstrap';
@@ -11,13 +9,13 @@ import UnRegisteredBoat from '../tabs/UnRegisteredBoat';
 import NoBoat from '../tabs/NoBoat';
 
 import SectionSelector from '../SectionSelector';
-import { BigBoatTypeValue, type WithBoatType } from '../Selects';
+import { BigBoatTypeValue, WithBoatType } from '../Selects';
 
 const Content = styled.div``;
 
 type Props = {
-  values: Object,
-  tab: string
+  values: Object;
+  tab: string;
 } & WithBoatType;
 
 const BoatDetails = ({ values, tab, boatTypes }: Props) => {
@@ -63,7 +61,7 @@ const BoatDetails = ({ values, tab, boatTypes }: Props) => {
             {tab === 'unregistered_boat' && (
               <UnRegisteredBoat prefix="boat" boatTypes={boatTypes} />
             )}
-            {tab === 'no_boat' && <NoBoat prefix="boat" boatTypes={boatTypes} />}
+            {tab === 'no_boat' && <NoBoat boatTypes={boatTypes} />}
           </Col>
         </Row>
       </Container>

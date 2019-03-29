@@ -16,7 +16,7 @@ class InvalidSelection extends PureComponent<any, any> {
     show: false
   };
 
-  toggle = visibility => this.setState(() => ({ show: visibility }));
+  toggle = (visibility: boolean) => this.setState(() => ({ show: visibility }));
 
   render() {
     const { show } = this.state;

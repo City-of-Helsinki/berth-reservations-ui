@@ -1,10 +1,13 @@
-// @flow
 import React from 'react';
 import { Label } from 'reactstrap';
 import styled, { css } from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 
-const StyledLabel = styled(Label)`
+type StyledLabelProps = {
+  required: boolean;
+};
+
+const StyledLabel = styled(Label)<StyledLabelProps>`
   ${props =>
     props.required &&
     css`
@@ -17,9 +20,9 @@ const StyledLabel = styled(Label)`
 `;
 
 type Props = {
-  htmlFor: string,
-  required: boolean,
-  text: string
+  htmlFor: string;
+  required: boolean;
+  text: string;
 };
 
 export default ({ htmlFor, required, text }: Props) => (

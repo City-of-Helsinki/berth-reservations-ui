@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react';
 import Svg from 'react-svg';
 import helsinkiLogo from './icons/helsinki-logo.svg';
@@ -48,14 +46,14 @@ const icons = {
   exclamationCircle
 };
 
-type Names = $Keys<typeof icons>;
+export type IconNames = keyof typeof icons;
 
 type Props = {
-  name: Names,
-  color?: string,
-  width?: string,
-  height?: string,
-  className?: string
+  name: IconNames;
+  color?: string;
+  width?: string;
+  height?: string;
+  className?: string;
 };
 
 const Icon = ({

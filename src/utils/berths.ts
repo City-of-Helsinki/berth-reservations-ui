@@ -1,8 +1,7 @@
-// @flow
 import { get } from 'lodash';
 
 // eslint-disable-next-line import/prefer-default-export
-export const getBerthFilterByValues = (values: any, selectedServices: any) => {
+export const getBerthFilterByValues = (values: {}, selectedServices: any) => {
   const width = get(values, 'boat_width', '').replace(',', '.');
   const length = get(values, 'boat_length', '').replace(',', '.');
   const boatType = get(values, 'boat_type', '').replace(',', '.');
@@ -18,5 +17,5 @@ export const getBerthFilterByValues = (values: any, selectedServices: any) => {
   };
 };
 
-export const getLocalizedText = (keyId: Object, locale: string) =>
+export const getLocalizedText = (keyId: { sv: string; fi: string }, locale: string) =>
   locale === 'sv' ? keyId.sv : keyId.fi;

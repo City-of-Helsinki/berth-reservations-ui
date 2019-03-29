@@ -1,7 +1,5 @@
-// @flow
-
 import React, { Fragment } from 'react';
-import { FormattedMessage, FormattedHTMLMessage, injectIntl, type intlShape } from 'react-intl';
+import { FormattedMessage, FormattedHTMLMessage, injectIntl, InjectedIntlProps } from 'react-intl';
 import { Navbar, NavbarBrand, Nav, Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
 
@@ -13,10 +11,9 @@ import heroImage from '../../assets/images/hero_image_berth.jpg';
 import responsive from '../../utils/responsive';
 
 type Props = {
-  children: any,
-  hero?: boolean,
-  intl: intlShape
-};
+  children: any;
+  hero?: boolean;
+} & InjectedIntlProps;
 
 const TopNavbar = styled(Navbar)`
   background-color: ${props => props.theme.colors.helWhite};
@@ -75,7 +72,7 @@ const HeroContent = styled(KoroSection).attrs({
   }
 `;
 
-const getHeroContentLink = locale => {
+const getHeroContentLink = (locale: string) => {
   switch (locale) {
     case 'en':
       return 'https://www.hel.fi/helsinki/en/culture/recreation/boating/boat-berths/';

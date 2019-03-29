@@ -1,13 +1,14 @@
-// @flow
 import React from 'react';
 import { FormGroup, Input, FormText, FormFeedback } from 'reactstrap';
-import { FormattedMessage } from 'react-intl';
-import { Field } from 'react-final-form';
+import { FormattedMessage, InjectedIntlProps } from 'react-intl';
+import { Field, FieldProps } from 'react-final-form';
 import validator, { mustBePresent } from '../../../utils/formValidation';
 
 import Label from './Label';
 
-const TextInput = (type: any) => ({
+type Props = FieldProps & InjectedIntlProps;
+
+const TextInput = (type: string) => ({
   id,
   name,
   label,
@@ -17,7 +18,7 @@ const TextInput = (type: any) => ({
   placeholder,
   intl: { formatMessage },
   ...rest
-}: any) => (
+}: Props) => (
   <Field
     name={name}
     type={type}

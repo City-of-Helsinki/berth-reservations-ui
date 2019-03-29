@@ -1,4 +1,3 @@
-// @flow
 import React, { Component, Fragment } from 'react';
 import { Button, Container, Col, Row } from 'reactstrap';
 import styled from 'styled-components';
@@ -50,7 +49,7 @@ class Wizard extends Component<Props, State> {
     return React.Children.toArray(children)[step];
   };
 
-  handleSubmit = (values: any) => {
+  handleSubmit = (values: {}) => {
     const { nextStep, goForward } = this.props;
     if (this.hasNextStep()) {
       window.scrollTo(0, 0);
@@ -61,7 +60,7 @@ class Wizard extends Component<Props, State> {
     }
   };
 
-  handlePrevious = (values: any) => {
+  handlePrevious = (values: {}) => {
     const { prevStep, goBackwards } = this.props;
 
     if (this.hasPreviousStep()) {
@@ -87,9 +86,10 @@ class Wizard extends Component<Props, State> {
 
     return (
       <Form initialValues={initialValues} onSubmit={this.handleSubmit}>
-        {({ invalid, values }) => (
+        {({ invalid, values }: { invalid: boolean; values: {} }) => (
           <Fragment>
-            {activePage && React.cloneElement(activePage, { values })}
+            {React.isValidElement(activePage) &&
+              React.cloneElement<{ values?: {} }>(activePage, { values })}
             <ButtonWrapperWrapper>
               <Container>
                 <Row>

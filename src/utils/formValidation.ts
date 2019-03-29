@@ -1,5 +1,3 @@
-// @flow
-
 export const mustBePresent = (value: any): any =>
   value ? undefined : 'validation.message.required';
 
@@ -7,7 +5,7 @@ export const mustBeNumber = (value: any): any =>
   // eslint-disable-next-line no-restricted-globals
   isNaN(value) ? 'validation.message.must_be_number' : undefined;
 
-export const mustBePositiveNumber = (value: string): ?string => {
+export const mustBePositiveNumber = (value: string): string | undefined => {
   const fixedFloatValue: any = (value || '').replace(',', '.');
   // eslint-disable-next-line no-restricted-globals
   if (isNaN(fixedFloatValue)) {

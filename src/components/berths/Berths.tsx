@@ -5,6 +5,16 @@ import { FormattedMessage } from 'react-intl';
 
 import Berth from './Berth';
 
+import { Berths as BerthsType, SelectedBerths } from '../../types/berths';
+
+type Props = {
+  filtered: BerthsType;
+  filteredNot: BerthsType;
+  selected: SelectedBerths;
+  onClick: Function;
+  TabHeader?: React.FC;
+};
+
 const StyledBerth = styled(Berth)`
   opacity: ${props => (props.excluded ? '0.5' : '1')};
 `;
@@ -21,7 +31,7 @@ const ListHeader = styled.h3`
 
 const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
 
-export default ({ filtered, filteredNot, onClick, selected }) => (
+export default ({ filtered, filteredNot, onClick, selected }: Props) => (
   <Wrapper>
     {filtered.size > 0 && (
       <Row>
@@ -38,7 +48,7 @@ export default ({ filtered, filteredNot, onClick, selected }) => (
         berth={berth}
         onClick={() => onClick(berth.identifier)}
         selected={selected.includes(berth.identifier)}
-        disabled={selected.size >= REACT_APP_MAX_SELECTED_BERTHS}
+        disabled={selected.size >= Number(REACT_APP_MAX_SELECTED_BERTHS)}
       />
     ))}
     {filteredNot.size > 0 && (
@@ -57,7 +67,7 @@ export default ({ filtered, filteredNot, onClick, selected }) => (
         berth={berth}
         onClick={() => onClick(berth.identifier)}
         selected={selected.includes(berth.identifier)}
-        disabled={selected.size >= REACT_APP_MAX_SELECTED_BERTHS}
+        disabled={selected.size >= Number(REACT_APP_MAX_SELECTED_BERTHS)}
       />
     ))}
   </Wrapper>

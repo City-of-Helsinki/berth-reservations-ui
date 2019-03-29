@@ -1,7 +1,6 @@
-// @flow
 import React from 'react';
 import styled from 'styled-components';
-import { injectIntl, type intlShape } from 'react-intl';
+import { injectIntl, InjectedIntlProps } from 'react-intl';
 import Step from './Step';
 
 const StepIndicatorSection = styled.div`
@@ -14,12 +13,11 @@ const StepContainer = styled.div`
   display: flex;
   margin: 0 -0.25em;
 `;
-type StepProp = { key: string, completed: boolean, current: boolean, linkTo?: string };
+type StepProp = { key: string; completed: boolean; current: boolean; linkTo?: string };
 type StepsProp = Array<StepProp>;
 type Props = {
-  intl: intlShape,
-  steps: StepsProp
-};
+  steps: StepsProp;
+} & InjectedIntlProps;
 
 const Steps = ({ intl: { formatMessage }, steps }: Props) => (
   <StepIndicatorSection>

@@ -1,8 +1,6 @@
-// @flow
-
 import React, { Fragment } from 'react';
 import { Row, Col, Container } from 'reactstrap';
-import { FormattedMessage, injectIntl, type IntlShape } from 'react-intl';
+import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl';
 import styled from 'styled-components';
 
 import LocalizedLink from '../../common/LocalizedLink';
@@ -12,8 +10,8 @@ import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
 import BoatMeasures from '../fragments/overview/BoatMeasures';
 import BoatDraughtAndWeight from '../fragments/overview/BoatDraughtAndWeight';
 import Person from '../fragments/overview/Person';
-import type { Berths } from '../../../types/berths';
-import { type WithBoatType } from '../Selects';
+import { Berths } from '../../../types/berths';
+import { WithBoatType } from '../Selects';
 import { getLocalizedText } from '../../../utils/berths';
 
 const StyledInfoBox = styled.div`
@@ -43,11 +41,27 @@ const EditLink = styled(LocalizedLink)`
 `;
 
 type Props = {
-  values: Object,
-  selectedBerths: Berths,
-  tabs: Array<string>,
-  intl: IntlShape
-} & WithBoatType;
+  values: {
+    boat_name: string;
+    boat_registration_number: string;
+    boat_type: string;
+    boat_model: string;
+    boat_width: number;
+    boat_length: number;
+    boat_draught: number;
+    boat_weight: number;
+    first_name: string;
+    last_name: string;
+    email: string;
+    phone_number: string;
+    address: string;
+    zip_code: string;
+    municipality: string;
+  };
+  selectedBerths: Berths;
+  tabs: Array<string>;
+} & InjectedIntlProps &
+  WithBoatType;
 
 const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) => (
   <StyledInfoBox>

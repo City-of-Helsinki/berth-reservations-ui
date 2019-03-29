@@ -1,19 +1,18 @@
-// @flow
 import React from 'react';
 import { Row, Col } from 'reactstrap';
-import { injectIntl, FormattedMessage } from 'react-intl';
+import { injectIntl, FormattedMessage, InjectedIntlProps } from 'react-intl';
 import styled from 'styled-components';
-import { type WithBoatType } from '../../Selects';
+import { WithBoatType } from '../../Selects';
 
 const Data = styled.span`
   margin-left: 0.5em;
 `;
 
 type Props = {
-  boatTypeId: String,
-  boatModel: String,
-  intl: any
-} & WithBoatType;
+  boatTypeId: string;
+  boatModel: string;
+} & WithBoatType &
+  InjectedIntlProps;
 
 const BoatTypeAndModel = ({ boatTypeId, boatModel, boatTypes, intl: { locale } }: Props) => {
   const boatType = boatTypes.find(type => type.identifier === boatTypeId);
@@ -22,7 +21,7 @@ const BoatTypeAndModel = ({ boatTypeId, boatModel, boatTypes, intl: { locale } }
     <Row>
       <Col md={boatModel ? 6 : 12}>
         <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
-        <Data>{boatType.name[locale]}</Data>
+        <Data>{boatType && boatType.name[locale]}</Data>
       </Col>
       {boatModel && (
         <Col md={6}>

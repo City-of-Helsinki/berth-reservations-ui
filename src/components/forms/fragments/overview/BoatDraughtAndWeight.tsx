@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import { Row, Col } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
@@ -9,8 +8,8 @@ const Data = styled.span`
 `;
 
 type Props = {
-  draught: number,
-  weight: number
+  draught: number;
+  weight: number;
 };
 
 const BoatDraughtAndWeight = ({ draught, weight }: Props) => (

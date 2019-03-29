@@ -1,23 +1,22 @@
-// @flow
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import BoatInfo from '../fragments/BoatInfo';
 import Accessibility from '../fragments/Accessibility';
 import UnRegisteredBoatDetails from '../fragments/UnRegisteredBoatDetails';
-import type { WithBoatType } from '../Selects';
+import { WithBoatType } from '../Selects';
 import StyledContainer from '../StyledContainer';
 
 type Props = {
-  prefix: string
+  prefix: string;
 } & WithBoatType;
 
 export default ({ prefix, boatTypes }: Props) => (
   <StyledContainer>
     <FormattedMessage tagName="h3" id="form.unregistered.header.title" />
-    <UnRegisteredBoatDetails prefix={prefix} boatTypes={boatTypes} />
-    <BoatInfo prefix={prefix} />
+    <UnRegisteredBoatDetails boatTypes={boatTypes} />
+    <BoatInfo />
     <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />
-    <Accessibility prefix={prefix} />
+    <Accessibility />
   </StyledContainer>
 );

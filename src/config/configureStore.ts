@@ -4,7 +4,7 @@ import { combineReducers, applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import * as ducks from '../ducks';
 
-const enhancers = [];
+const enhancers: any[] = [];
 const middlewares = [thunk, promiseMiddleware()];
 const rootReducer = combineReducers(ducks);
 

@@ -1,9 +1,7 @@
-// @flow
-
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import styled from 'styled-components';
-import { injectIntl } from 'react-intl';
+import { injectIntl, InjectedIntlProps } from 'react-intl';
 import Transition from 'react-transition-group/Transition';
 
 import Icon from '../common/Icon';
@@ -11,12 +9,18 @@ import responsive from '../../utils/responsive';
 import { getLocalizedText } from '../../utils/berths';
 import InvalidSelection from './InvalidSelection';
 
+import { Berth } from '../../types/berths';
+
 const BerthRow = styled.div`
   display: flex;
   margin-bottom: 0.5em;
 `;
 
-const BerthName = styled.div`
+type BerthNameProps = {
+  errors: string;
+};
+
+const BerthName = styled.div<BerthNameProps>`
   display: flex;
   flex-grow: 1;
   align-items: center;
@@ -81,19 +85,18 @@ const DeselectButton = styled(Button)`
 `;
 
 type Props = {
-  berth: Object,
-  deselectBerth: Function,
-  first: boolean,
-  index: number,
-  intl: Object,
-  isValid: boolean,
-  last: boolean,
-  moveDown: Function,
-  moveUp: Function
-};
+  berth: Berth;
+  deselectBerth: Function;
+  first: boolean;
+  index: number;
+  isValid: boolean;
+  last: boolean;
+  moveDown: Function;
+  moveUp: Function;
+} & InjectedIntlProps;
 
 type State = {
-  changed: string
+  changed: string;
 };
 
 class SelectedBerth extends Component<Props, State> {

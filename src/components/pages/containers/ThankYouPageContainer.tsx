@@ -4,12 +4,17 @@ import { resetValues } from '../../../ducks/forms';
 import { resetBerths } from '../../../ducks/berths';
 import ThankYouPage from '../ThankYouPage';
 
-export default compose(
+type Props = {
+  resetValues: Function;
+  resetBerths: Function;
+};
+
+export default compose<Props, {}>(
   connect(
     () => ({}),
     { resetValues, resetBerths }
   ),
-  lifecycle({
+  lifecycle<Props, {}>({
     componentDidMount() {
       const { resetValues: resetForm, resetBerths: resetBerthsState } = this.props;
       resetForm();

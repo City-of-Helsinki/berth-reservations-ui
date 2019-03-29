@@ -1,13 +1,28 @@
-// @flow
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { withMatchParamsHandlers } from '../../../utils/container';
 import { deselectBerth, moveUp, moveDown } from '../../../ducks/berths';
 import SelectedBerthPage from '../SelectedBerthPage';
 
-import type { Store } from '../../../types/ducks';
+import { Store } from '../../../types/ducks';
+import { Berths as BerthsType, SelectedBerths as SelectedBerthsType } from '../../../types/berths';
+import { SelectedServices } from '../../../types/services';
+import { BoatTypes } from '../../../types/boatTypes';
 
-export default compose(
+type Props = {
+  boatTypes: BoatTypes;
+  berths: BerthsType;
+  selectedBerths: SelectedBerthsType;
+  selectedServices: SelectedServices;
+  deselectBerth: Function;
+  moveUp: Function;
+  moveDown: Function;
+  localePush: Function;
+  locale: string;
+  values: {};
+};
+
+export default compose<Props, {}>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({

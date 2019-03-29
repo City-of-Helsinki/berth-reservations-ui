@@ -1,5 +1,3 @@
-// @flow
-
 import React, { Fragment } from 'react';
 import { Row, Col } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
@@ -59,9 +57,7 @@ const BigShipsFragment = () => (
               placeholder="form.big_ship.field.time_period.from.placeholder"
             />
           </Col>
-          <Col sm={1}>
-            <center>-</center>
-          </Col>
+          <Col sm={1}>-</Col>
           <Col sm={5}>
             <Text name={`rent_till`} placeholder="form.big_ship.field.time_period.to.placeholder" />
           </Col>

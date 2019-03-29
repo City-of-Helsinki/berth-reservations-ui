@@ -1,14 +1,21 @@
-// @flow
 import React from 'react';
-import { injectIntl } from 'react-intl';
+import { injectIntl, InjectedIntlProps } from 'react-intl';
 import { Select } from './Fields';
 
+import { BoatTypes } from '../../types/boatTypes';
+
 export type WithBoatType = {
-  boatTypes: Object
+  boatTypes: BoatTypes;
 };
 
 export const BigBoatTypeValue = 'big_boat';
-export const BoatType = injectIntl(({ intl: { locale }, boatTypes, required }) => (
+
+type BoatTypeProps = {
+  required: boolean;
+} & InjectedIntlProps &
+  WithBoatType;
+
+export const BoatType = injectIntl(({ intl: { locale }, boatTypes, required }: BoatTypeProps) => (
   <Select name={`boat_type`} label="form.registered.field.type.label" required={required}>
     <option />
     {boatTypes &&

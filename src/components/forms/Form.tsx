@@ -1,14 +1,13 @@
-// @flow
-import React, { type Node } from 'react';
+import React from 'react';
 import { Form as FinalForm, Field } from 'react-final-form';
 import { Form as BootstrapForm } from 'reactstrap';
 import { injectIntl } from 'react-intl';
 
 type Props = {
-  onSubmit: Function,
-  initialValues: Object,
-  children: any => Node,
-  intl: any
+  onSubmit: Function;
+  initialValues: Object;
+  children: (props: any) => React.ReactNode;
+  intl: any;
 };
 
 const form = ({ onSubmit, initialValues, children, intl }: Props) => (

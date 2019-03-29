@@ -1,20 +1,17 @@
-// @flow
-
 import React from 'react';
-import { injectIntl, type intlShape } from 'react-intl';
+import { injectIntl, InjectedIntlProps } from 'react-intl';
 import { Dropdown, DropdownMenu, DropdownItem, DropdownToggle } from 'reactstrap';
 import styled from 'styled-components';
 import Icon from '../common/Icon';
 import IntlComponent from '../common/IntlComponent';
 
 type Props = {
-  children: Node,
-  intl: intlShape
-};
+  children?: React.ReactNode;
+} & InjectedIntlProps;
 
 type State = {
-  collapsed: boolean,
-  dropdownOpen: boolean
+  collapsed: boolean;
+  dropdownOpen: boolean;
 };
 
 const LanguageSelector = styled(DropdownToggle)`

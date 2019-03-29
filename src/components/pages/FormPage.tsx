@@ -1,4 +1,3 @@
-// @flow
 import React, { PureComponent } from 'react';
 import { findIndex } from 'lodash';
 import { Col, Row, Container } from 'reactstrap';
@@ -11,7 +10,20 @@ import ApplicantDetails from '../forms/sections/ApplicantDetails';
 import BoatDetails from '../forms/sections/BoatDetails';
 import Overview from '../forms/sections/Overview';
 
-type Props = any;
+import { BoatTypes } from '../../types/boatTypes';
+import { Berths, SelectedBerths } from '../../types/berths';
+
+type Props = {
+  initialValues: {};
+  boatTypes: BoatTypes;
+  berths: Berths;
+  selectedBerths: SelectedBerths;
+  onSubmit: Function;
+  onSend: Function;
+  localePush: Function;
+  getBoatTypes: Function;
+  tab: string;
+};
 
 const FormHeaderSection = styled.div`
   background-color: ${props => props.theme.colors.helFog};
@@ -23,7 +35,7 @@ const mapSteps = [
   ['overview']
 ];
 
-class BoatPage extends PureComponent<Props, any> {
+class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: string[] }> {
   state = {
     step: 0,
     tab: '',
@@ -106,26 +118,26 @@ class BoatPage extends PureComponent<Props, any> {
         <Wizard
           step={step}
           initialValues={initialValues}
-          goForward={async values => {
+          goForward={async (values: {}) => {
             await onSubmit(values);
             await onSend({ ...values, selectedBerths });
             tabs[step] = tab;
             this.setState(() => ({ tabs }));
             await localePush('/thank-you');
           }}
-          goBackwards={async values => {
+          goBackwards={async (values: {}) => {
             await onSubmit(values);
             tabs[step] = tab;
             this.setState(() => ({ tabs }));
             await localePush('/selected_berths');
           }}
-          nextStep={values => {
+          nextStep={(values: {}) => {
             onSubmit(values);
             tabs[step] = tab;
             this.setState(() => ({ tabs }));
             localePush(`/form/${tabs[step + 1]}`);
           }}
-          prevStep={values => {
+          prevStep={(values: {}) => {
             onSubmit(values);
             tabs[step] = tab;
             this.setState(() => ({ tabs }));
@@ -133,15 +145,13 @@ class BoatPage extends PureComponent<Props, any> {
           }}
         >
           <BoatDetails tab={tab} values={{}} boatTypes={boatTypes} />
-          <ApplicantDetails tab={tab} values={{}} />
+          <ApplicantDetails tab={tab} />
           <Overview
-            selectedBerths={selectedBerths.map(key =>
-              berths.find(berth => key === berth.identifier)
-            )}
+            selectedBerths={
+              selectedBerths.map(key => berths.find(berth => key === berth.identifier)) as Berths
+            }
             boatTypes={boatTypes}
             tabs={tabs}
-            tab={tab}
-            values={{}}
           />
         </Wizard>
       </Layout>

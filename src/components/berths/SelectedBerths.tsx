@@ -3,7 +3,17 @@ import { FormattedMessage } from 'react-intl';
 import { Alert } from 'reactstrap';
 import SelectedBerth from './SelectedBerth';
 
-const SelectedBerths = ({ berths, moveUp, moveDown, deselectBerth, berthValidator }) =>
+import { Berths } from '../../types/berths';
+
+type Props = {
+  berths: Berths;
+  moveDown: Function;
+  moveUp: Function;
+  deselectBerth: Function;
+  berthValidator: Function;
+};
+
+const SelectedBerths = ({ berths, moveUp, moveDown, deselectBerth, berthValidator }: Props) =>
   berths.size > 0 ? (
     <div>
       {berths.map((berth, index) => (

@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router';
 import { IntlProvider } from 'react-intl';
@@ -10,7 +9,7 @@ import ThankYouPage from './pages/containers/ThankYouPageContainer';
 import SelectedBerthPage from './pages/containers/SelectedBerthPageContainer';
 
 type Props = {
-  locale: string;
+  locale: 'fi' | 'en' | 'sv';
 };
 
 const App = ({ locale }: Props) => (

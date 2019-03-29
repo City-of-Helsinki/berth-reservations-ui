@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
@@ -10,11 +9,31 @@ import BerthsOnMap from '../berths/BerthsOnMap';
 import Berths from '../berths/Berths';
 import TabSelector from '../berths/TabSelector';
 
+import { Berths as BerthsType, SelectedBerths } from '../../types/berths';
+import { SelectedServices } from '../../types/services';
+import { BoatTypes } from '../../types/boatTypes';
+
 const Wrapper = styled.div`
   margin-bottom: 5em;
 `;
 
-type Props = any;
+type Props = {
+  getBerths: () => Promise<BerthsType>;
+  getBoatTypes: () => Promise<BoatTypes>;
+  boatTypes: BoatTypes;
+  initialValues: {};
+  berths: BerthsType;
+  filtered: BerthsType;
+  filteredNot: BerthsType;
+  selectedBerths: SelectedBerths;
+  selectedServices: SelectedServices;
+  selectBerth: Function;
+  deselectBerth: Function;
+  selectService: Function;
+  deselectService: Function;
+  onSubmit: Function;
+  localePush: Function;
+};
 
 class BerthPage extends Component<Props> {
   constructor(props: Props) {

@@ -1,5 +1,3 @@
-// @flow
-
 import React, { Fragment } from 'react';
 import { Row, Col } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';

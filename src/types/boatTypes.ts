@@ -1,10 +1,8 @@
-// @flow
-
 export type BoatType = {
-  identifier: string,
+  identifier: string;
   name: {
-    fi: string
-  }
+    [locale: string]: string;
+  };
 };
 
-export type BoatTypes = Array<BoatTypes>;
+export type BoatTypes = Array<BoatType>;

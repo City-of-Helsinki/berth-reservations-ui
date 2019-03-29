@@ -1,18 +1,16 @@
-// @flow
-
 import React from 'react';
 import { Row, Col } from 'reactstrap';
 
 import { Number } from '../Fields';
 import { BoatType } from '../Selects';
 import { mustBePositiveNumber } from '../../../utils/formValidation';
-import type { WithBoatType } from '../Selects';
+import { WithBoatType } from '../Selects';
 
 const UnRegisteredBoatDetailsFragment = ({
   fieldsNotRequired,
   boatTypes
 }: WithBoatType & {
-  fieldsNotRequired?: boolean
+  fieldsNotRequired?: boolean;
 }) => (
   <Row>
     <Col sm={4}>

@@ -1,14 +1,14 @@
-import { css } from 'styled-components';
+import { css, CSSObject } from 'styled-components';
 import theme from '../config/theme';
 
-const { breakpoint } = theme;
+const { breakpoint }: { [prop: string]: number } = theme;
 
-export default Object.entries(breakpoint).reduce(
+export default Object.entries(breakpoint).reduce<{ [prop: string]: Function }>(
   (acc, [size, pixels]) => ({
     ...acc,
-    [size]: (...args) => css`
+    [size]: (first: CSSObject, ...args: CSSObject[]) => css`
       @media (min-width: ${pixels / 16}em) {
-        ${css(...args)};
+        ${css(first, ...args)};
       }
     `
   }),

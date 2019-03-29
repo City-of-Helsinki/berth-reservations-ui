@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import styled from 'styled-components';
 import { Col, Row, Container } from 'reactstrap';
@@ -9,7 +8,7 @@ import Company from '../tabs/Company';
 const Content = styled.div``;
 
 type Props = {
-  tab: string
+  tab: string;
 };
 
 const ApplicantDetails = ({ tab }: Props) => (

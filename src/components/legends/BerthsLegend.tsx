@@ -1,4 +1,3 @@
-// @flow
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import { Col, Row, Container } from 'reactstrap';
@@ -6,9 +5,11 @@ import { FormattedMessage } from 'react-intl';
 import Form from '../forms/Form';
 import AutoSave from '../forms/AutoSave';
 import UnRegisteredBoatDetails from '../forms/fragments/UnRegisteredBoatDetails';
-import type { WithBoatType } from '../forms/Selects';
-import Icon from '../common/Icon';
+import { WithBoatType } from '../forms/Selects';
+import Icon, { IconNames } from '../common/Icon';
 import Steps from '../steps/Steps';
+
+import { SelectedServices } from '../../types/services';
 
 const Legend = styled.div`
   background-color: ${props => props.theme.colors.helFog};
@@ -19,14 +20,18 @@ const LegendContainer = styled(Container)`
 `;
 
 type Props = {
-  initialValues: Object,
-  onSubmit: Function,
-  selectService: Function,
-  deselectService: Function,
-  selectedServices: Function
+  initialValues: Object;
+  onSubmit: Function;
+  selectService: Function;
+  deselectService: Function;
+  selectedServices: SelectedServices;
 } & WithBoatType;
 
-const services = [
+const services: {
+  label: string;
+  value: 'electricity' | 'water' | 'waste_collection' | 'gate' | 'lighting';
+  icon: IconNames;
+}[] = [
   {
     label: 'form.services.field.electricity.label',
     value: 'electricity',
@@ -57,14 +62,14 @@ const Services = styled.div`
   margin: -0.75em;
 `;
 
-const ServiceIcon = styled(Icon)`
+const ServiceIcon = styled(Icon)<{ selected: boolean }>`
   border: 2px solid black;
   border-radius: 50%;
   background-color: ${props => (props.selected ? 'white' : 'transparent')};
   padding: 4px;
 `;
 
-const ServiceButton = styled.button`
+const ServiceButton = styled.button<{ selected: boolean }>`
   cursor: pointer;
   border: none;
   display: flex;
@@ -149,7 +154,7 @@ const BerthsLegend = ({
           <Form initialValues={initialValues} onSubmit={onSubmit}>
             {() => (
               <Fragment>
-                <UnRegisteredBoatDetails prefix="boat" fieldsNotRequired boatTypes={boatTypes} />
+                <UnRegisteredBoatDetails fieldsNotRequired boatTypes={boatTypes} />
                 <AutoSave debounce={500} save={onSubmit} />
               </Fragment>
             )}

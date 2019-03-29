@@ -1,5 +1,3 @@
-// @flow
-
 import React, { Component } from 'react';
 import { Marker } from 'react-leaflet';
 import { List } from 'immutable';

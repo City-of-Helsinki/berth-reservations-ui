@@ -1,14 +1,19 @@
-// @flow
 import React, { Fragment } from 'react';
 import { FormGroup, CustomInput, FormText, FormFeedback } from 'reactstrap';
-import { FormattedMessage } from 'react-intl';
-
-import { Field } from 'react-final-form';
+import { FormattedMessage, InjectedIntlProps } from 'react-intl';
+import { Field, FieldProps } from 'react-final-form';
 import validator, { mustBePresent } from '../../../utils/formValidation';
 
 import Label from './Label';
 
-const TextInput = (type: any) => ({
+type Props = {
+  items: { name: string; label: string; value: string }[];
+} & FieldProps &
+  InjectedIntlProps;
+
+type CustomInputType = 'select' | 'file' | 'radio' | 'checkbox' | 'switch';
+
+const TextInput = (type: CustomInputType) => ({
   id,
   name,
   label,
@@ -19,7 +24,7 @@ const TextInput = (type: any) => ({
   placeholder,
   intl: { formatMessage },
   ...rest
-}: any) => (
+}: Props) => (
   <Fragment>
     <FormGroup>
       {label && <Label htmlFor={id} required={required} text={label} />}

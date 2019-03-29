@@ -1,5 +1,3 @@
-// @flow
-
 import L from 'leaflet';
 
 import HarborMatchSelected from './common/icons/harbor-match-chosen.svg';
@@ -12,9 +10,8 @@ import HarborUnmatchUnselected from './common/icons/harbor-unmatch.svg';
 import HarborUnmatchActive from './common/icons/harbor-unmatch-active.svg';
 import HarborUnmatchActiveAndSelected from './common/icons/harbor-unmatch-chosen-active.svg';
 
-/* eslint-disable */
+// @ts-ignore
 delete L.Icon.Default.prototype._getIconUrl;
-/* eslint-enable */
 
 const IconMatchSelected = new L.Icon({
   iconUrl: HarborMatchSelected,
@@ -72,7 +69,7 @@ const IconUnmatchActiveAndSelected = new L.Icon({
   className: 'map-marker'
 });
 
-export default (isSelected: ?boolean, isPreviewed: ?boolean, isFilteredNot: ?boolean) => {
+export default (isSelected?: boolean, isPreviewed?: boolean, isFilteredNot?: boolean) => {
   if (isFilteredNot) {
     if (isPreviewed && isSelected) {
       return IconUnmatchActiveAndSelected;

@@ -1,8 +1,6 @@
-// @flow
-
 import React from 'react';
 import styled from 'styled-components';
-import { FormattedMessage, injectIntl, type IntlShape } from 'react-intl';
+import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl';
 import { Col, Row, Container } from 'reactstrap';
 import LocalizedLink from '../common/LocalizedLink';
 import Icon from '../common/Icon';
@@ -57,9 +55,7 @@ const FooterSection = styled(Col)`
   text-align: center;
 `;
 
-type Props = {
-  intl: IntlShape
-};
+type Props = InjectedIntlProps;
 
 const Footer = ({ intl: { formatMessage } }: Props) => (
   <Wrapper>

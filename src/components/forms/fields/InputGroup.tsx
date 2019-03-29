@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import { FormGroup, Input, FormText, FormFeedback, InputGroupAddon, InputGroup } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';

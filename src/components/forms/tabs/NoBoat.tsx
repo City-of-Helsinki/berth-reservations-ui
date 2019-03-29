@@ -1,10 +1,9 @@
-// @flow
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import UnRegisteredBoatDetails from '../fragments/UnRegisteredBoatDetails';
 import Accessibility from '../fragments/Accessibility';
-import type { WithBoatType } from '../Selects';
+import { WithBoatType } from '../Selects';
 import StyledContainer from '../StyledContainer';
 
 type Props = WithBoatType;

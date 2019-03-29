@@ -1,5 +1,3 @@
-// @flow
-
 import React, { Component } from 'react';
 import { Map, TileLayer } from 'react-leaflet';
 import { Container } from 'reactstrap';
@@ -10,7 +8,7 @@ import MapMarker from './MapMarker';
 import mapIcon from './mapIcon';
 
 import Berth from './berths/Berth';
-import { type Berth as BerthType } from '../types/berths';
+import { Berth as BerthType, Berths, SelectedBerths } from '../types/berths';
 
 const ListHeader = styled.h3`
   margin: 1em 0;
@@ -22,21 +20,30 @@ const style = {
 };
 
 type State = {
-  lat: number,
-  lng: number,
-  zoom: number,
-  selectedBerth: BerthType | null
+  lat: number;
+  lng: number;
+  zoom: number;
+  selectedBerth: BerthType | null;
 };
 
-type Props = any;
+type Props = {
+  filtered: Berths;
+  filteredNot: Berths;
+  selected: SelectedBerths;
+  onClick: Function;
+};
 
 export default class MapCanvas extends Component<Props, State> {
-  state = {
-    lng: 25.02,
-    lat: 60.17908,
-    zoom: 11.5,
-    selectedBerth: null
-  };
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      lng: 25.02,
+      lat: 60.17908,
+      zoom: 11.5,
+      selectedBerth: null
+    };
+  }
 
   toggleBerthSelect = (berth: BerthType) => {
     this.setState(({ selectedBerth }) => ({
@@ -47,11 +54,11 @@ export default class MapCanvas extends Component<Props, State> {
   render() {
     const { filtered, filteredNot, selected, onClick } = this.props;
     const { selectedBerth } = this.state;
-    const position = [this.state.lat, this.state.lng];
+    const position: [number, number] = [this.state.lat, this.state.lng];
     const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
 
     const excluded =
-      selectedBerth && filteredNot.some(berth => berth.identifier === selectedBerth.identifier);
+      !!selectedBerth && filteredNot.some(berth => berth.identifier === selectedBerth.identifier);
 
     return (
       <Container>
@@ -61,8 +68,8 @@ export default class MapCanvas extends Component<Props, State> {
         <Map center={position} zoom={this.state.zoom} style={style}>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {filtered.map(berth => {
-            const isSelected = selected && selected.includes(berth.identifier);
-            const isPreviewed = selectedBerth && selectedBerth.identifier === berth.identifier;
+            const isSelected = !!selected && selected.includes(berth.identifier);
+            const isPreviewed = !!selectedBerth && selectedBerth.identifier === berth.identifier;
             return (
               <MapMarker
                 berth={berth}
@@ -76,7 +83,7 @@ export default class MapCanvas extends Component<Props, State> {
           })}
           {filteredNot.map(berth => {
             const isSelected = selected && selected.includes(berth.identifier);
-            const isPreviewed = selectedBerth && selectedBerth.identifier === berth.identifier;
+            const isPreviewed = !!selectedBerth && selectedBerth.identifier === berth.identifier;
             return (
               <MapMarker
                 berth={berth}
@@ -96,7 +103,7 @@ export default class MapCanvas extends Component<Props, State> {
             berth={selectedBerth}
             onClick={() => onClick(selectedBerth.identifier)}
             selected={selected.includes(selectedBerth.identifier)}
-            disabled={selected.size >= REACT_APP_MAX_SELECTED_BERTHS}
+            disabled={selected.size >= Number(REACT_APP_MAX_SELECTED_BERTHS)}
           />
         )}
       </Container>

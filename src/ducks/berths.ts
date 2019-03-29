@@ -1,7 +1,6 @@
-// @flow
 import { Record, List } from 'immutable';
 import { createAction } from 'redux-actions';
-import type { Action, BerthsFactory, BerthsState } from '../types/ducks';
+import { Action, BerthsFactory, BerthsState } from '../types/ducks';
 import berthsService from '../services/berths';
 
 const selectedServices = Record({
@@ -19,13 +18,13 @@ const defaultState: BerthsFactory = Record({
 });
 
 export const getBerths = createAction('GET_BERTHS', berthsService.getBerths);
-export const selectBerth = createAction('SELECT_BERTH', id => id);
-export const deselectBerth = createAction('DESELECT_BERTH', id => id);
-export const moveUp = createAction('MOVE_BERTH_UP', id => id);
-export const moveDown = createAction('MOVE_BERTH_DOWN', id => id);
+export const selectBerth = createAction('SELECT_BERTH', (id: string) => id);
+export const deselectBerth = createAction('DESELECT_BERTH', (id: string) => id);
+export const moveUp = createAction('MOVE_BERTH_UP', (id: string) => id);
+export const moveDown = createAction('MOVE_BERTH_DOWN', (id: string) => id);
 export const resetBerths = createAction('RESET_BERTHS');
-export const selectService = createAction('SELECT_SERVICE', type => type);
-export const deselectService = createAction('DESELECT_SERVICE', type => type);
+export const selectService = createAction('SELECT_SERVICE', (type: string) => type);
+export const deselectService = createAction('DESELECT_SERVICE', (type: string) => type);
 
 export default (state: BerthsState = defaultState(), action: Action): BerthsState => {
   const { type, payload } = action;
@@ -50,7 +49,7 @@ export default (state: BerthsState = defaultState(), action: Action): BerthsStat
         if (swapWith && nextInOrder >= 0) {
           const before = selectedBerths.slice(0, index - 1);
           const after = selectedBerths.slice(index + 1);
-          return new List()
+          return List([])
             .concat(before)
             .concat([payload, swapWith])
             .concat(after);
@@ -65,7 +64,7 @@ export default (state: BerthsState = defaultState(), action: Action): BerthsStat
         if (swapWith && previousInOrder <= selectedBerths.size - 1) {
           const before = selectedBerths.slice(0, index);
           const after = selectedBerths.slice(index + 2);
-          return new List()
+          return List([])
             .concat(before)
             .concat([swapWith, payload])
             .concat(after);

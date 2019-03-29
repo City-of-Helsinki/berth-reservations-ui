@@ -1,16 +1,15 @@
-// @flow
 import React, { Fragment } from 'react';
 import { Row, Col } from 'reactstrap';
 import styled from 'styled-components';
 
 type Props = {
-  firstName: String,
-  lastName: String,
-  email: String,
-  phoneNumber: String,
-  address: String,
-  zipCode: String,
-  municipality: String
+  firstName: String;
+  lastName: String;
+  email: String;
+  phoneNumber: String;
+  address: String;
+  zipCode: String;
+  municipality: String;
 };
 
 const StyledContactSection = styled.div`

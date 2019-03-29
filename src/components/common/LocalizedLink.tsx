@@ -1,8 +1,10 @@
 import React from 'react';
-import { injectIntl } from 'react-intl';
-import { Link } from 'react-router-dom';
+import { injectIntl, InjectedIntlProps } from 'react-intl';
+import { Link, LinkProps } from 'react-router-dom';
 
-const LocalizedLink = ({ to, children, intl, className }) => (
+type Props = InjectedIntlProps & LinkProps;
+
+const LocalizedLink = ({ to, children, intl, className }: Props) => (
   <Link className={className} to={`/${intl.locale}/${to}`}>
     {children}
   </Link>

@@ -1,13 +1,12 @@
-// @flow
-import type { RecordOf, RecordFactory } from 'immutable';
+import { RecordOf, Record } from 'immutable';
 
 type SelectedServicesProps = {
-  electricity: boolean,
-  water: boolean,
-  waste_collection: boolean,
-  gate: boolean,
-  lighting: boolean
+  electricity: boolean;
+  water: boolean;
+  waste_collection: boolean;
+  gate: boolean;
+  lighting: boolean;
 };
 
-export type SelectedServicesFactory = RecordFactory<SelectedServicesProps>;
+export type SelectedServicesFactory = Record.Factory<SelectedServicesProps>;
 export type SelectedServices = RecordOf<SelectedServicesProps>;
