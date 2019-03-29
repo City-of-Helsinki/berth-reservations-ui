@@ -8,7 +8,7 @@ $berthImageHeight: 12em;
   @extend %theme;
   background-color: $hel-light;
 
-  &-image {
+  &__image {
     object-fit: cover;
     height: $berthImageHeight;
     width: 100%;
@@ -37,22 +37,22 @@ $berthImageHeight: 12em;
       margin-right: 0.3em;
       border-radius: 50%;
 
-      &-default {
+      &.default {
         background-color: $hel-white;
       }
-      &-red {
+      &.red {
         background-color: $hel-brick;
       }
-      &-yellow {
+      &.yellow {
         background-color: $hel-summer;
       }
-      &-green {
+      &.green {
         background-color: $hel-tram;
       }
     }
   }
 
-  &-summary-wrapper {
+  &__summary-wrapper {
     padding: 1em;
 
     > * {
@@ -60,15 +60,6 @@ $berthImageHeight: 12em;
     }
     strong {
       line-height: 1em;
-    }
-    small {
-      font-size: $smallFontsize;
-    }
-    a {
-      color: black;
-    }
-
-    &__heading {
       font-size: $headingSm;
 
       @include for-tablet {
@@ -80,8 +71,11 @@ $berthImageHeight: 12em;
       }
     }
 
-    &__berth-address {
-      margin: 0.5em 0;
+    small {
+      font-size: $smallFontsize;
+    }
+    a {
+      color: black;
     }
 
     @include for-tablet {
@@ -89,13 +83,15 @@ $berthImageHeight: 12em;
     }
   }
 
-  &-website-link {
+  &__address {
+    margin: 0.5em 0;
+  }
+
+  &__website-link {
     margin-top: 0.5em;
     font-weight: $fontWeightBold;
 
-    &__type-icon {
-      @extend %icon;
-
+    svg {
       height: '1em';
       width: '1em';
       display: inline-block;

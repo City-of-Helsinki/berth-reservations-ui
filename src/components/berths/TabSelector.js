@@ -1,79 +1,12 @@
 // @flow
 import React, { Component, type Node } from 'react';
-import styled, { css } from 'styled-components';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { Button, Container } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
-import responsive from '../../utils/responsive';
+import classNames from 'classnames';
 import IntlComponent from '../common/IntlComponent';
 import InvalidSelection from './InvalidSelection';
-
-const TabsWrapper = styled.div`
-  background-color: ${props => props.theme.helLight};
-  border-bottom: 4px solid white;
-  z-index: 1001;
-  ${props =>
-    props.sticky &&
-    css`
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
-    `};
-`;
-
-const TabsInnerWrapper = styled(Container)`
-  display: flex;
-  justify-content: space-between;
-  align-items: left;
-  flex-direction: column-reverse;
-  ${responsive.md`
-    flex-direction: row;
-  `}
-`;
-
-const TabButton = styled.button.attrs({
-  type: 'button'
-})`
-  outline: none;
-  border: none;
-  color: black;
-  padding: 0.5em 1em;
-  background-color: ${props => (props.active ? 'white' : 'unset')};
-  :active,
-  :focus {
-    outline: none;
-  }
-  :hover {
-    cursor: pointer;
-  }
-  ${responsive.sm`
-    padding: 1em 2em;
-  `}
-`;
-
-const Tabs = styled.div`
-  margin-top: 0;
-`;
-
-const ApplicationPrompt = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  font-size: 14px;
-  line-height: 1;
-  text-align: right;
-  margin: 0.5em 0;
-  ${responsive.md`
-    font-size: inherit;
-  `}
-`;
-
-const ProgressButton = styled(Button)`
-  float: right;
-  margin-left: 1ch;
-  font-size: 14px;
-  ${responsive.md`
-    font-size: inherit;
-  `}
-`;
+import './_tab-selector.scss';
 
 type Props = {
   children: Array<Node>,
@@ -129,38 +62,44 @@ class TabSelector extends Component<Props, State> {
       <StickyContainer>
         <Sticky>
           {({ style, isSticky }) => (
-            <TabsWrapper style={style} sticky={isSticky}>
-              <TabsInnerWrapper>
-                <div>
-                  {headers.map((TabComponent, i) => (
-                    <TabButton block key={i} onClick={() => this.selectTab(i)} active={i === tab}>
-                      <TabComponent />
-                    </TabButton>
-                  ))}
-                </div>
-                <ApplicationPrompt>
-                  <div>
-                    <FormattedMessage
-                      id={getFormatedMessageId(selectedCount, maxSelected)}
-                      values={{
-                        total: REACT_APP_MAX_SELECTED_BERTHS,
-                        count: maxSelected - selectedCount
-                      }}
-                    />
-                  </div>
+            <div
+              className={classNames('app-berth__tab-selector', { 'is-sticky': isSticky })}
+              style={style}
+            >
+              <Container className="app-berth__tab-selector__wrapper">
+                {headers.map((TabComponent, i) => (
+                  <Button
+                    className="app-berth__tab-selector__tab-button"
+                    block
+                    key={i}
+                    onClick={() => this.selectTab(i)}
+                    active={i === tab}
+                  >
+                    <TabComponent />
+                  </Button>
+                ))}
+                <div className="app-berth__tab-selector__application-promt">
+                  <FormattedMessage
+                    id={getFormatedMessageId(selectedCount, maxSelected)}
+                    values={{
+                      total: REACT_APP_MAX_SELECTED_BERTHS,
+                      count: maxSelected - selectedCount
+                    }}
+                  />
                   {!validSelection && <InvalidSelection />}
                   <IntlComponent
                     id="tab_selector.progress.button"
-                    Component={ProgressButton}
+                    Component={Button}
+                    className="app-berth__tab-selector__progress-button"
                     onClick={progress}
                     disabled={selectedCount === 0}
                   />
-                </ApplicationPrompt>
-              </TabsInnerWrapper>
-            </TabsWrapper>
+                </div>
+              </Container>
+            </div>
           )}
         </Sticky>
-        <Tabs>{this.getActiveTab()}</Tabs>
+        <div className="app-berth__tab-selector__tabs">{this.getActiveTab()}</div>
       </StickyContainer>
     );
   }

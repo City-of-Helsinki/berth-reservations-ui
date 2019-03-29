@@ -2,83 +2,14 @@
 
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
-import styled from 'styled-components';
 import { injectIntl } from 'react-intl';
 import Transition from 'react-transition-group/Transition';
 
+import classNames from 'classnames';
 import Icon from '../common/Icon';
-import responsive from '../../utils/responsive';
 import { getLocalizedText } from '../../utils/berths';
 import InvalidSelection from './InvalidSelection';
-
-const BerthRow = styled.div`
-  display: flex;
-  margin-bottom: 0.5em;
-`;
-
-const BerthName = styled.div`
-  display: flex;
-  flex-grow: 1;
-  align-items: center;
-  background-color: ${props =>
-    props.errors === 'true' ? props.theme.helCoat : props.theme.helLight};
-  color: ${props => (props.errors === 'true' ? props.theme.helWhite : props.theme.helGray)};
-  font-size: 0.875em;
-  line-height: 1;
-  hyphens: auto;
-  padding: 0.3em;
-  padding-left: 0.8em;
-  margin-right: 0.5em;
-  transition: background-color 200ms ease-in;
-
-  &.moving-entering {
-    background-color: ${props => props.theme.helFog};
-  }
-
-  &.moving-exiting {
-    background-color: ${props => props.theme.helFog};
-  }
-  ${responsive.sm`
-    font-size: 1.2em;
-  `}
-
-  span {
-    flex-grow: 1;
-  }
-`;
-
-const BerthOptions = styled.div`
-  display: flex;
-  align-content: center;
-`;
-
-const StyledButton = styled(Button)`
-  padding-left: 0;
-  padding-right: 0;
-  &:first-child {
-    margin-right: 6px;
-  }
-  &:hover {
-    background-color: ${props => props.theme.helFog};
-  }
-  ${responsive.sm`
-    padding-left:  0.75rem;
-    padding-right: 0.75rem;
-  `}
-`;
-
-const DeselectButton = styled(Button)`
-  padding-left: 0;
-  padding-right: 0;
-  height: 100%;
-  margin-left: 1em;
-  background-color: transparent;
-  border: 0;
-  ${responsive.sm`
-    padding-left:  0.75rem;
-    padding-right: 0.75rem;
-  `}
-`;
+import './_selected.scss';
 
 type Props = {
   berth: Object,
@@ -141,46 +72,40 @@ class SelectedBerth extends Component<Props, State> {
         onEntered={this.toggleEnterState}
       >
         {state => (
-          <BerthRow>
-            <BerthName errors={isValid.toString()} className={`moving-${state}`}>
+          <div className="app-berth__selected__row">
+            <div
+              className={classNames('app-berth__selected__name', `moving-${state}`, {
+                'has-error': isValid.toString()
+              })}
+            >
               <span key={berth.identifier}>
                 {index + 1}. {getLocalizedText(berth.name, intl.locale)}
                 {!isValid && <InvalidSelection id={id} />}
               </span>
-              <DeselectButton type="button" onClick={() => this.doDelete()}>
+              <Button onClick={() => this.doDelete()}>
                 <Icon name="times" width="30px" height="30px" />
-              </DeselectButton>
-            </BerthName>
-            <BerthOptions>
-              <StyledButton
-                outline
-                color="primary"
-                onClick={() => this.doMoveUp()}
-                disabled={first}
-              >
+              </Button>
+            </div>
+            <div className="app-berth__selected__options">
+              <Button outline color="primary" onClick={() => this.doMoveUp()} disabled={first}>
                 <Icon
                   name="angleUp"
                   width="36px"
                   height="36px"
                   color={first ? 'lightgray' : 'black'}
                 />
-              </StyledButton>
+              </Button>
 
-              <StyledButton
-                outline
-                color="primary"
-                onClick={() => this.doMoveDown()}
-                disabled={last}
-              >
+              <Button outline color="primary" onClick={() => this.doMoveDown()} disabled={last}>
                 <Icon
                   name="angleDown"
                   width="36px"
                   height="36px"
                   color={last ? 'lightgray' : 'black'}
                 />
-              </StyledButton>
-            </BerthOptions>
-          </BerthRow>
+              </Button>
+            </div>
+          </div>
         )}
       </Transition>
     );

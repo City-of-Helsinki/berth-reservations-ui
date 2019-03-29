@@ -1,0 +1,21 @@
+.app-berths {
+  margin-top: 1em;
+
+  .app-berth {
+    opacity: 1;
+
+    &__excluded {
+      opacity: 0.5;
+    }
+  }
+
+  h3 {
+    margin: 1em 0;
+  }
+
+  &__invalid-selection {
+    position: relative;
+    display: inline-block;
+    margin-left: 0.25em;
+  }
+}

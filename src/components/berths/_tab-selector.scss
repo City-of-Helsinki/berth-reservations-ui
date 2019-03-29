@@ -1,15 +1,16 @@
-.app-tabSelector {
-  &-wrapper {
-    background-color: $hel-light;
-    border-bottom: 4px solid white;
-    z-index: 1001;
+@import 'mixin';
+@import 'custom-variable';
 
-    &.is-sticky {
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
-    }
+.app-berth__tab-selector {
+  background-color: $hel-light;
+  border-bottom: 4px solid white;
+  z-index: 1001;
+
+  &.is-sticky {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
   }
 
-  &-innerWrapper {
+  &__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: left;
@@ -20,11 +21,10 @@
     }
   }
 
-  &-tabButton {
-    @extend %button;
+  &__tab-button {
     outline: none;
     border: none;
-    color: black;
+    color: $hel-black;
     padding: 0.5em 1em;
 
     .active {
@@ -38,23 +38,33 @@
       cursor: pointer;
     }
 
-    @include for-mobile {
+    @include for-phone {
       padding: 1em 2em;
     }
   }
 
-  &-tabs {
+  &__tabs {
     margin-top: 0;
   }
 
-  &-application-promt {
+  &__application-promt {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    font-size: $smallFontsize;
+    font-size: $font-size-sm;
     line-height: 1;
     text-align: right;
     margin: 0.5em 0;
+
+    @include for-tablet {
+      font-size: inherit;
+    }
+  }
+
+  &__progress-button {
+    float: right;
+    margin-left: 1ch;
+    font-size: 14px;
 
     @include for-tablet {
       font-size: inherit;

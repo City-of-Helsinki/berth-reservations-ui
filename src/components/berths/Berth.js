@@ -1,58 +1,14 @@
 // @flow
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component, Fragment } from 'react';
 import { Row, Col, Button, Alert, Popover, PopoverBody } from 'reactstrap';
 import { FormattedMessage, injectIntl, type IntlShape } from 'react-intl';
+import classNames from 'classnames';
 import Icon from '../common/Icon';
 import type { Berth as BerthType } from '../../types/berths';
-import responsive from '../../utils/responsive';
 import { getLocalizedText } from '../../utils/berths';
 import Details from './BerthDetails';
 import IntlComponent from '../common/IntlComponent';
 import Image from '../common/Image';
-
-const SummaryWrapper = styled.div`
-  padding: 1em;
-
-  ${responsive.md`
-    padding: 1em 0;
-  `}
-  > * {
-    display: block;
-  }
-  strong {
-    line-height: 1em;
-  }
-  small {
-    font-size: 14px;
-  }
-  a {
-    color: black;
-  }
-`;
-
-const ButtonIcon = styled(Icon)`
-  display: none;
-  ${responsive.md`
-    display: inline-block;
-  `}
-  margin-right: 0.5em;
-  width: 1em;
-  height: 1em;
-`;
-
-const BerthAddress = styled.div`
-  margin: 0.5em 0;
-`;
-
-const WebsiteLink = styled.a`
-  margin-top: 0.5em;
-  font-weight: 700;
-`;
-
-const StyledDiv = styled.div`
-  background-color: ${props => props.theme.helLight};
-`;
 
 type Props = {
   berth: BerthType,
@@ -63,67 +19,6 @@ type Props = {
   excluded?: boolean,
   intl: IntlShape
 };
-
-const Heading = styled.strong`
-  font-size: 22px;
-  ${responsive.md`
-    font-size: 24px;
-  `}
-  ${responsive.lg`
-    font-size: 28px;
-  `}
-`;
-
-const ErrorAlert = styled(Alert).attrs({
-  color: 'danger'
-})`
-  display: ${props => (props.visible === 'true' ? 'block' : 'none')};
-  margin: 10px 25px 0px 10px;
-  padding: 8px;
-  font-size: 12px;
-
-  ${responsive.md`
-    position: absolute;
-  `}
-`;
-
-const AvailabilityLevel = styled.div`
-  margin-top: 0.5em;
-`;
-
-const AvailabilityButton = styled(Button)`
-  padding: 0;
-  &.btn-link.btn-link:hover {
-    background-color: transparent !important;
-  }
-`;
-
-const AvailabilityLevelMarker = styled.span`
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  margin-right: 0.3em;
-  border-radius: 50%;
-  background-color: ${props => {
-    switch (props.level) {
-      case 'red':
-        return props.theme.helBrick;
-      case 'yellow':
-        return props.theme.helSummer;
-      case 'green':
-        return props.theme.helTram;
-      default:
-        return '#ffffff';
-    }
-  }};
-`;
-
-const TypeIcon = styled(Icon).attrs({
-  height: '1em',
-  width: '1em'
-})`
-  display: inline-block;
-`;
 
 type State = {
   popoverOpen: boolean
@@ -145,113 +40,121 @@ class Berth extends Component<Props, State> {
   }
 
   render() {
-    const { berth, className, onClick, selected, disabled, excluded, intl } = this.props;
+    const { berth, onClick, selected, disabled, excluded, intl, className } = this.props;
 
     return (
-      <Row className={className}>
-        <Col xs={12}>
-          <StyledDiv>
-            <Row>
-              <Col md={3}>
-                <IntlComponent
-                  Component={ErrorAlert}
-                  id="error.message.invalid_berth"
-                  visible={selected && excluded}
-                />
-                <Image src={berth.image} alt={getLocalizedText(berth.name, intl.locale)} />
-              </Col>
-              <Col md={4}>
-                <SummaryWrapper>
-                  <Heading>{getLocalizedText(berth.name, intl.locale)}</Heading>
+      <Row className={classNames('app-berth', className)}>
+        <Col md={3}>
+          <IntlComponent
+            Component={Alert}
+            color="danger"
+            id="error.message.invalid_berth"
+            visible={selected && excluded}
+          />
+          <Image
+            className="app-berth__image"
+            src={berth.image}
+            alt={getLocalizedText(berth.name, intl.locale)}
+          />
+        </Col>
 
-                  <BerthAddress>
-                    {getLocalizedText(berth.street_address, intl.locale)}, {berth.zip_code}{' '}
-                    {getLocalizedText(berth.municipality, intl.locale)}
-                  </BerthAddress>
-                  {selected ? (
-                    <Button color={excluded ? 'danger' : 'secondary'} onClick={onClick}>
-                      <ButtonIcon name="check" width="1em" height="1em" />
-                      <FormattedMessage tagName="span" id="page.berths.selected" />
-                    </Button>
-                  ) : (
-                    <Button outline primary="true" onClick={onClick} disabled={disabled}>
-                      + <FormattedMessage tagName="span" id="page.berths.select" />
-                    </Button>
-                  )}
-                  <AvailabilityLevel>
-                    <AvailabilityButton
-                      id={`availability_${berth.identifier}`}
-                      color="link"
-                      onMouseEnter={() => this.togglePopover(true)}
-                      onMouseLeave={() => this.togglePopover(false)}
-                    >
-                      <AvailabilityLevelMarker level={berth.availability_level} />
-                      <FormattedMessage
-                        tagName="span"
-                        id={`page.berths.status.${berth.availability_level}.title`}
-                      />
-                    </AvailabilityButton>
-                    <Popover
-                      placement="right"
-                      target={`availability_${berth.identifier}`}
-                      isOpen={this.state.popoverOpen}
-                    >
-                      <PopoverBody>
-                        <FormattedMessage
-                          tagName="span"
-                          id={`page.berths.status.${berth.availability_level}.description`}
-                        />
-                      </PopoverBody>
-                    </Popover>
-                  </AvailabilityLevel>
-                  <WebsiteLink rel="noopener" target="_blank" href={berth.www_url}>
-                    <FormattedMessage tagName="span" id="page.berths.website" />
-                    <TypeIcon name="arrowRight" />
-                  </WebsiteLink>
-                </SummaryWrapper>
-              </Col>
-              <Col md={5}>
-                <div className="app-berth__details-wrapper">
-                  <Details
-                    available
-                    value={berth.number_of_places}
-                    titleId="page.berths.number_of_places"
-                  />
-                  <Details
-                    available
-                    value={berth.maximum_width}
-                    titleId="page.berths.maximum_width"
-                  />
+        <Col md={4}>
+          <div className="app-berth__summary-wrapper">
+            <strong>{getLocalizedText(berth.name, intl.locale)}</strong>
 
-                  <Details
-                    available={!!berth.waste_collection}
-                    icon="trash"
-                    titleId="page.berths.waste_collection"
-                  />
+            <div className="app-berth__address">
+              {getLocalizedText(berth.street_address, intl.locale)}, {berth.zip_code}{' '}
+              {getLocalizedText(berth.municipality, intl.locale)}
+              <div />
+              {selected ? (
+                <Button color={excluded ? 'danger' : 'secondary'} onClick={onClick}>
+                  <Icon name="check" width="1em" height="1em" />
+                  <FormattedMessage tagName="span" id="page.berths.selected" />
+                </Button>
+              ) : (
+                <Button outline primary="true" onClick={onClick} disabled={disabled}>
+                  + <FormattedMessage tagName="span" id="page.berths.select" />
+                </Button>
+              )}
+              <div className="app-berth__availability-level">
+                <Button
+                  className="app-berth__availability-level__button"
+                  id={`availability_${berth.identifier}`}
+                  color="link"
+                  onMouseEnter={() => this.togglePopover(true)}
+                  onMouseLeave={() => this.togglePopover(false)}
+                >
+                  <Fragment>
+                    <span
+                      className={classNames(
+                        'app-berth__availability-level__marker',
+                        berth.availability_level ? 'default' : berth.availability_level
+                      )}
+                    />
+                    <FormattedMessage
+                      tagName="span"
+                      id={`page.berths.status.${berth.availability_level}.title`}
+                    />
+                  </Fragment>
+                </Button>
 
-                  <Details
-                    available={!!berth.electricity}
-                    icon="plug"
-                    titleId="page.berths.electricity"
-                  />
+                <Popover
+                  placement="right"
+                  target={`availability_${berth.identifier}`}
+                  isOpen={this.state.popoverOpen}
+                >
+                  <PopoverBody>
+                    <FormattedMessage
+                      tagName="span"
+                      id={`page.berths.status.${berth.availability_level}.description`}
+                    />
+                  </PopoverBody>
+                </Popover>
+              </div>
+              <a
+                className="app-berth__website-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={berth.www_url}
+              >
+                <FormattedMessage tagName="span" id="page.berths.website" />
+                <Icon name="arrowRight" />
+              </a>
+            </div>
+          </div>
+        </Col>
 
-                  <Details available={!!berth.gate} icon="fence" titleId="page.berths.fence" />
+        <Col md={5}>
+          <div className="app-berth__details-wrapper">
+            <Details
+              available
+              value={berth.number_of_places}
+              titleId="page.berths.number_of_places"
+            />
+            <Details available value={berth.maximum_width} titleId="page.berths.maximum_width" />
 
-                  <Details
-                    available={!!berth.water}
-                    icon="waterTap"
-                    titleId="page.berths.water_tap"
-                  />
+            <Details
+              available={!!berth.waste_collection}
+              icon="trash"
+              titleId="page.berths.waste_collection"
+            />
 
-                  <Details
-                    available={!!berth.lighting}
-                    icon="streetLight"
-                    titleId="page.berths.lighting"
-                  />
-                </div>
-              </Col>
-            </Row>
-          </StyledDiv>
+            <Details
+              available={!!berth.electricity}
+              icon="plug"
+              titleId="page.berths.electricity"
+            />
+
+            <Details available={!!berth.gate} icon="fence" titleId="page.berths.fence" />
+
+            <Details available={!!berth.water} icon="waterTap" titleId="page.berths.water_tap" />
+
+            <Details
+              available={!!berth.lighting}
+              icon="streetLight"
+              titleId="page.berths.lighting"
+            />
+          </div>
         </Col>
       </Row>
     );
