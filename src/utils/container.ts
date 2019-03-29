@@ -1,7 +1,7 @@
 import { withHandlers, withProps, compose } from 'recompose';
 import { withRouter, RouteComponentProps, RouterProps } from 'react-router';
 
-export const withMatchParams = compose<{ locale: string }, {}>(
+export const withMatchParams = compose<{ locale: 'fi' | 'en' | 'sv' }, {}>(
   withRouter,
   withProps((props: RouteComponentProps) => ({
     ...props.match.params

@@ -1,5 +1,5 @@
 import App from '../App';
 import { withMatchParams } from '../../utils/container';
 
-// @ts-ignore
+// @ts-ignoe
 export default withMatchParams(App);
