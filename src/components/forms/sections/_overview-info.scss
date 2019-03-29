@@ -1,12 +1,9 @@
-.app-overviewInfo {
-  &-infobox {
-    background-color: #efefef;
-    // TODO: replace this color
-    padding: 1.5em;
-    margin-bottom: 2em;
-  }
+.app-overview-info {
+  background-color: $hel-white;
+  padding: 1.5em;
+  margin-bottom: 2em;
 
-  &-sectionHeader {
+  &__header {
     border-bottom: 1px solid $hel-black;
     padding-left: 0px;
     margin-bottom: 1em;
@@ -14,16 +11,14 @@
     font-weight: bold;
   }
 
-  &-editIcon {
+  &__edit-icon {
     margin-bottom: 1em;
     margin-top: 1em;
     font-weight: bold;
     text-align: right;
   }
 
-  &-editLink {
+  &-edit-link {
     display: flex;
-    // color: currentColor;
-    //TODO: fix this
   }
 }

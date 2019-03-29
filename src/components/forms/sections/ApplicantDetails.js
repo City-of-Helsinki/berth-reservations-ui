@@ -1,19 +1,16 @@
 // @flow
 import React from 'react';
-import styled from 'styled-components';
 import { Col, Row, Container } from 'reactstrap';
 import SectionSelector from '../SectionSelector';
 import PrivatePerson from '../tabs/PrivatePerson';
 import Company from '../tabs/Company';
-
-const Content = styled.div``;
 
 type Props = {
   tab: string
 };
 
 const ApplicantDetails = ({ tab }: Props) => (
-  <Content>
+  <div>
     <SectionSelector
       name="boat"
       selected={tab}
@@ -43,7 +40,7 @@ const ApplicantDetails = ({ tab }: Props) => (
         </Col>
       </Row>
     </Container>
-  </Content>
+  </div>
 );
 
 export default ApplicantDetails;

@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import styled from 'styled-components';
 import { Col, Row, Container } from 'reactstrap';
 import { get } from 'lodash';
 import { injectIntl } from 'react-intl';
@@ -13,8 +12,6 @@ import NoBoat from '../tabs/NoBoat';
 import SectionSelector from '../SectionSelector';
 import { BigBoatTypeValue, type WithBoatType } from '../Selects';
 
-const Content = styled.div``;
-
 type Props = {
   values: Object,
   tab: string
@@ -23,7 +20,7 @@ type Props = {
 const BoatDetails = ({ values, tab, boatTypes }: Props) => {
   const ShowBigShipsForm = get(values, 'boat_type') === BigBoatTypeValue;
   return (
-    <Content>
+    <div>
       <SectionSelector
         name="boat"
         selected={tab}
@@ -67,7 +64,7 @@ const BoatDetails = ({ values, tab, boatTypes }: Props) => {
           </Col>
         </Row>
       </Container>
-    </Content>
+    </div>
   );
 };
 

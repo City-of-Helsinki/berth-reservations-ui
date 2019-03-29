@@ -1,5 +1,11 @@
-.app-sectionSelector {
-  &-formSelect-wrapper {
+@import 'custom-variable';
+@import 'mixin';
+
+.app-section-selector {
+  background-color: $hel-light;
+  padding: 1em;
+
+  &__link {
     display: block;
     color: inherit;
     padding: 1em;
@@ -17,7 +23,7 @@
       max-height: 6em;
     }
 
-    .selected {
+    &.is-selected {
       background-color: $hel-fog;
     }
 
@@ -26,9 +32,9 @@
 
     @include for-mobile {
       font-size: 1em;
-      font-weight: $fontWeightRegular;
-      .selected {
-        font-weight: $fontWeightBold;
+      font-weight: $font-weight-normal;
+      &.is-selected {
+        font-weight: $font-weight-bold;
       }
     }
   }

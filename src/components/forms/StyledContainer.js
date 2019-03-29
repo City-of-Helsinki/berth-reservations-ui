@@ -1,8 +1,8 @@
 // @flow
+import React from 'react';
 import { Container } from 'reactstrap';
-import styled from 'styled-components';
+import './_container.scss';
 
-export default styled(Container)`
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-`;
+export default function StyledContainer() {
+  return <Container className="app-container" />;
+}

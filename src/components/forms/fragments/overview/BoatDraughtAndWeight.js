@@ -2,11 +2,7 @@
 import React from 'react';
 import { Row, Col } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
-import styled from 'styled-components';
-
-const Data = styled.span`
-  margin-left: 0.5em;
-`;
+import './_data.scss';
 
 type Props = {
   draught: number,
@@ -17,10 +13,11 @@ const BoatDraughtAndWeight = ({ draught, weight }: Props) => (
   <Row>
     <Col md={6}>
       <FormattedMessage tagName="span" id="page.overview.info.boat_draught" />:
-      <Data>{draught}m</Data>
+      <span className="app-form__data">{draught}m</span>
     </Col>
     <Col md={6}>
-      <FormattedMessage tagName="span" id="page.overview.info.boat_weight" />:<Data>{weight}</Data>
+      <FormattedMessage tagName="span" id="page.overview.info.boat_weight" />:
+      <span className="app-form__data">{weight}</span>
       kg
     </Col>
   </Row>

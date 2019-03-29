@@ -3,7 +3,6 @@
 import React, { Fragment } from 'react';
 import { Row, Col, Container } from 'reactstrap';
 import { FormattedMessage, injectIntl, type IntlShape } from 'react-intl';
-import styled from 'styled-components';
 
 import LocalizedLink from '../../common/LocalizedLink';
 import Icon from '../../common/Icon';
@@ -15,32 +14,7 @@ import Person from '../fragments/overview/Person';
 import type { Berths } from '../../../types/berths';
 import { type WithBoatType } from '../Selects';
 import { getLocalizedText } from '../../../utils/berths';
-
-const StyledInfoBox = styled.div`
-  background-color: #efefef;
-  padding: 1.5em;
-  margin-bottom: 2em;
-`;
-
-const SectionHeader = styled(Col)`
-  border-bottom: 1px solid #000;
-  padding-left: 0px;
-  margin-bottom: 1em;
-  margin-top: 1em;
-  font-weight: bold;
-`;
-
-const EditIcon = styled(Col)`
-  margin-bottom: 1em;
-  margin-top: 1em;
-  font-weight: bold;
-  text-align: right;
-`;
-
-const EditLink = styled(LocalizedLink)`
-  display: flex;
-  color: currentColor;
-`;
+import './_overview-info.scss';
 
 type Props = {
   values: Object,
@@ -50,18 +24,18 @@ type Props = {
 } & WithBoatType;
 
 const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) => (
-  <StyledInfoBox>
+  <div className="app-overview-info">
     <Container fluid>
       <Row>
-        <SectionHeader xs={8} md={10}>
+        <Col xs={8} md={10} className="app-overview-info__header">
           <FormattedMessage tagName="h6" id="page.overview.info.boat_info" />
-        </SectionHeader>
-        <EditIcon xs={4} md={2}>
-          <EditLink to={`form/${tabs[0]}`}>
+        </Col>
+        <Col xs={4} md={2} className="app-overview-info__edit-icon">
+          <LocalizedLink to={`form/${tabs[0]}`} className="app-overview-info__edit-link">
             <Icon name="pencil" width="30px" height="30px" color="black" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
-          </EditLink>
-        </EditIcon>
+          </LocalizedLink>
+        </Col>
       </Row>
       {tabs[0] === 'registered_boat' && (
         <Fragment>
@@ -97,15 +71,15 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
         </Fragment>
       )}
       <Row>
-        <SectionHeader xs={8} md={10}>
+        <Col xs={8} md={10} className="app-overview-info__header">
           <FormattedMessage tagName="h6" id="page.overview.info.berths" />
-        </SectionHeader>
-        <EditIcon xs={4} md={2}>
-          <EditLink to="berths">
+        </Col>
+        <Col xs={4} md={2} className="app-overview-info__edit-icon">
+          <LocalizedLink to="berths" className="app-overview-info__edit-link">
             <Icon name="pencil" width="30px" height="30px" color="black" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
-          </EditLink>
-        </EditIcon>
+          </LocalizedLink>
+        </Col>
       </Row>
       <Row>
         <Col xs={12}>
@@ -117,15 +91,15 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
         </Col>
       </Row>
       <Row>
-        <SectionHeader xs={8} md={10}>
+        <Col xs={8} md={10} className="app-overview-info__header">
           <FormattedMessage tagName="h6" id="page.overview.info.person" />
-        </SectionHeader>
-        <EditIcon xs={4} md={2}>
-          <EditLink to={`form/${tabs[1]}`}>
+        </Col>
+        <Col xs={4} md={2} className="app-overview-info__edit-icon">
+          <LocalizedLink to={`form/${tabs[1]}`} className="app-overview-info__edit-link">
             <Icon name="pencil" width="30px" height="30px" color="black" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
-          </EditLink>
-        </EditIcon>
+          </LocalizedLink>
+        </Col>
       </Row>
       <Person
         firstName={values.first_name}
@@ -137,7 +111,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
         municipality={values.municipality}
       />
     </Container>
-  </StyledInfoBox>
+  </div>
 );
 
 export default injectIntl(OverviewInfo);

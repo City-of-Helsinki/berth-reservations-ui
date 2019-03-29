@@ -1,5 +1,5 @@
 .app-Label {
-  .required {
+  &.is-required {
     &::after {
       margin-left: 1ch;
       content: '*';

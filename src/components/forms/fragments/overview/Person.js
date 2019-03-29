@@ -1,7 +1,7 @@
 // @flow
 import React, { Fragment } from 'react';
 import { Row, Col } from 'reactstrap';
-import styled from 'styled-components';
+import './_data.scss';
 
 type Props = {
   firstName: String,
@@ -12,10 +12,6 @@ type Props = {
   zipCode: String,
   municipality: String
 };
-
-const StyledContactSection = styled.div`
-  margin-bottom: 1em;
-`;
 
 const Person = ({
   firstName,
@@ -41,8 +37,8 @@ const Person = ({
     </Row>
     <Row>
       <Col md={12}>
-        {zipCode && address && <StyledContactSection>{address}</StyledContactSection>}
-        {zipCode && <StyledContactSection>{zipCode}</StyledContactSection>}
+        {zipCode && address && <div className="app-form__contact-section">{address}</div>}
+        {zipCode && <div className="app-form__contact-section">{zipCode}</div>}
         {municipality && municipality}
       </Col>
     </Row>

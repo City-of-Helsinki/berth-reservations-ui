@@ -3,14 +3,10 @@
 import React, { Fragment } from 'react';
 import { Row, Col } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
-import styled from 'styled-components';
 
 import { Text, MultiRadio, Checkbox } from '../Fields';
 import { Propulsion, HullMaterial } from '../Selects';
-
-const InsuraneAndAgreementHeader = styled.h3`
-  margin-top: 0;
-`;
+import './_big-ship.scss';
 
 const BigShipsFragment = () => (
   <Fragment>
@@ -70,9 +66,9 @@ const BigShipsFragment = () => (
     </Row>
     <Row>
       <Col>
-        <InsuraneAndAgreementHeader>
+        <h3 className=".app-form__big-ship">
           <FormattedMessage id="form.big_ship.header.inspection_and_insurance" />
-        </InsuraneAndAgreementHeader>
+        </h3>
 
         <Checkbox
           required
