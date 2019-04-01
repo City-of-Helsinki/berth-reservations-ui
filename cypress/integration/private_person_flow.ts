@@ -1,16 +1,16 @@
 import {
-  gotoRegisteredBoatPage,
-  gotoUnregisteredBoatPage,
-  gotoNoBoatPage,
-  clickSubmit,
-  registeredBoatPageFillForm,
-  unregisteredBoatPageFillForm,
-  noBoatPageFillForm,
-  personPageFillForm,
-  overViewPageFillForm,
+  checkValuesForNoBoat,
   checkValuesForRegisteredBoat,
   checkValuesForUnregisteredBoat,
-  checkValuesForNoBoat
+  clickSubmit,
+  gotoNoBoatPage,
+  gotoRegisteredBoatPage,
+  gotoUnregisteredBoatPage,
+  noBoatPageFillForm,
+  overViewPageFillForm,
+  personPageFillForm,
+  registeredBoatPageFillForm,
+  unregisteredBoatPageFillForm
 } from './actions';
 
 describe('Private person', () => {

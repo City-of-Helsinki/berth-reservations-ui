@@ -1,17 +1,17 @@
 import {
-  gotoRegisteredBoatPage,
-  gotoUnregisteredBoatPage,
-  gotoNoBoatPage,
-  selectCompanyTab,
-  clickSubmit,
-  registeredBoatPageFillForm,
-  unregisteredBoatPageFillForm,
-  noBoatPageFillForm,
-  companyPageFillForm,
-  overViewPageFillForm,
+  checkValuesForNoBoat,
   checkValuesForRegisteredBoat,
   checkValuesForUnregisteredBoat,
-  checkValuesForNoBoat
+  clickSubmit,
+  companyPageFillForm,
+  gotoNoBoatPage,
+  gotoRegisteredBoatPage,
+  gotoUnregisteredBoatPage,
+  noBoatPageFillForm,
+  overViewPageFillForm,
+  registeredBoatPageFillForm,
+  selectCompanyTab,
+  unregisteredBoatPageFillForm
 } from './actions';
 
 describe('Company', () => {

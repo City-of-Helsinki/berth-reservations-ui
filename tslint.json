@@ -2,11 +2,12 @@
   "defaultSeverity": "error",
   "extends": [
     "tslint:recommended",
+    "tslint-react",
     "tslint-config-airbnb",
     "tslint-plugin-prettier",
     "tslint-config-prettier"
   ],
-  "jsRules": {},
+  "jsRules": true,
   "rules": {
     "prettier": true,
     "import-name": false,
@@ -14,6 +15,10 @@
     "member-access": false,
     "interface-name": false,
     "object-literal-sort-keys": false,
+    "jsx-boolean-value": false,
+    "jsx-no-lambda": {
+      "severity": "warning"
+    },
     "ban-types": {
       "options": [
         ["Object", "Avoid using the `Object` type. Did you mean `object`?"],
