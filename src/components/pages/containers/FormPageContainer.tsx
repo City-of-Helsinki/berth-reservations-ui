@@ -1,12 +1,12 @@
-import { withMatchParamsHandlers } from '@utils/container';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { getBoatTypes, onSend, onSubmit } from '../../../ducks/forms';
+import { withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../FormPage';
 
-import { Berths, SelectedBerths } from '@berths/types';
 import { BoatTypes } from '../../../types/boatTypes';
 import { Store } from '../../../types/ducks';
+import { Berths, SelectedBerths } from '../../berths/types';
 
 interface Props {
   initialValues: {};

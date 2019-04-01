@@ -1,11 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@berths/*": ["./src/components/berths/*"],
-      "@common/*": ["./src/components/common/*"],
-      "@utils/*": ["./src/utils/*"]
-    },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,

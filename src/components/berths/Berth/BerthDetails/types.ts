@@ -1,4 +1,4 @@
-import { IconNames } from '@common/Icon';
+import { IconNames } from '../../../common/Icon';
 
 export default interface BerthDetailsProps {
   iconName?: IconNames;

@@ -4,10 +4,10 @@ import { deselectBerth, moveDown, moveUp } from '../../../ducks/berths';
 import { withMatchParamsHandlers } from '../../../utils/container';
 import SelectedBerthPage from '../SelectedBerthPage';
 
-import { Berths as BerthsType, SelectedBerths as SelectedBerthsType } from '@berths/types';
 import { BoatTypes } from '../../../types/boatTypes';
 import { Store } from '../../../types/ducks';
 import { SelectedServices } from '../../../types/services';
+import { Berths as BerthsType, SelectedBerths as SelectedBerthsType } from '../../berths/types';
 
 interface Props {
   boatTypes: BoatTypes;

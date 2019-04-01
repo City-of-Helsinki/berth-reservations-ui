@@ -11,9 +11,9 @@ import LocalizedLink from '../common/LocalizedLink';
 import Layout from '../layout/Layout';
 import SelectedBerthsLegend from '../legends/SelectedBerthsLegend';
 
-import { Berths as BerthsType, SelectedBerths as SelectedBerthsType } from '@berths/types';
 import { BoatTypes } from '../../types/boatTypes';
 import { SelectedServices } from '../../types/services';
+import { Berths as BerthsType, SelectedBerths as SelectedBerthsType } from '../berths/types';
 
 const PrevnextWrapperWrapper = styled.div`
   background-color: ${props => props.theme.helLight};

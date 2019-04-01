@@ -1,5 +1,5 @@
-import { Berths as Bs, SelectedBerths } from '@berths/types';
 import { Record, RecordOf } from 'immutable';
+import { Berths as Bs, SelectedBerths } from '../components/berths/types';
 import { BoatTypes } from './boatTypes';
 import { SelectedServices } from './services';
 

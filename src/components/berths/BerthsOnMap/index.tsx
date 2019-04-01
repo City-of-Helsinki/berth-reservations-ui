@@ -1,7 +1,7 @@
 import React from 'react';
 import Map from '../../Map';
 
-import { Berths as BerthsType, SelectedBerths } from '@berths/types';
+import { Berths as BerthsType, SelectedBerths } from '../../berths/types';
 
 interface Props {
   filtered: BerthsType;

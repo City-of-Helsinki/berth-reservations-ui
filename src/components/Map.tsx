@@ -7,9 +7,9 @@ import styled from 'styled-components';
 import mapIcon from './mapIcon';
 import MapMarker from './MapMarker';
 
-import { Berth as BerthType } from '@berths/Berth/types';
-import { Berths, SelectedBerths } from '@berths/types';
 import Berth from './berths/Berth';
+import { Berth as BerthType } from './berths/Berth/types';
+import { Berths, SelectedBerths } from './berths/types';
 
 const ListHeader = styled.h3`
   margin: 1em 0;

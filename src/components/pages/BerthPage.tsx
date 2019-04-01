@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
-import { getBerthFilterByValues } from '@utils/berths';
+import { getBerthFilterByValues } from '../../utils/berths';
 import Berths from '../berths';
 import BerthsOnMap from '../berths/BerthsOnMap';
 import TabSelector from '../berths/TabSelector';
 import Layout from '../layout/Layout';
 import BerthsLegend from '../legends/BerthsLegend';
 
-import { Berths as BerthsType, SelectedBerths } from '@berths/types';
 import { BoatTypes } from '../../types/boatTypes';
 import { SelectedServices } from '../../types/services';
+import { Berths as BerthsType, SelectedBerths } from '../berths/types';
 
 const Wrapper = styled.div`
   margin-bottom: 5em;

@@ -4,8 +4,8 @@ import { InjectedIntlProps, injectIntl } from 'react-intl';
 import Transition from 'react-transition-group/Transition';
 import { Button } from 'reactstrap';
 
-import Icon from '@common/Icon';
-import { getLocalizedText } from '@utils/berths';
+import { getLocalizedText } from '../../../../utils/berths';
+import Icon from '../../../common/Icon';
 import InvalidSelection from '../../InvalidSelection';
 
 import { Berth } from '../types';

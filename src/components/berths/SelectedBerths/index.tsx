@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { Alert } from 'reactstrap';
 import SelectedBerth from '../Berth/SelectedBerth';
 
-import { Berths } from '@berths/types';
+import { Berths } from '../types';
 
 interface Props {
   berths: Berths;

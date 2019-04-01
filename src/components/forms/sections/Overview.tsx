@@ -1,7 +1,7 @@
-import { Berths } from '@berths/types';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
+import { Berths } from '../../berths/types';
 import Agreement from '../fragments/Agreement';
 import Newsletter from '../fragments/Newsletter';
 import { WithBoatType } from '../Selects';
