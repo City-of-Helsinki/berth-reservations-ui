@@ -75,7 +75,7 @@
     "api": "node api",
     "eslint": "eslint",
     "prettier": "prettier",
-    "tslint": "tslint 'src/**/*.ts?(x)'",
+    "lint": "tslint 'src/**/*.ts?(x)'",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "dev": "yarn run api & yarn run storybook & yarn run start",
     "test:ci": "yarn api & serve -s build & cypress run --browser chrome",
