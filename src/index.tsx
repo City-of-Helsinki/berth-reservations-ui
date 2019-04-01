@@ -1,19 +1,19 @@
-import 'react-app-polyfill/ie11';
 import '@babel/polyfill';
+import 'react-app-polyfill/ie11';
 
+import * as Sentry from '@sentry/browser';
+import createHistory from 'history/createBrowserHistory';
+import PiwikReactRouter from 'piwik-react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Redirect, Route, Switch } from 'react-router-dom';
-import PiwikReactRouter from 'piwik-react-router';
-import createHistory from 'history/createBrowserHistory';
-import * as Sentry from '@sentry/browser';
+import { Redirect, Route, Router, Switch } from 'react-router-dom';
 
 import { ThemeProvider } from 'styled-components';
 import theme from './config/theme';
 
-import * as serviceWorker from './serviceWorker';
 import configureStore from './config/configureStore';
+import * as serviceWorker from './serviceWorker';
 
 import App from './components/containers/AppContainer';
 

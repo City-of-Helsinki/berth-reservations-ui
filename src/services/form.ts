@@ -1,5 +1,5 @@
-import { post } from '../utils/api';
 import { SelectedBerths } from '../types/berths';
+import { post } from '../utils/api';
 
 export default {
   submit: async (data: { selectedBerths: SelectedBerths }): Promise<boolean> => {
@@ -7,7 +7,7 @@ export default {
 
     await post('reservations/', {
       ...rest,
-      chosen_harbors: selectedBerths.map((harbor, priority) => ({ priority: priority + 1, harbor }))
+      chosen_harbors: selectedBerths.map((harbor, priority) => ({ harbor, priority: priority + 1 }))
     });
 
     return true;

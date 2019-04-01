@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Col, Row, Container } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
+import { Col, Container, Row } from 'reactstrap';
+import styled from 'styled-components';
 import Steps from '../steps/Steps';
 
 const Legend = styled.div`

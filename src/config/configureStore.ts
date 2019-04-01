@@ -1,7 +1,7 @@
-import thunk from 'redux-thunk';
-import promiseMiddleware from 'redux-promise-middleware';
-import { combineReducers, applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+import promiseMiddleware from 'redux-promise-middleware';
+import thunk from 'redux-thunk';
 import * as ducks from '../ducks';
 
 const enhancers: any[] = [];

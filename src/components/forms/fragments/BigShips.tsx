@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import { Row, Col } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
+import { Col, Row } from 'reactstrap';
 import styled from 'styled-components';
 
-import { Text, MultiRadio, Checkbox } from '../Fields';
-import { Propulsion, HullMaterial } from '../Selects';
+import { Checkbox, MultiRadio, Text } from '../Fields';
+import { HullMaterial, Propulsion } from '../Selects';
 
 const InsuraneAndAgreementHeader = styled.h3`
   margin-top: 0;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { injectIntl, InjectedIntlProps } from 'react-intl';
+import { InjectedIntlProps, injectIntl } from 'react-intl';
 import { Link, LinkProps } from 'react-router-dom';
 
 type Props = InjectedIntlProps & LinkProps;

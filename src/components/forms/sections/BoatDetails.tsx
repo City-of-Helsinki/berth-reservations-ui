@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Col, Row, Container } from 'reactstrap';
 import { get } from 'lodash';
+import React from 'react';
 import { injectIntl } from 'react-intl';
+import { Col, Container, Row } from 'reactstrap';
+import styled from 'styled-components';
 
+import NoBoat from '../tabs/NoBoat';
 import RegisteredBoat from '../tabs/RegisteredBoat';
 import UnRegisteredBoat from '../tabs/UnRegisteredBoat';
-import NoBoat from '../tabs/NoBoat';
 
 import SectionSelector from '../SectionSelector';
 import { BigBoatTypeValue, WithBoatType } from '../Selects';
@@ -14,7 +14,7 @@ import { BigBoatTypeValue, WithBoatType } from '../Selects';
 const Content = styled.div``;
 
 type Props = {
-  values: Object;
+  values: object;
   tab: string;
 } & WithBoatType;
 

@@ -1,15 +1,15 @@
 import React from 'react';
+import { Col, Container, Row } from 'reactstrap';
 import styled from 'styled-components';
-import { Col, Row, Container } from 'reactstrap';
 import SectionSelector from '../SectionSelector';
-import PrivatePerson from '../tabs/PrivatePerson';
 import Company from '../tabs/Company';
+import PrivatePerson from '../tabs/PrivatePerson';
 
 const Content = styled.div``;
 
-type Props = {
+interface Props {
   tab: string;
-};
+}
 
 const ApplicantDetails = ({ tab }: Props) => (
   <Content>

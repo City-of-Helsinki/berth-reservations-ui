@@ -1,15 +1,15 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import CompanyDetails from '../fragments/CompanyDetails';
+import ContactDetails from '../fragments/ContactDetails';
 import FullName from '../fragments/FullName';
 import PostalDetails from '../fragments/PostalDetails';
-import ContactDetails from '../fragments/ContactDetails';
-import CompanyDetails from '../fragments/CompanyDetails';
 import StyledContainer from '../StyledContainer';
 
-type Props = {
+interface Props {
   prefix: string;
-};
+}
 
 export default ({ prefix }: Props) => (
   <StyledContainer>

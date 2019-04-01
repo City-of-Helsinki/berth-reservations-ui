@@ -1,12 +1,12 @@
 import React from 'react';
-import { injectIntl, InjectedIntlProps } from 'react-intl';
+import { InjectedIntlProps, injectIntl } from 'react-intl';
 import { Select } from './Fields';
 
 import { BoatTypes } from '../../types/boatTypes';
 
-export type WithBoatType = {
+export interface WithBoatType {
   boatTypes: BoatTypes;
-};
+}
 
 export const BigBoatTypeValue = 'big_boat';
 

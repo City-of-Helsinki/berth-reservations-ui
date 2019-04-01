@@ -1,12 +1,12 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Col, Row, Container } from 'reactstrap';
+import { Col, Container, Row } from 'reactstrap';
+import { Berths } from '../../../types/berths';
 import Agreement from '../fragments/Agreement';
 import Newsletter from '../fragments/Newsletter';
-import OverviewInfo from './OverviewInfo';
-import { Berths } from '../../../types/berths';
 import { WithBoatType } from '../Selects';
 import StyledContainer from '../StyledContainer';
+import OverviewInfo from './OverviewInfo';
 
 type Props = {
   values?: {
@@ -27,7 +27,7 @@ type Props = {
     municipality: string;
   };
   selectedBerths: Berths;
-  tabs: Array<string>;
+  tabs: string[];
 } & WithBoatType;
 
 const Submit = ({

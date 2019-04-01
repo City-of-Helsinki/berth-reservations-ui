@@ -1,7 +1,7 @@
-/* eslint-disable */
+/* tslint:disable */
 require('./bootstrap.scss');
 const extractedTheme = require('sass-extract-loader?{"plugins":["sass-extract-js"]}!./theme.scss');
-/* eslint-enable */
+/* tslint:enable */
 
 const breakpoint = {
   sm: 576,

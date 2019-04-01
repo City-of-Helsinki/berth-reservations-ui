@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
-import { FormGroup, CustomInput, FormText, FormFeedback } from 'reactstrap';
-import { FormattedMessage, InjectedIntlProps } from 'react-intl';
 import { Field, FieldProps } from 'react-final-form';
+import { FormattedMessage, InjectedIntlProps } from 'react-intl';
+import { CustomInput, FormFeedback, FormGroup, FormText } from 'reactstrap';
 import validator, { mustBePresent } from '../../../utils/formValidation';
 
 import Label from './Label';
 
 type Props = {
-  items: { name: string; label: string; value: string }[];
+  items: Array<{ name: string; label: string; value: string }>;
 } & FieldProps &
   InjectedIntlProps;
 

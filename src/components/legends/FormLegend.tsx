@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
+import styled from 'styled-components';
 
 const Legend = styled.div`
   padding-bottom: 2em;
@@ -21,9 +21,9 @@ const stepLegends = [
   }
 ];
 
-type Props = {
+interface Props {
   step: number;
-};
+}
 
 export default ({ step }: Props) => (
   <Legend>

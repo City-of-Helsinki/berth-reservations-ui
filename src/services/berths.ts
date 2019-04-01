@@ -1,7 +1,7 @@
 import { List } from 'immutable';
-import { get } from '../utils/api';
-import { Berths, Berth } from '../types/berths';
+import { Berth, Berths } from '../types/berths';
 import { BoatTypes } from '../types/boatTypes';
+import { get } from '../utils/api';
 
 export default {
   getBoatTypes: async (): Promise<BoatTypes> => {

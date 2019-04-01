@@ -1,8 +1,8 @@
 import { Record } from 'immutable';
 import { createAction } from 'redux-actions';
-import { Action, FormsFactory, FormsState } from '../types/ducks';
 import berthsService from '../services/berths';
 import formService from '../services/form';
+import { Action, FormsFactory, FormsState } from '../types/ducks';
 
 // @ts-ignore
 const defaultState: FormsFactory = Record({

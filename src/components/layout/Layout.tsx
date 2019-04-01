@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
-import { FormattedMessage, FormattedHTMLMessage, injectIntl, InjectedIntlProps } from 'react-intl';
-import { Navbar, NavbarBrand, Nav, Container, Row, Col } from 'reactstrap';
+import { FormattedHTMLMessage, FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
+import { Col, Container, Nav, Navbar, NavbarBrand, Row } from 'reactstrap';
 import styled from 'styled-components';
 
-import LanguageDropdown from './LanguageDropdown';
-import Icon from '../common/Icon';
-import KoroSection from './KoroSection';
-import Footer from './Footer';
 import heroImage from '../../assets/images/hero_image_berth.jpg';
 import responsive from '../../utils/responsive';
+import Icon from '../common/Icon';
+import Footer from './Footer';
+import KoroSection from './KoroSection';
+import LanguageDropdown from './LanguageDropdown';
 
 type Props = {
   children: any;

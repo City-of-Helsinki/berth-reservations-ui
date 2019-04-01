@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
 import { get } from 'lodash';
+import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Container, Row, Col, Button, Alert } from 'reactstrap';
-import SelectedBerths from '../berths/SelectedBerths';
-import SelectedBerthsLegend from '../legends/SelectedBerthsLegend';
+import { Alert, Button, Col, Container, Row } from 'reactstrap';
+import styled from 'styled-components';
 import { getBerthFilterByValues } from '../../utils/berths';
 import responsive from '../../utils/responsive';
-import Layout from '../layout/Layout';
+import SelectedBerths from '../berths/SelectedBerths';
 import Icon from '../common/Icon';
 import LocalizedLink from '../common/LocalizedLink';
+import Layout from '../layout/Layout';
+import SelectedBerthsLegend from '../legends/SelectedBerthsLegend';
 
 import { Berths as BerthsType, SelectedBerths as SelectedBerthsType } from '../../types/berths';
-import { SelectedServices } from '../../types/services';
 import { BoatTypes } from '../../types/boatTypes';
+import { SelectedServices } from '../../types/services';
 
 const PrevnextWrapperWrapper = styled.div`
   background-color: ${props => props.theme.helLight};
@@ -51,7 +51,7 @@ const NoticeIcon = styled(Icon)`
   margin-right: 0.5em;
 `;
 
-type Props = {
+interface Props {
   boatTypes: BoatTypes;
   berths: BerthsType;
   selectedBerths: SelectedBerthsType;
@@ -62,7 +62,7 @@ type Props = {
   localePush: Function;
   locale: string;
   values: {};
-};
+}
 
 class BerthPage extends Component<Props> {
   constructor(props: Props) {

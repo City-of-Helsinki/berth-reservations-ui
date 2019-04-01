@@ -1,9 +1,9 @@
 import React from 'react';
+import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
+import { Col, Container, Row } from 'reactstrap';
 import styled from 'styled-components';
-import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl';
-import { Col, Row, Container } from 'reactstrap';
-import LocalizedLink from '../common/LocalizedLink';
 import Icon from '../common/Icon';
+import LocalizedLink from '../common/LocalizedLink';
 
 const Wrapper = styled.div`
   background-color: ${props => props.theme.colors.blue};

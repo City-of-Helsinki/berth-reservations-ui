@@ -1,7 +1,7 @@
 import React from 'react';
-import { FormGroup, Input, FormText, FormFeedback } from 'reactstrap';
-import { FormattedMessage, InjectedIntlProps } from 'react-intl';
 import { Field, FieldProps } from 'react-final-form';
+import { FormattedMessage, InjectedIntlProps } from 'react-intl';
+import { FormFeedback, FormGroup, FormText, Input } from 'reactstrap';
 import validator, { mustBePresent } from '../../../utils/formValidation';
 
 import Label from './Label';

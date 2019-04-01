@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
+import { Alert, Button, Col, Popover, PopoverBody, Row } from 'reactstrap';
 import styled from 'styled-components';
-import { Row, Col, Button, Alert, Popover, PopoverBody } from 'reactstrap';
-import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl';
-import Icon from '../common/Icon';
 import { Berth as BerthType } from '../../types/berths';
-import responsive from '../../utils/responsive';
 import { getLocalizedText } from '../../utils/berths';
+import responsive from '../../utils/responsive';
+import Icon from '../common/Icon';
 import IntlComponent from '../common/IntlComponent';
 
 interface DetailsProps {
@@ -221,9 +221,9 @@ const TypeIcon = styled(Icon).attrs({
   display: inline-block;
 `;
 
-type State = {
+interface State {
   popoverOpen: boolean;
-};
+}
 
 class Berth extends Component<Props, State> {
   constructor(props: Props) {

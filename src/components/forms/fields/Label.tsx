@@ -1,11 +1,11 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Label } from 'reactstrap';
 import styled, { css } from 'styled-components';
-import { FormattedMessage } from 'react-intl';
 
-type StyledLabelProps = {
+interface StyledLabelProps {
   required: boolean;
-};
+}
 
 const StyledLabel = styled(Label)<StyledLabelProps>`
   ${props =>
@@ -19,11 +19,11 @@ const StyledLabel = styled(Label)<StyledLabelProps>`
     `};
 `;
 
-type Props = {
+interface Props {
   htmlFor: string;
   required: boolean;
   text: string;
-};
+}
 
 export default ({ htmlFor, required, text }: Props) => (
   <StyledLabel htmlFor={htmlFor} required={required}>

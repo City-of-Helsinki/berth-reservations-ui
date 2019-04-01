@@ -1,11 +1,11 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
+import Accessibility from '../fragments/Accessibility';
+import BigShips from '../fragments/BigShips';
+import BoatInfo from '../fragments/BoatInfo';
 import BoatMeasures from '../fragments/BoatMeasures';
 import RegisteredBoatDetails from '../fragments/RegisteredBoatDetails';
-import BoatInfo from '../fragments/BoatInfo';
-import BigShips from '../fragments/BigShips';
-import Accessibility from '../fragments/Accessibility';
 import { WithBoatType } from '../Selects';
 import StyledContainer from '../StyledContainer';
 

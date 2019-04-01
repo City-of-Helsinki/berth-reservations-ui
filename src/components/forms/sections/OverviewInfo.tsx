@@ -1,18 +1,18 @@
 import React, { Fragment } from 'react';
-import { Row, Col, Container } from 'reactstrap';
-import { FormattedMessage, injectIntl, InjectedIntlProps } from 'react-intl';
+import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
+import { Col, Container, Row } from 'reactstrap';
 import styled from 'styled-components';
 
-import LocalizedLink from '../../common/LocalizedLink';
-import Icon from '../../common/Icon';
-import BoatInfo from '../fragments/overview/BoatInfo';
-import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
-import BoatMeasures from '../fragments/overview/BoatMeasures';
-import BoatDraughtAndWeight from '../fragments/overview/BoatDraughtAndWeight';
-import Person from '../fragments/overview/Person';
 import { Berths } from '../../../types/berths';
-import { WithBoatType } from '../Selects';
 import { getLocalizedText } from '../../../utils/berths';
+import Icon from '../../common/Icon';
+import LocalizedLink from '../../common/LocalizedLink';
+import BoatDraughtAndWeight from '../fragments/overview/BoatDraughtAndWeight';
+import BoatInfo from '../fragments/overview/BoatInfo';
+import BoatMeasures from '../fragments/overview/BoatMeasures';
+import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
+import Person from '../fragments/overview/Person';
+import { WithBoatType } from '../Selects';
 
 const StyledInfoBox = styled.div`
   background-color: #efefef;
@@ -59,7 +59,7 @@ type Props = {
     municipality: string;
   };
   selectedBerths: Berths;
-  tabs: Array<string>;
+  tabs: string[];
 } & InjectedIntlProps &
   WithBoatType;
 

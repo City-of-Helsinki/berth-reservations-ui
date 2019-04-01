@@ -1,5 +1,5 @@
-import { withHandlers, withProps, compose } from 'recompose';
-import { withRouter, RouteComponentProps, RouterProps } from 'react-router';
+import { RouteComponentProps, RouterProps, withRouter } from 'react-router';
+import { compose, withHandlers, withProps } from 'recompose';
 
 export const withMatchParams = compose<{ locale: 'fi' | 'en' | 'sv' }, {}>(
   withRouter,

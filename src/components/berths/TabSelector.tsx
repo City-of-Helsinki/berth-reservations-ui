@@ -1,15 +1,15 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import { StickyContainer, Sticky } from 'react-sticky';
-import { Button, Container } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
+import { Sticky, StickyContainer } from 'react-sticky';
+import { Button, Container } from 'reactstrap';
+import styled, { css } from 'styled-components';
 import responsive from '../../utils/responsive';
 import IntlComponent from '../common/IntlComponent';
 import InvalidSelection from './InvalidSelection';
 
-type TabsWrapperProps = {
+interface TabsWrapperProps {
   sticky: boolean;
-};
+}
 
 const TabsWrapper = styled.div<TabsWrapperProps>`
   background-color: ${props => props.theme.helLight};
@@ -32,9 +32,9 @@ const TabsInnerWrapper = styled(Container)`
   `}
 `;
 
-type TabButtonProps = {
+interface TabButtonProps {
   active: boolean;
-};
+}
 
 const TabButton = styled.button.attrs({
   type: 'button'
@@ -89,9 +89,9 @@ interface Props {
   validSelection: boolean;
 }
 
-type State = {
+interface State {
   tab: number;
-};
+}
 const { REACT_APP_MAX_SELECTED_BERTHS = '0' } = process.env;
 
 const maxSelected: number = Number.parseInt(REACT_APP_MAX_SELECTED_BERTHS, 10) || 0;

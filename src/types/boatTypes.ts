@@ -1,8 +1,8 @@
-export type BoatType = {
+export interface BoatType {
   identifier: string;
   name: {
     [locale: string]: string;
   };
-};
+}
 
-export type BoatTypes = Array<BoatType>;
+export type BoatTypes = BoatType[];

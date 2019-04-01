@@ -1,11 +1,11 @@
 import { List } from 'immutable';
 
-type Multilingual = {
+interface Multilingual {
   fi: string;
   sv: string;
-};
+}
 
-export type Berth = {
+export interface Berth {
   identifier: string;
   name: Multilingual;
   street_address: Multilingual;
@@ -16,7 +16,7 @@ export type Berth = {
   www_url: string;
   location: {
     type: string;
-    coordinates: Array<number>;
+    coordinates: number[];
   };
   image: string;
   image_link: string;
@@ -30,7 +30,7 @@ export type Berth = {
   maximum_width: number;
   maximum_length: number;
   availability_level: string;
-};
+}
 
 export type Berths = List<Berth>;
 export type SelectedBerths = List<string>;

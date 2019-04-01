@@ -3,13 +3,13 @@ import Map from '../Map';
 
 import { Berths as BerthsType, SelectedBerths } from '../../types/berths';
 
-type Props = {
+interface Props {
   filtered: BerthsType;
   filteredNot: BerthsType;
   selected: SelectedBerths;
   onClick: Function;
   TabHeader?: React.FC;
-};
+}
 
 export default ({ onClick, selected, filtered, filteredNot }: Props) => (
   <div>

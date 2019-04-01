@@ -1,19 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Container, Row, Col } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
+import { Col, Container, Row } from 'reactstrap';
+import styled from 'styled-components';
 
 import Berth from './Berth';
 
 import { Berths as BerthsType, SelectedBerths } from '../../types/berths';
 
-type Props = {
+interface Props {
   filtered: BerthsType;
   filteredNot: BerthsType;
   selected: SelectedBerths;
   onClick: Function;
   TabHeader?: React.FC;
-};
+}
 
 const StyledBerth = styled(Berth)`
   opacity: ${props => (props.excluded ? '0.5' : '1')};

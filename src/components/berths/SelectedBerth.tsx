@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import { InjectedIntlProps, injectIntl } from 'react-intl';
+import Transition from 'react-transition-group/Transition';
 import { Button } from 'reactstrap';
 import styled from 'styled-components';
-import { injectIntl, InjectedIntlProps } from 'react-intl';
-import Transition from 'react-transition-group/Transition';
 
-import Icon from '../common/Icon';
-import responsive from '../../utils/responsive';
 import { getLocalizedText } from '../../utils/berths';
+import responsive from '../../utils/responsive';
+import Icon from '../common/Icon';
 import InvalidSelection from './InvalidSelection';
 
 import { Berth } from '../../types/berths';
@@ -16,9 +16,9 @@ const BerthRow = styled.div`
   margin-bottom: 0.5em;
 `;
 
-type BerthNameProps = {
+interface BerthNameProps {
   errors: string;
-};
+}
 
 const BerthName = styled.div<BerthNameProps>`
   display: flex;
@@ -95,9 +95,9 @@ type Props = {
   moveUp: Function;
 } & InjectedIntlProps;
 
-type State = {
+interface State {
   changed: string;
-};
+}
 
 class SelectedBerth extends Component<Props, State> {
   constructor(props: Props) {

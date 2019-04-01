@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import LocalizedLink from '../common/LocalizedLink';
 import media from '../../utils/responsive';
+import LocalizedLink from '../common/LocalizedLink';
 
-type Props = {
+interface Props {
   completed: boolean;
   current: boolean;
   label: string;
   linkTo?: string;
-};
+}
 
 const Section = styled.div`
   flex: 1;
@@ -60,7 +60,7 @@ export default class Step extends React.Component<Props> {
     const { completed, current, label, linkTo } = this.props;
 
     return (
-      //@ts-ignore
+      // @ts-ignore
       <Section as={linkTo ? LocalizedLink : 'div'} to={linkTo}>
         <StatusBox completed={completed} current={current} />
         <StatusTitle>{label}</StatusTitle>

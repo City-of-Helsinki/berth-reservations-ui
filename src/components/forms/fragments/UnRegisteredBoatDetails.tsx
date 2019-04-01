@@ -1,10 +1,9 @@
 import React from 'react';
-import { Row, Col } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 
-import { Number } from '../Fields';
-import { BoatType } from '../Selects';
 import { mustBePositiveNumber } from '../../../utils/formValidation';
-import { WithBoatType } from '../Selects';
+import { Number } from '../Fields';
+import { BoatType, WithBoatType } from '../Selects';
 
 const UnRegisteredBoatDetailsFragment = ({
   fieldsNotRequired,

@@ -1,14 +1,14 @@
 import React from 'react';
-import { Form as FinalForm, Field } from 'react-final-form';
-import { Form as BootstrapForm } from 'reactstrap';
+import { Field, Form as FinalForm } from 'react-final-form';
 import { injectIntl } from 'react-intl';
+import { Form as BootstrapForm } from 'reactstrap';
 
-type Props = {
+interface Props {
   onSubmit: Function;
-  initialValues: Object;
+  initialValues: object;
   children: (props: any) => React.ReactNode;
   intl: any;
-};
+}
 
 const form = ({ onSubmit, initialValues, children, intl }: Props) => (
   <FinalForm

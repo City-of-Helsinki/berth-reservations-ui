@@ -1,6 +1,6 @@
 import React from 'react';
-import { injectIntl, InjectedIntlProps } from 'react-intl';
-import { Dropdown, DropdownMenu, DropdownItem, DropdownToggle } from 'reactstrap';
+import { InjectedIntlProps, injectIntl } from 'react-intl';
+import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 import styled from 'styled-components';
 import Icon from '../common/Icon';
 import IntlComponent from '../common/IntlComponent';
@@ -9,10 +9,10 @@ type Props = {
   children?: React.ReactNode;
 } & InjectedIntlProps;
 
-type State = {
+interface State {
   collapsed: boolean;
   dropdownOpen: boolean;
-};
+}
 
 const LanguageSelector = styled(DropdownToggle)`
   color: #000;

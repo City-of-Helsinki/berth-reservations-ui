@@ -1,6 +1,6 @@
 import React from 'react';
-import { Row, Col } from 'reactstrap';
-import { injectIntl, FormattedMessage, InjectedIntlProps } from 'react-intl';
+import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
+import { Col, Row } from 'reactstrap';
 import styled from 'styled-components';
 import { WithBoatType } from '../../Selects';
 

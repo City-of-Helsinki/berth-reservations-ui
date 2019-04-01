@@ -1,8 +1,8 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import UnRegisteredBoatDetails from '../fragments/UnRegisteredBoatDetails';
 import Accessibility from '../fragments/Accessibility';
+import UnRegisteredBoatDetails from '../fragments/UnRegisteredBoatDetails';
 import { WithBoatType } from '../Selects';
 import StyledContainer from '../StyledContainer';
 

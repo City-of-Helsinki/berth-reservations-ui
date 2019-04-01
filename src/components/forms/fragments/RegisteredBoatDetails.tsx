@@ -1,9 +1,7 @@
 import React from 'react';
-import { Row, Col } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import { Text } from '../Fields';
-import { BoatType } from '../Selects';
-
-import { WithBoatType } from '../Selects';
+import { BoatType, WithBoatType } from '../Selects';
 
 const RegisteredBoatDetailsFragment = ({ boatTypes }: WithBoatType) => (
   <Row>

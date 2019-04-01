@@ -1,16 +1,16 @@
 import React, { Fragment } from 'react';
-import { Row, Col } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import styled from 'styled-components';
 
-type Props = {
-  firstName: String;
-  lastName: String;
-  email: String;
-  phoneNumber: String;
-  address: String;
-  zipCode: String;
-  municipality: String;
-};
+interface Props {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  address: string;
+  zipCode: string;
+  municipality: string;
+}
 
 const StyledContactSection = styled.div`
   margin-bottom: 1em;

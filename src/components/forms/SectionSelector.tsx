@@ -1,36 +1,36 @@
 import React from 'react';
+import { Col, Container, Row } from 'reactstrap';
 import styled from 'styled-components';
-import { Container, Row, Col } from 'reactstrap';
 
 import { FormattedMessage } from 'react-intl';
-import LocalizedLink from '../common/LocalizedLink';
-import Icon, { IconNames } from '../common/Icon';
 import responsive from '../../utils/responsive';
+import Icon, { IconNames } from '../common/Icon';
+import LocalizedLink from '../common/LocalizedLink';
 
 const ButtonWrapper = styled.div`
   background-color: ${props => props.theme.helLight};
   padding: 1em;
 `;
-type TypeProps = {
+interface TypeProps {
   label: string;
   tab: string;
   icon: IconNames;
-};
+}
 
-type Props = {
+interface Props {
   name: string;
   selected: any;
-  types: Array<TypeProps>;
+  types: TypeProps[];
   sizes: {
     xs?: number;
     md?: number;
     lg?: number;
   };
-};
+}
 
-type FormSelectWrapperProps = {
+interface FormSelectWrapperProps {
   selected: boolean;
-};
+}
 
 const FormSelectWrapper = styled(LocalizedLink)<FormSelectWrapperProps>`
   display: block;

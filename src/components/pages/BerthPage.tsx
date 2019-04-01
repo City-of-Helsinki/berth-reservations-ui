@@ -3,21 +3,21 @@ import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
 import { getBerthFilterByValues } from '../../utils/berths';
+import Berths from '../berths/Berths';
+import BerthsOnMap from '../berths/BerthsOnMap';
+import TabSelector from '../berths/TabSelector';
 import Layout from '../layout/Layout';
 import BerthsLegend from '../legends/BerthsLegend';
-import BerthsOnMap from '../berths/BerthsOnMap';
-import Berths from '../berths/Berths';
-import TabSelector from '../berths/TabSelector';
 
 import { Berths as BerthsType, SelectedBerths } from '../../types/berths';
-import { SelectedServices } from '../../types/services';
 import { BoatTypes } from '../../types/boatTypes';
+import { SelectedServices } from '../../types/services';
 
 const Wrapper = styled.div`
   margin-bottom: 5em;
 `;
 
-type Props = {
+interface Props {
   getBerths: () => Promise<BerthsType>;
   getBoatTypes: () => Promise<BoatTypes>;
   boatTypes: BoatTypes;
@@ -33,7 +33,7 @@ type Props = {
   deselectService: Function;
   onSubmit: Function;
   localePush: Function;
-};
+}
 
 class BerthPage extends Component<Props> {
   constructor(props: Props) {

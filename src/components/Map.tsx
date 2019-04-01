@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Map, TileLayer } from 'react-leaflet';
 import { Container } from 'reactstrap';
 import styled from 'styled-components';
-import { FormattedMessage } from 'react-intl';
 
-import MapMarker from './MapMarker';
 import mapIcon from './mapIcon';
+import MapMarker from './MapMarker';
 
-import Berth from './berths/Berth';
 import { Berth as BerthType, Berths, SelectedBerths } from '../types/berths';
+import Berth from './berths/Berth';
 
 const ListHeader = styled.h3`
   margin: 1em 0;
@@ -19,19 +19,19 @@ const style = {
   height: '30em'
 };
 
-type State = {
+interface State {
   lat: number;
   lng: number;
   zoom: number;
   selectedBerth: BerthType | null;
-};
+}
 
-type Props = {
+interface Props {
   filtered: Berths;
   filteredNot: Berths;
   selected: SelectedBerths;
   onClick: Function;
-};
+}
 
 export default class MapCanvas extends Component<Props, State> {
   constructor(props: Props) {

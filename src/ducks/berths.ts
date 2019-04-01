@@ -1,7 +1,7 @@
-import { Record, List } from 'immutable';
+import { List, Record } from 'immutable';
 import { createAction } from 'redux-actions';
-import { Action, BerthsFactory, BerthsState } from '../types/ducks';
 import berthsService from '../services/berths';
+import { Action, BerthsFactory, BerthsState } from '../types/ducks';
 
 const selectedServices = Record({
   electricity: false,

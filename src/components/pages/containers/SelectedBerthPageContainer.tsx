@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
+import { deselectBerth, moveDown, moveUp } from '../../../ducks/berths';
 import { withMatchParamsHandlers } from '../../../utils/container';
-import { deselectBerth, moveUp, moveDown } from '../../../ducks/berths';
 import SelectedBerthPage from '../SelectedBerthPage';
 
-import { Store } from '../../../types/ducks';
 import { Berths as BerthsType, SelectedBerths as SelectedBerthsType } from '../../../types/berths';
-import { SelectedServices } from '../../../types/services';
 import { BoatTypes } from '../../../types/boatTypes';
+import { Store } from '../../../types/ducks';
+import { SelectedServices } from '../../../types/services';
 
-type Props = {
+interface Props {
   boatTypes: BoatTypes;
   berths: BerthsType;
   selectedBerths: SelectedBerthsType;
@@ -20,7 +20,7 @@ type Props = {
   localePush: Function;
   locale: string;
   values: {};
-};
+}
 
 export default compose<Props, {}>(
   withMatchParamsHandlers,

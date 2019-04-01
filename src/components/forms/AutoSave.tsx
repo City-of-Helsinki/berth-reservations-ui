@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { FormSpy, FormSpyProps, FormSpyRenderProps } from 'react-final-form';
 
-type Props = {
+interface Props {
   save: Function;
   debounce: number;
-};
+}
 
 class AutoSave extends Component<Props & FormSpyRenderProps> {
+  timeout?: number;
+
+  promise?: Promise<any>;
   constructor(props: Props & FormSpyRenderProps) {
     super(props);
 
@@ -20,10 +23,6 @@ class AutoSave extends Component<Props & FormSpyRenderProps> {
     }
     this.timeout = setTimeout(this.save, this.props.debounce);
   }
-
-  timeout?: number;
-
-  promise?: Promise<any>;
 
   save = async () => {
     if (this.promise) {

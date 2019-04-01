@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import { Button, Container, Col, Row } from 'reactstrap';
-import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
-import Form from './Form';
+import { Button, Col, Container, Row } from 'reactstrap';
+import styled from 'styled-components';
 import responsive from '../../utils/responsive';
+import Form from './Form';
 
 type State = any;
 type Props = any;

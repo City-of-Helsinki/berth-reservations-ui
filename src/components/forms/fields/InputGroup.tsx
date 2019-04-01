@@ -1,6 +1,6 @@
 import React from 'react';
-import { FormGroup, Input, FormText, FormFeedback, InputGroupAddon, InputGroup } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
+import { FormFeedback, FormGroup, FormText, Input, InputGroup, InputGroupAddon } from 'reactstrap';
 
 import { Field } from 'react-final-form';
 import validator, { mustBePresent } from '../../../utils/formValidation';

@@ -1,10 +1,10 @@
 import { injectIntl } from 'react-intl';
 import { withProps } from 'recompose';
 
-import Input from './fields/Input';
 import CustomInput from './fields/CustomInput';
-import MultiInput from './fields/MultiInput';
+import Input from './fields/Input';
 import InputGroup from './fields/InputGroup';
+import MultiInput from './fields/MultiInput';
 
 const mapNameAsId = withProps(({ id, name }: any) => ({
   id: id || `form.${name}`

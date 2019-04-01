@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import { Row, Col } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
+import { Col, Row } from 'reactstrap';
 
 import { Checkbox } from '../Fields';
 

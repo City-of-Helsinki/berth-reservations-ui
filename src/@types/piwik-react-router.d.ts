@@ -1,5 +1,5 @@
 declare module 'piwik-react-router' {
-  export default function PiwikReactRouter(options: {
+  export default function(options: {
     url?: string;
     siteId?: string;
     enableLinkTracking?: boolean;

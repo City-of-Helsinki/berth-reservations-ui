@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
-import { resetValues } from '../../../ducks/forms';
 import { resetBerths } from '../../../ducks/berths';
+import { resetValues } from '../../../ducks/forms';
 import ThankYouPage from '../ThankYouPage';
 
-type Props = {
+interface Props {
   resetValues: Function;
   resetBerths: Function;
-};
+}
 
 export default compose<Props, {}>(
   connect(

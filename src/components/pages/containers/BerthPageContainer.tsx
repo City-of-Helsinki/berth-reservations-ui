@@ -1,22 +1,22 @@
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import { withMatchParamsHandlers } from '../../../utils/container';
-import { onSubmit, getBoatTypes } from '../../../ducks/forms';
 import {
+  deselectBerth,
+  deselectService,
   getBerths,
   selectBerth,
-  deselectBerth,
-  selectService,
-  deselectService
+  selectService
 } from '../../../ducks/berths';
+import { getBoatTypes, onSubmit } from '../../../ducks/forms';
+import { withMatchParamsHandlers } from '../../../utils/container';
 import BerthPage from '../BerthPage';
 
 import { Berths as BerthsType, SelectedBerths } from '../../../types/berths';
-import { SelectedServices } from '../../../types/services';
 import { BoatTypes } from '../../../types/boatTypes';
 import { Store } from '../../../types/ducks';
+import { SelectedServices } from '../../../types/services';
 
-type Props = {
+interface Props {
   getBerths: () => Promise<BerthsType>;
   getBoatTypes: () => Promise<BoatTypes>;
   boatTypes: BoatTypes;
@@ -32,7 +32,7 @@ type Props = {
   deselectService: Function;
   onSubmit: Function;
   localePush: Function;
-};
+}
 
 export default compose<Props, {}>(
   withMatchParamsHandlers,

@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
+import { getBoatTypes, onSend, onSubmit } from '../../../ducks/forms';
 import { withMatchParamsHandlers } from '../../../utils/container';
-import { onSubmit, onSend, getBoatTypes } from '../../../ducks/forms';
 import FormPage from '../FormPage';
 
-import { Store } from '../../../types/ducks';
-import { BoatTypes } from '../../../types/boatTypes';
 import { Berths, SelectedBerths } from '../../../types/berths';
+import { BoatTypes } from '../../../types/boatTypes';
+import { Store } from '../../../types/ducks';
 
-type Props = {
+interface Props {
   initialValues: {};
   boatTypes: BoatTypes;
   berths: Berths;
@@ -18,7 +18,7 @@ type Props = {
   localePush: Function;
   getBoatTypes: Function;
   tab: string;
-};
+}
 
 export default compose<Props, {}>(
   withMatchParamsHandlers,

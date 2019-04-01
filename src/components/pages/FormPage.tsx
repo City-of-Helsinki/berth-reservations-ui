@@ -1,19 +1,19 @@
-import React, { PureComponent } from 'react';
 import { findIndex } from 'lodash';
-import { Col, Row, Container } from 'reactstrap';
+import React, { PureComponent } from 'react';
+import { Col, Container, Row } from 'reactstrap';
 import styled from 'styled-components';
-import Layout from '../layout/Layout';
-import FormLegend from '../legends/FormLegend';
-import Steps from '../steps/Steps';
-import Wizard from '../forms/Wizard';
 import ApplicantDetails from '../forms/sections/ApplicantDetails';
 import BoatDetails from '../forms/sections/BoatDetails';
 import Overview from '../forms/sections/Overview';
+import Wizard from '../forms/Wizard';
+import Layout from '../layout/Layout';
+import FormLegend from '../legends/FormLegend';
+import Steps from '../steps/Steps';
 
-import { BoatTypes } from '../../types/boatTypes';
 import { Berths, SelectedBerths } from '../../types/berths';
+import { BoatTypes } from '../../types/boatTypes';
 
-type Props = {
+interface Props {
   initialValues: {};
   boatTypes: BoatTypes;
   berths: Berths;
@@ -23,7 +23,7 @@ type Props = {
   localePush: Function;
   getBoatTypes: Function;
   tab: string;
-};
+}
 
 const FormHeaderSection = styled.div`
   background-color: ${props => props.theme.colors.helFog};

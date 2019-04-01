@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import styled from 'styled-components';
-import { FormattedMessage } from 'react-intl';
 import Layout from '../layout/Layout';
 import ThankYouLegend from '../legends/ThankYouLegend';
 
@@ -13,10 +13,10 @@ const ButtonSection = styled.div`
   margin-bottom: 3em;
 `;
 
-type Props = {
+interface Props {
   resetValues: Function;
   resetBerths: Function;
-};
+}
 
 class ThankYouPage extends Component<Props> {
   constructor(props: Props) {

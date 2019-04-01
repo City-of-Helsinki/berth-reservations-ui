@@ -1,4 +1,4 @@
-export type DefaultFieldProps = {
+export interface DefaultFieldProps {
   id: string;
   name: string;
   value?: string | number;
@@ -7,4 +7,4 @@ export type DefaultFieldProps = {
   required?: boolean;
   text?: string;
   children?: any;
-};
+}

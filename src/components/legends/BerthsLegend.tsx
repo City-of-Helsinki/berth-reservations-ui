@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
-import styled from 'styled-components';
-import { Col, Row, Container } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
-import Form from '../forms/Form';
+import { Col, Container, Row } from 'reactstrap';
+import styled from 'styled-components';
+import Icon, { IconNames } from '../common/Icon';
 import AutoSave from '../forms/AutoSave';
+import Form from '../forms/Form';
 import UnRegisteredBoatDetails from '../forms/fragments/UnRegisteredBoatDetails';
 import { WithBoatType } from '../forms/Selects';
-import Icon, { IconNames } from '../common/Icon';
 import Steps from '../steps/Steps';
 
 import { SelectedServices } from '../../types/services';
@@ -20,18 +20,18 @@ const LegendContainer = styled(Container)`
 `;
 
 type Props = {
-  initialValues: Object;
+  initialValues: object;
   onSubmit: Function;
   selectService: Function;
   deselectService: Function;
   selectedServices: SelectedServices;
 } & WithBoatType;
 
-const services: {
+const services: Array<{
   label: string;
   value: 'electricity' | 'water' | 'waste_collection' | 'gate' | 'lighting';
   icon: IconNames;
-}[] = [
+}> = [
   {
     label: 'form.services.field.electricity.label',
     value: 'electricity',

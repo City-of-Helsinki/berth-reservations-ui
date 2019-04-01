@@ -1,7 +1,7 @@
 import React from 'react';
+import { FormattedHTMLMessage, FormattedMessage } from 'react-intl';
+import { Col, Container, Row } from 'reactstrap';
 import styled from 'styled-components';
-import { Col, Row, Container } from 'reactstrap';
-import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 
 const Legend = styled.div`
   background-color: ${props => props.theme.colors.helFog};

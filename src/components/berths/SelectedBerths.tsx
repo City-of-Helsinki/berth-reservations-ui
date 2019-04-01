@@ -5,13 +5,13 @@ import SelectedBerth from './SelectedBerth';
 
 import { Berths } from '../../types/berths';
 
-type Props = {
+interface Props {
   berths: Berths;
   moveDown: Function;
   moveUp: Function;
   deselectBerth: Function;
   berthValidator: Function;
-};
+}
 
 const SelectedBerths = ({ berths, moveUp, moveDown, deselectBerth, berthValidator }: Props) =>
   berths.size > 0 ? (

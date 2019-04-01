@@ -1,16 +1,16 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router';
 import { IntlProvider } from 'react-intl';
+import { Redirect, Route, Switch } from 'react-router';
 import messages from '../config/translations';
 
 import BerthPage from './pages/containers/BerthPageContainer';
 import FormPage from './pages/containers/FormPageContainer';
-import ThankYouPage from './pages/containers/ThankYouPageContainer';
 import SelectedBerthPage from './pages/containers/SelectedBerthPageContainer';
+import ThankYouPage from './pages/containers/ThankYouPageContainer';
 
-type Props = {
+interface Props {
   locale: 'fi' | 'en' | 'sv';
-};
+}
 
 const App = ({ locale }: Props) => (
   <IntlProvider locale={locale} key={locale} messages={messages[locale]}>
