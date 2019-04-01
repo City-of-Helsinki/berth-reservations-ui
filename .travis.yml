@@ -12,8 +12,8 @@ before_install:
   - export PATH="$HOME/.yarn/bin:$PATH"
 install:
   - yarn
-  - cypress install
+  # - cypress install
 script:
-  - yarn eslint './src/**/*.js'
+  - yarn tslint
   - yarn build
-  - yarn test:ci
+  # - yarn test:ci
