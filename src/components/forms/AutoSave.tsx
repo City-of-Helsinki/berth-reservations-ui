@@ -1,0 +1,47 @@
+import React, { Component } from 'react';
+import { FormSpy, FormSpyProps, FormSpyRenderProps } from 'react-final-form';
+
+interface Props {
+  save: Function;
+  debounce: number;
+}
+
+class AutoSave extends Component<Props & FormSpyRenderProps> {
+  timeout?: number;
+
+  promise?: Promise<any>;
+  constructor(props: Props & FormSpyRenderProps) {
+    super(props);
+
+    this.timeout = undefined;
+    this.promise = undefined;
+  }
+
+  componentWillReceiveProps() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
+    this.timeout = setTimeout(this.save, this.props.debounce);
+  }
+
+  save = async () => {
+    if (this.promise) {
+      await this.promise;
+    }
+
+    const { values, save } = this.props;
+
+    this.promise = save(values);
+    await this.promise;
+    delete this.promise;
+  };
+
+  render() {
+    return this.promise ? 'submitting' : null;
+  }
+}
+
+export default (props: Props) => (
+  // @ts-ignore
+  <FormSpy {...props} subscription={{ values: true }} component={AutoSave} />
+);

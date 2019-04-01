@@ -30,7 +30,7 @@
     font-size: 0.8em;
     line-height: 1;
 
-    @include for-mobile {
+    @include for-phone {
       font-size: 1em;
       font-weight: $font-weight-normal;
       &.is-selected {
