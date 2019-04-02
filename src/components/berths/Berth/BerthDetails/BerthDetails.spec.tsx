@@ -1,6 +1,5 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import { IconNames } from '../../../common/Icon';
 import BerthDetails from './index';
 import BerthDetailsProps from './types';
 

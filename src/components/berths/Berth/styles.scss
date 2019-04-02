@@ -5,7 +5,6 @@ $berthIconSize: 42px;
 $berthImageHeight: 12em;
 
 .app-berth {
-  @extend %theme;
   background-color: $hel-light;
 
   &__image {
@@ -72,7 +71,7 @@ $berthImageHeight: 12em;
     }
 
     small {
-      font-size: $smallFontsize;
+      font-size: $font-size-sm;
     }
     a {
       color: black;
@@ -89,7 +88,7 @@ $berthImageHeight: 12em;
 
   &__website-link {
     margin-top: 0.5em;
-    font-weight: $fontWeightBold;
+    font-weight: $font-weight-bold;
 
     svg {
       height: '1em';

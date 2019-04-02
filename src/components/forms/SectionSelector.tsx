@@ -1,17 +1,12 @@
 import classNames from 'classnames';
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
-import styled from 'styled-components';
 
 import { FormattedMessage } from 'react-intl';
 import responsive from '../../utils/responsive';
 import Icon, { IconNames } from '../common/Icon';
 import LocalizedLink from '../common/LocalizedLink';
 
-const ButtonWrapper = styled.div`
-  background-color: ${props => props.theme.helLight};
-  padding: 1em;
-`;
 interface TypeProps {
   label: string;
   tab: string;

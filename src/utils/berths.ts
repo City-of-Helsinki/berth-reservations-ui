@@ -1,6 +1,5 @@
 import { get } from 'lodash';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getBerthFilterByValues = (values: {}, selectedServices: any) => {
   const width = get(values, 'boat_width', '').replace(',', '.');
   const length = get(values, 'boat_length', '').replace(',', '.');

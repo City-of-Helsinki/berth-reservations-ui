@@ -8,6 +8,7 @@ import { getLocalizedText } from '../../../utils/berths';
 import Icon from '../../common/Icon';
 import Image from '../../common/Image';
 import IntlComponent from '../../common/IntlComponent';
+import './styles.scss';
 import { Berth as BerthType } from './types';
 
 type Props = {

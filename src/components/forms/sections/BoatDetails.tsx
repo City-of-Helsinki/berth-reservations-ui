@@ -2,7 +2,6 @@ import { get } from 'lodash';
 import React from 'react';
 import { injectIntl } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
-import styled from 'styled-components';
 
 import NoBoat from '../tabs/NoBoat';
 import RegisteredBoat from '../tabs/RegisteredBoat';

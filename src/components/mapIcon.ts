@@ -1,14 +1,14 @@
 import L from 'leaflet';
 
-import HarborMatchActive from './common/icons/harbor-match-active.svg';
-import HarborMatchActiveAndSelected from './common/icons/harbor-match-chosen-active.svg';
-import HarborMatchSelected from './common/icons/harbor-match-chosen.svg';
-import HarborMatchUnselected from './common/icons/harbor-match.svg';
+import HarborMatchActive from './common/Icon/icons/harbor-match-active.svg';
+import HarborMatchActiveAndSelected from './common/Icon/icons/harbor-match-chosen-active.svg';
+import HarborMatchSelected from './common/Icon/icons/harbor-match-chosen.svg';
+import HarborMatchUnselected from './common/Icon/icons/harbor-match.svg';
 
-import HarborUnmatchActive from './common/icons/harbor-unmatch-active.svg';
-import HarborUnmatchActiveAndSelected from './common/icons/harbor-unmatch-chosen-active.svg';
-import HarborUnmatchSelected from './common/icons/harbor-unmatch-chosen.svg';
-import HarborUnmatchUnselected from './common/icons/harbor-unmatch.svg';
+import HarborUnmatchActive from './common/Icon/icons/harbor-unmatch-active.svg';
+import HarborUnmatchActiveAndSelected from './common/Icon/icons/harbor-unmatch-chosen-active.svg';
+import HarborUnmatchSelected from './common/Icon/icons/harbor-unmatch-chosen.svg';
+import HarborUnmatchUnselected from './common/Icon/icons/harbor-unmatch.svg';
 
 // @ts-ignore
 delete L.Icon.Default.prototype._getIconUrl;
