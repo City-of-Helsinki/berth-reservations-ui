@@ -1,8 +1,8 @@
 import React from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
-import Icon from '../common/Icon';
-import LocalizedLink from '../common/LocalizedLink';
+import Icon from '../../common/Icon';
+import LocalizedLink from '../../common/LocalizedLink';
 
 type Props = InjectedIntlProps;
 

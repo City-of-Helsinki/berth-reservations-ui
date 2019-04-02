@@ -5,7 +5,7 @@ import { getBerthFilterByValues } from '../../utils/berths';
 import Berths from '../berths';
 import BerthsOnMap from '../berths/BerthsOnMap';
 import TabSelector from '../berths/TabSelector';
-import Layout from '../layout/Layout';
+import Layout from '../layout';
 import BerthsLegend from '../legends/BerthsLegend';
 
 import { BoatTypes } from '../../types/boatTypes';

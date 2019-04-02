@@ -5,7 +5,7 @@ import ApplicantDetails from '../forms/sections/ApplicantDetails';
 import BoatDetails from '../forms/sections/BoatDetails';
 import Overview from '../forms/sections/Overview';
 import Wizard from '../forms/Wizard';
-import Layout from '../layout/Layout';
+import Layout from '../layout';
 import FormLegend from '../legends/FormLegend';
 import Steps from '../steps/Steps';
 

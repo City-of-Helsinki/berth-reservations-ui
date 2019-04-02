@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import Svg from 'react-svg';
 import angleDown from './icons/angle-down.svg';
@@ -56,15 +57,8 @@ interface Props {
   className?: string;
 }
 
-const Icon = ({
-  name,
-  color: fill = 'currentColor',
-  width = 'auto',
-  height = 'auto',
-  className,
-  ...rest
-}: Props) => (
-  <Svg className={className} svgStyle={{ width, height, fill }} src={icons[name]} {...rest} />
+const Icon = ({ name, className, ...rest }: Props) => (
+  <Svg className={classNames('app-Icon', className)} src={icons[name]} {...rest} />
 );
 
 export default Icon;
