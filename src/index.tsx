@@ -9,8 +9,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
 
-import { ThemeProvider } from 'styled-components';
-import theme from './config/theme';
+import './assets/styles/main.scss';
 
 import configureStore from './config/configureStore';
 import * as serviceWorker from './serviceWorker';
@@ -33,14 +32,12 @@ Sentry.init({
 
 const Root = () => (
   <Provider store={configureStore()}>
-    <ThemeProvider theme={theme}>
-      <Router history={piwik.connectToHistory(history)}>
-        <Switch>
-          <Redirect exact path="/" to="/fi" />
-          <Route path="/:locale" component={App} />
-        </Switch>
-      </Router>
-    </ThemeProvider>
+    <Router history={piwik.connectToHistory(history)}>
+      <Switch>
+        <Redirect exact path="/" to="/fi" />
+        <Route path="/:locale" component={App} />
+      </Switch>
+    </Router>
   </Provider>
 );
 

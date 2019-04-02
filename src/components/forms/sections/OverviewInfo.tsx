@@ -12,7 +12,6 @@ import BoatMeasures from '../fragments/overview/BoatMeasures';
 import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
 import Person from '../fragments/overview/Person';
 import { WithBoatType } from '../Selects';
-import './_overview-info.scss';
 
 type Props = {
   values: {

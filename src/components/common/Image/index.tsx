@@ -1,11 +1,12 @@
 import React from 'react';
+import { ImageProps } from './types';
 
-function Image({ src, alt, ...rest }) {
+const Image = ({ src, alt, ...rest }: ImageProps) => {
   return (
     <div className="app-image">
       <img src={src} alt={alt} {...rest} />
     </div>
   );
-}
+};
 
 export default Image;

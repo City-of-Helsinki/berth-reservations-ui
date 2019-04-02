@@ -2,9 +2,7 @@ import { get } from 'lodash';
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Alert, Button, Col, Container, Row } from 'reactstrap';
-import styled from 'styled-components';
 import { getBerthFilterByValues } from '../../utils/berths';
-import responsive from '../../utils/responsive';
 import SelectedBerths from '../berths/SelectedBerths';
 import Icon from '../common/Icon';
 import LocalizedLink from '../common/LocalizedLink';
@@ -14,42 +12,6 @@ import SelectedBerthsLegend from '../legends/SelectedBerthsLegend';
 import { BoatTypes } from '../../types/boatTypes';
 import { SelectedServices } from '../../types/services';
 import { Berths as BerthsType, SelectedBerths as SelectedBerthsType } from '../berths/types';
-
-const PrevnextWrapperWrapper = styled.div`
-  background-color: ${props => props.theme.helLight};
-  padding: 1em 0 3em;
-`;
-
-const PrevnextWrapper = styled(Col).attrs({
-  xs: 12
-})`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  ${responsive.sm`
-    flex-direction: row;
-  `}
-`;
-
-const BoatValue = styled.span`
-  margin-left: 1ch;
-`;
-
-const PageContainer = styled(Container)`
-  padding-top: 3em;
-  padding-bottom: 3em;
-`;
-
-const Notice = styled.div`
-  display: flex;
-  justify-content: left;
-  flex-direction: row;
-`;
-
-const NoticeIcon = styled(Icon)`
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-`;
 
 interface Props {
   boatTypes: BoatTypes;
@@ -104,7 +66,7 @@ class BerthPage extends Component<Props> {
     return (
       <Layout>
         <SelectedBerthsLegend />
-        <PageContainer>
+        <Container>
           <Row>
             <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
               <FormattedMessage tagName="h1" id="page.berth.selected.title" />
@@ -115,30 +77,30 @@ class BerthPage extends Component<Props> {
                     {type && (
                       <Col md="5">
                         <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
-                        <BoatValue>{boatType.name[locale]}</BoatValue>
+                        <span>{boatType.name[locale]}</span>
                       </Col>
                     )}
                     {width && (
                       <Col md="3">
                         <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:
-                        <BoatValue>{width} m</BoatValue>
+                        <span>{width} m</span>
                       </Col>
                     )}
                     {length && (
                       <Col md="3">
                         <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:
-                        <BoatValue>{length} m</BoatValue>
+                        <span>{length} m</span>
                       </Col>
                     )}
                   </Row>
                 </Container>
               ) : (
-                <Notice>
-                  <NoticeIcon color="red" name="exclamationCircle" width="1.5em" height="1.5em" />
+                <div>
+                  <Icon color="red" name="exclamationCircle" width="1.5em" height="1.5em" />
                   <LocalizedLink to="">
                     <FormattedMessage tagName="span" id="page.berth.selected.info_text" />
                   </LocalizedLink>
-                </Notice>
+                </div>
               )}
               <hr />
               {validSelection || (
@@ -160,27 +122,25 @@ class BerthPage extends Component<Props> {
               />
             </Col>
           </Row>
-        </PageContainer>
-        <PrevnextWrapperWrapper>
-          <Container>
-            <Row>
-              <PrevnextWrapper>
-                <Button color="link" type="button" onClick={this.handlePrevious}>
-                  <FormattedMessage id="form.wizard.button.previous" />
-                </Button>
-                <Button
-                  onClick={this.moveToForm}
-                  outline
-                  color="primary"
-                  size="lg"
-                  disabled={berths.size === 0}
-                >
-                  <FormattedMessage tagName="span" id="page.berth.selected.submit" />
-                </Button>
-              </PrevnextWrapper>
-            </Row>
-          </Container>
-        </PrevnextWrapperWrapper>
+        </Container>
+        <Container>
+          <Row>
+            <Col xs={12}>
+              <Button color="link" type="button" onClick={this.handlePrevious}>
+                <FormattedMessage id="form.wizard.button.previous" />
+              </Button>
+              <Button
+                onClick={this.moveToForm}
+                outline
+                color="primary"
+                size="lg"
+                disabled={berths.size === 0}
+              >
+                <FormattedMessage tagName="span" id="page.berth.selected.submit" />
+              </Button>
+            </Col>
+          </Row>
+        </Container>
       </Layout>
     );
   }

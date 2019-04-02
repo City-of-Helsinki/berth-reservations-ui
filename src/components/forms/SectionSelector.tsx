@@ -3,7 +3,6 @@ import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
 import { FormattedMessage } from 'react-intl';
-import responsive from '../../utils/responsive';
 import Icon, { IconNames } from '../common/Icon';
 import LocalizedLink from '../common/LocalizedLink';
 

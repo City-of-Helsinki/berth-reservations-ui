@@ -3,7 +3,6 @@ import { Popover, PopoverBody } from 'reactstrap';
 
 import Icon from '../../common/Icon';
 import IntlComponent from '../../common/IntlComponent';
-import './styles.scss';
 
 class InvalidSelection extends PureComponent<any, any> {
   state = {

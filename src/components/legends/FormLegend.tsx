@@ -1,10 +1,5 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import styled from 'styled-components';
-
-const Legend = styled.div`
-  padding-bottom: 2em;
-`;
 
 const stepLegends = [
   {
@@ -26,8 +21,8 @@ interface Props {
 }
 
 export default ({ step }: Props) => (
-  <Legend>
+  <div>
     <FormattedMessage tagName="h3" id={stepLegends[step].title} />
     <FormattedMessage tagName="p" id={stepLegends[step].legend} />
-  </Legend>
+  </div>
 );

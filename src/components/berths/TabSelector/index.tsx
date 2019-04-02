@@ -5,7 +5,6 @@ import { Sticky, StickyContainer } from 'react-sticky';
 import { Button, Container } from 'reactstrap';
 import IntlComponent from '../../common/IntlComponent';
 import InvalidSelection from '../InvalidSelection';
-import './styles.scss';
 
 interface Props {
   children: React.ReactNode;

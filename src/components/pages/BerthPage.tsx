@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import styled from 'styled-components';
 
 import { getBerthFilterByValues } from '../../utils/berths';
 import Berths from '../berths';
@@ -12,10 +11,6 @@ import BerthsLegend from '../legends/BerthsLegend';
 import { BoatTypes } from '../../types/boatTypes';
 import { SelectedServices } from '../../types/services';
 import { Berths as BerthsType, SelectedBerths } from '../berths/types';
-
-const Wrapper = styled.div`
-  margin-bottom: 5em;
-`;
 
 interface Props {
   getBerths: () => Promise<BerthsType>;
@@ -86,36 +81,34 @@ class BerthPage extends Component<Props> {
 
     return (
       <Layout hero>
-        <Wrapper>
-          <BerthsLegend
-            boatTypes={boatTypes}
-            initialValues={initialValues}
-            onSubmit={onSubmit}
-            selectedServices={selectedServices}
-            selectService={selectService}
-            deselectService={deselectService}
+        <BerthsLegend
+          boatTypes={boatTypes}
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+          selectedServices={selectedServices}
+          selectService={selectService}
+          deselectService={deselectService}
+        />
+        <TabSelector
+          progress={this.moveToForm}
+          selectedCount={selectedBerths.size}
+          validSelection={validSelection}
+        >
+          <BerthsOnMap
+            TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
+            filtered={filtered}
+            filteredNot={FilteredNot}
+            selected={selectedBerths}
+            onClick={this.toggleBerthSelect}
           />
-          <TabSelector
-            progress={this.moveToForm}
-            selectedCount={selectedBerths.size}
-            validSelection={validSelection}
-          >
-            <BerthsOnMap
-              TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
-              filtered={filtered}
-              filteredNot={FilteredNot}
-              selected={selectedBerths}
-              onClick={this.toggleBerthSelect}
-            />
-            <Berths
-              TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
-              filtered={filtered}
-              filteredNot={FilteredNot}
-              selected={selectedBerths}
-              onClick={this.toggleBerthSelect}
-            />
-          </TabSelector>
-        </Wrapper>
+          <Berths
+            TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
+            filtered={filtered}
+            filteredNot={FilteredNot}
+            selected={selectedBerths}
+            onClick={this.toggleBerthSelect}
+          />
+        </TabSelector>
       </Layout>
     );
   }

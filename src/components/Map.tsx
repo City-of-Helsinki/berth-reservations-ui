@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Map, TileLayer } from 'react-leaflet';
 import { Container } from 'reactstrap';
-import styled from 'styled-components';
 
 import mapIcon from './mapIcon';
 import MapMarker from './MapMarker';
@@ -10,15 +9,6 @@ import MapMarker from './MapMarker';
 import Berth from './berths/Berth';
 import { Berth as BerthType } from './berths/Berth/types';
 import { Berths, SelectedBerths } from './berths/types';
-
-const ListHeader = styled.h3`
-  margin: 1em 0;
-`;
-
-const style = {
-  width: '100%',
-  height: '30em'
-};
 
 interface State {
   lat: number;
@@ -63,10 +53,10 @@ export default class MapCanvas extends Component<Props, State> {
 
     return (
       <Container>
-        <ListHeader>
+        <h3>
           <FormattedMessage id="page.berths.list.berth_count" values={{ count: filtered.size }} />
-        </ListHeader>
-        <Map center={position} zoom={this.state.zoom} style={style}>
+        </h3>
+        <Map center={position} zoom={this.state.zoom}>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {filtered.map(berth => {
             const isSelected = !!selected && selected.includes(berth.identifier);

@@ -14,7 +14,10 @@ interface Props {
 }
 
 export default ({ htmlFor, required, text }: Props) => (
-  <Label htmlFor={htmlFor} className={classNames('app-label', { 'is-required': required })}>
+  <Label
+    htmlFor={htmlFor}
+    className={classNames('app-Formfield__label', { 'is-required': required })}
+  >
     <FormattedMessage id={text} />
   </Label>
 );

@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { FormattedMessage } from 'react-intl';
-import styled from 'styled-components';
 import Accessibility from '../fragments/Accessibility';
 import BigShips from '../fragments/BigShips';
 import BoatInfo from '../fragments/BoatInfo';
@@ -14,11 +13,6 @@ type Props = {
   ShowBigShipsForm: boolean;
 } & WithBoatType;
 
-const GrayBackground = styled.div`
-  background: #eee;
-  padding: 1em;
-`;
-
 export default ({ prefix, ShowBigShipsForm, boatTypes }: Props) => (
   <StyledContainer>
     <FormattedMessage tagName="h3" id="form.registered.header.title" />
@@ -27,13 +21,13 @@ export default ({ prefix, ShowBigShipsForm, boatTypes }: Props) => (
     <FormattedMessage tagName="h3" id="form.registered.header.measures" />
     <BoatMeasures />
     {ShowBigShipsForm && (
-      <GrayBackground>
+      <Fragment>
         <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
         <FormattedMessage tagName="p" id="form.big_ship.text.summary" />
         <FormattedMessage tagName="h3" id="form.big_ship.header.details" />
         <BigShips />
         <FormattedMessage tagName="p" id="form.big_ship.text.inspection_and_insurance" />
-      </GrayBackground>
+      </Fragment>
     )}
     <FormattedMessage tagName="h3" id="form.registered.header.additional_info" />
 

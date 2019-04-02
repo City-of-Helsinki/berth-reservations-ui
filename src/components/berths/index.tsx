@@ -4,8 +4,6 @@ import { Col, Container, Row } from 'reactstrap';
 
 import Berth from './Berth';
 
-import './styles.scss';
-
 import { BerthProps } from './types';
 
 const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;

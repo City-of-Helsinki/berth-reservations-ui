@@ -1,13 +1,17 @@
 // External style from libraries
 
 // @import './bootstrap';
-// @import './external';
-
-// Normalize
-@import './normalize';
+@import 'external';
 
 // Custom variables
-@import './custom-variable';
+@import 'custom-variable';
 
 // Custom mixins
-@import './mixin';
+@import 'mixin';
+
+// Normalize
+@import 'normalize';
+
+// Components
+
+@import 'components';

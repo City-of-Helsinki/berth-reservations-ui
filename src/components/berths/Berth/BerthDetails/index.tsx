@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import Icon from '../../../common/Icon';
-import './styles.scss';
 import BerthDetailsProps from './types';
 
 const BerthDetails = ({ iconName, available, value, titleId }: BerthDetailsProps) => {
