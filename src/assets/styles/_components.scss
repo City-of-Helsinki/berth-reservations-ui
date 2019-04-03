@@ -1,23 +1,13 @@
-@import 'common/Icon/styles';
-@import 'common/Map/styles';
+@import '../../components/common/styles';
 
-@import 'berths/styles';
+@import '../../components/berths/styles';
 
-@import 'berths/InvalidSelection/styles';
-@import 'berths/TabSelector/styles';
+@import '../../components/forms/styles';
 
-@import 'berths/Berth/styles';
-@import 'berths/Berth/BerthDetails/styles';
-@import 'berths/Berth/SelectedBerth/styles';
+@import '../../components/layout/styles';
 
-@import 'forms/sections/styles';
-@import 'forms/fragments/overview/styles';
-@import 'forms/styles';
+@import '../../components/legends/styles';
 
-@import 'layout/styles';
+@import '../../components/pages/styles';
 
-@import 'legends/styles';
-
-@import 'pages/styles';
-
-@import 'steps/styles';
+@import '../../components/steps/styles';
