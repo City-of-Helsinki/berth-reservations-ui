@@ -45,7 +45,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
         </Col>
         <Col xs={4} md={2} className="app-overview-info__edit-icon">
           <LocalizedLink to={`form/${tabs[0]}`} className="app-overview-info__edit-link">
-            <Icon name="pencil" width="30px" height="30px" color="black" />
+            <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
           </LocalizedLink>
         </Col>
@@ -89,7 +89,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
         </Col>
         <Col xs={4} md={2} className="app-overview-info__edit-icon">
           <LocalizedLink to="berths" className="app-overview-info__edit-link">
-            <Icon name="pencil" width="30px" height="30px" color="black" />
+            <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
           </LocalizedLink>
         </Col>
@@ -109,7 +109,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
         </Col>
         <Col xs={4} md={2} className="app-overview-info__edit-icon">
           <LocalizedLink to={`form/${tabs[1]}`} className="app-overview-info__edit-link">
-            <Icon name="pencil" width="30px" height="30px" color="black" />
+            <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
           </LocalizedLink>
         </Col>

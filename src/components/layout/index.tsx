@@ -33,23 +33,25 @@ const Layout = ({ children, hero, intl: { locale } }: Props) => (
       </div>
     )}
 
-    <KoroSection bottom color="white" className="app-Layout__koro">
-      <Container>
-        <Row>
-          <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-            <FormattedMessage tagName="h1" id="hero.title" />
-            <FormattedMessage tagName="p" id="hero.paragraph.first" />
-            <FormattedHTMLMessage
-              tagName="p"
-              id="hero.paragraph.second"
-              values={{ url: getHeroContentLink(locale) }}
-            />
-          </Col>
-        </Row>
-      </Container>
-    </KoroSection>
+    {hero && (
+      <KoroSection bottom color="white" className="app-Layout__koro">
+        <Container>
+          <Row>
+            <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
+              <FormattedMessage tagName="h1" id="hero.title" />
+              <FormattedMessage tagName="p" id="hero.paragraph.first" />
+              <FormattedHTMLMessage
+                tagName="p"
+                id="hero.paragraph.second"
+                values={{ url: getHeroContentLink(locale) }}
+              />
+            </Col>
+          </Row>
+        </Container>
+      </KoroSection>
+    )}
 
-    <KoroSection color="fog" bottom>
+    <KoroSection top color="fog">
       {children}
     </KoroSection>
     <KoroSection bottom color="blue">

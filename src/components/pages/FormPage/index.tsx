@@ -1,16 +1,16 @@
 import { findIndex } from 'lodash';
 import React, { PureComponent } from 'react';
 import { Col, Container, Row } from 'reactstrap';
-import ApplicantDetails from '../forms/sections/ApplicantDetails';
-import BoatDetails from '../forms/sections/BoatDetails';
-import Overview from '../forms/sections/Overview';
-import Wizard from '../forms/Wizard';
-import Layout from '../layout';
-import FormLegend from '../legends/FormLegend';
-import Steps from '../steps/Steps';
+import ApplicantDetails from '../../forms/sections/ApplicantDetails';
+import BoatDetails from '../../forms/sections/BoatDetails';
+import Overview from '../../forms/sections/Overview';
+import Wizard from '../../forms/Wizard';
+import Layout from '../../layout';
+import FormLegend from '../../legends/FormLegend';
+import Steps from '../../steps';
 
-import { BoatTypes } from '../../types/boatTypes';
-import { Berths, SelectedBerths } from '../berths/types';
+import { BoatTypes } from '../../../types/boatTypes';
+import { Berths, SelectedBerths } from '../../berths/types';
 
 interface Props {
   initialValues: {};

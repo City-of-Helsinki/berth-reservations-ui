@@ -1,5 +1,5 @@
 import React from 'react';
-import Map from '../../Map';
+import Map from '../../common/Map';
 
 import { Berths as BerthsType, SelectedBerths } from '../../berths/types';
 

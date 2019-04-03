@@ -34,8 +34,11 @@ $berthIconSize: 42px;
   }
 
   &__icon {
-    height: $berthIconSize;
-    width: $berthIconSize;
+    .app-Icon {
+      height: $berthIconSize;
+      width: $berthIconSize;
+      margin: 0 auto;
+    }
 
     margin: 4px;
     display: none;
@@ -62,7 +65,7 @@ $berthIconSize: 42px;
     }
   }
 
-  &-title {
+  &__title {
     text-align: center;
 
     @include for-tablet {

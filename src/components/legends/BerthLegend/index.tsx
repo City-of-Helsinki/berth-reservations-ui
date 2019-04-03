@@ -1,14 +1,15 @@
+import classNames from 'classnames';
 import React, { Fragment } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
-import Icon, { IconNames } from '../common/Icon';
-import AutoSave from '../forms/AutoSave';
-import Form from '../forms/Form';
-import UnRegisteredBoatDetails from '../forms/fragments/UnRegisteredBoatDetails';
-import { WithBoatType } from '../forms/Selects';
-import Steps from '../steps/Steps';
+import Icon, { IconNames } from '../../common/Icon';
+import AutoSave from '../../forms/AutoSave';
+import Form from '../../forms/Form';
+import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
+import { WithBoatType } from '../../forms/Selects';
+import Steps from '../../steps';
 
-import { SelectedServices } from '../../types/services';
+import { SelectedServices } from '../../../types/services';
 
 type Props = {
   initialValues: object;
@@ -89,7 +90,7 @@ const BerthsLegend = ({
             ]}
           />
 
-          <div>
+          <div className="app-BerthsLegend__header">
             <FormattedMessage tagName="h3" id="legend.berths.title" />
             <FormattedMessage tagName="p" id="legend.berths.legend" />
           </div>
@@ -103,9 +104,11 @@ const BerthsLegend = ({
             )}
           </Form>
 
-          <FormattedMessage tagName="span" id="form.services.field.services.label" />
+          <div className="app-BerthsLegend__services__header">
+            <FormattedMessage tagName="span" id="form.services.field.services.label" />
+          </div>
 
-          <div>
+          <div className="app-BerthsLegend__services">
             {services.map((service, index) => {
               const selected = selectedServices.get(service.value);
               return (
@@ -116,8 +119,16 @@ const BerthsLegend = ({
                   }
                 >
                   <Fragment>
-                    <Icon name={service.icon} width="42px" height="42px" />
-                    <FormattedMessage id={service.label} />
+                    <div
+                      className={classNames('app-BerthsLegend__services__icon-wrapper', {
+                        selected
+                      })}
+                    >
+                      <Icon name={service.icon} />
+                    </div>
+                    <div className="app-BerthsLegend__services__label">
+                      <FormattedMessage id={service.label} />
+                    </div>
                   </Fragment>
                 </button>
               );

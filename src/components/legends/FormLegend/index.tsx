@@ -21,7 +21,7 @@ interface Props {
 }
 
 export default ({ step }: Props) => (
-  <div>
+  <div className="app-FormLegend">
     <FormattedMessage tagName="h3" id={stepLegends[step].title} />
     <FormattedMessage tagName="p" id={stepLegends[step].legend} />
   </div>

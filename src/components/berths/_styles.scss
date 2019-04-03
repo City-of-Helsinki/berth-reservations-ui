@@ -11,9 +11,18 @@
 
   h3 {
     margin: 1em 0;
+    span {
+      font-weight: inherit;
+      font-size: inherit;
+    }
   }
 
   &__invalid-selection {
+    .app-Icon {
+      width: 1em;
+      height: 1em;
+      fill: $hel-brick;
+    }
     position: relative;
     display: inline-block;
     margin-left: 0.25em;

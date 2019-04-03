@@ -9,7 +9,6 @@
 
   &__wrapper {
     display: flex;
-    justify-content: space-between;
     align-items: left;
     flex-direction: column-reverse;
 
@@ -21,17 +20,20 @@
   &__tab-button {
     outline: none;
     border: none;
-    color: $hel-black;
+    color: $hel-black !important;
     padding: 0.5em 1em;
+    border-radius: 0;
+    background-color: transparent !important;
 
-    .active {
-      background-color: $hel-white;
+    &.active {
+      background-color: $hel-white !important;
     }
-    :active,
-    :focus {
-      outline: none;
+    &:active,
+    &:focus {
+      outline: none !important;
+      box-shadow: none !important;
     }
-    :hover {
+    &:hover {
       cursor: pointer;
     }
 
@@ -49,6 +51,7 @@
     align-items: center;
     justify-content: flex-end;
     font-size: $font-size-sm;
+    flex-grow: 1;
     line-height: 1;
     text-align: right;
     margin: 0.5em 0;

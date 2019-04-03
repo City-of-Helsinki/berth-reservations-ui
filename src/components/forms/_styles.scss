@@ -1,0 +1,62 @@
+@import './tabs/styles';
+
+.app-Form {
+  &__styled-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__section-selector {
+    background-color: $hel-light;
+    padding: 1em;
+
+    &__link {
+      display: block;
+      color: inherit;
+      padding: 1em;
+      text-align: center;
+      min-height: 8em;
+      background-color: 'unset';
+
+      &:hover,
+      &:active {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      svg {
+        max-height: 6em;
+      }
+
+      &.is-selected {
+        background-color: $hel-fog;
+      }
+
+      font-size: 0.8em;
+      line-height: 1;
+
+      @include for-phone {
+        font-size: 1em;
+        font-weight: $font-weight-normal;
+        &.is-selected {
+          font-weight: $font-weight-bold;
+        }
+      }
+    }
+  }
+
+  &__wizard-wrapper {
+    background-color: $hel-light;
+    padding: 1em 0 3em;
+
+    &__button-group {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+
+      @include for-phone {
+        flex-direction: column;
+      }
+    }
+  }
+}

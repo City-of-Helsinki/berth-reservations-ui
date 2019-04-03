@@ -3,12 +3,12 @@ import { FormattedMessage } from 'react-intl';
 import { Map, TileLayer } from 'react-leaflet';
 import { Container } from 'reactstrap';
 
-import mapIcon from './mapIcon';
+import mapIcon from './MapIcon';
 import MapMarker from './MapMarker';
 
-import Berth from './berths/Berth';
-import { Berth as BerthType } from './berths/Berth/types';
-import { Berths, SelectedBerths } from './berths/types';
+import Berth from '../../berths/Berth';
+import { Berth as BerthType } from '../../berths/Berth/types';
+import { Berths, SelectedBerths } from '../../berths/types';
 
 interface State {
   lat: number;
@@ -52,11 +52,11 @@ export default class MapCanvas extends Component<Props, State> {
       !!selectedBerth && filteredNot.some(berth => berth.identifier === selectedBerth.identifier);
 
     return (
-      <Container>
-        <h3>
+      <Container className="app-Map">
+        <h3 className="app-Map__header">
           <FormattedMessage id="page.berths.list.berth_count" values={{ count: filtered.size }} />
         </h3>
-        <Map center={position} zoom={this.state.zoom}>
+        <Map center={position} zoom={this.state.zoom} className="app-Map__map">
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {filtered.map(berth => {
             const isSelected = !!selected && selected.includes(berth.identifier);

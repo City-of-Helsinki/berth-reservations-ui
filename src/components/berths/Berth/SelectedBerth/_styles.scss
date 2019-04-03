@@ -25,6 +25,11 @@
     background-color: $hel-light;
     color: $hel-white;
 
+    .app-Icon {
+      height: 36px;
+      width: 36px;
+    }
+
     &.has-error {
       background-color: $hel-coat;
       color: $hel-gray;
@@ -67,6 +72,11 @@
       }
       &:hover {
         background-color: $hel-fog;
+      }
+
+      .app-Icon {
+        height: 36px;
+        width: 36px;
       }
 
       @include for-phone {

@@ -28,7 +28,7 @@ interface FormSelectWrapperProps {
 }
 
 const SectionSelector = ({ name, selected, types, sizes }: Props) => (
-  <div className="app-section-selector">
+  <div className="app-Form__section-selector">
     <Container>
       <Row>
         <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>

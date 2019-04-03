@@ -16,6 +16,12 @@
     margin-top: 1em;
     font-weight: bold;
     text-align: right;
+
+    .app-Icon {
+      height: 30px;
+      width: 30px;
+      fill: $hel-black;
+    }
   }
 
   &-edit-link {

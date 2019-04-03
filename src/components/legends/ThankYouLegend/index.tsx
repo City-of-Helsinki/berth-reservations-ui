@@ -3,7 +3,7 @@ import { FormattedHTMLMessage, FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
 
 export default () => (
-  <Container>
+  <Container className="app-ThankYouLegend">
     <Row>
       <Col md="12">
         <FormattedMessage tagName="h3" id="legend.thankyou.title" />

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { deselectBerth, moveDown, moveUp } from '../../../ducks/berths';
 import { withMatchParamsHandlers } from '../../../utils/container';
-import SelectedBerthPage from '../SelectedBerthPage';
+import SelectedBerthPage from '../BerthPage/SelectedBerthPage';
 
 import { BoatTypes } from '../../../types/boatTypes';
 import { Store } from '../../../types/ducks';

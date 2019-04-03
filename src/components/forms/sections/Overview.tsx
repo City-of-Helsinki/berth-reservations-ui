@@ -5,7 +5,6 @@ import { Berths } from '../../berths/types';
 import Agreement from '../fragments/Agreement';
 import Newsletter from '../fragments/Newsletter';
 import { WithBoatType } from '../Selects';
-import StyledContainer from '../StyledContainer';
 import OverviewInfo from './OverviewInfo';
 
 type Props = {
@@ -55,7 +54,7 @@ const Submit = ({
   <Container>
     <Row>
       <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-        <StyledContainer>
+        <Container className="app-Form__styled-container">
           <OverviewInfo
             selectedBerths={selectedBerths}
             tabs={tabs}
@@ -66,7 +65,7 @@ const Submit = ({
           <Newsletter />
           <FormattedMessage tagName="h3" id="form.overview.header.agreement.title" />
           <Agreement />
-        </StyledContainer>
+        </Container>
       </Col>
     </Row>
   </Container>

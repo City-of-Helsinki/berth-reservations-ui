@@ -73,23 +73,25 @@ class Wizard extends Component<Props, State> {
           <Fragment>
             {React.isValidElement(activePage) &&
               React.cloneElement<{ values?: {} }>(activePage, { values })}
-            <Container>
-              <Row>
-                <Col xs={12}>
-                  <Button color="link" type="button" onClick={() => this.handlePrevious(values)}>
-                    <FormattedMessage id="form.wizard.button.previous" />
-                  </Button>
-                  <Button
-                    type="submit"
-                    outline={this.hasNextStep()}
-                    color="primary"
-                    disabled={this.state.isSubmitting}
-                  >
-                    <FormattedMessage id={this.getSubmitText(invalid)} />
-                  </Button>
-                </Col>
-              </Row>
-            </Container>
+            <div className="app-Form__wizard-wrapper">
+              <Container>
+                <Row>
+                  <Col xs={12} className="app-Form__wizard-wrapper__button-group">
+                    <Button color="link" type="button" onClick={() => this.handlePrevious(values)}>
+                      <FormattedMessage id="form.wizard.button.previous" />
+                    </Button>
+                    <Button
+                      type="submit"
+                      outline={this.hasNextStep()}
+                      color="primary"
+                      disabled={this.state.isSubmitting}
+                    >
+                      <FormattedMessage id={this.getSubmitText(invalid)} />
+                    </Button>
+                  </Col>
+                </Row>
+              </Container>
+            </div>
           </Fragment>
         )}
       </Form>

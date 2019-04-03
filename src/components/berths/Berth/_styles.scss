@@ -3,6 +3,7 @@ $berthImageHeight: 12em;
 
 .app-berth {
   background-color: $hel-light;
+  margin-bottom: 2em;
 
   &__image {
     object-fit: cover;
@@ -81,15 +82,22 @@ $berthImageHeight: 12em;
 
   &__address {
     margin: 0.5em 0;
+
+    .app-Icon {
+      height: 1em;
+      width: 1em;
+      display: inline-block;
+      margin-right: 5px;
+    }
   }
 
   &__website-link {
     margin-top: 0.5em;
     font-weight: $font-weight-bold;
 
-    svg {
-      height: '1em';
-      width: '1em';
+    .app-Icon {
+      height: 1em;
+      width: 1em;
       display: inline-block;
     }
   }

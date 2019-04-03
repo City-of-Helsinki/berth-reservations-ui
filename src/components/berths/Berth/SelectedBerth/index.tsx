@@ -81,26 +81,16 @@ class SelectedBerth extends Component<Props, State> {
                 {!isValid && <InvalidSelection id={id} />}
               </span>
               <Button onClick={this.doDelete}>
-                <Icon name="times" width="30px" height="30px" />
+                <Icon name="times" />
               </Button>
             </div>
             <div className="app-berth__selected__options">
               <Button outline color="primary" onClick={this.doMoveUp} disabled={first}>
-                <Icon
-                  name="angleUp"
-                  width="36px"
-                  height="36px"
-                  color={first ? 'lightgray' : 'black'}
-                />
+                <Icon name="angleUp" />
               </Button>
 
               <Button outline color="primary" onClick={this.doMoveDown} disabled={last}>
-                <Icon
-                  name="angleDown"
-                  width="36px"
-                  height="36px"
-                  color={last ? 'lightgray' : 'black'}
-                />
+                <Icon name="angleDown" />
               </Button>
             </div>
           </div>

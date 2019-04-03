@@ -71,10 +71,7 @@ class TabSelector extends React.Component<Props, State> {
                 {headers.map((TabComponent, i) => (
                   <Button
                     className="app-berth__tab-selector__tab-button"
-                    block
                     key={i}
-                    // TODO: fix this
-                    // tslint:disable-next-line: jsx-no-lambda
                     onClick={() => this.selectTab(i)}
                     active={i === tab}
                   >
