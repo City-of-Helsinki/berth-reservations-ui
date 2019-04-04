@@ -1,23 +1,7 @@
+import classNames from 'classnames';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Label } from 'reactstrap';
-import styled, { css } from 'styled-components';
-
-interface StyledLabelProps {
-  required: boolean;
-}
-
-const StyledLabel = styled(Label)<StyledLabelProps>`
-  ${props =>
-    props.required &&
-    css`
-      &::after {
-        margin-left: 1ch;
-        content: '*';
-        color: red;
-      }
-    `};
-`;
 
 interface Props {
   htmlFor: string;
@@ -26,7 +10,10 @@ interface Props {
 }
 
 export default ({ htmlFor, required, text }: Props) => (
-  <StyledLabel htmlFor={htmlFor} required={required}>
+  <Label
+    htmlFor={htmlFor}
+    className={classNames('app-Formfield__label', { 'is-required': required })}
+  >
     <FormattedMessage id={text} />
-  </StyledLabel>
+  </Label>
 );

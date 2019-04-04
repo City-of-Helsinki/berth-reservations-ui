@@ -1,0 +1,37 @@
+.app-BerthPageSelected {
+  &__wrapper {
+    padding-top: 3em;
+    padding-bottom: 3em;
+  }
+
+  &__button-wrapper {
+    background-color: $hel-light;
+    padding: 1em 0 3em;
+
+    &__button-groups {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+
+      @include for-phone {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__boat-value {
+    margin-left: 1ch;
+  }
+
+  &__notice {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+
+    .app-Icon {
+      fill: $hel-brick;
+      width: 1.5em;
+      height: 1.5em;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+.app-Berth__tab-selector {
+  background-color: $hel-light;
+  border-bottom: 4px solid white;
+  z-index: 1001;
+
+  &.is-sticky {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: left;
+    flex-direction: column-reverse;
+
+    @include for-tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__tab-button {
+    outline: none;
+    border: none;
+    color: $hel-black !important;
+    padding: 0.5em 1em;
+    border-radius: 0;
+    background-color: transparent !important;
+
+    &.active {
+      background-color: $hel-white !important;
+    }
+    &:active,
+    &:focus {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+
+    @include for-phone {
+      padding: 1em 2em;
+    }
+  }
+
+  &__tabs {
+    margin-top: 0;
+  }
+
+  &__application-promt {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: $font-size-sm;
+    flex-grow: 1;
+    line-height: 1;
+    text-align: right;
+    margin: 0.5em 0;
+
+    @include for-tablet {
+      font-size: inherit;
+    }
+  }
+
+  &__progress-button {
+    float: right;
+    margin-left: 1ch;
+    font-size: 14px;
+
+    @include for-tablet {
+      font-size: inherit;
+    }
+  }
+}

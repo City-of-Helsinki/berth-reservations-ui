@@ -21,7 +21,7 @@ class AutoSave extends Component<Props & FormSpyRenderProps> {
     if (this.timeout) {
       clearTimeout(this.timeout);
     }
-    this.timeout = setTimeout(this.save, this.props.debounce);
+    this.timeout = window.setTimeout(this.save, this.props.debounce);
   }
 
   save = async () => {

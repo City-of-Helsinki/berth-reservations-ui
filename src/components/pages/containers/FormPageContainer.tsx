@@ -4,9 +4,9 @@ import { getBoatTypes, onSend, onSubmit } from '../../../ducks/forms';
 import { withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../FormPage';
 
-import { Berths, SelectedBerths } from '../../../types/berths';
 import { BoatTypes } from '../../../types/boatTypes';
 import { Store } from '../../../types/ducks';
+import { Berths, SelectedBerths } from '../../berths/types';
 
 interface Props {
   initialValues: {};

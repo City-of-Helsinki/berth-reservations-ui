@@ -11,10 +11,10 @@ import { getBoatTypes, onSubmit } from '../../../ducks/forms';
 import { withMatchParamsHandlers } from '../../../utils/container';
 import BerthPage from '../BerthPage';
 
-import { Berths as BerthsType, SelectedBerths } from '../../../types/berths';
 import { BoatTypes } from '../../../types/boatTypes';
 import { Store } from '../../../types/ducks';
 import { SelectedServices } from '../../../types/services';
+import { Berths as BerthsType, SelectedBerths } from '../../berths/types';
 
 interface Props {
   getBerths: () => Promise<BerthsType>;

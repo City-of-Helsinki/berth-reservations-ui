@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { Col, Row } from 'reactstrap';
-import styled from 'styled-components';
 
 interface Props {
   firstName: string;
@@ -11,10 +10,6 @@ interface Props {
   zipCode: string;
   municipality: string;
 }
-
-const StyledContactSection = styled.div`
-  margin-bottom: 1em;
-`;
 
 const Person = ({
   firstName,
@@ -40,8 +35,8 @@ const Person = ({
     </Row>
     <Row>
       <Col md={12}>
-        {zipCode && address && <StyledContactSection>{address}</StyledContactSection>}
-        {zipCode && <StyledContactSection>{zipCode}</StyledContactSection>}
+        {zipCode && address && <div className="app-form__contact-section">{address}</div>}
+        {zipCode && <div className="app-form__contact-section">{zipCode}</div>}
         {municipality && municipality}
       </Col>
     </Row>

@@ -1,39 +1,33 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import styled from 'styled-components';
+import { Container } from 'reactstrap';
 import Accessibility from '../fragments/Accessibility';
 import BigShips from '../fragments/BigShips';
 import BoatInfo from '../fragments/BoatInfo';
 import BoatMeasures from '../fragments/BoatMeasures';
 import RegisteredBoatDetails from '../fragments/RegisteredBoatDetails';
 import { WithBoatType } from '../Selects';
-import StyledContainer from '../StyledContainer';
 
 type Props = {
   prefix: string;
   ShowBigShipsForm: boolean;
 } & WithBoatType;
 
-const GrayBackground = styled.div`
-  background: #eee;
-  padding: 1em;
-`;
-
 export default ({ prefix, ShowBigShipsForm, boatTypes }: Props) => (
-  <StyledContainer>
+  <Container className="app-Form__styled-container">
     <FormattedMessage tagName="h3" id="form.registered.header.title" />
     <RegisteredBoatDetails boatTypes={boatTypes} />
 
     <FormattedMessage tagName="h3" id="form.registered.header.measures" />
     <BoatMeasures />
     {ShowBigShipsForm && (
-      <GrayBackground>
+      <div className="app-Form__big-ships">
         <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
         <FormattedMessage tagName="p" id="form.big_ship.text.summary" />
         <FormattedMessage tagName="h3" id="form.big_ship.header.details" />
         <BigShips />
         <FormattedMessage tagName="p" id="form.big_ship.text.inspection_and_insurance" />
-      </GrayBackground>
+      </div>
     )}
     <FormattedMessage tagName="h3" id="form.registered.header.additional_info" />
 
@@ -41,5 +35,5 @@ export default ({ prefix, ShowBigShipsForm, boatTypes }: Props) => (
     <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />
 
     <Accessibility />
-  </StyledContainer>
+  </Container>
 );

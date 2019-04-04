@@ -1,4 +1,4 @@
-import { SelectedBerths } from '../types/berths';
+import { SelectedBerths } from '../components/berths/types';
 import { post } from '../utils/api';
 
 export default {

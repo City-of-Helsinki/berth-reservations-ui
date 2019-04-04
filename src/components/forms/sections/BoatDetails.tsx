@@ -2,16 +2,13 @@ import { get } from 'lodash';
 import React from 'react';
 import { injectIntl } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
-import styled from 'styled-components';
 
 import NoBoat from '../tabs/NoBoat';
 import RegisteredBoat from '../tabs/RegisteredBoat';
 import UnRegisteredBoat from '../tabs/UnRegisteredBoat';
 
-import SectionSelector from '../SectionSelector';
 import { BigBoatTypeValue, WithBoatType } from '../Selects';
-
-const Content = styled.div``;
+import SectionSelector from './SectionSelector';
 
 type Props = {
   values: object;
@@ -21,7 +18,7 @@ type Props = {
 const BoatDetails = ({ values, tab, boatTypes }: Props) => {
   const ShowBigShipsForm = get(values, 'boat_type') === BigBoatTypeValue;
   return (
-    <Content>
+    <div>
       <SectionSelector
         name="boat"
         selected={tab}
@@ -65,7 +62,7 @@ const BoatDetails = ({ values, tab, boatTypes }: Props) => {
           </Col>
         </Row>
       </Container>
-    </Content>
+    </div>
   );
 };
 

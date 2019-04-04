@@ -1,0 +1,26 @@
+@import './tabs/styles';
+@import './fields/styles';
+@import './fragments/overview/styles';
+@import './sections/styles';
+
+.app-Form {
+  &__styled-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__wizard-wrapper {
+    background-color: $hel-light;
+    padding: 1em 0 3em;
+
+    &__button-group {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+
+      @include for-phone {
+        flex-direction: column;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.app-Map {
+  &__map {
+    height: 30em;
+    width: 100%;
+  }
+
+  &__header {
+    margin: 1em 0;
+
+    span {
+      font-weight: inherit;
+      font-size: inherit;
+    }
+  }
+}

@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
-import styled from 'styled-components';
 
-import { Berths } from '../../../types/berths';
 import { getLocalizedText } from '../../../utils/berths';
+import { Berths } from '../../berths/types';
 import Icon from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
 import BoatDraughtAndWeight from '../fragments/overview/BoatDraughtAndWeight';
@@ -13,32 +12,6 @@ import BoatMeasures from '../fragments/overview/BoatMeasures';
 import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
 import Person from '../fragments/overview/Person';
 import { WithBoatType } from '../Selects';
-
-const StyledInfoBox = styled.div`
-  background-color: #efefef;
-  padding: 1.5em;
-  margin-bottom: 2em;
-`;
-
-const SectionHeader = styled(Col)`
-  border-bottom: 1px solid #000;
-  padding-left: 0px;
-  margin-bottom: 1em;
-  margin-top: 1em;
-  font-weight: bold;
-`;
-
-const EditIcon = styled(Col)`
-  margin-bottom: 1em;
-  margin-top: 1em;
-  font-weight: bold;
-  text-align: right;
-`;
-
-const EditLink = styled(LocalizedLink)`
-  display: flex;
-  color: currentColor;
-`;
 
 type Props = {
   values: {
@@ -64,18 +37,18 @@ type Props = {
   WithBoatType;
 
 const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) => (
-  <StyledInfoBox>
+  <div className="app-OverviewInfo">
     <Container fluid>
       <Row>
-        <SectionHeader xs={8} md={10}>
+        <Col xs={8} md={10} className="app-OverviewInfo__header">
           <FormattedMessage tagName="h6" id="page.overview.info.boat_info" />
-        </SectionHeader>
-        <EditIcon xs={4} md={2}>
-          <EditLink to={`form/${tabs[0]}`}>
-            <Icon name="pencil" width="30px" height="30px" color="black" />
+        </Col>
+        <Col xs={4} md={2} className="app-OverviewInfo__edit-icon">
+          <LocalizedLink to={`form/${tabs[0]}`} className="app-OverviewInfo__edit-link">
+            <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
-          </EditLink>
-        </EditIcon>
+          </LocalizedLink>
+        </Col>
       </Row>
       {tabs[0] === 'registered_boat' && (
         <Fragment>
@@ -111,15 +84,15 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
         </Fragment>
       )}
       <Row>
-        <SectionHeader xs={8} md={10}>
+        <Col xs={8} md={10} className="app-OverviewInfo__header">
           <FormattedMessage tagName="h6" id="page.overview.info.berths" />
-        </SectionHeader>
-        <EditIcon xs={4} md={2}>
-          <EditLink to="berths">
-            <Icon name="pencil" width="30px" height="30px" color="black" />
+        </Col>
+        <Col xs={4} md={2} className="app-OverviewInfo__edit-icon">
+          <LocalizedLink to="berths" className="app-OverviewInfo__edit-link">
+            <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
-          </EditLink>
-        </EditIcon>
+          </LocalizedLink>
+        </Col>
       </Row>
       <Row>
         <Col xs={12}>
@@ -131,15 +104,15 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
         </Col>
       </Row>
       <Row>
-        <SectionHeader xs={8} md={10}>
+        <Col xs={8} md={10} className="app-OverviewInfo__header">
           <FormattedMessage tagName="h6" id="page.overview.info.person" />
-        </SectionHeader>
-        <EditIcon xs={4} md={2}>
-          <EditLink to={`form/${tabs[1]}`}>
-            <Icon name="pencil" width="30px" height="30px" color="black" />
+        </Col>
+        <Col xs={4} md={2} className="app-OverviewInfo__edit-icon">
+          <LocalizedLink to={`form/${tabs[1]}`} className="app-OverviewInfo__edit-link">
+            <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
-          </EditLink>
-        </EditIcon>
+          </LocalizedLink>
+        </Col>
       </Row>
       <Person
         firstName={values.first_name}
@@ -151,7 +124,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
         municipality={values.municipality}
       />
     </Container>
-  </StyledInfoBox>
+  </div>
 );
 
 export default injectIntl(OverviewInfo);

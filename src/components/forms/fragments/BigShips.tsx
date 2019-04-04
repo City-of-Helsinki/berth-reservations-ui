@@ -1,14 +1,9 @@
 import React, { Fragment } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Row } from 'reactstrap';
-import styled from 'styled-components';
 
 import { Checkbox, MultiRadio, Text } from '../Fields';
 import { HullMaterial, Propulsion } from '../Selects';
-
-const InsuraneAndAgreementHeader = styled.h3`
-  margin-top: 0;
-`;
 
 const BigShipsFragment = () => (
   <Fragment>
@@ -66,9 +61,9 @@ const BigShipsFragment = () => (
     </Row>
     <Row>
       <Col>
-        <InsuraneAndAgreementHeader>
+        <h3 className=".app-form__big-ship">
           <FormattedMessage id="form.big_ship.header.inspection_and_insurance" />
-        </InsuraneAndAgreementHeader>
+        </h3>
 
         <Checkbox
           required

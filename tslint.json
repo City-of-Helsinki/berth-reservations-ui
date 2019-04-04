@@ -16,9 +16,7 @@
     "interface-name": false,
     "object-literal-sort-keys": false,
     "jsx-boolean-value": false,
-    "jsx-no-lambda": {
-      "severity": "warning"
-    },
+    "jsx-no-lambda": false,
     "ban-types": {
       "options": [
         ["Object", "Avoid using the `Object` type. Did you mean `object`?"],

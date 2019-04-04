@@ -1,5 +1,7 @@
+import { Berth } from '../components/berths/Berth/types';
+import { Berths } from '../components/berths/types';
+
 import { List } from 'immutable';
-import { Berth, Berths } from '../types/berths';
 import { BoatTypes } from '../types/boatTypes';
 import { get } from '../utils/api';
 

@@ -1,0 +1,27 @@
+@import '~open-city-design/src/scss/helsinki/colors';
+@import '~open-city-design/src/scss/helsinki/fonts';
+@import '~open-city-design/src/scss/helsinki/mixins';
+
+$theme-colors: (
+  'primary': $hel-black,
+  'secondary': $hel-coat,
+  'success': $green,
+  'info': $cyan,
+  'warning': $yellow,
+  'danger': $red,
+  'light': $hel-light,
+  'dark': $hel-dark
+);
+
+$helFog: '#9fc8eb';
+$blue: '#0072c6';
+$light: '#ebedf1';
+
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+$headingSm: 22px;
+$headingMd: 24px;
+$headingLg: 28px;

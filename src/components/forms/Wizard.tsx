@@ -1,27 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Button, Col, Container, Row } from 'reactstrap';
-import styled from 'styled-components';
-import responsive from '../../utils/responsive';
 import Form from './Form';
 
 type State = any;
 type Props = any;
-
-const ButtonWrapperWrapper = styled.div`
-  background-color: ${props => props.theme.helLight};
-  padding: 1em 0 3em;
-`;
-const ButtonWrapper = styled(Col).attrs({
-  xs: 12
-})`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  ${responsive.sm`
-    flex-direction: row;
-  `}
-`;
 
 class Wizard extends Component<Props, State> {
   constructor(props: Props) {
@@ -90,10 +73,10 @@ class Wizard extends Component<Props, State> {
           <Fragment>
             {React.isValidElement(activePage) &&
               React.cloneElement<{ values?: {} }>(activePage, { values })}
-            <ButtonWrapperWrapper>
+            <div className="app-Form__wizard-wrapper">
               <Container>
                 <Row>
-                  <ButtonWrapper>
+                  <Col xs={12} className="app-Form__wizard-wrapper__button-group">
                     <Button color="link" type="button" onClick={() => this.handlePrevious(values)}>
                       <FormattedMessage id="form.wizard.button.previous" />
                     </Button>
@@ -105,10 +88,10 @@ class Wizard extends Component<Props, State> {
                     >
                       <FormattedMessage id={this.getSubmitText(invalid)} />
                     </Button>
-                  </ButtonWrapper>
+                  </Col>
                 </Row>
               </Container>
-            </ButtonWrapperWrapper>
+            </div>
           </Fragment>
         )}
       </Form>

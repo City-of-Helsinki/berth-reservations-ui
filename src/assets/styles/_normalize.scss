@@ -1,0 +1,25 @@
+@import '~open-city-design/src/scss/helsinki/custom-styles';
+
+body,
+span,
+textarea,
+button,
+div {
+  font-family: $font-family-base;
+  font-weight: $font-weight-normal;
+}
+
+span,
+div {
+  font-size: $font-size-base;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+strong {
+  font-family: $font-family-base;
+  font-weight: $font-weight-bold;
+}
