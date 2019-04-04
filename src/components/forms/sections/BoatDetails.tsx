@@ -7,8 +7,8 @@ import NoBoat from '../tabs/NoBoat';
 import RegisteredBoat from '../tabs/RegisteredBoat';
 import UnRegisteredBoat from '../tabs/UnRegisteredBoat';
 
-import SectionSelector from '../SectionSelector';
 import { BigBoatTypeValue, WithBoatType } from '../Selects';
+import SectionSelector from './SectionSelector';
 
 type Props = {
   values: object;

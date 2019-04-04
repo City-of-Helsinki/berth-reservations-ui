@@ -3,8 +3,8 @@ import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
 import { FormattedMessage } from 'react-intl';
-import Icon, { IconNames } from '../common/Icon';
-import LocalizedLink from '../common/LocalizedLink';
+import Icon, { IconNames } from '../../../common/Icon';
+import LocalizedLink from '../../../common/LocalizedLink';
 
 interface TypeProps {
   label: string;
@@ -23,12 +23,8 @@ interface Props {
   };
 }
 
-interface FormSelectWrapperProps {
-  selected: boolean;
-}
-
 const SectionSelector = ({ name, selected, types, sizes }: Props) => (
-  <div className="app-Form__section-selector">
+  <div className="app-SectionSelector">
     <Container>
       <Row>
         <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
@@ -36,12 +32,12 @@ const SectionSelector = ({ name, selected, types, sizes }: Props) => (
             {types.map(({ label, tab, icon }: TypeProps) => (
               <Col id={`${tab}_selection`} key={`${name}.${tab}`} {...sizes}>
                 <LocalizedLink
-                  className={classNames('app-section-selector__link', {
+                  className={classNames('app-SectionSelector__link', {
                     'is-selected': selected === tab
                   })}
                   to={`form/${tab}`}
                 >
-                  <Icon name={icon} width="50%" color="black" />
+                  <Icon name={icon} />
                   <FormattedMessage id={label} />
                 </LocalizedLink>
               </Col>

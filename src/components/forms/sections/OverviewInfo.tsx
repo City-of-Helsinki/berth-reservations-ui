@@ -37,14 +37,14 @@ type Props = {
   WithBoatType;
 
 const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) => (
-  <div className="app-overview-info">
+  <div className="app-OverviewInfo">
     <Container fluid>
       <Row>
-        <Col xs={8} md={10} className="app-overview-info__header">
+        <Col xs={8} md={10} className="app-OverviewInfo__header">
           <FormattedMessage tagName="h6" id="page.overview.info.boat_info" />
         </Col>
-        <Col xs={4} md={2} className="app-overview-info__edit-icon">
-          <LocalizedLink to={`form/${tabs[0]}`} className="app-overview-info__edit-link">
+        <Col xs={4} md={2} className="app-OverviewInfo__edit-icon">
+          <LocalizedLink to={`form/${tabs[0]}`} className="app-OverviewInfo__edit-link">
             <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
           </LocalizedLink>
@@ -84,11 +84,11 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
         </Fragment>
       )}
       <Row>
-        <Col xs={8} md={10} className="app-overview-info__header">
+        <Col xs={8} md={10} className="app-OverviewInfo__header">
           <FormattedMessage tagName="h6" id="page.overview.info.berths" />
         </Col>
-        <Col xs={4} md={2} className="app-overview-info__edit-icon">
-          <LocalizedLink to="berths" className="app-overview-info__edit-link">
+        <Col xs={4} md={2} className="app-OverviewInfo__edit-icon">
+          <LocalizedLink to="berths" className="app-OverviewInfo__edit-link">
             <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
           </LocalizedLink>
@@ -104,11 +104,11 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
         </Col>
       </Row>
       <Row>
-        <Col xs={8} md={10} className="app-overview-info__header">
+        <Col xs={8} md={10} className="app-OverviewInfo__header">
           <FormattedMessage tagName="h6" id="page.overview.info.person" />
         </Col>
-        <Col xs={4} md={2} className="app-overview-info__edit-icon">
-          <LocalizedLink to={`form/${tabs[1]}`} className="app-overview-info__edit-link">
+        <Col xs={4} md={2} className="app-OverviewInfo__edit-icon">
+          <LocalizedLink to={`form/${tabs[1]}`} className="app-OverviewInfo__edit-link">
             <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
           </LocalizedLink>

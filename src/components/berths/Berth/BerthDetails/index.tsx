@@ -7,20 +7,20 @@ import BerthDetailsProps from './types';
 const BerthDetails = ({ iconName, available, value, titleId }: BerthDetailsProps) => {
   return (
     <div
-      className={classNames('app-berth__details', {
-        'app-berth__details-not-available': available
+      className={classNames('app-Berth__details', {
+        'app-Berth__details-not-available': available
       })}
     >
-      {value && <div className="app-berth__details__value">{value}</div>}
+      {value && <div className="app-Berth__details__value">{value}</div>}
 
       {iconName && (
-        <div className="app-berth__details__icon">
+        <div className="app-Berth__details__icon">
           <Icon name={iconName} />
         </div>
       )}
 
       {titleId && (
-        <div className="app-berth__details__title">
+        <div className="app-Berth__details__title">
           <FormattedMessage tagName="span" id={titleId} />
         </div>
       )}

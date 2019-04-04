@@ -1,8 +1,8 @@
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
-import SectionSelector from '../SectionSelector';
 import Company from '../tabs/Company';
 import PrivatePerson from '../tabs/PrivatePerson';
+import SectionSelector from './SectionSelector';
 
 interface Props {
   tab: string;

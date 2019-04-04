@@ -64,13 +64,13 @@ class TabSelector extends React.Component<Props, State> {
         <Sticky>
           {({ style, isSticky }) => (
             <div
-              className={classNames('app-berth__tab-selector', { 'is-sticky': isSticky })}
+              className={classNames('app-Berth__tab-selector', { 'is-sticky': isSticky })}
               style={style}
             >
-              <Container className="app-berth__tab-selector__wrapper">
+              <Container className="app-Berth__tab-selector__wrapper">
                 {headers.map((TabComponent, i) => (
                   <Button
-                    className="app-berth__tab-selector__tab-button"
+                    className="app-Berth__tab-selector__tab-button"
                     key={i}
                     onClick={() => this.selectTab(i)}
                     active={i === tab}
@@ -78,7 +78,7 @@ class TabSelector extends React.Component<Props, State> {
                     <TabComponent />
                   </Button>
                 ))}
-                <div className="app-berth__tab-selector__application-promt">
+                <div className="app-Berth__tab-selector__application-promt">
                   <FormattedMessage
                     id={getFormatedMessageId(selectedCount, maxSelected)}
                     values={{
@@ -90,7 +90,7 @@ class TabSelector extends React.Component<Props, State> {
                   <IntlComponent
                     id="tab_selector.progress.button"
                     Component={Button}
-                    className="app-berth__tab-selector__progress-button"
+                    className="app-Berth__tab-selector__progress-button"
                     onClick={progress}
                     disabled={selectedCount === 0}
                   />
@@ -99,7 +99,7 @@ class TabSelector extends React.Component<Props, State> {
             </div>
           )}
         </Sticky>
-        <div className="app-berth__tab-selector__tabs">{this.getActiveTab()}</div>
+        <div className="app-Berth__tab-selector__tabs">{this.getActiveTab()}</div>
       </StickyContainer>
     );
   }

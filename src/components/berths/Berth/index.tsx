@@ -44,7 +44,7 @@ class Berth extends Component<Props, State> {
     // TODO: Remove this h@ck
 
     return (
-      <div className={classNames('app-berth', className)}>
+      <div className={classNames('app-Berth', className)}>
         <Row>
           <Col md={3}>
             <IntlComponent
@@ -54,17 +54,17 @@ class Berth extends Component<Props, State> {
               visible={isVisible}
             />
             <Image
-              className="app-berth__image"
+              className="app-Berth__image"
               src={berth.image}
               alt={getLocalizedText(berth.name, intl.locale)}
             />
           </Col>
 
           <Col md={4}>
-            <div className="app-berth__summary-wrapper">
+            <div className="app-Berth__summary-wrapper">
               <strong>{getLocalizedText(berth.name, intl.locale)}</strong>
 
-              <div className="app-berth__address">
+              <div className="app-Berth__address">
                 {getLocalizedText(berth.street_address, intl.locale)}, {berth.zip_code}{' '}
                 {getLocalizedText(berth.municipality, intl.locale)}
                 <div />
@@ -78,9 +78,9 @@ class Berth extends Component<Props, State> {
                     + <FormattedMessage tagName="span" id="page.berths.select" />
                   </Button>
                 )}
-                <div className="app-berth__availability-level">
+                <div className="app-Berth__availability-level">
                   <Button
-                    className="app-berth__availability-level__button"
+                    className="app-Berth__availability-level__button"
                     id={`availability_${berth.identifier}`}
                     color="link"
                     // TODO: fix this
@@ -92,7 +92,7 @@ class Berth extends Component<Props, State> {
                     <Fragment>
                       <span
                         className={classNames(
-                          'app-berth__availability-level__marker',
+                          'app-Berth__availability-level__marker',
                           berth.availability_level ? berth.availability_level : 'default'
                         )}
                       />
@@ -117,7 +117,7 @@ class Berth extends Component<Props, State> {
                   </Popover>
                 </div>
                 <a
-                  className="app-berth__website-link"
+                  className="app-Berth__website-link"
                   target="_blank"
                   rel="noopener noreferrer"
                   href={berth.www_url}
@@ -130,7 +130,7 @@ class Berth extends Component<Props, State> {
           </Col>
 
           <Col md={5}>
-            <div className="app-berth__details-wrapper">
+            <div className="app-Berth__details-wrapper">
               <BerthDetails
                 available
                 value={berth.number_of_places}
