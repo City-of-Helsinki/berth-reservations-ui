@@ -8,7 +8,7 @@ import FormPage from './pages/containers/FormPageContainer';
 import SelectedBerthPage from './pages/containers/SelectedBerthPageContainer';
 import ThankYouPage from './pages/containers/ThankYouPageContainer';
 
-interface Props {
+export interface Props {
   locale: 'fi' | 'en' | 'sv';
 }
 
