@@ -1,5 +1,5 @@
-import { shallow } from 'enzyme';
 import React from 'react';
+import { shallowWithIntl } from '../../../../utils/testUtils';
 import BerthDetails from './index';
 import BerthDetailsProps from './types';
 
@@ -11,7 +11,7 @@ describe('components/berths/BerthDetails', () => {
     iconName: 'check'
   };
   const getWrapper = (props?: BerthDetailsProps) =>
-    shallow(<BerthDetails {...defaultProps} {...props} />);
+    shallowWithIntl(<BerthDetails {...defaultProps} {...props} />);
 
   test('render normally', () => {
     const wrapper = getWrapper();

@@ -6,7 +6,7 @@
  */
 
 import { mount, MountRendererProps, shallow, ShallowRendererProps } from 'enzyme';
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactElement } from 'react';
 import { IntlProvider, intlShape } from 'react-intl';
 
 import en from '../translations/en.json';
