@@ -18,5 +18,5 @@ script:
   - yarn build
   - yarn test:ci
 
-  after_success:
+after_success:
   - codecov < coverage/lcov.info
