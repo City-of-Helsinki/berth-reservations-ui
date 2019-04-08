@@ -1,27 +1,26 @@
 import classNames from 'classnames';
 import React from 'react';
-import Svg from 'react-svg';
-import angleDown from './icons/angle-down.svg';
-import angleUp from './icons/angle-up.svg';
-import arrowRight from './icons/arrow-right.svg';
-import business from './icons/business.svg';
-import check from './icons/check.svg';
-import commenting from './icons/commenting-o.svg';
-import exclamationCircle from './icons/exclamation-circle.svg';
-import fence from './icons/fence.svg';
-import globe from './icons/globe.svg';
-import helsinkiLogo from './icons/helsinki-logo.svg';
-import individual from './icons/individual.svg';
-import noBoat from './icons/noboat.svg';
-import pencil from './icons/pencil.svg';
-import plug from './icons/plug.svg';
-import pole from './icons/pole.svg';
-import registeredBoat from './icons/registered.svg';
-import streetLight from './icons/street-light.svg';
-import times from './icons/times.svg';
-import trash from './icons/trash-o.svg';
-import unregisteredBoat from './icons/unregistered.svg';
-import waterTap from './icons/water-tap.svg';
+import { ReactComponent as angleDown } from './icons/angle-down.svg';
+import { ReactComponent as angleUp } from './icons/angle-up.svg';
+import { ReactComponent as arrowRight } from './icons/arrow-right.svg';
+import { ReactComponent as business } from './icons/business.svg';
+import { ReactComponent as check } from './icons/check.svg';
+import { ReactComponent as commenting } from './icons/commenting-o.svg';
+import { ReactComponent as exclamationCircle } from './icons/exclamation-circle.svg';
+import { ReactComponent as fence } from './icons/fence.svg';
+import { ReactComponent as globe } from './icons/globe.svg';
+import { ReactComponent as helsinkiLogo } from './icons/helsinki-logo.svg';
+import { ReactComponent as individual } from './icons/individual.svg';
+import { ReactComponent as noBoat } from './icons/noboat.svg';
+import { ReactComponent as pencil } from './icons/pencil.svg';
+import { ReactComponent as plug } from './icons/plug.svg';
+import { ReactComponent as pole } from './icons/pole.svg';
+import { ReactComponent as registeredBoat } from './icons/registered.svg';
+import { ReactComponent as streetLight } from './icons/street-light.svg';
+import { ReactComponent as times } from './icons/times.svg';
+import { ReactComponent as trash } from './icons/trash-o.svg';
+import { ReactComponent as unregisteredBoat } from './icons/unregistered.svg';
+import { ReactComponent as waterTap } from './icons/water-tap.svg';
 
 const icons = {
   helsinkiLogo,
@@ -51,14 +50,13 @@ export type IconNames = keyof typeof icons;
 
 interface Props {
   name: IconNames;
-  color?: string;
-  width?: string;
-  height?: string;
   className?: string;
 }
 
-const Icon = ({ name, className, ...rest }: Props) => (
-  <Svg className={classNames('app-Icon', className)} src={icons[name]} {...rest} />
-);
+const Icon = ({ name, className, ...rest }: Props) => {
+  const SvgIcon = icons[name];
+
+  return <SvgIcon className={classNames('app-Icon', className)} {...rest} />;
+};
 
 export default Icon;
