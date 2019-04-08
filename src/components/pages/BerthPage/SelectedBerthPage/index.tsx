@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { Alert, Button, Col, Container, Row } from 'reactstrap';
 
 import { getBerthFilterByValues, getBerths } from '../../../../utils/berths';
-import { BERTHS_QUERY } from '../../../../utils/graphql';
+import { BOATTYPES_BERTHS_QUERY } from '../../../../utils/graphql';
 import SelectedBerths from '../../../berths/SelectedBerths';
 import BoatsBerthsQuery from '../../../common/BoatsBerthsQuery';
 import Icon from '../../../common/Icon';
@@ -57,7 +57,7 @@ class BerthPage extends Component<Props> {
     const filter = getBerthFilterByValues(values, selectedServices);
 
     return (
-      <BoatsBerthsQuery query={BERTHS_QUERY}>
+      <BoatsBerthsQuery query={BOATTYPES_BERTHS_QUERY}>
         {({
           // error, TODO: handle errors
           data: { boatTypes, harbors } = { boatTypes: [], harbors: { edges: [] } }

@@ -11,7 +11,7 @@ import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType, SelectedBerths } from '../../berths/types';
 
 import { getBerthFilterByValues, getBerths as getBerthsFromCache } from '../../../utils/berths';
-import { BERTHS_QUERY } from '../../../utils/graphql';
+import { BOATTYPES_BERTHS_QUERY } from '../../../utils/graphql';
 
 import BoatsBerthsQuery from '../../common/BoatsBerthsQuery';
 
@@ -62,7 +62,7 @@ class BerthPage extends Component<Props> {
     const filter = getBerthFilterByValues(initialValues, selectedServices);
 
     return (
-      <BoatsBerthsQuery query={BERTHS_QUERY}>
+      <BoatsBerthsQuery query={BOATTYPES_BERTHS_QUERY}>
         {({
           // error, TODO: handle errors
           data: { boatTypes, harbors } = { boatTypes: [], harbors: { edges: [] } }

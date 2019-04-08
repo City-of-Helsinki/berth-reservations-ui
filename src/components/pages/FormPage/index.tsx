@@ -14,7 +14,7 @@ import Steps from '../../steps';
 import { Berths, SelectedBerths } from '../../berths/types';
 
 import { getBerths } from '../../../utils/berths';
-import { BERTHS_QUERY, CREATE_RESERVATION } from '../../../utils/graphql';
+import { BOATTYPES_BERTHS_QUERY, CREATE_RESERVATION } from '../../../utils/graphql';
 
 interface Props {
   initialValues: {};
@@ -56,7 +56,7 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
     const { step, tabs, tab } = this.state;
 
     return (
-      <BoatsBerthsQuery query={BERTHS_QUERY}>
+      <BoatsBerthsQuery query={BOATTYPES_BERTHS_QUERY}>
         {({
           // error, TODO: handle errors
           data: { boatTypes, harbors } = { boatTypes: [], harbors: { edges: [] } },
