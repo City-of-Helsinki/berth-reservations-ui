@@ -18,7 +18,7 @@ export default {
         maximumWidth: berth.maximumWidth / 100,
         maximumLength: berth.maximumLength / 100,
         location: {
-          coordinates: berth.location.coordinates.reverse()
+          coordinates: berth.geometry.coordinates.reverse()
         }
       }))
     );

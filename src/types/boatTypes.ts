@@ -1,4 +1,5 @@
 export interface BoatType {
+  id: string;
   identifier: string;
   name: string;
 }

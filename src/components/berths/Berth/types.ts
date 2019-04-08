@@ -12,12 +12,11 @@ export interface Berth {
   phone: string;
   email: string;
   wwwUrl: string;
-  location: {
+  geometry: {
     type: string;
     coordinates: number[];
   };
   imageFile: string;
-  imageLink: string;
   electricity: boolean;
   water: boolean;
   wasteCollection: boolean;

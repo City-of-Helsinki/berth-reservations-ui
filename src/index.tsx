@@ -2,9 +2,11 @@ import '@babel/polyfill';
 import 'react-app-polyfill/ie11';
 
 import * as Sentry from '@sentry/browser';
+import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import createHistory from 'history/createBrowserHistory';
 import PiwikReactRouter from 'piwik-react-router';
 import React from 'react';
+import { ApolloProvider } from 'react-apollo';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
@@ -30,15 +32,28 @@ Sentry.init({
   dsn: REACT_APP_SENTRY_DSN
 });
 
+const client = new ApolloClient({
+  uri: 'https://venepaikka-api-gql.test.hel.ninja/graphql/',
+  request: async operation => {
+    const lng = window.location.pathname.slice(1, 3) || 'fi';
+    const headers = {
+      'Accept-Language': lng
+    };
+    operation.setContext({ headers });
+  }
+});
+
 const Root = () => (
-  <Provider store={configureStore()}>
-    <Router history={piwik.connectToHistory(history)}>
-      <Switch>
-        <Redirect exact path="/" to="/fi" />
-        <Route path="/:locale" component={App} />
-      </Switch>
-    </Router>
-  </Provider>
+  <ApolloProvider client={client}>
+    <Provider store={configureStore()}>
+      <Router history={piwik.connectToHistory(history)}>
+        <Switch>
+          <Redirect exact path="/" to="/fi" />
+          <Route path="/:locale" component={App} />
+        </Switch>
+      </Router>
+    </Provider>
+  </ApolloProvider>
 );
 
 const rootElement = document.getElementById('root');

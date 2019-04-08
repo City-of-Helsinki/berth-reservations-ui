@@ -1,27 +1,16 @@
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import {
-  deselectBerth,
-  deselectService,
-  getBerths,
-  selectBerth,
-  selectService
-} from '../../../ducks/berths';
-import { getBoatTypes, onSubmit } from '../../../ducks/forms';
+import { deselectBerth, deselectService, selectBerth, selectService } from '../../../ducks/berths';
+import { onSubmit } from '../../../ducks/forms';
 import { withMatchParamsHandlers } from '../../../utils/container';
 import BerthPage from '../BerthPage';
 
-import { BoatTypes } from '../../../types/boatTypes';
 import { Store } from '../../../types/ducks';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType, SelectedBerths } from '../../berths/types';
 
 interface Props {
-  getBerths: () => Promise<BerthsType>;
-  getBoatTypes: () => Promise<BoatTypes>;
-  boatTypes: BoatTypes;
   initialValues: {};
-  berths: BerthsType;
   filtered: BerthsType;
   filteredNot: BerthsType;
   selectedBerths: SelectedBerths;
@@ -39,15 +28,11 @@ export default compose<Props, {}>(
   connect(
     (state: Store) => ({
       initialValues: state.forms.values,
-      boatTypes: state.forms.boatTypes,
-      berths: state.berths.berths,
       selectedBerths: state.berths.selectedBerths,
       selectedServices: state.berths.selectedServices
     }),
     {
       onSubmit,
-      getBoatTypes,
-      getBerths,
       selectBerth,
       deselectBerth,
       selectService,

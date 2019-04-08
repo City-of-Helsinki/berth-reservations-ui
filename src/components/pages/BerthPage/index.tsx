@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import { getBerthFilterByValues } from '../../../utils/berths';
 import Berths from '../../berths';
 import BerthsOnMap from '../../berths/BerthsOnMap';
 import TabSelector from '../../berths/TabSelector';
 import Layout from '../../layout';
 import BerthsLegend from '../../legends/BerthLegend';
 
-import { BoatTypes } from '../../../types/boatTypes';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType, SelectedBerths } from '../../berths/types';
 
+import { getBerthFilterByValues, getBerths as getBerthsFromCache } from '../../../utils/berths';
+import { BERTHS_QUERY } from '../../../utils/graphql';
+
+import BoatsBerthsQuery from '../../common/BoatsBerthsQuery';
+
 interface Props {
-  getBerths: () => Promise<BerthsType>;
-  getBoatTypes: () => Promise<BoatTypes>;
-  boatTypes: BoatTypes;
   initialValues: {};
-  berths: BerthsType;
   filtered: BerthsType;
   filteredNot: BerthsType;
   selectedBerths: SelectedBerths;
@@ -37,16 +36,6 @@ class BerthPage extends Component<Props> {
     window.scrollTo(0, 0);
   }
 
-  componentDidMount() {
-    const { getBerths, berths, boatTypes, getBoatTypes } = this.props;
-    if (!boatTypes) {
-      getBoatTypes();
-    }
-    if (berths.size === 0) {
-      getBerths();
-    }
-  }
-
   moveToForm = async () => {
     const { localePush } = this.props;
     await localePush('/selected_berths');
@@ -63,9 +52,7 @@ class BerthPage extends Component<Props> {
 
   render() {
     const {
-      boatTypes,
       initialValues,
-      berths,
       selectedBerths,
       selectedServices,
       selectService,
@@ -73,45 +60,58 @@ class BerthPage extends Component<Props> {
       onSubmit
     } = this.props;
     const filter = getBerthFilterByValues(initialValues, selectedServices);
-    const filtered = berths.filter(filter);
-    const FilteredNot = berths.filterNot(filter);
-    const validSelection = berths
-      .filter(berth => selectedBerths.includes(berth.identifier))
-      .every(filter);
 
     return (
-      <Layout hero>
-        <div className="app-BerthPage">
-          <BerthsLegend
-            boatTypes={boatTypes}
-            initialValues={initialValues}
-            onSubmit={onSubmit}
-            selectedServices={selectedServices}
-            selectService={selectService}
-            deselectService={deselectService}
-          />
-          <TabSelector
-            progress={this.moveToForm}
-            selectedCount={selectedBerths.size}
-            validSelection={validSelection}
-          >
-            <BerthsOnMap
-              TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
-              filtered={filtered}
-              filteredNot={FilteredNot}
-              selected={selectedBerths}
-              onClick={this.toggleBerthSelect}
-            />
-            <Berths
-              TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
-              filtered={filtered}
-              filteredNot={FilteredNot}
-              selected={selectedBerths}
-              onClick={this.toggleBerthSelect}
-            />
-          </TabSelector>
-        </div>
-      </Layout>
+      <BoatsBerthsQuery query={BERTHS_QUERY}>
+        {({
+          // error, TODO: handle errors
+          data: { boatTypes, harbors } = { boatTypes: [], harbors: { edges: [] } }
+        }) => {
+          const berthsData = harbors ? harbors.edges : [];
+          const berths = getBerthsFromCache(berthsData);
+
+          const filtered = berths.filter(filter);
+          const filteredNot = berths.filterNot(filter);
+          const validSelection = berths
+            .filter(berth => selectedBerths.includes(berth.identifier))
+            .every(filter);
+
+          return (
+            <Layout hero>
+              <div className="app-BerthPage">
+                <BerthsLegend
+                  boatTypes={boatTypes}
+                  initialValues={initialValues}
+                  onSubmit={onSubmit}
+                  selectedServices={selectedServices}
+                  selectService={selectService}
+                  deselectService={deselectService}
+                />
+                <TabSelector
+                  progress={this.moveToForm}
+                  selectedCount={selectedBerths.size}
+                  validSelection={validSelection}
+                >
+                  <BerthsOnMap
+                    TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
+                    filtered={filtered}
+                    filteredNot={filteredNot}
+                    selected={selectedBerths}
+                    onClick={this.toggleBerthSelect}
+                  />
+                  <Berths
+                    TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
+                    filtered={filtered}
+                    filteredNot={filteredNot}
+                    selected={selectedBerths}
+                    onClick={this.toggleBerthSelect}
+                  />
+                </TabSelector>
+              </div>
+            </Layout>
+          );
+        }}
+      </BoatsBerthsQuery>
     );
   }
 }
