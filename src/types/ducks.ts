@@ -1,15 +1,12 @@
 import { Record, RecordOf } from 'immutable';
 import { Berths as Bs, SelectedBerths } from '../components/berths/types';
-import { BoatTypes } from './boatTypes';
 import { SelectedServices } from './services';
 
 interface FormProps {
   values: object;
-  boatTypes: BoatTypes;
 }
 
 interface BerthsProps {
-  berths: Bs;
   selectedBerths: SelectedBerths;
   selectedServices: SelectedServices;
 }

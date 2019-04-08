@@ -18,7 +18,6 @@ import { BOATTYPES_BERTHS_QUERY, CREATE_RESERVATION } from '../../../utils/graph
 
 interface Props {
   initialValues: {};
-  berths: Berths;
   selectedBerths: SelectedBerths;
   onSubmit: Function;
   localePush: Function;

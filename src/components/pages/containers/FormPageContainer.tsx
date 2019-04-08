@@ -5,11 +5,10 @@ import { withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../FormPage';
 
 import { Store } from '../../../types/ducks';
-import { Berths, SelectedBerths } from '../../berths/types';
+import { SelectedBerths } from '../../berths/types';
 
 interface Props {
   initialValues: {};
-  berths: Berths;
   selectedBerths: SelectedBerths;
   onSubmit: Function;
   localePush: Function;
@@ -21,7 +20,6 @@ export default compose<Props, {}>(
   connect(
     (state: Store) => ({
       initialValues: state.forms.values,
-      berths: state.berths.berths,
       selectedBerths: state.berths.selectedBerths
     }),
     { onSubmit }
