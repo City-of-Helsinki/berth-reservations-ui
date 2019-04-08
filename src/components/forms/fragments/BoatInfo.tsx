@@ -7,7 +7,7 @@ const BoatInfoFragment = () => (
   <Row>
     <Col sm={4}>
       <Text
-        name={`boat_name`}
+        name={`boatName`}
         label="form.registered.field.name.label"
         placeholder="form.registered.field.name.placeholder"
         required
@@ -15,7 +15,7 @@ const BoatInfoFragment = () => (
     </Col>
     <Col sm={4}>
       <Text
-        name={`boat_model`}
+        name={`boatModel`}
         label="form.registered.field.model.label"
         placeholder="form.registered.field.model.placeholder"
         required

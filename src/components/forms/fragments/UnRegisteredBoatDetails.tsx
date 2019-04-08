@@ -18,7 +18,7 @@ const UnRegisteredBoatDetailsFragment = ({
     <Col sm={4}>
       <Number
         validate={mustBePositiveNumber}
-        name={`boat_width`}
+        name={`boatWidth`}
         label="form.no_boat.field.width.label"
         placeholder="form.no_boat.field.width.placeholder"
         append="m"
@@ -29,7 +29,7 @@ const UnRegisteredBoatDetailsFragment = ({
     <Col sm={4}>
       <Number
         validate={mustBePositiveNumber}
-        name={`boat_length`}
+        name={`boatLength`}
         label="form.no_boat.field.length.label"
         placeholder="form.no_boat.field.length.placeholder"
         append="m"

@@ -7,7 +7,7 @@ const FullNameFragment = () => (
   <Row>
     <Col sm={4}>
       <Text
-        name={`first_name`}
+        name={`firstName`}
         label="form.private_person.field.first_name.label"
         placeholder="form.private_person.field.first_name.placeholder"
         required
@@ -15,7 +15,7 @@ const FullNameFragment = () => (
     </Col>
     <Col sm={4}>
       <Text
-        name={`last_name`}
+        name={`lastName`}
         label="form.private_person.field.last_name.label"
         placeholder="form.private_person.field.last_name.placeholder"
         required

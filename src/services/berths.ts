@@ -15,8 +15,8 @@ export default {
     return List(
       data.results.map((berth: Berth) => ({
         ...berth,
-        maximum_width: berth.maximum_width / 100,
-        maximum_length: berth.maximum_length / 100,
+        maximumWidth: berth.maximumWidth / 100,
+        maximumLength: berth.maximumLength / 100,
         location: {
           coordinates: berth.location.coordinates.reverse()
         }

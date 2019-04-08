@@ -18,7 +18,7 @@ const BigShipsFragment = () => (
     <Row>
       <Col sm={12}>
         <Text
-          name={`boat_intended_use`}
+          name={`boatIntendedUse`}
           label="form.big_ship.field.usage.label"
           placeholder="form.big_ship.field.usage.placeholder"
           required
@@ -30,12 +30,12 @@ const BigShipsFragment = () => (
         <MultiRadio
           items={[
             {
-              name: `renting_period`,
+              name: `rentingPeriod`,
               label: 'form.big_ship.field.time_period.for_now',
               value: 'for_now'
             },
             {
-              name: `renting_period`,
+              name: `rentingPeriod`,
               label: 'form.big_ship.field.time_period.fixed',
               value: 'fixed'
             }
@@ -48,13 +48,13 @@ const BigShipsFragment = () => (
         <Row>
           <Col sm={5}>
             <Text
-              name={`rent_from`}
+              name={`rentFrom`}
               placeholder="form.big_ship.field.time_period.from.placeholder"
             />
           </Col>
           <Col sm={1}>-</Col>
           <Col sm={5}>
-            <Text name={`rent_till`} placeholder="form.big_ship.field.time_period.to.placeholder" />
+            <Text name={`rentTill`} placeholder="form.big_ship.field.time_period.to.placeholder" />
           </Col>
         </Row>
       </Col>
@@ -67,19 +67,19 @@ const BigShipsFragment = () => (
 
         <Checkbox
           required
-          name="boat_is_inspected"
+          name="boatIsInspected"
           label="form.big_ship.field.inspected.label"
           value="inspected"
         />
         <Checkbox
           required
-          name="boat_is_insured"
+          name="boatIsInsured"
           label="form.big_ship.field.insurance.label"
           value="insurance"
         />
         <Checkbox
           required
-          name="agree_to_terms"
+          name="agreeToTerms"
           label="form.big_ship.field.agreed.label"
           value="agreed"
         />

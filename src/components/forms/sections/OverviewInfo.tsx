@@ -15,20 +15,20 @@ import { WithBoatType } from '../Selects';
 
 type Props = {
   values: {
-    boat_name: string;
-    boat_registration_number: string;
-    boat_type: string;
-    boat_model: string;
-    boat_width: number;
-    boat_length: number;
-    boat_draught: number;
-    boat_weight: number;
-    first_name: string;
-    last_name: string;
+    boatName: string;
+    boatRegistrationNumber: string;
+    boatType: string;
+    boatModel: string;
+    boatWidth: number;
+    boatLength: number;
+    boatDraught: number;
+    boatWeight: number;
+    firstName: string;
+    lastName: string;
     email: string;
-    phone_number: string;
+    phoneNumber: string;
     address: string;
-    zip_code: string;
+    zipCode: string;
     municipality: string;
   };
   selectedBerths: Berths;
@@ -52,35 +52,35 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
       </Row>
       {tabs[0] === 'registered_boat' && (
         <Fragment>
-          <BoatInfo name={values.boat_name} registerNumber={values.boat_registration_number} />
+          <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
           <BoatTypeAndModel
-            boatTypeId={values.boat_type}
-            boatModel={values.boat_model}
+            boatTypeId={values.boatType}
+            boatModel={values.boatModel}
             boatTypes={boatTypes}
           />
-          <BoatMeasures width={values.boat_width} length={values.boat_length} />
-          <BoatDraughtAndWeight draught={values.boat_draught} weight={values.boat_weight} />
+          <BoatMeasures width={values.boatWidth} length={values.boatLength} />
+          <BoatDraughtAndWeight draught={values.boatDraught} weight={values.boatWeight} />
         </Fragment>
       )}
       {tabs[0] === 'unregistered_boat' && (
         <Fragment>
-          <BoatInfo name={values.boat_name} registerNumber={values.boat_registration_number} />
+          <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
           <BoatTypeAndModel
-            boatTypeId={values.boat_type}
-            boatModel={values.boat_model}
+            boatTypeId={values.boatType}
+            boatModel={values.boatModel}
             boatTypes={boatTypes}
           />
-          <BoatMeasures width={values.boat_width} length={values.boat_length} />
+          <BoatMeasures width={values.boatWidth} length={values.boatLength} />
         </Fragment>
       )}
       {tabs[0] === 'no_boat' && (
         <Fragment>
           <BoatTypeAndModel
-            boatTypeId={values.boat_type}
-            boatModel={values.boat_model}
+            boatTypeId={values.boatType}
+            boatModel={values.boatModel}
             boatTypes={boatTypes}
           />
-          <BoatMeasures width={values.boat_width} length={values.boat_length} />
+          <BoatMeasures width={values.boatWidth} length={values.boatLength} />
         </Fragment>
       )}
       <Row>
@@ -98,7 +98,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
         <Col xs={12}>
           {selectedBerths.map((berth, index) => (
             <div key={berth.identifier}>
-              {index + 1}. {getLocalizedText(berth.name, intl.locale)}
+              {index + 1}. {berth.name}
             </div>
           ))}
         </Col>
@@ -115,12 +115,12 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) 
         </Col>
       </Row>
       <Person
-        firstName={values.first_name}
-        lastName={values.last_name}
+        firstName={values.firstName}
+        lastName={values.lastName}
         email={values.email}
-        phoneNumber={values.phone_number}
+        phoneNumber={values.phoneNumber}
         address={values.address}
-        zipCode={values.zip_code}
+        zipCode={values.zipCode}
         municipality={values.municipality}
       />
     </Container>

@@ -9,20 +9,20 @@ import OverviewInfo from './OverviewInfo';
 
 type Props = {
   values?: {
-    boat_name: string;
-    boat_registration_number: string;
-    boat_type: string;
-    boat_model: string;
-    boat_width: number;
-    boat_length: number;
-    boat_draught: number;
-    boat_weight: number;
-    first_name: string;
-    last_name: string;
+    boatName: string;
+    boatRegistrationNumber: string;
+    boatType: string;
+    boatModel: string;
+    boatWidth: number;
+    boatLength: number;
+    boatDraught: number;
+    boatWeight: number;
+    firstName: string;
+    lastName: string;
     email: string;
-    phone_number: string;
+    phoneNumber: string;
     address: string;
-    zip_code: string;
+    zipCode: string;
     municipality: string;
   };
   selectedBerths: Berths;
@@ -31,20 +31,20 @@ type Props = {
 
 const Submit = ({
   values = {
-    boat_name: '',
-    boat_registration_number: '',
-    boat_type: '',
-    boat_model: '',
-    boat_width: 0,
-    boat_length: 0,
-    boat_draught: 0,
-    boat_weight: 0,
-    first_name: '',
-    last_name: '',
+    boatName: '',
+    boatRegistrationNumber: '',
+    boatType: '',
+    boatModel: '',
+    boatWidth: 0,
+    boatLength: 0,
+    boatDraught: 0,
+    boatWeight: 0,
+    firstName: '',
+    lastName: '',
     email: '',
-    phone_number: '',
+    phoneNumber: '',
     address: '',
-    zip_code: '',
+    zipCode: '',
     municipality: ''
   },
   selectedBerths,

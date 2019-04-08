@@ -6,7 +6,7 @@ import { Action, BerthsFactory, BerthsState } from '../types/ducks';
 const selectedServices = Record({
   electricity: false,
   water: false,
-  waste_collection: false,
+  wasteCollection: false,
   gate: false,
   lighting: false
 });

@@ -7,7 +7,7 @@ const RegisteredBoatDetailsFragment = ({ boatTypes }: WithBoatType) => (
   <Row>
     <Col sm={6}>
       <Text
-        name={`boat_registration_number`}
+        name={`boatRegistrationNumber`}
         label="form.registered.field.register_number.label"
         placeholder="form.registered.field.register_number.placeholder"
         required

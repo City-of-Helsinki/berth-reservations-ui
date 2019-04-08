@@ -3,7 +3,7 @@ import { Record, RecordOf } from 'immutable';
 interface SelectedServicesProps {
   electricity: boolean;
   water: boolean;
-  waste_collection: boolean;
+  wasteCollection: boolean;
   gate: boolean;
   lighting: boolean;
 }
