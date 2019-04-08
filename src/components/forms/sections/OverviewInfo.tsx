@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
 
-import { getLocalizedText } from '../../../utils/berths';
 import { Berths } from '../../berths/types';
 import Icon from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';

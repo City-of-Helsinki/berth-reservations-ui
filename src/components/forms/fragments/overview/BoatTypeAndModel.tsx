@@ -16,7 +16,7 @@ const BoatTypeAndModel = ({ boatTypeId, boatModel, boatTypes, intl: { locale } }
     <Row>
       <Col md={boatModel ? 6 : 12}>
         <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
-        {boatType && <span className="app-form__data">{boatType.name[locale]}</span>}
+        {boatType && <span className="app-form__data">{boatType.name}</span>}
       </Col>
       {boatModel && (
         <Col md={6}>

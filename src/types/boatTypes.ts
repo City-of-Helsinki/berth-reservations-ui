@@ -1,8 +1,6 @@
 export interface BoatType {
   identifier: string;
-  name: {
-    [locale: string]: string;
-  };
+  name: string;
 }
 
 export type BoatTypes = BoatType[];

@@ -88,13 +88,10 @@ class Berth extends Component<Props, State> {
                       <span
                         className={classNames(
                           'app-Berth__availability-level__marker',
-                          berth.availabilityLevel ? berth.availabilityLevel : 'default'
+                          berth.availabilityLevel ? berth.availabilityLevel.identifier : 'default'
                         )}
                       />
-                      <FormattedMessage
-                        tagName="span"
-                        id={`page.berths.status.${berth.availabilityLevel}.title`}
-                      />
+                      {berth.availabilityLevel.title}
                     </Fragment>
                   </Button>
 
@@ -103,12 +100,7 @@ class Berth extends Component<Props, State> {
                     target={`availability_${berth.identifier}`}
                     isOpen={this.state.popoverOpen}
                   >
-                    <PopoverBody>
-                      <FormattedMessage
-                        tagName="span"
-                        id={`page.berths.status.${berth.availabilityLevel}.description`}
-                      />
-                    </PopoverBody>
+                    <PopoverBody>{berth.availabilityLevel.description}</PopoverBody>
                   </Popover>
                 </div>
                 <a
