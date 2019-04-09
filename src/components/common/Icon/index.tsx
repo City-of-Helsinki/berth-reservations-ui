@@ -22,6 +22,8 @@ import { ReactComponent as trash } from './icons/trash-o.svg';
 import { ReactComponent as unregisteredBoat } from './icons/unregistered.svg';
 import { ReactComponent as waterTap } from './icons/water-tap.svg';
 
+import './Icon.scss';
+
 const icons = {
   helsinkiLogo,
   globe,
@@ -48,15 +50,15 @@ const icons = {
 
 export type IconNames = keyof typeof icons;
 
-interface Props {
+export interface IconProps {
   name: IconNames;
   className?: string;
 }
 
-const Icon = ({ name, className, ...rest }: Props) => {
+const Icon = ({ name, className, ...rest }: IconProps) => {
   const SvgIcon = icons[name];
 
-  return <SvgIcon className={classNames('app-Icon', className)} {...rest} />;
+  return <SvgIcon className={classNames('vene-icon', className)} {...rest} />;
 };
 
 export default Icon;
