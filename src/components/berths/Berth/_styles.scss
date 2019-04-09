@@ -60,14 +60,14 @@ $berthImageHeight: 12em;
     }
     strong {
       line-height: 1em;
-      font-size: $headingSm;
+      font-size: $font-size-sm;
 
       @include for-tablet {
-        font-size: $headingMd;
+        font-size: $font-size-base;
       }
 
       @include for-desktop {
-        font-size: $headingLg;
+        font-size: $font-size-lg;
       }
     }
 
