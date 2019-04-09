@@ -1,8 +1,3 @@
-interface Multilingual {
-  fi: string;
-  sv: string;
-}
-
 export interface Berth {
   identifier: string;
   name: string;

@@ -9,7 +9,7 @@ type Props = {
 } & WithBoatType &
   InjectedIntlProps;
 
-const BoatTypeAndModel = ({ boatTypeId, boatModel, boatTypes, intl: { locale } }: Props) => {
+const BoatTypeAndModel = ({ boatTypeId, boatModel, boatTypes }: Props) => {
   const boatType = boatTypes.find(type => type.identifier === boatTypeId);
 
   return (

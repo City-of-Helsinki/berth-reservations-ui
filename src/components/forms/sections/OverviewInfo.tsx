@@ -35,7 +35,7 @@ type Props = {
 } & InjectedIntlProps &
   WithBoatType;
 
-const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, intl }: Props) => (
+const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
   <div className="app-OverviewInfo">
     <Container fluid>
       <Row>

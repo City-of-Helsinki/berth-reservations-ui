@@ -2,7 +2,6 @@ import '@babel/polyfill';
 import 'react-app-polyfill/ie11';
 
 import * as Sentry from '@sentry/browser';
-import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import createHistory from 'history/createBrowserHistory';
 import PiwikReactRouter from 'piwik-react-router';
 import React from 'react';
@@ -14,6 +13,7 @@ import { Redirect, Route, Router, Switch } from 'react-router-dom';
 import './assets/styles/main.scss';
 
 import configureStore from './config/configureStore';
+import initApolloClient from './config/initApolloClient';
 import * as serviceWorker from './serviceWorker';
 
 import App from './components/containers/AppContainer';
@@ -32,16 +32,7 @@ Sentry.init({
   dsn: REACT_APP_SENTRY_DSN
 });
 
-const client = new ApolloClient({
-  uri: 'https://venepaikka-api-gql.test.hel.ninja/graphql/',
-  request: async operation => {
-    const lng = window.location.pathname.slice(1, 3) || 'fi';
-    const headers = {
-      'Accept-Language': lng
-    };
-    operation.setContext({ headers });
-  }
-});
+const client = initApolloClient();
 
 const Root = () => (
   <ApolloProvider client={client}>

@@ -59,7 +59,7 @@ class SelectedBerth extends Component<Props, State> {
   };
 
   render() {
-    const { berth, index, first, last, isValid, intl } = this.props;
+    const { berth, index, first, last, isValid } = this.props;
 
     const id = `tooltip_${berth.identifier}`;
     return (

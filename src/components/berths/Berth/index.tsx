@@ -39,7 +39,7 @@ class Berth extends Component<Props, State> {
   };
 
   render() {
-    const { berth, onClick, selected, disabled, excluded, intl, className } = this.props;
+    const { berth, onClick, selected, disabled, excluded, className } = this.props;
     const isVisible = selected && excluded ? true : 'false';
     // TODO: Remove this h@ck
 
