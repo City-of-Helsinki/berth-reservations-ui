@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 export const BOATTYPES_BERTHS_QUERY = gql`
-  {
+  query BoatTypesBerthsQuery {
     boatTypes {
       id
       identifier
