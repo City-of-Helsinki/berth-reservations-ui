@@ -100,7 +100,9 @@ class Berth extends Component<Props, State> {
                     target={`availability_${berth.identifier}`}
                     isOpen={this.state.popoverOpen}
                   >
-                    <PopoverBody>{berth.availabilityLevel.description}</PopoverBody>
+                    <PopoverBody>
+                      {berth.availabilityLevel.description || berth.availabilityLevel.title}
+                    </PopoverBody>
                   </Popover>
                 </div>
                 <a
