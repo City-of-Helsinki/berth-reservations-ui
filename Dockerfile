@@ -11,4 +11,4 @@ COPY package.json package.json
 
 RUN yarn install --silent
 
-CMD ["yarn", "dev"]
+CMD ["yarn", "start"]

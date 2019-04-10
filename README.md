@@ -25,15 +25,15 @@ $ cp .env.example .env.development.local
 To start development environment, run:
 
 ```
-$ yarn dev
-```
-
-This will start [the application](http://localhost:3000) and [the storybook](http://localhost:9001) for ports `3000` & `9001`
-
-To only start the client:
-
-```
 $ yarn start
+```
+
+This will start [the application](http://localhost:3000) on port `3000`.
+
+To only start the storybook on port `9001`:
+
+```
+$ yarn storybook
 ```
 
 ### Starting dockerized development environment
