@@ -1,0 +1,13 @@
+import axios from 'axios';
+
+const { REACT_APP_API_URL } = process.env;
+
+const instance = axios.create({
+  baseURL: `${REACT_APP_API_URL || '/'}v1/`,
+  timeout: 3000
+});
+
+export const get = (endPoint: string, params: object = {}): Promise<any> =>
+  instance.get(endPoint, { params }).then(r => r.data);
+export const post = (endPoint: string, data: object = {}): Promise<any> =>
+  instance.post(endPoint, data).then(r => r.data);

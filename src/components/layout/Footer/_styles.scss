@@ -1,0 +1,33 @@
+$footerIconWidth: 120px;
+
+.app-Footer {
+  background-color: $hel-coat;
+  color: $hel-white;
+  padding-top: 4em;
+  padding-bottom: 4em;
+  min-height: 15em;
+  &__vene-link {
+    text-align: center;
+  }
+  a {
+    color: $hel-white;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style-type: none;
+    text-align: center;
+  }
+
+  &__link-wrapper {
+    margin-top: 2em;
+  }
+
+  .vene-icon {
+    width: $footerIconWidth;
+    fill: $hel-white;
+    margin: 0 auto;
+  }
+}

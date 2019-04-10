@@ -1,0 +1,107 @@
+@import './BerthDetails/styles';
+@import './SelectedBerth/styles';
+
+$berthIconSize: 42px;
+$berthImageHeight: 12em;
+
+.app-Berth {
+  background-color: $hel-light;
+  margin-bottom: 2em;
+
+  &__image {
+    object-fit: cover;
+    height: $berthImageHeight;
+    width: 100%;
+    display: none;
+
+    @include for-tablet {
+      height: 100%;
+      display: block;
+    }
+  }
+
+  &__availability-level {
+    margin-top: 0.5em;
+
+    &__button {
+      padding: 0;
+      &.btn-link.btn-link:hover {
+        background-color: transparent !important;
+      }
+    }
+
+    &__marker {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      margin-right: 0.3em;
+      border-radius: 50%;
+
+      &.default {
+        background-color: $hel-white;
+      }
+      &.red {
+        background-color: $hel-brick;
+      }
+      &.yellow {
+        background-color: $hel-summer;
+      }
+      &.green {
+        background-color: $hel-tram;
+      }
+    }
+  }
+
+  &__summary-wrapper {
+    padding: 1em;
+
+    > * {
+      display: block;
+    }
+    strong {
+      line-height: 1em;
+      font-size: $font-size-sm;
+
+      @include for-tablet {
+        font-size: $font-size-base;
+      }
+
+      @include for-desktop {
+        font-size: $font-size-lg;
+      }
+    }
+
+    small {
+      font-size: $font-size-sm;
+    }
+    a {
+      color: black;
+    }
+
+    @include for-tablet {
+      padding: 1em 0;
+    }
+  }
+
+  &__address {
+    margin: 0.5em 0;
+
+    .vene-icon {
+      height: 1em;
+      width: 1em;
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+
+  &__website-link {
+    margin-top: 0.5em;
+    font-weight: $font-weight-bold;
+
+    .vene-icon {
+      height: 1em;
+      width: 1em;
+      display: inline-block;
+    }
+  }
+}

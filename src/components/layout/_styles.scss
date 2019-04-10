@@ -1,0 +1,70 @@
+@import './Navbar/styles';
+@import './Footer/styles';
+
+.section-koro-top {
+  &.fog:after {
+    @include koro('basic', #9fc8eb, 400);
+  }
+  &.blue:after {
+    @include koro('basic', #0072c6, 400);
+  }
+  &:after {
+    @include koro('basic', #ffffff, 400);
+    content: '';
+    display: block;
+    margin-bottom: -1.25em;
+    height: 1.25em;
+  }
+}
+.section-koro-bottom {
+  &.fog:before {
+    @include koro('basic', #9fc8eb, 400);
+  }
+  &.blue:before {
+    @include koro('basic', #0072c6, 400);
+  }
+  &:before {
+    @include koro('basic', #ffffff, 400);
+    content: '';
+    display: block;
+    margin-top: -1.25em;
+    height: 1.25em;
+  }
+}
+
+.app-Layout {
+  &__hero {
+    background-image: url('../../assets/images/hero_image_berth.jpg');
+    background-size: cover;
+    background-position: right top;
+    padding: 4em 0;
+    min-height: 10em;
+    @include for-tablet {
+      min-height: 20em;
+    }
+    @include for-big-desktop {
+      min-height: 30em;
+    }
+
+    h1 {
+      font-size: 2em;
+      padding: 8px 16px;
+
+      @include for-phone {
+        font-size: 3em;
+      }
+      @include for-desktop {
+        font-size: 4em;
+      }
+      color: $hel-white;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &__koro {
+    > div {
+      margin-top: 3em;
+      margin-bottom: 4em;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.app-Step {
+  flex: 1;
+  padding: 0 0.25em;
+  color: inherit;
+  &:hover,
+  &:active {
+    text-decoration: none;
+    color: inherit;
+  }
+  text-align: left;
+
+  &__status {
+    height: 1em;
+    color: $hel-black;
+    margin: auto;
+    margin-bottom: 0.5em;
+    padding-top: 0.1em;
+    border-radius: 0.67em;
+
+    background-color: $hel-light;
+
+    &.current,
+    &.completed {
+      background-color: $hel-coat;
+    }
+  }
+
+  &__label {
+    font-weight: $display1-weight;
+    font-size: $font-size-sm;
+    line-height: 1;
+    padding-left: 0.3em;
+
+    @include for-tablet {
+      font-size: $font-size-sm;
+    }
+  }
+}

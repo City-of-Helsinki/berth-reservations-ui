@@ -1,0 +1,32 @@
+@import './SectionSelector/styles';
+
+.app-OverviewInfo {
+  background-color: $hel-white;
+  padding: 1.5em;
+  margin-bottom: 2em;
+
+  &__header {
+    border-bottom: 1px solid $hel-black;
+    padding-left: 0px;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    font-weight: bold;
+  }
+
+  &__edit-icon {
+    margin-bottom: 1em;
+    margin-top: 1em;
+    font-weight: bold;
+    text-align: right;
+
+    .vene-icon {
+      height: 30px;
+      width: 30px;
+      fill: $hel-black;
+    }
+  }
+
+  &-edit-link {
+    display: flex;
+  }
+}

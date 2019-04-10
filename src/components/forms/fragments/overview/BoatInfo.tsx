@@ -1,0 +1,25 @@
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
+import { Col, Row } from 'reactstrap';
+
+interface Props {
+  name: string;
+  registerNumber: string;
+}
+
+const BoatInfo = ({ name, registerNumber }: Props) => (
+  <Row>
+    <Col md={registerNumber ? 6 : 12}>
+      <FormattedMessage tagName="span" id="page.overview.info.boat_name" />:
+      <span className="app-form__data">{name}</span>
+    </Col>
+    {registerNumber && (
+      <Col md={6}>
+        <FormattedMessage tagName="span" id="page.overview.info.boat_register_number" />:
+        <span className="app-form__data">{registerNumber}</span>
+      </Col>
+    )}
+  </Row>
+);
+
+export default BoatInfo;
