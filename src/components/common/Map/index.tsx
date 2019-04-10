@@ -67,7 +67,7 @@ export default class MapCanvas extends Component<Props, State> {
                 selected={isSelected}
                 markerIcon={mapIcon(isSelected, isPreviewed, false)}
                 key={berth.identifier}
-                position={berth.location.coordinates}
+                position={berth.geometry.coordinates}
                 onClick={() => this.toggleBerthSelect(berth)}
               />
             );
@@ -81,7 +81,7 @@ export default class MapCanvas extends Component<Props, State> {
                 selected={isSelected}
                 markerIcon={mapIcon(isSelected, isPreviewed, true)}
                 key={berth.identifier}
-                position={berth.location.coordinates}
+                position={berth.geometry.coordinates}
                 onClick={() => this.toggleBerthSelect(berth)}
               />
             );

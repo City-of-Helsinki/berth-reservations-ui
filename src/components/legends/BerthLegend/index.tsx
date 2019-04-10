@@ -21,7 +21,7 @@ type Props = {
 
 const services: Array<{
   label: string;
-  value: 'electricity' | 'water' | 'waste_collection' | 'gate' | 'lighting';
+  value: 'electricity' | 'water' | 'wasteCollection' | 'gate' | 'lighting';
   icon: IconNames;
 }> = [
   {
@@ -32,7 +32,7 @@ const services: Array<{
   { label: 'form.services.field.water.label', value: 'water', icon: 'waterTap' },
   {
     label: 'form.services.field.waste_collection.label',
-    value: 'waste_collection',
+    value: 'wasteCollection',
     icon: 'trash'
   },
   { label: 'form.services.field.gate.label', value: 'gate', icon: 'fence' },

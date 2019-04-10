@@ -5,6 +5,7 @@ import * as Sentry from '@sentry/browser';
 import createHistory from 'history/createBrowserHistory';
 import PiwikReactRouter from 'piwik-react-router';
 import React from 'react';
+import { ApolloProvider } from 'react-apollo';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
@@ -12,6 +13,7 @@ import { Redirect, Route, Router, Switch } from 'react-router-dom';
 import './assets/styles/main.scss';
 
 import configureStore from './config/configureStore';
+import initApolloClient from './config/initApolloClient';
 import * as serviceWorker from './serviceWorker';
 
 import App from './components/containers/AppContainer';
@@ -30,15 +32,19 @@ Sentry.init({
   dsn: REACT_APP_SENTRY_DSN
 });
 
+const client = initApolloClient();
+
 const Root = () => (
-  <Provider store={configureStore()}>
-    <Router history={piwik.connectToHistory(history)}>
-      <Switch>
-        <Redirect exact path="/" to="/fi" />
-        <Route path="/:locale" component={App} />
-      </Switch>
-    </Router>
-  </Provider>
+  <ApolloProvider client={client}>
+    <Provider store={configureStore()}>
+      <Router history={piwik.connectToHistory(history)}>
+        <Switch>
+          <Redirect exact path="/" to="/fi" />
+          <Route path="/:locale" component={App} />
+        </Switch>
+      </Router>
+    </Provider>
+  </ApolloProvider>
 );
 
 const rootElement = document.getElementById('root');

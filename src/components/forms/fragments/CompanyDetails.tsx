@@ -8,7 +8,7 @@ const CompanyDetailsFragment = () => (
     <Row>
       <Col sm={5}>
         <Text
-          name={`company_name`}
+          name={`companyName`}
           label="form.company_details.field.name.label"
           placeholder="form.company_details.field.name.placeholder"
           required
@@ -18,7 +18,7 @@ const CompanyDetailsFragment = () => (
     <Row>
       <Col sm={5}>
         <Text
-          name={`business_id`}
+          name={`businessId`}
           label="form.company_details.field.business_id.label"
           placeholder="form.company_details.field.business_id.placeholder"
           required

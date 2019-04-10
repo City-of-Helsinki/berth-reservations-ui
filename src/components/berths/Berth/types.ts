@@ -1,32 +1,30 @@
-interface Multilingual {
-  fi: string;
-  sv: string;
-}
-
 export interface Berth {
   identifier: string;
-  name: Multilingual;
-  street_address: Multilingual;
-  municipality: Multilingual;
-  zip_code: string;
+  name: string;
+  streetAddress: string;
+  municipality: string;
+  zipCode: string;
   phone: string;
   email: string;
-  www_url: string;
-  location: {
+  wwwUrl: string;
+  geometry: {
     type: string;
     coordinates: number[];
   };
-  image: string;
-  image_link: string;
+  imageFile: string;
   electricity: boolean;
   water: boolean;
-  waste_collection: boolean;
+  wasteCollection: boolean;
   gate: boolean;
   lighting: boolean;
-  number_of_places: number;
-  maximum_depth: number;
-  maximum_width: number;
-  maximum_length: number;
-  availability_level: string;
+  numberOfPlaces: number;
+  maximumDepth: number;
+  maximumWidth: number;
+  maximumLength: number;
+  availabilityLevel: {
+    identifier: string;
+    title: string;
+    description: string;
+  };
   excluded: boolean;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { InjectedIntlProps, injectIntl } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import { Select } from './Fields';
 
 import { BoatTypes } from '../../types/boatTypes';
@@ -12,24 +12,23 @@ export const BigBoatTypeValue = 'big_boat';
 
 type BoatTypeProps = {
   required: boolean;
-} & InjectedIntlProps &
-  WithBoatType;
+} & WithBoatType;
 
-export const BoatType = injectIntl(({ intl: { locale }, boatTypes, required }: BoatTypeProps) => (
-  <Select name={`boat_type`} label="form.registered.field.type.label" required={required}>
+export const BoatType = ({ boatTypes, required }: BoatTypeProps) => (
+  <Select name={`boatType`} label="form.registered.field.type.label" required={required}>
     <option />
     {boatTypes &&
       boatTypes.map(type => (
         <option key={type.identifier} value={type.identifier}>
-          {type.name[locale]}
+          {type.name}
         </option>
       ))}
   </Select>
-));
+);
 
 const propulsions = ['gasoline', 'diesel', 'fuel_oil', 'electricity', 'natural_gas', 'other'];
 export const Propulsion = injectIntl(({ intl: { formatMessage } }) => (
-  <Select name={`boat_propulsion`} label="form.big_ship.field.propulsion.label" required>
+  <Select name={`boatPropulsion`} label="form.big_ship.field.propulsion.label" required>
     <option />
     {propulsions.map(option => (
       <option key={option} value={option}>
@@ -51,7 +50,7 @@ const hullMaterials = [
 ];
 
 export const HullMaterial = injectIntl(({ intl: { formatMessage } }) => (
-  <Select name={`boat_hull_material`} label="form.big_ship.field.hull_material.label" required>
+  <Select name={`boatHullMaterial`} label="form.big_ship.field.hull_material.label" required>
     <option />
     {hullMaterials.map(option => (
       <option key={option} value={option}>

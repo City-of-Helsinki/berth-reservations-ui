@@ -4,7 +4,6 @@ import { InjectedIntlProps, injectIntl } from 'react-intl';
 import Transition from 'react-transition-group/Transition';
 import { Button } from 'reactstrap';
 
-import { getLocalizedText } from '../../../../utils/berths';
 import Icon from '../../../common/Icon';
 import InvalidSelection from '../../InvalidSelection';
 
@@ -60,7 +59,7 @@ class SelectedBerth extends Component<Props, State> {
   };
 
   render() {
-    const { berth, index, first, last, isValid, intl } = this.props;
+    const { berth, index, first, last, isValid } = this.props;
 
     const id = `tooltip_${berth.identifier}`;
     return (
@@ -77,7 +76,7 @@ class SelectedBerth extends Component<Props, State> {
               })}
             >
               <span key={berth.identifier}>
-                {index + 1}. {getLocalizedText(berth.name, intl.locale)}
+                {index + 1}. {berth.name}
                 {!isValid && <InvalidSelection id={id} />}
               </span>
               <Button onClick={this.doDelete}>

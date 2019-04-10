@@ -9,7 +9,7 @@ const NewsletterFragment = () => (
     <Row>
       <Col sm={6}>
         <Checkbox
-          name={`accept_boating_newsletter`}
+          name={`acceptBoatingNewsletter`}
           label="form.overview.field.boating_info.label"
           inline={false}
         />
@@ -19,21 +19,21 @@ const NewsletterFragment = () => (
     <Row>
       <Col sm={3}>
         <Checkbox
-          name={`accept_fitness_news`}
+          name={`acceptFitnessNews`}
           label="form.overview.field.fitness_services.label"
           inline={false}
         />
       </Col>
       <Col sm={3}>
         <Checkbox
-          name={`accept_library_news`}
+          name={`acceptLibraryNews`}
           label="form.overview.field.library_services.label"
           inline={false}
         />
       </Col>
       <Col sm={3}>
         <Checkbox
-          name={`accept_other_culture_news`}
+          name={`acceptOtherCultureNews`}
           label="form.overview.field.other_cultural_services.label"
           inline={false}
         />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormSpy, FormSpyProps, FormSpyRenderProps } from 'react-final-form';
+import { FormSpy, FormSpyRenderProps } from 'react-final-form';
 
 interface Props {
   save: Function;

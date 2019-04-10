@@ -1,13 +1,13 @@
 import classNames from 'classnames';
-import BerthDetails from './BerthDetails';
-
 import React, { Component, Fragment } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 import { Alert, Button, Col, Popover, PopoverBody, Row } from 'reactstrap';
-import { getLocalizedText } from '../../../utils/berths';
+
 import Icon from '../../common/Icon';
 import Image from '../../common/Image';
 import IntlComponent from '../../common/IntlComponent';
+import BerthDetails from './BerthDetails';
+
 import { Berth as BerthType } from './types';
 
 type Props = {
@@ -39,7 +39,7 @@ class Berth extends Component<Props, State> {
   };
 
   render() {
-    const { berth, onClick, selected, disabled, excluded, intl, className } = this.props;
+    const { berth, onClick, selected, disabled, excluded, className } = this.props;
     const isVisible = selected && excluded ? true : 'false';
     // TODO: Remove this h@ck
 
@@ -53,20 +53,15 @@ class Berth extends Component<Props, State> {
               id="error.message.invalid_berth"
               visible={isVisible}
             />
-            <Image
-              className="app-Berth__image"
-              src={berth.image}
-              alt={getLocalizedText(berth.name, intl.locale)}
-            />
+            <Image className="app-Berth__image" src={berth.imageFile} alt={berth.name} />
           </Col>
 
           <Col md={4}>
             <div className="app-Berth__summary-wrapper">
-              <strong>{getLocalizedText(berth.name, intl.locale)}</strong>
+              <strong>{berth.name}</strong>
 
               <div className="app-Berth__address">
-                {getLocalizedText(berth.street_address, intl.locale)}, {berth.zip_code}{' '}
-                {getLocalizedText(berth.municipality, intl.locale)}
+                {berth.streetAddress}, {berth.zipCode} {berth.municipality}
                 <div />
                 {selected ? (
                   <Button color={excluded ? 'danger' : 'secondary'} onClick={onClick}>
@@ -93,13 +88,10 @@ class Berth extends Component<Props, State> {
                       <span
                         className={classNames(
                           'app-Berth__availability-level__marker',
-                          berth.availability_level ? berth.availability_level : 'default'
+                          berth.availabilityLevel ? berth.availabilityLevel.identifier : 'default'
                         )}
                       />
-                      <FormattedMessage
-                        tagName="span"
-                        id={`page.berths.status.${berth.availability_level}.title`}
-                      />
+                      {berth.availabilityLevel.title}
                     </Fragment>
                   </Button>
 
@@ -109,10 +101,7 @@ class Berth extends Component<Props, State> {
                     isOpen={this.state.popoverOpen}
                   >
                     <PopoverBody>
-                      <FormattedMessage
-                        tagName="span"
-                        id={`page.berths.status.${berth.availability_level}.description`}
-                      />
+                      {berth.availabilityLevel.description || berth.availabilityLevel.title}
                     </PopoverBody>
                   </Popover>
                 </div>
@@ -120,7 +109,7 @@ class Berth extends Component<Props, State> {
                   className="app-Berth__website-link"
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={berth.www_url}
+                  href={berth.wwwUrl}
                 >
                   <FormattedMessage tagName="span" id="page.berths.website" />
                   <Icon name="arrowRight" />
@@ -133,17 +122,17 @@ class Berth extends Component<Props, State> {
             <div className="app-Berth__details-wrapper">
               <BerthDetails
                 available
-                value={berth.number_of_places}
+                value={berth.numberOfPlaces}
                 titleId="page.berths.number_of_places"
               />
               <BerthDetails
                 available
-                value={berth.maximum_width}
+                value={berth.maximumWidth}
                 titleId="page.berths.maximum_width"
               />
 
               <BerthDetails
-                available={!!berth.waste_collection}
+                available={!!berth.wasteCollection}
                 iconName="trash"
                 titleId="page.berths.waste_collection"
               />

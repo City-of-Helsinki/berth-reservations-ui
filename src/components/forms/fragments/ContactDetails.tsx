@@ -9,7 +9,7 @@ const ContactDetailsFragment = () => (
     <Col sm={4}>
       <Text
         validate={mustBePhoneNumber}
-        name={`phone_number`}
+        name={`phoneNumber`}
         label="form.contact_details.field.mobile_phone.label"
         placeholder="form.contact_details.field.mobile_phone.placeholder"
         required

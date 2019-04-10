@@ -4,7 +4,7 @@ import { Checkbox } from '../Fields';
 
 const AccessibilityFragment = () => (
   <Checkbox
-    name={`accessibility_required`}
+    name={`accessibilityRequired`}
     label="form.accessibility.field.accessibility.label"
     inline={false}
   />

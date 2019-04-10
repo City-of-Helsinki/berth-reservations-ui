@@ -7,7 +7,7 @@ const ContactByFragment = () => (
   <Row>
     <Col sm={6}>
       <Checkbox
-        name={`information_accuracy_confirmed`}
+        name={`informationAccuracyConfirmed`}
         label="form.overview.field.guarantee.label"
         required
       />

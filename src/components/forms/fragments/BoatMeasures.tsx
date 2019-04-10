@@ -10,7 +10,7 @@ const RegisteredBoatFragment = () => (
     <Col sm={3}>
       <Number
         validate={mustBePositiveNumber}
-        name={`boat_width`}
+        name={`boatWidth`}
         label="form.registered.field.width.label"
         placeholder="form.registered.field.width.placeholder"
         append="m"
@@ -21,7 +21,7 @@ const RegisteredBoatFragment = () => (
     <Col sm={3}>
       <Number
         validate={mustBePositiveNumber}
-        name={`boat_length`}
+        name={`boatLength`}
         label="form.registered.field.length.label"
         placeholder="form.registered.field.length.placeholder"
         append="m"
@@ -32,7 +32,7 @@ const RegisteredBoatFragment = () => (
     <Col sm={3}>
       <Number
         validate={mustBePositiveNumber}
-        name={`boat_draught`}
+        name={`boatDraught`}
         label="form.registered.field.draught.label"
         placeholder="form.registered.field.draught.placeholder"
         append="m"
@@ -43,7 +43,7 @@ const RegisteredBoatFragment = () => (
     <Col sm={3}>
       <Number
         validate={mustBePositiveNumber}
-        name={`boat_weight`}
+        name={`boatWeight`}
         step={100}
         label="form.registered.field.weight.label"
         placeholder="form.registered.field.weight.placeholder"

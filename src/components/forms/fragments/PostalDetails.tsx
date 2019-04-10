@@ -14,7 +14,7 @@ const PostalDetailsFragment = () => (
     </Col>
     <Col sm={4}>
       <Text
-        name={`zip_code`}
+        name={`zipCode`}
         label={`form.postal_details.field.postal_code.label`}
         placeholder={`form.postal_details.field.postal_code.placeholder`}
       />
