@@ -59,7 +59,6 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.8",
     "react-sticky": "^6.0.3",
-    "react-svg": "^7.1.0",
     "react-test-renderer": "^16.8.6",
     "react-transition-group": "^2.5.2",
     "reactstrap": "6.5.0",
@@ -68,9 +67,6 @@
     "redux-actions": "^2.6.4",
     "redux-promise-middleware": "^5.1.1",
     "redux-thunk": "^2.3.0",
-    "sass-extract": "^2.1.0",
-    "sass-extract-js": "^0.4.0",
-    "sass-extract-loader": "^1.1.0",
     "typescript": "^3.4.1"
   },
   "scripts": {
