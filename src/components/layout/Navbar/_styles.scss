@@ -19,7 +19,7 @@ $navbarTitleColor: rgba(0, 0, 0, 0.9);
   }
 
   &__language-dropdown {
-    .app-Icon {
+    .vene-icon {
       width: $languageIconSize;
       height: $languageIconSize;
       color: $hel-black;
@@ -52,7 +52,7 @@ $navbarTitleColor: rgba(0, 0, 0, 0.9);
       text-decoration: none;
     }
 
-    .app-Icon {
+    .vene-icon {
       width: $navBrandWidth;
       color: $hel-black;
     }
