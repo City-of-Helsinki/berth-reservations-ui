@@ -41,9 +41,7 @@ class Berth extends Component<Props, State> {
   };
 
   render() {
-    const { berth, onClick, selected, disabled, excluded, className } = this.props;
-    const isVisible = selected && excluded ? true : 'false';
-    // TODO: Remove this h@ck
+    const { berth, excluded, onClick, selected, disabled, className } = this.props;
 
     return (
       <div className={classNames('vene-berth', className)}>
@@ -54,7 +52,7 @@ class Berth extends Component<Props, State> {
                 Component={Alert}
                 color="danger"
                 id="error.message.invalid_berth"
-                visible={isVisible}
+                isOpen={selected && excluded}
               />
               <Image src={berth.imageFile} alt={berth.name} />
             </div>

@@ -22,7 +22,6 @@ export default ({ filtered, filteredNot, onClick, selected }: BerthProps) => (
     )}
     {filtered.map(berth => (
       <Berth
-        className={berth.excluded ? 'vene-berth__excluded' : ''}
         key={berth.identifier}
         berth={berth}
         onClick={() => onClick(berth.identifier)}
@@ -41,7 +40,8 @@ export default ({ filtered, filteredNot, onClick, selected }: BerthProps) => (
     )}
     {filteredNot.map(berth => (
       <Berth
-        className={berth.excluded ? 'vene-berth__excluded' : ''}
+        className="vene-berth__excluded"
+        excluded={true}
         key={berth.identifier}
         berth={berth}
         // TODO: fix this
