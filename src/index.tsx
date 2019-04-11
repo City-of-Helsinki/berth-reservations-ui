@@ -9,6 +9,7 @@ import { ApolloProvider } from 'react-apollo';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import './assets/styles/main.scss';
 
@@ -38,16 +39,19 @@ Sentry.init({
 });
 
 const client = initApolloClient();
+const { store, persistor } = configureStore();
 
 const Root = () => (
   <ApolloProvider client={client}>
-    <Provider store={configureStore()}>
-      <Router history={piwik.connectToHistory(history)}>
-        <Switch>
-          <Redirect exact path="/" to="/fi" />
-          <Route path="/:locale" component={App} />
-        </Switch>
-      </Router>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Router history={piwik.connectToHistory(history)}>
+          <Switch>
+            <Redirect exact path="/" to="/fi" />
+            <Route path="/:locale" component={App} />
+          </Switch>
+        </Router>
+      </PersistGate>
     </Provider>
   </ApolloProvider>
 );

@@ -1936,6 +1936,13 @@
   resolved "https://registry.yarnpkg.com/@types/redux-actions/-/redux-actions-2.6.0.tgz#3732391d7086e464b3341a190d914a72432dae9d"
   integrity sha512-K1LwS+MW7CGzZyOS35xEWvKz0pTyQyfygCgj57qpntbP5SD/F/f1qJwRpJIFmJUpHPwOX/eqWe/8O19bycu8eg==
 
+"@types/redux-persist@^4.3.1":
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/@types/redux-persist/-/redux-persist-4.3.1.tgz#aa4c876859e0bea5155e5f7980e5b8c4699dc2e6"
+  integrity sha1-qkyHaFngvqUVXl95gOW4xGmdwuY=
+  dependencies:
+    redux-persist "*"
+
 "@types/redux-promise-middleware@^0.0.11":
   version "0.0.11"
   resolved "https://registry.yarnpkg.com/@types/redux-promise-middleware/-/redux-promise-middleware-0.0.11.tgz#8f7c60fc31d8a644ccdc0e6eeedc4410dc0bcb12"
@@ -11950,6 +11957,11 @@ redux-devtools-extension@^2.13.5:
   version "2.13.7"
   resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.7.tgz#14bd7a1a7c8bee7f397beb1116fd16fc9633b752"
   integrity sha512-F2GlWMWxCTJGRjJ+GSZcGDcVAj6Pbf77FKb4C9S8eni5Eah6UBGNwxNj8K1MTtmItdZH1Wx+EvIifHN2KKcQrw==
+
+redux-persist@*, redux-persist@^5.10.0:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-5.10.0.tgz#5d8d802c5571e55924efc1c3a9b23575283be62b"
+  integrity sha512-sSJAzNq7zka3qVHKce1hbvqf0Vf5DuTVm7dr4GtsqQVOexnrvbV47RWFiPxQ8fscnyiuWyD2O92DOxPl0tGCRg==
 
 redux-promise-middleware@^5.1.1:
   version "5.1.1"

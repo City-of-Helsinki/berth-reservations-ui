@@ -58,6 +58,7 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
     return (
       <BoatsBerthsQuery query={BOAT_TYPES_BERTHS_QUERY}>
         {({
+          loading,
           // error, TODO: handle errors
           data: { boatTypes, harbors } = { boatTypes: [], harbors: { edges: [] } },
           client
@@ -120,10 +121,17 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
                       priority: priority + 1
                     }))
                     .toArray();
-                  // @ts-ignoree
-                  const { language, ...reservation } = values;
+                  // @ts-ignore
+                  const { language, boatType, ...reservation } = values;
+                  const boatTypeId = boatTypes.find(type => type.identifier === boatType);
                   await client.mutate({
-                    variables: { reservation: { choices, ...reservation, boatType: 1 } },
+                    variables: {
+                      reservation: {
+                        choices,
+                        ...reservation,
+                        boatType: boatTypeId && boatTypeId.id
+                      }
+                    },
                     mutation: CREATE_RESERVATION
                   });
 
@@ -152,15 +160,15 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
               >
                 <BoatDetails tab={tab} values={{}} boatTypes={boatTypes} />
                 <ApplicantDetails tab={tab} />
-                <Overview
-                  selectedBerths={
-                    selectedBerths.map(key =>
-                      berths.find(berth => key === berth.identifier)
-                    ) as Berths
-                  }
-                  boatTypes={boatTypes}
-                  tabs={tabs}
-                />
+                {!loading && (
+                  <Overview
+                    selectedBerths={berths.filter(berth =>
+                      selectedBerths.includes(berth.identifier)
+                    )}
+                    boatTypes={boatTypes}
+                    tabs={tabs}
+                  />
+                )}
               </Wizard>
             </Layout>
           );

@@ -13,7 +13,7 @@ import Layout from '../../../layout';
 import SelectedBerthsLegend from '../../../legends/BerthLegend/SelectedBerthLegend';
 
 import { SelectedServices } from '../../../../types/services';
-import { Berths, SelectedBerths as SelectedBerthsType } from '../../../berths/types';
+import { SelectedBerths as SelectedBerthsType } from '../../../berths/types';
 import './SelectedBerthPage.scss';
 
 interface Props {
@@ -60,6 +60,7 @@ class BerthPage extends Component<Props> {
     return (
       <BoatsBerthsQuery query={BOAT_TYPES_BERTHS_QUERY}>
         {({
+          loading,
           // error, TODO: handle errors
           data: { boatTypes, harbors } = { boatTypes: [], harbors: { edges: [] } }
         }) => {
@@ -131,18 +132,15 @@ class BerthPage extends Component<Props> {
                         />
                       </Alert>
                     )}
-
-                    <SelectedBerths
-                      moveUp={moveUp}
-                      moveDown={moveDown}
-                      deselectBerth={deselectBerth}
-                      berthValidator={filter}
-                      berths={
-                        selectedBerths.map(key =>
-                          berths.find(berth => key === berth.identifier)
-                        ) as Berths // TODO: fix the types
-                      }
-                    />
+                    {!loading && (
+                      <SelectedBerths
+                        moveUp={moveUp}
+                        moveDown={moveDown}
+                        deselectBerth={deselectBerth}
+                        berthValidator={filter}
+                        berths={berths.filter(berth => selectedBerths.includes(berth.identifier))}
+                      />
+                    )}
                   </Col>
                 </Row>
               </Container>

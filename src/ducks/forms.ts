@@ -2,7 +2,6 @@ import { Record } from 'immutable';
 import { createAction } from 'redux-actions';
 import { Action, FormsFactory, FormsState } from '../types/ducks';
 
-// @ts-ignore
 const defaultState: FormsFactory = Record({
   values: {}
 });
