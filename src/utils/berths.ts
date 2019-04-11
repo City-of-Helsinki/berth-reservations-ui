@@ -2,8 +2,9 @@ import { List } from 'immutable';
 import { get } from 'lodash';
 
 import { Berth } from '../components/berths/Berth/types';
+import { SelectedServices } from '../types/services';
 
-export const getBerthFilterByValues = (values: {}, selectedServices: any) => {
+export const getBerthFilterByValues = (values: {}, selectedServices: SelectedServices) => {
   const width = Number(get(values, 'boatWidth', '').replace(',', '.')) * 100;
   const length = Number(get(values, 'boatLength', '').replace(',', '.')) * 100;
   const boatType = get(values, 'boatType', '').replace(',', '.');
