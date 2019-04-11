@@ -51,7 +51,7 @@ export const BOAT_TYPES_BERTHS_QUERY = gql`
 `;
 
 export const CREATE_RESERVATION = gql`
-  mutation Submit($reservation: ReservationInput) {
+  mutation Submit($reservation: ReservationInput!) {
     createReservation(reservation: $reservation) {
       ok
     }
