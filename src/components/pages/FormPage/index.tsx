@@ -120,7 +120,7 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
                       priority: priority + 1
                     }))
                     .toArray();
-                  // @ts-ignoree
+                  // @ts-ignore
                   const { language, boatType, ...reservation } = values;
                   const boatTypeId = boatTypes.find(type => type.identifier === boatType);
                   await client.mutate({
@@ -161,12 +161,9 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
                 <ApplicantDetails tab={tab} />
                 {!loading && (
                   <Overview
-                    selectedBerths={
-                      berths.filter(berth => selectedBerths.includes(berth.identifier))
-                      // selectedBerths.map(key =>
-                      //   berths.find(berth => key === berth.identifier)
-                      // )
-                    }
+                    selectedBerths={berths.filter(berth =>
+                      selectedBerths.includes(berth.identifier)
+                    )}
                     boatTypes={boatTypes}
                     tabs={tabs}
                   />
