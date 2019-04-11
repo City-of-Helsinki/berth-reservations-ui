@@ -5,6 +5,8 @@ import Footer from './Footer';
 import KoroSection from './KoroSection';
 import Navbar from './Navbar';
 
+import './Layout.scss';
+
 type Props = {
   children: any;
   hero?: boolean;

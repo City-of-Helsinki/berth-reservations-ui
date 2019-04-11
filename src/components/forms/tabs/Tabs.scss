@@ -1,0 +1,14 @@
+@import 'helsinki/colors';
+
+.app-Form {
+  &__styled-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+.app-Form__tabs {
+  .big-ships {
+    background: $hel-light;
+    padding: 1em;
+  }
+}

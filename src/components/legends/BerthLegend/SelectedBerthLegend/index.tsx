@@ -2,6 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
 import Steps from '../../../steps';
+import './SelectedBerthLegend.scss';
 
 const BerthsLegend = () => (
   <div className="app-BerthsLegend__legend">

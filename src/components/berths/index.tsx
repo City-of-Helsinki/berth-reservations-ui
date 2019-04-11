@@ -7,6 +7,7 @@ import Berth from './Berth';
 import { BerthProps } from './types';
 
 const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
+import './Berths.scss';
 
 export default ({ filtered, filteredNot, onClick, selected }: BerthProps) => (
   <Container className="app-Berths">

@@ -6,6 +6,8 @@ import { FormattedMessage } from 'react-intl';
 import Icon, { IconNames } from '../../../common/Icon';
 import LocalizedLink from '../../../common/LocalizedLink';
 
+import './SectionSelector.scss';
+
 interface TypeProps {
   label: string;
   tab: string;

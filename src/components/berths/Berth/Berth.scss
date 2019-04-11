@@ -1,5 +1,7 @@
-@import './BerthDetails/styles';
-@import './SelectedBerth/styles';
+@import 'helsinki/colors';
+@import 'helsinki/fonts';
+
+@import 'styles/mixin';
 
 $berthIconSize: 42px;
 $berthImageHeight: 12em;
@@ -9,14 +11,24 @@ $berthImageHeight: 12em;
   margin-bottom: 2em;
 
   &__image {
-    object-fit: cover;
-    height: $berthImageHeight;
-    width: 100%;
-    display: none;
+    position: relative;
+    .alert {
+      position: absolute;
+      margin: 1em;
+      padding: 0.5em 1em;
+    }
+    .vene-image {
+      img {
+        object-fit: cover;
+        height: $berthImageHeight;
+        width: 100%;
+        display: none;
 
-    @include for-tablet {
-      height: 100%;
-      display: block;
+        @include for-tablet {
+          height: 100%;
+          display: block;
+        }
+      }
     }
   }
 

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import Layout from '../../layout';
 import ThankYouLegend from '../../legends/ThankYouLegend';
+import './ThankYouPage.scss';
 
 interface Props {
   resetValues: Function;

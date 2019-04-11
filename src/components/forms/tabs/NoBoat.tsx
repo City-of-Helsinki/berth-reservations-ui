@@ -4,6 +4,7 @@ import { Container } from 'reactstrap';
 import Accessibility from '../fragments/Accessibility';
 import UnRegisteredBoatDetails from '../fragments/UnRegisteredBoatDetails';
 import { WithBoatType } from '../Selects';
+import './Tabs.scss';
 
 type Props = WithBoatType;
 

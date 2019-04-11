@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Button, Col, Container, Row } from 'reactstrap';
 import Form from './Form';
+import './Wizard.scss';
 
 type State = any;
 type Props = any;

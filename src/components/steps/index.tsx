@@ -2,6 +2,8 @@ import React from 'react';
 import { InjectedIntlProps, injectIntl } from 'react-intl';
 import Step from './Step';
 
+import './Steps.scss';
+
 interface StepProp {
   key: string;
   completed: boolean;

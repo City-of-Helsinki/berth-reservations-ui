@@ -5,6 +5,8 @@ import { Container } from 'reactstrap';
 import ContactDetails from '../fragments/ContactDetails';
 import FullName from '../fragments/FullName';
 import PostalDetails from '../fragments/PostalDetails';
+import './Tabs.scss';
+
 interface Props {
   prefix: string;
 }

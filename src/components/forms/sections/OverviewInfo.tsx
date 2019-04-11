@@ -12,6 +12,8 @@ import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
 import Person from '../fragments/overview/Person';
 import { WithBoatType } from '../Selects';
 
+import './OverviewInfo.scss';
+
 type Props = {
   values: {
     boatName: string;

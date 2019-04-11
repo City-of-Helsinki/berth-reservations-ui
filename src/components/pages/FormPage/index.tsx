@@ -15,6 +15,7 @@ import { Berths, SelectedBerths } from '../../berths/types';
 
 import { getBerths } from '../../../utils/berths';
 import { BOAT_TYPES_BERTHS_QUERY, CREATE_RESERVATION } from '../../../utils/graphql';
+import './FormPage.scss';
 
 interface Props {
   initialValues: {};

@@ -15,6 +15,8 @@ import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 
 import BoatsBerthsQuery from '../../common/BoatsBerthsQuery';
 
+import './BerthPage.scss';
+
 interface Props {
   initialValues: {};
   filtered: BerthsType;

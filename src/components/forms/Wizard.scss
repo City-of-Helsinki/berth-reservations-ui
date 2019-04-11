@@ -1,14 +1,7 @@
-@import './tabs/styles';
-@import './fields/styles';
-@import './fragments/overview/styles';
-@import './sections/styles';
+@import 'helsinki/colors';
+@import 'styles/mixin';
 
 .app-Form {
-  &__styled-container {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-
   &__wizard-wrapper {
     background-color: $hel-light;
     padding: 1em 0 3em;

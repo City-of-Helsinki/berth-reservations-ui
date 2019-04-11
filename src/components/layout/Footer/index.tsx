@@ -4,6 +4,8 @@ import { Col, Container, Row } from 'reactstrap';
 import Icon from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
 
+import './Footer.scss';
+
 type Props = InjectedIntlProps;
 
 const Footer = ({ intl: { formatMessage } }: Props) => (

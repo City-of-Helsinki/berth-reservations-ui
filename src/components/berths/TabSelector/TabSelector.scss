@@ -1,3 +1,7 @@
+@import 'helsinki/colors';
+@import 'helsinki/fonts';
+@import 'styles/mixin';
+
 .app-Berth__tab-selector {
   background-color: $hel-light;
   border-bottom: 4px solid white;

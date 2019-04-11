@@ -1,7 +1,7 @@
 @import '~leaflet/dist/leaflet.css';
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/_variables';
-@import '~open-city-design/src/scss/helsinki/variables';
+@import 'helsinki/variables';
 
 $theme-colors: (
   'primary': $hel-black,
@@ -13,11 +13,6 @@ $theme-colors: (
   'light': $hel-light,
   'dark': $hel-dark
 );
-
-$sm: 576px;
-$md: 768px;
-$lg: 992px;
-$xl: 1200px;
 
 @import '~bootstrap/scss/mixins';
 @import '~bootstrap/scss/root';
@@ -37,5 +32,4 @@ $xl: 1200px;
 @import '~bootstrap/scss/utilities';
 @import '~bootstrap/scss/print';
 
-@import '~open-city-design/src/scss/helsinki/mixins';
-@import '~open-city-design/src/scss/helsinki/custom-styles';
+@import 'helsinki/custom-styles';

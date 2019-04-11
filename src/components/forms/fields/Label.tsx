@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Label } from 'reactstrap';
+import './Label.scss';
 
 interface Props {
   htmlFor: string;

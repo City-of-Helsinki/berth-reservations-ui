@@ -8,6 +8,7 @@ import Icon from '../../../common/Icon';
 import InvalidSelection from '../../InvalidSelection';
 
 import { Berth } from '../types';
+import './SelectedBerth.scss';
 
 type Props = {
   berth: Berth;

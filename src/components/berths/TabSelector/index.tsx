@@ -5,6 +5,7 @@ import { Sticky, StickyContainer } from 'react-sticky';
 import { Button, Container } from 'reactstrap';
 import IntlComponent from '../../common/IntlComponent';
 import InvalidSelection from '../InvalidSelection';
+import './TabSelector.scss';
 
 interface Props {
   children: React.ReactNode;

@@ -3,6 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { Container, Nav, Navbar as BSNavbar, NavbarBrand } from 'reactstrap';
 import Icon from '../../common/Icon';
 import LanguageDropdown from '../LanguageDropdown';
+import './Navbar.scss';
 
 const Navbar = () => {
   return (

@@ -14,6 +14,7 @@ import SelectedBerthsLegend from '../../../legends/BerthLegend/SelectedBerthLege
 
 import { SelectedServices } from '../../../../types/services';
 import { Berths, SelectedBerths as SelectedBerthsType } from '../../../berths/types';
+import './SelectedBerthPage.scss';
 
 interface Props {
   selectedBerths: SelectedBerthsType;

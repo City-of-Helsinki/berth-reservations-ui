@@ -10,6 +10,7 @@ import { WithBoatType } from '../../forms/Selects';
 import Steps from '../../steps';
 
 import { SelectedServices } from '../../../types/services';
+import './BerthLegend.scss';
 
 type Props = {
   initialValues: object;

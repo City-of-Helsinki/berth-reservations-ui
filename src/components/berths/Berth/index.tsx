@@ -8,6 +8,8 @@ import Image from '../../common/Image';
 import IntlComponent from '../../common/IntlComponent';
 import BerthDetails from './BerthDetails';
 
+import './Berth.scss';
+
 import { Berth as BerthType } from './types';
 
 type Props = {
@@ -47,13 +49,15 @@ class Berth extends Component<Props, State> {
       <div className={classNames('app-Berth', className)}>
         <Row>
           <Col md={3}>
-            <IntlComponent
-              Component={Alert}
-              color="danger"
-              id="error.message.invalid_berth"
-              visible={isVisible}
-            />
-            <Image className="app-Berth__image" src={berth.imageFile} alt={berth.name} />
+            <div className="app-Berth__image">
+              <IntlComponent
+                Component={Alert}
+                color="danger"
+                id="error.message.invalid_berth"
+                visible={isVisible}
+              />
+              <Image src={berth.imageFile} alt={berth.name} />
+            </div>
           </Col>
 
           <Col md={4}>

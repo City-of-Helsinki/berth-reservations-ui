@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Col, Row } from 'reactstrap';
+import './Form.scss';
 
 interface Props {
   firstName: string;

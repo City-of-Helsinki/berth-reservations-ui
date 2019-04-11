@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormattedHTMLMessage, FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
+import './ThankYouLegend.scss';
 
 export default () => (
   <Container className="app-ThankYouLegend">

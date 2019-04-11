@@ -9,6 +9,7 @@ import MapMarker from './MapMarker';
 import Berth from '../../berths/Berth';
 import { Berth as BerthType } from '../../berths/Berth/types';
 import { Berths, SelectedBerths } from '../../berths/types';
+import './Map.scss';
 
 interface State {
   lat: number;

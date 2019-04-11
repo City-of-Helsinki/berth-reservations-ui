@@ -2,6 +2,7 @@ import React from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 import { Col, Row } from 'reactstrap';
 import { WithBoatType } from '../../Selects';
+import './Form.scss';
 
 type Props = {
   boatTypeId: string;
