@@ -52,7 +52,7 @@ const BerthsLegend = ({
   deselectService,
   selectedServices
 }: Props) => (
-  <div className="app-BerthsLegend">
+  <div className="vene-berths-legend">
     <Container>
       <Row>
         <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
@@ -91,7 +91,7 @@ const BerthsLegend = ({
             ]}
           />
 
-          <div className="app-BerthsLegend__header">
+          <div className="vene-berths-legend__header">
             <FormattedMessage tagName="h3" id="legend.berths.title" />
             <FormattedMessage tagName="p" id="legend.berths.legend" />
           </div>
@@ -105,11 +105,11 @@ const BerthsLegend = ({
             )}
           </Form>
 
-          <div className="app-BerthsLegend__services__header">
+          <div className="vene-berths-legend__services__header">
             <FormattedMessage tagName="span" id="form.services.field.services.label" />
           </div>
 
-          <div className="app-BerthsLegend__services">
+          <div className="vene-berths-legend__services">
             {services.map((service, index) => {
               const selected = selectedServices.get(service.value);
               return (
@@ -121,13 +121,13 @@ const BerthsLegend = ({
                 >
                   <Fragment>
                     <div
-                      className={classNames('app-BerthsLegend__services__icon-wrapper', {
+                      className={classNames('vene-berths-legend__services__icon-wrapper', {
                         selected
                       })}
                     >
                       <Icon name={service.icon} />
                     </div>
-                    <div className="app-BerthsLegend__services__label">
+                    <div className="vene-berths-legend__services__label">
                       <FormattedMessage id={service.label} />
                     </div>
                   </Fragment>

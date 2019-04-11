@@ -9,11 +9,11 @@ import './Footer.scss';
 type Props = InjectedIntlProps;
 
 const Footer = ({ intl: { formatMessage } }: Props) => (
-  <div className="app-Footer">
+  <div className="vene-footer">
     <Container>
       <Row>
         <Col md="4">
-          <div className="app-Footer__vene-link">
+          <div className="vene-footer__vene-link">
             <LocalizedLink to="">
               <FormattedMessage id="site.footer.bearth_search" />
             </LocalizedLink>
@@ -48,7 +48,7 @@ const Footer = ({ intl: { formatMessage } }: Props) => (
         </Col>
       </Row>
 
-      <Row className="app-Footer__link-wrapper">
+      <Row className="vene-footer__link-wrapper">
         <Col xs="4">
           <a href={formatMessage({ id: 'site.footer.url.feedback' })}>
             <FormattedMessage tagName="li" id="site.footer.send_feedback" />

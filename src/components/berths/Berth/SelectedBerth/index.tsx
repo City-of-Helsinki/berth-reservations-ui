@@ -70,9 +70,9 @@ class SelectedBerth extends Component<Props, State> {
         onEntered={this.toggleEnterState}
       >
         {state => (
-          <div className="app-Berth__selected__row">
+          <div className="vene-berth__selected__row">
             <div
-              className={classNames('app-Berth__selected__name', `moving-${state}`, {
+              className={classNames('vene-berth__selected__name', `moving-${state}`, {
                 'has-error': isValid.toString()
               })}
             >
@@ -84,7 +84,7 @@ class SelectedBerth extends Component<Props, State> {
                 <Icon name="times" />
               </Button>
             </div>
-            <div className="app-Berth__selected__options">
+            <div className="vene-berth__selected__options">
               <Button outline color="primary" onClick={this.doMoveUp} disabled={first}>
                 <Icon name="angleUp" />
               </Button>

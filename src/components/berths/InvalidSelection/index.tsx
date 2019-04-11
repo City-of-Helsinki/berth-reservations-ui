@@ -19,7 +19,7 @@ class InvalidSelection extends PureComponent<any, any> {
       id === 'default' ? 'error.message.invalid_berth_selection' : 'error.message.invalid_berth';
     return (
       <div
-        className="app-Berths__invalid-selection"
+        className="vene-berths__invalid-selection"
         id={id}
         onMouseEnter={() => this.toggle(true)}
         onMouseLeave={() => this.toggle(false)}

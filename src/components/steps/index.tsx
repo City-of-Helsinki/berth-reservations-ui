@@ -16,7 +16,7 @@ type Props = {
 } & InjectedIntlProps;
 
 const Steps = ({ intl: { formatMessage }, steps }: Props) => (
-  <div className="app-Steps">
+  <div className="vene-steps">
     {steps.map(({ key, completed, current, linkTo }) => (
       <Step
         key={key}

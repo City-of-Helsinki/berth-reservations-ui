@@ -26,7 +26,7 @@ interface Props {
 }
 
 const SectionSelector = ({ name, selected, types, sizes }: Props) => (
-  <div className="app-SectionSelector">
+  <div className="vene-section-selector">
     <Container>
       <Row>
         <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
@@ -34,7 +34,7 @@ const SectionSelector = ({ name, selected, types, sizes }: Props) => (
             {types.map(({ label, tab, icon }: TypeProps) => (
               <Col id={`${tab}_selection`} key={`${name}.${tab}`} {...sizes}>
                 <LocalizedLink
-                  className={classNames('app-SectionSelector__link', {
+                  className={classNames('vene-section-selector__link', {
                     'is-selected': selected === tab
                   })}
                   to={`form/${tab}`}

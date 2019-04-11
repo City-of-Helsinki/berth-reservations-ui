@@ -61,7 +61,7 @@ const BigShipsFragment = () => (
     </Row>
     <Row>
       <Col>
-        <h3 className=".app-form__big-ship">
+        <h3 className=".vene-form__big-ship">
           <FormattedMessage id="form.big_ship.header.inspection_and_insurance" />
         </h3>
 

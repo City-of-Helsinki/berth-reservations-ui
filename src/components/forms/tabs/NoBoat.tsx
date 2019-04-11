@@ -9,7 +9,7 @@ import './Tabs.scss';
 type Props = WithBoatType;
 
 export default ({ boatTypes }: Props) => (
-  <Container className="app-Form__styled-container">
+  <Container className="vene-form__styled-container">
     <FormattedMessage tagName="h3" id="form.no_boat.header.title" />
     <UnRegisteredBoatDetails boatTypes={boatTypes} />
     <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />

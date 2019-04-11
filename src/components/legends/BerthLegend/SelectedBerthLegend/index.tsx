@@ -5,7 +5,7 @@ import Steps from '../../../steps';
 import './SelectedBerthLegend.scss';
 
 const BerthsLegend = () => (
-  <div className="app-BerthsLegend__legend">
+  <div className="vene-berths-legend__legend">
     <Container>
       <Row>
         <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>

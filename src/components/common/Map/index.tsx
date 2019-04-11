@@ -53,11 +53,11 @@ export default class MapCanvas extends Component<Props, State> {
       !!selectedBerth && filteredNot.some(berth => berth.identifier === selectedBerth.identifier);
 
     return (
-      <Container className="app-Map">
-        <h3 className="app-Map__header">
+      <Container className="vene-map">
+        <h3 className="vene-map__header">
           <FormattedMessage id="page.berths.list.berth_count" values={{ count: filtered.size }} />
         </h3>
-        <Map center={position} zoom={this.state.zoom} className="app-Map__map">
+        <Map center={position} zoom={this.state.zoom} className="vene-map__map">
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {filtered.map(berth => {
             const isSelected = !!selected && selected.includes(berth.identifier);

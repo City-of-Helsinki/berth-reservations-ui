@@ -80,7 +80,7 @@ class BerthPage extends Component<Props> {
 
           return (
             <Layout hero>
-              <div className="app-BerthPage">
+              <div className="vene-berthPage">
                 <BerthsLegend
                   boatTypes={boatTypes}
                   initialValues={initialValues}

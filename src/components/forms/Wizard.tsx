@@ -74,10 +74,10 @@ class Wizard extends Component<Props, State> {
           <Fragment>
             {React.isValidElement(activePage) &&
               React.cloneElement<{ values?: {} }>(activePage, { values })}
-            <div className="app-Form__wizard-wrapper">
+            <div className="vene-form__wizard-wrapper">
               <Container>
                 <Row>
-                  <Col xs={12} className="app-Form__wizard-wrapper__button-group">
+                  <Col xs={12} className="vene-form__wizard-wrapper__button-group">
                     <Button color="link" type="button" onClick={() => this.handlePrevious(values)}>
                       <FormattedMessage id="form.wizard.button.previous" />
                     </Button>

@@ -24,11 +24,11 @@ const getHeroContentLink = (locale: string) => {
 };
 
 const Layout = ({ children, hero, intl: { locale } }: Props) => (
-  <div className="app-Layout">
+  <div className="vene-layout">
     <Navbar />
 
     {hero && (
-      <div className="app-Layout__hero">
+      <div className="vene-layout__hero">
         <Container>
           <FormattedMessage tagName="h1" id="site.title" />
         </Container>
@@ -36,7 +36,7 @@ const Layout = ({ children, hero, intl: { locale } }: Props) => (
     )}
 
     {hero && (
-      <KoroSection bottom color="white" className="app-Layout__koro">
+      <KoroSection bottom color="white" className="vene-layout__koro">
         <Container>
           <Row>
             <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>

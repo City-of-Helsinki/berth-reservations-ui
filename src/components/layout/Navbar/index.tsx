@@ -7,8 +7,8 @@ import './Navbar.scss';
 
 const Navbar = () => {
   return (
-    <div className="app-Navbar">
-      <div className="app-Navbar__top">
+    <div className="vene-navbar">
+      <div className="vene-navbar__top">
         <Container>
           <BSNavbar expand="md">
             <NavbarBrand href="/">
@@ -20,7 +20,7 @@ const Navbar = () => {
           </BSNavbar>
         </Container>
       </div>
-      <div className="app-Navbar__bottom">
+      <div className="vene-navbar__bottom">
         <Container>
           <BSNavbar expand="md">
             <NavbarBrand href="/">

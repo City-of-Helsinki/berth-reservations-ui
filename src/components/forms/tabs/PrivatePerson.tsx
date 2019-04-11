@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default ({ prefix }: Props) => (
-  <Container className="app-Form__styled-container">
+  <Container className="vene-form__styled-container">
     <FormattedMessage tagName="h3" id="form.private_person.header.title" />
     <FullName />
     <PostalDetails />

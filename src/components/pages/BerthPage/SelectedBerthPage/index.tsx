@@ -75,7 +75,7 @@ class BerthPage extends Component<Props> {
           return (
             <Layout>
               <SelectedBerthsLegend />
-              <Container className="app-BerthPageSelected__wrapper">
+              <Container className="vene-berth-page-selected__wrapper">
                 <Row>
                   <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
                     <FormattedMessage tagName="h1" id="page.berth.selected.title" />
@@ -86,7 +86,7 @@ class BerthPage extends Component<Props> {
                           {type && (
                             <Col md="5">
                               <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
-                              <span className="app-BerthPageSelected__boat-value">
+                              <span className="vene-berth-page-selected__boat-value">
                                 {boatType.name}
                               </span>
                             </Col>
@@ -94,7 +94,10 @@ class BerthPage extends Component<Props> {
                           {width && (
                             <Col md="3">
                               <FormattedMessage tagName="span" id="page.overview.info.boat_width" />
-                              :<span className="app-BerthPageSelected__boat-value">{width} m</span>
+                              :
+                              <span className="vene-berth-page-selected__boat-value">
+                                {width} m
+                              </span>
                             </Col>
                           )}
                           {length && (
@@ -103,13 +106,16 @@ class BerthPage extends Component<Props> {
                                 tagName="span"
                                 id="page.overview.info.boat_length"
                               />
-                              :<span className="app-BerthPageSelected__boat-value">{length} m</span>
+                              :
+                              <span className="vene-berth-page-selected__boat-value">
+                                {length} m
+                              </span>
                             </Col>
                           )}
                         </Row>
                       </Container>
                     ) : (
-                      <div className="app-BerthPageSelected__notice">
+                      <div className="vene-berth-page-selected__notice">
                         <Icon name="exclamationCircle" />
                         <LocalizedLink to="">
                           <FormattedMessage tagName="span" id="page.berth.selected.info_text" />
@@ -140,11 +146,11 @@ class BerthPage extends Component<Props> {
                   </Col>
                 </Row>
               </Container>
-              <div className="app-BerthPageSelected__button-wrapper">
+              <div className="vene-berth-page-selected__button-wrapper">
                 <Container>
                   <Row>
                     <Col xs={12}>
-                      <div className="app-BerthPageSelected__button-wrapper__button-groups">
+                      <div className="vene-berth-page-selected__button-wrapper__button-groups">
                         <Button color="link" type="button" onClick={this.handlePrevious}>
                           <FormattedMessage id="form.wizard.button.previous" />
                         </Button>
