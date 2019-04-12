@@ -1,4 +1,5 @@
 @import 'helsinki/colors';
+@import 'helsinki/fonts';
 @import 'styles/mixin';
 
 .vene-form {
@@ -11,6 +12,14 @@
       justify-content: space-between;
       flex-direction: row;
 
+      button {
+        &:last-child {
+          span {
+            font-weight: $font-weight-bold;
+            font-size: $font-size-lg;
+          }
+        }
+      }
       @include for-phone {
         flex-direction: column;
       }

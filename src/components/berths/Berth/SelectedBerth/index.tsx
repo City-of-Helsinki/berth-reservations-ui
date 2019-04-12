@@ -73,7 +73,7 @@ class SelectedBerth extends Component<Props, State> {
           <div className="vene-berth__selected__row">
             <div
               className={classNames('vene-berth__selected__name', `moving-${state}`, {
-                'has-error': isValid.toString()
+                'has-error': !isValid
               })}
             >
               <span key={berth.identifier}>

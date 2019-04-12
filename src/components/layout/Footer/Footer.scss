@@ -11,6 +11,11 @@ $footerIconWidth: 120px;
   &__vene-link {
     text-align: center;
   }
+
+  &__hel-logo {
+    text-align: center;
+  }
+
   a {
     color: $hel-white;
   }
@@ -25,11 +30,13 @@ $footerIconWidth: 120px;
 
   &__link-wrapper {
     margin-top: 2em;
+    display: inline-flex;
+    flex: 1;
+    justify-content: space-evenly;
   }
 
   .vene-icon {
     width: $footerIconWidth;
     fill: $hel-white;
-    margin: 0 auto;
   }
 }

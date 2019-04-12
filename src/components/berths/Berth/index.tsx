@@ -41,7 +41,7 @@ class Berth extends Component<Props, State> {
   };
 
   render() {
-    const { berth, excluded, onClick, selected, disabled, className } = this.props;
+    const { berth, excluded = false, onClick, selected, disabled, className } = this.props;
 
     return (
       <div className={classNames('vene-berth', className)}>
@@ -64,59 +64,56 @@ class Berth extends Component<Props, State> {
 
               <div className="vene-berth__address">
                 {berth.streetAddress}, {berth.zipCode} {berth.municipality}
-                <div />
-                {selected ? (
-                  <Button color={excluded ? 'danger' : 'secondary'} onClick={onClick}>
-                    <Icon name="check" />
-                    <FormattedMessage tagName="span" id="page.berths.selected" />
-                  </Button>
-                ) : (
-                  <Button outline primary="true" onClick={onClick} disabled={disabled}>
-                    + <FormattedMessage tagName="span" id="page.berths.select" />
-                  </Button>
-                )}
-                <div className="vene-berth__availability-level">
-                  <Button
-                    className="vene-berth__availability-level__button"
-                    id={`availability_${berth.identifier}`}
-                    color="link"
-                    // TODO: fix this
-                    // tslint:disable-next-line: jsx-no-lambda
-                    onMouseEnter={() => this.togglePopover(true)}
-                    // tslint:disable-next-line: jsx-no-lambda
-                    onMouseLeave={() => this.togglePopover(false)}
-                  >
-                    <Fragment>
-                      <span
-                        className={classNames(
-                          'vene-berth__availability-level__marker',
-                          berth.availabilityLevel ? berth.availabilityLevel.identifier : 'default'
-                        )}
-                      />
-                      {berth.availabilityLevel.title}
-                    </Fragment>
-                  </Button>
-
-                  <Popover
-                    placement="right"
-                    target={`availability_${berth.identifier}`}
-                    isOpen={this.state.popoverOpen}
-                  >
-                    <PopoverBody>
-                      {berth.availabilityLevel.description || berth.availabilityLevel.title}
-                    </PopoverBody>
-                  </Popover>
-                </div>
-                <a
-                  className="vene-berth__website-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={berth.wwwUrl}
-                >
-                  <FormattedMessage tagName="span" id="page.berths.website" />
-                  <Icon name="arrowRight" />
-                </a>
               </div>
+
+              {selected ? (
+                <Button color={excluded ? 'danger' : 'secondary'} onClick={onClick}>
+                  <Icon name="check" />
+                  <FormattedMessage tagName="span" id="page.berths.selected" />
+                </Button>
+              ) : (
+                <Button outline primary="true" onClick={onClick} disabled={disabled}>
+                  + <FormattedMessage tagName="span" id="page.berths.select" />
+                </Button>
+              )}
+              <div className="vene-berth__availability-level">
+                <Button
+                  className="vene-berth__availability-level__button"
+                  id={`availability_${berth.identifier}`}
+                  color="link"
+                  onMouseEnter={() => this.togglePopover(true)}
+                  onMouseLeave={() => this.togglePopover(false)}
+                >
+                  <Fragment>
+                    <span
+                      className={classNames(
+                        'vene-berth__availability-level__marker',
+                        berth.availabilityLevel ? berth.availabilityLevel.identifier : 'default'
+                      )}
+                    />
+                    {berth.availabilityLevel.title}
+                  </Fragment>
+                </Button>
+
+                <Popover
+                  placement="right"
+                  target={`availability_${berth.identifier}`}
+                  isOpen={this.state.popoverOpen}
+                >
+                  <PopoverBody>
+                    {berth.availabilityLevel.description || berth.availabilityLevel.title}
+                  </PopoverBody>
+                </Popover>
+              </div>
+              <a
+                className="vene-berth__website-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={berth.wwwUrl}
+              >
+                <FormattedMessage tagName="span" id="page.berths.website" />
+                <Icon name="arrowRight" />
+              </a>
             </div>
           </Col>
 

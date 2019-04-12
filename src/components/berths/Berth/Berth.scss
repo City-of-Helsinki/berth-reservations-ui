@@ -12,12 +12,15 @@ $berthImageHeight: 12em;
 
   &__image {
     position: relative;
+    height: 100%;
+
     .alert {
       position: absolute;
       margin: 1em;
       padding: 0.5em 1em;
     }
     .vene-image {
+      height: 100%;
       img {
         object-fit: cover;
         height: $berthImageHeight;
@@ -70,6 +73,15 @@ $berthImageHeight: 12em;
     > * {
       display: block;
     }
+
+    .vene-icon {
+      height: 1em;
+      width: 1em;
+      fill: $hel-white;
+      display: inline-block;
+      margin-right: 5px;
+    }
+
     strong {
       line-height: 1em;
       font-size: $font-size-sm;
@@ -97,22 +109,18 @@ $berthImageHeight: 12em;
 
   &__address {
     margin: 0.5em 0;
-
-    .vene-icon {
-      height: 1em;
-      width: 1em;
-      display: inline-block;
-      margin-right: 5px;
-    }
   }
 
   &__website-link {
-    margin-top: 0.5em;
-    font-weight: $font-weight-bold;
+    span {
+      margin-top: 0.5em;
+      font-weight: $font-weight-bold;
+    }
 
     .vene-icon {
       height: 1em;
       width: 1em;
+      fill: $hel-black;
       display: inline-block;
     }
   }

@@ -36,7 +36,7 @@ const Layout = ({ children, hero, intl: { locale } }: Props) => (
     )}
 
     {hero && (
-      <KoroSection bottom color="white" className="vene-layout__koro">
+      <KoroSection top color="white" className="vene-layout__koro">
         <Container>
           <Row>
             <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
@@ -53,10 +53,10 @@ const Layout = ({ children, hero, intl: { locale } }: Props) => (
       </KoroSection>
     )}
 
-    <KoroSection top color="fog">
+    <KoroSection top={hero} color="fog">
       {children}
     </KoroSection>
-    <KoroSection bottom color="blue">
+    <KoroSection top color="blue">
       <Footer />
     </KoroSection>
   </div>

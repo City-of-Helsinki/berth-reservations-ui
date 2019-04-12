@@ -9,7 +9,7 @@ const BerthDetails = ({ iconName, available, value, titleId }: BerthDetailsProps
   return (
     <div
       className={classNames('vene-berth__details', {
-        'vene-berth__details-not-available': available
+        'vene-berth__details-not-available': !available
       })}
     >
       {value && <div className="vene-berth__details__value">{value}</div>}
