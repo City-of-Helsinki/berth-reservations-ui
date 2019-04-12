@@ -2,25 +2,26 @@ import classNames from 'classnames';
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import Icon from '../../../common/Icon';
+import './BerthDetails.scss';
 import BerthDetailsProps from './types';
 
 const BerthDetails = ({ iconName, available, value, titleId }: BerthDetailsProps) => {
   return (
     <div
-      className={classNames('app-Berth__details', {
-        'app-Berth__details-not-available': available
+      className={classNames('vene-berth__details', {
+        'vene-berth__details-not-available': !available
       })}
     >
-      {value && <div className="app-Berth__details__value">{value}</div>}
+      {value && <div className="vene-berth__details__value">{value}</div>}
 
       {iconName && (
-        <div className="app-Berth__details__icon">
+        <div className="vene-berth__details__icon">
           <Icon name={iconName} />
         </div>
       )}
 
       {titleId && (
-        <div className="app-Berth__details__title">
+        <div className="vene-berth__details__title">
           <FormattedMessage tagName="span" id={titleId} />
         </div>
       )}

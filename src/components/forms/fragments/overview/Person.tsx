@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Col, Row } from 'reactstrap';
+import './Form.scss';
 
 interface Props {
   firstName: string;
@@ -35,8 +36,8 @@ const Person = ({
     </Row>
     <Row>
       <Col md={12}>
-        {zipCode && address && <div className="app-form__contact-section">{address}</div>}
-        {zipCode && <div className="app-form__contact-section">{zipCode}</div>}
+        {zipCode && address && <div className="vene-form__contact-section">{address}</div>}
+        {zipCode && <div className="vene-form__contact-section">{zipCode}</div>}
         {municipality && municipality}
       </Col>
     </Row>

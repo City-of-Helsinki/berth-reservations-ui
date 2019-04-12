@@ -1,9 +1,12 @@
+@import 'helsinki/colors';
+@import 'helsinki/fonts';
+
 $navHeight: 3.5em;
 $navBrandWidth: 90px;
 $languageIconSize: 32px;
 $navbarTitleColor: rgba(0, 0, 0, 0.9);
 
-.app-Navbar {
+.vene-navbar {
   &__top {
     background-color: $hel-white;
     border-bottom: 1px solid $hel-light;

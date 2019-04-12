@@ -1,7 +1,8 @@
-@import './SectionSelector/styles';
+@import 'helsinki/colors';
+@import 'helsinki/fonts';
 
-.app-OverviewInfo {
-  background-color: $hel-white;
+.vene-overview-info {
+  background-color: $hel-light;
   padding: 1.5em;
   margin-bottom: 2em;
 
@@ -11,9 +12,21 @@
     margin-bottom: 1em;
     margin-top: 1em;
     font-weight: bold;
+    h6 {
+      margin: 0;
+    }
   }
 
   &__edit-icon {
+    a {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      color: $hel-black;
+      span {
+        font-weight: $font-weight-bold;
+      }
+    }
     margin-bottom: 1em;
     margin-top: 1em;
     font-weight: bold;

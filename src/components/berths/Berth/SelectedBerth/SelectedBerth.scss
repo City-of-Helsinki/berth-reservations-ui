@@ -1,4 +1,8 @@
-.app-Berth__selected {
+@import 'helsinki/colors';
+@import 'helsinki/fonts';
+@import 'styles/mixin';
+
+.vene-berth__selected {
   &__row {
     display: flex;
     margin-bottom: 0.5em;
@@ -7,9 +11,7 @@
       padding-left: 0;
       padding-right: 0;
       height: 100%;
-      margin-left: 1em;
       background-color: transparent;
-      border: 0;
 
       @include for-phone {
         padding-left: 0.75rem;
@@ -22,24 +24,29 @@
     display: flex;
     flex-grow: 1;
     align-items: center;
-    background-color: $hel-light;
+    background-color: $hel-coat;
     color: $hel-white;
 
-    .vene-icon {
-      height: 36px;
-      width: 36px;
+    button {
+      padding: 0;
+      border: 0;
+
+      .vene-icon {
+        height: 30px;
+        width: 30px;
+        fill: $hel-white;
+      }
     }
 
     &.has-error {
-      background-color: $hel-coat;
+      background-color: $hel-silver;
       color: $hel-gray;
     }
 
     font-size: $font-size-sm;
     line-height: 1;
     hyphens: auto;
-    padding: 0.3em;
-    padding-left: 0.8em;
+    padding: 0.5em 1em;
     margin-right: 0.5em;
     transition: background-color 200ms ease-in;
 
@@ -57,6 +64,7 @@
 
     span {
       flex-grow: 1;
+      color: $hel-white;
     }
   }
 
@@ -65,8 +73,13 @@
     align-content: center;
 
     button {
-      padding-left: 0;
-      padding-right: 0;
+      padding: 0.5em;
+
+      &.disabled {
+        .vene-icon {
+          fill: $hel-light;
+        }
+      }
       &:first-child {
         margin-right: 6px;
       }
@@ -77,6 +90,7 @@
       .vene-icon {
         height: 36px;
         width: 36px;
+        fill: $hel-black;
       }
 
       @include for-phone {

@@ -1,4 +1,8 @@
-.app-BerthPageSelected {
+@import 'helsinki/colors';
+@import 'styles/mixin';
+@import 'helsinki/fonts';
+
+.vene-berth-page-selected {
   &__wrapper {
     padding-top: 3em;
     padding-bottom: 3em;
@@ -12,7 +16,14 @@
       display: flex;
       justify-content: space-between;
       flex-direction: row;
-
+      button {
+        &:last-child {
+          span {
+            font-weight: $font-weight-bold;
+            font-size: $font-size-lg;
+          }
+        }
+      }
       @include for-phone {
         flex-direction: column;
       }

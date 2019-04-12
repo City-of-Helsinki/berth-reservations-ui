@@ -5,6 +5,8 @@ import Footer from './Footer';
 import KoroSection from './KoroSection';
 import Navbar from './Navbar';
 
+import './Layout.scss';
+
 type Props = {
   children: any;
   hero?: boolean;
@@ -22,11 +24,11 @@ const getHeroContentLink = (locale: string) => {
 };
 
 const Layout = ({ children, hero, intl: { locale } }: Props) => (
-  <div className="app-Layout">
+  <div className="vene-layout">
     <Navbar />
 
     {hero && (
-      <div className="app-Layout__hero">
+      <div className="vene-layout__hero">
         <Container>
           <FormattedMessage tagName="h1" id="site.title" />
         </Container>
@@ -34,7 +36,7 @@ const Layout = ({ children, hero, intl: { locale } }: Props) => (
     )}
 
     {hero && (
-      <KoroSection bottom color="white" className="app-Layout__koro">
+      <KoroSection top color="white" className="vene-layout__koro">
         <Container>
           <Row>
             <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
@@ -51,10 +53,10 @@ const Layout = ({ children, hero, intl: { locale } }: Props) => (
       </KoroSection>
     )}
 
-    <KoroSection top color="fog">
+    <KoroSection top={hero} color="fog">
       {children}
     </KoroSection>
-    <KoroSection bottom color="blue">
+    <KoroSection top color="blue">
       <Footer />
     </KoroSection>
   </div>

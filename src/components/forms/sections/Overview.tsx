@@ -54,7 +54,7 @@ const Submit = ({
   <Container>
     <Row>
       <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-        <Container className="app-Form__styled-container">
+        <Container className="vene-form__styled-container">
           <OverviewInfo
             selectedBerths={selectedBerths}
             tabs={tabs}

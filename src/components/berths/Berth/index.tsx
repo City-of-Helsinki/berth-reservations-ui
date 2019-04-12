@@ -8,6 +8,8 @@ import Image from '../../common/Image';
 import IntlComponent from '../../common/IntlComponent';
 import BerthDetails from './BerthDetails';
 
+import './Berth.scss';
+
 import { Berth as BerthType } from './types';
 
 type Props = {
@@ -39,87 +41,84 @@ class Berth extends Component<Props, State> {
   };
 
   render() {
-    const { berth, onClick, selected, disabled, excluded, className } = this.props;
-    const isVisible = selected && excluded ? true : 'false';
-    // TODO: Remove this h@ck
+    const { berth, excluded = false, onClick, selected, disabled, className } = this.props;
 
     return (
-      <div className={classNames('app-Berth', className)}>
+      <div className={classNames('vene-berth', className)}>
         <Row>
           <Col md={3}>
-            <IntlComponent
-              Component={Alert}
-              color="danger"
-              id="error.message.invalid_berth"
-              visible={isVisible}
-            />
-            <Image className="app-Berth__image" src={berth.imageFile} alt={berth.name} />
+            <div className="vene-berth__image">
+              <IntlComponent
+                Component={Alert}
+                color="danger"
+                id="error.message.invalid_berth"
+                isOpen={selected && excluded}
+              />
+              <Image src={berth.imageFile} alt={berth.name} />
+            </div>
           </Col>
 
           <Col md={4}>
-            <div className="app-Berth__summary-wrapper">
+            <div className="vene-berth__summary-wrapper">
               <strong>{berth.name}</strong>
 
-              <div className="app-Berth__address">
+              <div className="vene-berth__address">
                 {berth.streetAddress}, {berth.zipCode} {berth.municipality}
-                <div />
-                {selected ? (
-                  <Button color={excluded ? 'danger' : 'secondary'} onClick={onClick}>
-                    <Icon name="check" />
-                    <FormattedMessage tagName="span" id="page.berths.selected" />
-                  </Button>
-                ) : (
-                  <Button outline primary="true" onClick={onClick} disabled={disabled}>
-                    + <FormattedMessage tagName="span" id="page.berths.select" />
-                  </Button>
-                )}
-                <div className="app-Berth__availability-level">
-                  <Button
-                    className="app-Berth__availability-level__button"
-                    id={`availability_${berth.identifier}`}
-                    color="link"
-                    // TODO: fix this
-                    // tslint:disable-next-line: jsx-no-lambda
-                    onMouseEnter={() => this.togglePopover(true)}
-                    // tslint:disable-next-line: jsx-no-lambda
-                    onMouseLeave={() => this.togglePopover(false)}
-                  >
-                    <Fragment>
-                      <span
-                        className={classNames(
-                          'app-Berth__availability-level__marker',
-                          berth.availabilityLevel ? berth.availabilityLevel.identifier : 'default'
-                        )}
-                      />
-                      {berth.availabilityLevel.title}
-                    </Fragment>
-                  </Button>
-
-                  <Popover
-                    placement="right"
-                    target={`availability_${berth.identifier}`}
-                    isOpen={this.state.popoverOpen}
-                  >
-                    <PopoverBody>
-                      {berth.availabilityLevel.description || berth.availabilityLevel.title}
-                    </PopoverBody>
-                  </Popover>
-                </div>
-                <a
-                  className="app-Berth__website-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={berth.wwwUrl}
-                >
-                  <FormattedMessage tagName="span" id="page.berths.website" />
-                  <Icon name="arrowRight" />
-                </a>
               </div>
+
+              {selected ? (
+                <Button color={excluded ? 'danger' : 'secondary'} onClick={onClick}>
+                  <Icon name="check" />
+                  <FormattedMessage tagName="span" id="page.berths.selected" />
+                </Button>
+              ) : (
+                <Button outline primary="true" onClick={onClick} disabled={disabled}>
+                  + <FormattedMessage tagName="span" id="page.berths.select" />
+                </Button>
+              )}
+              <div className="vene-berth__availability-level">
+                <Button
+                  className="vene-berth__availability-level__button"
+                  id={`availability_${berth.identifier}`}
+                  color="link"
+                  onMouseEnter={() => this.togglePopover(true)}
+                  onMouseLeave={() => this.togglePopover(false)}
+                >
+                  <Fragment>
+                    <span
+                      className={classNames(
+                        'vene-berth__availability-level__marker',
+                        berth.availabilityLevel ? berth.availabilityLevel.identifier : 'default'
+                      )}
+                    />
+                    {berth.availabilityLevel.title}
+                  </Fragment>
+                </Button>
+
+                <Popover
+                  placement="right"
+                  target={`availability_${berth.identifier}`}
+                  isOpen={this.state.popoverOpen}
+                >
+                  <PopoverBody>
+                    {berth.availabilityLevel.description || berth.availabilityLevel.title}
+                  </PopoverBody>
+                </Popover>
+              </div>
+              <a
+                className="vene-berth__website-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={berth.wwwUrl}
+              >
+                <FormattedMessage tagName="span" id="page.berths.website" />
+                <Icon name="arrowRight" />
+              </a>
             </div>
           </Col>
 
           <Col md={5}>
-            <div className="app-Berth__details-wrapper">
+            <div className="vene-berth__details-wrapper">
               <BerthDetails
                 available
                 value={berth.numberOfPlaces}

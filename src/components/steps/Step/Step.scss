@@ -1,4 +1,8 @@
-.app-Step {
+@import 'helsinki/colors';
+@import 'helsinki/fonts';
+@import 'styles/mixin';
+
+.vene-step {
   flex: 1;
   padding: 0 0.25em;
   color: inherit;

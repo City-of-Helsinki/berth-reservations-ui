@@ -7,9 +7,10 @@ import Berth from './Berth';
 import { BerthProps } from './types';
 
 const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
+import './Berths.scss';
 
 export default ({ filtered, filteredNot, onClick, selected }: BerthProps) => (
-  <Container className="app-Berths">
+  <Container className="vene-berths">
     {filtered.size > 0 && (
       <Row>
         <Col xs={12}>
@@ -21,7 +22,6 @@ export default ({ filtered, filteredNot, onClick, selected }: BerthProps) => (
     )}
     {filtered.map(berth => (
       <Berth
-        className={berth.excluded ? 'app-Berth__excluded' : ''}
         key={berth.identifier}
         berth={berth}
         onClick={() => onClick(berth.identifier)}
@@ -40,7 +40,8 @@ export default ({ filtered, filteredNot, onClick, selected }: BerthProps) => (
     )}
     {filteredNot.map(berth => (
       <Berth
-        className={berth.excluded ? 'app-Berth__excluded' : ''}
+        className="vene-berth__excluded"
+        excluded={true}
         key={berth.identifier}
         berth={berth}
         // TODO: fix this

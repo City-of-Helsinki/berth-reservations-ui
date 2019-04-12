@@ -1,38 +1,7 @@
-@import './Navbar/styles';
-@import './Footer/styles';
+@import 'styles/mixin';
+@import 'helsinki/colors';
 
-.section-koro-top {
-  &.fog:after {
-    @include koro('basic', #9fc8eb, 400);
-  }
-  &.blue:after {
-    @include koro('basic', #0072c6, 400);
-  }
-  &:after {
-    @include koro('basic', #ffffff, 400);
-    content: '';
-    display: block;
-    margin-bottom: -1.25em;
-    height: 1.25em;
-  }
-}
-.section-koro-bottom {
-  &.fog:before {
-    @include koro('basic', #9fc8eb, 400);
-  }
-  &.blue:before {
-    @include koro('basic', #0072c6, 400);
-  }
-  &:before {
-    @include koro('basic', #ffffff, 400);
-    content: '';
-    display: block;
-    margin-top: -1.25em;
-    height: 1.25em;
-  }
-}
-
-.app-Layout {
+.vene-layout {
   &__hero {
     background-image: url('../../assets/images/hero_image_berth.jpg');
     background-size: cover;

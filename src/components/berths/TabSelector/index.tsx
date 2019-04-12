@@ -5,6 +5,7 @@ import { Sticky, StickyContainer } from 'react-sticky';
 import { Button, Container } from 'reactstrap';
 import IntlComponent from '../../common/IntlComponent';
 import InvalidSelection from '../InvalidSelection';
+import './TabSelector.scss';
 
 interface Props {
   children: React.ReactNode;
@@ -64,13 +65,13 @@ class TabSelector extends React.Component<Props, State> {
         <Sticky>
           {({ style, isSticky }) => (
             <div
-              className={classNames('app-Berth__tab-selector', { 'is-sticky': isSticky })}
+              className={classNames('vene-berth__tab-selector', { 'is-sticky': isSticky })}
               style={style}
             >
-              <Container className="app-Berth__tab-selector__wrapper">
+              <Container className="vene-berth__tab-selector__wrapper">
                 {headers.map((TabComponent, i) => (
                   <Button
-                    className="app-Berth__tab-selector__tab-button"
+                    className="vene-berth__tab-selector__tab-button"
                     key={i}
                     onClick={() => this.selectTab(i)}
                     active={i === tab}
@@ -78,7 +79,7 @@ class TabSelector extends React.Component<Props, State> {
                     <TabComponent />
                   </Button>
                 ))}
-                <div className="app-Berth__tab-selector__application-promt">
+                <div className="vene-berth__tab-selector__application-promt">
                   <FormattedMessage
                     id={getFormatedMessageId(selectedCount, maxSelected)}
                     values={{
@@ -90,7 +91,7 @@ class TabSelector extends React.Component<Props, State> {
                   <IntlComponent
                     id="tab_selector.progress.button"
                     Component={Button}
-                    className="app-Berth__tab-selector__progress-button"
+                    className="vene-berth__tab-selector__progress-button"
                     onClick={progress}
                     disabled={selectedCount === 0}
                   />
@@ -99,7 +100,7 @@ class TabSelector extends React.Component<Props, State> {
             </div>
           )}
         </Sticky>
-        <div className="app-Berth__tab-selector__tabs">{this.getActiveTab()}</div>
+        <div className="vene-berth__tab-selector__tabs">{this.getActiveTab()}</div>
       </StickyContainer>
     );
   }

@@ -15,6 +15,8 @@ import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 
 import BoatsBerthsQuery from '../../common/BoatsBerthsQuery';
 
+import './BerthPage.scss';
+
 interface Props {
   initialValues: {};
   filtered: BerthsType;
@@ -78,7 +80,7 @@ class BerthPage extends Component<Props> {
 
           return (
             <Layout hero>
-              <div className="app-BerthPage">
+              <div className="vene-berth-page">
                 <BerthsLegend
                   boatTypes={boatTypes}
                   initialValues={initialValues}

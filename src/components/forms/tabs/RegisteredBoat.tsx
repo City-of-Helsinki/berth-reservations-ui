@@ -7,6 +7,7 @@ import BoatInfo from '../fragments/BoatInfo';
 import BoatMeasures from '../fragments/BoatMeasures';
 import RegisteredBoatDetails from '../fragments/RegisteredBoatDetails';
 import { WithBoatType } from '../Selects';
+import './Tabs.scss';
 
 type Props = {
   prefix: string;
@@ -14,14 +15,14 @@ type Props = {
 } & WithBoatType;
 
 export default ({ prefix, ShowBigShipsForm, boatTypes }: Props) => (
-  <Container className="app-Form__styled-container">
+  <Container className="vene-form__styled-container">
     <FormattedMessage tagName="h3" id="form.registered.header.title" />
     <RegisteredBoatDetails boatTypes={boatTypes} />
 
     <FormattedMessage tagName="h3" id="form.registered.header.measures" />
     <BoatMeasures />
     {ShowBigShipsForm && (
-      <div className="app-Form__big-ships">
+      <div className="vene-form__big-ships">
         <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
         <FormattedMessage tagName="p" id="form.big_ship.text.summary" />
         <FormattedMessage tagName="h3" id="form.big_ship.header.details" />

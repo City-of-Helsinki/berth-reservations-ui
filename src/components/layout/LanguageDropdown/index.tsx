@@ -33,7 +33,7 @@ class LanguageDropdown extends React.Component<Props, State> {
     const { intl } = this.props;
 
     return (
-      <div className="app-Navbar__language-dropdown">
+      <div className="vene-navbar__language-dropdown">
         <Dropdown size="lg" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
           <DropdownToggle color="link">
             <Fragment>

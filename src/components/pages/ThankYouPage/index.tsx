@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import Layout from '../../layout';
 import ThankYouLegend from '../../legends/ThankYouLegend';
+import './ThankYouPage.scss';
 
 interface Props {
   resetValues: Function;
@@ -20,13 +21,15 @@ class ThankYouPage extends Component<Props> {
   render() {
     return (
       <Layout>
-        <ThankYouLegend />
-        <div>
-          <Link to="/">
-            <Button type="button">
-              <FormattedMessage tagName="span" id="site.buttons.back_to_frontpage" />
-            </Button>
-          </Link>
+        <div className="vene-thankyou-page">
+          <ThankYouLegend />
+          <div className="vene-thankyou-page__link">
+            <Link to="/">
+              <Button type="button">
+                <FormattedMessage tagName="span" id="site.buttons.back_to_frontpage" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </Layout>
     );

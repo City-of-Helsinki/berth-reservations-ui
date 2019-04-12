@@ -1,16 +1,27 @@
-.app-SectionSelector {
+@import 'helsinki/colors';
+@import 'styles/mixin';
+@import 'helsinki/fonts';
+
+.vene-section-selector {
   background-color: $hel-light;
   padding: 1em;
 
   &__link {
-    display: block;
+    display: flex;
+    flex-direction: column;
+
     color: inherit;
     padding: 1em;
     text-align: center;
     min-height: 8em;
     background-color: 'unset';
+    height: 100%;
 
+    span {
+      font-weight: $font-weight-bold;
+    }
     .vene-icon {
+      margin: 0 auto;
       fill: $hel-black;
       width: 50%;
     }

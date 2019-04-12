@@ -12,6 +12,8 @@ import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
 import Person from '../fragments/overview/Person';
 import { WithBoatType } from '../Selects';
 
+import './OverviewInfo.scss';
+
 type Props = {
   values: {
     boatName: string;
@@ -36,14 +38,14 @@ type Props = {
   WithBoatType;
 
 const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
-  <div className="app-OverviewInfo">
+  <div className="vene-overview-info">
     <Container fluid>
       <Row>
-        <Col xs={8} md={10} className="app-OverviewInfo__header">
+        <Col xs={8} md={10} className="vene-overview-info__header">
           <FormattedMessage tagName="h6" id="page.overview.info.boat_info" />
         </Col>
-        <Col xs={4} md={2} className="app-OverviewInfo__edit-icon">
-          <LocalizedLink to={`form/${tabs[0]}`} className="app-OverviewInfo__edit-link">
+        <Col xs={4} md={2} className="vene-overview-info__edit-icon">
+          <LocalizedLink to={`form/${tabs[0]}`} className="vene-overview-info__edit-link">
             <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
           </LocalizedLink>
@@ -83,11 +85,11 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
         </Fragment>
       )}
       <Row>
-        <Col xs={8} md={10} className="app-OverviewInfo__header">
+        <Col xs={8} md={10} className="vene-overview-info__header">
           <FormattedMessage tagName="h6" id="page.overview.info.berths" />
         </Col>
-        <Col xs={4} md={2} className="app-OverviewInfo__edit-icon">
-          <LocalizedLink to="berths" className="app-OverviewInfo__edit-link">
+        <Col xs={4} md={2} className="vene-overview-info__edit-icon">
+          <LocalizedLink to="berths" className="vene-overview-info__edit-link">
             <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
           </LocalizedLink>
@@ -103,11 +105,11 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
         </Col>
       </Row>
       <Row>
-        <Col xs={8} md={10} className="app-OverviewInfo__header">
+        <Col xs={8} md={10} className="vene-overview-info__header">
           <FormattedMessage tagName="h6" id="page.overview.info.person" />
         </Col>
-        <Col xs={4} md={2} className="app-OverviewInfo__edit-icon">
-          <LocalizedLink to={`form/${tabs[1]}`} className="app-OverviewInfo__edit-link">
+        <Col xs={4} md={2} className="vene-overview-info__edit-icon">
+          <LocalizedLink to={`form/${tabs[1]}`} className="vene-overview-info__edit-link">
             <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
           </LocalizedLink>

@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { Fragment } from 'react';
 import LocalizedLink from '../../common/LocalizedLink';
+import './Step.scss';
 
 interface Props {
   completed: boolean;
@@ -19,16 +20,16 @@ export default class Step extends React.Component<Props> {
     const { completed, current, label, linkTo } = this.props;
 
     return (
-      <div className="app-Step">
+      <div className="vene-step">
         {linkTo ? (
           <LocalizedLink to={linkTo}>
-            <div className={classNames('app-Step__status', { completed, current })} />
-            <span className="app-Step__label">{label}</span>
+            <div className={classNames('vene-step__status', { completed, current })} />
+            <span className="vene-step__label">{label}</span>
           </LocalizedLink>
         ) : (
           <Fragment>
-            <div className={classNames('app-Step__status', { completed, current })} />
-            <span className="app-Step__label">{label}</span>
+            <div className={classNames('vene-step__status', { completed, current })} />
+            <span className="vene-step__label">{label}</span>
           </Fragment>
         )}
       </div>

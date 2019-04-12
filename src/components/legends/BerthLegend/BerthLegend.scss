@@ -1,8 +1,9 @@
-@import './SelectedBerthLegend/styles';
+@import 'helsinki/colors';
+@import 'helsinki/fonts';
 
 $berthLegendIconSize: 42px;
 
-.app-BerthsLegend {
+.vene-berths-legend {
   background-color: $hel-fog;
   padding-bottom: 3em;
 

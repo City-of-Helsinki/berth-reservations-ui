@@ -4,21 +4,25 @@ import { Col, Container, Row } from 'reactstrap';
 import Icon from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
 
+import './Footer.scss';
+
 type Props = InjectedIntlProps;
 
 const Footer = ({ intl: { formatMessage } }: Props) => (
-  <div className="app-Footer">
+  <div className="vene-footer">
     <Container>
       <Row>
         <Col md="4">
-          <div className="app-Footer__vene-link">
+          <div className="vene-footer__vene-link">
             <LocalizedLink to="">
               <FormattedMessage id="site.footer.bearth_search" />
             </LocalizedLink>
           </div>
         </Col>
         <Col md="4">
-          <Icon name="helsinkiLogo" />
+          <div className="vene-footer__hel-logo">
+            <Icon name="helsinkiLogo" />
+          </div>
         </Col>
         <Col md="4">
           <ul>
@@ -46,20 +50,16 @@ const Footer = ({ intl: { formatMessage } }: Props) => (
         </Col>
       </Row>
 
-      <Row className="app-Footer__link-wrapper">
-        <Col xs="4">
+      <Row>
+        <div className="vene-footer__link-wrapper">
           <a href={formatMessage({ id: 'site.footer.url.feedback' })}>
             <FormattedMessage tagName="li" id="site.footer.send_feedback" />
           </a>
-        </Col>
-        <Col xs="4">
           <a href={formatMessage({ id: 'site.footer.url.berthing' })}>
             <FormattedMessage tagName="li" id="site.footer.contact_us" />
           </a>
-        </Col>
-        <Col xs="4">
           <FormattedMessage tagName="li" id="site.footer.copyright" />
-        </Col>
+        </div>
       </Row>
     </Container>
   </div>
