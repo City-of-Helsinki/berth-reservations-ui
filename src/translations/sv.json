@@ -246,5 +246,11 @@
   "page.berth.selected.warning.heading": "Obs! Du har valt hamnar som saknar lämpliga platser.",
   "page.berth.selected.alert.strong": "Obs! Du har inga valda hamnar ännu.",
   "page.berth.selected.alert.paragraph": "Välj de hamnar i förteckningen där du vill ansöka om båtplats.",
-  "page.berth.selected.submit": "Ansök om båtplats"
+  "page.berth.selected.submit": "Ansök om båtplats",
+
+  "page.berth.exchange_application.new": "Ny båtplatsansökan",
+  "page.berth.exchange_application.exchange": "Bytansökan",
+  "page.berth.exchange_application.new.info_text": "Du har ingen båtplats i Helsingfors båthamnar ännu",
+  "page.berth.exchange_application.exchange.info_text": "För att byta båtplats mellan Helsingfors båthamnar",
+  "page.berth.exchange_application.warning": "Man kan väljä högst fem hamnar i en bytansökan. Ta bort extra hamnar och välj denna typ av ansökan igen."
 }

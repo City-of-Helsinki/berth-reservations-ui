@@ -245,5 +245,11 @@
   "page.berth.selected.warning.heading": "Huomio: Olet valinnut satamia joissa ei ole sopivia paikkoja.",
   "page.berth.selected.alert.strong": "Huomio: Sinulla ei ole vielä valittuja satamia",
   "page.berth.selected.alert.paragraph": "Valitse satamalistasta satamat joista haluat hakea venepaikkaa",
-  "page.berth.selected.submit": "Hae venepaikkaa"
+  "page.berth.selected.submit": "Hae venepaikkaa",
+
+  "page.berth.exchange_application.new": "Uusi hakemus",
+  "page.berth.exchange_application.exchange": "Vaihtohakemus",
+  "page.berth.exchange_application.new.info_text": "Hakijalla ei ole vielä Helsingin kaupungin tarjoamaa venepaikkaa",
+  "page.berth.exchange_application.exchange.info_text": "Helsingin kaupungin satamassa olevan venepaikkan vaihto toiseen satamaan",
+  "page.berth.exchange_application.warning": "Vaihtohakemukseen voit valita enintään viisi satamaa. Poista ylimääräiset valinnat ja vaihda hakemuksen tyyppi uudelleen."
 }

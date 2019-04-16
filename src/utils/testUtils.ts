@@ -11,10 +11,8 @@ import { IntlProvider, intlShape } from 'react-intl';
 
 import en from '../translations/en.json';
 
-const messages = { en }; // en.json
-
 // Create the IntlProvider to retrieve context for wrapping around.
-const intlProvider = new IntlProvider({ messages, locale: 'en' }, {});
+const intlProvider = new IntlProvider({ messages: en, locale: 'en' }, {});
 const { intl } = intlProvider.getChildContext();
 
 /**
@@ -34,11 +32,11 @@ export function shallowWithIntl<P, S>(
   });
 }
 
-export function mountWithIntl(
-  node: ReactElement,
+export function mountWithIntl<P, S>(
+  node: ReactElement<P>,
   { context, childContextTypes, ...additionalOptions }: MountRendererProps = {}
 ) {
-  return mount(nodeWithIntlProp(node), {
+  return mount<P, S>(nodeWithIntlProp(node), {
     context: Object.assign({}, context, { intl }),
     childContextTypes: Object.assign({}, { intl: intlShape }, childContextTypes),
     ...additionalOptions
