@@ -23,16 +23,23 @@ const ApplicationSelector: FC<ApplicationSelectorProps> = ({
   };
 
   const isOverLimit = selected > SELECTED_BERTH_LIMIT;
-
   const [alertVisibility, toggleAlert] = useState(false);
 
   // New application is selected by default
   const [selectedOption, toggleSelect] = useState(SELECT_OPTIONS.NEW_APPLICATION);
 
+  // Make sure new application is selected when limit is over
+  // but user have selected exchange application before
+  if (isOverLimit && selectedOption === SELECT_OPTIONS.EXCHANGE_APPLICATION) {
+    toggleSelect(SELECT_OPTIONS.NEW_APPLICATION);
+  }
+
   const onToggleSwitch = (e: React.FormEvent<HTMLInputElement>) => {
     if (e.currentTarget.value === SELECT_OPTIONS.EXCHANGE_APPLICATION && isOverLimit) {
       toggleAlert(true);
-      toggleSelect(SELECT_OPTIONS.NEW_APPLICATION);
+    } else {
+      toggleAlert(false);
+      toggleSelect(e.currentTarget.value);
     }
   };
   return (
