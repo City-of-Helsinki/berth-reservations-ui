@@ -42,19 +42,22 @@ describe('forms/sections/ApplicationSelector', () => {
     expect(alert).toBeDefined();
   });
 
-  test('disable 2nd radio when selected > 5', () => {
-    const wrapper = getWrapper({ selected: 6 });
-    const input = wrapper.find(Input).last();
+  describe('switch application', () => {
+    test('new application input is selected by default', () => {
+      const wrapper = getWrapper({ selected: 6 });
+      const input = wrapper.find(Input).first();
 
-    expect(input.prop('disabled')).toBeTruthy();
-  });
+      expect(input.prop('checked')).toBeTruthy();
+    });
 
-  test('show both radio btn when selected > 5', () => {
-    const wrapper = getWrapper({ selected: 3 });
-    const inputs = wrapper.find(Input);
-    const lastInput = inputs.last();
+    test('show alert when exchange application is selected and berth selected > 5', () => {
+      const wrapper = getWrapper({ selected: 6 });
+      const exchangeInput = wrapper.find(Input).last();
+      const alert = wrapper.find(Alert);
 
-    expect(inputs).toHaveLength(2);
-    expect(lastInput.prop('disabled')).toBeFalsy();
+      exchangeInput.find('input[type="radio"]').simulate('change', { target: { checked: true } });
+      wrapper.update();
+      expect(alert).toBeDefined();
+    });
   });
 });

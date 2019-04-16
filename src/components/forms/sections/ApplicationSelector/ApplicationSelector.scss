@@ -9,9 +9,6 @@ $selectorBorderWidth: 2px;
 
   .vene-input {
     width: 50%;
-    &.disabled {
-      opacity: 0.6;
-    }
   }
   &__input-wrapper {
     display: flex;

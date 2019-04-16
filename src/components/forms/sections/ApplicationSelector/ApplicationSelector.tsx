@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { connect } from 'react-redux';
 import { Label } from 'reactstrap';
 import { SELECTED_BERTH_LIMIT } from '../../../../constants/berths';
@@ -17,29 +17,59 @@ const ApplicationSelector: FC<ApplicationSelectorProps> = ({
   intl: { formatMessage },
   selected
 }) => {
+  const SELECT_OPTIONS = {
+    NEW_APPLICATION: 'new_application',
+    EXCHANGE_APPLICATION: 'exchange_application'
+  };
+
   const isOverLimit = selected > SELECTED_BERTH_LIMIT;
 
+  const [alertVisibility, toggleAlert] = useState(false);
+
+  // New application is selected by default
+  const [selectedOption, toggleSelect] = useState(SELECT_OPTIONS.NEW_APPLICATION);
+
+  const onToggleSwitch = (e: React.FormEvent<HTMLInputElement>) => {
+    if (e.currentTarget.value === SELECT_OPTIONS.EXCHANGE_APPLICATION && isOverLimit) {
+      toggleAlert(true);
+      toggleSelect(SELECT_OPTIONS.NEW_APPLICATION);
+    }
+  };
   return (
     <div className="vene-application-selector">
       <div className="vene-application-selector__input-wrapper">
-        <Input type="radio" id="vene-application-selector-new" name="application-selector-radio">
+        <Input
+          type="radio"
+          value={SELECT_OPTIONS.NEW_APPLICATION}
+          checked={selectedOption === SELECT_OPTIONS.NEW_APPLICATION}
+          id="vene-application-selector-new"
+          onChange={e => onToggleSwitch(e)}
+          name="application-selector-radio"
+        >
           <Label>{formatMessage({ id: 'page.berth.exchange_application.new' })}</Label>
           <p>{formatMessage({ id: 'page.berth.exchange_application.new.info_text' })}</p>
         </Input>
 
         <Input
-          className={isOverLimit ? 'disabled' : ''}
           type="radio"
+          value={SELECT_OPTIONS.EXCHANGE_APPLICATION}
+          checked={selectedOption === SELECT_OPTIONS.EXCHANGE_APPLICATION}
+          onChange={e => onToggleSwitch(e)}
           id="vene-application-selector-exchange"
           name="application-selector-radio"
-          disabled={isOverLimit}
         >
           <Label>{formatMessage({ id: 'page.berth.exchange_application.exchange' })}</Label>
           <p>{formatMessage({ id: 'page.berth.exchange_application.exchange.info_text' })}</p>
         </Input>
       </div>
 
-      {isOverLimit && <Alert color="danger" messageId="page.berth.exchange_application.warning" />}
+      {alertVisibility && (
+        <Alert
+          toggle={() => toggleAlert(!alertVisibility)}
+          color="danger"
+          messageId="page.berth.exchange_application.warning"
+        />
+      )}
     </div>
   );
 };
