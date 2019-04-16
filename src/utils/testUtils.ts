@@ -24,11 +24,11 @@ function nodeWithIntlProp(node: ReactElement) {
   return React.cloneElement(node, { intl });
 }
 
-export function shallowWithIntl(
-  node: ReactElement,
+export function shallowWithIntl<P, S>(
+  node: ReactElement<P>,
   { context, ...additionalOptions }: ShallowRendererProps = {}
 ) {
-  return shallow(nodeWithIntlProp(node), {
+  return shallow<P, S>(nodeWithIntlProp(node), {
     context: Object.assign({}, context, { intl }),
     ...additionalOptions
   });

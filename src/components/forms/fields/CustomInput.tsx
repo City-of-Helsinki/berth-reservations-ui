@@ -1,8 +1,9 @@
 import React from 'react';
 import { Field, FieldProps } from 'react-final-form';
 import { FormattedMessage, InjectedIntlProps } from 'react-intl';
-import { CustomInput, FormFeedback, FormGroup, FormText } from 'reactstrap';
+import { FormFeedback, FormGroup, FormText } from 'reactstrap';
 import validator, { mustBePresent } from '../../../utils/formValidation';
+import Input from '../../common/Input';
 
 import Label from './Label';
 
@@ -33,7 +34,7 @@ const TextInput = (type: CustomInputType, inlineLabel: boolean) => ({
     {({ input, meta }) => (
       <FormGroup>
         {!inlineLabel && label && <Label htmlFor={id} required={required} text={label} />}
-        <CustomInput
+        <Input
           id={id}
           type={type}
           required={required}

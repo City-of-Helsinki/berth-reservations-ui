@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import Berths from '../../berths';
 import BerthsOnMap from '../../berths/BerthsOnMap';
 import TabSelector from '../../berths/TabSelector';
+import ApplicationSelector from '../../forms/sections/ApplicationSelector';
 import Layout from '../../layout';
 import BerthsLegend from '../../legends/BerthLegend';
 
@@ -81,6 +82,7 @@ class BerthPage extends Component<Props> {
           return (
             <Layout hero>
               <div className="vene-berth-page">
+                <ApplicationSelector />
                 <BerthsLegend
                   boatTypes={boatTypes}
                   initialValues={initialValues}
