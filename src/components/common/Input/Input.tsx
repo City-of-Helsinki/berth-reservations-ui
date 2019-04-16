@@ -9,7 +9,7 @@ export type InputProps = BTInputProps & InjectedIntlProps;
 
 export const Input: FC<InputProps> = ({
   className,
-  type = 'checkbox',
+  type,
   placeholder,
   label,
   intl: { formatMessage },
@@ -17,7 +17,7 @@ export const Input: FC<InputProps> = ({
 }) => {
   return (
     <BTInput
-      id="vene-input-field"
+      id="vene-custom-input-field"
       className={classNames('vene-input', className)}
       type={type}
       label={label ? formatMessage({ id: label as string }) : ''}

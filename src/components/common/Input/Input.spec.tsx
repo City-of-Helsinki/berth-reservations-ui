@@ -29,7 +29,7 @@ describe('components/common/Input', () => {
     expect(input.prop('className')).toContain(defaultProps.className);
   });
 
-  test('placeholder and label get translated', () => {
+  test('placeholder and label text get translated', () => {
     const wrapper = getWrapper({ placeholder: 'test.message', label: 'test.message' });
     const input = wrapper.find(CustomInput);
 
