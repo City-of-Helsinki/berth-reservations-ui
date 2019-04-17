@@ -22,7 +22,11 @@ const ApplicationCode = () => (
         />
       </Col>
     </Row>
-    <FormattedMessage id={`form.overview.field.application_code.description`} />
+    <Row>
+      <Col sm={10}>
+        <FormattedMessage id={`form.overview.field.application_code.description`} />
+      </Col>
+    </Row>
   </Container>
 );
 

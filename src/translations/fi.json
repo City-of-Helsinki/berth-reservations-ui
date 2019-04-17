@@ -219,7 +219,7 @@
 
   "form.overview.field.application_code.title": "Hakukoodi",
   "form.overview.field.application_code.placeholder": "Koodi",
-  "form.overview.field.application_code.description": "Hakemus on valmis! Tarkistathan vielä että antamasi tiedot ovat oikein. Voit tarvittaessa palata takaisin muokkaamaan niitä.",
+  "form.overview.field.application_code.description": "Jos olet vastaanottanut asiakaspalvelusta hakukoodin, syötä se tähän. Hakukoodi on tarkoitettu asiakkaille, jotka ovat jo hakeneet venepaikkaa paperisella hakulomakkeella.",
   "form.overview.field.guarantee.label": "Vakuutan antamani tiedot oikeiksi.",
   "form.overview.header.receivable_items.title": "Haluan vastaanottaa sähköpostiini",
   "form.overview.field.boating_info.label": "Vene Helsingissä -uutiskirjeen",
