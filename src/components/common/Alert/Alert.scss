@@ -1,0 +1,12 @@
+@import 'helsinki/fonts';
+
+.vene-alert {
+  button {
+    span {
+      font-weight: $font-weight-bold;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
