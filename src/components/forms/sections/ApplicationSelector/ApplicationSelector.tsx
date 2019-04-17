@@ -50,7 +50,7 @@ const ApplicationSelector: FC<ApplicationSelectorProps> = ({
           value={SELECT_OPTIONS.NEW_APPLICATION}
           checked={selectedOption === SELECT_OPTIONS.NEW_APPLICATION}
           id="vene-application-selector-new"
-          onChange={e => onToggleSwitch(e)}
+          onChange={onToggleSwitch}
           name="application-selector-radio"
         >
           <Label>{formatMessage({ id: 'page.berth.exchange_application.new' })}</Label>
@@ -61,7 +61,7 @@ const ApplicationSelector: FC<ApplicationSelectorProps> = ({
           type="radio"
           value={SELECT_OPTIONS.EXCHANGE_APPLICATION}
           checked={selectedOption === SELECT_OPTIONS.EXCHANGE_APPLICATION}
-          onChange={e => onToggleSwitch(e)}
+          onChange={onToggleSwitch}
           id="vene-application-selector-exchange"
           name="application-selector-radio"
         >
