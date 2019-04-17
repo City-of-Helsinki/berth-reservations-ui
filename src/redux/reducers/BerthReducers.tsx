@@ -1,6 +1,5 @@
 import { List, Record } from 'immutable';
-import { createAction } from 'redux-actions';
-import { Action, BerthsFactory, BerthsState } from '../types/ducks';
+import { Action, BerthsFactory, BerthsState } from '../types';
 
 const selectedServices = Record({
   electricity: false,
@@ -14,14 +13,6 @@ const defaultState: BerthsFactory = Record({
   selectedBerths: List(),
   selectedServices: selectedServices()
 });
-
-export const selectBerth = createAction('SELECT_BERTH', (id: string) => id);
-export const deselectBerth = createAction('DESELECT_BERTH', (id: string) => id);
-export const moveUp = createAction('MOVE_BERTH_UP', (id: string) => id);
-export const moveDown = createAction('MOVE_BERTH_DOWN', (id: string) => id);
-export const resetBerths = createAction('RESET_BERTHS');
-export const selectService = createAction('SELECT_SERVICE', (type: string) => type);
-export const deselectService = createAction('DESELECT_SERVICE', (type: string) => type);
 
 export default (state: BerthsState = defaultState(), action: Action): BerthsState => {
   const { type, payload } = action;

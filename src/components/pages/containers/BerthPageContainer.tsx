@@ -1,11 +1,16 @@
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import { deselectBerth, deselectService, selectBerth, selectService } from '../../../ducks/berths';
-import { onSubmit } from '../../../ducks/forms';
+import {
+  deselectBerth,
+  deselectService,
+  selectBerth,
+  selectService
+} from '../../../redux/actions/BerthActions';
+import { onSubmit } from '../../../redux/actions/FormActions';
 import { withMatchParamsHandlers } from '../../../utils/container';
 import BerthPage from '../BerthPage';
 
-import { Store } from '../../../types/ducks';
+import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType, SelectedBerths } from '../../berths/types';
 

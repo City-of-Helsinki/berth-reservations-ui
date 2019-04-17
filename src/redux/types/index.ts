@@ -1,6 +1,6 @@
 import { Record, RecordOf } from 'immutable';
-import { SelectedBerths } from '../components/berths/types';
-import { SelectedServices } from './services';
+import { SelectedBerths } from '../../components/berths/types';
+import { SelectedServices } from '../../types/services';
 
 interface FormProps {
   values: object;

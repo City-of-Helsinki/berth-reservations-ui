@@ -1,13 +1,9 @@
 import { Record } from 'immutable';
-import { createAction } from 'redux-actions';
-import { Action, FormsFactory, FormsState } from '../types/ducks';
+import { Action, FormsFactory, FormsState } from '../types';
 
 const defaultState: FormsFactory = Record({
   values: {}
 });
-
-export const onSubmit = createAction('SUBMIT_FORM', (formData: {}) => formData);
-export const resetValues = createAction('RESET_FORM');
 
 export default (state: FormsState = defaultState(), action: Action): FormsState => {
   const { type, payload } = action;
