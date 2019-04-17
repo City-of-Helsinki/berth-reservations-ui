@@ -1,7 +1,9 @@
 import React, { FC, useState } from 'react';
 import { connect } from 'react-redux';
 import { Label } from 'reactstrap';
-import { SELECTED_BERTH_LIMIT } from '../../../../constants/berths';
+import { SELECTED_BERTH_LIMIT } from '../../../../constants/BerthConstants';
+import { APPLICATION_OPTIONS } from '../../../../constants/UIConstants';
+
 import { Store } from '../../../../redux/types';
 import Alert from '../../../common/Alert';
 import Input from '../../../common/Input';
@@ -17,25 +19,20 @@ const ApplicationSelector: FC<ApplicationSelectorProps> = ({
   intl: { formatMessage },
   selected
 }) => {
-  const SELECT_OPTIONS = {
-    NEW_APPLICATION: 'new_application',
-    EXCHANGE_APPLICATION: 'exchange_application'
-  };
-
   const isOverLimit = selected > SELECTED_BERTH_LIMIT;
   const [alertVisibility, toggleAlert] = useState(false);
 
   // New application is selected by default
-  const [selectedOption, toggleSelect] = useState(SELECT_OPTIONS.NEW_APPLICATION);
+  const [selectedOption, toggleSelect] = useState(APPLICATION_OPTIONS.NEW_APPLICATION);
 
   // Make sure new application is selected when limit is over
   // but user have selected exchange application before
-  if (isOverLimit && selectedOption === SELECT_OPTIONS.EXCHANGE_APPLICATION) {
-    toggleSelect(SELECT_OPTIONS.NEW_APPLICATION);
+  if (isOverLimit && selectedOption === APPLICATION_OPTIONS.EXCHANGE_APPLICATION) {
+    toggleSelect(APPLICATION_OPTIONS.NEW_APPLICATION);
   }
 
   const onToggleSwitch = (e: React.FormEvent<HTMLInputElement>) => {
-    if (e.currentTarget.value === SELECT_OPTIONS.EXCHANGE_APPLICATION && isOverLimit) {
+    if (e.currentTarget.value === APPLICATION_OPTIONS.EXCHANGE_APPLICATION && isOverLimit) {
       toggleAlert(true);
     } else {
       toggleAlert(false);
@@ -47,8 +44,8 @@ const ApplicationSelector: FC<ApplicationSelectorProps> = ({
       <div className="vene-application-selector__input-wrapper">
         <Input
           type="radio"
-          value={SELECT_OPTIONS.NEW_APPLICATION}
-          checked={selectedOption === SELECT_OPTIONS.NEW_APPLICATION}
+          value={APPLICATION_OPTIONS.NEW_APPLICATION}
+          checked={selectedOption === APPLICATION_OPTIONS.NEW_APPLICATION}
           id="vene-application-selector-new"
           onChange={e => onToggleSwitch(e)}
           name="application-selector-radio"
@@ -59,8 +56,8 @@ const ApplicationSelector: FC<ApplicationSelectorProps> = ({
 
         <Input
           type="radio"
-          value={SELECT_OPTIONS.EXCHANGE_APPLICATION}
-          checked={selectedOption === SELECT_OPTIONS.EXCHANGE_APPLICATION}
+          value={APPLICATION_OPTIONS.EXCHANGE_APPLICATION}
+          checked={selectedOption === APPLICATION_OPTIONS.EXCHANGE_APPLICATION}
           onChange={e => onToggleSwitch(e)}
           id="vene-application-selector-exchange"
           name="application-selector-radio"
