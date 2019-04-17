@@ -1,5 +1,7 @@
 import { List, Record } from 'immutable';
 import { createAction } from 'redux-actions';
+
+import { Berth } from '../components/berths/Berth/types';
 import { Action, BerthsFactory, BerthsState } from '../types/ducks';
 
 const selectedServices = Record({
@@ -15,10 +17,10 @@ const defaultState: BerthsFactory = Record({
   selectedServices: selectedServices()
 });
 
-export const selectBerth = createAction('SELECT_BERTH', (id: string) => id);
-export const deselectBerth = createAction('DESELECT_BERTH', (id: string) => id);
-export const moveUp = createAction('MOVE_BERTH_UP', (id: string) => id);
-export const moveDown = createAction('MOVE_BERTH_DOWN', (id: string) => id);
+export const selectBerth = createAction('SELECT_BERTH', (berth: Berth) => berth);
+export const deselectBerth = createAction('DESELECT_BERTH', (berth: Berth) => berth);
+export const moveUp = createAction('MOVE_BERTH_UP', (berth: Berth) => berth);
+export const moveDown = createAction('MOVE_BERTH_DOWN', (berth: Berth) => berth);
 export const resetBerths = createAction('RESET_BERTHS');
 export const selectService = createAction('SELECT_SERVICE', (type: string) => type);
 export const deselectService = createAction('DESELECT_SERVICE', (type: string) => type);
@@ -34,7 +36,7 @@ export default (state: BerthsState = defaultState(), action: Action): BerthsStat
       return state.update('selectedBerths', selectedBerths => selectedBerths.push(payload));
     case 'DESELECT_BERTH':
       return state.update('selectedBerths', selectedBerths =>
-        selectedBerths.filterNot(b => b === payload)
+        selectedBerths.filterNot(b => b.identifier === payload.identifier)
       );
     case 'MOVE_BERTH_UP':
       return state.update('selectedBerths', selectedBerths => {
