@@ -1,0 +1,23 @@
+@import 'helsinki/colors';
+$selectorBorderWidth: 2px;
+
+.vene-application-selector {
+  background: $hel-fog;
+  padding: 2em 0;
+  border-top: $selectorBorderWidth solid $hel-black;
+  border-bottom: $selectorBorderWidth solid $hel-black;
+
+  .vene-input {
+    width: 50%;
+  }
+  &__input-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: 'space-evenly';
+  }
+
+  .vene-alert {
+    margin-bottom: 0;
+    margin-top: 2em;
+  }
+}

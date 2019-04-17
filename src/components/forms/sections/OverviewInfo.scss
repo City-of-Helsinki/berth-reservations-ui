@@ -1,0 +1,45 @@
+@import 'helsinki/colors';
+@import 'helsinki/fonts';
+
+.vene-overview-info {
+  background-color: $hel-light;
+  padding: 1.5em;
+  margin-bottom: 2em;
+
+  &__header {
+    border-bottom: 1px solid $hel-black;
+    padding-left: 0px;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    font-weight: bold;
+    h6 {
+      margin: 0;
+    }
+  }
+
+  &__edit-icon {
+    a {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      color: $hel-black;
+      span {
+        font-weight: $font-weight-bold;
+      }
+    }
+    margin-bottom: 1em;
+    margin-top: 1em;
+    font-weight: bold;
+    text-align: right;
+
+    .vene-icon {
+      height: 30px;
+      width: 30px;
+      fill: $hel-black;
+    }
+  }
+
+  &-edit-link {
+    display: flex;
+  }
+}

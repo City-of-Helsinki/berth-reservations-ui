@@ -1,0 +1,42 @@
+@import 'helsinki/colors';
+
+$footerIconWidth: 120px;
+
+.vene-footer {
+  background-color: $hel-coat;
+  color: $hel-white;
+  padding-top: 4em;
+  padding-bottom: 4em;
+  min-height: 15em;
+  &__vene-link {
+    text-align: center;
+  }
+
+  &__hel-logo {
+    text-align: center;
+  }
+
+  a {
+    color: $hel-white;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style-type: none;
+    text-align: center;
+  }
+
+  &__link-wrapper {
+    margin-top: 2em;
+    display: inline-flex;
+    flex: 1;
+    justify-content: space-evenly;
+  }
+
+  .vene-icon {
+    width: $footerIconWidth;
+    fill: $hel-white;
+  }
+}
