@@ -39,5 +39,6 @@ const FormsTransform = createTransform(
 export default {
   storage,
   key: 'root',
-  transforms: [BerthsTransform, FormsTransform]
+  transforms: [BerthsTransform, FormsTransform],
+  whitelist: ['forms', 'berths']
 };
