@@ -1,6 +1,5 @@
 import { Record, RecordOf } from 'immutable';
 import { SelectedBerths } from '../../components/berths/types';
-import { APPLICATION_OPTIONS } from '../../constants/UIConstants';
 import { SelectedServices } from '../../types/services';
 
 interface FormProps {
@@ -13,7 +12,7 @@ interface BerthsProps {
 }
 
 interface UIProps {
-  selectedApplicationType: keyof typeof APPLICATION_OPTIONS;
+  selectedApplicationType: string;
 }
 
 export type FormsFactory = Record.Factory<FormProps>;

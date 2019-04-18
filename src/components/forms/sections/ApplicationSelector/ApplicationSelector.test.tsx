@@ -1,5 +1,6 @@
 import React from 'react';
 import { Label } from 'reactstrap';
+import { APPLICATION_OPTIONS } from '../../../../constants/UIConstants';
 import { mountWithIntl } from '../../../../utils/testUtils';
 import Alert from '../../../common/Alert';
 import Input from '../../../common/Input';
@@ -7,7 +8,9 @@ import { UnconnectedApplicationSelector as ApplicationSelector } from './Applica
 
 describe('forms/sections/ApplicationSelector', () => {
   const defaultProps = {
-    selected: 0
+    selectedBerthCount: 0,
+    selectedApplicationType: APPLICATION_OPTIONS.NEW_APPLICATION,
+    switchApplication: Function
   };
   const getWrapper = (props?: object) =>
     mountWithIntl(<ApplicationSelector {...defaultProps} {...props} />);
@@ -36,7 +39,7 @@ describe('forms/sections/ApplicationSelector', () => {
   });
 
   test('show alert when selected > 5', () => {
-    const wrapper = getWrapper({ selected: 6 });
+    const wrapper = getWrapper({ selectedBerthCount: 6 });
     const alert = wrapper.find(Alert);
 
     expect(alert).toBeDefined();
@@ -44,20 +47,36 @@ describe('forms/sections/ApplicationSelector', () => {
 
   describe('switch application', () => {
     test('new application input is selected by default', () => {
-      const wrapper = getWrapper({ selected: 6 });
+      const wrapper = getWrapper({ selectedBerthCount: 6 });
       const input = wrapper.find(Input).first();
 
       expect(input.prop('checked')).toBeTruthy();
     });
 
     test('show alert when exchange application is selected and berth selected > 5', () => {
-      const wrapper = getWrapper({ selected: 6 });
+      const wrapper = getWrapper({ selectedBerthCount: 6 });
       const exchangeInput = wrapper.find(Input).last();
       const alert = wrapper.find(Alert);
 
       exchangeInput.find('input[type="radio"]').simulate('change', { target: { checked: true } });
       wrapper.update();
       expect(alert).toBeDefined();
+    });
+
+    test('auto switch to new application when exchange application is selected, and count > 5', () => {
+      const mock = jest.fn();
+      const wrapper = getWrapper({
+        selectedBerthCount: 5,
+        selectedApplicationType: APPLICATION_OPTIONS.EXCHANGE_APPLICATION,
+        switchApplication: mock
+      });
+
+      expect(mock).not.toBeCalled();
+
+      wrapper.setProps({ selectedApplicationType: 6 });
+      wrapper.update();
+
+      expect(mock).toBeCalledTimes(1);
     });
   });
 });
