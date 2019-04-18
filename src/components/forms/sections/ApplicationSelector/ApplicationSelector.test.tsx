@@ -10,7 +10,7 @@ describe('forms/sections/ApplicationSelector', () => {
   const defaultProps = {
     selectedBerthCount: 0,
     selectedApplicationType: APPLICATION_OPTIONS.NEW_APPLICATION,
-    switchApplication: Function
+    switchApplication: jest.fn()
   };
   const getWrapper = (props?: object) =>
     mountWithIntl(<ApplicationSelector {...defaultProps} {...props} />);
@@ -38,13 +38,6 @@ describe('forms/sections/ApplicationSelector', () => {
     expect(input.find('p')).toHaveLength(1);
   });
 
-  test('show alert when selected > 5', () => {
-    const wrapper = getWrapper({ selectedBerthCount: 6 });
-    const alert = wrapper.find(Alert);
-
-    expect(alert).toBeDefined();
-  });
-
   describe('switch application', () => {
     test('new application input is selected by default', () => {
       const wrapper = getWrapper({ selectedBerthCount: 6 });
@@ -55,16 +48,23 @@ describe('forms/sections/ApplicationSelector', () => {
 
     test('show alert when exchange application is selected and berth selected > 5', () => {
       const wrapper = getWrapper({ selectedBerthCount: 6 });
-      const exchangeInput = wrapper.find(Input).last();
-      const alert = wrapper.find(Alert);
 
-      exchangeInput.find('input[type="radio"]').simulate('change', { target: { checked: true } });
+      const instance = wrapper.children().instance() as any;
+      instance.onToggleSwitch({
+        currentTarget: {
+          value: 'exchange_application'
+        }
+      });
+
       wrapper.update();
-      expect(alert).toBeDefined();
+
+      expect(wrapper.children().state('alertVisibility')).toBeTruthy();
+      expect(wrapper.find('.vene-alert').exists()).toEqual(true);
     });
 
     test('auto switch to new application when exchange application is selected, and count > 5', () => {
       const mock = jest.fn();
+
       const wrapper = getWrapper({
         selectedBerthCount: 5,
         selectedApplicationType: APPLICATION_OPTIONS.EXCHANGE_APPLICATION,
@@ -73,10 +73,44 @@ describe('forms/sections/ApplicationSelector', () => {
 
       expect(mock).not.toBeCalled();
 
-      wrapper.setProps({ selectedApplicationType: 6 });
+      wrapper.setProps({ selectedBerthCount: 6 });
       wrapper.update();
 
       expect(mock).toBeCalledTimes(1);
+    });
+
+    describe('alert box', () => {
+      test('will always not being rendered when new application is selected', () => {
+        const wrapper = getWrapper();
+
+        wrapper.setState({ alertVisibility: true });
+        wrapper.update();
+
+        const instance = wrapper.children().instance() as any;
+        instance.onToggleSwitch({
+          currentTarget: {
+            value: 'new_application'
+          }
+        });
+
+        expect(wrapper.find('.vene-alert').exists()).toEqual(false);
+      });
+
+      test('show alert when selected > 5', () => {
+        const wrapper = getWrapper({ selectedBerthCount: 6 });
+        const alert = wrapper.find(Alert);
+
+        expect(alert).toBeDefined();
+      });
+
+      test('able to close independenly by clicking close button', () => {
+        const wrapper = getWrapper();
+        wrapper.children().setState({ alertVisibility: true });
+        wrapper.update();
+
+        wrapper.find('.close').simulate('click');
+        expect(wrapper.find('.vene-alert').exists()).toEqual(false);
+      });
     });
   });
 });
