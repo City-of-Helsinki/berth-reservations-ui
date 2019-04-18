@@ -3,12 +3,15 @@ import { FormattedMessage } from 'react-intl';
 import { Map, TileLayer } from 'react-leaflet';
 import { Container } from 'reactstrap';
 
+import Berth from '../../berths/Berth';
 import mapIcon from './MapIcon';
 import MapMarker from './MapMarker';
 
-import Berth from '../../berths/Berth';
 import { Berth as BerthType } from '../../berths/Berth/types';
 import { Berths } from '../../berths/types';
+
+import { isBerthSelected } from '../../../utils/berths';
+
 import './Map.scss';
 
 interface State {
@@ -60,9 +63,7 @@ export default class MapCanvas extends Component<Props, State> {
         <Map center={position} zoom={this.state.zoom} className="vene-map__map">
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {filtered.map(berth => {
-            const isSelected = !!(
-              selected && selected.find(selBerth => selBerth.identifier === berth.identifier)
-            );
+            const isSelected = isBerthSelected(selected, berth);
             const isPreviewed = !!selectedBerth && selectedBerth.identifier === berth.identifier;
             return (
               <MapMarker
@@ -76,9 +77,7 @@ export default class MapCanvas extends Component<Props, State> {
             );
           })}
           {filteredNot.map(berth => {
-            const isSelected =
-              selected &&
-              !!selected.find(selectedBerths => selectedBerths.identifier === berth.identifier);
+            const isSelected = isBerthSelected(selected, berth);
             const isPreviewed = !!selectedBerth && selectedBerth.identifier === berth.identifier;
             return (
               <MapMarker
@@ -98,7 +97,7 @@ export default class MapCanvas extends Component<Props, State> {
             key={selectedBerth.identifier}
             berth={selectedBerth}
             onClick={() => onClick(selectedBerth)}
-            selected={!!selected.find(selBerth => selBerth.identifier === selectedBerth.identifier)}
+            selected={isBerthSelected(selected, selectedBerth)}
             disabled={selected.size >= Number(REACT_APP_MAX_SELECTED_BERTHS)}
           />
         )}
