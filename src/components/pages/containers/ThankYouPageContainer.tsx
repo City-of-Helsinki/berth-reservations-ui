@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
-import { resetBerths } from '../../../ducks/berths';
-import { resetValues } from '../../../ducks/forms';
+import { resetBerths } from '../../../redux/actions/BerthActions';
+import { resetValues } from '../../../redux/actions/FormActions';
 import ThankYouPage from '../ThankYouPage';
 
 interface Props {

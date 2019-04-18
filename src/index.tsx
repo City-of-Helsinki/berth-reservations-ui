@@ -13,8 +13,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import './assets/styles/main.scss';
 
-import configureStore from './config/configureStore';
 import initApolloClient from './config/initApolloClient';
+import configureStore from './redux/store/configureStore';
 import * as serviceWorker from './serviceWorker';
 
 import App from './components/containers/AppContainer';

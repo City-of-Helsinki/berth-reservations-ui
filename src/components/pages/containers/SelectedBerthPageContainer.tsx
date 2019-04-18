@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import { deselectBerth, moveDown, moveUp } from '../../../ducks/berths';
+import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
 import { withMatchParamsHandlers } from '../../../utils/container';
 import SelectedBerthPage from '../BerthPage/SelectedBerthPage';
 
-import { Store } from '../../../types/ducks';
+import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
 import { Berths } from '../../berths/types';
 

@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import { onSubmit } from '../../../ducks/forms';
+import { onSubmit } from '../../../redux/actions/FormActions';
 import { withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../FormPage';
 
-import { Store } from '../../../types/ducks';
+import { Store } from '../../../redux/types';
 import { Berths } from '../../berths/types';
 
 interface Props {
