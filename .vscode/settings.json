@@ -1,5 +1,8 @@
 {
   "javascript.validate.enable": true,
   "editor.formatOnSave": true,
-  "editor.rulers": [100]
+  "editor.rulers": [100],
+  "search.exclude": {
+    "**/coverage": true
+  }
 }

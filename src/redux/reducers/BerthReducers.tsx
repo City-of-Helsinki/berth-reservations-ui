@@ -25,7 +25,7 @@ export default (state: BerthsState = defaultState(), action: Action): BerthsStat
       return state.update('selectedBerths', selectedBerths => selectedBerths.push(payload));
     case 'DESELECT_BERTH':
       return state.update('selectedBerths', selectedBerths =>
-        selectedBerths.filterNot(b => b === payload)
+        selectedBerths.filterNot(b => b.identifier === payload.identifier)
       );
     case 'MOVE_BERTH_UP':
       return state.update('selectedBerths', selectedBerths => {

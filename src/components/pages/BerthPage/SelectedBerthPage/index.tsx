@@ -13,11 +13,11 @@ import Layout from '../../../layout';
 import SelectedBerthsLegend from '../../../legends/BerthLegend/SelectedBerthLegend';
 
 import { SelectedServices } from '../../../../types/services';
-import { SelectedBerths as SelectedBerthsType } from '../../../berths/types';
+import { Berths } from '../../../berths/types';
 import './SelectedBerthPage.scss';
 
 interface Props {
-  selectedBerths: SelectedBerthsType;
+  selectedBerths: Berths;
   selectedServices: SelectedServices;
   deselectBerth: Function;
   moveUp: Function;
@@ -26,7 +26,7 @@ interface Props {
   values: {};
 }
 
-class BerthPage extends Component<Props> {
+class SelectedBerthPage extends Component<Props> {
   constructor(props: Props) {
     super(props);
 
@@ -67,11 +67,10 @@ class BerthPage extends Component<Props> {
           const berthsData = harbors ? harbors.edges : [];
           const berths = getBerths(berthsData);
 
-          const boatType = type ? boatTypes.find(t => t.identifier === type) : undefined;
+          const boatType =
+            !loading && type ? boatTypes.find(t => t.identifier === type) : undefined;
 
-          const validSelection = berths
-            .filter(berth => berth && selectedBerths.includes(berth.identifier))
-            .every(filter);
+          const validSelection = selectedBerths.every(filter);
 
           return (
             <Layout>
@@ -132,15 +131,13 @@ class BerthPage extends Component<Props> {
                         />
                       </Alert>
                     )}
-                    {!loading && (
-                      <SelectedBerths
-                        moveUp={moveUp}
-                        moveDown={moveDown}
-                        deselectBerth={deselectBerth}
-                        berthValidator={filter}
-                        berths={berths.filter(berth => selectedBerths.includes(berth.identifier))}
-                      />
-                    )}
+                    <SelectedBerths
+                      moveUp={moveUp}
+                      moveDown={moveDown}
+                      deselectBerth={deselectBerth}
+                      berthValidator={filter}
+                      berths={selectedBerths}
+                    />
                   </Col>
                 </Row>
               </Container>
@@ -157,7 +154,7 @@ class BerthPage extends Component<Props> {
                           outline
                           color="primary"
                           size="lg"
-                          disabled={berths.size === 0}
+                          disabled={selectedBerths.size === 0}
                         >
                           <FormattedMessage tagName="span" id="page.berth.selected.submit" />
                         </Button>
@@ -174,4 +171,4 @@ class BerthPage extends Component<Props> {
   }
 }
 
-export default BerthPage;
+export default SelectedBerthPage;

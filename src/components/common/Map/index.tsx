@@ -3,12 +3,15 @@ import { FormattedMessage } from 'react-intl';
 import { Map, TileLayer } from 'react-leaflet';
 import { Container } from 'reactstrap';
 
+import Berth from '../../berths/Berth';
 import mapIcon from './MapIcon';
 import MapMarker from './MapMarker';
 
-import Berth from '../../berths/Berth';
 import { Berth as BerthType } from '../../berths/Berth/types';
-import { Berths, SelectedBerths } from '../../berths/types';
+import { Berths } from '../../berths/types';
+
+import { isBerthSelected } from '../../../utils/berths';
+
 import './Map.scss';
 
 interface State {
@@ -21,7 +24,7 @@ interface State {
 interface Props {
   filtered: Berths;
   filteredNot: Berths;
-  selected: SelectedBerths;
+  selected: Berths;
   onClick: Function;
 }
 
@@ -60,7 +63,7 @@ export default class MapCanvas extends Component<Props, State> {
         <Map center={position} zoom={this.state.zoom} className="vene-map__map">
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {filtered.map(berth => {
-            const isSelected = !!selected && selected.includes(berth.identifier);
+            const isSelected = isBerthSelected(selected, berth);
             const isPreviewed = !!selectedBerth && selectedBerth.identifier === berth.identifier;
             return (
               <MapMarker
@@ -74,7 +77,7 @@ export default class MapCanvas extends Component<Props, State> {
             );
           })}
           {filteredNot.map(berth => {
-            const isSelected = selected && selected.includes(berth.identifier);
+            const isSelected = isBerthSelected(selected, berth);
             const isPreviewed = !!selectedBerth && selectedBerth.identifier === berth.identifier;
             return (
               <MapMarker
@@ -93,8 +96,8 @@ export default class MapCanvas extends Component<Props, State> {
             excluded={!!excluded}
             key={selectedBerth.identifier}
             berth={selectedBerth}
-            onClick={() => onClick(selectedBerth.identifier)}
-            selected={selected.includes(selectedBerth.identifier)}
+            onClick={() => onClick(selectedBerth)}
+            selected={isBerthSelected(selected, selectedBerth)}
             disabled={selected.size >= Number(REACT_APP_MAX_SELECTED_BERTHS)}
           />
         )}

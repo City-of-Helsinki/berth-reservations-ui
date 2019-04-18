@@ -5,11 +5,11 @@ import { withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../FormPage';
 
 import { Store } from '../../../redux/types';
-import { SelectedBerths } from '../../berths/types';
+import { Berths } from '../../berths/types';
 
 interface Props {
   initialValues: {};
-  selectedBerths: SelectedBerths;
+  selectedBerths: Berths;
   onSubmit: Function;
   localePush: Function;
   tab: string;
