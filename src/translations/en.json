@@ -1,4 +1,5 @@
 {
+  "test.message": "Test message",
   "error.message.invalid_berth_selection": "Not all of the harbours you have selected may have available berths for your type of boat.",
   "error.message.invalid_berth": "This harbour is unlikely to have berths for your type of boat.",
   "storybook.dummy.label": "dummy",
@@ -245,5 +246,11 @@
   "page.berth.selected.warning.heading": "Please note! You have selected harbours with no available berths.",
   "page.berth.selected.alert.strong": "Please note! You have not yet selected any harbours.",
   "page.berth.selected.alert.paragraph": "Select the desired harbours from the list of harbours.",
-  "page.berth.selected.submit": "Submit application"
+  "page.berth.selected.submit": "Submit application",
+
+  "page.berth.exchange_application.new": "New application",
+  "page.berth.exchange_application.exchange": "Switch application",
+  "page.berth.exchange_application.new.info_text": "The applicant does not yet have the boats offered by the City of Helsinki",
+  "page.berth.exchange_application.exchange.info_text": "Exchange of a berth in the port of Helsinki to another port",
+  "page.berth.exchange_application.warning": "You can choose up to five ports for the exchange application. Please remove the extra options and re-type the application."
 }

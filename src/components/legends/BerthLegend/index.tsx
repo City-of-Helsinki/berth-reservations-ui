@@ -6,6 +6,8 @@ import Icon, { IconNames } from '../../common/Icon';
 import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
+import ApplicationSelector from '../../forms/sections/ApplicationSelector';
+
 import { WithBoatType } from '../../forms/Selects';
 import Steps from '../../steps';
 
@@ -90,7 +92,7 @@ const BerthsLegend = ({
               }
             ]}
           />
-
+          <ApplicationSelector />
           <div className="vene-berths-legend__header">
             <FormattedMessage tagName="h3" id="legend.berths.title" />
             <FormattedMessage tagName="p" id="legend.berths.legend" />
