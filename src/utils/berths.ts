@@ -2,6 +2,7 @@ import { List } from 'immutable';
 import { get } from 'lodash';
 
 import { Berth } from '../components/berths/Berth/types';
+import { Berths } from '../components/berths/types';
 import { SelectedServices } from '../types/services';
 
 export const getBerthFilterByValues = (values: {}, selectedServices: SelectedServices) => {
@@ -14,12 +15,12 @@ export const getBerthFilterByValues = (values: {}, selectedServices: SelectedSer
   return (b: any) => {
     const filterByService = services.reduce((acc, cur) => acc && b[cur], true);
     const filterByWidth = Number(b.maximumWidth) >= width;
-    const filterByLenght = Number(b.maximumLength) >= length;
+    const filterByLength = Number(b.maximumLength) >= length;
     const filterByBoatTypeIds = boatType
       ? !!b.suitableBoatTypes.find((type: { identifier: string }) => type.identifier === boatType)
       : true;
 
-    return filterByService && filterByWidth && filterByLenght && filterByBoatTypeIds;
+    return filterByService && filterByWidth && filterByLength && filterByBoatTypeIds;
   };
 };
 
@@ -35,3 +36,6 @@ export const getBerths = (berthsData: any): List<Berth> => {
 
   return berths;
 };
+
+export const isBerthSelected = (selectedBerths: Berths, berth: Berth): boolean =>
+  !!selectedBerths.find(selectedBerth => selectedBerth.identifier === berth.identifier);

@@ -2,6 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
 
+import { isBerthSelected } from '../../utils/berths';
 import Berth from './Berth';
 
 import { BerthProps } from './types';
@@ -14,9 +15,11 @@ export default ({ filtered, filteredNot, onClick, selected }: BerthProps) => (
     {filtered.size > 0 && (
       <Row>
         <Col xs={12}>
-          <h3>
-            <FormattedMessage id="page.berths.list.berth_count" values={{ count: filtered.size }} />
-          </h3>
+          <FormattedMessage
+            tagName="h3"
+            id="page.berths.list.berth_count"
+            values={{ count: filtered.size }}
+          />
         </Col>
       </Row>
     )}
@@ -24,17 +27,15 @@ export default ({ filtered, filteredNot, onClick, selected }: BerthProps) => (
       <Berth
         key={berth.identifier}
         berth={berth}
-        onClick={() => onClick(berth.identifier)}
-        selected={selected.includes(berth.identifier)}
+        onClick={() => onClick(berth)}
+        selected={isBerthSelected(selected, berth)}
         disabled={selected.size >= Number(REACT_APP_MAX_SELECTED_BERTHS)}
       />
     ))}
     {filteredNot.size > 0 && (
       <Row>
         <Col xs={12}>
-          <h3>
-            <FormattedMessage id="page.berths.list.header.others" />
-          </h3>
+          <FormattedMessage tagName="h3" id="page.berths.list.header.others" />
         </Col>
       </Row>
     )}
@@ -44,10 +45,8 @@ export default ({ filtered, filteredNot, onClick, selected }: BerthProps) => (
         excluded={true}
         key={berth.identifier}
         berth={berth}
-        // TODO: fix this
-        // tslint:disable-next-line: jsx-no-lambda
-        onClick={() => onClick(berth.identifier)}
-        selected={selected.includes(berth.identifier)}
+        onClick={() => onClick(berth)}
+        selected={isBerthSelected(selected, berth)}
         disabled={selected.size >= Number(REACT_APP_MAX_SELECTED_BERTHS)}
       />
     ))}

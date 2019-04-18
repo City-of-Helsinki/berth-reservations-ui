@@ -6,10 +6,10 @@ import SelectedBerthPage from '../BerthPage/SelectedBerthPage';
 
 import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
-import { SelectedBerths as SelectedBerthsType } from '../../berths/types';
+import { Berths } from '../../berths/types';
 
 interface Props {
-  selectedBerths: SelectedBerthsType;
+  selectedBerths: Berths;
   selectedServices: SelectedServices;
   deselectBerth: Function;
   moveUp: Function;

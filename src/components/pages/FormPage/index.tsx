@@ -11,15 +11,14 @@ import Layout from '../../layout';
 import FormLegend from '../../legends/FormLegend';
 import Steps from '../../steps';
 
-import { Berths, SelectedBerths } from '../../berths/types';
+import { Berths } from '../../berths/types';
 
-import { getBerths } from '../../../utils/berths';
 import { BOAT_TYPES_BERTHS_QUERY, CREATE_RESERVATION } from '../../../utils/graphql';
 import './FormPage.scss';
 
 interface Props {
   initialValues: {};
-  selectedBerths: SelectedBerths;
+  selectedBerths: Berths;
   onSubmit: Function;
   localePush: Function;
   tab: string;
@@ -60,12 +59,9 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
         {({
           loading,
           // error, TODO: handle errors
-          data: { boatTypes, harbors } = { boatTypes: [], harbors: { edges: [] } },
+          data: { boatTypes } = { boatTypes: [] },
           client
         }) => {
-          const berthsData = harbors ? harbors.edges : [];
-          const berths = getBerths(berthsData);
-
           return (
             <Layout>
               <div className="vene-form-page">
@@ -119,7 +115,7 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
 
                   const choices = selectedBerths
                     .map((harbor, priority) => ({
-                      harborId: harbor,
+                      harborId: harbor.identifier,
                       priority: priority + 1
                     }))
                     .toArray();
@@ -163,13 +159,7 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
                 <BoatDetails tab={tab} values={{}} boatTypes={boatTypes} />
                 <ApplicantDetails tab={tab} />
                 {!loading && (
-                  <Overview
-                    selectedBerths={berths.filter(berth =>
-                      selectedBerths.includes(berth.identifier)
-                    )}
-                    boatTypes={boatTypes}
-                    tabs={tabs}
-                  />
+                  <Overview selectedBerths={selectedBerths} boatTypes={boatTypes} tabs={tabs} />
                 )}
               </Wizard>
             </Layout>
