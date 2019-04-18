@@ -212,6 +212,9 @@
   "form.private_person.field.last_name.label": "Last name",
   "form.private_person.field.last_name.placeholder": "Boatman",
 
+  "form.overview.field.application_code.title": "Application code",
+  "form.overview.field.application_code.placeholder": "Code",
+  "form.overview.field.application_code.description": "If you have received an application code from our customer service, please enter it here. The application code is usually sent to the customers who have a pending application submitted in paper format.",
   "form.overview.field.guarantee.label": "I confirm that the information I have provided is correct.",
   "form.overview.header.receivable_items.title": "I want to subscribe to the following via e-mail",
   "form.overview.field.boating_info.label": "The Vene Helsingissä - veneilijän uutiskirje newsletter (in Finnish)",

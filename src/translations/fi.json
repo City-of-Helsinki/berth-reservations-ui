@@ -211,6 +211,9 @@
   "form.private_person.field.last_name.label": "Sukunimi",
   "form.private_person.field.last_name.placeholder": "Merenkävijä",
 
+  "form.overview.field.application_code.title": "Hakukoodi",
+  "form.overview.field.application_code.placeholder": "Koodi",
+  "form.overview.field.application_code.description": "Jos olet vastaanottanut asiakaspalvelusta hakukoodin, syötä se tähän. Hakukoodi on tarkoitettu asiakkaille, jotka ovat jo hakeneet venepaikkaa paperisella hakulomakkeella.",
   "form.overview.field.guarantee.label": "Vakuutan antamani tiedot oikeiksi.",
   "form.overview.header.receivable_items.title": "Haluan vastaanottaa sähköpostiini",
   "form.overview.field.boating_info.label": "Vene Helsingissä -uutiskirjeen",

@@ -212,6 +212,9 @@
   "form.private_person.field.last_name.label": "Efternamn",
   "form.private_person.field.last_name.placeholder": "Merenkävijä",
 
+  "form.overview.field.application_code.title": "Application code",
+  "form.overview.field.application_code.placeholder": "Code",
+  "form.overview.field.application_code.description": "If you have received an application code from our customer service, please enter it here. The application code is usually sent to the customers who have a pending application submitted in paper format.",
   "form.overview.field.guarantee.label": "Jag intygar att de uppgifter som jag angett är korrekta.",
   "form.overview.header.receivable_items.title": "Jag vill få följande per e-post:",
   "form.overview.field.boating_info.label": "nyhetsbrevet om Båtliv i Helsingfors",
