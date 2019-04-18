@@ -8,7 +8,8 @@ import Layout from '../../layout';
 import BerthsLegend from '../../legends/BerthLegend';
 
 import { SelectedServices } from '../../../types/services';
-import { Berths as BerthsType, SelectedBerths } from '../../berths/types';
+import { Berth } from '../../berths/Berth/types';
+import { Berths as BerthsType } from '../../berths/types';
 
 import { getBerthFilterByValues, getBerths as getBerthsFromCache } from '../../../utils/berths';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
@@ -21,7 +22,7 @@ interface Props {
   initialValues: {};
   filtered: BerthsType;
   filteredNot: BerthsType;
-  selectedBerths: SelectedBerths;
+  selectedBerths: BerthsType;
   selectedServices: SelectedServices;
   selectBerth: Function;
   deselectBerth: Function;
@@ -43,12 +44,12 @@ class BerthPage extends Component<Props> {
     await localePush('/selected_berths');
   };
 
-  toggleBerthSelect = (id: string) => {
+  toggleBerthSelect = (berth: Berth) => {
     const { selectedBerths, selectBerth, deselectBerth } = this.props;
-    if (selectedBerths.includes(id)) {
-      deselectBerth(id);
+    if (selectedBerths.find(selectedBerth => selectedBerth.identifier === berth.identifier)) {
+      deselectBerth(berth);
     } else {
-      selectBerth(id);
+      selectBerth(berth);
     }
   };
 
@@ -75,7 +76,9 @@ class BerthPage extends Component<Props> {
           const filtered = berths.filter(filter);
           const filteredNot = berths.filterNot(filter);
           const validSelection = berths
-            .filter(berth => selectedBerths.includes(berth.identifier))
+            .filter(berth =>
+              selectedBerths.find(selectedBerth => selectedBerth.identifier === berth.identifier)
+            )
             .every(filter);
 
           return (

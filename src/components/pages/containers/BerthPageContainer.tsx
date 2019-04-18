@@ -7,13 +7,13 @@ import BerthPage from '../BerthPage';
 
 import { Store } from '../../../types/ducks';
 import { SelectedServices } from '../../../types/services';
-import { Berths as BerthsType, SelectedBerths } from '../../berths/types';
+import { Berths as BerthsType } from '../../berths/types';
 
 interface Props {
   initialValues: {};
   filtered: BerthsType;
   filteredNot: BerthsType;
-  selectedBerths: SelectedBerths;
+  selectedBerths: BerthsType;
   selectedServices: SelectedServices;
   selectBerth: Function;
   deselectBerth: Function;
