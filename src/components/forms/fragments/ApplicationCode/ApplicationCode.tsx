@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Row } from 'reactstrap';
 
-import { Text } from '../Fields';
+import { Text } from '../../Fields';
 
 import './ApplicationCode.scss';
 
