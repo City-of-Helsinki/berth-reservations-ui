@@ -3,6 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
 import { Berths } from '../../berths/types';
 import Agreement from '../fragments/Agreement';
+import ApplicationCode from '../fragments/ApplicationCode';
 import Newsletter from '../fragments/Newsletter';
 import { WithBoatType } from '../Selects';
 import OverviewInfo from './OverviewInfo';
@@ -61,6 +62,7 @@ const Submit = ({
             values={values}
             boatTypes={boatTypes}
           />
+          <ApplicationCode />
           <FormattedMessage tagName="h5" id="form.overview.header.receivable_items.title" />
           <Newsletter />
           <FormattedMessage tagName="h3" id="form.overview.header.agreement.title" />
