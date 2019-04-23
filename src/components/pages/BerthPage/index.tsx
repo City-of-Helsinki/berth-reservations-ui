@@ -14,7 +14,7 @@ import { Berths as BerthsType } from '../../berths/types';
 import { getBerthFilterByValues, getBerths as getBerthsFromCache } from '../../../utils/berths';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 
-import BoatsBerthsQuery from '../../common/BoatsBerthsQuery';
+import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 
 import './BerthPage.scss';
 

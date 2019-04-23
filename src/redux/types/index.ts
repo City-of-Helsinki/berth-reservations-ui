@@ -13,6 +13,7 @@ interface BerthsProps {
 
 interface ApplicationProps {
   selectedApplicationType: string;
+  berthSwitch: object;
 }
 
 export type FormsFactory = Record.Factory<FormProps>;

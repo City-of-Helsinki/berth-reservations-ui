@@ -2,13 +2,13 @@ import { findIndex } from 'lodash';
 import React, { PureComponent } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
-import BoatsBerthsQuery from '../../common/BoatsBerthsQuery';
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/BoatDetails';
 import Overview from '../../forms/sections/Overview';
 import Wizard from '../../forms/Wizard';
 import Layout from '../../layout';
 import FormLegend from '../../legends/FormLegend';
+import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 import Steps from '../../steps';
 
 import { Berths } from '../../berths/types';

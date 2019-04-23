@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Label } from 'reactstrap';
+import { APPLICATION_OPTIONS } from '../../../../constants/ApplicationConstants';
 import { SELECTED_BERTH_LIMIT } from '../../../../constants/BerthConstants';
-import { APPLICATION_OPTIONS } from '../../../../constants/UIConstants';
-import { switchApplication as switchApplicationAction } from '../../../../redux/actions/ApplicationAction';
+import { switchApplication as switchApplicationAction } from '../../../../redux/actions/ApplicationActions';
 import { Store } from '../../../../redux/types';
 import Alert from '../../../common/Alert';
 import Input from '../../../common/Input';

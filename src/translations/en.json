@@ -259,7 +259,9 @@
 
   "page.berth.exchange_application.current_berth.title": "Your current berth",
   "page.berth.exchange_application.current_berth.info_text": "To submit a switch application please provide the information on your current berth",
-  "page.berth.exchange_application.form.current_harbour_area.title": "Current harbour area",
+  "page.berth.exchange_application.form.current_harbour_area.label": "Current harbour area",
   "page.berth.exchange_application.form.pier.title": "Pier",
-  "page.berth.exchange_application.form.berth.title": "Berth"
+  "page.berth.exchange_application.form.pier.placeholder": "Pier ID (if applicable)",
+  "page.berth.exchange_application.form.berth.title": "Berth",
+  "page.berth.exchange_application.form.berth.placeholder": "Berth ID"
 }

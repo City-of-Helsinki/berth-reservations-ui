@@ -6,14 +6,20 @@ import { Alert, Button, Col, Container, Row } from 'reactstrap';
 import { getBerthFilterByValues, getBerths } from '../../../../utils/berths';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../../utils/graphql';
 import SelectedBerths from '../../../berths/SelectedBerths';
-import BoatsBerthsQuery from '../../../common/BoatsBerthsQuery';
 import Icon from '../../../common/Icon';
 import LocalizedLink from '../../../common/LocalizedLink';
 import Layout from '../../../layout';
 import SelectedBerthsLegend from '../../../legends/BerthLegend/SelectedBerthLegend';
+import BoatsBerthsQuery from '../../../query/BoatsBerthsQuery';
 
 import { SelectedServices } from '../../../../types/services';
+import { getHarbors } from '../../../../utils/harborUtils';
 import { Berths } from '../../../berths/types';
+
+import { APPLICATION_OPTIONS } from '../../../../constants/ApplicationConstants';
+import ExchangeApplication from '../../../forms/fragments/ExchangeApplication';
+import NewApplication from '../../../forms/fragments/NewApplication';
+
 import './SelectedBerthPage.scss';
 
 interface Props {
@@ -23,6 +29,8 @@ interface Props {
   moveUp: Function;
   moveDown: Function;
   localePush: Function;
+  selectedApplicationType: string;
+  submitExchangeForm: Function;
   values: {};
 }
 
@@ -45,12 +53,14 @@ class SelectedBerthPage extends Component<Props> {
 
   render() {
     const {
+      selectedApplicationType,
       selectedBerths,
       deselectBerth,
       moveUp,
       moveDown,
       values,
-      selectedServices
+      selectedServices,
+      submitExchangeForm
     } = this.props;
     const type = get(values, 'boatType');
     const width = get(values, 'boatWidth');
@@ -64,8 +74,7 @@ class SelectedBerthPage extends Component<Props> {
           // error, TODO: handle errors
           data: { boatTypes, harbors } = { boatTypes: [], harbors: { edges: [] } }
         }) => {
-          const berthsData = harbors ? harbors.edges : [];
-          const berths = getBerths(berthsData);
+          const normalizedHarbors = getHarbors(harbors ? harbors.edges : []);
 
           const boatType =
             !loading && type ? boatTypes.find(t => t.identifier === type) : undefined;
@@ -75,6 +84,24 @@ class SelectedBerthPage extends Component<Props> {
           return (
             <Layout>
               <SelectedBerthsLegend />
+
+              <Container>
+                <Row>
+                  <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
+                    <div className="vene-berth-page-selected__application">
+                      {selectedApplicationType === APPLICATION_OPTIONS.NEW_APPLICATION ? (
+                        <NewApplication />
+                      ) : (
+                        <ExchangeApplication
+                          harbors={normalizedHarbors}
+                          onSubmit={submitExchangeForm}
+                        />
+                      )}
+                    </div>
+                  </Col>
+                </Row>
+              </Container>
+
               <Container className="vene-berth-page-selected__wrapper">
                 <Row>
                   <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>

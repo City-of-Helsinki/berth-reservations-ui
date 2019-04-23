@@ -3,6 +3,12 @@
 @import 'helsinki/fonts';
 
 .vene-berth-page-selected {
+  &__application {
+    background-color: $hel-light;
+    padding: 1.5em;
+    margin-top: 3em;
+  }
+
   &__wrapper {
     padding-top: 3em;
     padding-bottom: 3em;

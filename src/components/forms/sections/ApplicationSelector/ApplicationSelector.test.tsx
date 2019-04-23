@@ -1,6 +1,6 @@
 import React from 'react';
 import { Label } from 'reactstrap';
-import { APPLICATION_OPTIONS } from '../../../../constants/UIConstants';
+import { APPLICATION_OPTIONS } from '../../../../constants/ApplicationConstants';
 import { mountWithIntl } from '../../../../utils/testUtils';
 import Alert from '../../../common/Alert';
 import Input from '../../../common/Input';

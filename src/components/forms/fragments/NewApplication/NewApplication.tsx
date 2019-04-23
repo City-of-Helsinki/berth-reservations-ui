@@ -7,7 +7,7 @@ const NewApplication: FC = () => {
     <div className="vene-new-application">
       <Row>
         <Col sm={10}>
-          <FormattedMessage tagName="h3" id={`page.berth.exchange_application.new`} />
+          <FormattedMessage tagName="h1" id={`page.berth.exchange_application.new`} />
 
           <FormattedMessage id={`page.berth.exchange_application.new.info_text`} />
         </Col>

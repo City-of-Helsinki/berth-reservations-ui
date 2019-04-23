@@ -1,9 +1,10 @@
 import { Record } from 'immutable';
-import { APPLICATION_OPTIONS } from '../../constants/UIConstants';
+import { APPLICATION_OPTIONS } from '../../constants/ApplicationConstants';
 import { Action, ApplicationFactory, ApplicationState } from '../types';
 
 const defaultState: ApplicationFactory = Record({
-  selectedApplicationType: APPLICATION_OPTIONS.NEW_APPLICATION
+  selectedApplicationType: APPLICATION_OPTIONS.NEW_APPLICATION,
+  berthSwitch: {}
 });
 
 export default (state: ApplicationState = defaultState(), action: Action): ApplicationState => {
@@ -12,6 +13,8 @@ export default (state: ApplicationState = defaultState(), action: Action): Appli
   switch (type) {
     case 'APPLICATION.SWITCH_APPLICATION':
       return state.set('selectedApplicationType', payload);
+    case 'APPLICATION.SUBMIT_FORM':
+      return state.set('berthSwitch', payload);
     case 'APPLICATION.RESET_APPLICATION':
       return defaultState();
     default:

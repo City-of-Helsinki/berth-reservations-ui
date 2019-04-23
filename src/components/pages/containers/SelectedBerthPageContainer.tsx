@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
+import { submitApplicationForm as submitExchangeForm } from '../../../redux/actions/ApplicationActions';
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
 import { withMatchParamsHandlers } from '../../../utils/container';
 import SelectedBerthPage from '../BerthPage/SelectedBerthPage';
@@ -16,6 +17,8 @@ interface Props {
   moveDown: Function;
   localePush: Function;
   values: {};
+  selectedApplicationType: string;
+  submitExchangeForm: Function;
 }
 
 export default compose<Props, {}>(
@@ -24,12 +27,14 @@ export default compose<Props, {}>(
     (state: Store) => ({
       selectedBerths: state.berths.selectedBerths,
       selectedServices: state.berths.selectedServices,
-      values: state.forms.values
+      values: state.forms.values,
+      selectedApplicationType: state.application.selectedApplicationType
     }),
     {
       deselectBerth,
       moveUp,
-      moveDown
+      moveDown,
+      submitExchangeForm
     }
   )
 )(SelectedBerthPage);

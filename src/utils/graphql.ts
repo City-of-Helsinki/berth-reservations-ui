@@ -57,3 +57,19 @@ export const CREATE_RESERVATION = gql`
     }
   }
 `;
+
+export const HARBOUR_QUERY = gql`
+  query HarbourQuery {
+    harbors {
+      edges {
+        node {
+          id
+          properties {
+            name
+            identifier
+          }
+        }
+      }
+    }
+  }
+`;
