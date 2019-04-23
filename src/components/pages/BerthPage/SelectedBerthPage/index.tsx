@@ -89,7 +89,7 @@ class SelectedBerthPage extends Component<Props> {
           return (
             <Form
               onSubmit={values => this.handleSubmitApplication(values)}
-              render={({ handleSubmit }) => (
+              render={({ handleSubmit, invalid }) => (
                 <Layout>
                   <SelectedBerthsLegend />
 
@@ -191,7 +191,7 @@ class SelectedBerthPage extends Component<Props> {
                                 outline
                                 color="primary"
                                 size="lg"
-                                disabled={selectedBerths.size === 0}
+                                disabled={selectedBerths.size === 0 || invalid}
                               >
                                 <FormattedMessage tagName="span" id="page.berth.selected.submit" />
                               </Button>
