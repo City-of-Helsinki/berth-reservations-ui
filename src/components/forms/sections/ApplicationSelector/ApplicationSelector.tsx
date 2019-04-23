@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Label } from 'reactstrap';
 import { SELECTED_BERTH_LIMIT } from '../../../../constants/BerthConstants';
 import { APPLICATION_OPTIONS } from '../../../../constants/UIConstants';
-import { switchApplication as switchApplicationAction } from '../../../../redux/actions/UIActions';
+import { switchApplication as switchApplicationAction } from '../../../../redux/actions/ApplicationAction';
 import { Store } from '../../../../redux/types';
 import Alert from '../../../common/Alert';
 import Input from '../../../common/Input';
@@ -109,7 +109,7 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
 
 const mapStateToProps = (state: Store) => ({
   selectedBerthCount: state.berths.selectedBerths.size,
-  selectedApplicationType: state.ui.selectedApplicationType
+  selectedApplicationType: state.application.selectedApplicationType
 });
 
 export const UnconnectedApplicationSelector = injectIntl(ApplicationSelector);

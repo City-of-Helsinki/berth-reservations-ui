@@ -255,5 +255,11 @@
   "page.berth.exchange_application.exchange": "Switch application",
   "page.berth.exchange_application.new.info_text": "The applicant does not yet have the boats offered by the City of Helsinki",
   "page.berth.exchange_application.exchange.info_text": "Exchange of a berth in the port of Helsinki to another port",
-  "page.berth.exchange_application.warning": "You can choose up to five ports for the exchange application. Please remove the extra options and re-type the application."
+  "page.berth.exchange_application.warning": "You can choose up to five ports for the exchange application. Please remove the extra options and re-type the application.",
+
+  "page.berth.exchange_application.current_berth.title": "Your current berth",
+  "page.berth.exchange_application.current_berth.info_text": "To submit a switch application please provide the information on your current berth",
+  "page.berth.exchange_application.form.current_harbour_area.title": "Current harbour area",
+  "page.berth.exchange_application.form.pier.title": "Pier",
+  "page.berth.exchange_application.form.berth.title": "Berth"
 }

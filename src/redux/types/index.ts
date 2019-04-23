@@ -11,7 +11,7 @@ interface BerthsProps {
   selectedServices: SelectedServices;
 }
 
-interface UIProps {
+interface ApplicationProps {
   selectedApplicationType: string;
 }
 
@@ -19,13 +19,13 @@ export type FormsFactory = Record.Factory<FormProps>;
 export type FormsState = RecordOf<FormProps>;
 export type BerthsFactory = Record.Factory<BerthsProps>;
 export type BerthsState = RecordOf<BerthsProps>;
-export type UIState = RecordOf<UIProps>;
-export type UIFactory = Record.Factory<UIProps>;
+export type ApplicationState = RecordOf<ApplicationProps>;
+export type ApplicationFactory = Record.Factory<ApplicationProps>;
 
 export interface Store {
   forms: FormsState;
   berths: BerthsState;
-  ui: UIState;
+  application: ApplicationState;
 }
 
 export interface Action {
