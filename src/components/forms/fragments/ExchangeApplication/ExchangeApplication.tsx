@@ -1,8 +1,9 @@
 import { List } from 'immutable';
 import React, { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
+import { Col, Row } from 'reactstrap';
 import { HarborOption, HarborOptions } from '../../../../types/HarborOptionTypes';
-import { Select } from '../../Fields';
+import { Select, Text } from '../../Fields';
 
 const ExchangeApplication: FC<{
   harbors: HarborOptions;
@@ -14,7 +15,7 @@ const ExchangeApplication: FC<{
 
       <div className="vene-exchange-application__select-harbour">
         <Select
-          name={`harbourId`}
+          name={`harborId`}
           label="page.berth.exchange_application.form.current_harbour_area.label"
           required
         >
@@ -26,6 +27,25 @@ const ExchangeApplication: FC<{
               </option>
             ))}
         </Select>
+
+        <Row>
+          <Col sm={6}>
+            <Text
+              name={`pier`}
+              label={`page.berth.exchange_application.form.pier.title`}
+              placeholder={`page.berth.exchange_application.form.pier.placeholder`}
+            />
+          </Col>
+
+          <Col sm={6}>
+            <Text
+              name={`berthNumber`}
+              required
+              label={`page.berth.exchange_application.form.berth.title`}
+              placeholder={`page.berth.exchange_application.form.berth.placeholder`}
+            />
+          </Col>
+        </Row>
       </div>
     </div>
   );
