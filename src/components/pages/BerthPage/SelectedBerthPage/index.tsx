@@ -34,6 +34,7 @@ interface Props {
   selectedApplicationType: string;
   submitExchangeForm: Function;
   values: {};
+  initialValues: {};
 }
 
 class SelectedBerthPage extends Component<Props> {
@@ -65,7 +66,8 @@ class SelectedBerthPage extends Component<Props> {
       deselectBerth,
       moveUp,
       moveDown,
-      selectedServices
+      selectedServices,
+      initialValues
     } = this.props;
     const type = get(this.props.values, 'boatType');
     const width = get(this.props.values, 'boatWidth');
@@ -89,6 +91,7 @@ class SelectedBerthPage extends Component<Props> {
           return (
             <Form
               onSubmit={values => this.handleSubmitApplication(values)}
+              initialValues={initialValues}
               render={({ handleSubmit, invalid }) => (
                 <Layout>
                   <SelectedBerthsLegend />

@@ -19,6 +19,7 @@ interface Props {
   values: {};
   selectedApplicationType: string;
   submitExchangeForm: Function;
+  initialValues: {};
 }
 
 export default compose<Props, {}>(
@@ -28,7 +29,8 @@ export default compose<Props, {}>(
       selectedBerths: state.berths.selectedBerths,
       selectedServices: state.berths.selectedServices,
       values: state.forms.values,
-      selectedApplicationType: state.application.selectedApplicationType
+      selectedApplicationType: state.application.selectedApplicationType,
+      initialValues: state.application.berthSwitch
     }),
     {
       deselectBerth,

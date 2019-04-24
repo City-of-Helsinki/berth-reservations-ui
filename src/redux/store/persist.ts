@@ -2,7 +2,7 @@ import { List, Record } from 'immutable';
 
 import { createTransform } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { BerthsState, FormsState } from '../types';
+import { ApplicationState, BerthsState, FormsState } from '../types';
 
 const BerthsTransform = createTransform(
   (inboundState: BerthsState) => {
@@ -36,9 +36,22 @@ const FormsTransform = createTransform(
   { whitelist: ['forms'] }
 );
 
+const ApplicationTransform = createTransform(
+  (inboundState: ApplicationState) => {
+    const application = inboundState.toObject();
+
+    return application;
+  },
+  outboundState => {
+    const application = Record(outboundState);
+    return application();
+  },
+  { whitelist: ['application'] }
+);
+
 export default {
   storage,
   key: 'root',
-  transforms: [BerthsTransform, FormsTransform],
-  whitelist: ['forms', 'berths']
+  transforms: [BerthsTransform, FormsTransform, ApplicationTransform],
+  whitelist: ['forms', 'berths', 'application']
 };

@@ -4,14 +4,20 @@ import { FormattedMessage } from 'react-intl';
 import { Col, Row } from 'reactstrap';
 import { HarborOption, HarborOptions } from '../../../../types/HarborOptionTypes';
 import { Select, Text } from '../../Fields';
+import './ExchangeApplication.scss';
 
 const ExchangeApplication: FC<{
   harbors: HarborOptions;
 }> = ({ harbors }) => {
   return (
     <div className="vene-exchange-application">
-      <FormattedMessage tagName="h1" id="page.berth.exchange_application.current_berth.title" />
-      <FormattedMessage id="page.berth.exchange_application.current_berth.info_text" />
+      <div className="vene-exchange-application__title">
+        <FormattedMessage tagName="h1" id="page.berth.exchange_application.current_berth.title" />
+        <FormattedMessage
+          tagName="p"
+          id="page.berth.exchange_application.current_berth.info_text"
+        />
+      </div>
 
       <div className="vene-exchange-application__select-harbour">
         <Select
