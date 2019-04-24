@@ -13,6 +13,7 @@ interface Props {
   onSubmit: Function;
   localePush: Function;
   tab: string;
+  berthSwitchFormData: {};
 }
 
 export default compose<Props, {}>(
@@ -20,7 +21,8 @@ export default compose<Props, {}>(
   connect(
     (state: Store) => ({
       initialValues: state.forms.values,
-      selectedBerths: state.berths.selectedBerths
+      selectedBerths: state.berths.selectedBerths,
+      berthSwitchFormData: state.application.berthSwitch
     }),
     { onSubmit }
   )

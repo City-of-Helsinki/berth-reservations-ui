@@ -22,6 +22,7 @@ interface Props {
   onSubmit: Function;
   localePush: Function;
   tab: string;
+  berthSwitchFormData: {};
 }
 
 const mapSteps = [
@@ -51,7 +52,7 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
   }
 
   render() {
-    const { initialValues, selectedBerths, onSubmit, localePush } = this.props;
+    const { initialValues, selectedBerths, onSubmit, localePush, berthSwitchFormData } = this.props;
     const { step, tabs, tab } = this.state;
 
     return (
@@ -124,6 +125,7 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
                   const boatTypeId = boatTypes.find(type => type.identifier === boatType);
                   await client.mutate({
                     variables: {
+                      berthSwitch: berthSwitchFormData,
                       reservation: {
                         choices,
                         ...reservation,
