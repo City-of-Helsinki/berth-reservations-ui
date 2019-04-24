@@ -1,7 +1,7 @@
 import { List, Record } from 'immutable';
 import { Action, BerthsFactory, BerthsState } from '../types';
 
-const selectedServices = Record({
+export const selectedServices = Record({
   electricity: false,
   water: false,
   wasteCollection: false,

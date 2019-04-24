@@ -8,7 +8,7 @@ export interface Berth {
   email: string;
   wwwUrl: string;
   geometry: {
-    type: string;
+    type?: string;
     coordinates: number[];
   };
   imageFile: string;
@@ -26,5 +26,4 @@ export interface Berth {
     title: string;
     description: string;
   };
-  excluded: boolean;
 }
