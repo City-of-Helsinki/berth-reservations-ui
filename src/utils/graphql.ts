@@ -4,7 +4,6 @@ export const BOAT_TYPES_BERTHS_QUERY = gql`
   query BoatTypesBerthsQuery {
     boatTypes {
       id
-      identifier
       name
     }
     harbors {
@@ -16,7 +15,6 @@ export const BOAT_TYPES_BERTHS_QUERY = gql`
           }
           properties {
             name
-            identifier
             servicemapId
             streetAddress
             zipCode
@@ -32,10 +30,10 @@ export const BOAT_TYPES_BERTHS_QUERY = gql`
             gate
             lighting
             suitableBoatTypes {
-              identifier
+              id
             }
             availabilityLevel {
-              identifier
+              id
               title
               description
             }

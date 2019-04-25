@@ -2,8 +2,8 @@ import { List } from 'immutable';
 
 import { isBerthSelected } from './berths';
 
-const createBerth = (identifier: string) => ({
-  identifier,
+const createBerth = (id: string) => ({
+  id,
   name: 'boat',
   streetAddress: 'helsiginkatu helsinki',
   municipality: 'Helsinki',
@@ -26,7 +26,7 @@ const createBerth = (identifier: string) => ({
   maximumWidth: 5,
   maximumLength: 20,
   availabilityLevel: {
-    identifier: 'red',
+    id: '1',
     title: 'available',
     description: ''
   },

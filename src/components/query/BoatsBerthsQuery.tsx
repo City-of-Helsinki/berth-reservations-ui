@@ -3,7 +3,6 @@ import { Query } from 'react-apollo';
 interface Data {
   boatTypes: Array<{
     id: string;
-    identifier: string;
     name: string;
   }>;
   harbors: {
@@ -15,7 +14,6 @@ interface Data {
         };
         properties: {
           name: string;
-          identifier: string;
           servicemapId: string;
           streetAddress: string;
           zipCode: string;
@@ -31,10 +29,10 @@ interface Data {
           gate: boolean;
           lighting: boolean;
           suitableBoatTypes: {
-            identifier: string;
+            id: string;
           };
           availabilityLevel: {
-            identifier: string;
+            id: string;
             title: string;
             description: string;
           };

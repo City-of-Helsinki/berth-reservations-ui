@@ -21,7 +21,7 @@ const SelectedBerths = ({ berths, moveUp, moveDown, deselectBerth, berthValidato
           index={index}
           first={index === 0}
           last={index === berths.size - 1}
-          key={berth.identifier}
+          key={berth.id}
           berth={berth}
           moveUp={moveUp}
           moveDown={moveDown}

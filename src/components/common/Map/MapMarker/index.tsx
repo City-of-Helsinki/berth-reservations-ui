@@ -16,8 +16,6 @@ export default class MapMarker extends Component<Props> {
   render() {
     const { berth, onClick, markerIcon, position } = this.props;
 
-    return (
-      <Marker onClick={onClick} icon={markerIcon} key={berth.identifier} position={position} />
-    );
+    return <Marker onClick={onClick} icon={markerIcon} key={berth.id} position={position} />;
   }
 }

@@ -46,7 +46,7 @@ class BerthPage extends Component<Props> {
 
   toggleBerthSelect = (berth: Berth) => {
     const { selectedBerths, selectBerth, deselectBerth } = this.props;
-    if (selectedBerths.find(selectedBerth => selectedBerth.identifier === berth.identifier)) {
+    if (selectedBerths.find(selectedBerth => selectedBerth.id === berth.id)) {
       deselectBerth(berth);
     } else {
       selectBerth(berth);
@@ -76,9 +76,7 @@ class BerthPage extends Component<Props> {
           const filtered = berths.filter(filter);
           const filteredNot = berths.filterNot(filter);
           const validSelection = berths
-            .filter(berth =>
-              selectedBerths.find(selectedBerth => selectedBerth.identifier === berth.identifier)
-            )
+            .filter(berth => selectedBerths.find(selectedBerth => selectedBerth.id === berth.id))
             .every(filter);
 
           return (
