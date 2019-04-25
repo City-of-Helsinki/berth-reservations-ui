@@ -98,7 +98,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
       <Row>
         <Col xs={12}>
           {selectedBerths.map((berth, index) => (
-            <div key={berth.identifier}>
+            <div key={berth.id}>
               {index + 1}. {berth.name}
             </div>
           ))}

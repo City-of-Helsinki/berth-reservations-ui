@@ -115,13 +115,13 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
 
                   const choices = selectedBerths
                     .map((harbor, priority) => ({
-                      harborId: harbor.identifier,
+                      harborId: harbor.id,
                       priority: priority + 1
                     }))
                     .toArray();
                   // @ts-ignore
                   const { language, boatType, ...reservation } = values;
-                  const boatTypeId = boatTypes.find(type => type.identifier === boatType);
+                  const boatTypeId = boatTypes.find(type => type.id === boatType);
                   await client.mutate({
                     variables: {
                       reservation: {

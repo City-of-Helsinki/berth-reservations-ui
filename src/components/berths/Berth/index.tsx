@@ -79,7 +79,7 @@ class Berth extends Component<Props, State> {
               <div className="vene-berth__availability-level">
                 <Button
                   className="vene-berth__availability-level__button"
-                  id={`availability_${berth.identifier}`}
+                  id={`availability_${berth.availabilityLevel.id}`}
                   color="link"
                   onMouseEnter={() => this.togglePopover(true)}
                   onMouseLeave={() => this.togglePopover(false)}
@@ -88,7 +88,7 @@ class Berth extends Component<Props, State> {
                     <span
                       className={classNames(
                         'vene-berth__availability-level__marker',
-                        berth.availabilityLevel ? berth.availabilityLevel.identifier : 'default'
+                        `vene-berth__availability-level__marker--${berth.availabilityLevel.id}`
                       )}
                     />
                     {berth.availabilityLevel.title}
@@ -97,7 +97,7 @@ class Berth extends Component<Props, State> {
 
                 <Popover
                   placement="right"
-                  target={`availability_${berth.identifier}`}
+                  target={`availability_${berth.availabilityLevel.id}`}
                   isOpen={this.state.popoverOpen}
                 >
                   <PopoverBody>

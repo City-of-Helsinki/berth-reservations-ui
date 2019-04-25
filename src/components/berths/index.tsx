@@ -25,7 +25,7 @@ export default ({ filtered, filteredNot, onClick, selected }: BerthProps) => (
     )}
     {filtered.map(berth => (
       <Berth
-        key={berth.identifier}
+        key={berth.id}
         berth={berth}
         onClick={() => onClick(berth)}
         selected={isBerthSelected(selected, berth)}
@@ -43,7 +43,7 @@ export default ({ filtered, filteredNot, onClick, selected }: BerthProps) => (
       <Berth
         className="vene-berth__excluded"
         excluded={true}
-        key={berth.identifier}
+        key={berth.id}
         berth={berth}
         onClick={() => onClick(berth)}
         selected={isBerthSelected(selected, berth)}

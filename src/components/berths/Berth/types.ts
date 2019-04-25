@@ -1,5 +1,5 @@
 export interface Berth {
-  identifier: string;
+  id: string;
   name: string;
   streetAddress: string;
   municipality: string;
@@ -22,7 +22,7 @@ export interface Berth {
   maximumWidth: number;
   maximumLength: number;
   availabilityLevel: {
-    identifier: string;
+    id: string;
     title: string;
     description: string;
   };
