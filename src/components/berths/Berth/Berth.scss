@@ -51,18 +51,16 @@ $berthImageHeight: 12em;
       height: 14px;
       margin-right: 0.3em;
       border-radius: 50%;
+      background-color: $hel-white;
 
-      &.default {
-        background-color: $hel-white;
+      &--1 {
+        background-color: $hel-tram;
       }
-      &.red {
-        background-color: $hel-brick;
-      }
-      &.yellow {
+      &--2 {
         background-color: $hel-summer;
       }
-      &.green {
-        background-color: $hel-tram;
+      &--3 {
+        background-color: $hel-brick;
       }
     }
   }
