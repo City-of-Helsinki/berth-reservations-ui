@@ -120,14 +120,13 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
                     }))
                     .toArray();
                   // @ts-ignore
-                  const { language, boatType, ...reservation } = values;
-                  const boatTypeId = boatTypes.find(type => type.id === boatType);
+                  const { language, ...reservation } = values;
+
                   await client.mutate({
                     variables: {
                       reservation: {
                         choices,
-                        ...reservation,
-                        boatType: boatTypeId && boatTypeId.id
+                        ...reservation
                       }
                     },
                     mutation: CREATE_RESERVATION
