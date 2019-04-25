@@ -62,7 +62,7 @@ class SelectedBerth extends Component<Props, State> {
   render() {
     const { berth, index, first, last, isValid } = this.props;
 
-    const id = `tooltip_${berth.identifier}`;
+    const id = `tooltip_${berth.id}`;
     return (
       <Transition
         in={this.state.changed !== 'nothing'}
@@ -76,7 +76,7 @@ class SelectedBerth extends Component<Props, State> {
                 'has-error': !isValid
               })}
             >
-              <span key={berth.identifier}>
+              <span key={berth.id}>
                 {index + 1}. {berth.name}
                 {!isValid && <InvalidSelection id={id} />}
               </span>

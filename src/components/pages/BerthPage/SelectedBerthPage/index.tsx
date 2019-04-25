@@ -67,9 +67,7 @@ class SelectedBerthPage extends Component<Props> {
           const berthsData = harbors ? harbors.edges : [];
           const berths = getBerths(berthsData);
 
-          const boatType =
-            !loading && type ? boatTypes.find(t => t.identifier === type) : undefined;
-
+          const boatType = !loading && type ? boatTypes.find(t => t.id === type) : undefined;
           const validSelection = selectedBerths.every(filter);
 
           return (

@@ -42,7 +42,7 @@ export default class MapCanvas extends Component<Props, State> {
 
   toggleBerthSelect = (berth: BerthType) => {
     this.setState(({ selectedBerth }) => ({
-      selectedBerth: selectedBerth && selectedBerth.identifier === berth.identifier ? null : berth
+      selectedBerth: selectedBerth && selectedBerth.id === berth.id ? null : berth
     }));
   };
 
@@ -52,8 +52,7 @@ export default class MapCanvas extends Component<Props, State> {
     const position: [number, number] = [this.state.lat, this.state.lng];
     const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
 
-    const excluded =
-      !!selectedBerth && filteredNot.some(berth => berth.identifier === selectedBerth.identifier);
+    const excluded = !!selectedBerth && filteredNot.some(berth => berth.id === selectedBerth.id);
 
     return (
       <Container className="vene-map">
@@ -64,13 +63,13 @@ export default class MapCanvas extends Component<Props, State> {
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {filtered.map(berth => {
             const isSelected = isBerthSelected(selected, berth);
-            const isPreviewed = !!selectedBerth && selectedBerth.identifier === berth.identifier;
+            const isPreviewed = !!selectedBerth && selectedBerth.id === berth.id;
             return (
               <MapMarker
                 berth={berth}
                 selected={isSelected}
                 markerIcon={mapIcon(isSelected, isPreviewed, false)}
-                key={berth.identifier}
+                key={berth.id}
                 position={berth.geometry.coordinates}
                 onClick={() => this.toggleBerthSelect(berth)}
               />
@@ -78,13 +77,13 @@ export default class MapCanvas extends Component<Props, State> {
           })}
           {filteredNot.map(berth => {
             const isSelected = isBerthSelected(selected, berth);
-            const isPreviewed = !!selectedBerth && selectedBerth.identifier === berth.identifier;
+            const isPreviewed = !!selectedBerth && selectedBerth.id === berth.id;
             return (
               <MapMarker
                 berth={berth}
                 selected={isSelected}
                 markerIcon={mapIcon(isSelected, isPreviewed, true)}
-                key={berth.identifier}
+                key={berth.id}
                 position={berth.geometry.coordinates}
                 onClick={() => this.toggleBerthSelect(berth)}
               />
@@ -94,7 +93,7 @@ export default class MapCanvas extends Component<Props, State> {
         {selectedBerth && (
           <Berth
             excluded={!!excluded}
-            key={selectedBerth.identifier}
+            key={selectedBerth.id}
             berth={selectedBerth}
             onClick={() => onClick(selectedBerth)}
             selected={isBerthSelected(selected, selectedBerth)}

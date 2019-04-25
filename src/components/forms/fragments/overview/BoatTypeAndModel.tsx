@@ -11,7 +11,7 @@ type Props = {
   InjectedIntlProps;
 
 const BoatTypeAndModel = ({ boatTypeId, boatModel, boatTypes }: Props) => {
-  const boatType = boatTypes.find(type => type.identifier === boatTypeId);
+  const boatType = boatTypes.find(type => type.id === boatTypeId);
 
   return (
     <Row>

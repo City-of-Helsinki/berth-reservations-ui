@@ -17,7 +17,7 @@ export const getBerthFilterByValues = (values: {}, selectedServices: SelectedSer
     const filterByWidth = Number(b.maximumWidth) >= width;
     const filterByLength = Number(b.maximumLength) >= length;
     const filterByBoatTypeIds = boatType
-      ? !!b.suitableBoatTypes.find((type: { identifier: string }) => type.identifier === boatType)
+      ? !!b.suitableBoatTypes.find((type: { id: string }) => type.id === boatType)
       : true;
 
     return filterByService && filterByWidth && filterByLength && filterByBoatTypeIds;
@@ -28,6 +28,7 @@ export const getBerths = (berthsData: any): List<Berth> => {
   const berths = List<Berth>(
     berthsData.map((harbor: { node: any }) => ({
       ...harbor.node.properties,
+      id: harbor.node.id,
       geometry: {
         coordinates: [harbor.node.geometry.coordinates[1], harbor.node.geometry.coordinates[0]]
       }
@@ -38,4 +39,4 @@ export const getBerths = (berthsData: any): List<Berth> => {
 };
 
 export const isBerthSelected = (selectedBerths: Berths, berth: Berth): boolean =>
-  !!selectedBerths.find(selectedBerth => selectedBerth.identifier === berth.identifier);
+  !!selectedBerths.find(selectedBerth => selectedBerth.id === berth.id);
