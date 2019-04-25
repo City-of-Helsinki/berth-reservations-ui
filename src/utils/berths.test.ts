@@ -26,7 +26,7 @@ const createBerth = (id: string) => ({
   maximumWidth: 5,
   maximumLength: 20,
   availabilityLevel: {
-    id: 'red',
+    id: '1',
     title: 'available',
     description: ''
   },
