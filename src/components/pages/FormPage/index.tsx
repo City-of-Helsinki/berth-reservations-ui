@@ -2,6 +2,7 @@ import { findIndex } from 'lodash';
 import React, { PureComponent } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
+import { ApplicationState } from '../../../redux/types';
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/BoatDetails';
 import Overview from '../../forms/sections/Overview';
@@ -13,6 +14,7 @@ import Steps from '../../steps';
 
 import { Berths } from '../../berths/types';
 
+import { APPLICATION_OPTIONS } from '../../../constants/ApplicationConstants';
 import { BOAT_TYPES_BERTHS_QUERY, CREATE_RESERVATION } from '../../../utils/graphql';
 import './FormPage.scss';
 
@@ -22,7 +24,7 @@ interface Props {
   onSubmit: Function;
   localePush: Function;
   tab: string;
-  berthSwitchFormData: {};
+  application: ApplicationState;
 }
 
 const mapSteps = [
@@ -52,7 +54,7 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
   }
 
   render() {
-    const { initialValues, selectedBerths, onSubmit, localePush, berthSwitchFormData } = this.props;
+    const { initialValues, selectedBerths, onSubmit, localePush, application } = this.props;
     const { step, tabs, tab } = this.state;
 
     return (
@@ -123,15 +125,25 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
                   // @ts-ignore
                   const { language, boatType, ...reservation } = values;
                   const boatTypeId = boatTypes.find(type => type.id === boatType);
-                  await client.mutate({
-                    variables: {
-                      berthSwitch: berthSwitchFormData,
+
+                  // Append berthSwitch property only when exchange application is selected.
+                  const payload = Object.assign(
+                    {},
+                    {
                       reservation: {
                         choices,
                         ...reservation,
                         boatType: boatTypeId && boatTypeId.id
                       }
                     },
+                    APPLICATION_OPTIONS.EXCHANGE_APPLICATION ===
+                      application.selectedApplicationType && {
+                      berthSwitch: application.berthSwitch
+                    }
+                  );
+
+                  await client.mutate({
+                    variables: payload,
                     mutation: CREATE_RESERVATION
                   });
 

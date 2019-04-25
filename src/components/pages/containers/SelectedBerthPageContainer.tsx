@@ -3,7 +3,7 @@ import { compose } from 'recompose';
 import { submitApplicationForm as submitExchangeForm } from '../../../redux/actions/ApplicationActions';
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
 import { withMatchParamsHandlers } from '../../../utils/container';
-import SelectedBerthPage from '../BerthPage/SelectedBerthPage';
+import SelectedBerthPage from '../BerthPage/SelectedBerthPage/SelectedBerthPage';
 
 import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';

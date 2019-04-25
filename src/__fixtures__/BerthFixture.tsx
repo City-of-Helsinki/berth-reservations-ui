@@ -3,8 +3,8 @@ import { Berth } from '../components/berths/Berth/types';
 import { Berths } from '../components/berths/types';
 export const createBerth = (options?: object): Berth => {
   const newBerth: Berth = {
+    id: 'foo',
     name: 'Airorannan venesatama B',
-    identifier: 'airoranta-b',
     streetAddress: 'Airoranta 2',
     zipCode: '00830',
     municipality: 'Helsinki',
@@ -19,7 +19,7 @@ export const createBerth = (options?: object): Berth => {
     gate: false,
     lighting: false,
     availabilityLevel: {
-      identifier: 'red',
+      id: 'test',
       title: 'Paljon jonoa',
       description:
         'Satamat, joihin on paljon hakijoita ja yleensä useamman vuoden jonotusaika. Näistä satamista vapautuu paikkoja pääasiassa venepaikan vaihtajille.'

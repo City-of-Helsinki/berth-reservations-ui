@@ -19,8 +19,8 @@ import { Berths } from '../../../berths/types';
 import { Form } from 'react-final-form';
 
 import { APPLICATION_OPTIONS } from '../../../../constants/ApplicationConstants';
-import ExchangeApplication from '../../../forms/fragments/ExchangeApplication';
-import NewApplication from '../../../forms/fragments/NewApplication';
+import ExchangeApplication from '../../../forms/fragments/exchangeApplication/ExchangeApplication';
+import NewApplication from '../../../forms/fragments/newApplication/NewApplication';
 
 import './SelectedBerthPage.scss';
 
@@ -83,8 +83,7 @@ class SelectedBerthPage extends Component<Props> {
         }) => {
           const normalizedHarbors = getHarbors(harbors ? harbors.edges : []);
 
-          const boatType =
-            !loading && type ? boatTypes.find(t => t.identifier === type) : undefined;
+          const boatType = !loading && type ? boatTypes.find(t => t.id === type) : undefined;
 
           const validSelection = selectedBerths.every(filter);
 
