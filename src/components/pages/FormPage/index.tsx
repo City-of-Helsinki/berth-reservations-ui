@@ -123,8 +123,7 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
                     }))
                     .toArray();
                   // @ts-ignore
-                  const { language, boatType, ...reservation } = values;
-                  const boatTypeId = boatTypes.find(type => type.id === boatType);
+                  const { language, ...reservation } = values;
 
                   // Append berthSwitch property only when exchange application is selected.
                   const payload = Object.assign(
@@ -132,8 +131,7 @@ class BoatPage extends PureComponent<Props, { step: number; tab: string; tabs: s
                     {
                       reservation: {
                         choices,
-                        ...reservation,
-                        boatType: boatTypeId && boatTypeId.id
+                        ...reservation
                       }
                     },
                     APPLICATION_OPTIONS.EXCHANGE_APPLICATION ===
