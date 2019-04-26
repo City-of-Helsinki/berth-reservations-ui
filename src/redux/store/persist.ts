@@ -2,13 +2,14 @@ import { List, Record } from 'immutable';
 
 import { createTransform } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { BerthsState, FormsState } from '../types';
+import { ApplicationState, BerthsState, FormsState } from '../types';
 
 const BerthsTransform = createTransform(
   (inboundState: BerthsState) => {
-    const { selectedServices, selectedBerths } = inboundState.toObject();
+    const { selectedServices, selectedBerths, berthLimit } = inboundState.toObject();
 
     return {
+      berthLimit,
       selectedServices: selectedServices.toObject(),
       selectedBerths: selectedBerths.toArray()
     };
@@ -16,7 +17,8 @@ const BerthsTransform = createTransform(
   outboundState => {
     const berths = Record({
       selectedServices: Record(outboundState.selectedServices)(),
-      selectedBerths: List(outboundState.selectedBerths)
+      selectedBerths: List(outboundState.selectedBerths),
+      berthLimit: outboundState.berthLimit
     });
     return berths();
   },
@@ -36,8 +38,22 @@ const FormsTransform = createTransform(
   { whitelist: ['forms'] }
 );
 
+const ApplicationTransform = createTransform(
+  (inboundState: ApplicationState) => {
+    const application = inboundState.toObject();
+
+    return application;
+  },
+  outboundState => {
+    const application = Record(outboundState);
+    return application();
+  },
+  { whitelist: ['application'] }
+);
+
 export default {
   storage,
   key: 'root',
-  transforms: [BerthsTransform, FormsTransform]
+  transforms: [BerthsTransform, FormsTransform, ApplicationTransform],
+  whitelist: ['forms', 'berths', 'application']
 };

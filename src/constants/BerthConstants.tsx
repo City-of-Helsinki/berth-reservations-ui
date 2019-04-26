@@ -1,0 +1,1 @@
+export const EXCHANGE_APPLICATION_LIMIT = 5;

@@ -255,5 +255,13 @@
   "page.berth.exchange_application.exchange": "Bytansökan",
   "page.berth.exchange_application.new.info_text": "Du har ingen båtplats i Helsingfors båthamnar ännu",
   "page.berth.exchange_application.exchange.info_text": "För att byta båtplats mellan Helsingfors båthamnar",
-  "page.berth.exchange_application.warning": "Man kan väljä högst fem hamnar i en bytansökan. Ta bort extra hamnar och välj denna typ av ansökan igen."
+  "page.berth.exchange_application.warning": "Man kan väljä högst fem hamnar i en bytansökan. Ta bort extra hamnar och välj denna typ av ansökan igen.",
+
+  "page.berth.exchange_application.current_berth.title": "Your current berth",
+  "page.berth.exchange_application.current_berth.info_text": "To submit a switch application please provide the information on your current berth",
+  "page.berth.exchange_application.form.current_harbour_area.label": "Current harbour area",
+  "page.berth.exchange_application.form.pier.title": "Pier",
+  "page.berth.exchange_application.form.pier.placeholder": "Pier ID (if applicable)",
+  "page.berth.exchange_application.form.berth.title": "Berth",
+  "page.berth.exchange_application.form.berth.placeholder": "Berth ID"
 }

@@ -7,10 +7,9 @@ import Berth from './Berth';
 
 import { BerthProps } from './types';
 
-const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
 import './Berths.scss';
 
-export default ({ filtered, filteredNot, onClick, selected }: BerthProps) => (
+export default ({ filtered, filteredNot, onClick, selected, berthLimit }: BerthProps) => (
   <Container className="vene-berths">
     {filtered.size > 0 && (
       <Row>
@@ -29,7 +28,7 @@ export default ({ filtered, filteredNot, onClick, selected }: BerthProps) => (
         berth={berth}
         onClick={() => onClick(berth)}
         selected={isBerthSelected(selected, berth)}
-        disabled={selected.size >= Number(REACT_APP_MAX_SELECTED_BERTHS)}
+        disabled={selected.size >= berthLimit}
       />
     ))}
     {filteredNot.size > 0 && (
@@ -47,7 +46,7 @@ export default ({ filtered, filteredNot, onClick, selected }: BerthProps) => (
         berth={berth}
         onClick={() => onClick(berth)}
         selected={isBerthSelected(selected, berth)}
-        disabled={selected.size >= Number(REACT_APP_MAX_SELECTED_BERTHS)}
+        disabled={selected.size >= berthLimit}
       />
     ))}
   </Container>
