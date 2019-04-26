@@ -6,9 +6,10 @@ import { ApplicationState, BerthsState, FormsState } from '../types';
 
 const BerthsTransform = createTransform(
   (inboundState: BerthsState) => {
-    const { selectedServices, selectedBerths } = inboundState.toObject();
+    const { selectedServices, selectedBerths, berthLimit } = inboundState.toObject();
 
     return {
+      berthLimit,
       selectedServices: selectedServices.toObject(),
       selectedBerths: selectedBerths.toArray()
     };
@@ -16,7 +17,8 @@ const BerthsTransform = createTransform(
   outboundState => {
     const berths = Record({
       selectedServices: Record(outboundState.selectedServices)(),
-      selectedBerths: List(outboundState.selectedBerths)
+      selectedBerths: List(outboundState.selectedBerths),
+      berthLimit: outboundState.berthLimit
     });
     return berths();
   },

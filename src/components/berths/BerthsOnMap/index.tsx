@@ -8,10 +8,17 @@ interface Props {
   selected: BerthsType;
   TabHeader?: React.FC;
   onClick: Function;
+  berthLimit: number;
 }
 
-export default ({ onClick, selected, filtered, filteredNot }: Props) => (
+export default ({ onClick, selected, filtered, filteredNot, berthLimit }: Props) => (
   <div>
-    <Map onClick={onClick} selected={selected} filtered={filtered} filteredNot={filteredNot} />
+    <Map
+      onClick={onClick}
+      selected={selected}
+      filtered={filtered}
+      filteredNot={filteredNot}
+      berthLimit={berthLimit}
+    />
   </div>
 );

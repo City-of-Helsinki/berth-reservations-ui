@@ -10,7 +10,10 @@ describe('forms/sections/ApplicationSelector', () => {
   const defaultProps = {
     selectedBerthCount: 0,
     selectedApplicationType: APPLICATION_OPTIONS.NEW_APPLICATION,
-    switchApplication: jest.fn()
+    switchApplication: jest.fn(),
+    setBerthLimit: jest.fn(),
+    resetBerthLimit: jest.fn(),
+    berthLimit: 10
   };
   const getWrapper = (props?: object) =>
     mountWithIntl(<ApplicationSelector {...defaultProps} {...props} />);
@@ -38,6 +41,47 @@ describe('forms/sections/ApplicationSelector', () => {
     expect(input.find('p')).toHaveLength(1);
   });
 
+  describe('berth limit', () => {
+    test('default to 10', () => {
+      const wrapper = getWrapper();
+
+      expect(wrapper.prop('berthLimit')).toEqual(10);
+    });
+
+    test('set new berth limit when switch to exchange application without alert', () => {
+      const mock = jest.fn();
+      const wrapper = getWrapper({ selectedBerthCount: 4, setBerthLimit: mock });
+      // avoid triggering alert
+
+      const instance = wrapper.children().instance() as any;
+      instance.onToggleSwitch({
+        currentTarget: {
+          value: 'exchange_application'
+        }
+      });
+
+      wrapper.update();
+
+      expect(mock).toBeCalled();
+    });
+
+    test('reset berth limit when switch to exchange application without alert', () => {
+      const mock = jest.fn();
+      const wrapper = getWrapper({ selectedBerthCount: 4, resetBerthLimit: mock });
+      // avoid triggering alert
+
+      const instance = wrapper.children().instance() as any;
+      instance.onToggleSwitch({
+        currentTarget: {
+          value: 'new_application'
+        }
+      });
+
+      wrapper.update();
+
+      expect(mock).toBeCalled();
+    });
+  });
   describe('switch application', () => {
     test('new application input is selected by default', () => {
       const wrapper = getWrapper({ selectedBerthCount: 6 });
@@ -60,23 +104,6 @@ describe('forms/sections/ApplicationSelector', () => {
 
       expect(wrapper.children().state('alertVisibility')).toBeTruthy();
       expect(wrapper.find('.vene-alert').exists()).toEqual(true);
-    });
-
-    test('auto switch to new application when exchange application is selected, and count > 5', () => {
-      const mock = jest.fn();
-
-      const wrapper = getWrapper({
-        selectedBerthCount: 5,
-        selectedApplicationType: APPLICATION_OPTIONS.EXCHANGE_APPLICATION,
-        switchApplication: mock
-      });
-
-      expect(mock).not.toBeCalled();
-
-      wrapper.setProps({ selectedBerthCount: 6 });
-      wrapper.update();
-
-      expect(mock).toBeCalledTimes(1);
     });
 
     describe('alert box', () => {

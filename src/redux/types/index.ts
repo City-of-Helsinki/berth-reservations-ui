@@ -9,6 +9,7 @@ interface FormProps {
 interface BerthsProps {
   selectedBerths: Berths;
   selectedServices: SelectedServices;
+  berthLimit: number;
 }
 
 interface ApplicationProps {

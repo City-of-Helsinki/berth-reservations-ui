@@ -1,1 +1,1 @@
-export const SELECTED_BERTH_LIMIT = 5;
+export const EXCHANGE_APPLICATION_LIMIT = 5;

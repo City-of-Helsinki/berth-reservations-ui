@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Label } from 'reactstrap';
 import { APPLICATION_OPTIONS } from '../../../../constants/ApplicationConstants';
-import { SELECTED_BERTH_LIMIT } from '../../../../constants/BerthConstants';
+import { EXCHANGE_APPLICATION_LIMIT } from '../../../../constants/BerthConstants';
+
 import { switchApplication as switchApplicationAction } from '../../../../redux/actions/ApplicationActions';
+import {
+  resetBerthLimit as resetBerthLimitAction,
+  setBerthLimit as setBirthLimitAction
+} from '../../../../redux/actions/BerthActions';
+
 import { Store } from '../../../../redux/types';
 import Alert from '../../../common/Alert';
 import Input from '../../../common/Input';
@@ -15,6 +21,9 @@ export type ApplicationSelectorProps = InjectedIntlProps & {
   selectedBerthCount: number;
   selectedApplicationType: string;
   switchApplication: Function;
+  setBerthLimit: Function;
+  resetBerthLimit: Function;
+  berthLimit: number;
 };
 
 export interface ApplicationSelectorState {
@@ -27,23 +36,6 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
     this.state = { alertVisibility: false };
   }
 
-  componentDidUpdate() {
-    // Make sure new application is selected when limit is over
-    // but user have selected exchange application before
-
-    const { selectedApplicationType, switchApplication } = this.props;
-    if (
-      this.isOverLimit() &&
-      selectedApplicationType === APPLICATION_OPTIONS.EXCHANGE_APPLICATION
-    ) {
-      switchApplication(APPLICATION_OPTIONS.NEW_APPLICATION);
-    }
-  }
-
-  isOverLimit = () => {
-    return this.props.selectedBerthCount > SELECTED_BERTH_LIMIT;
-  };
-
   toggleAlert = (value: boolean) => {
     this.setState({
       alertVisibility: value
@@ -51,20 +43,25 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
   };
 
   onToggleSwitch = (e: React.FormEvent<HTMLInputElement>) => {
-    if (e.currentTarget.value === APPLICATION_OPTIONS.EXCHANGE_APPLICATION && this.isOverLimit()) {
+    const { setBerthLimit, resetBerthLimit, switchApplication, selectedBerthCount } = this.props;
+
+    // new application selected
+    if (e.currentTarget.value === APPLICATION_OPTIONS.NEW_APPLICATION) {
+      this.toggleAlert(false);
+      switchApplication(e.currentTarget.value);
+      resetBerthLimit();
+    } else if (selectedBerthCount > EXCHANGE_APPLICATION_LIMIT) {
       this.toggleAlert(true);
     } else {
-      this.toggleAlert(false);
-      this.props.switchApplication(e.currentTarget.value);
+      switchApplication(e.currentTarget.value);
+      setBerthLimit(EXCHANGE_APPLICATION_LIMIT);
     }
   };
 
   render() {
     const {
       intl: { formatMessage },
-      selectedBerthCount,
-      selectedApplicationType,
-      switchApplication
+      selectedApplicationType
     } = this.props;
 
     return (
@@ -109,12 +106,17 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
 
 const mapStateToProps = (state: Store) => ({
   selectedBerthCount: state.berths.selectedBerths.size,
-  selectedApplicationType: state.application.selectedApplicationType
+  selectedApplicationType: state.application.selectedApplicationType,
+  berthLimit: state.berths.berthLimit
 });
 
 export const UnconnectedApplicationSelector = injectIntl(ApplicationSelector);
 
 export default connect(
   mapStateToProps,
-  { switchApplication: switchApplicationAction }
+  {
+    switchApplication: switchApplicationAction,
+    setBerthLimit: setBirthLimitAction,
+    resetBerthLimit: resetBerthLimitAction
+  }
 )(UnconnectedApplicationSelector);
