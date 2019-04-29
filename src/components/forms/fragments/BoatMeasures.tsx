@@ -15,6 +15,7 @@ const RegisteredBoatFragment = () => (
         placeholder="form.registered.field.width.placeholder"
         append="m"
         min="0"
+        step="0.5"
         required
       />
     </Col>
@@ -26,6 +27,7 @@ const RegisteredBoatFragment = () => (
         placeholder="form.registered.field.length.placeholder"
         append="m"
         min="0"
+        step="0.5"
         required
       />
     </Col>
@@ -37,6 +39,7 @@ const RegisteredBoatFragment = () => (
         placeholder="form.registered.field.draught.placeholder"
         append="m"
         min="0"
+        step="0.5"
         required
       />
     </Col>
