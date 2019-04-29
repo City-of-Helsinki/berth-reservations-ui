@@ -14,6 +14,6 @@ export const Text = mapNameAsId(injectIntl(Input('text')));
 export const Select = mapNameAsId(injectIntl(CustomInput('select', false)));
 export const Checkbox = mapNameAsId(injectIntl(CustomInput('checkbox', true)));
 export const Radio = mapNameAsId(injectIntl(CustomInput('radio', true)));
-export const Number = mapNameAsId(injectIntl(InputGroup('text')));
+export const Number = mapNameAsId(injectIntl(InputGroup('number')));
 export const MultiCheckbox = mapNameAsId(injectIntl(MultiInput('checkbox')));
 export const MultiRadio = mapNameAsId(injectIntl(MultiInput('radio')));
