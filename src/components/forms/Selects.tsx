@@ -19,7 +19,7 @@ export const BoatType = ({ boatTypes, required }: BoatTypeProps) => (
     <option />
     {boatTypes &&
       boatTypes.map(type => (
-        <option key={type.id} value={type.name}>
+        <option key={type.id} value={type.id}>
           {type.name}
         </option>
       ))}

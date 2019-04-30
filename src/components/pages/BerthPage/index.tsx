@@ -14,7 +14,7 @@ import { Berths as BerthsType } from '../../berths/types';
 import { getBerthFilterByValues, getBerths as getBerthsFromCache } from '../../../utils/berths';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 
-import BoatsBerthsQuery from '../../common/BoatsBerthsQuery';
+import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 
 import './BerthPage.scss';
 
@@ -30,6 +30,7 @@ interface Props {
   deselectService: Function;
   onSubmit: Function;
   localePush: Function;
+  berthLimit: number;
 }
 
 class BerthPage extends Component<Props> {
@@ -60,7 +61,8 @@ class BerthPage extends Component<Props> {
       selectedServices,
       selectService,
       deselectService,
-      onSubmit
+      onSubmit,
+      berthLimit
     } = this.props;
     const filter = getBerthFilterByValues(initialValues, selectedServices);
 
@@ -94,6 +96,7 @@ class BerthPage extends Component<Props> {
                   progress={this.moveToForm}
                   selectedCount={selectedBerths.size}
                   validSelection={validSelection}
+                  berthLimit={berthLimit}
                 >
                   <BerthsOnMap
                     TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
@@ -101,6 +104,7 @@ class BerthPage extends Component<Props> {
                     filteredNot={filteredNot}
                     selected={selectedBerths}
                     onClick={this.toggleBerthSelect}
+                    berthLimit={berthLimit}
                   />
                   <Berths
                     TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
@@ -108,6 +112,7 @@ class BerthPage extends Component<Props> {
                     filteredNot={filteredNot}
                     selected={selectedBerths}
                     onClick={this.toggleBerthSelect}
+                    berthLimit={berthLimit}
                   />
                 </TabSelector>
               </div>

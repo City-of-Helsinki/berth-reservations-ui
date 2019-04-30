@@ -5,6 +5,7 @@ import { Sticky, StickyContainer } from 'react-sticky';
 import { Button, Container } from 'reactstrap';
 import IntlComponent from '../../common/IntlComponent';
 import InvalidSelection from '../InvalidSelection';
+
 import './TabSelector.scss';
 
 interface Props {
@@ -12,14 +13,12 @@ interface Props {
   progress: Function;
   selectedCount: number;
   validSelection: boolean;
+  berthLimit: number;
 }
 
 interface State {
   tab: number;
 }
-const { REACT_APP_MAX_SELECTED_BERTHS = '0' } = process.env;
-
-const maxSelected: number = Number.parseInt(REACT_APP_MAX_SELECTED_BERTHS, 10) || 0;
 
 const getFormatedMessageId = (count: number, total: number): string => {
   if (count) {
@@ -52,7 +51,7 @@ class TabSelector extends React.Component<Props, State> {
 
   render() {
     const { tab } = this.state;
-    const { children, progress, selectedCount, validSelection } = this.props;
+    const { children, progress, selectedCount, validSelection, berthLimit } = this.props;
 
     const headers = React.Children.map(children, c => {
       if (c && typeof c === 'object' && 'props' in c) {
@@ -81,10 +80,10 @@ class TabSelector extends React.Component<Props, State> {
                 ))}
                 <div className="vene-berth__tab-selector__application-promt">
                   <FormattedMessage
-                    id={getFormatedMessageId(selectedCount, maxSelected)}
+                    id={getFormatedMessageId(selectedCount, berthLimit)}
                     values={{
-                      total: REACT_APP_MAX_SELECTED_BERTHS,
-                      count: maxSelected - selectedCount
+                      total: berthLimit,
+                      count: berthLimit - selectedCount
                     }}
                   />
                   {!validSelection && <InvalidSelection />}

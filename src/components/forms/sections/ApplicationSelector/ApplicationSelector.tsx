@@ -1,7 +1,15 @@
-import React, { FC, useState } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Label } from 'reactstrap';
-import { SELECTED_BERTH_LIMIT } from '../../../../constants/berths';
+import { APPLICATION_OPTIONS } from '../../../../constants/ApplicationConstants';
+import { EXCHANGE_APPLICATION_LIMIT } from '../../../../constants/BerthConstants';
+
+import { switchApplication as switchApplicationAction } from '../../../../redux/actions/ApplicationActions';
+import {
+  resetBerthLimit as resetBerthLimitAction,
+  setBerthLimit as setBirthLimitAction
+} from '../../../../redux/actions/BerthActions';
+
 import { Store } from '../../../../redux/types';
 import Alert from '../../../common/Alert';
 import Input from '../../../common/Input';
@@ -10,80 +18,105 @@ import { InjectedIntlProps, injectIntl } from 'react-intl';
 import './ApplicationSelector.scss';
 
 export type ApplicationSelectorProps = InjectedIntlProps & {
-  selected: number;
+  selectedBerthCount: number;
+  selectedApplicationType: string;
+  switchApplication: Function;
+  setBerthLimit: Function;
+  resetBerthLimit: Function;
+  berthLimit: number;
 };
 
-const ApplicationSelector: FC<ApplicationSelectorProps> = ({
-  intl: { formatMessage },
-  selected
-}) => {
-  const SELECT_OPTIONS = {
-    NEW_APPLICATION: 'new_application',
-    EXCHANGE_APPLICATION: 'exchange_application'
-  };
+export interface ApplicationSelectorState {
+  alertVisibility: boolean;
+}
 
-  const isOverLimit = selected > SELECTED_BERTH_LIMIT;
-  const [alertVisibility, toggleAlert] = useState(false);
-
-  // New application is selected by default
-  const [selectedOption, toggleSelect] = useState(SELECT_OPTIONS.NEW_APPLICATION);
-
-  // Make sure new application is selected when limit is over
-  // but user have selected exchange application before
-  if (isOverLimit && selectedOption === SELECT_OPTIONS.EXCHANGE_APPLICATION) {
-    toggleSelect(SELECT_OPTIONS.NEW_APPLICATION);
+class ApplicationSelector extends Component<ApplicationSelectorProps, ApplicationSelectorState> {
+  constructor(props: ApplicationSelectorProps) {
+    super(props);
+    this.state = { alertVisibility: false };
   }
 
-  const onToggleSwitch = (e: React.FormEvent<HTMLInputElement>) => {
-    if (e.currentTarget.value === SELECT_OPTIONS.EXCHANGE_APPLICATION && isOverLimit) {
-      toggleAlert(true);
+  toggleAlert = (value: boolean) => {
+    this.setState({
+      alertVisibility: value
+    });
+  };
+
+  onToggleSwitch = (e: React.FormEvent<HTMLInputElement>) => {
+    const { setBerthLimit, resetBerthLimit, switchApplication, selectedBerthCount } = this.props;
+
+    // new application selected
+    if (e.currentTarget.value === APPLICATION_OPTIONS.NEW_APPLICATION) {
+      this.toggleAlert(false);
+      switchApplication(e.currentTarget.value);
+      resetBerthLimit();
+    } else if (selectedBerthCount > EXCHANGE_APPLICATION_LIMIT) {
+      this.toggleAlert(true);
     } else {
-      toggleAlert(false);
-      toggleSelect(e.currentTarget.value);
+      switchApplication(e.currentTarget.value);
+      setBerthLimit(EXCHANGE_APPLICATION_LIMIT);
     }
   };
-  return (
-    <div className="vene-application-selector">
-      <div className="vene-application-selector__input-wrapper">
-        <Input
-          type="radio"
-          value={SELECT_OPTIONS.NEW_APPLICATION}
-          checked={selectedOption === SELECT_OPTIONS.NEW_APPLICATION}
-          id="vene-application-selector-new"
-          onChange={onToggleSwitch}
-          name="application-selector-radio"
-        >
-          <Label>{formatMessage({ id: 'page.berth.exchange_application.new' })}</Label>
-          <p>{formatMessage({ id: 'page.berth.exchange_application.new.info_text' })}</p>
-        </Input>
 
-        <Input
-          type="radio"
-          value={SELECT_OPTIONS.EXCHANGE_APPLICATION}
-          checked={selectedOption === SELECT_OPTIONS.EXCHANGE_APPLICATION}
-          onChange={onToggleSwitch}
-          id="vene-application-selector-exchange"
-          name="application-selector-radio"
-        >
-          <Label>{formatMessage({ id: 'page.berth.exchange_application.exchange' })}</Label>
-          <p>{formatMessage({ id: 'page.berth.exchange_application.exchange.info_text' })}</p>
-        </Input>
+  render() {
+    const {
+      intl: { formatMessage },
+      selectedApplicationType
+    } = this.props;
+
+    return (
+      <div className="vene-application-selector">
+        <div className="vene-application-selector__input-wrapper">
+          <Input
+            type="radio"
+            value={APPLICATION_OPTIONS.NEW_APPLICATION}
+            checked={selectedApplicationType === APPLICATION_OPTIONS.NEW_APPLICATION}
+            id="vene-application-selector-new"
+            onChange={this.onToggleSwitch}
+            name="application-selector-radio"
+          >
+            <Label>{formatMessage({ id: 'page.berth.exchange_application.new' })}</Label>
+            <p>{formatMessage({ id: 'page.berth.exchange_application.new.info_text' })}</p>
+          </Input>
+
+          <Input
+            type="radio"
+            value={APPLICATION_OPTIONS.EXCHANGE_APPLICATION}
+            checked={selectedApplicationType === APPLICATION_OPTIONS.EXCHANGE_APPLICATION}
+            onChange={this.onToggleSwitch}
+            id="vene-application-selector-exchange"
+            name="application-selector-radio"
+          >
+            <Label>{formatMessage({ id: 'page.berth.exchange_application.exchange' })}</Label>
+            <p>{formatMessage({ id: 'page.berth.exchange_application.exchange.info_text' })}</p>
+          </Input>
+        </div>
+
+        {this.state.alertVisibility && (
+          <Alert
+            toggle={() => this.toggleAlert(!this.state.alertVisibility)}
+            color="danger"
+            messageId="page.berth.exchange_application.warning"
+          />
+        )}
       </div>
+    );
+  }
+}
 
-      {alertVisibility && (
-        <Alert
-          toggle={() => toggleAlert(!alertVisibility)}
-          color="danger"
-          messageId="page.berth.exchange_application.warning"
-        />
-      )}
-    </div>
-  );
-};
 const mapStateToProps = (state: Store) => ({
-  selected: state.berths.selectedBerths.size
+  selectedBerthCount: state.berths.selectedBerths.size,
+  selectedApplicationType: state.application.selectedApplicationType,
+  berthLimit: state.berths.berthLimit
 });
 
 export const UnconnectedApplicationSelector = injectIntl(ApplicationSelector);
 
-export default connect(mapStateToProps)(UnconnectedApplicationSelector);
+export default connect(
+  mapStateToProps,
+  {
+    switchApplication: switchApplicationAction,
+    setBerthLimit: setBirthLimitAction,
+    resetBerthLimit: resetBerthLimitAction
+  }
+)(UnconnectedApplicationSelector);

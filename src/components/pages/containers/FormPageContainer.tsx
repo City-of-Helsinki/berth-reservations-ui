@@ -4,7 +4,7 @@ import { onSubmit } from '../../../redux/actions/FormActions';
 import { withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../FormPage';
 
-import { Store } from '../../../redux/types';
+import { ApplicationState, Store } from '../../../redux/types';
 import { Berths } from '../../berths/types';
 
 interface Props {
@@ -13,6 +13,7 @@ interface Props {
   onSubmit: Function;
   localePush: Function;
   tab: string;
+  application: ApplicationState;
 }
 
 export default compose<Props, {}>(
@@ -20,7 +21,8 @@ export default compose<Props, {}>(
   connect(
     (state: Store) => ({
       initialValues: state.forms.values,
-      selectedBerths: state.berths.selectedBerths
+      selectedBerths: state.berths.selectedBerths,
+      application: state.application
     }),
     { onSubmit }
   )
