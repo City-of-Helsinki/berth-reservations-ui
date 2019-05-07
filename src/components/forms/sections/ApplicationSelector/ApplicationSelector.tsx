@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Label } from 'reactstrap';
 import { APPLICATION_OPTIONS } from '../../../../constants/ApplicationConstants';
@@ -74,10 +74,13 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
             id="vene-application-selector-new"
             onChange={this.onToggleSwitch}
             name="application-selector-radio"
-          >
-            <Label>{formatMessage({ id: 'page.berth.exchange_application.new' })}</Label>
-            <p>{formatMessage({ id: 'page.berth.exchange_application.new.info_text' })}</p>
-          </Input>
+            label={
+              <Fragment>
+                <Label>{formatMessage({ id: 'page.berth.exchange_application.new' })}</Label>
+                <p>{formatMessage({ id: 'page.berth.exchange_application.new.info_text' })}</p>
+              </Fragment>
+            }
+          />
 
           <Input
             type="radio"
@@ -86,10 +89,13 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
             onChange={this.onToggleSwitch}
             id="vene-application-selector-exchange"
             name="application-selector-radio"
-          >
-            <Label>{formatMessage({ id: 'page.berth.exchange_application.exchange' })}</Label>
-            <p>{formatMessage({ id: 'page.berth.exchange_application.exchange.info_text' })}</p>
-          </Input>
+            label={
+              <Fragment>
+                <Label>{formatMessage({ id: 'page.berth.exchange_application.exchange' })}</Label>
+                <p>{formatMessage({ id: 'page.berth.exchange_application.exchange.info_text' })}</p>
+              </Fragment>
+            }
+          />
         </div>
 
         {this.state.alertVisibility && (
