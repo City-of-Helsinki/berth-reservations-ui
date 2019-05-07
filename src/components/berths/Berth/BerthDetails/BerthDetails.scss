@@ -10,27 +10,17 @@ $berthIconSize: 42px;
     justify-content: flex-start;
     flex-wrap: wrap;
     height: 100%;
-    padding: 1em;
-    padding-top: 0px;
+    padding: 1em 0;
     white-space: nowrap;
-
-    @include for-tablet {
-      flex-direction: column;
-      padding: 1em 0;
-    }
   }
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
-  flex: 0 0 33.33%;
+  width: 50%;
   height: auto;
-
+  overflow: hidden;
   opacity: 1;
-
-  &:last-child {
-    flex-grow: 1;
-  }
 
   &-not-available {
     opacity: 0.15;
@@ -70,20 +60,22 @@ $berthIconSize: 42px;
 
   &__title {
     text-align: center;
+    width: 100%;
 
-    @include for-tablet {
-      font-size: $font-size-sm;
+    p {
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     @include for-desktop {
       font-size: inherit;
+      width: 100%;
     }
   }
 
   @include for-tablet {
-    justify-content: right;
-    flex: 1 0 50%;
-    flex-direction: column;
-    height: 1px;
+    width: 25%;
   }
 }
