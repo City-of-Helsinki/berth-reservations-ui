@@ -7,7 +7,8 @@ import Berth from '../../berths/Berth';
 import mapIcon from './MapIcon';
 import MapMarker from './MapMarker';
 
-import { Berth as BerthType } from '../../berths/Berth/types';
+import { BerthType } from '../../../types/berth';
+import { WinterStorageType } from '../../../types/winterStorage';
 import { Berths } from '../../berths/types';
 
 import { isBerthSelected } from '../../../utils/berths';
@@ -18,7 +19,7 @@ interface State {
   lat: number;
   lng: number;
   zoom: number;
-  selectedBerth: BerthType | null;
+  selectedBerth: BerthType | WinterStorageType | null;
 }
 
 interface Props {
@@ -40,7 +41,7 @@ export default class MapCanvas extends Component<Props, State> {
     };
   }
 
-  toggleBerthSelect = (berth: BerthType) => {
+  toggleBerthSelect = (berth: BerthType | WinterStorageType) => {
     this.setState(({ selectedBerth }) => ({
       selectedBerth: selectedBerth && selectedBerth.id === berth.id ? null : berth
     }));

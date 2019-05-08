@@ -1,7 +1,9 @@
 import { List } from 'immutable';
-import { Berth } from './Berth/types';
 
-export type Berths = List<Berth>;
+import { BerthType } from '../../types/berth';
+import { WinterStorageType } from '../../types/winterStorage';
+
+export type Berths = List<BerthType | WinterStorageType>;
 
 export interface BerthProps {
   filtered: Berths;

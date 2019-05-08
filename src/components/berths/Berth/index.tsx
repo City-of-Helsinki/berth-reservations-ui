@@ -10,10 +10,11 @@ import BerthDetails from './BerthDetails';
 
 import './Berth.scss';
 
-import { Berth as BerthType } from './types';
+import { BerthType } from '../../../types/berth';
+import { WinterStorageType } from '../../../types/winterStorage';
 
 type Props = {
-  berth: BerthType;
+  berth: BerthType | WinterStorageType;
   className?: string;
   onClick: (e: React.SyntheticEvent<HTMLButtonElement>) => void;
   selected: boolean;
