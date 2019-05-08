@@ -1,6 +1,5 @@
-export interface BoatType {
-  id: string;
-  name: string;
-}
+import { BoatTypesBerthsQuery_boatTypes } from '../utils/__generated__/BoatTypesBerthsQuery';
+import { WinterAreasQuery_boatTypes } from '../utils/__generated__/WinterAreasQuery';
 
-export type BoatTypes = BoatType[];
+export type BoatType = WinterAreasQuery_boatTypes | BoatTypesBerthsQuery_boatTypes | null;
+export type BoatTypes = BoatType[] | null;

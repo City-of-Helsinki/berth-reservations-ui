@@ -34,8 +34,8 @@ const ApplicantDetails = ({ tab }: Props) => (
     <Container>
       <Row>
         <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-          {tab === 'private_person' && <PrivatePerson prefix="applicant" />}
-          {tab === 'company' && <Company prefix="applicant" />}
+          {tab === 'private_person' && <PrivatePerson />}
+          {tab === 'company' && <Company />}
         </Col>
       </Row>
     </Container>
