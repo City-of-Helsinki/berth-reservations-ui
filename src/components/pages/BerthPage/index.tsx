@@ -4,17 +4,16 @@ import { FormattedMessage } from 'react-intl';
 import Berths from '../../berths';
 import BerthsOnMap from '../../berths/BerthsOnMap';
 import TabSelector from '../../berths/TabSelector';
+import { IconNames } from '../../common/Icon';
 import Layout from '../../layout';
 import BerthsLegend from '../../legends/BerthLegend';
 
-import { SelectedServices } from '../../../types/services';
-import { Berth } from '../../berths/Berth/types';
+import { BerthType } from '../../../types/berth';
+import { BoatTypes } from '../../../types/boatTypes';
+import { BerthsServices, SelectedServices, WinterServices } from '../../../types/services';
 import { Berths as BerthsType } from '../../berths/types';
 
-import { getBerthFilterByValues, getBerths as getBerthsFromCache } from '../../../utils/berths';
-import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
-
-import BoatsBerthsQuery from '../../common/BoatsBerthsQuery';
+import { getBerthFilterByValues } from '../../../utils/berths';
 
 import './BerthPage.scss';
 
@@ -30,6 +29,20 @@ interface Props {
   deselectService: Function;
   onSubmit: Function;
   localePush: Function;
+  berths: BerthsType;
+  boatTypes: BoatTypes;
+  steps: Array<{
+    key: string;
+    completed: boolean;
+    current: boolean;
+    linkTo?: string;
+  }>;
+  services: Array<{
+    label: string;
+    value: BerthsServices | WinterServices;
+    icon: IconNames;
+  }>;
+  hero?: 'berths' | 'winter';
 }
 
 class BerthPage extends Component<Props> {
@@ -40,11 +53,12 @@ class BerthPage extends Component<Props> {
   }
 
   moveToForm = async () => {
-    const { localePush } = this.props;
-    await localePush('/selected_berths');
+    const { hero, localePush } = this.props;
+    const path = hero === 'winter' ? '/selected_areas' : '/selected_berths';
+    await localePush(path);
   };
 
-  toggleBerthSelect = (berth: Berth) => {
+  toggleBerthSelect = (berth: BerthType) => {
     const { selectedBerths, selectBerth, deselectBerth } = this.props;
     if (selectedBerths.find(selectedBerth => selectedBerth.id === berth.id)) {
       deselectBerth(berth);
@@ -57,64 +71,60 @@ class BerthPage extends Component<Props> {
     const {
       initialValues,
       selectedBerths,
+      berths,
       selectedServices,
       selectService,
       deselectService,
-      onSubmit
+      onSubmit,
+      boatTypes,
+      hero,
+      steps,
+      services
     } = this.props;
     const filter = getBerthFilterByValues(initialValues, selectedServices);
 
+    const filtered = berths.filter(filter);
+    const filteredNot = berths.filterNot(filter);
+    const validSelection = berths
+      .filter(berth => selectedBerths.find(selectedBerth => selectedBerth.id === berth.id))
+      .every(filter);
+
     return (
-      <BoatsBerthsQuery query={BOAT_TYPES_BERTHS_QUERY}>
-        {({
-          // error, TODO: handle errors
-          data: { boatTypes, harbors } = { boatTypes: [], harbors: { edges: [] } }
-        }) => {
-          const berthsData = harbors ? harbors.edges : [];
-          const berths = getBerthsFromCache(berthsData);
-
-          const filtered = berths.filter(filter);
-          const filteredNot = berths.filterNot(filter);
-          const validSelection = berths
-            .filter(berth => selectedBerths.find(selectedBerth => selectedBerth.id === berth.id))
-            .every(filter);
-
-          return (
-            <Layout hero>
-              <div className="vene-berth-page">
-                <BerthsLegend
-                  boatTypes={boatTypes}
-                  initialValues={initialValues}
-                  onSubmit={onSubmit}
-                  selectedServices={selectedServices}
-                  selectService={selectService}
-                  deselectService={deselectService}
-                />
-                <TabSelector
-                  progress={this.moveToForm}
-                  selectedCount={selectedBerths.size}
-                  validSelection={validSelection}
-                >
-                  <BerthsOnMap
-                    TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
-                    filtered={filtered}
-                    filteredNot={filteredNot}
-                    selected={selectedBerths}
-                    onClick={this.toggleBerthSelect}
-                  />
-                  <Berths
-                    TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
-                    filtered={filtered}
-                    filteredNot={filteredNot}
-                    selected={selectedBerths}
-                    onClick={this.toggleBerthSelect}
-                  />
-                </TabSelector>
-              </div>
-            </Layout>
-          );
-        }}
-      </BoatsBerthsQuery>
+      <Layout hero={hero}>
+        <div className="vene-berth-page">
+          <BerthsLegend
+            boatTypes={boatTypes}
+            initialValues={initialValues}
+            onSubmit={onSubmit}
+            selectedServices={selectedServices}
+            selectService={selectService}
+            deselectService={deselectService}
+            steps={steps}
+            services={services}
+            hideApplicationSelector={hero === 'winter'}
+          />
+          <TabSelector
+            progress={this.moveToForm}
+            selectedCount={selectedBerths.size}
+            validSelection={validSelection}
+          >
+            <BerthsOnMap
+              TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
+              filtered={filtered}
+              filteredNot={filteredNot}
+              selected={selectedBerths}
+              onClick={this.toggleBerthSelect}
+            />
+            <Berths
+              TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
+              filtered={filtered}
+              filteredNot={filteredNot}
+              selected={selectedBerths}
+              onClick={this.toggleBerthSelect}
+            />
+          </TabSelector>
+        </div>
+      </Layout>
     );
   }
 }
