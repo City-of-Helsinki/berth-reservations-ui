@@ -27,6 +27,7 @@ interface Props {
   filteredNot: Berths;
   selected: Berths;
   onClick: Function;
+  berthLimit: number;
 }
 
 export default class MapCanvas extends Component<Props, State> {
@@ -48,10 +49,9 @@ export default class MapCanvas extends Component<Props, State> {
   };
 
   render() {
-    const { filtered, filteredNot, selected, onClick } = this.props;
+    const { filtered, filteredNot, selected, onClick, berthLimit } = this.props;
     const { selectedBerth } = this.state;
     const position: [number, number] = [this.state.lat, this.state.lng];
-    const { REACT_APP_MAX_SELECTED_BERTHS } = process.env;
 
     const excluded = !!selectedBerth && filteredNot.some(berth => berth.id === selectedBerth.id);
 
@@ -98,7 +98,7 @@ export default class MapCanvas extends Component<Props, State> {
             berth={selectedBerth}
             onClick={() => onClick(selectedBerth)}
             selected={isBerthSelected(selected, selectedBerth)}
-            disabled={selected.size >= Number(REACT_APP_MAX_SELECTED_BERTHS)}
+            disabled={selected.size >= berthLimit}
           />
         )}
       </Container>

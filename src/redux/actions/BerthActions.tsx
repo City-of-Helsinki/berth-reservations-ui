@@ -8,6 +8,8 @@ const moveDown = createAction('MOVE_BERTH_DOWN', (berth: BerthType) => berth);
 const resetBerths = createAction('RESET_BERTHS');
 const selectService = createAction('SELECT_SERVICE', (type: string) => type);
 const deselectService = createAction('DESELECT_SERVICE', (type: string) => type);
+const setBerthLimit = createAction('SET_BERTH_LIMIT');
+const resetBerthLimit = createAction('RESET_BERTH_LIMIT');
 
 export {
   selectBerth,
@@ -16,5 +18,7 @@ export {
   moveDown,
   resetBerths,
   selectService,
-  deselectService
+  deselectService,
+  setBerthLimit,
+  resetBerthLimit
 };

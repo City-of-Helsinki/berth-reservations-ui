@@ -1,6 +1,6 @@
 import { Record, RecordOf } from 'immutable';
 
-interface SelectedServicesProps {
+export interface SelectedServicesProps {
   electricity: boolean;
   water: boolean;
   wasteCollection: boolean;

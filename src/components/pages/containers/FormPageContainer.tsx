@@ -7,14 +7,15 @@ import { onSubmit } from '../../../redux/actions/FormActions';
 import { withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../FormPage';
 
+import { APPLICATION_OPTIONS } from '../../../constants/ApplicationConstants';
 import { BOAT_TYPES_BERTHS_QUERY, CREATE_RESERVATION } from '../../../utils/graphql';
 
-import BoatsBerthsQuery from '../../common/BoatsBerthsQuery';
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/BoatDetails';
 import Overview from '../../forms/sections/Overview';
+import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 
-import { Store } from '../../../redux/types';
+import { ApplicationState, Store } from '../../../redux/types';
 import { Berths } from '../../berths/types';
 
 interface Props {
@@ -24,6 +25,7 @@ interface Props {
   localePush: Function;
   tab: string;
   step: number;
+  application: ApplicationState;
 }
 
 const mapSteps = [
@@ -32,7 +34,7 @@ const mapSteps = [
   ['overview']
 ];
 
-const FormPageContainer = ({ selectedBerths, localePush, tab, ...rest }: Props) => {
+const FormPageContainer = ({ selectedBerths, localePush, tab, application, ...rest }: Props) => {
   const [step, setStep] = useState(0);
   const [currTab, setTab] = useState('');
   const [tabs, setTabs] = useState(['registered_boat', 'private_person', 'overview']);
@@ -95,13 +97,22 @@ const FormPageContainer = ({ selectedBerths, localePush, tab, ...rest }: Props) 
             }))
             .toArray();
 
-          await client.mutate({
-            variables: {
+          // Append berthSwitch property only when exchange application is selected.
+          const payload = Object.assign(
+            {},
+            {
               reservation: {
                 choices,
                 ...values
               }
             },
+            APPLICATION_OPTIONS.EXCHANGE_APPLICATION === application.selectedApplicationType && {
+              berthSwitch: application.berthSwitch
+            }
+          );
+
+          await client.mutate({
+            variables: payload,
             mutation: CREATE_RESERVATION
           });
 
@@ -148,7 +159,8 @@ export default compose<Props, {}>(
   connect(
     (state: Store) => ({
       initialValues: state.forms.values,
-      selectedBerths: state.berths.selectedBerths
+      selectedBerths: state.berths.selectedBerths,
+      application: state.application
     }),
     { onSubmit }
   )

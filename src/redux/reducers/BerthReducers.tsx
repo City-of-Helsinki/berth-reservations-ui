@@ -1,7 +1,7 @@
 import { List, Record } from 'immutable';
 import { Action, BerthsFactory, BerthsState } from '../types';
 
-const selectedServices = Record({
+export const selectedServices = Record({
   electricity: false,
   water: false,
   wasteCollection: false,
@@ -11,7 +11,8 @@ const selectedServices = Record({
 
 const defaultState: BerthsFactory = Record({
   selectedBerths: List(),
-  selectedServices: selectedServices()
+  selectedServices: selectedServices(),
+  berthLimit: Number(process.env.REACT_APP_MAX_SELECTED_BERTHS) || 10
 });
 
 export default (state: BerthsState = defaultState(), action: Action): BerthsState => {
@@ -59,6 +60,10 @@ export default (state: BerthsState = defaultState(), action: Action): BerthsStat
       });
     case 'RESET_BERTHS':
       return defaultState();
+    case 'SET_BERTH_LIMIT':
+      return state.merge({ berthLimit: payload });
+    case 'RESET_BERTH_LIMIT':
+      return state.merge({ berthLimit: defaultState().berthLimit });
     default:
       return state;
   }

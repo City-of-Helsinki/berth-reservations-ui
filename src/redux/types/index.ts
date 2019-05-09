@@ -9,6 +9,12 @@ interface FormProps {
 interface BerthsProps {
   selectedBerths: Berths;
   selectedServices: SelectedServices;
+  berthLimit: number;
+}
+
+interface ApplicationProps {
+  selectedApplicationType: string;
+  berthSwitch: object;
 }
 
 interface WinterAreasProps {
@@ -22,11 +28,14 @@ export type BerthsFactory = Record.Factory<BerthsProps>;
 export type BerthsState = RecordOf<BerthsProps>;
 export type WinterAreasFactory = Record.Factory<WinterAreasProps>;
 export type WinterAreasState = RecordOf<WinterAreasProps>;
+export type ApplicationState = RecordOf<ApplicationProps>;
+export type ApplicationFactory = Record.Factory<ApplicationProps>;
 
 export interface Store {
   forms: FormsState;
   berths: BerthsState;
   winterAreas: WinterAreasState;
+  application: ApplicationState;
 }
 
 export interface Action {

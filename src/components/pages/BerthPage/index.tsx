@@ -43,6 +43,7 @@ interface Props {
     icon: IconNames;
   }>;
   hero?: 'berths' | 'winter';
+  berthLimit: number;
 }
 
 class BerthPage extends Component<Props> {
@@ -79,7 +80,8 @@ class BerthPage extends Component<Props> {
       boatTypes,
       hero,
       steps,
-      services
+      services,
+      berthLimit
     } = this.props;
     const filter = getBerthFilterByValues(initialValues, selectedServices);
 
@@ -107,6 +109,7 @@ class BerthPage extends Component<Props> {
             progress={this.moveToForm}
             selectedCount={selectedBerths.size}
             validSelection={validSelection}
+            berthLimit={berthLimit}
           >
             <BerthsOnMap
               TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
@@ -114,6 +117,7 @@ class BerthPage extends Component<Props> {
               filteredNot={filteredNot}
               selected={selectedBerths}
               onClick={this.toggleBerthSelect}
+              berthLimit={berthLimit}
             />
             <Berths
               TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
@@ -121,6 +125,7 @@ class BerthPage extends Component<Props> {
               filteredNot={filteredNot}
               selected={selectedBerths}
               onClick={this.toggleBerthSelect}
+              berthLimit={berthLimit}
             />
           </TabSelector>
         </div>

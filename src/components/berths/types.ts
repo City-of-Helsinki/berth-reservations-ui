@@ -11,4 +11,5 @@ export interface BerthProps {
   selected: Berths;
   onClick: Function;
   TabHeader?: React.FC;
+  berthLimit: number;
 }

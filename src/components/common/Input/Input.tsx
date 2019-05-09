@@ -20,7 +20,7 @@ export const Input: FC<InputProps> = ({
       id="vene-custom-input-field"
       className={classNames('vene-input', className)}
       type={type}
-      label={label ? formatMessage({ id: label as string }) : ''}
+      label={typeof label === 'string' ? formatMessage({ id: label as string }) : label}
       placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
       {...rest}
     />

@@ -31,6 +31,7 @@ interface Props {
   deselectService: Function;
   onSubmit: Function;
   localePush: Function;
+  berthLimit: number;
 }
 
 const BerthPageContainer = (props: Props) => {
@@ -121,7 +122,8 @@ export default compose<Props, {}>(
     (state: Store) => ({
       initialValues: state.forms.values,
       selectedBerths: state.berths.selectedBerths,
-      selectedServices: state.berths.selectedServices
+      selectedServices: state.berths.selectedServices,
+      berthLimit: state.berths.berthLimit
     }),
     {
       onSubmit,

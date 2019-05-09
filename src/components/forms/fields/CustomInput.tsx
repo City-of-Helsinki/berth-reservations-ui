@@ -38,8 +38,8 @@ const TextInput = (type: CustomInputType, inlineLabel: boolean) => ({
           id={id}
           type={type}
           required={required}
-          placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
-          label={inlineLabel ? formatMessage({ id: label }) : undefined}
+          placeholder={placeholder}
+          label={inlineLabel ? label : undefined}
           invalid={!!(meta.touched && meta.error)}
           {...input}
           {...rest}
