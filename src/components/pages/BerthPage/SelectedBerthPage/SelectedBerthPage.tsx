@@ -54,7 +54,9 @@ class SelectedBerthPage extends Component<Props> {
   }
 
   handleSubmitApplication = (values: any) => {
-    this.props.submitExchangeForm && this.props.submitExchangeForm(values);
+    if (this.props.submitExchangeForm) {
+      this.props.submitExchangeForm(values);
+    }
     this.props.moveToForm();
   };
 
