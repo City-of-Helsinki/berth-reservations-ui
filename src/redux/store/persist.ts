@@ -2,7 +2,7 @@ import { List, Record } from 'immutable';
 
 import { createTransform } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { ApplicationState, BerthsState, FormsState } from '../types';
+import { ApplicationState, BerthsState, FormsState, WinterAreasState } from '../types';
 
 const BerthsTransform = createTransform(
   (inboundState: BerthsState) => {
@@ -23,6 +23,27 @@ const BerthsTransform = createTransform(
     return berths();
   },
   { whitelist: ['berths'] }
+);
+
+const WinterAreasTransform = createTransform(
+  (inboundState: WinterAreasState) => {
+    const { selectedWinterServices, selectedWinterAreas, areasLimit } = inboundState.toObject();
+
+    return {
+      areasLimit,
+      selectedWinterServices: selectedWinterServices.toObject(),
+      selectedWinterAreas: selectedWinterAreas.toArray()
+    };
+  },
+  outboundState => {
+    const berths = Record({
+      selectedWinterServices: Record(outboundState.selectedWinterServices)(),
+      selectedWinterAreas: List(outboundState.selectedWinterAreas),
+      areasLimit: outboundState.areasLimit
+    });
+    return berths();
+  },
+  { whitelist: ['winterAreas'] }
 );
 
 const FormsTransform = createTransform(
@@ -54,6 +75,6 @@ const ApplicationTransform = createTransform(
 export default {
   storage,
   key: 'root',
-  transforms: [BerthsTransform, FormsTransform, ApplicationTransform],
-  whitelist: ['forms', 'berths', 'application']
+  transforms: [BerthsTransform, WinterAreasTransform, FormsTransform, ApplicationTransform],
+  whitelist: ['berths', 'winterAreas', 'forms', 'application']
 };

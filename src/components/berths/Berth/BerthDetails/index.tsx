@@ -1,18 +1,26 @@
 import classNames from 'classnames';
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import Icon from '../../../common/Icon';
-import './BerthDetails.scss';
-import BerthDetailsProps from './types';
 
-const BerthDetails = ({ iconName, available, value, titleId }: BerthDetailsProps) => {
+import Icon, { IconNames } from '../../../common/Icon';
+
+import './BerthDetails.scss';
+
+interface Props {
+  iconName?: IconNames;
+  available: boolean;
+  value?: number | null;
+  titleId: string;
+}
+
+const BerthDetails = ({ iconName, available, value, titleId }: Props) => {
   return (
     <div
       className={classNames('vene-berth__details', {
         'vene-berth__details-not-available': !available
       })}
     >
-      {value && <div className="vene-berth__details__value">{value}</div>}
+      {value !== undefined && <div className="vene-berth__details__value">{value || '-'}</div>}
 
       {iconName && (
         <div className="vene-berth__details__icon">

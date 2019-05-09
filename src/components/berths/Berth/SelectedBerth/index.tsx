@@ -7,11 +7,13 @@ import { Button } from 'reactstrap';
 import Icon from '../../../common/Icon';
 import InvalidSelection from '../../InvalidSelection';
 
-import { Berth } from '../types';
+import { BerthType } from '../../../../types/berth';
+import { WinterStorageType } from '../../../../types/winterStorage';
+
 import './SelectedBerth.scss';
 
 type Props = {
-  berth: Berth;
+  berth: BerthType | WinterStorageType;
   deselectBerth: Function;
   first: boolean;
   index: number;
@@ -62,7 +64,7 @@ class SelectedBerth extends Component<Props, State> {
   render() {
     const { berth, index, first, last, isValid } = this.props;
 
-    const id = `tooltip_${berth.id}`;
+    const id = `tooltip_${berth.id.replace(/=/g, '')}`;
     return (
       <Transition
         in={this.state.changed !== 'nothing'}

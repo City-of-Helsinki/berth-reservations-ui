@@ -7,11 +7,7 @@ import FullName from '../fragments/FullName';
 import PostalDetails from '../fragments/PostalDetails';
 import './Tabs.scss';
 
-interface Props {
-  prefix: string;
-}
-
-export default ({ prefix }: Props) => (
+export default () => (
   <Container className="vene-form__styled-container">
     <FormattedMessage tagName="h3" id="form.company.header.title" />
     <CompanyDetails />

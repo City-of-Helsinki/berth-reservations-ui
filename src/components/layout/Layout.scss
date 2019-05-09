@@ -15,6 +15,11 @@
       min-height: 30em;
     }
 
+    &--winter {
+      background-image: url('../../assets/images/hero_image_winter_storage.jpg');
+      background-position: center;
+    }
+
     h1 {
       font-size: 2em;
       padding: 8px 16px;

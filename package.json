@@ -79,11 +79,13 @@
     "e2e-test": "cypress open",
     "test": "react-scripts test --no-watch",
     "test:watch": "react-scripts test",
-    "test:coverage": "react-scripts test --coverage"
+    "test:coverage": "react-scripts test --coverage",
+    "graphql-types": "apollo client:codegen --target=typescript --globalTypesFile='src/__generated__/globalTypes.ts'"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^4.0.7",
     "@storybook/react": "^4.1.6",
+    "apollo": "^2.10.2",
     "codecov": "^3.3.0",
     "css-loader": "^2.1.0",
     "cypress": "^3.1.2",
