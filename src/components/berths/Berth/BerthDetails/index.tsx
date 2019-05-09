@@ -30,7 +30,7 @@ const BerthDetails = ({ iconName, available, value, titleId }: Props) => {
 
       {titleId && (
         <div className="vene-berth__details__title">
-          <FormattedMessage tagName="span" id={titleId} />
+          <FormattedMessage tagName="p" id={titleId} />
         </div>
       )}
     </div>
