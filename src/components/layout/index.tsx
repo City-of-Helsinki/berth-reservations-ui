@@ -1,6 +1,8 @@
+import classNames from 'classnames';
 import React from 'react';
 import { FormattedHTMLMessage, FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
+
 import Footer from './Footer';
 import KoroSection from './KoroSection';
 import Navbar from './Navbar';
@@ -9,7 +11,7 @@ import './Layout.scss';
 
 type Props = {
   children: any;
-  hero?: boolean;
+  hero?: 'berths' | 'winter';
 } & InjectedIntlProps;
 
 const getHeroContentLink = (locale: string) => {
@@ -26,11 +28,14 @@ const getHeroContentLink = (locale: string) => {
 const Layout = ({ children, hero, intl: { locale } }: Props) => (
   <div className="vene-layout">
     <Navbar />
-
     {hero && (
-      <div className="vene-layout__hero">
+      <div
+        className={classNames('vene-layout__hero', {
+          'vene-layout__hero--winter': hero === 'winter'
+        })}
+      >
         <Container>
-          <FormattedMessage tagName="h1" id="site.title" />
+          <FormattedMessage tagName="h1" id={`site.${hero}.title`} />
         </Container>
       </div>
     )}
@@ -40,11 +45,11 @@ const Layout = ({ children, hero, intl: { locale } }: Props) => (
         <Container>
           <Row>
             <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-              <FormattedMessage tagName="h1" id="hero.title" />
-              <FormattedMessage tagName="p" id="hero.paragraph.first" />
+              <FormattedMessage tagName="h1" id={`hero.${hero}.title`} />
+              <FormattedMessage tagName="p" id={`hero.${hero}.paragraph.first`} />
               <FormattedHTMLMessage
                 tagName="p"
-                id="hero.paragraph.second"
+                id={`hero.${hero}.paragraph.second`}
                 values={{ url: getHeroContentLink(locale) }}
               />
             </Col>
@@ -53,7 +58,7 @@ const Layout = ({ children, hero, intl: { locale } }: Props) => (
       </KoroSection>
     )}
 
-    <KoroSection top={hero} color="fog">
+    <KoroSection top={!!hero} color="fog">
       {children}
     </KoroSection>
     <KoroSection top color="blue">
