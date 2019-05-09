@@ -63,6 +63,7 @@
   "page.berths.pole": "Fastening",
   "page.berths.electricity": "Electricity",
   "page.berths.water_tap": "Water",
+  "page.berths.maximum_length": "Max. length",
   "page.berths.maximum_width": "Max. width",
   "page.berths.waste_collection": "Waste management",
   "page.berths.fence": "Gate",
@@ -71,6 +72,7 @@
   "page.berths.list.berth_count": "{count} harbours match the search criteria",
   "page.berths.list.header.hits": "Harbours matching the search criteria:",
   "page.berths.list.header.others": "Other harbours:",
+  "page.berths.appointed": "Appointed spaces",
 
   "legend.berths.title": "What type of berths are you looking for?",
   "legend.berths.legend": "Browse the harbours and berths offered by the City. Choose up to ten suitable harbours for your application.",

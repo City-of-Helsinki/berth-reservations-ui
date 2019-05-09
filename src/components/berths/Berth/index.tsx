@@ -41,6 +41,110 @@ class Berth extends Component<Props, State> {
     });
   };
 
+  getBerthDetails = (berth: BerthType | WinterStorageType) => {
+    switch (berth.__typename) {
+      case 'HarborType':
+        return [
+          <BerthDetails
+            key="numberOfPlaces"
+            available
+            value={berth.numberOfPlaces}
+            titleId="page.berths.number_of_places"
+          />,
+          <BerthDetails
+            key="maximumWidth"
+            available
+            value={berth.maximumWidth}
+            titleId="page.berths.maximum_width"
+          />,
+          <BerthDetails
+            key="wasteCollection"
+            available={berth.wasteCollection}
+            iconName="trash"
+            titleId="page.berths.waste_collection"
+          />,
+          <BerthDetails
+            key="electricity"
+            available={berth.electricity}
+            iconName="plug"
+            titleId="page.berths.electricity"
+          />,
+
+          <BerthDetails
+            key="gate"
+            available={berth.gate}
+            iconName="fence"
+            titleId="page.berths.fence"
+          />,
+          <BerthDetails
+            key="water"
+            available={berth.water}
+            iconName="waterTap"
+            titleId="page.berths.water_tap"
+          />,
+          <BerthDetails
+            key="lighting"
+            available={berth.lighting}
+            iconName="streetLight"
+            titleId="page.berths.lighting"
+          />
+        ];
+      case 'WinterStorageAreaType':
+        return [
+          <BerthDetails
+            key="maximumWidth"
+            available
+            value={berth.maximumWidth}
+            titleId="page.berths.maximum_length"
+          />,
+          <BerthDetails
+            key="maximumWidth"
+            available
+            value={berth.maximumLength}
+            titleId="page.berths.maximum_width"
+          />,
+          <BerthDetails
+            key="appointed"
+            available={!!berth.numberOfMarkedPlaces}
+            iconName="divided"
+            titleId="page.berths.appointed"
+          />,
+          <BerthDetails
+            key="gate"
+            available={berth.gate}
+            iconName="fence"
+            titleId="page.berths.fence"
+          />,
+          <BerthDetails
+            key="electricity"
+            available={berth.electricity}
+            iconName="plug"
+            titleId="page.berths.electricity"
+          />,
+          <BerthDetails
+            key="summerStorageForDockingEquipment"
+            available={berth.summerStorageForDockingEquipment}
+            iconName="trestle"
+            titleId="page.berths.storage_for_docking_equip"
+          />,
+          <BerthDetails
+            key="water"
+            available={berth.water}
+            iconName="waterTap"
+            titleId="page.berths.water_tap"
+          />,
+          <BerthDetails
+            key="summerStorageForTrailers"
+            available={berth.summerStorageForTrailers}
+            iconName="dollyEmpty"
+            titleId="page.berths.storage_for_docking_equip"
+          />
+        ];
+      default:
+        return [];
+    }
+  };
+
   render() {
     const { berth, excluded = false, onClick, selected, disabled, className } = this.props;
 
@@ -55,7 +159,8 @@ class Berth extends Component<Props, State> {
                 id="error.message.invalid_berth"
                 isOpen={selected && excluded}
               />
-              <Image src={berth.imageFile} alt={berth.name} />
+              {/* TODO: add palceholder image */}
+              {<Image src={berth.imageFile || ''} alt={berth.name || `berth's name`} />}
             </div>
           </Col>
 
@@ -77,86 +182,53 @@ class Berth extends Component<Props, State> {
                   + <FormattedMessage tagName="span" id="page.berths.select" />
                 </Button>
               )}
-              <div className="vene-berth__availability-level">
-                <Button
-                  className="vene-berth__availability-level__button"
-                  id={`availability_${berth.availabilityLevel.id}`}
-                  color="link"
-                  onMouseEnter={() => this.togglePopover(true)}
-                  onMouseLeave={() => this.togglePopover(false)}
-                >
-                  <Fragment>
-                    <span
-                      className={classNames(
-                        'vene-berth__availability-level__marker',
-                        `vene-berth__availability-level__marker--${berth.availabilityLevel.id}`
-                      )}
-                    />
-                    {berth.availabilityLevel.title}
-                  </Fragment>
-                </Button>
+              {berth.availabilityLevel && (
+                <div className="vene-berth__availability-level">
+                  <Button
+                    className="vene-berth__availability-level__button"
+                    id={`availability_${berth.availabilityLevel.id}`}
+                    color="link"
+                    onMouseEnter={() => this.togglePopover(true)}
+                    onMouseLeave={() => this.togglePopover(false)}
+                  >
+                    <Fragment>
+                      <span
+                        className={classNames(
+                          'vene-berth__availability-level__marker',
+                          `vene-berth__availability-level__marker--${berth.availabilityLevel.id}`
+                        )}
+                      />
+                      {berth.availabilityLevel.title}
+                    </Fragment>
+                  </Button>
 
-                <Popover
-                  placement="right"
-                  target={`availability_${berth.availabilityLevel.id}`}
-                  isOpen={this.state.popoverOpen}
+                  <Popover
+                    placement="right"
+                    target={`availability_${berth.availabilityLevel.id}`}
+                    isOpen={this.state.popoverOpen}
+                  >
+                    <PopoverBody>
+                      {berth.availabilityLevel.description || berth.availabilityLevel.title}
+                    </PopoverBody>
+                  </Popover>
+                </div>
+              )}
+              {berth.wwwUrl && (
+                <a
+                  className="vene-berth__website-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={berth.wwwUrl}
                 >
-                  <PopoverBody>
-                    {berth.availabilityLevel.description || berth.availabilityLevel.title}
-                  </PopoverBody>
-                </Popover>
-              </div>
-              <a
-                className="vene-berth__website-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                href={berth.wwwUrl}
-              >
-                <FormattedMessage tagName="span" id="page.berths.website" />
-                <Icon name="arrowRight" />
-              </a>
+                  <FormattedMessage tagName="span" id="page.berths.website" />
+                  <Icon name="arrowRight" />
+                </a>
+              )}
             </div>
           </Col>
 
           <Col md={5}>
-            <div className="vene-berth__details-wrapper">
-              <BerthDetails
-                available
-                value={berth.numberOfPlaces}
-                titleId="page.berths.number_of_places"
-              />
-              <BerthDetails
-                available
-                value={berth.maximumWidth}
-                titleId="page.berths.maximum_width"
-              />
-
-              <BerthDetails
-                available={!!berth.wasteCollection}
-                iconName="trash"
-                titleId="page.berths.waste_collection"
-              />
-
-              <BerthDetails
-                available={!!berth.electricity}
-                iconName="plug"
-                titleId="page.berths.electricity"
-              />
-
-              <BerthDetails available={!!berth.gate} iconName="fence" titleId="page.berths.fence" />
-
-              <BerthDetails
-                available={!!berth.water}
-                iconName="waterTap"
-                titleId="page.berths.water_tap"
-              />
-
-              <BerthDetails
-                available={!!berth.lighting}
-                iconName="streetLight"
-                titleId="page.berths.lighting"
-              />
-            </div>
+            <div className="vene-berth__details-wrapper">{this.getBerthDetails(berth)}</div>
           </Col>
         </Row>
       </div>

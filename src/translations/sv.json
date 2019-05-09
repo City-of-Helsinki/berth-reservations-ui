@@ -63,6 +63,7 @@
   "page.berths.electricity": "El",
   "page.berths.water_tap": "Vatten",
   "page.berths.maximum_width": "Max. bredd",
+  "page.berths.maximum_length": "Max. length",
   "page.berths.waste_collection": "Avfallshantering",
   "page.berths.fence": "Port",
   "page.berths.lighting": "Belysning",
@@ -70,6 +71,7 @@
   "page.berths.list.berth_count": "{count} hamnar motsvarar sökkriterierna",
   "page.berths.list.header.hits": "Hamnarna som motsvarar sökkriterierna:",
   "page.berths.list.header.others": "Övriga hamnar:",
+  "page.berths.appointed": "Appointed spaces",
 
   "legend.berths.title": "Hurdan båtplats söker du?",
   "legend.berths.legend": "Bläddra bland stadens hamnar och båtplatser. Välj högst tio lämpliga hamnar i din ansökan.",
