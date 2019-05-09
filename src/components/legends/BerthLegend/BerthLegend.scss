@@ -15,59 +15,63 @@ $berthLegendIconSize: 42px;
     display: flex;
     justify-content: flex-start;
     flex-flow: wrap;
-    margin: -0.75em;
-
-    &__label {
-      span {
-        margin: 0.5em 0;
-        font-size: $font-size-sm;
-        font-weight: $display1-weight;
-      }
-    }
-
-    button {
-      cursor: pointer;
-      border: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: black;
-      background-color: transparent;
-      padding: 0 0.75em;
-
-      &:focus {
-        outline: none;
-      }
-
-      .vene-icon {
-        height: $berthLegendIconSize;
-        width: $berthLegendIconSize;
-      }
-    }
-    &__icon-wrapper {
-      border: 2px solid black;
-      border-radius: 50%;
-      background-color: transparent;
-      padding: 4px;
-
-      &:hover {
-        background-color: $hel-gray;
-      }
-
-      &.selected {
-        background-color: $hel-white;
-
-        &:hover {
-          background-color: $hel-dark;
-        }
-      }
-    }
 
     &__header {
       margin-bottom: 1.5em;
 
       span {
         font-weight: $display1-weight;
+      }
+    }
+  }
+
+  &__service {
+    cursor: pointer;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    background-color: transparent;
+    padding: 0;
+    flex-basis: 0;
+    margin-right: 1em;
+
+    &:focus {
+      outline: none;
+    }
+
+    .vene-icon {
+      height: $berthLegendIconSize;
+      width: $berthLegendIconSize;
+    }
+  }
+
+  &__label {
+    width: 1.8 * $berthLegendIconSize;
+    line-height: 1.2;
+    margin-top: 0.5em;
+
+    span {
+      font-size: $font-size-sm;
+    }
+  }
+
+  &__icon-wrapper {
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: transparent;
+    padding: 4px;
+
+    &:hover {
+      background-color: $hel-gray;
+    }
+
+    &.selected {
+      background-color: $hel-white;
+
+      &:hover {
+        background-color: $hel-dark;
       }
     }
   }

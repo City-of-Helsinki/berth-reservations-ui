@@ -11,7 +11,12 @@ import ApplicationSelector from '../../forms/sections/ApplicationSelector';
 import { WithBoatType } from '../../forms/Selects';
 import Steps from '../../steps';
 
-import { SelectedServices } from '../../../types/services';
+import {
+  BerthsServices,
+  SelectedServices,
+  SelectedWinterServices,
+  WinterServices
+} from '../../../types/services';
 import './BerthLegend.scss';
 
 type Props = {
@@ -19,32 +24,20 @@ type Props = {
   onSubmit: Function;
   selectService: Function;
   deselectService: Function;
-  selectedServices: SelectedServices;
+  selectedServices: SelectedServices | SelectedWinterServices;
+  hideApplicationSelector?: boolean;
+  steps: Array<{
+    key: string;
+    completed: boolean;
+    current: boolean;
+    linkTo?: string;
+  }>;
+  services: Array<{
+    label: string;
+    value: BerthsServices | WinterServices;
+    icon: IconNames;
+  }>;
 } & WithBoatType;
-
-const services: Array<{
-  label: string;
-  value: 'electricity' | 'water' | 'wasteCollection' | 'gate' | 'lighting';
-  icon: IconNames;
-}> = [
-  {
-    label: 'form.services.field.electricity.label',
-    value: 'electricity',
-    icon: 'plug'
-  },
-  { label: 'form.services.field.water.label', value: 'water', icon: 'waterTap' },
-  {
-    label: 'form.services.field.waste_collection.label',
-    value: 'wasteCollection',
-    icon: 'trash'
-  },
-  { label: 'form.services.field.gate.label', value: 'gate', icon: 'fence' },
-  {
-    label: 'form.services.field.lighting.label',
-    value: 'lighting',
-    icon: 'streetLight'
-  }
-];
 
 const BerthsLegend = ({
   boatTypes,
@@ -52,47 +45,17 @@ const BerthsLegend = ({
   onSubmit,
   selectService,
   deselectService,
-  selectedServices
+  selectedServices,
+  steps,
+  services,
+  hideApplicationSelector
 }: Props) => (
   <div className="vene-berths-legend">
     <Container>
       <Row>
         <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-          <Steps
-            steps={[
-              {
-                key: 'berths',
-                completed: false,
-                current: true,
-                linkTo: undefined
-              },
-              {
-                key: 'selected_berths',
-                completed: false,
-                current: false,
-                linkTo: undefined
-              },
-              {
-                key: 'boat_information',
-                completed: false,
-                current: false,
-                linkTo: undefined
-              },
-              {
-                key: 'applicant',
-                completed: false,
-                current: false,
-                linkTo: undefined
-              },
-              {
-                key: 'send_application',
-                completed: false,
-                current: false,
-                linkTo: undefined
-              }
-            ]}
-          />
-          <ApplicationSelector />
+          <Steps steps={steps} />
+          {!hideApplicationSelector && <ApplicationSelector />}
           <div className="vene-berths-legend__header">
             <FormattedMessage tagName="h3" id="legend.berths.title" />
             <FormattedMessage tagName="p" id="legend.berths.legend" />
@@ -113,26 +76,26 @@ const BerthsLegend = ({
 
           <div className="vene-berths-legend__services">
             {services.map((service, index) => {
-              const selected = selectedServices.get(service.value);
+              // @ts-ignore
+              const selected = selectedServices.get(service.value) || false;
               return (
                 <button
+                  className="vene-berths-legend__service"
                   key={index}
                   onClick={() =>
                     selected ? deselectService(service.value) : selectService(service.value)
                   }
                 >
-                  <Fragment>
-                    <div
-                      className={classNames('vene-berths-legend__services__icon-wrapper', {
-                        selected
-                      })}
-                    >
-                      <Icon name={service.icon} />
-                    </div>
-                    <div className="vene-berths-legend__services__label">
-                      <FormattedMessage id={service.label} />
-                    </div>
-                  </Fragment>
+                  <div
+                    className={classNames('vene-berths-legend__icon-wrapper', {
+                      selected
+                    })}
+                  >
+                    <Icon name={service.icon} />
+                  </div>
+                  <div className="vene-berths-legend__label">
+                    <FormattedMessage id={service.label} />
+                  </div>
                 </button>
               );
             })}
