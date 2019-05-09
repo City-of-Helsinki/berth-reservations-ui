@@ -9,10 +9,10 @@ import FormPage from '../FormPage';
 
 import { CREATE_WINTER_STORAGE_RESERVATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
 
-import WinterAreasQuery from '../../common/WinterAreasQuery';
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/BoatDetails';
 import Overview from '../../forms/sections/Overview';
+import WinterAreasQuery from '../../query/WinterAreasQuery';
 
 import { Store } from '../../../redux/types';
 import { Berths } from '../../berths/types';

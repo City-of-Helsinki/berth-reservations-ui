@@ -12,7 +12,7 @@ import { getBerths as getBerthsFromCache } from '../../../utils/berths';
 import { withMatchParamsHandlers } from '../../../utils/container';
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import { IconNames } from '../../common/Icon';
-import WinterAreasQuery from '../../common/WinterAreasQuery';
+import WinterAreasQuery from '../../query/WinterAreasQuery';
 import BerthPage from '../BerthPage';
 
 import { Store } from '../../../redux/types';
