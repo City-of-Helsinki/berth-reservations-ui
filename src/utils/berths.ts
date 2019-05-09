@@ -1,9 +1,14 @@
 import { List } from 'immutable';
 import { get } from 'lodash';
 
-import { Berth } from '../components/berths/Berth/types';
 import { Berths } from '../components/berths/types';
 import { SelectedServices } from '../types/services';
+
+import { BerthType } from '../types/berth';
+import { WinterStorageType } from '../types/winterStorage';
+
+import { BoatTypesBerthsQuery_harbors } from './__generated__/BoatTypesBerthsQuery';
+import { WinterAreasQuery_winterStorageAreas } from './__generated__/WinterAreasQuery';
 
 export const getBerthFilterByValues = (values: {}, selectedServices: SelectedServices) => {
   const width = Number(get(values, 'boatWidth', '').replace(',', '.')) * 100;
@@ -16,27 +21,68 @@ export const getBerthFilterByValues = (values: {}, selectedServices: SelectedSer
     const filterByService = services.reduce((acc, cur) => acc && b[cur], true);
     const filterByWidth = Number(b.maximumWidth) >= width;
     const filterByLength = Number(b.maximumLength) >= length;
-    const filterByBoatTypeIds = boatType
-      ? !!b.suitableBoatTypes.find((type: { id: string }) => type.id === boatType)
-      : true;
-
+    const filterByBoatTypeIds =
+      boatType && b.suitableBoatTypes
+        ? !!b.suitableBoatTypes.find((type: { id: string }) => type.id === boatType)
+        : true;
     return filterByService && filterByWidth && filterByLength && filterByBoatTypeIds;
   };
 };
 
-export const getBerths = (berthsData: any): List<Berth> => {
-  const berths = List<Berth>(
-    berthsData.map((harbor: { node: any }) => ({
-      ...harbor.node.properties,
-      id: harbor.node.id,
-      geometry: {
-        coordinates: [harbor.node.geometry.coordinates[1], harbor.node.geometry.coordinates[0]]
-      }
-    }))
-  );
+export const getBerths = (
+  data: WinterAreasQuery_winterStorageAreas | BoatTypesBerthsQuery_harbors | null
+): List<BerthType | WinterStorageType> => {
+  if (!data || !data.edges) return List([]);
 
-  return berths;
+  // TODO: refactor for better DRY code
+  switch (data.__typename) {
+    case 'HarborTypeConnection':
+      return List(
+        data.edges.reduce<BerthType[]>((acc, harbor) => {
+          if (!(harbor && harbor.node && harbor.node.properties && harbor.node.geometry)) return [];
+
+          return [
+            {
+              ...harbor.node.properties,
+              id: harbor.node.id,
+              geometry: {
+                coordinates: [
+                  harbor.node.geometry.coordinates[1],
+                  harbor.node.geometry.coordinates[0]
+                ]
+              },
+              __typename: harbor.node.__typename
+            },
+            ...acc
+          ];
+        }, [])
+      );
+
+    default:
+      return List(
+        data.edges.reduce<WinterStorageType[]>((acc, harbor) => {
+          if (!(harbor && harbor.node && harbor.node.properties && harbor.node.geometry)) return [];
+
+          return [
+            {
+              ...harbor.node.properties,
+              id: harbor.node.id,
+              geometry: {
+                coordinates: [
+                  harbor.node.geometry.coordinates[1],
+                  harbor.node.geometry.coordinates[0]
+                ]
+              },
+              __typename: harbor.node.__typename
+            },
+            ...acc
+          ];
+        }, [])
+      );
+  }
 };
 
-export const isBerthSelected = (selectedBerths: Berths, berth: Berth): boolean =>
-  !!selectedBerths.find(selectedBerth => selectedBerth.id === berth.id);
+export const isBerthSelected = (
+  selectedBerths: Berths,
+  berth: BerthType | WinterStorageType
+): boolean => !!selectedBerths.find(selectedBerth => selectedBerth.id === berth.id);
