@@ -12,6 +12,8 @@ import { BigBoatTypeValue, WithBoatType } from '../Selects';
 import { FormMode } from '../types';
 import SectionSelector from './SectionSelector';
 
+import { FORM_MODE } from '../../../constants/formConstants';
+
 type Props = {
   values: object;
   tab: string;
@@ -53,7 +55,7 @@ const BoatDetails = ({ values, tab, mode = 'berth', boatTypes }: Props) => {
         <Row>
           <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
             <Container>
-              {mode === 'winter' && <StorageMethod showTrailerRegNum={showTrailerRegNum} />}
+              {mode === FORM_MODE.WINTER && <StorageMethod showTrailerRegNum={showTrailerRegNum} />}
             </Container>
             {tab === 'registered_boat' && (
               <RegisteredBoat
