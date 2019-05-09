@@ -3,25 +3,29 @@ import React from 'react';
 import { injectIntl } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
 
+import StorageMethod from '../fragments/StorageMethod';
 import NoBoat from '../tabs/NoBoat';
 import RegisteredBoat from '../tabs/RegisteredBoat';
 import UnRegisteredBoat from '../tabs/UnRegisteredBoat';
 
 import { BigBoatTypeValue, WithBoatType } from '../Selects';
+import { FormMode } from '../types';
 import SectionSelector from './SectionSelector';
 
 type Props = {
   values: object;
   tab: string;
+  mode?: FormMode;
 } & WithBoatType;
 
-const BoatDetails = ({ values, tab, boatTypes }: Props) => {
+const BoatDetails = ({ values, tab, mode = 'berth', boatTypes }: Props) => {
   const ShowBigShipsForm = get(values, 'boatType') === BigBoatTypeValue;
+  const showTrailerRegNum = get(values, 'storageMethod') === 'ON_TRAILER';
+
   return (
-    <div>
+    <>
       <SectionSelector
         name="boat"
-        selected={tab}
         sizes={{
           xs: 12,
           md: 4,
@@ -48,21 +52,22 @@ const BoatDetails = ({ values, tab, boatTypes }: Props) => {
       <Container>
         <Row>
           <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
+            <Container>
+              {mode === 'winter' && <StorageMethod showTrailerRegNum={showTrailerRegNum} />}
+            </Container>
             {tab === 'registered_boat' && (
               <RegisteredBoat
-                prefix="boat"
+                mode={mode}
                 ShowBigShipsForm={ShowBigShipsForm}
                 boatTypes={boatTypes}
               />
             )}
-            {tab === 'unregistered_boat' && (
-              <UnRegisteredBoat prefix="boat" boatTypes={boatTypes} />
-            )}
-            {tab === 'no_boat' && <NoBoat boatTypes={boatTypes} />}
+            {tab === 'unregistered_boat' && <UnRegisteredBoat mode={mode} boatTypes={boatTypes} />}
+            {tab === 'no_boat' && <NoBoat mode={mode} boatTypes={boatTypes} />}
           </Col>
         </Row>
       </Container>
-    </div>
+    </>
   );
 };
 

@@ -21,7 +21,6 @@ interface Props {
     current: boolean;
     linkTo: string | undefined;
   }>;
-  link?: string;
   children: React.ReactNode;
 }
 
@@ -33,8 +32,7 @@ const BoatPage = ({
   prevStep,
   step,
   steps,
-  children,
-  link
+  children
 }: Props) => {
   return (
     <Layout>

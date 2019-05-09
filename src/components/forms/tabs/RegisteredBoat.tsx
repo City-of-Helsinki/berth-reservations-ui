@@ -6,21 +6,20 @@ import BigShips from '../fragments/BigShips';
 import BoatInfo from '../fragments/BoatInfo';
 import BoatMeasures from '../fragments/BoatMeasures';
 import RegisteredBoatDetails from '../fragments/RegisteredBoatDetails';
+import StorageMethod from '../fragments/StorageMethod';
 import { WithBoatType } from '../Selects';
+import { FormMode } from '../types';
 import './Tabs.scss';
 
 type Props = {
-  prefix: string;
   ShowBigShipsForm: boolean;
+  mode: FormMode;
 } & WithBoatType;
 
-export default ({ prefix, ShowBigShipsForm, boatTypes }: Props) => (
+const RegisteredBoat = ({ mode, ShowBigShipsForm, boatTypes }: Props) => (
   <Container className="vene-form__styled-container">
-    <FormattedMessage tagName="h3" id="form.registered.header.title" />
     <RegisteredBoatDetails boatTypes={boatTypes} />
-
-    <FormattedMessage tagName="h3" id="form.registered.header.measures" />
-    <BoatMeasures />
+    <BoatMeasures showWeight={mode === 'berth'} showDraught={mode === 'berth'} />
     {ShowBigShipsForm && (
       <div className="vene-form__big-ships">
         <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
@@ -30,11 +29,10 @@ export default ({ prefix, ShowBigShipsForm, boatTypes }: Props) => (
         <FormattedMessage tagName="p" id="form.big_ship.text.inspection_and_insurance" />
       </div>
     )}
-    <FormattedMessage tagName="h3" id="form.registered.header.additional_info" />
-
     <BoatInfo />
-    <FormattedMessage tagName="h3" id="form.registered.header.accessibility" />
 
-    <Accessibility />
+    {mode === 'berth' && <Accessibility />}
   </Container>
 );
+
+export default RegisteredBoat;

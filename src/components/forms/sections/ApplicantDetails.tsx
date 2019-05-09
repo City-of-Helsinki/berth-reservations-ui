@@ -12,7 +12,6 @@ const ApplicantDetails = ({ tab }: Props) => (
   <div>
     <SectionSelector
       name="boat"
-      selected={tab}
       sizes={{
         xs: 6,
         md: 4,
