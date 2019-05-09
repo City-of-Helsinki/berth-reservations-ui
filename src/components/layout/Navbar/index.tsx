@@ -23,8 +23,11 @@ const Navbar = () => {
       <div className="vene-navbar__bottom">
         <Container>
           <BSNavbar expand="md">
-            <NavbarBrand href="/">
-              <FormattedMessage id="site.title" />
+            <NavbarBrand href="berths">
+              <FormattedMessage id="site.berths.title" />
+            </NavbarBrand>
+            <NavbarBrand href="winter_storage">
+              <FormattedMessage id="site.winter.title" />
             </NavbarBrand>
           </BSNavbar>
         </Container>
