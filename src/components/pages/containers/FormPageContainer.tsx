@@ -103,6 +103,10 @@ const FormPageContainer = ({ selectedBerths, localePush, tab, application, ...re
             {
               reservation: {
                 choices,
+                acceptBoatingNewsletter: false,
+                acceptFitnessNews: false,
+                acceptLibraryNews: false,
+                acceptOtherCultureNews: false,
                 ...values
               }
             },

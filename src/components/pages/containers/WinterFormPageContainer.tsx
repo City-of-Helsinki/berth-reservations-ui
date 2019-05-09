@@ -99,6 +99,10 @@ const WinterFormPageContainer = ({ selectedBerths, localePush, tab, ...rest }: P
             variables: {
               reservation: {
                 chosenAreas,
+                acceptBoatingNewsletter: false,
+                acceptFitnessNews: false,
+                acceptLibraryNews: false,
+                acceptOtherCultureNews: false,
                 ...values
               }
             },
