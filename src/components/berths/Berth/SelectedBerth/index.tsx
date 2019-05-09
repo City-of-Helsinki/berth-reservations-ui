@@ -64,7 +64,7 @@ class SelectedBerth extends Component<Props, State> {
   render() {
     const { berth, index, first, last, isValid } = this.props;
 
-    const id = `tooltip_${berth.id}`;
+    const id = `tooltip_${berth.id.replace(/=/g, '')}`;
     return (
       <Transition
         in={this.state.changed !== 'nothing'}
