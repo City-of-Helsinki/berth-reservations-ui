@@ -89,7 +89,7 @@ class Berth extends Component<Props, State> {
             titleId="page.berths.lighting"
           />
         ];
-      case 'WinterStorageAreaType':
+      default:
         return [
           <BerthDetails
             key="maximumWidth"
@@ -140,8 +140,6 @@ class Berth extends Component<Props, State> {
             titleId="page.berths.storage_for_docking_equip"
           />
         ];
-      default:
-        return [];
     }
   };
 
@@ -159,7 +157,7 @@ class Berth extends Component<Props, State> {
                 id="error.message.invalid_berth"
                 isOpen={selected && excluded}
               />
-              {/* TODO: add palceholder image */}
+              {/* TODO: add placeholder image */}
               {<Image src={berth.imageFile || ''} alt={berth.name || `berth's name`} />}
             </div>
           </Col>
