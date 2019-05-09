@@ -64,9 +64,7 @@ $berthIconSize: 42px;
 
     p {
       margin: 0;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: pre-wrap;
     }
 
     @include for-desktop {
