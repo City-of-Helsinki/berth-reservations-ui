@@ -7,14 +7,16 @@ import {
   moveWinterAreaUp
 } from '../../../redux/actions/WinterAreaActions';
 import { withMatchParamsHandlers } from '../../../utils/container';
-import SelectedBerthPage from '../BerthPage/SelectedBerthPage';
+import SelectedBerthPage from '../BerthPage/SelectedBerthPage/SelectedBerthPage';
 
 import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
 import { Berths } from '../../berths/types';
 
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
-import BoatsBerthsQuery from '../../common/BoatsBerthsQuery';
+import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
+
+import { APPLICATION_OPTIONS } from '../../../constants/ApplicationConstants';
 
 interface Props {
   selectedBerths: Berths;
@@ -82,6 +84,9 @@ const UnconnectedSelectedBerthPage = (props: Props) => {
             moveToForm={moveToForm}
             boatTypes={boatTypes}
             steps={steps}
+            data={data || null}
+            selectedApplicationType={APPLICATION_OPTIONS.NEW_APPLICATION}
+            initialValues={{}}
             {...props}
           />
         );

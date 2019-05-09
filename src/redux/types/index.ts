@@ -20,6 +20,7 @@ interface ApplicationProps {
 interface WinterAreasProps {
   selectedWinterAreas: Berths;
   selectedWinterServices: SelectedWinterServices;
+  areasLimit: number;
 }
 
 export type FormsFactory = Record.Factory<FormProps>;

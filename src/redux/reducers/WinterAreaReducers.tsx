@@ -13,7 +13,8 @@ const selectedWinterServices = Record({
 
 const defaultState: WinterAreasFactory = Record({
   selectedWinterAreas: List(),
-  selectedWinterServices: selectedWinterServices()
+  selectedWinterServices: selectedWinterServices(),
+  areasLimit: Number(process.env.REACT_APP_MAX_SELECTED_BERTHS) || 10
 });
 
 export default (state: WinterAreasState = defaultState(), action: Action): WinterAreasState => {

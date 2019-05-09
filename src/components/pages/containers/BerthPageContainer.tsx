@@ -11,8 +11,8 @@ import { onSubmit } from '../../../redux/actions/FormActions';
 import { getBerths as getBerthsFromCache } from '../../../utils/berths';
 import { withMatchParamsHandlers } from '../../../utils/container';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
-import BoatsBerthsQuery from '../../common/BoatsBerthsQuery';
 import { IconNames } from '../../common/Icon';
+import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 import BerthPage from '../BerthPage';
 
 import { Store } from '../../../redux/types';

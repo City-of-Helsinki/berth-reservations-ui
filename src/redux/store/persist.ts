@@ -27,9 +27,10 @@ const BerthsTransform = createTransform(
 
 const WinterAreasTransform = createTransform(
   (inboundState: WinterAreasState) => {
-    const { selectedWinterServices, selectedWinterAreas } = inboundState.toObject();
+    const { selectedWinterServices, selectedWinterAreas, areasLimit } = inboundState.toObject();
 
     return {
+      areasLimit,
       selectedWinterServices: selectedWinterServices.toObject(),
       selectedWinterAreas: selectedWinterAreas.toArray()
     };
@@ -37,7 +38,8 @@ const WinterAreasTransform = createTransform(
   outboundState => {
     const berths = Record({
       selectedWinterServices: Record(outboundState.selectedWinterServices)(),
-      selectedWinterAreas: List(outboundState.selectedWinterAreas)
+      selectedWinterAreas: List(outboundState.selectedWinterAreas),
+      areasLimit: outboundState.areasLimit
     });
     return berths();
   },

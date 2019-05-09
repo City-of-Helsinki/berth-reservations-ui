@@ -4,14 +4,13 @@ import { FormattedMessage } from 'react-intl';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
 import { getBerthFilterByValues } from '../../../../utils/berths';
-import { BOAT_TYPES_BERTHS_QUERY } from '../../../../utils/graphql';
 import SelectedBerths from '../../../berths/SelectedBerths';
 import Icon from '../../../common/Icon';
 import LocalizedLink from '../../../common/LocalizedLink';
 import Layout from '../../../layout';
 import SelectedBerthsLegend from '../../../legends/BerthLegend/SelectedBerthLegend';
-import BoatsBerthsQuery from '../../../query/BoatsBerthsQuery';
 
+import { BoatTypes } from '../../../../types/boatTypes';
 import { SelectedServices } from '../../../../types/services';
 import { getHarbors } from '../../../../utils/harborUtils';
 import { Berths } from '../../../berths/types';
@@ -22,19 +21,29 @@ import { APPLICATION_OPTIONS } from '../../../../constants/ApplicationConstants'
 import ExchangeApplication from '../../../forms/fragments/exchangeApplication/ExchangeApplication';
 import NewApplication from '../../../forms/fragments/newApplication/NewApplication';
 
+import { BoatTypesBerthsQuery } from '../../../../utils/__generated__/BoatTypesBerthsQuery';
 import './SelectedBerthPage.scss';
 
-export interface Props {
+interface Props {
   selectedBerths: Berths;
   selectedServices: SelectedServices;
+  moveToForm: () => {};
+  handlePrevious: () => {};
   deselectBerth: Function;
   moveUp: Function;
   moveDown: Function;
-  localePush: Function;
+  boatTypes: BoatTypes;
+  data: BoatTypesBerthsQuery | null;
   selectedApplicationType: string;
-  submitExchangeForm: Function;
+  submitExchangeForm?: Function;
   values: {};
   initialValues: {};
+  steps: Array<{
+    key: string;
+    completed: boolean;
+    current: boolean;
+    linkTo?: string;
+  }>;
 }
 
 class SelectedBerthPage extends Component<Props> {
@@ -44,19 +53,9 @@ class SelectedBerthPage extends Component<Props> {
     window.scrollTo(0, 0);
   }
 
-  moveToForm = async () => {
-    const { localePush } = this.props;
-    await localePush('/form/registered_boat');
-  };
-
-  handlePrevious = async () => {
-    const { localePush } = this.props;
-    await localePush('/berths');
-  };
-
   handleSubmitApplication = (values: any) => {
-    this.props.submitExchangeForm(values);
-    this.moveToForm();
+    this.props.submitExchangeForm && this.props.submitExchangeForm(values);
+    this.props.moveToForm();
   };
 
   render() {
@@ -66,149 +65,134 @@ class SelectedBerthPage extends Component<Props> {
       deselectBerth,
       moveUp,
       moveDown,
+      values,
       selectedServices,
-      initialValues
+      initialValues,
+      data,
+      boatTypes,
+      handlePrevious,
+      steps
     } = this.props;
-    const type = get(this.props.values, 'boatType');
-    const width = get(this.props.values, 'boatWidth');
-    const length = get(this.props.values, 'boatLength');
-    const filter = getBerthFilterByValues(this.props.values, selectedServices);
+    const type = get(values, 'boatType');
+    const width = get(values, 'boatWidth');
+    const length = get(values, 'boatLength');
+    const filter = getBerthFilterByValues(values, selectedServices);
+    // TODO: fix types
+    // @ts-ignore
+    const normalizedHarbors = getHarbors(data && data.harbors ? data.harbors.edges : []);
+
+    const boatType = boatTypes && type ? boatTypes.find(t => !!t && t.id === type) : undefined;
+    const validSelection = selectedBerths.every(filter);
 
     return (
-      <BoatsBerthsQuery query={BOAT_TYPES_BERTHS_QUERY}>
-        {({
-          loading,
-          // error, TODO: handle errors
-          data: { boatTypes, harbors } = { boatTypes: [], harbors: { edges: [] } }
-        }) => {
-          const normalizedHarbors = getHarbors(harbors ? harbors.edges : []);
+      <Form
+        onSubmit={formValues => this.handleSubmitApplication(formValues)}
+        initialValues={initialValues}
+        render={({ handleSubmit, invalid }) => (
+          <Layout>
+            <SelectedBerthsLegend steps={steps} />
 
-          const boatType = !loading && type ? boatTypes.find(t => t.id === type) : undefined;
+            <BTForm onSubmit={handleSubmit}>
+              <Container className="vene-berth-page-selected__wrapper">
+                <Row>
+                  <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
+                    <div className="vene-berth-page-selected__application">
+                      {selectedApplicationType === APPLICATION_OPTIONS.NEW_APPLICATION ? (
+                        <NewApplication />
+                      ) : (
+                        <ExchangeApplication harbors={normalizedHarbors} />
+                      )}
+                    </div>
 
-          const validSelection = selectedBerths.every(filter);
-
-          return (
-            <Form
-              onSubmit={values => this.handleSubmitApplication(values)}
-              initialValues={initialValues}
-              render={({ handleSubmit, invalid }) => (
-                <Layout>
-                  <SelectedBerthsLegend />
-
-                  <BTForm onSubmit={handleSubmit}>
-                    <Container className="vene-berth-page-selected__wrapper">
-                      <Row>
-                        <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-                          <div className="vene-berth-page-selected__application">
-                            {selectedApplicationType === APPLICATION_OPTIONS.NEW_APPLICATION ? (
-                              <NewApplication />
-                            ) : (
-                              <ExchangeApplication harbors={normalizedHarbors} />
-                            )}
-                          </div>
-
-                          <FormattedMessage tagName="h1" id="page.berth.selected.title" />
-                          <hr />
-                          {boatType ? (
-                            <Container>
-                              <Row>
-                                {type && (
-                                  <Col md="5">
-                                    <FormattedMessage
-                                      tagName="span"
-                                      id="page.overview.info.boat_type"
-                                    />
-                                    :
-                                    <span className="vene-berth-page-selected__boat-value">
-                                      {boatType.name}
-                                    </span>
-                                  </Col>
-                                )}
-                                {width && (
-                                  <Col md="3">
-                                    <FormattedMessage
-                                      tagName="span"
-                                      id="page.overview.info.boat_width"
-                                    />
-                                    :
-                                    <span className="vene-berth-page-selected__boat-value">
-                                      {width} m
-                                    </span>
-                                  </Col>
-                                )}
-                                {length && (
-                                  <Col md="3">
-                                    <FormattedMessage
-                                      tagName="span"
-                                      id="page.overview.info.boat_length"
-                                    />
-                                    :
-                                    <span className="vene-berth-page-selected__boat-value">
-                                      {length} m
-                                    </span>
-                                  </Col>
-                                )}
-                              </Row>
-                            </Container>
-                          ) : (
-                            <div className="vene-berth-page-selected__notice">
-                              <Icon name="exclamationCircle" />
-                              <LocalizedLink to="">
-                                <FormattedMessage
-                                  tagName="span"
-                                  id="page.berth.selected.info_text"
-                                />
-                              </LocalizedLink>
-                            </div>
-                          )}
-                          <hr />
-                          {validSelection || (
-                            <Alert color="warning">
-                              <FormattedMessage
-                                tagName="strong"
-                                id="page.berth.selected.warning.heading"
-                              />
-                            </Alert>
-                          )}
-                          <SelectedBerths
-                            moveUp={moveUp}
-                            moveDown={moveDown}
-                            deselectBerth={deselectBerth}
-                            berthValidator={filter}
-                            berths={selectedBerths}
-                          />
-                        </Col>
-                      </Row>
-                    </Container>
-                    <div className="vene-berth-page-selected__button-wrapper">
+                    <FormattedMessage tagName="h1" id="page.berth.selected.title" />
+                    <hr />
+                    {boatType ? (
                       <Container>
                         <Row>
-                          <Col xs={12}>
-                            <div className="vene-berth-page-selected__button-wrapper__button-groups">
-                              <Button color="link" type="button" onClick={this.handlePrevious}>
-                                <FormattedMessage id="form.wizard.button.previous" />
-                              </Button>
-                              <Button
-                                type="submit"
-                                outline
-                                color="primary"
-                                size="lg"
-                                disabled={selectedBerths.size === 0 || invalid}
-                              >
-                                <FormattedMessage tagName="span" id="page.berth.selected.submit" />
-                              </Button>
-                            </div>
-                          </Col>
+                          {type && (
+                            <Col md="5">
+                              <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
+                              <span className="vene-berth-page-selected__boat-value">
+                                {boatType.name}
+                              </span>
+                            </Col>
+                          )}
+                          {width && (
+                            <Col md="3">
+                              <FormattedMessage tagName="span" id="page.overview.info.boat_width" />
+                              :
+                              <span className="vene-berth-page-selected__boat-value">
+                                {width} m
+                              </span>
+                            </Col>
+                          )}
+                          {length && (
+                            <Col md="3">
+                              <FormattedMessage
+                                tagName="span"
+                                id="page.overview.info.boat_length"
+                              />
+                              :
+                              <span className="vene-berth-page-selected__boat-value">
+                                {length} m
+                              </span>
+                            </Col>
+                          )}
                         </Row>
                       </Container>
-                    </div>
-                  </BTForm>
-                </Layout>
-              )}
-            />
-          );
-        }}
-      </BoatsBerthsQuery>
+                    ) : (
+                      <div className="vene-berth-page-selected__notice">
+                        <Icon name="exclamationCircle" />
+                        <LocalizedLink to="">
+                          <FormattedMessage tagName="span" id="page.berth.selected.info_text" />
+                        </LocalizedLink>
+                      </div>
+                    )}
+                    <hr />
+                    {validSelection || (
+                      <Alert color="warning">
+                        <FormattedMessage
+                          tagName="strong"
+                          id="page.berth.selected.warning.heading"
+                        />
+                      </Alert>
+                    )}
+                    <SelectedBerths
+                      moveUp={moveUp}
+                      moveDown={moveDown}
+                      deselectBerth={deselectBerth}
+                      berthValidator={filter}
+                      berths={selectedBerths}
+                    />
+                  </Col>
+                </Row>
+              </Container>
+              <div className="vene-berth-page-selected__button-wrapper">
+                <Container>
+                  <Row>
+                    <Col xs={12}>
+                      <div className="vene-berth-page-selected__button-wrapper__button-groups">
+                        <Button color="link" type="button" onClick={handlePrevious}>
+                          <FormattedMessage id="form.wizard.button.previous" />
+                        </Button>
+                        <Button
+                          type="submit"
+                          outline
+                          color="primary"
+                          size="lg"
+                          disabled={selectedBerths.size === 0 || invalid}
+                        >
+                          <FormattedMessage tagName="span" id="page.berth.selected.submit" />
+                        </Button>
+                      </div>
+                    </Col>
+                  </Row>
+                </Container>
+              </div>
+            </BTForm>
+          </Layout>
+        )}
+      />
     );
   }
 }

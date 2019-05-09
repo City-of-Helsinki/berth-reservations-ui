@@ -1,8 +1,9 @@
 import { List } from 'immutable';
-import { Berth } from '../components/berths/Berth/types';
 import { Berths } from '../components/berths/types';
-export const createBerth = (options?: object): Berth => {
-  const newBerth: Berth = {
+import { BerthType } from '../types/berth';
+export const createBerth = (options?: object): BerthType => {
+  const newBerth: BerthType = {
+    __typename: 'HarborType',
     id: 'foo',
     name: 'Airorannan venesatama B',
     streetAddress: 'Airoranta 2',
@@ -18,7 +19,11 @@ export const createBerth = (options?: object): Berth => {
     wasteCollection: false,
     gate: false,
     lighting: false,
+    mooring: false,
+    servicemapId: '123',
+    suitableBoatTypes: null,
     availabilityLevel: {
+      __typename: 'AvailabilityLevelType',
       id: 'test',
       title: 'Paljon jonoa',
       description:

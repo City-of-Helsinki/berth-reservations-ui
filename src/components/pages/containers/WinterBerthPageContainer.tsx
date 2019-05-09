@@ -20,6 +20,7 @@ import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType } from '../../berths/types';
 
 interface Props {
+  berthLimit: number;
   initialValues: {};
   filtered: BerthsType;
   filteredNot: BerthsType;
@@ -138,7 +139,8 @@ export default compose<Props, {}>(
     (state: Store) => ({
       initialValues: state.forms.values,
       selectedBerths: state.winterAreas.selectedWinterAreas,
-      selectedServices: state.winterAreas.selectedWinterServices
+      selectedServices: state.winterAreas.selectedWinterServices,
+      berthLimit: state.winterAreas.areasLimit
     }),
     {
       onSubmit,

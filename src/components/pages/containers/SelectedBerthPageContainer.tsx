@@ -10,8 +10,9 @@ import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
 import { Berths } from '../../berths/types';
 
+import { getBerths } from '../../../utils/berths';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
-import BoatsBerthsQuery from '../../common/BoatsBerthsQuery';
+import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 
 interface Props {
   selectedBerths: Berths;
@@ -75,6 +76,7 @@ const UnconnectedSelectedBerthPage = (props: Props) => {
         // error, TODO: handle errors
         data
       }) => {
+        const berths = getBerths(data ? data.harbors : null);
         const boatTypes = !loading && data ? data.boatTypes : [];
         return (
           <SelectedBerthPage
@@ -82,6 +84,7 @@ const UnconnectedSelectedBerthPage = (props: Props) => {
             moveToForm={moveToForm}
             boatTypes={boatTypes}
             steps={steps}
+            data={data || null}
             {...props}
           />
         );
