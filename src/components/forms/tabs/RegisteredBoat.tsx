@@ -2,7 +2,6 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Container } from 'reactstrap';
 import { FORM_MODE } from '../../../constants/formConstants';
-import { FORM_MODE } from '../../../constants/formConstants';
 import Accessibility from '../fragments/Accessibility';
 import BigShips from '../fragments/BigShips';
 import BoatInfo from '../fragments/BoatInfo';
