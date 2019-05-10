@@ -87,4 +87,9 @@ export const isBerthSelected = (
   berth: BerthType | WinterStorageType
 ): boolean => !!selectedBerths.find(selectedBerth => selectedBerth.id === berth.id);
 
+/**
+ * Generates a valid CSS selector from a string by replacing invalid characters.
+ * @param selector A string to be checked.
+ * @returns A valid CSS selector.
+ */
 export const genValidSelector = (selector: string) => selector.replace(/^[^a-z]+|[^\w:.-]+/gi, 'x');
