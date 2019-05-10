@@ -86,3 +86,5 @@ export const isBerthSelected = (
   selectedBerths: Berths,
   berth: BerthType | WinterStorageType
 ): boolean => !!selectedBerths.find(selectedBerth => selectedBerth.id === berth.id);
+
+export const genValidSelector = (selector: string) => selector.replace(/^[^a-z]+|[^\w:.-]+/gi, 'x');

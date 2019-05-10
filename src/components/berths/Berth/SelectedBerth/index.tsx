@@ -4,6 +4,7 @@ import { InjectedIntlProps, injectIntl } from 'react-intl';
 import Transition from 'react-transition-group/Transition';
 import { Button } from 'reactstrap';
 
+import { genValidSelector } from '../../../../utils/berths';
 import Icon from '../../../common/Icon';
 import InvalidSelection from '../../InvalidSelection';
 
@@ -63,8 +64,8 @@ class SelectedBerth extends Component<Props, State> {
 
   render() {
     const { berth, index, first, last, isValid } = this.props;
+    const id = genValidSelector(`tooltip_${berth.id}`);
 
-    const id = `tooltip_${berth.id.replace(/=/g, '')}`;
     return (
       <Transition
         in={this.state.changed !== 'nothing'}
