@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 import { Alert, Button, Col, Popover, PopoverBody, Row } from 'reactstrap';
 
+import { genValidSelector } from '../../../utils/berths';
 import Icon from '../../common/Icon';
 import Image from '../../common/Image';
 import IntlComponent from '../../common/IntlComponent';
@@ -145,6 +146,7 @@ class Berth extends Component<Props, State> {
 
   render() {
     const { berth, excluded = false, onClick, selected, disabled, className } = this.props;
+    const tooltipId = genValidSelector(`availability_${berth.id}`);
 
     return (
       <div className={classNames('vene-berth', className)}>
@@ -184,7 +186,7 @@ class Berth extends Component<Props, State> {
                 <div className="vene-berth__availability-level">
                   <Button
                     className="vene-berth__availability-level__button"
-                    id={`availability_${berth.availabilityLevel.id}`}
+                    id={tooltipId}
                     color="link"
                     onMouseEnter={() => this.togglePopover(true)}
                     onMouseLeave={() => this.togglePopover(false)}
@@ -200,11 +202,7 @@ class Berth extends Component<Props, State> {
                     </Fragment>
                   </Button>
 
-                  <Popover
-                    placement="right"
-                    target={`availability_${berth.availabilityLevel.id}`}
-                    isOpen={this.state.popoverOpen}
-                  >
+                  <Popover placement="right" target={tooltipId} isOpen={this.state.popoverOpen}>
                     <PopoverBody>
                       {berth.availabilityLevel.description || berth.availabilityLevel.title}
                     </PopoverBody>

@@ -1,7 +1,8 @@
 import { List } from 'immutable';
 import { Berths } from '../components/berths/types';
 import { BerthType } from '../types/berth';
-export const createBerth = (options?: object): BerthType => {
+
+export const createBerth = (options?: Partial<BerthType>): BerthType => {
   const newBerth: BerthType = {
     __typename: 'HarborType',
     id: 'foo',

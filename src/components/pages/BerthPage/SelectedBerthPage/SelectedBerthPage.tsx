@@ -24,7 +24,7 @@ import NewApplication from '../../../forms/fragments/newApplication/NewApplicati
 import { BoatTypesBerthsQuery } from '../../../../utils/__generated__/BoatTypesBerthsQuery';
 import './SelectedBerthPage.scss';
 
-interface Props {
+export interface Props {
   selectedBerths: Berths;
   selectedServices: SelectedServices;
   moveToForm: () => {};
