@@ -1,6 +1,6 @@
 import { List } from 'immutable';
 
-import { createBerth } from '../__fixtures__/BerthFixture';
+import { createBerth } from '../__fixtures__/berthFixture';
 import { genValidSelector, isBerthSelected } from './berths';
 
 describe('utils/berths', () => {

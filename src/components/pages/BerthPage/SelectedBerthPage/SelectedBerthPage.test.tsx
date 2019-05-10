@@ -1,10 +1,13 @@
+import { shallow } from 'enzyme';
 import React from 'react';
 
-import { shallow } from 'enzyme';
-import { berths } from '../../../../__fixtures__/BerthFixture';
-import { services } from '../../../../__fixtures__/ServiceFixture';
-import { APPLICATION_OPTIONS } from '../../../../constants/ApplicationConstants';
 import SelectedBerthPage, { Props } from './SelectedBerthPage';
+
+import { berths } from '../../../../__fixtures__/berthFixture';
+import { boatTypes } from '../../../../__fixtures__/boatTypeFixture';
+import { harbors } from '../../../../__fixtures__/harborFixture';
+import { services } from '../../../../__fixtures__/serviceFixture';
+import { APPLICATION_OPTIONS } from '../../../../constants/ApplicationConstants';
 
 describe('pages/BerthPage/SelectedBerthPage', () => {
   const defaultProps: Props = {
@@ -12,13 +15,21 @@ describe('pages/BerthPage/SelectedBerthPage', () => {
     selectedBerths: berths,
     initialValues: {},
     deselectBerth: jest.fn(),
-    localePush: jest.fn(),
     moveUp: jest.fn(),
     moveDown: jest.fn(),
     selectedApplicationType: APPLICATION_OPTIONS.NEW_APPLICATION,
     submitExchangeForm: jest.fn(),
-    values: {}
+    values: {},
+    moveToForm: jest.fn(),
+    handlePrevious: jest.fn(),
+    boatTypes: [],
+    data: {
+      boatTypes,
+      harbors
+    },
+    steps: []
   };
+
   const getWrapper = (props?: object) =>
     shallow(<SelectedBerthPage {...defaultProps} {...props} />);
 
