@@ -8,6 +8,7 @@ import NoBoat from '../tabs/NoBoat';
 import RegisteredBoat from '../tabs/RegisteredBoat';
 import UnRegisteredBoat from '../tabs/UnRegisteredBoat';
 
+import { WinterStorageMethod } from '../../../__generated__/globalTypes';
 import { FormMode } from '../../../types/form';
 import { BigBoatTypeValue, WithBoatType } from '../Selects';
 import SectionSelector from './SectionSelector';
@@ -20,7 +21,7 @@ type Props = {
 
 const BoatDetails = ({ values, tab, mode = FormMode.Berth, boatTypes }: Props) => {
   const ShowBigShipsForm = get(values, 'boatType') === BigBoatTypeValue;
-  const showTrailerRegNum = get(values, 'storageMethod') === 'ON_TRAILER';
+  const showTrailerRegNum = get(values, 'storageMethod') === WinterStorageMethod.ON_TRAILER;
 
   return (
     <>
