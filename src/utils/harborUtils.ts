@@ -1,5 +1,5 @@
 import { List } from 'immutable';
-import { HarborOption, HarborOptions } from '../types/harborOptionTypes';
+import { HarborOption, HarborOptions } from '../types/harborOptionsTypes';
 
 type HarborProperties = object & { name: string };
 interface HarborData {

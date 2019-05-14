@@ -4,7 +4,7 @@ import { Col, Row } from 'reactstrap';
 
 import { Select, Text } from '../../Fields';
 
-import { HarborOption, HarborOptions } from '../../../../types/harborOptionTypes';
+import { HarborOption, HarborOptions } from '../../../../types/harborOptionsTypes';
 
 import './ExchangeApplication.scss';
 
