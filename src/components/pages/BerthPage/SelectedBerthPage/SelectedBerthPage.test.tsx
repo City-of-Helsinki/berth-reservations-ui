@@ -7,7 +7,7 @@ import { berths } from '../../../../__fixtures__/berthFixture';
 import { boatTypes } from '../../../../__fixtures__/boatTypeFixture';
 import { harbors } from '../../../../__fixtures__/harborFixture';
 import { services } from '../../../../__fixtures__/serviceFixture';
-import { APPLICATION_OPTIONS } from '../../../../constants/ApplicationConstants';
+import { ApplicationOptions } from '../../../../types/applicationType';
 
 describe('pages/BerthPage/SelectedBerthPage', () => {
   const defaultProps: Props = {
@@ -17,7 +17,7 @@ describe('pages/BerthPage/SelectedBerthPage', () => {
     deselectBerth: jest.fn(),
     moveUp: jest.fn(),
     moveDown: jest.fn(),
-    selectedApplicationType: APPLICATION_OPTIONS.NEW_APPLICATION,
+    selectedApplicationType: ApplicationOptions.NewApplication,
     submitExchangeForm: jest.fn(),
     values: {},
     moveToForm: jest.fn(),
@@ -27,6 +27,7 @@ describe('pages/BerthPage/SelectedBerthPage', () => {
       boatTypes,
       harbors
     },
+    legend: { title: 'foo', legend: 'bar' },
     steps: []
   };
 
