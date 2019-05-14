@@ -88,6 +88,9 @@
   "legend.thankyou.legend.regards": "Kind regards,",
   "legend.thankyou.legend.contact_information": "Helsingin kaupungin venepaikkavaraukset (Berth reservations of the City of Helsinki)<br/>venepaikkavaraukset@hel.fi<br/>Advice over the telephone is available 9–14 Monday–Friday by calling 09 310 87900.<br/>Service hours 9–16 Monday–Friday at Töölö Sports Hall at Paavo Nurmen kuja 1 E.",
 
+  "legend.winter.title": "Browse and Select Winter Storage Areas",
+  "legend.winter.legend": "Submit the details of the boat you will be storing. The list of areas will be filtered according to your specifications. You can also define what services you require from the area.",
+
   "form.wizard.button.previous": "Previous page",
   "form.wizard.button.invalid": "Complete the form to continue",
   "form.wizard.button.next": "Next",
@@ -239,7 +242,8 @@
   "form.overview.field.other_cultural_services.label": "other cultural services",
   "form.overview.header.agreement.title": "I confirm that the information I have provided is correct",
 
-  "form.services.field.services.label": "Select the harbour services you need:",
+  "form.services.field.berths.services.label": "Select the harbour services you need:",
+  "form.services.field.winter.services.label": "Select the area facilities you need:",
   "form.services.field.electricity.label": "Electricity",
   "form.services.field.water.label": "Water",
   "form.services.field.waste_collection.label": "Waste management",

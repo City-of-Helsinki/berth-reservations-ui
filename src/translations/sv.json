@@ -87,6 +87,9 @@
   "legend.thankyou.legend.regards": "Med vänlig hälsning,",
   "legend.thankyou.legend.contact_information": "Helsingfors stads båtplatsbokningar<br/>venepaikkavaraukset@hel.fi<br/>Telefonrådgivning må–fr kl. 9–14 på numret 09 310 87900.<br/>Betjäningstid vardagar kl. 9–16 i Tölö Sporthall på Paavo Nurmis gränd 1 E.",
 
+  "legend.winter.title": "Browse and Select Winter Storage Areas",
+  "legend.winter.legend": "Submit the details of the boat you will be storing. The list of areas will be filtered according to your specifications. You can also define what services you require from the area.",
+
   "form.wizard.button.previous": "Föregående sida",
   "form.wizard.button.invalid": "Fyll i formuläret för att fortsätta",
   "form.wizard.button.next": "Nästa",
@@ -238,7 +241,8 @@
   "form.overview.field.other_cultural_services.label": "övriga kulturtjänster",
   "form.overview.header.agreement.title": "Jag intygar att uppgifterna är korrekta.",
 
-  "form.services.field.services.label": "Välj önskade hamntjänster:",
+  "form.services.field.berths.services.label": "Välj önskade hamntjänster:",
+  "form.services.field.winter.services.label": "Select the area facilities you need:",
   "form.services.field.electricity.label": "El",
   "form.services.field.water.label": "Vatten",
   "form.services.field.waste_collection.label": "Avfallshantering",
