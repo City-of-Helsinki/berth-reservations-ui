@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
 
+import { ApplicationState } from '../../../redux/types';
 import { Berths } from '../../berths/types';
 import Icon from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
@@ -9,9 +10,9 @@ import BoatDraughtAndWeight from '../fragments/overview/BoatDraughtAndWeight';
 import BoatInfo from '../fragments/overview/BoatInfo';
 import BoatMeasures from '../fragments/overview/BoatMeasures';
 import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
+import OldBerthInfo from '../fragments/overview/oldBerth/OldBerthInfo';
 import Person from '../fragments/overview/Person';
 import { WithBoatType } from '../Selects';
-
 import './OverviewInfo.scss';
 
 type Props = {
@@ -33,13 +34,16 @@ type Props = {
     municipality: string;
   };
   selectedBerths: Berths;
+  application?: ApplicationState;
   tabs: string[];
 } & InjectedIntlProps &
   WithBoatType;
 
-const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes }: Props) => (
+const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, application }: Props) => (
   <div className="vene-overview-info">
     <Container fluid>
+      <OldBerthInfo application={application} />
+
       <Row>
         <Col xs={8} md={10} className="vene-overview-info__header">
           <FormattedMessage tagName="h6" id="page.overview.info.boat_info" />

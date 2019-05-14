@@ -108,3 +108,13 @@ export const CREATE_WINTER_STORAGE_RESERVATION = gql`
     }
   }
 `;
+
+export const GET_HARBOR_NAME = (harborId: string) => gql`
+  query {
+    harbor(id: "${harborId}") {
+      properties {
+        name
+      }
+    }
+  }
+`;

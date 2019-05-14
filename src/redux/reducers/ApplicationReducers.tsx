@@ -4,7 +4,10 @@ import { Action, ApplicationFactory, ApplicationState } from '../types';
 
 const defaultState: ApplicationFactory = Record({
   selectedApplicationType: APPLICATION_OPTIONS.NEW_APPLICATION,
-  berthSwitch: {}
+  berthSwitch: {
+    harborId: '',
+    berthNumber: ''
+  }
 });
 
 export default (state: ApplicationState = defaultState(), action: Action): ApplicationState => {

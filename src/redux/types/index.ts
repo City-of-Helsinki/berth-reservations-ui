@@ -1,4 +1,5 @@
 import { Record, RecordOf } from 'immutable';
+import { BerthSwitchInput } from '../../__generated__/globalTypes';
 import { Berths } from '../../components/berths/types';
 import { SelectedServices, SelectedWinterServices } from '../../types/services';
 
@@ -14,7 +15,7 @@ interface BerthsProps {
 
 interface ApplicationProps {
   selectedApplicationType: string;
-  berthSwitch: object;
+  berthSwitch: BerthSwitchInput;
 }
 
 interface WinterAreasProps {
