@@ -1,14 +1,12 @@
 import classNames from 'classnames';
-import React, { Fragment } from 'react';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
+
 import Icon, { IconNames } from '../../common/Icon';
 import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
-import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
 import ApplicationSelector from '../../forms/sections/ApplicationSelector';
-
-import { WithBoatType } from '../../forms/Selects';
 import Steps from '../../steps';
 
 import {
@@ -19,87 +17,98 @@ import {
 } from '../../../types/services';
 import './BerthLegend.scss';
 
-type Props = {
-  initialValues: object;
-  onSubmit: Function;
-  selectService: Function;
-  deselectService: Function;
-  selectedServices: SelectedServices | SelectedWinterServices;
-  hideApplicationSelector?: boolean;
-  steps: Array<{
+interface Props {
+  form?: {
+    initialValues: object;
+    onSubmit: Function;
+    render: () => JSX.Element;
+  };
+  legend?: {
+    title: string;
+    legend: string;
+  };
+  showApplicationSelector?: boolean;
+  steps?: Array<{
     key: string;
     completed: boolean;
     current: boolean;
     linkTo?: string;
   }>;
-  services: Array<{
+  services?: {
+    available: Array<{
+      label: string;
+      value: BerthsServices | WinterServices;
+      icon: IconNames;
+    }>;
+    deselectService: Function;
     label: string;
-    value: BerthsServices | WinterServices;
-    icon: IconNames;
-  }>;
-} & WithBoatType;
+    selectedServices: SelectedServices | SelectedWinterServices;
+    selectService: Function;
+  };
+}
 
-const BerthsLegend = ({
-  boatTypes,
-  initialValues,
-  onSubmit,
-  selectService,
-  deselectService,
-  selectedServices,
-  steps,
-  services,
-  hideApplicationSelector
-}: Props) => (
+const BerthsLegend = ({ form, legend, steps, services, showApplicationSelector }: Props) => (
   <div className="vene-berths-legend">
     <Container>
       <Row>
         <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-          <Steps steps={steps} />
-          {!hideApplicationSelector && <ApplicationSelector />}
-          <div className="vene-berths-legend__header">
-            <FormattedMessage tagName="h3" id="legend.berths.title" />
-            <FormattedMessage tagName="p" id="legend.berths.legend" />
-          </div>
+          {steps && <Steps steps={steps} />}
 
-          <Form initialValues={initialValues} onSubmit={onSubmit}>
-            {() => (
-              <Fragment>
-                <UnRegisteredBoatDetails fieldsNotRequired boatTypes={boatTypes} />
-                <AutoSave debounce={500} save={onSubmit} />
-              </Fragment>
-            )}
-          </Form>
+          {showApplicationSelector && <ApplicationSelector />}
 
-          <div className="vene-berths-legend__services__header">
-            <FormattedMessage tagName="span" id="form.services.field.services.label" />
-          </div>
+          {legend && (
+            <div className="vene-berths-legend__header">
+              <FormattedMessage tagName="h3" id={legend.title} />
+              <FormattedMessage tagName="p" id={legend.legend} />
+            </div>
+          )}
 
-          <div className="vene-berths-legend__services">
-            {services.map((service, index) => {
-              // @ts-ignore
-              const selected = selectedServices.get(service.value) || false;
-              return (
-                <button
-                  className="vene-berths-legend__service"
-                  key={index}
-                  onClick={() =>
-                    selected ? deselectService(service.value) : selectService(service.value)
-                  }
-                >
-                  <div
-                    className={classNames('vene-berths-legend__icon-wrapper', {
-                      selected
-                    })}
-                  >
-                    <Icon name={service.icon} />
-                  </div>
-                  <div className="vene-berths-legend__label">
-                    <FormattedMessage id={service.label} />
-                  </div>
-                </button>
-              );
-            })}
-          </div>
+          {form && (
+            <Form initialValues={form.initialValues} onSubmit={form.onSubmit}>
+              {() => (
+                <>
+                  {form.render()}
+                  <AutoSave debounce={500} save={form.onSubmit} />
+                </>
+              )}
+            </Form>
+          )}
+
+          {services && (
+            <>
+              <div className="vene-berths-legend__services__header">
+                <FormattedMessage tagName="span" id={services.label} />
+              </div>
+              <div className="vene-berths-legend__services">
+                {services.available.map((service, index) => {
+                  // @ts-ignore
+                  const selected = services.selectedServices.get(service.value) || false;
+                  return (
+                    <button
+                      className="vene-berths-legend__service"
+                      key={index}
+                      onClick={() =>
+                        selected
+                          ? services.deselectService(service.value)
+                          : services.selectService(service.value)
+                      }
+                    >
+                      <div
+                        className={classNames('vene-berths-legend__icon-wrapper', {
+                          selected
+                        })}
+                      >
+                        <Icon name={service.icon} />
+                      </div>
+                      <div className="vene-berths-legend__label">
+                        <FormattedMessage id={service.label} />
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </>
+          )}
         </Col>
       </Row>
     </Container>
