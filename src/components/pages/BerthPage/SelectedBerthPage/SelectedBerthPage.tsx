@@ -8,8 +8,9 @@ import SelectedBerths from '../../../berths/SelectedBerths';
 import Icon from '../../../common/Icon';
 import LocalizedLink from '../../../common/LocalizedLink';
 import Layout from '../../../layout';
-import SelectedBerthsLegend from '../../../legends/BerthLegend/SelectedBerthLegend';
+import SelectedBerthsLegend from '../../../legends/BerthLegend/SelectedBerthsLegend';
 
+import { ApplicationOptions } from '../../../../types/applicationType';
 import { BoatTypes } from '../../../../types/boatTypes';
 import { SelectedServices } from '../../../../types/services';
 import { getHarbors } from '../../../../utils/harborUtils';
@@ -17,7 +18,6 @@ import { Berths } from '../../../berths/types';
 
 import { Form } from 'react-final-form';
 
-import { APPLICATION_OPTIONS } from '../../../../constants/ApplicationConstants';
 import ExchangeApplication from '../../../forms/fragments/exchangeApplication/ExchangeApplication';
 import NewApplication from '../../../forms/fragments/newApplication/NewApplication';
 
@@ -34,10 +34,11 @@ export interface Props {
   moveDown: Function;
   boatTypes: BoatTypes;
   data: BoatTypesBerthsQuery | null;
-  selectedApplicationType: string;
+  selectedApplicationType?: string;
   submitExchangeForm?: Function;
   values: {};
   initialValues: {};
+  legend: { title: string; legend: string };
   steps: Array<{
     key: string;
     completed: boolean;
@@ -73,7 +74,8 @@ class SelectedBerthPage extends Component<Props> {
       data,
       boatTypes,
       handlePrevious,
-      steps
+      steps,
+      legend
     } = this.props;
     const type = get(values, 'boatType');
     const width = get(values, 'boatWidth');
@@ -92,19 +94,21 @@ class SelectedBerthPage extends Component<Props> {
         initialValues={initialValues}
         render={({ handleSubmit, invalid }) => (
           <Layout>
-            <SelectedBerthsLegend steps={steps} />
+            <SelectedBerthsLegend steps={steps} legend={legend} />
 
             <BTForm onSubmit={handleSubmit}>
               <Container className="vene-berth-page-selected__wrapper">
                 <Row>
                   <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-                    <div className="vene-berth-page-selected__application">
-                      {selectedApplicationType === APPLICATION_OPTIONS.NEW_APPLICATION ? (
-                        <NewApplication />
-                      ) : (
-                        <ExchangeApplication harbors={normalizedHarbors} />
-                      )}
-                    </div>
+                    {selectedApplicationType && (
+                      <div className="vene-berth-page-selected__application">
+                        {selectedApplicationType === ApplicationOptions.NewApplication ? (
+                          <NewApplication />
+                        ) : (
+                          <ExchangeApplication harbors={normalizedHarbors} />
+                        )}
+                      </div>
+                    )}
 
                     <FormattedMessage tagName="h1" id="page.berth.selected.title" />
                     <hr />
@@ -145,7 +149,7 @@ class SelectedBerthPage extends Component<Props> {
                     ) : (
                       <div className="vene-berth-page-selected__notice">
                         <Icon name="exclamationCircle" />
-                        <LocalizedLink to="">
+                        <LocalizedLink to={steps[0].linkTo || ''}>
                           <FormattedMessage tagName="span" id="page.berth.selected.info_text" />
                         </LocalizedLink>
                       </div>

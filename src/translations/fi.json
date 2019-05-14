@@ -2,7 +2,7 @@
   "error.message.invalid_berth_selection": "Kaikissa valitsemissasi satamissa ei todennäköisesti ole paikkoja venetyypillesi",
   "error.message.invalid_berth": "Tässä valitussa satamassa ei todennäköisesti ole paikkoja venetyypillesi.",
   "storybook.dummy.label": "dummy",
-  "site.berths.title": "Venepaikkahaku",
+  "site.berth.title": "Venepaikkahaku",
   "site.winter.title": "Talvisäilytyspaikat",
   "site.link.front_page": "Etusivulle",
   "site.language.fi": "Suomeksi",
@@ -11,9 +11,9 @@
 
   "site.buttons.back_to_frontpage": "Palaa etusivulle",
 
-  "hero.berths.title": "Venepaikan hakeminen Helsingin venesatamista",
-  "hero.berths.paragraph.first": "Tässä palvelussa voit selata Helsingin kaupungin venesatamia ja tehdä uuden venepaikkahakemuksen valitsemiisi satamiin. ",
-  "hero.berths.paragraph.second": "HUOM! Ennen kuin täytät hakemuksen, lue ohjeet satamien valintaan sekä tietoa venepaikkojen jakoperusteista ja hakemuskäsittelyn aikataulusta <a href='{url}'>hel.fi</a> -sivustolta.",
+  "hero.berth.title": "Venepaikan hakeminen Helsingin venesatamista",
+  "hero.berth.paragraph.first": "Tässä palvelussa voit selata Helsingin kaupungin venesatamia ja tehdä uuden venepaikkahakemuksen valitsemiisi satamiin. ",
+  "hero.berth.paragraph.second": "HUOM! Ennen kuin täytät hakemuksen, lue ohjeet satamien valintaan sekä tietoa venepaikkojen jakoperusteista ja hakemuskäsittelyn aikataulusta <a href='{url}'>hel.fi</a> -sivustolta.",
   "hero.winter.title": "Talvisäilytyspaikkojen haku",
   "hero.winter.paragraph.first": "Tästä voit hakea veneen talvisäilytyspaikkaa Helsingin kaupungin säilytysalueilta. Ruutupaikkoja vapautuu harvoin joten valitsethan hakemukseesi myös alueita joissa ei ole merkittyjä paikkoja.",
   "hero.winter.paragraph.second": "HUOM! Ennen kuin täytät hakemuksen, lue ohjeet satamien valintaan sekä tietoa venepaikkojen jakoperusteista ja hakemuskäsittelyn aikataulusta <a href='{url}'>hel.fi</a> -sivustolta.<br/>Jos olet kiinnostunut talvisäilyttämään veneesi vedessä omalla venepaikallasi ota meihin yhteyttä.</p>",
@@ -73,8 +73,8 @@
   "page.berths.list.header.others": "Muut satamat:",
   "page.berths.appointed": "Merkityt ruutupaikat",
 
-  "legend.berths.title": "Millaista venepaikkaa olet hakemassa?",
-  "legend.berths.legend": "Selaa kaupungin tarjoamia satamia ja venepaikkoja. Valitse enintään kymmenen sopivaa satamaa hakemukseesi.",
+  "legend.berth.title": "Millaista venepaikkaa olet hakemassa?",
+  "legend.berth.legend": "Selaa kaupungin tarjoamia satamia ja venepaikkoja. Valitse enintään kymmenen sopivaa satamaa hakemukseesi.",
   "legend.selected_berths.title": "Satamien tarkistus",
   "legend.selected_berths.legend": "Tarkista valitsemasi satamat ja niiden soveltuvuus veneellesi. Järjestä valitsemasi satamat toivejärjestykseen.",
   "legend.boat.title": "Veneen tiedot",
@@ -89,6 +89,8 @@
 
   "legend.winter.title": "Browse and Select Winter Storage Areas",
   "legend.winter.legend": "Submit the details of the boat you will be storing. The list of areas will be filtered according to your specifications. You can also define what services you require from the area.",
+  "legend.selected_areas.title": "Review storage areas",
+  "legend.selected_areas.legend": "Review the winter storage areas you have chosen and their suitability for your boat. Order the areas you have chosen by preference.",
 
   "form.wizard.button.previous": "Edellinen sivu",
   "form.wizard.button.invalid": "Täytä lomake jatkaaksesi",
@@ -241,7 +243,7 @@
   "form.overview.field.other_cultural_services.label": "muut kulttuuripalvelut",
   "form.overview.header.agreement.title": "Vakuutan tietoni oikeiksi",
 
-  "form.services.field.berths.services.label": "Valitse haluamasi sataman palvelut:",
+  "form.services.field.berth.services.label": "Valitse haluamasi sataman palvelut:",
   "form.services.field.winter.services.label": "Select the area facilities you need:",
   "form.services.field.electricity.label": "Sähkö",
   "form.services.field.water.label": "Vesi",

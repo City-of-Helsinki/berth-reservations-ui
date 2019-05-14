@@ -8,11 +8,9 @@ import NoBoat from '../tabs/NoBoat';
 import RegisteredBoat from '../tabs/RegisteredBoat';
 import UnRegisteredBoat from '../tabs/UnRegisteredBoat';
 
+import { FormMode } from '../../../types/form';
 import { BigBoatTypeValue, WithBoatType } from '../Selects';
-import { FormMode } from '../types';
 import SectionSelector from './SectionSelector';
-
-import { FORM_MODE } from '../../../constants/formConstants';
 
 type Props = {
   values: object;
@@ -20,7 +18,7 @@ type Props = {
   mode?: FormMode;
 } & WithBoatType;
 
-const BoatDetails = ({ values, tab, mode = 'berth', boatTypes }: Props) => {
+const BoatDetails = ({ values, tab, mode = FormMode.Berth, boatTypes }: Props) => {
   const ShowBigShipsForm = get(values, 'boatType') === BigBoatTypeValue;
   const showTrailerRegNum = get(values, 'storageMethod') === 'ON_TRAILER';
 
@@ -55,7 +53,7 @@ const BoatDetails = ({ values, tab, mode = 'berth', boatTypes }: Props) => {
         <Row>
           <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
             <Container>
-              {mode === FORM_MODE.WINTER && <StorageMethod showTrailerRegNum={showTrailerRegNum} />}
+              {mode === FormMode.Winter && <StorageMethod showTrailerRegNum={showTrailerRegNum} />}
             </Container>
             {tab === 'registered_boat' && (
               <RegisteredBoat

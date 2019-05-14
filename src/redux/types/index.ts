@@ -1,5 +1,7 @@
 import { Record, RecordOf } from 'immutable';
+
 import { Berths } from '../../components/berths/types';
+import { ApplicationOptions } from '../../types/applicationType';
 import { SelectedServices, SelectedWinterServices } from '../../types/services';
 
 interface FormProps {
@@ -13,8 +15,8 @@ interface BerthsProps {
 }
 
 interface ApplicationProps {
-  selectedApplicationType: string;
   berthSwitch: object;
+  selectedApplicationType: ApplicationOptions;
 }
 
 interface WinterAreasProps {

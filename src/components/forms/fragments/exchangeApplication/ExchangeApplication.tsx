@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Row } from 'reactstrap';
-import { HarborOption, HarborOptions } from '../../../../types/HarborOptionTypes';
+import { HarborOption, HarborOptions } from '../../../../types/harborOptionTypes';
 import { Select, Text } from '../../Fields';
 import './ExchangeApplication.scss';
 

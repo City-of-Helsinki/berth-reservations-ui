@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Label } from 'reactstrap';
-import { APPLICATION_OPTIONS } from '../../../../constants/ApplicationConstants';
 import { EXCHANGE_APPLICATION_LIMIT } from '../../../../constants/BerthConstants';
 
 import { switchApplication as switchApplicationAction } from '../../../../redux/actions/ApplicationActions';
@@ -11,6 +10,7 @@ import {
 } from '../../../../redux/actions/BerthActions';
 
 import { Store } from '../../../../redux/types';
+import { ApplicationOptions } from '../../../../types/applicationType';
 import Alert from '../../../common/Alert';
 import Input from '../../../common/Input';
 
@@ -46,7 +46,7 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
     const { setBerthLimit, resetBerthLimit, switchApplication, selectedBerthCount } = this.props;
 
     // new application selected
-    if (e.currentTarget.value === APPLICATION_OPTIONS.NEW_APPLICATION) {
+    if (e.currentTarget.value === ApplicationOptions.NewApplication) {
       this.toggleAlert(false);
       switchApplication(e.currentTarget.value);
       resetBerthLimit();
@@ -69,8 +69,8 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
         <div className="vene-application-selector__input-wrapper">
           <Input
             type="radio"
-            value={APPLICATION_OPTIONS.NEW_APPLICATION}
-            checked={selectedApplicationType === APPLICATION_OPTIONS.NEW_APPLICATION}
+            value={ApplicationOptions.NewApplication}
+            checked={selectedApplicationType === ApplicationOptions.NewApplication}
             id="vene-application-selector-new"
             onChange={this.onToggleSwitch}
             name="application-selector-radio"
@@ -84,8 +84,8 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
 
           <Input
             type="radio"
-            value={APPLICATION_OPTIONS.EXCHANGE_APPLICATION}
-            checked={selectedApplicationType === APPLICATION_OPTIONS.EXCHANGE_APPLICATION}
+            value={ApplicationOptions.ExchangeApplication}
+            checked={selectedApplicationType === ApplicationOptions.ExchangeApplication}
             onChange={this.onToggleSwitch}
             id="vene-application-selector-exchange"
             name="application-selector-radio"

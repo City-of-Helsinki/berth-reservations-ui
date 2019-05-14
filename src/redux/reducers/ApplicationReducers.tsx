@@ -1,11 +1,14 @@
 import { Record } from 'immutable';
-import { APPLICATION_OPTIONS } from '../../constants/ApplicationConstants';
+
+import { ApplicationOptions } from '../../types/applicationType';
 import { Action, ApplicationFactory, ApplicationState } from '../types';
 
-const defaultState: ApplicationFactory = Record({
-  selectedApplicationType: APPLICATION_OPTIONS.NEW_APPLICATION,
+const initValues = {
+  selectedApplicationType: ApplicationOptions.NewApplication,
   berthSwitch: {}
-});
+};
+
+const defaultState: ApplicationFactory = Record(initValues);
 
 export default (state: ApplicationState = defaultState(), action: Action): ApplicationState => {
   const { type, payload } = action;
