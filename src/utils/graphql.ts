@@ -94,8 +94,8 @@ export const WINTER_AREAS_QUERY = gql`
 `;
 
 export const CREATE_RESERVATION = gql`
-  mutation SubmitBerth($reservation: BerthReservationInput!) {
-    createBerthReservation(berthReservation: $reservation) {
+  mutation SubmitBerth($reservation: BerthReservationInput!, $berthSwitch: BerthSwitchInput) {
+    createBerthReservation(berthReservation: $reservation, berthSwitch: $berthSwitch) {
       ok
     }
   }

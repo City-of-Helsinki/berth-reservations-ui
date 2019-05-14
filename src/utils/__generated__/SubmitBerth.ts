@@ -2,7 +2,7 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { BerthReservationInput } from "./../../__generated__/globalTypes";
+import { BerthReservationInput, BerthSwitchInput } from "./../../__generated__/globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: SubmitBerth
@@ -19,4 +19,5 @@ export interface SubmitBerth {
 
 export interface SubmitBerthVariables {
   reservation: BerthReservationInput;
+  berthSwitch?: BerthSwitchInput | null;
 }
