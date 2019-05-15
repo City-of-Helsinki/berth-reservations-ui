@@ -4,7 +4,7 @@ import { ApplicationOptions } from '../../types/applicationType';
 import { Action, ApplicationFactory, ApplicationProps, ApplicationState } from '../types';
 
 const initState: ApplicationProps = {
-  selectedApplicationType: ApplicationOptions.ExchangeApplication,
+  selectedApplicationType: ApplicationOptions.NewApplication,
   berthSwitch: {
     harborId: '',
     pier: '',
