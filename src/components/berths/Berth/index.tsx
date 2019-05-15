@@ -43,6 +43,9 @@ class Berth extends Component<Props, State> {
   };
 
   getBerthDetails = (berth: BerthType | WinterStorageType) => {
+    const maximumWidth = berth.maximumWidth && berth.maximumWidth / 100;
+    const maximumLength = berth.maximumLength && berth.maximumLength / 100;
+
     switch (berth.__typename) {
       case 'HarborType':
         return [
@@ -55,7 +58,7 @@ class Berth extends Component<Props, State> {
           <BerthDetails
             key="maximumWidth"
             available
-            value={berth.maximumWidth}
+            value={maximumWidth}
             titleId="page.berths.maximum_width"
           />,
           <BerthDetails
@@ -95,13 +98,13 @@ class Berth extends Component<Props, State> {
           <BerthDetails
             key="maximumWidth"
             available
-            value={berth.maximumWidth}
+            value={maximumWidth}
             titleId="page.berths.maximum_length"
           />,
           <BerthDetails
             key="maximumLength"
             available
-            value={berth.maximumLength}
+            value={maximumLength}
             titleId="page.berths.maximum_width"
           />,
           <BerthDetails
