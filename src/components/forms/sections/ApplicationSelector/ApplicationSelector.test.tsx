@@ -1,6 +1,6 @@
 import React from 'react';
 import { Label } from 'reactstrap';
-import { APPLICATION_OPTIONS } from '../../../../constants/ApplicationConstants';
+import { ApplicationOptions } from '../../../../types/applicationType';
 import { mountWithIntl } from '../../../../utils/testUtils';
 import Alert from '../../../common/Alert';
 import Input from '../../../common/Input';
@@ -9,7 +9,7 @@ import { UnconnectedApplicationSelector as ApplicationSelector } from './Applica
 describe('forms/sections/ApplicationSelector', () => {
   const defaultProps = {
     selectedBerthCount: 0,
-    selectedApplicationType: APPLICATION_OPTIONS.NEW_APPLICATION,
+    selectedApplicationType: ApplicationOptions.NewApplication,
     switchApplication: jest.fn(),
     setBerthLimit: jest.fn(),
     resetBerthLimit: jest.fn(),

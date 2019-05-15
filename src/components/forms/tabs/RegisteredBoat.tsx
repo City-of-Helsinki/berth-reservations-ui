@@ -1,14 +1,15 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Container } from 'reactstrap';
-import { FORM_MODE } from '../../../constants/formConstants';
+
 import Accessibility from '../fragments/Accessibility';
 import BigShips from '../fragments/BigShips';
 import BoatInfo from '../fragments/BoatInfo';
 import BoatMeasures from '../fragments/BoatMeasures';
 import RegisteredBoatDetails from '../fragments/RegisteredBoatDetails';
+
+import { FormMode } from '../../../types/form';
 import { WithBoatType } from '../Selects';
-import { FormMode } from '../types';
 
 import './Tabs.scss';
 
@@ -20,7 +21,7 @@ type Props = {
 const RegisteredBoat = ({ mode, ShowBigShipsForm, boatTypes }: Props) => (
   <Container className="vene-form__styled-container">
     <RegisteredBoatDetails boatTypes={boatTypes} />
-    <BoatMeasures showWeight={mode === FORM_MODE.BERTH} showDraught={mode === FORM_MODE.BERTH} />
+    <BoatMeasures showWeight={mode === FormMode.Berth} showDraught={mode === FormMode.Berth} />
     {ShowBigShipsForm && (
       <div className="vene-form__big-ships">
         <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
@@ -32,7 +33,7 @@ const RegisteredBoat = ({ mode, ShowBigShipsForm, boatTypes }: Props) => (
     )}
     <BoatInfo />
 
-    {mode === FORM_MODE.BERTH && <Accessibility />}
+    {mode === FormMode.Berth && <Accessibility />}
   </Container>
 );
 

@@ -15,6 +15,7 @@ import Overview from '../../forms/sections/Overview';
 import WinterAreasQuery from '../../query/WinterAreasQuery';
 
 import { Store } from '../../../redux/types';
+import { FormMode } from '../../../types/form';
 import { Berths } from '../../berths/types';
 
 interface Props {
@@ -135,7 +136,7 @@ const WinterFormPageContainer = ({ selectedBerths, localePush, tab, ...rest }: P
             steps={steps}
             {...rest}
           >
-            <BoatDetails tab={tab} values={{}} boatTypes={boatTypes} mode="winter" />
+            <BoatDetails tab={tab} values={{}} boatTypes={boatTypes} mode={FormMode.Winter} />
             <ApplicantDetails tab={tab} />
             {!loading && (
               <Overview selectedBerths={selectedBerths} boatTypes={boatTypes} tabs={tabs} />

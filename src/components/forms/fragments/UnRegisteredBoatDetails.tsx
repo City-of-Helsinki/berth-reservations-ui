@@ -6,18 +6,23 @@ import { mustBePositiveNumber } from '../../../utils/formValidation';
 import { Number } from '../Fields';
 import { BoatType, WithBoatType } from '../Selects';
 
-const UnRegisteredBoatDetailsFragment = ({
-  fieldsNotRequired,
-  boatTypes
-}: WithBoatType & {
+import { BoatTypes } from '../../../types/boatTypes';
+
+interface Props {
+  hideTitle?: boolean;
   fieldsNotRequired?: boolean;
-}) => (
+  boatTypes?: BoatTypes;
+}
+
+const UnRegisteredBoatDetailsFragment = ({ fieldsNotRequired, boatTypes, hideTitle }: Props) => (
   <>
-    <FormattedMessage tagName="h3" id="form.unregistered.header.title" />
+    {!hideTitle && <FormattedMessage tagName="h3" id="form.unregistered.header.title" />}
     <Row>
-      <Col sm={4}>
-        <BoatType boatTypes={boatTypes} required={!fieldsNotRequired} />
-      </Col>
+      {boatTypes && (
+        <Col sm={4}>
+          <BoatType boatTypes={boatTypes} required={!fieldsNotRequired} />
+        </Col>
+      )}
       <Col sm={4}>
         <Number
           validate={mustBePositiveNumber}

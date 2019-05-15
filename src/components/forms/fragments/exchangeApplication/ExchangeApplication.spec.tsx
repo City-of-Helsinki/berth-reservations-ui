@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import { List } from 'immutable';
 import React from 'react';
-import { HarborOptions } from '../../../../types/HarborOptionTypes';
+import { HarborOptions } from '../../../../types/harborOptionsTypes';
 import { Select, Text } from '../../Fields';
 
 import ExchangeApplication from './ExchangeApplication';

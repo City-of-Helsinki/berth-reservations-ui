@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import { getBerthFilterByValues } from '../../../utils/berths';
 import Berths from '../../berths';
 import BerthsOnMap from '../../berths/BerthsOnMap';
 import TabSelector from '../../berths/TabSelector';
 import { IconNames } from '../../common/Icon';
+import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
 import Layout from '../../layout';
 import BerthsLegend from '../../legends/BerthLegend';
 
 import { BerthType } from '../../../types/berth';
 import { BoatTypes } from '../../../types/boatTypes';
+import { FormMode } from '../../../types/form';
 import { BerthsServices, SelectedServices, WinterServices } from '../../../types/services';
 import { Berths as BerthsType } from '../../berths/types';
-
-import { getBerthFilterByValues } from '../../../utils/berths';
 
 import './BerthPage.scss';
 
@@ -42,7 +43,7 @@ interface Props {
     value: BerthsServices | WinterServices;
     icon: IconNames;
   }>;
-  hero?: 'berths' | 'winter';
+  hero?: FormMode;
   berthLimit: number;
 }
 
@@ -55,7 +56,7 @@ class BerthPage extends Component<Props> {
 
   moveToForm = async () => {
     const { hero, localePush } = this.props;
-    const path = hero === 'winter' ? '/selected_areas' : '/selected_berths';
+    const path = hero === FormMode.Winter ? '/selected_areas' : '/selected_berths';
     await localePush(path);
   };
 
@@ -90,20 +91,34 @@ class BerthPage extends Component<Props> {
     const validSelection = berths
       .filter(berth => selectedBerths.find(selectedBerth => selectedBerth.id === berth.id))
       .every(filter);
+    const showBoatTypes = hero === FormMode.Berth;
+    const showApplicationSelector = hero === FormMode.Berth;
 
     return (
       <Layout hero={hero}>
         <div className="vene-berth-page">
           <BerthsLegend
-            boatTypes={boatTypes}
-            initialValues={initialValues}
-            onSubmit={onSubmit}
-            selectedServices={selectedServices}
-            selectService={selectService}
-            deselectService={deselectService}
+            legend={{ title: `legend.${hero}.title`, legend: `legend.${hero}.legend` }}
+            form={{
+              onSubmit,
+              initialValues,
+              render: () => (
+                <UnRegisteredBoatDetails
+                  hideTitle
+                  fieldsNotRequired
+                  boatTypes={showBoatTypes ? boatTypes : undefined}
+                />
+              )
+            }}
             steps={steps}
-            services={services}
-            hideApplicationSelector={hero === 'winter'}
+            services={{
+              selectedServices,
+              selectService,
+              deselectService,
+              label: `form.services.field.${hero}.services.label`,
+              available: services
+            }}
+            showApplicationSelector={showApplicationSelector}
           />
           <TabSelector
             progress={this.moveToForm}
