@@ -12,7 +12,7 @@ export type SelectedServicesFactory = Record.Factory<SelectedServicesProps>;
 export type SelectedServices = RecordOf<SelectedServicesProps>;
 export type BerthsServices = keyof SelectedServicesProps;
 
-interface SelectedWinterServicesProps {
+export interface SelectedWinterServicesProps {
   electricity: boolean;
   water: boolean;
   gate: boolean;
