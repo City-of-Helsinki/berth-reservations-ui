@@ -14,7 +14,7 @@ interface BerthsProps {
   berthLimit: number;
 }
 
-interface ApplicationProps {
+export interface ApplicationProps {
   berthSwitch: BerthSwitchInput;
   selectedApplicationType: ApplicationOptions;
 }

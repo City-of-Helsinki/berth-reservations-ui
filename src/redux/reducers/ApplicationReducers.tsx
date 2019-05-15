@@ -1,12 +1,13 @@
 import { Record } from 'immutable';
 
 import { ApplicationOptions } from '../../types/applicationType';
-import { Action, ApplicationFactory, ApplicationState } from '../types';
+import { Action, ApplicationFactory, ApplicationProps, ApplicationState } from '../types';
 
-const initState = {
+const initState: ApplicationProps = {
   selectedApplicationType: ApplicationOptions.ExchangeApplication,
   berthSwitch: {
     harborId: '',
+    pier: '',
     berthNumber: ''
   }
 };

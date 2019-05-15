@@ -3,22 +3,21 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Record } from 'immutable';
 import { FormattedMessage } from 'react-intl';
-import { ApplicationFactory } from '../../../../../redux/types';
+import { ApplicationFactory, ApplicationProps } from '../../../../../redux/types';
 import { ApplicationOptions } from '../../../../../types/applicationType';
 import OldBerthInfo from './OldBerthInfo';
 describe('fragments/ExchangeApplication', () => {
-  const defaultApplication: ApplicationFactory = Record({
+  const defaultData: ApplicationProps = {
     selectedApplicationType: ApplicationOptions.NewApplication,
     berthSwitch: {
       harborId: '',
       berthNumber: ''
     }
-  });
-
-  const defaultData = defaultApplication();
+  };
+  const defaultApplication: ApplicationFactory = Record(defaultData);
 
   const getWrapper = (props?: object) =>
-    shallow(<OldBerthInfo application={defaultData} {...props} />);
+    shallow(<OldBerthInfo application={defaultApplication()} {...props} />);
   test('render normally', () => {
     const wrapper = getWrapper();
 
