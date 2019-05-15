@@ -16,13 +16,19 @@ const BoatTypeAndModel = ({ boatTypeId, boatModel, boatTypes }: Props) => {
   return (
     <Row>
       <Col md={boatModel ? 6 : 12}>
-        <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
-        {boatType && <span className="vene-form__data">{boatType.name}</span>}
+        <div className="vene-overview-info__boat-info">
+          <FormattedMessage tagName="span" id="page.overview.info.boat_type" />
+          <span>:</span>
+          <span className="vene-form__data">{boatType ? boatType.name : '-'}</span>
+        </div>
       </Col>
       {boatModel && (
         <Col md={6}>
-          <FormattedMessage tagName="span" id="page.overview.info.boat_model" />:
-          <span className="vene-form__data">{boatModel}</span>
+          <div className="vene-overview-info__boat-info">
+            <FormattedMessage tagName="span" id="page.overview.info.boat_model" />
+            <span>:</span>
+            <span className="vene-form__data">{boatModel}</span>
+          </div>
         </Col>
       )}
     </Row>

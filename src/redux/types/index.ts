@@ -16,9 +16,7 @@ interface BerthsProps {
 
 interface ApplicationProps {
   berthSwitch: BerthSwitchInput;
-  selectedApplicationType:
-    | ApplicationOptions.ExchangeApplication
-    | ApplicationOptions.NewApplication;
+  selectedApplicationType: ApplicationOptions;
 }
 
 interface WinterAreasProps {

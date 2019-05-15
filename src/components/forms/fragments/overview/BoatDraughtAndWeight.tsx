@@ -11,13 +11,19 @@ interface Props {
 const BoatDraughtAndWeight = ({ draught, weight }: Props) => (
   <Row>
     <Col md={6}>
-      <FormattedMessage tagName="span" id="page.overview.info.boat_draught" />:
-      <span className="vene-form__data">{draught}m</span>
+      <div className="vene-overview-info__boat-info">
+        <FormattedMessage tagName="span" id="page.overview.info.boat_draught" />
+        <span>:</span>
+        <span className="vene-form__data">{draught}m</span>
+      </div>
     </Col>
     <Col md={6}>
-      <FormattedMessage tagName="span" id="page.overview.info.boat_weight" />:
-      <span className="vene-form__data">{weight}</span>
-      kg
+      <div className="vene-overview-info__boat-info">
+        <FormattedMessage tagName="span" id="page.overview.info.boat_weight" />
+        <span>:</span>
+        <span className="vene-form__data">{weight}</span>
+        kg
+      </div>
     </Col>
   </Row>
 );
