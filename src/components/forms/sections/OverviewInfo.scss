@@ -5,7 +5,15 @@
   background-color: $hel-light;
   padding: 1.5em;
   margin-bottom: 2em;
+  &__boat-info {
+    span {
+      font-weight: $font-weight-bold;
 
+      &:last-child {
+        font-weight: $font-weight-normal;
+      }
+    }
+  }
   &__header {
     border-bottom: 1px solid $hel-black;
     padding-left: 0px;

@@ -11,12 +11,18 @@ interface Props {
 const BoatMeasures = ({ width, length }: Props) => (
   <Row>
     <Col md={6}>
-      <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:
-      <span className="vene-form__data">{width}m</span>
+      <div className="vene-overview-info__boat-info">
+        <FormattedMessage tagName="span" id="page.overview.info.boat_width" />
+        <span>:</span>
+        <span className="vene-form__data">{width}m</span>
+      </div>
     </Col>
     <Col md={6}>
-      <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:
-      <span className="vene-form__data">{length}m</span>
+      <div className="vene-overview-info__boat-info">
+        <FormattedMessage tagName="span" id="page.overview.info.boat_length" />
+        <span>:</span>
+        <span className="vene-form__data">{length}m</span>
+      </div>
     </Col>
   </Row>
 );
