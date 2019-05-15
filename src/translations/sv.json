@@ -2,7 +2,7 @@
   "error.message.invalid_berth_selection": "Det finns förmodligen inte platser för din båttyp i alla hamnar som du valt.",
   "error.message.invalid_berth": "Det finns förmodligen inte platser för din båttyp i denna hamn.",
   "storybook.dummy.label": "dummy",
-  "site.berths.title": "Ansökan om båtplats",
+  "site.berth.title": "Ansökan om båtplats",
   "site.winter.link.front_page": "Till förstasidan",
   "site.language.fi": "Suomeksi",
   "site.language.sv": "På svenska",
@@ -10,9 +10,9 @@
 
   "site.buttons.back_to_frontpage": "Tillbaka till förstasidan",
 
-  "hero.berths.title": "Ansökan om båtplats i Helsingfors båthamnar",
-  "hero.berths.paragraph.first": "I denna tjänst kan du bläddra bland Helsingfors stads båthamnar och göra en ny ansökan om båtplats i önskade hamnar. ",
-  "hero.berths.paragraph.second": "Obs! Läs igenom anvisningarna för val av hamnar samt information om utdelningsgrunderna för båtplatser och om tidsschemat för handläggningen av ansökningar på <a href='{url}'>hel.fi</a> innan du fyller i ansökan.",
+  "hero.berth.title": "Ansökan om båtplats i Helsingfors båthamnar",
+  "hero.berth.paragraph.first": "I denna tjänst kan du bläddra bland Helsingfors stads båthamnar och göra en ny ansökan om båtplats i önskade hamnar. ",
+  "hero.berth.paragraph.second": "Obs! Läs igenom anvisningarna för val av hamnar samt information om utdelningsgrunderna för båtplatser och om tidsschemat för handläggningen av ansökningar på <a href='{url}'>hel.fi</a> innan du fyller i ansökan.",
   "hero.winter.title": "Applying for a Winter Storage Space",
   "hero.winter.paragraph.first": "Here you can browse through the winter storage areas for boats in Helsinki and submit a new application to the areas of your choice. Appointed spaces very rarely free up so be sure to select also areas with no appointed spaces for your application.",
   "hero.winter.paragraph.second": "NOTE! Please read the instructions on selecting areas as well as further details concerning the principles of assigning spaces and the processing times for applications on the <a href='{url}'>hel.fi</a> website before completing your application. <br/>If you are interested in storing your boat in water over the winter, please contact us for details.</p>",
@@ -73,8 +73,8 @@
   "page.berths.list.header.others": "Övriga hamnar:",
   "page.berths.appointed": "Appointed spaces",
 
-  "legend.berths.title": "Hurdan båtplats söker du?",
-  "legend.berths.legend": "Bläddra bland stadens hamnar och båtplatser. Välj högst tio lämpliga hamnar i din ansökan.",
+  "legend.berth.title": "Hurdan båtplats söker du?",
+  "legend.berth.legend": "Bläddra bland stadens hamnar och båtplatser. Välj högst tio lämpliga hamnar i din ansökan.",
   "legend.selected_berths.title": "Kontroll av hamnar",
   "legend.selected_berths.legend": "Kontrollera de valda hamnarna och huruvida de lämpar sig för din båt. Ordna de valda hamnarna i prioritetsordning.",
   "legend.boat.title": "Uppgifter om båten",
@@ -86,6 +86,11 @@
   "legend.thankyou.title": "Tack, din ansökan har skickats!",
   "legend.thankyou.legend.regards": "Med vänlig hälsning,",
   "legend.thankyou.legend.contact_information": "Helsingfors stads båtplatsbokningar<br/>venepaikkavaraukset@hel.fi<br/>Telefonrådgivning må–fr kl. 9–14 på numret 09 310 87900.<br/>Betjäningstid vardagar kl. 9–16 i Tölö Sporthall på Paavo Nurmis gränd 1 E.",
+
+  "legend.winter.title": "Browse and Select Winter Storage Areas",
+  "legend.winter.legend": "Submit the details of the boat you will be storing. The list of areas will be filtered according to your specifications. You can also define what services you require from the area.",
+  "legend.selected_areas.title": "Review storage areas",
+  "legend.selected_areas.legend": "Review the winter storage areas you have chosen and their suitability for your boat. Order the areas you have chosen by preference.",
 
   "form.wizard.button.previous": "Föregående sida",
   "form.wizard.button.invalid": "Fyll i formuläret för att fortsätta",
@@ -238,7 +243,8 @@
   "form.overview.field.other_cultural_services.label": "övriga kulturtjänster",
   "form.overview.header.agreement.title": "Jag intygar att uppgifterna är korrekta.",
 
-  "form.services.field.services.label": "Välj önskade hamntjänster:",
+  "form.services.field.berth.services.label": "Välj önskade hamntjänster:",
+  "form.services.field.winter.services.label": "Select the area facilities you need:",
   "form.services.field.electricity.label": "El",
   "form.services.field.water.label": "Vatten",
   "form.services.field.waste_collection.label": "Avfallshantering",

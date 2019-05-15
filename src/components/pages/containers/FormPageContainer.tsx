@@ -7,7 +7,6 @@ import { onSubmit } from '../../../redux/actions/FormActions';
 import { withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../FormPage';
 
-import { APPLICATION_OPTIONS } from '../../../constants/ApplicationConstants';
 import { BOAT_TYPES_BERTHS_QUERY, CREATE_RESERVATION } from '../../../utils/graphql';
 
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
@@ -16,6 +15,7 @@ import Overview from '../../forms/sections/Overview';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 
 import { ApplicationState, Store } from '../../../redux/types';
+import { ApplicationOptions } from '../../../types/applicationType';
 import { Berths } from '../../berths/types';
 
 interface Props {
@@ -110,7 +110,7 @@ const FormPageContainer = ({ selectedBerths, localePush, tab, application, ...re
                 ...values
               }
             },
-            APPLICATION_OPTIONS.EXCHANGE_APPLICATION === application.selectedApplicationType && {
+            ApplicationOptions.ExchangeApplication === application.selectedApplicationType && {
               berthSwitch: application.berthSwitch
             }
           );

@@ -1,9 +1,10 @@
 import { Record } from 'immutable';
-import { APPLICATION_OPTIONS } from '../../constants/ApplicationConstants';
+
+import { ApplicationOptions } from '../../types/applicationType';
 import { Action, ApplicationFactory, ApplicationState } from '../types';
 
 const defaultState: ApplicationFactory = Record({
-  selectedApplicationType: APPLICATION_OPTIONS.NEW_APPLICATION,
+  selectedApplicationType: ApplicationOptions.NewApplication,
   berthSwitch: {
     harborId: '',
     berthNumber: ''

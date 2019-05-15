@@ -85,6 +85,10 @@ const UnconnectedSelectedBerthPage = (props: Props) => {
             boatTypes={boatTypes}
             steps={steps}
             data={data || null}
+            legend={{
+              title: 'legend.selected_berths.title',
+              legend: 'legend.selected_berths.legend'
+            }}
             {...props}
           />
         );

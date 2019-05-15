@@ -16,8 +16,6 @@ import { Berths } from '../../berths/types';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 
-import { APPLICATION_OPTIONS } from '../../../constants/ApplicationConstants';
-
 interface Props {
   selectedBerths: Berths;
   selectedServices: SelectedServices;
@@ -85,8 +83,11 @@ const UnconnectedSelectedBerthPage = (props: Props) => {
             boatTypes={boatTypes}
             steps={steps}
             data={data || null}
-            selectedApplicationType={APPLICATION_OPTIONS.NEW_APPLICATION}
             initialValues={{}}
+            legend={{
+              title: 'legend.selected_areas.title',
+              legend: 'legend.selected_areas.legend'
+            }}
             {...props}
           />
         );

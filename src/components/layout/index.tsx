@@ -7,11 +7,13 @@ import Footer from './Footer';
 import KoroSection from './KoroSection';
 import Navbar from './Navbar';
 
+import { FormMode } from '../../types/form';
+
 import './Layout.scss';
 
 type Props = {
   children: any;
-  hero?: 'berths' | 'winter';
+  hero?: FormMode;
 } & InjectedIntlProps;
 
 const getHeroContentLink = (locale: string) => {
@@ -31,7 +33,7 @@ const Layout = ({ children, hero, intl: { locale } }: Props) => (
     {hero && (
       <div
         className={classNames('vene-layout__hero', {
-          'vene-layout__hero--winter': hero === 'winter'
+          'vene-layout__hero--winter': hero === FormMode.Winter
         })}
       >
         <Container>

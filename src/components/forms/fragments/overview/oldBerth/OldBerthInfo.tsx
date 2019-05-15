@@ -2,8 +2,8 @@ import get from 'lodash/get';
 import React, { Fragment, SFC } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Row } from 'reactstrap';
-import { APPLICATION_OPTIONS } from '../../../../../constants/ApplicationConstants';
 import { ApplicationState } from '../../../../../redux/types';
+import { ApplicationOptions } from '../../../../../types/applicationType';
 import { GET_HARBOR_NAME } from '../../../../../utils/graphql';
 import Icon from '../../../../common/Icon';
 import LocalizedLink from '../../../../common/LocalizedLink';
@@ -14,7 +14,7 @@ const OldBerthInfo: SFC<{ application?: ApplicationState }> = ({ application }) 
   return (
     <Fragment>
       {application &&
-      application.selectedApplicationType === APPLICATION_OPTIONS.EXCHANGE_APPLICATION ? (
+      application.selectedApplicationType === ApplicationOptions.ExchangeApplication ? (
         <Fragment>
           <Row>
             <Col xs={8} md={10} className="vene-overview-info__header">

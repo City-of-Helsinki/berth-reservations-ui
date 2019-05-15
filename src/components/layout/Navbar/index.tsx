@@ -24,7 +24,7 @@ const Navbar = () => {
         <Container>
           <BSNavbar expand="md">
             <NavbarBrand href="berths">
-              <FormattedMessage id="site.berths.title" />
+              <FormattedMessage id="site.berth.title" />
             </NavbarBrand>
             <NavbarBrand href="winter_storage">
               <FormattedMessage id="site.winter.title" />
