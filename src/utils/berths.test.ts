@@ -2,11 +2,25 @@ import { List, Record } from 'immutable';
 
 import { createBerth } from '../__fixtures__/berthFixture';
 import { winterArea } from '../__fixtures__/winterStorageFixture';
-import { genValidSelector, getBerthFilterByValues, isBerthSelected } from './berths';
+import { convertCmToM, genValidSelector, getBerthFilterByValues, isBerthSelected } from './berths';
 
 import { SelectedServicesProps } from '../types/services';
 
 describe('utils/berths', () => {
+  describe('convertCmToM', () => {
+    test('should convert centimeters to meters', () => {
+      expect(convertCmToM(100)).toBe(1);
+    });
+
+    test('should return null when the supplied parameter is null', () => {
+      expect(convertCmToM(null)).toBeNull();
+    });
+
+    test('should return undefined when the parameter is undefined', () => {
+      expect(convertCmToM()).toBeUndefined();
+    });
+  });
+
   describe('getBerthFilterByValues', () => {
     const createValues = (values?: {}) => ({
       boatLength: '10.2',

@@ -16,6 +16,13 @@ import { BoatTypesBerthsQuery_harbors } from './__generated__/BoatTypesBerthsQue
 import { WinterAreasQuery_winterStorageAreas } from './__generated__/WinterAreasQuery';
 
 /**
+ * Utility function that converts centimeters to meters.
+ * @param length A number to be converted, it accepts null values as well.
+ * @returns A converted number or an undefined/null value based on the parameter .
+ */
+export const convertCmToM = (length?: number | null) => length && length / 100;
+
+/**
  * Utility function that checks a supplied berth/winter area against filter values and selected services.
  * @param values An object that has properties of filter values.
  * @param selectedServices An immutable record of the selected services.
@@ -27,7 +34,7 @@ export const getBerthFilterByValues = (
 ) => {
   const width = Number(get(values, 'boatWidth', '').replace(',', '.')) * 100;
   const length = Number(get(values, 'boatLength', '').replace(',', '.')) * 100;
-  const boatType = get(values, 'boatType', '').replace(',', '.');
+  const boatType = get(values, 'boatType', '');
   const services = Object.entries(selectedServices.toObject())
     .filter(([, state]) => state)
     .map(([type]) => type);

@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 import { Alert, Button, Col, Popover, PopoverBody, Row } from 'reactstrap';
 
-import { genValidSelector } from '../../../utils/berths';
+import { convertCmToM, genValidSelector } from '../../../utils/berths';
 import Icon from '../../common/Icon';
 import Image from '../../common/Image';
 import IntlComponent from '../../common/IntlComponent';
@@ -43,8 +43,8 @@ class Berth extends Component<Props, State> {
   };
 
   getBerthDetails = (berth: BerthType | WinterStorageType) => {
-    const maximumWidth = berth.maximumWidth && berth.maximumWidth / 100;
-    const maximumLength = berth.maximumLength && berth.maximumLength / 100;
+    const maximumWidth = convertCmToM(berth.maximumWidth);
+    const maximumLength = convertCmToM(berth.maximumLength);
 
     switch (berth.__typename) {
       case 'HarborType':
