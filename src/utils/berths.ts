@@ -15,6 +15,12 @@ import { WinterStorageType } from '../types/winterStorage';
 import { BoatTypesBerthsQuery_harbors } from './__generated__/BoatTypesBerthsQuery';
 import { WinterAreasQuery_winterStorageAreas } from './__generated__/WinterAreasQuery';
 
+/**
+ * Utility function that checks a supplied berth/winter area against filter values and selected services.
+ * @param values An object that has properties of filter values.
+ * @param selectedServices An immutable record of the selected services.
+ * @returns A boolean of true value when the supplied berth/winter area meets the filter conditions, otherwise false.
+ */
 export const getBerthFilterByValues = (
   values: {},
   selectedServices: SelectedServices | SelectedWinterServices
