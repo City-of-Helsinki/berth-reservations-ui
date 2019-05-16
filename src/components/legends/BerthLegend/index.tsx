@@ -52,9 +52,9 @@ const BerthsLegend = ({ form, legend, steps, services, showApplicationSelector }
     <Container>
       <Row>
         <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-          {steps && <Steps steps={steps} />}
-
           {showApplicationSelector && <ApplicationSelector />}
+
+          {steps && <Steps steps={steps} />}
 
           {legend && (
             <div className="vene-berths-legend__header">

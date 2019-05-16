@@ -3,13 +3,15 @@ $selectorBorderWidth: 2px;
 
 .vene-application-selector {
   background: $hel-fog;
-  padding: 2em 0;
+  padding: 1.5em 0;
+  margin-top: 3em;
   border-top: $selectorBorderWidth solid $hel-black;
   border-bottom: $selectorBorderWidth solid $hel-black;
 
   .vene-input {
     width: 50%;
   }
+
   &__input-wrapper {
     display: flex;
     flex-direction: row;
