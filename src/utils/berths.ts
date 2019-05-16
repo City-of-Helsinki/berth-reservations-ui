@@ -1,8 +1,13 @@
 import { List } from 'immutable';
-import { get } from 'lodash';
+import get from 'lodash/get';
 
 import { Berths } from '../components/berths/types';
-import { SelectedServices } from '../types/services';
+import {
+  SelectedServices,
+  SelectedServicesProps,
+  SelectedWinterServices,
+  SelectedWinterServicesProps
+} from '../types/services';
 
 import { BerthType } from '../types/berth';
 import { WinterStorageType } from '../types/winterStorage';
@@ -10,21 +15,55 @@ import { WinterStorageType } from '../types/winterStorage';
 import { BoatTypesBerthsQuery_harbors } from './__generated__/BoatTypesBerthsQuery';
 import { WinterAreasQuery_winterStorageAreas } from './__generated__/WinterAreasQuery';
 
-export const getBerthFilterByValues = (values: {}, selectedServices: SelectedServices) => {
+/**
+ * Utility function that converts centimeters to meters.
+ * @param length A number to be converted, it accepts null values as well.
+ * @returns A converted number or an undefined/null value based on the parameter .
+ */
+export const convertCmToM = (length?: number | null) => length && length / 100;
+
+/**
+ * Utility function that checks a supplied berth/winter area against filter values and selected services.
+ * @param values An object that has properties of filter values.
+ * @param selectedServices An immutable record of the selected services.
+ * @returns A boolean of true value when the supplied berth/winter area meets the filter conditions, otherwise false.
+ */
+export const getBerthFilterByValues = (
+  values: {},
+  selectedServices: SelectedServices | SelectedWinterServices
+) => {
   const width = Number(get(values, 'boatWidth', '').replace(',', '.')) * 100;
   const length = Number(get(values, 'boatLength', '').replace(',', '.')) * 100;
-  const boatType = get(values, 'boatType', '').replace(',', '.');
+  const boatType = get(values, 'boatType', '');
   const services = Object.entries(selectedServices.toObject())
     .filter(([, state]) => state)
     .map(([type]) => type);
-  return (b: any) => {
-    const filterByService = services.reduce((acc, cur) => acc && b[cur], true);
-    const filterByWidth = Number(b.maximumWidth) >= width;
-    const filterByLength = Number(b.maximumLength) >= length;
-    const filterByBoatTypeIds =
-      boatType && b.suitableBoatTypes
-        ? !!b.suitableBoatTypes.find((type: { id: string }) => type.id === boatType)
-        : true;
+
+  return (b: BerthType | WinterStorageType) => {
+    const filterByWidth = b.maximumWidth ? Number(b.maximumWidth) >= width : true;
+    const filterByLength = b.maximumLength ? Number(b.maximumLength) >= length : true;
+    let filterByService = true;
+    let filterByBoatTypeIds = true;
+
+    switch (b.__typename) {
+      case 'HarborType':
+        filterByService = (services as Array<keyof SelectedServicesProps>).reduce<boolean>(
+          (acc, service) => acc && !!b[service],
+          true
+        );
+        filterByBoatTypeIds =
+          boatType && b.suitableBoatTypes
+            ? !!b.suitableBoatTypes.find(type => !!type && type.id === boatType)
+            : true;
+        break;
+
+      default:
+        filterByService = (services as Array<keyof SelectedWinterServicesProps>).reduce<boolean>(
+          (acc, service) => acc && !!b[service],
+          true
+        );
+        break;
+    }
     return filterByService && filterByWidth && filterByLength && filterByBoatTypeIds;
   };
 };

@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 import { Alert, Button, Col, Popover, PopoverBody, Row } from 'reactstrap';
 
-import { genValidSelector } from '../../../utils/berths';
+import { convertCmToM, genValidSelector } from '../../../utils/berths';
 import Icon from '../../common/Icon';
 import Image from '../../common/Image';
 import IntlComponent from '../../common/IntlComponent';
@@ -43,6 +43,9 @@ class Berth extends Component<Props, State> {
   };
 
   getBerthDetails = (berth: BerthType | WinterStorageType) => {
+    const maximumWidth = convertCmToM(berth.maximumWidth);
+    const maximumLength = convertCmToM(berth.maximumLength);
+
     switch (berth.__typename) {
       case 'HarborType':
         return [
@@ -55,7 +58,7 @@ class Berth extends Component<Props, State> {
           <BerthDetails
             key="maximumWidth"
             available
-            value={berth.maximumWidth}
+            value={maximumWidth}
             titleId="page.berths.maximum_width"
           />,
           <BerthDetails
@@ -95,13 +98,13 @@ class Berth extends Component<Props, State> {
           <BerthDetails
             key="maximumWidth"
             available
-            value={berth.maximumWidth}
+            value={maximumWidth}
             titleId="page.berths.maximum_length"
           />,
           <BerthDetails
             key="maximumLength"
             available
-            value={berth.maximumLength}
+            value={maximumLength}
             titleId="page.berths.maximum_width"
           />,
           <BerthDetails
