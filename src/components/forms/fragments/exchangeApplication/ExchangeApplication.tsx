@@ -14,7 +14,7 @@ const ExchangeApplication: FC<{
   return (
     <div className="vene-exchange-application">
       <div className="vene-exchange-application__title">
-        <FormattedMessage tagName="h1" id="page.berth.exchange_application.current_berth.title" />
+        <FormattedMessage tagName="h3" id="page.berth.exchange_application.current_berth.title" />
         <FormattedMessage
           tagName="p"
           id="page.berth.exchange_application.current_berth.info_text"
