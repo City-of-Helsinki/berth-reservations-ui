@@ -110,7 +110,7 @@ class SelectedBerthPage extends Component<Props> {
                       </div>
                     )}
 
-                    <FormattedMessage tagName="h1" id="page.berth.selected.title" />
+                    <FormattedMessage tagName="h3" id="page.berth.selected.title" />
                     <hr />
                     {boatType ? (
                       <Container>

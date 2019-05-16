@@ -149,7 +149,12 @@ const FormPageContainer = ({ selectedBerths, localePush, tab, application, ...re
             <BoatDetails tab={tab} values={{}} boatTypes={boatTypes} />
             <ApplicantDetails tab={tab} />
             {!loading && (
-              <Overview selectedBerths={selectedBerths} boatTypes={boatTypes} tabs={tabs} />
+              <Overview
+                selectedBerths={selectedBerths}
+                boatTypes={boatTypes}
+                tabs={tabs}
+                application={application}
+              />
             )}
           </FormPage>
         );

@@ -1,0 +1,19 @@
+@import 'helsinki/fonts';
+$berthDataPaddingSpace: 10px;
+
+.vene-overview-info {
+  &__old-berth-info {
+    &__name,
+    &__pier,
+    &__berth-number {
+      span {
+        font-weight: $font-weight-bold;
+
+        &:last-child {
+          font-weight: $font-weight-normal;
+          margin-left: $berthDataPaddingSpace;
+        }
+      }
+    }
+  }
+}
