@@ -1,15 +1,20 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { createBrowserHistory } from 'history';
+import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import { persistReducer, persistStore } from 'redux-persist';
+
+import { routerMiddleware } from 'connected-react-router';
 import promiseMiddleware from 'redux-promise-middleware';
 import thunk from 'redux-thunk';
-import rootReducer from '../reducers';
+import createRootReducer from '../reducers';
 import persistConfig from './persist';
 
-const enhancers: any[] = [];
-const middlewares = [thunk, promiseMiddleware()];
+export const history = createBrowserHistory();
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const enhancers: any[] = [];
+const middlewares = [routerMiddleware(history), thunk, promiseMiddleware()];
+
+const persistedReducer = persistReducer(persistConfig, createRootReducer(history));
 
 const composedEnhancers = composeWithDevTools(applyMiddleware(...middlewares), ...enhancers);
 

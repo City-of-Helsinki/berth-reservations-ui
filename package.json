@@ -32,9 +32,11 @@
     "@types/redux-persist": "^4.3.1",
     "@types/redux-promise-middleware": "^0.0.11",
     "@types/redux-thunk": "^2.1.0",
+    "@types/reselect": "^2.2.0",
     "@types/typescript": "^2.0.0",
     "apollo-boost": "^0.3.1",
     "classnames": "^2.2.6",
+    "connected-react-router": "^6.4.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "final-form": "^4.11.0",
     "graphql": "^14.2.1",
@@ -66,6 +68,7 @@
     "redux-persist": "^5.10.0",
     "redux-promise-middleware": "^5.1.1",
     "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
     "typescript": "^3.4.1"
   },
   "scripts": {

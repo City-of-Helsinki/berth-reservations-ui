@@ -2,19 +2,19 @@ import '@babel/polyfill';
 import 'react-app-polyfill/ie11';
 
 import * as Sentry from '@sentry/browser';
-import createHistory from 'history/createBrowserHistory';
+import { ConnectedRouter } from 'connected-react-router';
 import PiwikReactRouter from 'piwik-react-router';
 import React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Redirect, Route, Router, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import './assets/styles/main.scss';
 
 import initApolloClient from './config/initApolloClient';
-import configureStore from './redux/store/configureStore';
+import configureStore, { history } from './redux/store/configureStore';
 import * as serviceWorker from './serviceWorker';
 
 import App from './components/containers/AppContainer';
@@ -25,8 +25,6 @@ const {
   REACT_APP_SENTRY_DSN,
   REACT_APP_SENTRY_ENVIRONMENT
 } = process.env;
-
-const history = createHistory();
 
 const piwik = PiwikReactRouter({
   url: REACT_APP_PIWIK_URL,
@@ -45,12 +43,12 @@ const Root = () => (
   <ApolloProvider client={client}>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <Router history={piwik.connectToHistory(history)}>
+        <ConnectedRouter history={piwik.connectToHistory(history)}>
           <Switch>
             <Redirect exact path="/" to="/fi" />
             <Route path="/:locale" component={App} />
           </Switch>
-        </Router>
+        </ConnectedRouter>
       </PersistGate>
     </Provider>
   </ApolloProvider>
