@@ -13,7 +13,7 @@ export default (state: StepsState = defaultState(), action: Action): StepsState 
   const { type, payload } = action;
   switch (type) {
     case 'GENERATE_STEPS':
-      const { routeNames, urlPrefix } = action.payload;
+      const { routeNames, urlPrefix } = payload;
 
       const steps = generateSteps(routeNames, urlPrefix);
 

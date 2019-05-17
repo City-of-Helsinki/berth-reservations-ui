@@ -32,7 +32,6 @@
     "@types/redux-persist": "^4.3.1",
     "@types/redux-promise-middleware": "^0.0.11",
     "@types/redux-thunk": "^2.1.0",
-    "@types/reselect": "^2.2.0",
     "@types/typescript": "^2.0.0",
     "apollo-boost": "^0.3.1",
     "classnames": "^2.2.6",

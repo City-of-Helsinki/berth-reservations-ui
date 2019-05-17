@@ -1,6 +1,11 @@
 import { createAction } from 'redux-actions';
 
-const generateSteps = createAction('GENERATE_STEPS');
+export interface GenerateStepPayload {
+  routeNames: string[];
+  urlPrefix: string;
+}
+
+const generateSteps = createAction('GENERATE_STEPS', (payload: GenerateStepPayload) => payload);
 const selectStep = createAction('SELECT_STEP');
 const resetSteps = createAction('RESET_STEPS');
 

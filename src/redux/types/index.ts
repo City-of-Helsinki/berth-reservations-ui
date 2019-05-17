@@ -1,3 +1,4 @@
+import { RouterState } from 'connected-react-router';
 import { Record, RecordOf } from 'immutable';
 import { BerthSwitchInput } from '../../__generated__/globalTypes';
 import { Berths } from '../../components/berths/types';
@@ -47,6 +48,7 @@ export interface Store {
   winterAreas: WinterAreasState;
   application: ApplicationState;
   steps: StepsState;
+  router: RouterState;
 }
 
 export interface Action {
