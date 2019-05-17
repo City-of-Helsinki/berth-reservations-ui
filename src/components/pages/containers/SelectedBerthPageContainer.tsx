@@ -35,7 +35,7 @@ const steps = [
     linkTo: `berths`
   },
   {
-    key: 'selected_berths',
+    key: 'selected',
     completed: false,
     current: true,
     linkTo: undefined

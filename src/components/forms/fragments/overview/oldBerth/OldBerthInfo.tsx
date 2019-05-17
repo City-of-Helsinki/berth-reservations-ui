@@ -24,7 +24,7 @@ const OldBerthInfo: SFC<{ application?: ApplicationState }> = ({ application }) 
               />
             </Col>
             <Col xs={4} md={2} className="vene-overview-info__edit-icon">
-              <LocalizedLink to={`selected_berths`} className="vene-overview-info__edit-link">
+              <LocalizedLink to={`berths/selected`} className="vene-overview-info__edit-link">
                 <Icon name="pencil" />
                 <FormattedMessage tagName="span" id="page.overview.info.edit" />
               </LocalizedLink>

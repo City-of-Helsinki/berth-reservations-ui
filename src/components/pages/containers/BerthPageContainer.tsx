@@ -44,7 +44,7 @@ const BerthPageContainer = (props: Props) => {
       linkTo: undefined
     },
     {
-      key: 'selected_berths',
+      key: 'selected',
       completed: false,
       current: false,
       linkTo: undefined
