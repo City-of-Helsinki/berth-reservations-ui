@@ -8,7 +8,6 @@ interface Props {
   current: boolean;
   label: string;
   linkTo?: string;
-  onSelect: Function;
 }
 
 export default class Step extends React.Component<Props> {
@@ -18,10 +17,10 @@ export default class Step extends React.Component<Props> {
   };
 
   render() {
-    const { completed, current, label, linkTo, onSelect } = this.props;
+    const { completed, current, label, linkTo } = this.props;
 
     return (
-      <div className="vene-step" onClick={() => onSelect()}>
+      <div className="vene-step">
         {linkTo && completed ? (
           <LocalizedLink to={linkTo}>
             <div className={classNames('vene-step__status', { completed, current })} />

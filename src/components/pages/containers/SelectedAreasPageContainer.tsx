@@ -28,7 +28,7 @@ interface Props {
 
 const UnconnectedSelectedBerthPage = (props: Props) => {
   const moveToForm = async () => {
-    await props.localePush('/winter_form/registered_boat');
+    await props.localePush('/winter_storage/form/registered_boat');
   };
 
   const handlePrevious = async () => {

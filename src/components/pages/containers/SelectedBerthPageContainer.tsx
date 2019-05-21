@@ -10,7 +10,7 @@ import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
 import { Berths } from '../../berths/types';
 
-import { getBerths } from '../../../utils/berths';
+import { completeStep } from '../../../redux/actions/StepsActions';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 
@@ -25,11 +25,13 @@ interface Props {
   selectedApplicationType: string;
   submitExchangeForm: Function;
   initialValues: {};
+  completeStep: Function;
 }
 
 const UnconnectedSelectedBerthPage = (props: Props) => {
   const moveToForm = async () => {
-    await props.localePush('/form/registered_boat');
+    props.completeStep('registered_boat');
+    await props.localePush('/berths/form/registered_boat');
   };
 
   const handlePrevious = async () => {
@@ -43,7 +45,6 @@ const UnconnectedSelectedBerthPage = (props: Props) => {
         // error, TODO: handle errors
         data
       }) => {
-        const berths = getBerths(data ? data.harbors : null);
         const boatTypes = !loading && data ? data.boatTypes : [];
         return (
           <SelectedBerthPage
@@ -77,7 +78,8 @@ export default compose<Props, {}>(
       deselectBerth,
       moveUp,
       moveDown,
-      submitExchangeForm
+      submitExchangeForm,
+      completeStep
     }
   )
 )(UnconnectedSelectedBerthPage);

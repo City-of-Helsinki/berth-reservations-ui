@@ -94,7 +94,7 @@ const FormPageContainer = ({ selectedBerths, localePush, tab, application, ...re
         const goBackwards = async (values: {}) => {
           await onSubmit(values);
           setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
-          await localePush('/selected');
+          await localePush('/selected_berths');
         };
 
         const goToStep = (nextStep: number) => (values: {}) => {

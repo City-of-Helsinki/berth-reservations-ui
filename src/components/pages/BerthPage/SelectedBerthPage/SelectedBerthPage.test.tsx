@@ -27,8 +27,7 @@ describe('pages/BerthPage/SelectedBerthPage', () => {
       boatTypes,
       harbors
     },
-    legend: { title: 'foo', legend: 'bar' },
-    steps: []
+    legend: { title: 'foo', legend: 'bar' }
   };
 
   const getWrapper = (props?: object) =>

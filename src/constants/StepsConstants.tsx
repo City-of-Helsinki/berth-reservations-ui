@@ -1,8 +1,6 @@
-import { ApplicationOptions } from '../types/applicationType';
-
 export const berthRoutes = [
   'berths',
-  'selected',
+  'selected_berths',
   'boat_information',
   'applicant',
   'send_application'

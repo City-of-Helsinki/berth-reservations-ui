@@ -16,7 +16,6 @@ import WinterAreasQuery from '../../query/WinterAreasQuery';
 import BerthPage from '../BerthPage';
 
 import { match as matchType } from 'react-router';
-import { generateSteps } from '../../../redux/actions/StepsActions';
 import { Store } from '../../../redux/types';
 import { CategoryOptions } from '../../../types/categoryType';
 import { FormMode } from '../../../types/form';
@@ -36,7 +35,6 @@ interface Props {
   deselectService: Function;
   onSubmit: Function;
   localePush: Function;
-  generateSteps: Function;
   match: matchType<{ category: CategoryOptions }>;
 }
 
@@ -118,7 +116,6 @@ export default compose<Props, {}>(
       onSubmit,
       selectService,
       deselectService,
-      generateSteps,
       selectBerth: selectWinterArea,
       deselectBerth: deselectWinterArea
     }

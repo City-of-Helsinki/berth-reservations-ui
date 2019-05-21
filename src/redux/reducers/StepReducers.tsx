@@ -19,14 +19,14 @@ export default (state: StepsState = defaultState(), action: Action): StepsState 
 
       return state.merge({ steps });
 
-    case 'SELECT_STEP':
-      const selectedIndex = action.payload;
-      state.setIn(['steps', selectedIndex, 'current'], true);
+    case 'COMPLETE_STEP':
+      const stepKey = action.payload;
+      const stepIndex = state.steps.findIndex(step => step.key === stepKey);
 
-      for (let i = 0; i <= selectedIndex; i = i + 1) {
-        state.setIn(['steps', i, 'completed'], true);
+      if (stepIndex !== -1) {
+        state.setIn(['steps', stepIndex, 'current'], true);
+        state.setIn(['steps', stepIndex, 'completed'], true);
       }
-
       return state;
 
     case 'RESET_STEPS':

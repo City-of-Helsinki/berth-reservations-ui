@@ -8,8 +8,6 @@ import {
   selectService
 } from '../../../redux/actions/BerthActions';
 
-import { generateSteps } from '../../../redux/actions/StepsActions';
-
 import { onSubmit } from '../../../redux/actions/FormActions';
 import { getBerths as getBerthsFromCache } from '../../../utils/berths';
 import { withMatchParamsHandlers } from '../../../utils/container';
@@ -35,7 +33,6 @@ interface Props {
   deselectBerth: Function;
   selectService: Function;
   deselectService: Function;
-  generateSteps: Function;
   onSubmit: Function;
   localePush: Function;
   berthLimit: number;
@@ -104,8 +101,7 @@ export default compose<Props, {}>(
       selectBerth,
       deselectBerth,
       selectService,
-      deselectService,
-      generateSteps
+      deselectService
     }
   )
 )(BerthPageContainer);

@@ -17,7 +17,6 @@ import { BerthsServices, SelectedServices, WinterServices } from '../../../types
 import { Berths as BerthsType } from '../../berths/types';
 
 import { match as matchType } from 'react-router';
-import { berthRoutes, winterRoutes } from '../../../constants/StepsConstants';
 import { CategoryOptions } from '../../../types/categoryType';
 import './BerthPage.scss';
 
@@ -42,7 +41,6 @@ interface Props {
   }>;
   hero?: FormMode;
   berthLimit: number;
-  generateSteps: Function;
   match: matchType<{ category: CategoryOptions }>;
 }
 
@@ -53,22 +51,10 @@ class BerthPage extends Component<Props> {
     window.scrollTo(0, 0);
   }
 
-  componentDidMount() {
-    const {
-      match: {
-        params: { category }
-      }
-    } = this.props;
-
-    this.props.generateSteps(
-      category === CategoryOptions.BERTHS ? berthRoutes : winterRoutes,
-      category
-    );
-  }
-
   moveToForm = async () => {
     const { hero, localePush } = this.props;
-    const path = hero === FormMode.Winter ? '/winter_storage/selected_areas' : '/berths/selected';
+    const path =
+      hero === FormMode.Winter ? '/winter_storage/selected_areas' : '/berths/selected_berths';
     await localePush(path);
   };
 

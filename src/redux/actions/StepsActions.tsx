@@ -4,7 +4,7 @@ const generateSteps = createAction('GENERATE_STEPS', (routeNames: string[], urlP
   routeNames,
   urlPrefix
 }));
-const selectStep = createAction('SELECT_STEP');
+const completeStep = createAction('COMPLETE_STEP');
 const resetSteps = createAction('RESET_STEPS');
 
-export { generateSteps, selectStep, resetSteps };
+export { generateSteps, completeStep, resetSteps };
