@@ -9,7 +9,7 @@ export const berthRoutes = [
 ];
 
 export const winterRoutes = [
-  'winter_storage',
+  'winter_areas',
   'review_areas',
   'boat_information',
   'applicant',

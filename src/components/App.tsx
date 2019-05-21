@@ -24,7 +24,6 @@ const App = ({ locale }: Props) => (
 
       <Route path={`/${localeParam}/${categoryParam}`} component={CategoryContainer} />
       <Route exact path={`/${localeParam}/thank_you`} component={ThankYouPage} />
-      <Route exact path={`/${localeParam}/selected_areas`} component={SelectedAreasPage} />
     </Switch>
   </IntlProvider>
 );

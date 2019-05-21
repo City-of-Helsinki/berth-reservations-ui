@@ -4,6 +4,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { CategoryOptions } from '../../../types/categoryType';
 import BerthPageContainer from './BerthPageContainer';
 import FormPageContainer from './FormPageContainer';
+import SelectedAreasPageContainer from './SelectedAreasPageContainer';
 import SelectedBerthPageContainer from './SelectedBerthPageContainer';
 import WinterBerthPageContainer from './WinterBerthPageContainer';
 import WinterFormPageContainer from './WinterFormPageContainer';
@@ -29,6 +30,7 @@ const CategoryContainer: SFC<RouteComponentProps<{ category: CategoryOptions }>>
         ))}
       {category === CategoryOptions.WINTER_STORAGE && (
         <Switch>
+          <Route exact path={`${path}/selected_areas`} component={SelectedAreasPageContainer} />
           <Route exact path={`${path}/form`} component={WinterFormPageContainer} />
           <Route exact path={`${path}/form/:tab`} component={WinterFormPageContainer} />
           <Route exact path={`${path}/`} component={WinterBerthPageContainer} />
