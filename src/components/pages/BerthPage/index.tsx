@@ -16,6 +16,9 @@ import { FormMode } from '../../../types/form';
 import { BerthsServices, SelectedServices, WinterServices } from '../../../types/services';
 import { Berths as BerthsType } from '../../berths/types';
 
+import { match as matchType } from 'react-router';
+import { berthRoutes, winterRoutes } from '../../../constants/StepsConstants';
+import { CategoryOptions } from '../../../types/categoryType';
 import './BerthPage.scss';
 
 interface Props {
@@ -39,6 +42,8 @@ interface Props {
   }>;
   hero?: FormMode;
   berthLimit: number;
+  generateSteps: Function;
+  match: matchType<{ category: CategoryOptions }>;
 }
 
 class BerthPage extends Component<Props> {
@@ -46,6 +51,19 @@ class BerthPage extends Component<Props> {
     super(props);
 
     window.scrollTo(0, 0);
+  }
+
+  componentDidMount() {
+    const {
+      match: {
+        params: { category }
+      }
+    } = this.props;
+
+    this.props.generateSteps(
+      category === CategoryOptions.BERTHS ? berthRoutes : winterRoutes,
+      category
+    );
   }
 
   moveToForm = async () => {

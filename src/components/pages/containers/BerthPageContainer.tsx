@@ -7,6 +7,9 @@ import {
   selectBerth,
   selectService
 } from '../../../redux/actions/BerthActions';
+
+import { generateSteps } from '../../../redux/actions/StepsActions';
+
 import { onSubmit } from '../../../redux/actions/FormActions';
 import { getBerths as getBerthsFromCache } from '../../../utils/berths';
 import { withMatchParamsHandlers } from '../../../utils/container';
@@ -15,7 +18,9 @@ import { IconNames } from '../../common/Icon';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 import BerthPage from '../BerthPage';
 
+import { match as matchType } from 'react-router';
 import { Store } from '../../../redux/types';
+import { CategoryOptions } from '../../../types/categoryType';
 import { FormMode } from '../../../types/form';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType } from '../../berths/types';
@@ -30,9 +35,11 @@ interface Props {
   deselectBerth: Function;
   selectService: Function;
   deselectService: Function;
+  generateSteps: Function;
   onSubmit: Function;
   localePush: Function;
   berthLimit: number;
+  match: matchType<{ category: CategoryOptions }>;
 }
 
 const BerthPageContainer = (props: Props) => {
@@ -97,7 +104,8 @@ export default compose<Props, {}>(
       selectBerth,
       deselectBerth,
       selectService,
-      deselectService
+      deselectService,
+      generateSteps
     }
   )
 )(BerthPageContainer);

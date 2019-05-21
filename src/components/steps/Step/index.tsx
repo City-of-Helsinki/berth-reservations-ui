@@ -22,7 +22,7 @@ export default class Step extends React.Component<Props> {
 
     return (
       <div className="vene-step" onClick={() => onSelect()}>
-        {linkTo ? (
+        {linkTo && completed ? (
           <LocalizedLink to={linkTo}>
             <div className={classNames('vene-step__status', { completed, current })} />
             <span className="vene-step__label">{label}</span>

@@ -21,7 +21,8 @@ const App = ({ locale }: Props) => (
   <IntlProvider locale={locale} key={locale} messages={messages[locale]}>
     <Switch>
       <Redirect exact path={`/${localeParam}/`} to={`/${localeParam}/${CategoryOptions.BERTHS}`} />
-      <Route exact path={`/${localeParam}/${categoryParam}`} component={CategoryContainer} />
+
+      <Route path={`/${localeParam}/${categoryParam}`} component={CategoryContainer} />
       <Route exact path={`/${localeParam}/thank_you`} component={ThankYouPage} />
       <Route exact path={`/${localeParam}/selected_areas`} component={SelectedAreasPage} />
     </Switch>

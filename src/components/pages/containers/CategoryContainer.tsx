@@ -1,35 +1,40 @@
 import React, { SFC } from 'react';
-import { Route } from 'react-router';
+import { Redirect, Route, Switch } from 'react-router';
 import { RouteComponentProps } from 'react-router-dom';
 import { CategoryOptions } from '../../../types/categoryType';
-import SelectedBerthPage from '../BerthPage/SelectedBerthPage/SelectedBerthPage';
 import BerthPageContainer from './BerthPageContainer';
 import FormPageContainer from './FormPageContainer';
+import SelectedBerthPageContainer from './SelectedBerthPageContainer';
 import WinterBerthPageContainer from './WinterBerthPageContainer';
 import WinterFormPageContainer from './WinterFormPageContainer';
 
 const CategoryContainer: SFC<RouteComponentProps<{ category: CategoryOptions }>> = ({
   match: {
-    params: { category }
+    params: { category },
+    path
   }
 }) => {
   return (
     <div className="vene-category-container">
       {!category ||
         (category === CategoryOptions.BERTHS && (
-          <>
-            <Route path="/" component={BerthPageContainer} />
-            <Route exact path={`/selected`} component={SelectedBerthPage} />
-            <Route exact path={`/form`} component={FormPageContainer} />
-            <Route exact path={`/form/:tab`} component={FormPageContainer} />
-          </>
+          <Switch>
+            <Route exact path={`${path}/selected`} component={SelectedBerthPageContainer} />
+            <Route exact path={`${path}/form`} component={FormPageContainer} />
+            <Route exact path={`${path}/form/:tab`} component={FormPageContainer} />
+            <Route exact path={`${path}/`} component={BerthPageContainer} />
+
+            <Redirect to={`${path}/`} />
+          </Switch>
         ))}
       {category === CategoryOptions.WINTER_STORAGE && (
-        <>
-          <Route path="/" component={WinterBerthPageContainer} />
-          <Route exact path={`/form`} component={WinterFormPageContainer} />
-          <Route exact path={`/form/:tab`} component={WinterFormPageContainer} />
-        </>
+        <Switch>
+          <Route exact path={`${path}/form`} component={WinterFormPageContainer} />
+          <Route exact path={`${path}/form/:tab`} component={WinterFormPageContainer} />
+          <Route exact path={`${path}/`} component={WinterBerthPageContainer} />
+
+          <Redirect to={`${path}/`} />
+        </Switch>
       )}
     </div>
   );
