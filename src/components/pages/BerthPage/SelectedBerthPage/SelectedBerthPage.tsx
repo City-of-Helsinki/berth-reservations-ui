@@ -39,12 +39,6 @@ export interface Props {
   values: {};
   initialValues: {};
   legend: { title: string; legend: string };
-  steps: Array<{
-    key: string;
-    completed: boolean;
-    current: boolean;
-    linkTo?: string;
-  }>;
 }
 
 class SelectedBerthPage extends Component<Props> {
@@ -74,7 +68,6 @@ class SelectedBerthPage extends Component<Props> {
       data,
       boatTypes,
       handlePrevious,
-      steps,
       legend
     } = this.props;
     const type = get(values, 'boatType');
@@ -94,7 +87,7 @@ class SelectedBerthPage extends Component<Props> {
         initialValues={initialValues}
         render={({ handleSubmit, invalid }) => (
           <Layout>
-            <SelectedBerthsLegend steps={steps} legend={legend} />
+            <SelectedBerthsLegend legend={legend} />
 
             <BTForm onSubmit={handleSubmit}>
               <Container className="vene-berth-page-selected__wrapper">
@@ -149,7 +142,7 @@ class SelectedBerthPage extends Component<Props> {
                     ) : (
                       <div className="vene-berth-page-selected__notice">
                         <Icon name="exclamationCircle" />
-                        <LocalizedLink to={steps[0].linkTo || ''}>
+                        <LocalizedLink to="">
                           <FormattedMessage tagName="span" id="page.berth.selected.info_text" />
                         </LocalizedLink>
                       </div>

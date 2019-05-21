@@ -6,8 +6,3 @@ export const pathNameSelector = createSelector(
   (state: Store) => state.router.location.pathname,
   pathname => pathname
 );
-
-export const paramsSelector = createSelector(
-  pathNameSelector,
-  pathName => createMatchSelector(pathName)
-);

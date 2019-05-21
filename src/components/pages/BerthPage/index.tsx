@@ -32,12 +32,6 @@ interface Props {
   localePush: Function;
   berths: BerthsType;
   boatTypes: BoatTypes;
-  steps: Array<{
-    key: string;
-    completed: boolean;
-    current: boolean;
-    linkTo?: string;
-  }>;
   services: Array<{
     label: string;
     value: BerthsServices | WinterServices;
@@ -80,7 +74,6 @@ class BerthPage extends Component<Props> {
       onSubmit,
       boatTypes,
       hero,
-      steps,
       services,
       berthLimit
     } = this.props;
@@ -110,7 +103,6 @@ class BerthPage extends Component<Props> {
                 />
               )
             }}
-            steps={steps}
             services={{
               selectedServices,
               selectService,

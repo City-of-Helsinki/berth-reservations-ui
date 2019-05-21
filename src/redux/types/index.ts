@@ -55,3 +55,10 @@ export interface Action {
   type: string;
   payload: any;
 }
+
+export interface RouteParams {
+  category?: string;
+  locale?: string;
+  view_name?: string;
+  tab?: string;
+}

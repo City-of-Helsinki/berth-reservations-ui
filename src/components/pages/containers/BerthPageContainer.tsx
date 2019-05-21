@@ -36,39 +36,6 @@ interface Props {
 }
 
 const BerthPageContainer = (props: Props) => {
-  const steps = [
-    {
-      key: 'berths',
-      completed: false,
-      current: true,
-      linkTo: undefined
-    },
-    {
-      key: 'selected',
-      completed: false,
-      current: false,
-      linkTo: undefined
-    },
-    {
-      key: 'boat_information',
-      completed: false,
-      current: false,
-      linkTo: undefined
-    },
-    {
-      key: 'applicant',
-      completed: false,
-      current: false,
-      linkTo: undefined
-    },
-    {
-      key: 'send_application',
-      completed: false,
-      current: false,
-      linkTo: undefined
-    }
-  ];
-
   const services: Array<{
     label: string;
     value: 'electricity' | 'water' | 'wasteCollection' | 'gate' | 'lighting';
@@ -108,7 +75,6 @@ const BerthPageContainer = (props: Props) => {
             hero={FormMode.Berth}
             berths={berths}
             boatTypes={boatTypes}
-            steps={steps}
             services={services}
           />
         );

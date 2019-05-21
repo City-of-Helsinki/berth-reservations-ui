@@ -26,39 +26,6 @@ interface Props {
   values: {};
 }
 
-const steps = [
-  {
-    key: 'winter_areas',
-    completed: true,
-    current: false,
-    linkTo: `winter_storage`
-  },
-  {
-    key: 'review_areas',
-    completed: false,
-    current: true,
-    linkTo: undefined
-  },
-  {
-    key: 'boat_information',
-    completed: false,
-    current: false,
-    linkTo: undefined
-  },
-  {
-    key: 'applicant',
-    completed: false,
-    current: false,
-    linkTo: undefined
-  },
-  {
-    key: 'send_application',
-    completed: false,
-    current: false,
-    linkTo: undefined
-  }
-];
-
 const UnconnectedSelectedBerthPage = (props: Props) => {
   const moveToForm = async () => {
     await props.localePush('/winter_form/registered_boat');
@@ -81,7 +48,6 @@ const UnconnectedSelectedBerthPage = (props: Props) => {
             handlePrevious={handlePrevious}
             moveToForm={moveToForm}
             boatTypes={boatTypes}
-            steps={steps}
             data={data || null}
             initialValues={{}}
             legend={{

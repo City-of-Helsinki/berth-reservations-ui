@@ -47,14 +47,14 @@ interface Props {
   };
 }
 
-const BerthsLegend = ({ form, legend, steps, services, showApplicationSelector }: Props) => (
+const BerthsLegend = ({ form, legend, services, showApplicationSelector }: Props) => (
   <div className="vene-berths-legend">
     <Container>
       <Row>
         <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
           {showApplicationSelector && <ApplicationSelector />}
 
-          {steps && <Steps steps={steps} />}
+          {<Steps />}
 
           {legend && (
             <div className="vene-berths-legend__header">

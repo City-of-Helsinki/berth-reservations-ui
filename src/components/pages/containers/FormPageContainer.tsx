@@ -45,39 +45,6 @@ const FormPageContainer = ({ selectedBerths, localePush, tab, application, ...re
     setTab(tab || mapSteps[currStep][0]);
   });
 
-  const steps = [
-    {
-      key: 'berths',
-      completed: true,
-      current: false,
-      linkTo: `berths`
-    },
-    {
-      key: 'selected',
-      completed: true,
-      current: false,
-      linkTo: `selected`
-    },
-    {
-      key: 'boat_information',
-      completed: step > 0,
-      current: step === 0,
-      linkTo: step > 0 ? `form/${tabs[0]}` : undefined
-    },
-    {
-      key: 'applicant',
-      completed: step > 1,
-      current: step === 1,
-      linkTo: step > 1 ? `form/${tabs[1]}` : undefined
-    },
-    {
-      key: 'send_application',
-      completed: step > 2,
-      current: step === 2,
-      linkTo: step > 2 ? `form/${tabs[2]}` : undefined
-    }
-  ];
-
   return (
     <BoatsBerthsQuery query={BOAT_TYPES_BERTHS_QUERY}>
       {({
@@ -137,15 +104,7 @@ const FormPageContainer = ({ selectedBerths, localePush, tab, application, ...re
         };
 
         return (
-          <FormPage
-            goForward={goForward}
-            goBackwards={goBackwards}
-            nextStep={goToStep(step + 1)}
-            prevStep={goToStep(step - 1)}
-            step={step}
-            steps={steps}
-            {...rest}
-          >
+          <FormPage goForward={goForward} goBackwards={goBackwards} {...rest}>
             <BoatDetails tab={tab} values={{}} boatTypes={boatTypes} />
             <ApplicantDetails tab={tab} />
             {!loading && (

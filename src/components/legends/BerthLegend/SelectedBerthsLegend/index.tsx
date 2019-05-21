@@ -6,20 +6,14 @@ import './SelectedBerthsLegend.scss';
 
 interface Props {
   legend: { title: string; legend: string };
-  steps: Array<{
-    key: string;
-    completed: boolean;
-    current: boolean;
-    linkTo?: string;
-  }>;
 }
 
-const SelectedBerthsLegend = ({ steps, legend }: Props) => (
+const SelectedBerthsLegend = ({ legend }: Props) => (
   <div className="vene-berths-legend__legend">
     <Container>
       <Row>
         <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-          <Steps steps={steps} />
+          <Steps />
           <FormattedMessage tagName="h3" id={legend.title} />
           <FormattedMessage tagName="p" id={legend.legend} />
         </Col>

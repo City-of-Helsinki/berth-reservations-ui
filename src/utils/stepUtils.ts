@@ -6,7 +6,7 @@ export const generateSteps = (routeNames: string[], urlPrefix: string): Steps =>
     key: routeName,
     completed: !index,
     current: !index,
-    linkTo: urlPrefix + routeName
+    linkTo: `${urlPrefix}/${routeName}`
   }));
 
   return List(generated);
