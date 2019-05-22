@@ -6,7 +6,7 @@ import {
   moveWinterAreaDown,
   moveWinterAreaUp
 } from '../../../redux/actions/WinterAreaActions';
-import { withMatchParamsHandlers } from '../../../utils/container';
+import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import SelectedBerthPage from '../BerthPage/SelectedBerthPage/SelectedBerthPage';
 
 import { Store } from '../../../redux/types';
@@ -22,7 +22,7 @@ interface Props {
   deselectBerth: Function;
   moveUp: Function;
   moveDown: Function;
-  localePush: Function;
+  localePush: LocalePush;
   values: {};
 }
 
@@ -96,7 +96,7 @@ const UnconnectedSelectedBerthPage = (props: Props) => {
   );
 };
 
-export default compose<Props, {}>(
+export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({

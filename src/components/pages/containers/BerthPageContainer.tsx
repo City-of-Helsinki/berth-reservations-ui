@@ -9,7 +9,7 @@ import {
 } from '../../../redux/actions/BerthActions';
 import { onSubmit } from '../../../redux/actions/FormActions';
 import { getBerths as getBerthsFromCache } from '../../../utils/berths';
-import { withMatchParamsHandlers } from '../../../utils/container';
+import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import { IconNames } from '../../common/Icon';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
@@ -31,7 +31,7 @@ interface Props {
   selectService: Function;
   deselectService: Function;
   onSubmit: Function;
-  localePush: Function;
+  localePush: LocalePush;
   berthLimit: number;
 }
 
@@ -117,7 +117,7 @@ const BerthPageContainer = (props: Props) => {
   );
 };
 
-export default compose<Props, {}>(
+export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({

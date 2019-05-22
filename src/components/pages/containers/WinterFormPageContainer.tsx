@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { onSubmit } from '../../../redux/actions/FormActions';
-import { withMatchParamsHandlers } from '../../../utils/container';
+import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../FormPage';
 
 import { CREATE_WINTER_STORAGE_RESERVATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
@@ -22,7 +22,7 @@ interface Props {
   initialValues: {};
   selectedBerths: Berths;
   onSubmit: Function;
-  localePush: Function;
+  localePush: LocalePush;
   tab: string;
   step: number;
 }

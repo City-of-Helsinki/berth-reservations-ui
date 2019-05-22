@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { submitApplicationForm as submitExchangeForm } from '../../../redux/actions/ApplicationActions';
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
-import { withMatchParamsHandlers } from '../../../utils/container';
+import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import SelectedBerthPage from '../BerthPage/SelectedBerthPage/SelectedBerthPage';
 
 import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
 import { Berths } from '../../berths/types';
 
-import { getBerths } from '../../../utils/berths';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 
@@ -20,7 +19,7 @@ interface Props {
   deselectBerth: Function;
   moveUp: Function;
   moveDown: Function;
-  localePush: Function;
+  localePush: LocalePush;
   values: {};
   selectedApplicationType: string;
   submitExchangeForm: Function;
@@ -76,7 +75,6 @@ const UnconnectedSelectedBerthPage = (props: Props) => {
         // error, TODO: handle errors
         data
       }) => {
-        const berths = getBerths(data ? data.harbors : null);
         const boatTypes = !loading && data ? data.boatTypes : [];
         return (
           <SelectedBerthPage
@@ -97,7 +95,7 @@ const UnconnectedSelectedBerthPage = (props: Props) => {
   );
 };
 
-export default compose<Props, {}>(
+export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({

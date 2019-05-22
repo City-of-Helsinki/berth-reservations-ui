@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { onSubmit } from '../../../redux/actions/FormActions';
-import { withMatchParamsHandlers } from '../../../utils/container';
+import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../FormPage';
 
 import { BOAT_TYPES_BERTHS_QUERY, CREATE_RESERVATION } from '../../../utils/graphql';
@@ -22,7 +22,7 @@ interface Props {
   initialValues: {};
   selectedBerths: Berths;
   onSubmit: Function;
-  localePush: Function;
+  localePush: LocalePush;
   tab: string;
   step: number;
   application: ApplicationState;
@@ -163,7 +163,7 @@ const FormPageContainer = ({ selectedBerths, localePush, tab, application, ...re
   );
 };
 
-export default compose<Props, {}>(
+export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({

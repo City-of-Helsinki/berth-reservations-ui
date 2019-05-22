@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card as RSCard, CardBody, CardText, CardTitle } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 import { shallowWithIntl } from '../../../utils/testUtils';
 import Card from './Card';
@@ -7,9 +7,14 @@ import Card from './Card';
 describe('Card', () => {
   const onClick = jest.fn();
 
-  const getWrapper = (children: JSX.Element = <div>foo bar</div>, props?: object) =>
+  const getWrapper = (children: JSX.Element = <div>card body</div>, props?: object) =>
     shallowWithIntl(
-      <Card title="foo" btnLabel="click me" onClick={onClick} {...props}>
+      <Card
+        title="page.front.card.winter.title"
+        btnLabel="page.front.card.winter.button_label"
+        onClick={onClick}
+        {...props}
+      >
         {children}
       </Card>
     );
