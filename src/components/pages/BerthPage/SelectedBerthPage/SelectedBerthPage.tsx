@@ -103,7 +103,7 @@ class SelectedBerthPage extends Component<Props> {
                       </div>
                     )}
 
-                    <FormattedMessage tagName="h3" id="page.berth.selected.title" />
+                    <FormattedMessage tagName="h3" id="page.berths.selected.title" />
                     <hr />
                     {boatType ? (
                       <Container>
@@ -143,7 +143,7 @@ class SelectedBerthPage extends Component<Props> {
                       <div className="vene-berth-page-selected__notice">
                         <Icon name="exclamationCircle" />
                         <LocalizedLink to="">
-                          <FormattedMessage tagName="span" id="page.berth.selected.info_text" />
+                          <FormattedMessage tagName="span" id="page.berths.selected.info_text" />
                         </LocalizedLink>
                       </div>
                     )}
@@ -152,7 +152,7 @@ class SelectedBerthPage extends Component<Props> {
                       <Alert color="warning">
                         <FormattedMessage
                           tagName="strong"
-                          id="page.berth.selected.warning.heading"
+                          id="page.berths.selected.warning.heading"
                         />
                       </Alert>
                     )}
@@ -181,7 +181,7 @@ class SelectedBerthPage extends Component<Props> {
                           size="lg"
                           disabled={selectedBerths.size === 0 || invalid}
                         >
-                          <FormattedMessage tagName="span" id="page.berth.selected.submit" />
+                          <FormattedMessage tagName="span" id="page.berths.selected.submit" />
                         </Button>
                       </div>
                     </Col>

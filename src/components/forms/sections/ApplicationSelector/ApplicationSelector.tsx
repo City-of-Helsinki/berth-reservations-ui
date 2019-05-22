@@ -76,8 +76,8 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
             name="application-selector-radio"
             label={
               <Fragment>
-                <Label>{formatMessage({ id: 'page.berth.exchange_application.new' })}</Label>
-                <p>{formatMessage({ id: 'page.berth.exchange_application.new.info_text' })}</p>
+                <Label>{formatMessage({ id: 'page.berths.exchange_application.new' })}</Label>
+                <p>{formatMessage({ id: 'page.berths.exchange_application.new.info_text' })}</p>
               </Fragment>
             }
           />
@@ -91,8 +91,10 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
             name="application-selector-radio"
             label={
               <Fragment>
-                <Label>{formatMessage({ id: 'page.berth.exchange_application.exchange' })}</Label>
-                <p>{formatMessage({ id: 'page.berth.exchange_application.exchange.info_text' })}</p>
+                <Label>{formatMessage({ id: 'page.berths.exchange_application.exchange' })}</Label>
+                <p>
+                  {formatMessage({ id: 'page.berths.exchange_application.exchange.info_text' })}
+                </p>
               </Fragment>
             }
           />
@@ -102,7 +104,7 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
           <Alert
             toggle={() => this.toggleAlert(!this.state.alertVisibility)}
             color="danger"
-            messageId="page.berth.exchange_application.warning"
+            messageId="page.berths.exchange_application.warning"
           />
         )}
       </div>

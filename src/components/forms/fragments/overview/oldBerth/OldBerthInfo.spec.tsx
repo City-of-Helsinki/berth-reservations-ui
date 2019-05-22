@@ -27,7 +27,7 @@ describe('fragments/ExchangeApplication', () => {
   test('render new application header when new application is selected', () => {
     const wrapper = getWrapper();
     expect(wrapper.find(FormattedMessage).prop('id')).toEqual(
-      'page.berth.exchange_application.new'
+      'page.berths.exchange_application.new'
     );
   });
 

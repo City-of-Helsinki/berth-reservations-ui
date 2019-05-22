@@ -20,7 +20,7 @@ const OldBerthInfo: SFC<{ application?: ApplicationState }> = ({ application }) 
             <Col xs={8} md={10} className="vene-overview-info__header">
               <FormattedMessage
                 tagName="h6"
-                id="page.berth.exchange_application.current_berth.title"
+                id="page.berths.exchange_application.current_berth.title"
               />
             </Col>
             <Col xs={4} md={2} className="vene-overview-info__edit-icon">
@@ -37,7 +37,7 @@ const OldBerthInfo: SFC<{ application?: ApplicationState }> = ({ application }) 
             <Col xs={12}>
               <div className="vene-overview-info__old-berth-info">
                 <div className="vene-overview-info__old-berth-info__name">
-                  <FormattedMessage id="page.berth.exchange_application.form.current_harbour_area.label" />
+                  <FormattedMessage id="page.berths.exchange_application.form.current_harbour_area.label" />
                   <span>:</span>
                   <SelectedHarborQuery query={GET_HARBOR_NAME(application.berthSwitch.harborId)}>
                     {({
@@ -53,13 +53,13 @@ const OldBerthInfo: SFC<{ application?: ApplicationState }> = ({ application }) 
 
                 <div className="vene-overview-info__old-berth-info__info-wrapper">
                   <div className="vene-overview-info__old-berth-info__pier">
-                    <FormattedMessage id="page.berth.exchange_application.form.pier.title" />
+                    <FormattedMessage id="page.berths.exchange_application.form.pier.title" />
                     <span>:</span>
                     <span>{application.berthSwitch.pier || `-`}</span>
                   </div>
 
                   <div className="vene-overview-info__old-berth-info__berth-number">
-                    <FormattedMessage id="page.berth.exchange_application.form.berth.title" />
+                    <FormattedMessage id="page.berths.exchange_application.form.berths.title" />
                     <span>:</span>
                     <span>{application.berthSwitch.berthNumber || `-`}</span>
                   </div>
@@ -71,7 +71,7 @@ const OldBerthInfo: SFC<{ application?: ApplicationState }> = ({ application }) 
       ) : (
         <Row>
           <Col xs={8} md={10} className="vene-overview-info__header">
-            <FormattedMessage tagName="h3" id="page.berth.exchange_application.new" />
+            <FormattedMessage tagName="h3" id="page.berths.exchange_application.new" />
           </Col>
         </Row>
       )}

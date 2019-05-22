@@ -32,8 +32,8 @@ const SelectedBerths = ({ berths, moveUp, moveDown, deselectBerth, berthValidato
     </div>
   ) : (
     <Alert color="danger">
-      <FormattedMessage tagName="strong" id="page.berth.selected.alert.strong" />
-      <FormattedMessage tagName="h2" id="page.berth.selected.alert.paragraph" />
+      <FormattedMessage tagName="strong" id="page.berths.selected.alert.strong" />
+      <FormattedMessage tagName="h2" id="page.berths.selected.alert.paragraph" />
     </Alert>
   );
 export default SelectedBerths;

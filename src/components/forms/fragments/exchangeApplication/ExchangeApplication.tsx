@@ -14,17 +14,17 @@ const ExchangeApplication: FC<{
   return (
     <div className="vene-exchange-application">
       <div className="vene-exchange-application__title">
-        <FormattedMessage tagName="h3" id="page.berth.exchange_application.current_berth.title" />
+        <FormattedMessage tagName="h3" id="page.berths.exchange_application.current_berth.title" />
         <FormattedMessage
           tagName="p"
-          id="page.berth.exchange_application.current_berth.info_text"
+          id="page.berths.exchange_application.current_berth.info_text"
         />
       </div>
 
       <div className="vene-exchange-application__select-harbour">
         <Select
           name={`harborId`}
-          label="page.berth.exchange_application.form.current_harbour_area.label"
+          label="page.berths.exchange_application.form.current_harbour_area.label"
           required
         >
           <option />
@@ -40,8 +40,8 @@ const ExchangeApplication: FC<{
           <Col sm={6}>
             <Text
               name={`pier`}
-              label={`page.berth.exchange_application.form.pier.title`}
-              placeholder={`page.berth.exchange_application.form.pier.placeholder`}
+              label={`page.berths.exchange_application.form.pier.title`}
+              placeholder={`page.berths.exchange_application.form.pier.placeholder`}
             />
           </Col>
 
@@ -49,8 +49,8 @@ const ExchangeApplication: FC<{
             <Text
               name={`berthNumber`}
               required
-              label={`page.berth.exchange_application.form.berth.title`}
-              placeholder={`page.berth.exchange_application.form.berth.placeholder`}
+              label={`page.berths.exchange_application.form.berths.title`}
+              placeholder={`page.berths.exchange_application.form.berths.placeholder`}
             />
           </Col>
         </Row>
