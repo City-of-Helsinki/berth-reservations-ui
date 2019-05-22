@@ -1,6 +1,6 @@
 import React from 'react';
 import { IntlProvider } from 'react-intl';
-import { Route, Switch } from 'react-router';
+import { Route, RouteComponentProps, Switch } from 'react-router';
 import messages from '../config/translations';
 
 import BerthPage from './pages/containers/BerthPageContainer';
@@ -11,17 +11,25 @@ import ThankYouPage from './pages/containers/ThankYouPageContainer';
 import SelectedAreasPage from './pages/containers/SelectedAreasPageContainer';
 import WinterBerthPage from './pages/containers/WinterBerthPageContainer';
 import WinterFormPage from './pages/containers/WinterFormPageContainer';
-
 import FrontPage from './pages/FrontPage/FrontPage';
 
-export interface Props {
-  locale: 'fi' | 'en' | 'sv';
-}
+import { LocaleOpts } from '../types/intl';
+
+type Props = RouteComponentProps<{ locale: LocaleOpts }>;
 
 const localeParam = ':locale(fi|en|sv)';
 
-const App = ({ locale }: Props) => (
-  <IntlProvider locale={locale} key={locale} messages={messages[locale]}>
+const App = ({
+  match: {
+    params: { locale }
+  }
+}: Props) => (
+  <IntlProvider
+    locale={locale}
+    key={locale}
+    messages={messages[locale]}
+    defaultLocale={LocaleOpts.FI}
+  >
     <Switch>
       <Route exact path={`/${localeParam}`} component={FrontPage} />
       <Route exact path={`/${localeParam}/berths`} component={BerthPage} />

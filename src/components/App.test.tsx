@@ -1,15 +1,14 @@
 import { shallow } from 'enzyme';
-import App, { Props } from './App';
+import React from 'react';
 
-import { shallowWithIntl } from '../utils/testUtils';
+import { getMockRouterProps } from '../__fixtures__/routerFixture';
+import App from './App';
 
 describe('App', () => {
-  const defaultProps: Props = {
-    locale: 'fi'
+  const getWrapper = () => {
+    const props = getMockRouterProps({ locale: 'en' });
+    return shallow(<App {...props} />);
   };
-  const AppComponent = App(defaultProps);
-
-  const getWrapper = () => shallowWithIntl(AppComponent);
 
   test('render normally', () => {
     const wrapper = getWrapper();
