@@ -13,6 +13,8 @@ import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
 import { Berths } from '../../berths/types';
 
+import { winterRoutes } from '../../../constants/StepsConstants';
+import { completeStep } from '../../../redux/actions/StepsActions';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 
@@ -24,10 +26,12 @@ interface Props {
   moveDown: Function;
   localePush: Function;
   values: {};
+  completeStep: Function;
 }
 
 const UnconnectedSelectedBerthPage = (props: Props) => {
   const moveToForm = async () => {
+    props.completeStep(winterRoutes[1]);
     await props.localePush('/winter_storage/form/registered_boat');
   };
 
@@ -71,6 +75,7 @@ export default compose<Props, {}>(
       values: state.forms.values
     }),
     {
+      completeStep,
       deselectBerth: deselectWinterArea,
       moveUp: moveWinterAreaUp,
       moveDown: moveWinterAreaDown

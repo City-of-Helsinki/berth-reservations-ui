@@ -22,10 +22,8 @@ export default (state: StepsState = defaultState(), action: Action): StepsState 
     case 'COMPLETE_STEP':
       const stepKey = action.payload;
       const stepIndex = state.steps.findIndex(step => step.key === stepKey);
-
       if (stepIndex !== -1) {
-        state.setIn(['steps', stepIndex, 'current'], true);
-        state.setIn(['steps', stepIndex, 'completed'], true);
+        return state.merge({ steps: state.steps.setIn([stepIndex, 'completed'], true) });
       }
       return state;
 

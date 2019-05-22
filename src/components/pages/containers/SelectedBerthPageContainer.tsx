@@ -10,6 +10,7 @@ import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
 import { Berths } from '../../berths/types';
 
+import { berthRoutes } from '../../../constants/StepsConstants';
 import { completeStep } from '../../../redux/actions/StepsActions';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
@@ -30,7 +31,7 @@ interface Props {
 
 const UnconnectedSelectedBerthPage = (props: Props) => {
   const moveToForm = async () => {
-    props.completeStep('registered_boat');
+    props.completeStep(berthRoutes[1]);
     await props.localePush('/berths/form/registered_boat');
   };
 
