@@ -34,9 +34,16 @@ const CategoryContainer: SFC<{
       {!category ||
         (category === CategoryOptions.BERTHS && (
           <Switch>
-            <Route exact path={`${path}/selected_berths`} component={SelectedBerthPageContainer} />
-            <Route exact path={`${path}/form`} component={FormPageContainer} />
-            <Route exact path={`${path}/form/:tab`} component={FormPageContainer} />
+            <Route
+              exact
+              path={`${path}/${berthRoutes[1]}`}
+              component={SelectedBerthPageContainer}
+            />
+            <Route
+              exact
+              path={`${path}/${berthRoutes[2] || berthRoutes[3]}`}
+              component={FormPageContainer}
+            />
             <Route exact path={`${path}/`} component={BerthPageContainer} />
 
             <Redirect to={`${path}/`} />
@@ -44,9 +51,12 @@ const CategoryContainer: SFC<{
         ))}
       {category === CategoryOptions.WINTER_STORAGE && (
         <Switch>
-          <Route exact path={`${path}/selected_areas`} component={SelectedAreasPageContainer} />
-          <Route exact path={`${path}/form`} component={WinterFormPageContainer} />
-          <Route exact path={`${path}/form/:tab`} component={WinterFormPageContainer} />
+          <Route exact path={`${path}/${winterRoutes[1]}`} component={SelectedAreasPageContainer} />
+          <Route
+            exact
+            path={`${path}/${winterRoutes[2] || winterRoutes[3]}`}
+            component={WinterFormPageContainer}
+          />
           <Route exact path={`${path}/`} component={WinterBerthPageContainer} />
 
           <Redirect to={`${path}/`} />

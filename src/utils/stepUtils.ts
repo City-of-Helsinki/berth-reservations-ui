@@ -6,19 +6,8 @@ export const generateSteps = (routeNames: string[], urlPrefix: string): Steps =>
     key: routeName,
     completed: !index,
     current: !index,
-    linkTo: generateStepURL(urlPrefix, index, routeName)
+    linkTo: `${urlPrefix}/${index ? routeName : ''}`
   }));
 
   return List(generated);
-};
-
-const generateStepURL = (prefix: string, index: number, routeName: string) => {
-  if (index === 0) {
-    return `${prefix}`;
-  }
-  if (index === 1) {
-    return `${prefix}/${routeName}`;
-  }
-
-  return `${prefix}/form/${routeName}`;
 };
