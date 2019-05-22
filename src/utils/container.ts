@@ -1,19 +1,27 @@
-import { RouteComponentProps, RouterProps, withRouter } from 'react-router';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { compose, withHandlers, withProps } from 'recompose';
+import { LocaleOpts } from '../types/intl';
 
-export const withMatchParams = compose<{ locale: 'fi' | 'en' | 'sv' }, {}>(
-  withRouter,
-  withProps((props: RouteComponentProps) => ({
-    ...props.match.params
-  }))
-);
+export type LocalePush = (uri: string) => void;
 
-export const withMatchParamsHandlers = compose(
-  withMatchParams,
-  withHandlers({
-    localePush: (props: { locale: string } & RouterProps) => (uri: string) => {
-      const { history, locale } = props;
-      history.push(`/${locale}${uri}`);
-    }
-  })
-);
+interface Handlers {
+  localePush: LocalePush;
+}
+
+interface Params {
+  locale: LocaleOpts;
+}
+
+export const withMatchParamsHandlers = <Props>(Component: React.ComponentType<Props>) =>
+  compose<Props, Pick<Props, Exclude<keyof Props, keyof (Handlers & RouteComponentProps<Params>)>>>(
+    withRouter,
+    withHandlers<RouteComponentProps<Params>, Handlers>({
+      localePush: props => uri => {
+        const { history, match } = props;
+        const locale = match && match.params.locale ? `/${match.params.locale}` : '';
+        const serializedUri = uri.charAt(0) === '/' ? uri : `/${uri}`;
+
+        history.push(`${locale}${serializedUri}`);
+      }
+    })
+  )(Component);
