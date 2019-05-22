@@ -12,11 +12,10 @@ import BerthsLegend from '../../legends/BerthLegend';
 
 import { BerthType } from '../../../types/berth';
 import { BoatTypes } from '../../../types/boatTypes';
-import { FormMode } from '../../../types/form';
 import { BerthsServices, SelectedServices, WinterServices } from '../../../types/services';
 import { Berths as BerthsType } from '../../berths/types';
 
-import { match as matchType } from 'react-router';
+import { berthRoutes, winterRoutes } from '../../../constants/StepsConstants';
 import { CategoryOptions } from '../../../types/categoryType';
 import './BerthPage.scss';
 
@@ -39,9 +38,8 @@ interface Props {
     value: BerthsServices | WinterServices;
     icon: IconNames;
   }>;
-  hero?: FormMode;
   berthLimit: number;
-  match: matchType<{ category: CategoryOptions }>;
+  categoryType: CategoryOptions;
 }
 
 class BerthPage extends Component<Props> {
@@ -52,9 +50,11 @@ class BerthPage extends Component<Props> {
   }
 
   moveToForm = async () => {
-    const { hero, localePush } = this.props;
+    const { categoryType, localePush } = this.props;
     const path =
-      hero === FormMode.Winter ? '/winter_storage/selected_areas' : '/berths/selected_berths';
+      categoryType === CategoryOptions.WINTER_STORAGE
+        ? `/${CategoryOptions.WINTER_STORAGE}/${winterRoutes[1]}`
+        : `/${CategoryOptions.BERTHS}/${berthRoutes[1]}`;
     await localePush(path);
   };
 
@@ -77,10 +77,12 @@ class BerthPage extends Component<Props> {
       deselectService,
       onSubmit,
       boatTypes,
-      hero,
       services,
-      berthLimit
+      berthLimit,
+      categoryType
     } = this.props;
+
+    const isBerthCategory = categoryType === CategoryOptions.BERTHS;
     const filter = getBerthFilterByValues(initialValues, selectedServices);
 
     const filtered = berths.filter(filter);
@@ -88,14 +90,15 @@ class BerthPage extends Component<Props> {
     const validSelection = berths
       .filter(berth => selectedBerths.find(selectedBerth => selectedBerth.id === berth.id))
       .every(filter);
-    const showBoatTypes = hero === FormMode.Berth;
-    const showApplicationSelector = hero === FormMode.Berth;
 
     return (
-      <Layout hero={hero}>
+      <Layout hero={categoryType}>
         <div className="vene-berth-page">
           <BerthsLegend
-            legend={{ title: `legend.${hero}.title`, legend: `legend.${hero}.legend` }}
+            legend={{
+              title: `legend.${categoryType}.title`,
+              legend: `legend.${categoryType}.legend`
+            }}
             form={{
               onSubmit,
               initialValues,
@@ -103,7 +106,7 @@ class BerthPage extends Component<Props> {
                 <UnRegisteredBoatDetails
                   hideTitle
                   fieldsNotRequired
-                  boatTypes={showBoatTypes ? boatTypes : undefined}
+                  boatTypes={isBerthCategory ? boatTypes : undefined}
                 />
               )
             }}
@@ -111,10 +114,10 @@ class BerthPage extends Component<Props> {
               selectedServices,
               selectService,
               deselectService,
-              label: `form.services.field.${hero}.services.label`,
+              label: `form.services.field.${categoryType}.services.label`,
               available: services
             }}
-            showApplicationSelector={showApplicationSelector}
+            showApplicationSelector={isBerthCategory}
           />
           <TabSelector
             progress={this.moveToForm}

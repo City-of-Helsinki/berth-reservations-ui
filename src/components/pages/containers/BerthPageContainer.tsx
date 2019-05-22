@@ -16,10 +16,8 @@ import { IconNames } from '../../common/Icon';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 import BerthPage from '../BerthPage';
 
-import { match as matchType } from 'react-router';
 import { Store } from '../../../redux/types';
 import { CategoryOptions } from '../../../types/categoryType';
-import { FormMode } from '../../../types/form';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType } from '../../berths/types';
 
@@ -36,7 +34,6 @@ interface Props {
   onSubmit: Function;
   localePush: Function;
   berthLimit: number;
-  match: matchType<{ category: CategoryOptions }>;
 }
 
 const BerthPageContainer = (props: Props) => {
@@ -76,7 +73,7 @@ const BerthPageContainer = (props: Props) => {
         return (
           <BerthPage
             {...props}
-            hero={FormMode.Berth}
+            categoryType={CategoryOptions.BERTHS}
             berths={berths}
             boatTypes={boatTypes}
             services={services}
