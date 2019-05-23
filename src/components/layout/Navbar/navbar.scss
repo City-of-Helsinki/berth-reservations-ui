@@ -1,0 +1,99 @@
+@import 'helsinki/colors';
+@import 'helsinki/fonts';
+
+@mixin underline($font-color, $always-visible: false) {
+  $scaleX: 0;
+  position: relative;
+  color: $font-color;
+  text-decoration: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: $font-color;
+    @if $always-visible == true {
+      $scaleX: 1;
+    }
+    transform: scaleX($scaleX);
+    transition: all 0.3s ease-in-out 0s;
+  }
+
+  &:hover {
+    color: $font-color;
+    text-decoration: none;
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+$navHeight: 3.5em;
+$navBrandWidth: 90px;
+$languageIconSize: 32px;
+$navbarTitleColor: rgba(0, 0, 0, 0.9);
+
+.vene-navbar {
+  &__top {
+    background-color: $hel-white;
+    border-bottom: 1px solid $hel-light;
+
+    .navbar {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &__bottom {
+    height: $navHeight;
+  }
+
+  &__link {
+    @include underline($hel-black);
+
+    span {
+      font-weight: $display1-weight;
+    }
+
+    &--active {
+      @include underline($hel-black, true);
+    }
+
+    &--main span {
+      font-weight: bolder;
+    }
+  }
+
+  &__language-dropdown {
+    .vene-icon {
+      width: $languageIconSize;
+      height: $languageIconSize;
+      color: $hel-black;
+    }
+
+    .dropdown {
+      color: $hel-black;
+      background-color: $hel-white;
+      box-shadow: none;
+
+      button {
+        display: flex;
+        align-items: center;
+        color: $hel-black;
+
+        span {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+
+  &__icon {
+    width: $navBrandWidth;
+    color: $hel-black;
+  }
+}
