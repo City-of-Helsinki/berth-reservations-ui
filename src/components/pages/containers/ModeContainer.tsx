@@ -12,58 +12,55 @@ import WinterFormPageContainer from './WinterFormPageContainer';
 const ModeContainer: SFC<{ match: matchType<{ mode: string; locale: string }> }> = ({
   match: {
     params: { mode },
-    url
+    path
   }
 }) => {
   return (
     <div className="vene-mode-container">
       {mode === FormMode.Winter ? (
         <Switch>
-          <Route exact path={url} component={WinterBerthPageContainer} />
           <Route
             exact
-            path={`${url}/${winterSteps[1].key}`}
+            path={`${path}/${winterSteps[1].key}`}
             component={SelectedAreasPageContainer}
           />
           <Route
             exact
-            path={`${url}/${winterSteps[2].key}/:boatTab`}
+            path={`${path}/${winterSteps[2].key}/:boatTab`}
             component={WinterFormPageContainer}
           />
 
           <Route
             exact
-            path={`${url}/${winterSteps[3].key}/:applicantTab`}
+            path={`${path}/${winterSteps[3].key}/:applicantTab`}
             component={WinterFormPageContainer}
           />
 
-          <Route exact path={`${url}/overview}`} component={WinterFormPageContainer} />
-
-          <Redirect to={url} />
+          <Route exact path={`${path}/overview}`} component={WinterFormPageContainer} />
+          <Route component={WinterBerthPageContainer} />
         </Switch>
       ) : (
         <Switch>
-          <Route exact path={url} component={BerthPageContainer} />
           <Route
             exact
-            path={`${url}/${berthSteps[1].key}`}
+            path={`${path}/${berthSteps[1].key}`}
             component={SelectedBerthPageContainer}
           />
           <Route
             exact
-            path={`${url}/${berthSteps[2].key}/:boatTab`}
+            path={`${path}/${berthSteps[2].key}/:boatTab`}
             component={FormPageContainer}
           />
 
           <Route
             exact
-            path={`${url}/${berthSteps[3].key}/:applicantTab`}
+            path={`${path}/${berthSteps[3].key}/:applicantTab`}
             component={FormPageContainer}
           />
 
-          <Route exact path={`${url}/overview`} component={FormPageContainer} />
+          <Route exact path={`${path}/overview`} component={FormPageContainer} />
 
-          <Redirect to={url} />
+          <Route component={BerthPageContainer} />
         </Switch>
       )}
     </div>

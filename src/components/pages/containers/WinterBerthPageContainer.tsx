@@ -36,39 +36,6 @@ interface Props {
 }
 
 const BerthPageContainer = (props: Props) => {
-  const steps = [
-    {
-      key: 'winter_areas',
-      completed: false,
-      current: true,
-      linkTo: undefined
-    },
-    {
-      key: 'review_areas',
-      completed: false,
-      current: false,
-      linkTo: undefined
-    },
-    {
-      key: 'boat_information',
-      completed: false,
-      current: false,
-      linkTo: undefined
-    },
-    {
-      key: 'applicant',
-      completed: false,
-      current: false,
-      linkTo: undefined
-    },
-    {
-      key: 'send_application',
-      completed: false,
-      current: false,
-      linkTo: undefined
-    }
-  ];
-
   const services: Array<{
     label: string;
     value:
@@ -125,7 +92,6 @@ const BerthPageContainer = (props: Props) => {
             hero={FormMode.Winter}
             berths={winterAreas}
             boatTypes={boatTypes}
-            steps={steps}
             services={services}
           />
         );

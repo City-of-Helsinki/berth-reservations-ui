@@ -16,6 +16,7 @@ import { FormMode } from '../../../types/form';
 import { BerthsServices, SelectedServices, WinterServices } from '../../../types/services';
 import { Berths as BerthsType } from '../../berths/types';
 
+import { berthSteps, winterSteps } from '../../../constants/StepConstant';
 import './BerthPage.scss';
 
 interface Props {
@@ -32,12 +33,6 @@ interface Props {
   localePush: Function;
   berths: BerthsType;
   boatTypes: BoatTypes;
-  steps: Array<{
-    key: string;
-    completed: boolean;
-    current: boolean;
-    linkTo?: string;
-  }>;
   services: Array<{
     label: string;
     value: BerthsServices | WinterServices;
@@ -80,7 +75,6 @@ class BerthPage extends Component<Props> {
       onSubmit,
       boatTypes,
       hero,
-      steps,
       services,
       berthLimit
     } = this.props;
@@ -110,7 +104,7 @@ class BerthPage extends Component<Props> {
                 />
               )
             }}
-            steps={steps}
+            steps={hero === FormMode.Berth ? berthSteps : winterSteps}
             services={{
               selectedServices,
               selectService,

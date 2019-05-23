@@ -16,7 +16,7 @@
   "hero.winter.title": "Applying for a Winter Storage Space",
   "hero.winter.paragraph.first": "Here you can browse through the winter storage areas for boats in Helsinki and submit a new application to the areas of your choice. Appointed spaces very rarely free up so be sure to select also areas with no appointed spaces for your application.",
   "hero.winter.paragraph.second": "NOTE! Please read the instructions on selecting areas as well as further details concerning the principles of assigning spaces and the processing times for applications on the <a href='{url}'>hel.fi</a> website before completing your application. <br/>If you are interested in storing your boat in water over the winter, please contact us for details.</p>",
-  "site.steps.berths": "Val av hamnar",
+  "site.steps.berth": "Val av hamnar",
   "site.steps.selected_berths": "Valda hamnar",
   "site.steps.boat_information": "Uppgifter om båten",
   "site.steps.applicant": "Uppgifter om den sökande",

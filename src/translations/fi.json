@@ -17,7 +17,7 @@
   "hero.winter.title": "Talvisäilytyspaikkojen haku",
   "hero.winter.paragraph.first": "Tästä voit hakea veneen talvisäilytyspaikkaa Helsingin kaupungin säilytysalueilta. Ruutupaikkoja vapautuu harvoin joten valitsethan hakemukseesi myös alueita joissa ei ole merkittyjä paikkoja.",
   "hero.winter.paragraph.second": "HUOM! Ennen kuin täytät hakemuksen, lue ohjeet satamien valintaan sekä tietoa venepaikkojen jakoperusteista ja hakemuskäsittelyn aikataulusta <a href='{url}'>hel.fi</a> -sivustolta.<br/>Jos olet kiinnostunut talvisäilyttämään veneesi vedessä omalla venepaikallasi ota meihin yhteyttä.</p>",
-  "site.steps.berths": "Satamien valinta",
+  "site.steps.berth": "Satamien valinta",
   "site.steps.selected_berths": "Valitut satamat",
   "site.steps.boat_information": "Veneen tiedot",
   "site.steps.applicant": "Hakijan tiedot",
