@@ -1,13 +1,19 @@
 import React from 'react';
 import { InjectedIntlProps, injectIntl } from 'react-intl';
-import { Link, LinkProps } from 'react-router-dom';
+import { NavLink, NavLinkProps } from 'react-router-dom';
 
-type Props = InjectedIntlProps & LinkProps;
+import { stripLeadingSlash } from '../../utils/common';
 
-const LocalizedLink = ({ to, children, intl, className }: Props) => (
-  <Link className={className} to={`/${intl.locale}/${to}`}>
-    {children}
-  </Link>
-);
+type Props = InjectedIntlProps & NavLinkProps;
+
+const LocalizedLink = ({ to, children, intl, className, ...rest }: Props) => {
+  const toAsString = to.toString();
+  const uri = stripLeadingSlash(toAsString);
+  return (
+    <NavLink className={className} to={`/${intl.locale}/${uri}`} {...rest}>
+      {children}
+    </NavLink>
+  );
+};
 
 export default injectIntl(LocalizedLink);
