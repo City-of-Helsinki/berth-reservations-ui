@@ -1,4 +1,6 @@
-export const berthSteps = [
+import { Steps } from '../components/steps/StepTypes';
+
+export const berthSteps: Steps = [
   {
     key: 'berth',
     completed: true,
@@ -31,7 +33,7 @@ export const berthSteps = [
   }
 ];
 
-export const winterSteps = [
+export const winterSteps: Steps = [
   {
     key: 'winter_areas',
     completed: true,

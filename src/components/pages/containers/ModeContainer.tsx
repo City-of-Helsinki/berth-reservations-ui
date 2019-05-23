@@ -1,5 +1,5 @@
 import React, { SFC } from 'react';
-import { match as matchType, Redirect, Route, Switch } from 'react-router';
+import { match as matchType, Route, Switch } from 'react-router';
 import { berthSteps, winterSteps } from '../../../constants/StepConstant';
 import { FormMode } from '../../../types/form';
 import BerthPageContainer from './BerthPageContainer';

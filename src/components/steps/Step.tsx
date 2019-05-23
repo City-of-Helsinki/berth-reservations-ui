@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { Fragment } from 'react';
-import LocalizedLink from '../../common/LocalizedLink';
+import LocalizedLink from '../common/LocalizedLink';
 import './Step.scss';
 
 interface Props {
