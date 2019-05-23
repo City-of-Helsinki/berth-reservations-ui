@@ -9,48 +9,61 @@ import SelectedBerthPageContainer from './SelectedBerthPageContainer';
 import WinterBerthPageContainer from './WinterBerthPageContainer';
 import WinterFormPageContainer from './WinterFormPageContainer';
 
-const ModeContainer: SFC<{ match: matchType<{ mode: string }> }> = ({
+const ModeContainer: SFC<{ match: matchType<{ mode: string; locale: string }> }> = ({
   match: {
-    params: { mode }
+    params: { mode },
+    url
   }
 }) => {
   return (
     <div className="vene-mode-container">
       {mode === FormMode.Winter ? (
         <Switch>
-          <Route exact path={winterSteps[0].linkTo} component={WinterBerthPageContainer} />
-          <Route exact path={winterSteps[1].linkTo} component={SelectedAreasPageContainer} />
+          <Route exact path={url} component={WinterBerthPageContainer} />
           <Route
             exact
-            path={`${winterSteps[2].linkTo}/:boatTab`}
+            path={`${url}/${winterSteps[1].key}`}
+            component={SelectedAreasPageContainer}
+          />
+          <Route
+            exact
+            path={`${url}/${winterSteps[2].key}/:boatTab`}
             component={WinterFormPageContainer}
           />
 
           <Route
             exact
-            path={`${winterSteps[3].linkTo}/:applicantTab`}
+            path={`${url}/${winterSteps[3].key}/:applicantTab`}
             component={WinterFormPageContainer}
           />
 
-          <Route exact path={winterSteps[4].linkTo} component={WinterFormPageContainer} />
+          <Route exact path={`${url}/overview}`} component={WinterFormPageContainer} />
 
-          <Redirect to={winterSteps[0].linkTo} />
+          <Redirect to={url} />
         </Switch>
       ) : (
         <Switch>
-          <Route exact path={berthSteps[0].linkTo} component={BerthPageContainer} />
-          <Route exact path={berthSteps[1].linkTo} component={SelectedBerthPageContainer} />
-
-          <Route exact path={`${berthSteps[2].linkTo}/:boatTab`} component={FormPageContainer} />
+          <Route exact path={url} component={BerthPageContainer} />
           <Route
             exact
-            path={`${berthSteps[3].linkTo}/:applicantTab`}
+            path={`${url}/${berthSteps[1].key}`}
+            component={SelectedBerthPageContainer}
+          />
+          <Route
+            exact
+            path={`${url}/${berthSteps[2].key}/:boatTab`}
             component={FormPageContainer}
           />
 
-          <Route exact path={berthSteps[4].linkTo} component={FormPageContainer} />
+          <Route
+            exact
+            path={`${url}/${berthSteps[3].key}/:applicantTab`}
+            component={FormPageContainer}
+          />
 
-          <Redirect to={berthSteps[0].linkTo} />
+          <Route exact path={`${url}/overview`} component={FormPageContainer} />
+
+          <Redirect to={url} />
         </Switch>
       )}
     </div>

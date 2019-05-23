@@ -1,33 +1,33 @@
 export const berthSteps = [
   {
-    key: 'berths',
+    key: 'berth',
     completed: false,
     current: true,
-    linkTo: '/berth'
+    linkTo: 'berth'
   },
   {
     key: 'selected_berths',
     completed: false,
     current: false,
-    linkTo: '/berth/selected_berths'
+    linkTo: 'berth/selected_berths'
   },
   {
     key: 'boat_information',
     completed: false,
     current: false,
-    linkTo: '/berth/boat_infomation'
+    linkTo: 'berth/boat_infomation'
   },
   {
     key: 'applicant',
     completed: false,
     current: false,
-    linkTo: '/berth/applicant'
+    linkTo: 'berth/applicant'
   },
   {
     key: 'send_application',
     completed: false,
     current: false,
-    linkTo: '/berth/overview'
+    linkTo: 'berth/overview'
   }
 ];
 
@@ -36,30 +36,30 @@ export const winterSteps = [
     key: 'winter_areas',
     completed: true,
     current: true,
-    linkTo: `/winter`
+    linkTo: `winter`
   },
   {
     key: 'review_areas',
     completed: false,
     current: true,
-    linkTo: '/winter/review_areas'
+    linkTo: 'winter/review_areas'
   },
   {
     key: 'boat_information',
     completed: false,
     current: false,
-    linkTo: '/winter/boat_information'
+    linkTo: 'winter/boat_information'
   },
   {
     key: 'applicant',
     completed: false,
     current: false,
-    linkTo: '/winter/applicant'
+    linkTo: 'winter/applicant'
   },
   {
     key: 'send_application',
     completed: false,
     current: false,
-    linkTo: '/winter/send_application'
+    linkTo: 'winter/send_application'
   }
 ];
