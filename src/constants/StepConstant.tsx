@@ -1,7 +1,7 @@
 export const berthSteps = [
   {
     key: 'berth',
-    completed: false,
+    completed: true,
     current: true,
     linkTo: 'berth'
   },
@@ -41,7 +41,7 @@ export const winterSteps = [
   {
     key: 'review_areas',
     completed: false,
-    current: true,
+    current: false,
     linkTo: 'winter/review_areas'
   },
   {
