@@ -21,9 +21,9 @@ const Card = ({
 }: Props) => {
   return (
     <RSCard className="vene-card">
-      <CardBody>
-        <CardTitle>{formatMessage({ id: title })}</CardTitle>
-        {children}
+      <CardBody className="vene-card__body">
+        <CardTitle className="vene-card__title">{formatMessage({ id: title })}</CardTitle>
+        <div className="vene-card__description">{children}</div>
         <Button
           onClick={onClick}
           className="vene-card__button"
