@@ -51,8 +51,8 @@ class BerthPage extends Component<Props> {
   }
 
   moveToForm = async () => {
-    const { hero, localePush } = this.props;
-    const path = hero === FormMode.WinterStorage ? '/selected_areas' : '/selected_berths';
+    const { steps, localePush } = this.props;
+    const path = steps[1].linkTo;
     await localePush(path);
   };
 

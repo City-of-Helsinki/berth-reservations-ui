@@ -110,7 +110,7 @@ export default compose<Props, {}>(
       selectedBerths: state.winterAreas.selectedWinterAreas,
       selectedServices: state.winterAreas.selectedWinterServices,
       berthLimit: state.winterAreas.areasLimit,
-      steps: state.steps.winterSteps
+      steps: state.steps.winterSteps.toJS()
     }),
     {
       onSubmit,

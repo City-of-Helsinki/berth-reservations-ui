@@ -93,7 +93,7 @@ export default compose<Props, {}>(
       selectedBerths: state.berths.selectedBerths,
       selectedServices: state.berths.selectedServices,
       berthLimit: state.berths.berthLimit,
-      steps: state.steps.berthSteps
+      steps: state.steps.berthSteps.toJS()
     }),
     {
       onSubmit,
