@@ -14,12 +14,21 @@ export default (state: StepsState = defaultState(), action: Action): StepsState 
 
   switch (type) {
     case 'COMPLETE_BERTH_STEP':
-      let newBerthSteps = state.berthSteps.setIn([state.currentBerthStep, 'completed'], false);
-      newBerthSteps = newBerthSteps.setIn([state.currentBerthStep, 'current'], false);
-      newBerthSteps = newBerthSteps.setIn([action.payload, 'completed'], true);
-      newBerthSteps = newBerthSteps.setIn([action.payload, 'current'], true);
+      let newBerthSteps = state.berthSteps.setIn([state.currentBerthStep, 'current'], false);
+      newBerthSteps = newBerthSteps.update(payload, step =>
+        Object.assign({}, step, { current: true, completed: true })
+      );
 
       return state.merge({ berthSteps: newBerthSteps, currentBerthStep: action.payload });
+
+    case 'COMPLETE_WINTER_STEP':
+      let newWinterSteps = state.winterSteps.setIn([state.currentWinterStep, 'current'], false);
+      newWinterSteps = newWinterSteps.update(payload, step =>
+        Object.assign({}, step, { current: true, completed: true })
+      );
+
+      return state.merge({ winterSteps: newWinterSteps, currentWinterStep: action.payload });
+
     case 'RESET_STEPS':
       return defaultState();
     default:
