@@ -65,3 +65,7 @@ export const winterSteps: Steps = [
     linkTo: 'winter_storage/send_application'
   }
 ];
+
+export const boatTabs = ['registered_boat', 'unregistered_boat', 'no_boat'];
+
+export const applicantTabs = ['private_person', 'company'];

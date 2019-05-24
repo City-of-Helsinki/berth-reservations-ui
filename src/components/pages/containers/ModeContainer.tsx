@@ -1,6 +1,6 @@
 import React, { SFC } from 'react';
-import { match as matchType, Route, Switch } from 'react-router';
-import { berthSteps, winterSteps } from '../../../constants/StepConstant';
+import { match as matchType, Redirect, Route, Switch } from 'react-router';
+import { applicantTabs, berthSteps, boatTabs, winterSteps } from '../../../constants/StepConstant';
 import { FormMode } from '../../../types/form';
 import BerthPageContainer from './BerthPageContainer';
 import FormPageContainer from './FormPageContainer';
@@ -15,6 +15,9 @@ const ModeContainer: SFC<{ match: matchType<{ mode: string; locale: string }> }>
     path
   }
 }) => {
+  const boatTabParam = `:boatTab(${boatTabs[0]}|${boatTabs[1]}|${boatTabs[2]})`;
+  const applicantTabParam = `:applicantTab(${applicantTabs[0]}|${applicantTabs[1]})`;
+
   return (
     <div className="vene-mode-container">
       {mode === FormMode.WinterStorage ? (
@@ -26,18 +29,33 @@ const ModeContainer: SFC<{ match: matchType<{ mode: string; locale: string }> }>
           />
           <Route
             exact
-            path={`${path}/${winterSteps[2].key}/:boatTab`}
+            path={`${path}/${winterSteps[2].key}/${boatTabParam}`}
             component={WinterFormPageContainer}
+          />
+
+          <Redirect
+            exact
+            from={`${path}/${winterSteps[2].key}`}
+            to={`${path}/${winterSteps[2].key}/${boatTabs[0]}`}
           />
 
           <Route
             exact
-            path={`${path}/${winterSteps[3].key}/:applicantTab`}
+            path={`${path}/${winterSteps[3].key}/${applicantTabParam}`}
             component={WinterFormPageContainer}
           />
 
+          <Redirect
+            exact
+            from={`${path}/${winterSteps[3].key}`}
+            to={`${path}/${winterSteps[3].key}/${applicantTabs[0]}`}
+          />
+
           <Route exact path={`${path}/overview}`} component={WinterFormPageContainer} />
-          <Route component={WinterBerthPageContainer} />
+
+          <Route exact path={path} component={WinterBerthPageContainer} />
+
+          <Redirect to={path} />
         </Switch>
       ) : (
         <Switch>
