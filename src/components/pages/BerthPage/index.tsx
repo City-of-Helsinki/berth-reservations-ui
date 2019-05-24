@@ -53,7 +53,7 @@ class BerthPage extends Component<Props> {
   moveToForm = async () => {
     const { steps, localePush } = this.props;
     const path = steps[1].linkTo;
-    await localePush(path);
+    await localePush(`/${path}`);
   };
 
   toggleBerthSelect = (berth: BerthType) => {

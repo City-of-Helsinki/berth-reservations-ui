@@ -22,13 +22,12 @@ import ExchangeApplication from '../../../forms/fragments/exchangeApplication/Ex
 import NewApplication from '../../../forms/fragments/newApplication/NewApplication';
 
 import { BoatTypesBerthsQuery } from '../../../../utils/__generated__/BoatTypesBerthsQuery';
+import { Steps } from '../../../steps/StepTypes';
 import './SelectedBerthPage.scss';
 
 export interface Props {
   selectedBerths: Berths;
   selectedServices: SelectedServices;
-  moveToForm: () => {};
-  handlePrevious: () => {};
   deselectBerth: Function;
   moveUp: Function;
   moveDown: Function;
@@ -39,12 +38,9 @@ export interface Props {
   values: {};
   initialValues: {};
   legend: { title: string; legend: string };
-  steps: Array<{
-    key: string;
-    completed: boolean;
-    current: boolean;
-    linkTo?: string;
-  }>;
+  steps: Steps;
+  completeStep: Function;
+  localePush: Function;
 }
 
 class SelectedBerthPage extends Component<Props> {
@@ -54,11 +50,24 @@ class SelectedBerthPage extends Component<Props> {
     window.scrollTo(0, 0);
   }
 
+  moveToForm = async () => {
+    const { localePush, steps, completeStep } = this.props;
+    completeStep(1);
+    // complete 2nd step
+    await localePush(`/${steps[2].linkTo}`);
+  };
+
+  handlePrevious = async () => {
+    const { localePush, steps } = this.props;
+
+    await localePush(`/${steps[0].linkTo}`);
+  };
+
   handleSubmitApplication = (values: any) => {
     if (this.props.submitExchangeForm) {
       this.props.submitExchangeForm(values);
     }
-    this.props.moveToForm();
+    this.moveToForm();
   };
 
   render() {
@@ -73,7 +82,6 @@ class SelectedBerthPage extends Component<Props> {
       initialValues,
       data,
       boatTypes,
-      handlePrevious,
       steps,
       legend
     } = this.props;
@@ -178,7 +186,7 @@ class SelectedBerthPage extends Component<Props> {
                   <Row>
                     <Col xs={12}>
                       <div className="vene-berth-page-selected__button-wrapper__button-groups">
-                        <Button color="link" type="button" onClick={handlePrevious}>
+                        <Button color="link" type="button" onClick={() => this.handlePrevious()}>
                           <FormattedMessage id="form.wizard.button.previous" />
                         </Button>
                         <Button

@@ -13,8 +13,10 @@ import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
 import { Berths } from '../../berths/types';
 
+import { completeWinterStep } from '../../../redux/actions/StepActions';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
+import { Steps } from '../../steps/StepTypes';
 
 interface Props {
   selectedBerths: Berths;
@@ -24,50 +26,11 @@ interface Props {
   moveDown: Function;
   localePush: Function;
   values: {};
+  completeStep: Function;
+  steps: Steps;
 }
 
-const steps = [
-  {
-    key: 'winter_areas',
-    completed: true,
-    current: false,
-    linkTo: `winter_storage`
-  },
-  {
-    key: 'review_areas',
-    completed: false,
-    current: true,
-    linkTo: undefined
-  },
-  {
-    key: 'boat_information',
-    completed: false,
-    current: false,
-    linkTo: undefined
-  },
-  {
-    key: 'applicant',
-    completed: false,
-    current: false,
-    linkTo: undefined
-  },
-  {
-    key: 'send_application',
-    completed: false,
-    current: false,
-    linkTo: undefined
-  }
-];
-
 const UnconnectedSelectedBerthPage = (props: Props) => {
-  const moveToForm = async () => {
-    await props.localePush('/winter_form/registered_boat');
-  };
-
-  const handlePrevious = async () => {
-    await props.localePush('/winter_storage');
-  };
-
   return (
     <BoatsBerthsQuery query={BOAT_TYPES_BERTHS_QUERY}>
       {({
@@ -78,10 +41,7 @@ const UnconnectedSelectedBerthPage = (props: Props) => {
 
         return (
           <SelectedBerthPage
-            handlePrevious={handlePrevious}
-            moveToForm={moveToForm}
             boatTypes={boatTypes}
-            steps={steps}
             data={data || null}
             initialValues={{}}
             legend={{
@@ -102,12 +62,14 @@ export default compose<Props, {}>(
     (state: Store) => ({
       selectedBerths: state.winterAreas.selectedWinterAreas,
       selectedServices: state.winterAreas.selectedWinterServices,
-      values: state.forms.values
+      values: state.forms.values,
+      steps: state.steps.winterSteps.toJS()
     }),
     {
       deselectBerth: deselectWinterArea,
       moveUp: moveWinterAreaUp,
-      moveDown: moveWinterAreaDown
+      moveDown: moveWinterAreaDown,
+      completeStep: completeWinterStep
     }
   )
 )(UnconnectedSelectedBerthPage);
