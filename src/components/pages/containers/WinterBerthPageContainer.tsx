@@ -19,6 +19,7 @@ import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType } from '../../berths/types';
+import { Steps } from '../../steps/StepTypes';
 
 interface Props {
   berthLimit: number;
@@ -33,6 +34,7 @@ interface Props {
   deselectService: Function;
   onSubmit: Function;
   localePush: Function;
+  steps: Steps;
 }
 
 const BerthPageContainer = (props: Props) => {
@@ -89,7 +91,7 @@ const BerthPageContainer = (props: Props) => {
         return (
           <BerthPage
             {...props}
-            hero={FormMode.Winter}
+            hero={FormMode.WinterStorage}
             berths={winterAreas}
             boatTypes={boatTypes}
             services={services}
@@ -107,7 +109,8 @@ export default compose<Props, {}>(
       initialValues: state.forms.values,
       selectedBerths: state.winterAreas.selectedWinterAreas,
       selectedServices: state.winterAreas.selectedWinterServices,
-      berthLimit: state.winterAreas.areasLimit
+      berthLimit: state.winterAreas.areasLimit,
+      steps: state.steps.winterSteps
     }),
     {
       onSubmit,

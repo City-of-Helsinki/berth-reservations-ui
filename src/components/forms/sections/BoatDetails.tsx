@@ -54,7 +54,9 @@ const BoatDetails = ({ values, tab, mode = FormMode.Berth, boatTypes }: Props) =
         <Row>
           <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
             <Container>
-              {mode === FormMode.Winter && <StorageMethod showTrailerRegNum={showTrailerRegNum} />}
+              {mode === FormMode.WinterStorage && (
+                <StorageMethod showTrailerRegNum={showTrailerRegNum} />
+              )}
             </Container>
             {tab === 'registered_boat' && (
               <RegisteredBoat

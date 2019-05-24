@@ -17,7 +17,7 @@ const ModeContainer: SFC<{ match: matchType<{ mode: string; locale: string }> }>
 }) => {
   return (
     <div className="vene-mode-container">
-      {mode === FormMode.Winter ? (
+      {mode === FormMode.WinterStorage ? (
         <Switch>
           <Route
             exact

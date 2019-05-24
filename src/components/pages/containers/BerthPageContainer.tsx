@@ -19,6 +19,7 @@ import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType } from '../../berths/types';
+import { Steps } from '../../steps/StepTypes';
 
 interface Props {
   initialValues: {};
@@ -33,6 +34,7 @@ interface Props {
   onSubmit: Function;
   localePush: Function;
   berthLimit: number;
+  steps: Steps;
 }
 
 const BerthPageContainer = (props: Props) => {
@@ -90,7 +92,8 @@ export default compose<Props, {}>(
       initialValues: state.forms.values,
       selectedBerths: state.berths.selectedBerths,
       selectedServices: state.berths.selectedServices,
-      berthLimit: state.berths.berthLimit
+      berthLimit: state.berths.berthLimit,
+      steps: state.steps.berthSteps
     }),
     {
       onSubmit,

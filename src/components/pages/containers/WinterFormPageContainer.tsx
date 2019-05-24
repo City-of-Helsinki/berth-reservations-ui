@@ -136,7 +136,12 @@ const WinterFormPageContainer = ({ selectedBerths, localePush, tab, ...rest }: P
             steps={steps}
             {...rest}
           >
-            <BoatDetails tab={tab} values={{}} boatTypes={boatTypes} mode={FormMode.Winter} />
+            <BoatDetails
+              tab={tab}
+              values={{}}
+              boatTypes={boatTypes}
+              mode={FormMode.WinterStorage}
+            />
             <ApplicantDetails tab={tab} />
             {!loading && (
               <Overview selectedBerths={selectedBerths} boatTypes={boatTypes} tabs={tabs} />

@@ -33,7 +33,7 @@ const Layout = ({ children, hero, intl: { locale } }: Props) => (
     {hero && (
       <div
         className={classNames('vene-layout__hero', {
-          'vene-layout__hero--winter': hero === FormMode.Winter
+          'vene-layout__hero--winter': hero === FormMode.WinterStorage
         })}
       >
         <Container>

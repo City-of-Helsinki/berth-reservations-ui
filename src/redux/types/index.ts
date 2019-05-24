@@ -49,6 +49,7 @@ export interface Store {
   berths: BerthsState;
   winterAreas: WinterAreasState;
   application: ApplicationState;
+  steps: StepsState;
 }
 
 export interface Action {

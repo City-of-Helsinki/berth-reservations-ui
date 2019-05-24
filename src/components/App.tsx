@@ -14,7 +14,7 @@ export interface Props {
 
 const localeParam = ':locale(fi|en|sv)';
 
-const modeParams = `:mode(${FormMode.Berth}|${FormMode.Winter})`;
+const modeParams = `:mode(${FormMode.Berth}|${FormMode.WinterStorage})`;
 
 const App = ({ locale }: Props) => (
   <IntlProvider locale={locale} key={locale} messages={messages[locale]}>

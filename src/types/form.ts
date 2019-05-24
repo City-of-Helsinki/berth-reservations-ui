@@ -11,5 +11,5 @@ export interface DefaultFieldProps {
 
 export enum FormMode {
   Berth = 'berth',
-  Winter = 'winter'
+  WinterStorage = 'winter_storage'
 }

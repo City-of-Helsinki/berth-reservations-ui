@@ -38,30 +38,30 @@ export const winterSteps: Steps = [
     key: 'winter_areas',
     completed: true,
     current: true,
-    linkTo: `winter`
+    linkTo: `winter_storage`
   },
   {
     key: 'review_areas',
     completed: false,
     current: false,
-    linkTo: 'winter/review_areas'
+    linkTo: 'winter_storage/review_areas'
   },
   {
     key: 'boat_information',
     completed: false,
     current: false,
-    linkTo: 'winter/boat_information'
+    linkTo: 'winter_storage/boat_information'
   },
   {
     key: 'applicant',
     completed: false,
     current: false,
-    linkTo: 'winter/applicant'
+    linkTo: 'winter_storage/applicant'
   },
   {
     key: 'send_application',
     completed: false,
     current: false,
-    linkTo: 'winter/send_application'
+    linkTo: 'winter_storage/send_application'
   }
 ];

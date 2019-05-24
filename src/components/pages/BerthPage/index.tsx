@@ -16,7 +16,7 @@ import { FormMode } from '../../../types/form';
 import { BerthsServices, SelectedServices, WinterServices } from '../../../types/services';
 import { Berths as BerthsType } from '../../berths/types';
 
-import { berthSteps, winterSteps } from '../../../constants/StepConstant';
+import { Steps } from '../../steps/StepTypes';
 import './BerthPage.scss';
 
 interface Props {
@@ -40,6 +40,7 @@ interface Props {
   }>;
   hero?: FormMode;
   berthLimit: number;
+  steps: Steps;
 }
 
 class BerthPage extends Component<Props> {
@@ -51,7 +52,7 @@ class BerthPage extends Component<Props> {
 
   moveToForm = async () => {
     const { hero, localePush } = this.props;
-    const path = hero === FormMode.Winter ? '/selected_areas' : '/selected_berths';
+    const path = hero === FormMode.WinterStorage ? '/selected_areas' : '/selected_berths';
     await localePush(path);
   };
 
@@ -76,7 +77,8 @@ class BerthPage extends Component<Props> {
       boatTypes,
       hero,
       services,
-      berthLimit
+      berthLimit,
+      steps
     } = this.props;
     const filter = getBerthFilterByValues(initialValues, selectedServices);
 
@@ -104,7 +106,7 @@ class BerthPage extends Component<Props> {
                 />
               )
             }}
-            steps={hero === FormMode.Berth ? berthSteps : winterSteps}
+            steps={steps}
             services={{
               selectedServices,
               selectService,
