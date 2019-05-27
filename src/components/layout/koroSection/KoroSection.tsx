@@ -3,7 +3,7 @@ import React from 'react';
 import { FormattedHTMLMessage, FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
 
-import './KoroSection.scss';
+import './koroSection.scss';
 
 interface Props {
   title?: string;
