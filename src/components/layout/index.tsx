@@ -2,7 +2,7 @@ import React from 'react';
 
 import Footer from './Footer';
 import KoroSection from './KoroSection';
-import Navbar from './Navbar/Navbar';
+import Navbar from './navbar/Navbar';
 
 interface Props {
   children: React.ReactNode;
