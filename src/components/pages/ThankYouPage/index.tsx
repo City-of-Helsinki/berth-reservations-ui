@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
-import Layout from '../../layout';
+import Layout from '../../layout/Layout';
 import ThankYouLegend from '../../legends/ThankYouLegend';
 import './ThankYouPage.scss';
 

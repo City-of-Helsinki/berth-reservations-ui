@@ -6,11 +6,11 @@ import { Col, Container, Row } from 'reactstrap';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import Card from '../../common/card/Card';
 import Hero from '../../common/hero/Hero';
-import Layout from '../../layout';
+import KoroSection from '../../layout/koroSection/KoroSection';
+import Layout from '../../layout/Layout';
 
 import frontHeroImg from '../../../assets/images/hero_image_front.jpg';
 
-import KoroSection from '../../layout/KoroSection';
 import './frontPage.scss';
 
 type Props = {

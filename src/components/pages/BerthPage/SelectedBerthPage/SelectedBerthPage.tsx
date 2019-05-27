@@ -7,7 +7,7 @@ import { getBerthFilterByValues } from '../../../../utils/berths';
 import SelectedBerths from '../../../berths/SelectedBerths';
 import Icon from '../../../common/Icon';
 import LocalizedLink from '../../../common/LocalizedLink';
-import Layout from '../../../layout';
+import Layout from '../../../layout/Layout';
 import SelectedBerthsLegend from '../../../legends/BerthLegend/SelectedBerthsLegend';
 
 import { ApplicationOptions } from '../../../../types/applicationType';

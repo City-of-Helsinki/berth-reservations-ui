@@ -7,7 +7,7 @@ import BerthsOnMap from '../../berths/BerthsOnMap';
 import TabSelector from '../../berths/TabSelector';
 import { IconNames } from '../../common/Icon';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
-import Layout from '../../layout';
+import Layout from '../../layout/Layout';
 import BerthsLegend from '../../legends/BerthLegend';
 
 import { BerthType } from '../../../types/berth';
@@ -21,7 +21,8 @@ import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
 
 import Hero from '../../common/hero/Hero';
-import KoroSection from '../../layout/KoroSection';
+import KoroSection from '../../layout/koroSection/KoroSection';
+
 import './BerthPage.scss';
 
 type Props = {

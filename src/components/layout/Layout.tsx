@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Footer from './Footer';
-import KoroSection from './KoroSection';
+import KoroSection from './koroSection/KoroSection';
 import Navbar from './navbar/Navbar';
 
 interface Props {
