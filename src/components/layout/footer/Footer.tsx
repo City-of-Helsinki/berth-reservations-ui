@@ -4,7 +4,7 @@ import { Col, Container, Row } from 'reactstrap';
 import Icon from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
 
-import './Footer.scss';
+import './footer.scss';
 
 type Props = InjectedIntlProps;
 
