@@ -2,6 +2,7 @@
   "error.message.invalid_berth_selection": "Det finns förmodligen inte platser för din båttyp i alla hamnar som du valt.",
   "error.message.invalid_berth": "Det finns förmodligen inte platser för din båttyp i denna hamn.",
   "storybook.dummy.label": "dummy",
+  "site.front.title": "Boat berths",
   "site.berth.title": "Ansökan om båtplats",
   "site.winter.link.front_page": "Till förstasidan",
   "site.language.fi": "Suomeksi",

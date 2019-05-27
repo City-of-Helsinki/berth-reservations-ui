@@ -2,6 +2,7 @@
   "error.message.invalid_berth_selection": "Huomio: Olet valinnut satamia joissa ei ole veneesi koolle tai tyypille sopivia paikkoja.",
   "error.message.invalid_berth": "Tässä satamassa ei todennäköisesti ole veneesi koolle tai tyypille sopivia paikkoja.",
   "storybook.dummy.label": "dummy",
+  "site.front.title": "Boat berths",
   "site.berth.title": "Venepaikkahaku",
   "site.winter.title": "Talvisäilytyspaikat",
   "site.link.front_page": "Etusivulle",

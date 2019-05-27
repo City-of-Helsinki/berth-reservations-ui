@@ -32,7 +32,6 @@
   }
 }
 
-$navHeight: 3.5em;
 $navBrandWidth: 90px;
 $languageIconSize: 32px;
 $navbarTitleColor: rgba(0, 0, 0, 0.9);
@@ -49,11 +48,12 @@ $navbarTitleColor: rgba(0, 0, 0, 0.9);
   }
 
   &__bottom {
-    height: $navHeight;
+    padding: 1em 0;
   }
 
   &__link {
     @include underline($hel-black);
+    margin-right: 1em;
 
     span {
       font-weight: $display1-weight;
