@@ -2,7 +2,9 @@ import findIndex from 'lodash/findIndex';
 import map from 'lodash/map';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
+
 import { onSubmit } from '../../../redux/actions/FormActions';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../FormPage';
@@ -18,14 +20,13 @@ import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
 import { Berths } from '../../berths/types';
 
-interface Props {
+type Props = {
   initialValues: {};
   selectedBerths: Berths;
   onSubmit: Function;
   localePush: LocalePush;
-  tab: string;
   step: number;
-}
+} & RouteComponentProps<{ tab: string }>;
 
 const mapSteps = [
   ['registered_boat', 'unregistered_boat', 'no_boat'],
@@ -33,7 +34,14 @@ const mapSteps = [
   ['overview']
 ];
 
-const WinterFormPageContainer = ({ selectedBerths, localePush, tab, ...rest }: Props) => {
+const WinterFormPageContainer = ({
+  selectedBerths,
+  localePush,
+  match: {
+    params: { tab }
+  },
+  ...rest
+}: Props) => {
   const [step, setStep] = useState(0);
   const [currTab, setTab] = useState('');
   const [tabs, setTabs] = useState(['registered_boat', 'private_person', 'overview']);

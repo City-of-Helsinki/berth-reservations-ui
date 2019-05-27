@@ -14,7 +14,7 @@ const Footer = ({ intl: { formatMessage } }: Props) => (
       <Row>
         <Col md="4">
           <div className="vene-footer__vene-link">
-            <LocalizedLink to="">
+            <LocalizedLink to="/">
               <FormattedMessage id="site.footer.berth_search" />
             </LocalizedLink>
           </div>

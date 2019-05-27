@@ -124,7 +124,6 @@ const BerthPageContainer = (props: Props) => {
             {...props}
             hero={FormMode.Winter}
             berths={winterAreas}
-            boatTypes={boatTypes}
             steps={steps}
             services={services}
           />

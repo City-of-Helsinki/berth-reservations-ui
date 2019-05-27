@@ -1,6 +1,5 @@
 import { get } from 'lodash';
 import React from 'react';
-import { injectIntl } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
 
 import StorageMethod from '../fragments/StorageMethod';
@@ -72,4 +71,4 @@ const BoatDetails = ({ values, tab, mode = FormMode.Berth, boatTypes }: Props) =
   );
 };
 
-export default injectIntl(BoatDetails);
+export default BoatDetails;

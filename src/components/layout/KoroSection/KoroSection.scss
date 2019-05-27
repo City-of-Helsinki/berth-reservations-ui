@@ -1,32 +1,51 @@
 @import 'helsinki/mixins';
+@import 'helsinki/colors';
 
-.section-koro-bottom {
-  &.fog:after {
-    @include koro('basic', #9fc8eb, 400);
-  }
-  &.blue:after {
-    @include koro('basic', #0072c6, 400);
-  }
-  &:after {
-    @include koro('basic', #ffffff, 400);
-    content: '';
+$white: $hel-white;
+$fog: $hel-fog;
+$blue: $hel-coat;
+$divider-height: 1.25em;
+
+@mixin divider($color: $white) {
+  background-color: $color;
+
+  &::before {
     display: block;
-    margin-bottom: -1.25em;
-    height: 1.25em;
+    position: absolute;
+    content: '';
+    height: $divider-height;
+    width: 100%;
+    top: -$divider-height;
+    @include koro('basic', $color, 400);
   }
 }
-.section-koro-top {
-  &.fog:before {
-    @include koro('basic', #9fc8eb, 400);
+
+.section-koro {
+  position: relative;
+  padding: 2em 0 3em;
+
+  @include divider;
+
+  &--fog {
+    @include divider($fog);
   }
-  &.blue:before {
-    @include koro('basic', #0072c6, 400);
+
+  &--blue {
+    @include divider($blue);
   }
-  &:before {
-    @include koro('basic', #ffffff, 400);
-    content: '';
-    display: block;
-    margin-top: -1.25em;
-    height: 1.25em;
+
+  &--bottom {
+    padding-bottom: 2em;
+
+    &::before {
+      top: unset;
+      bottom: -$divider-height;
+      transform: scaleY(-1);
+      z-index: 9;
+    }
+  }
+
+  &--centered {
+    text-align: center;
   }
 }

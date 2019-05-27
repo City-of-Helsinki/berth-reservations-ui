@@ -5,7 +5,10 @@ $berthLegendIconSize: 42px;
 
 .vene-berths-legend {
   background-color: $hel-fog;
-  padding-bottom: 3em;
+
+  &__app-selector {
+    margin-bottom: 2em;
+  }
 
   &__header {
     margin-bottom: 2em;
