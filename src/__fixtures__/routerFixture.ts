@@ -1,5 +1,8 @@
 import { RouteComponentProps } from 'react-router-dom';
 
+// tslint:disable-next-line
+const dummyFunction = () => {};
+
 export const getMockRouterProps = <Params>(data: Params) => {
   const location = {
     hash: '',
@@ -21,14 +24,14 @@ export const getMockRouterProps = <Params>(data: Params) => {
       location,
       length: 2,
       action: 'POP',
-      push: () => {},
-      replace: () => {},
-      go: num => {},
-      goBack: () => {},
-      goForward: () => {},
-      block: t => () => {},
+      push: dummyFunction,
+      replace: dummyFunction,
+      go: dummyFunction,
+      goBack: dummyFunction,
+      goForward: dummyFunction,
+      block: t => dummyFunction,
       createHref: t => '',
-      listen: t => () => {}
+      listen: t => dummyFunction
     },
     staticContext: {}
   };
