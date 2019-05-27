@@ -29,7 +29,8 @@ type Props = {
   };
   selectedBerths: Berths;
   application?: ApplicationState;
-  tabs: string[];
+  boatTab: string;
+  applicantTab: string;
 } & WithBoatType;
 
 const Submit = ({
@@ -52,8 +53,9 @@ const Submit = ({
   },
   selectedBerths,
   application,
-  tabs,
-  boatTypes
+  boatTypes,
+  boatTab,
+  applicantTab
 }: Props) => (
   <Container>
     <Row>
@@ -61,7 +63,8 @@ const Submit = ({
         <Container className="vene-form__styled-container">
           <OverviewInfo
             selectedBerths={selectedBerths}
-            tabs={tabs}
+            boatTab={boatTab}
+            applicantTab={applicantTab}
             values={values}
             boatTypes={boatTypes}
             application={application}

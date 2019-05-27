@@ -6,6 +6,7 @@ import Layout from '../../layout';
 import FormLegend from '../../legends/FormLegend';
 import Steps from '../../steps';
 
+import { Steps as StepsType } from '../../steps/StepTypes';
 import './FormPage.scss';
 
 interface Props {
@@ -14,13 +15,8 @@ interface Props {
   goBackwards: Function;
   nextStep: Function;
   prevStep: Function;
-  step: number;
-  steps: Array<{
-    key: string;
-    completed: boolean;
-    current: boolean;
-    linkTo: string | undefined;
-  }>;
+  currentStep: number;
+  steps: StepsType;
   children: React.ReactNode;
 }
 
@@ -30,9 +26,9 @@ const BoatPage = ({
   goBackwards,
   nextStep,
   prevStep,
-  step,
+  children,
   steps,
-  children
+  currentStep
 }: Props) => {
   return (
     <Layout>
@@ -41,13 +37,13 @@ const BoatPage = ({
           <Row>
             <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
               <Steps steps={steps} />
-              <FormLegend step={step} />
+              <FormLegend step={currentStep} />
             </Col>
           </Row>
         </Container>
       </div>
       <Wizard
-        step={step}
+        step={currentStep}
         initialValues={initialValues}
         goForward={goForward}
         goBackwards={goBackwards}

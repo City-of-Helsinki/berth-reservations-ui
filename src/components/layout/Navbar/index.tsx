@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { FormattedMessage } from 'react-intl';
+import { match as matchType, withRouter } from 'react-router';
 import { Container, Nav, Navbar as BSNavbar, NavbarBrand } from 'reactstrap';
+import { berthSteps, winterSteps } from '../../../constants/StepConstant';
 import Icon from '../../common/Icon';
 import LanguageDropdown from '../LanguageDropdown';
 import './Navbar.scss';
 
-const Navbar = () => {
+const Navbar: SFC<{ match: matchType<{ locale: string }> }> = ({
+  match: {
+    params: { locale }
+  }
+}) => {
   return (
     <div className="vene-navbar">
       <div className="vene-navbar__top">
@@ -23,10 +29,10 @@ const Navbar = () => {
       <div className="vene-navbar__bottom">
         <Container>
           <BSNavbar expand="md">
-            <NavbarBrand href="berths">
+            <NavbarBrand href={`/${locale}/${berthSteps[0].linkTo}`}>
               <FormattedMessage id="site.berth.title" />
             </NavbarBrand>
-            <NavbarBrand href="winter_storage">
+            <NavbarBrand href={`/${locale}/${winterSteps[0].linkTo}`}>
               <FormattedMessage id="site.winter_storage.title" />
             </NavbarBrand>
           </BSNavbar>
@@ -36,4 +42,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);

@@ -10,7 +10,7 @@ import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
 import { Berths } from '../../berths/types';
 
-import { completeWinterStep } from '../../../redux/actions/StepActions';
+import { completeBerthStep } from '../../../redux/actions/StepActions';
 import { getBerths } from '../../../utils/berths';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
@@ -73,7 +73,7 @@ export default compose<Props, {}>(
       moveUp,
       moveDown,
       submitExchangeForm,
-      completeStep: completeWinterStep
+      completeStep: completeBerthStep
     }
   )
 )(UnconnectedSelectedBerthPage);

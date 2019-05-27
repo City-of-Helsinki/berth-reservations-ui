@@ -17,7 +17,7 @@ export const berthSteps: Steps = [
     key: 'boat_information',
     completed: false,
     current: false,
-    linkTo: 'berth/boat_infomation'
+    linkTo: 'berth/boat_information'
   },
   {
     key: 'applicant',
@@ -65,6 +65,8 @@ export const winterSteps: Steps = [
     linkTo: 'winter_storage/send_application'
   }
 ];
+
+export const MAX_STEP = 4;
 
 export const boatTabs = ['registered_boat', 'unregistered_boat', 'no_boat'];
 

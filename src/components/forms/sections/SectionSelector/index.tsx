@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import { NavLink, RouteComponentProps, withRouter } from 'react-router-dom';
+import { match as matchType, NavLink, RouteComponentProps, withRouter } from 'react-router-dom';
 import { Col, Container, Row } from 'reactstrap';
 
 import { FormattedMessage } from 'react-intl';
@@ -22,11 +22,19 @@ type Props = {
     md?: number;
     lg?: number;
   };
+  match: matchType<{ boatTab: string; applicantTab: string }>;
 } & RouteComponentProps;
 
-const SectionSelector = ({ name, types, sizes, location, match }: Props) => {
-  // @ts-ignore
-  const url = location.pathname.replace(match.params.tab, '');
+const SectionSelector = ({
+  name,
+  types,
+  sizes,
+  location,
+  match: {
+    params: { boatTab, applicantTab }
+  }
+}: Props) => {
+  const url = location.pathname.replace(boatTab || applicantTab, '');
   return (
     <div className="vene-section-selector">
       <Container>

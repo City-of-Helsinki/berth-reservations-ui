@@ -14,69 +14,32 @@ import BoatDetails from '../../forms/sections/BoatDetails';
 import Overview from '../../forms/sections/Overview';
 import WinterAreasQuery from '../../query/WinterAreasQuery';
 
+import { completeWinterStep } from '../../../redux/actions/StepActions';
 import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
 import { Berths } from '../../berths/types';
+import { Steps } from '../../steps/StepTypes';
 
 interface Props {
   initialValues: {};
   selectedBerths: Berths;
   onSubmit: Function;
   localePush: Function;
-  tab: string;
-  step: number;
+  steps: Steps;
+  boatTab: string;
+  applicantTab: string;
+  currentStep: number;
 }
 
-const mapSteps = [
-  ['registered_boat', 'unregistered_boat', 'no_boat'],
-  ['private_person', 'company'],
-  ['overview']
-];
-
-const WinterFormPageContainer = ({ selectedBerths, localePush, tab, ...rest }: Props) => {
-  const [step, setStep] = useState(0);
-  const [currTab, setTab] = useState('');
-  const [tabs, setTabs] = useState(['registered_boat', 'private_person', 'overview']);
-
-  useEffect(() => {
-    const currStep = Math.max(0, findIndex(mapSteps, s => s.includes(tab)));
-    setStep(currStep);
-    setTab(tab || mapSteps[currStep][0]);
-  });
-
-  const steps = [
-    {
-      key: 'winter_areas',
-      completed: true,
-      current: false,
-      linkTo: `winter_storage`
-    },
-    {
-      key: 'review_areas',
-      completed: true,
-      current: false,
-      linkTo: `selected_areas`
-    },
-    {
-      key: 'boat_information',
-      completed: step > 0,
-      current: step === 0,
-      linkTo: step > 0 ? `winter_form/${tabs[0]}` : undefined
-    },
-    {
-      key: 'applicant',
-      completed: step > 1,
-      current: step === 1,
-      linkTo: step > 1 ? `winter_form/${tabs[1]}` : undefined
-    },
-    {
-      key: 'send_application',
-      completed: step > 2,
-      current: step === 2,
-      linkTo: step > 2 ? `winter_form/${tabs[2]}` : undefined
-    }
-  ];
-
+const WinterFormPageContainer = ({
+  selectedBerths,
+  currentStep,
+  localePush,
+  boatTab,
+  applicantTab,
+  steps,
+  ...rest
+}: Props) => {
   return (
     <WinterAreasQuery query={WINTER_AREAS_QUERY}>
       {({
@@ -110,41 +73,49 @@ const WinterFormPageContainer = ({ selectedBerths, localePush, tab, ...rest }: P
             mutation: CREATE_WINTER_STORAGE_RESERVATION
           });
 
-          setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
           await localePush('/thank_you');
         };
 
         const goBackwards = async (values: {}) => {
           await onSubmit(values);
-          setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
-          await localePush('/selected_areas');
+          await localePush(`/${steps[1].linkTo}`);
         };
 
-        const goToStep = (nextStep: number) => (values: {}) => {
+        const gotoNextStep = (stepIndex: number) => (values: {}) => {
           onSubmit(values);
-          setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
-          localePush(`/winter_form/${tabs[nextStep]}`);
+
+          completeWinterStep(stepIndex, boatTab, applicantTab);
+          localePush(`/${steps[stepIndex].linkTo}`);
         };
 
         return (
           <FormPage
             goForward={goForward}
             goBackwards={goBackwards}
-            nextStep={goToStep(step + 1)}
-            prevStep={goToStep(step - 1)}
-            step={step}
+            nextStep={goToNextStep(currentStep + 1, boatTab, applicantTab)}
+            prevStep={goToPrevStep(currentStep - 1)}
             steps={steps}
+            currentStep={currentStep}
             {...rest}
           >
-            <BoatDetails
-              tab={tab}
-              values={{}}
-              boatTypes={boatTypes}
-              mode={FormMode.WinterStorage}
-            />
-            <ApplicantDetails tab={tab} />
+            {boatTab && (
+              <BoatDetails
+                tab={boatTab}
+                values={{}}
+                boatTypes={boatTypes}
+                mode={FormMode.WinterStorage}
+              />
+            )}
+
+            {applicantTab && <ApplicantDetails tab={applicantTab} />}
+
             {!loading && (
-              <Overview selectedBerths={selectedBerths} boatTypes={boatTypes} tabs={tabs} />
+              <Overview
+                selectedBerths={selectedBerths}
+                boatTypes={boatTypes}
+                applicantTab={applicantTab}
+                boatTab={boatTab}
+              />
             )}
           </FormPage>
         );
@@ -158,7 +129,9 @@ export default compose<Props, {}>(
   connect(
     (state: Store) => ({
       initialValues: state.forms.values,
-      selectedBerths: state.winterAreas.selectedWinterAreas
+      selectedBerths: state.winterAreas.selectedWinterAreas,
+      steps: state.steps.winterSteps.toJS(),
+      currentStep: state.steps.currentWinterStep
     }),
     { onSubmit }
   )

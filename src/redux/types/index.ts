@@ -31,6 +31,8 @@ export interface StepsProps {
   berthSteps: List<Step>;
   currentBerthStep: number;
   currentWinterStep: number;
+  boatTab: number;
+  applicantTab: number;
 }
 
 export type FormsFactory = Record.Factory<FormProps>;

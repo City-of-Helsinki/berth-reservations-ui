@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Button, Col, Container, Row } from 'reactstrap';
+import { MAX_STEP } from '../../constants/StepConstant';
 import Form from './Form';
 import './Wizard.scss';
 
@@ -18,40 +19,28 @@ class Wizard extends Component<Props, State> {
     };
   }
 
-  hasNextStep = () => {
-    const { step, children } = this.props;
-    return step < React.Children.count(children) - 1;
-  };
-
-  hasPreviousStep = () => {
-    const { step } = this.props;
-    return step > 0;
-  };
-
-  getActiveStep = () => {
-    const { step, children } = this.props;
-    return React.Children.toArray(children)[step];
-  };
-
-  handleSubmit = (values: {}) => {
-    const { nextStep, goForward } = this.props;
-    if (this.hasNextStep()) {
-      window.scrollTo(0, 0);
-      nextStep(values);
-    } else {
-      this.setState({ isSubmitting: true });
-      goForward(values);
-    }
-  };
-
   handlePrevious = (values: {}) => {
-    const { prevStep, goBackwards } = this.props;
+    const { prevStep, goBackwards, step } = this.props;
 
-    if (this.hasPreviousStep()) {
+    if (step >= 1) {
       prevStep(values);
     } else {
       goBackwards(values);
     }
+  };
+  handleSubmit = (values: {}) => {
+    const { nextStep, goForward, step } = this.props;
+    if (step < MAX_STEP) {
+      nextStep(values);
+    } else {
+      goForward(values);
+    }
+  };
+
+  hasNextStep = () => {
+    const { step } = this.props;
+
+    return step < MAX_STEP;
   };
 
   getSubmitText = (invalid: boolean) => {
@@ -66,14 +55,12 @@ class Wizard extends Component<Props, State> {
 
   render() {
     const { initialValues } = this.state;
-    const activePage = this.getActiveStep();
 
     return (
       <Form initialValues={initialValues} onSubmit={this.handleSubmit}>
         {({ invalid, values }: { invalid: boolean; values: {} }) => (
           <Fragment>
-            {React.isValidElement(activePage) &&
-              React.cloneElement<{ values?: {} }>(activePage, { values })}
+            {this.props.children}
             <div className="vene-form__wizard-wrapper">
               <Container>
                 <Row>

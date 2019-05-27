@@ -14,70 +14,37 @@ import BoatDetails from '../../forms/sections/BoatDetails';
 import Overview from '../../forms/sections/Overview';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 
+import { match as matchType } from 'react-router';
+import { completeBerthStep } from '../../../redux/actions/StepActions';
 import { ApplicationState, Store } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
 import { Berths } from '../../berths/types';
+import { Steps } from '../../steps/StepTypes';
 
 interface Props {
   initialValues: {};
   selectedBerths: Berths;
   onSubmit: Function;
   localePush: Function;
-  tab: string;
-  step: number;
+  steps: Steps;
   application: ApplicationState;
+  currentStep: number;
+  match: matchType<{ boatTab: string; applicantTab: string }>;
+  completeStep: Function;
 }
 
-const mapSteps = [
-  ['registered_boat', 'unregistered_boat', 'no_boat'],
-  ['private_person', 'company'],
-  ['overview']
-];
-
-const FormPageContainer = ({ selectedBerths, localePush, tab, application, ...rest }: Props) => {
-  const [step, setStep] = useState(0);
-  const [currTab, setTab] = useState('');
-  const [tabs, setTabs] = useState(['registered_boat', 'private_person', 'overview']);
-
-  useEffect(() => {
-    const currStep = Math.max(0, findIndex(mapSteps, s => s.includes(tab)));
-    setStep(currStep);
-    setTab(tab || mapSteps[currStep][0]);
-  });
-
-  const steps = [
-    {
-      key: 'berths',
-      completed: true,
-      current: false,
-      linkTo: `berths`
-    },
-    {
-      key: 'selected_berths',
-      completed: true,
-      current: false,
-      linkTo: `selected_berths`
-    },
-    {
-      key: 'boat_information',
-      completed: step > 0,
-      current: step === 0,
-      linkTo: step > 0 ? `form/${tabs[0]}` : undefined
-    },
-    {
-      key: 'applicant',
-      completed: step > 1,
-      current: step === 1,
-      linkTo: step > 1 ? `form/${tabs[1]}` : undefined
-    },
-    {
-      key: 'send_application',
-      completed: step > 2,
-      current: step === 2,
-      linkTo: step > 2 ? `form/${tabs[2]}` : undefined
-    }
-  ];
-
+const FormPageContainer = ({
+  selectedBerths,
+  localePush,
+  application,
+  steps,
+  currentStep,
+  completeStep,
+  match: {
+    params: { boatTab, applicantTab }
+  },
+  ...rest
+}: Props) => {
   return (
     <BoatsBerthsQuery query={BOAT_TYPES_BERTHS_QUERY}>
       {({
@@ -120,39 +87,45 @@ const FormPageContainer = ({ selectedBerths, localePush, tab, application, ...re
             mutation: CREATE_RESERVATION
           });
 
-          setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
           await localePush('/thank_you');
         };
 
         const goBackwards = async (values: {}) => {
           await onSubmit(values);
-          setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
-          await localePush('/selected_berths');
+          await localePush(`/${steps[1].linkTo}`);
         };
 
-        const goToStep = (nextStep: number) => (values: {}) => {
+        const goToStep = (stepIndex: number) => (values: {}) => {
           onSubmit(values);
-          setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
-          localePush(`/form/${tabs[nextStep]}`);
+
+          if (!stepIndex) {
+            localePush(`/${steps[0].linkTo}`);
+          } else if (stepIndex > steps.length) {
+            localePush(`/${steps[4].linkTo}`);
+          } else {
+            completeStep(stepIndex);
+            localePush(`/${steps[stepIndex].linkTo}`);
+          }
         };
 
         return (
           <FormPage
             goForward={goForward}
             goBackwards={goBackwards}
-            nextStep={goToStep(step + 1)}
-            prevStep={goToStep(step - 1)}
-            step={step}
+            nextStep={goToStep(currentStep + 1)}
+            prevStep={goToStep(currentStep - 1)}
             steps={steps}
+            currentStep={currentStep}
             {...rest}
           >
-            <BoatDetails tab={tab} values={{}} boatTypes={boatTypes} />
-            <ApplicantDetails tab={tab} />
+            {boatTab && <BoatDetails tab={boatTab} values={{}} boatTypes={boatTypes} />}
+            {applicantTab && <ApplicantDetails tab={applicantTab} />}
             {!loading && (
               <Overview
                 selectedBerths={selectedBerths}
                 boatTypes={boatTypes}
-                tabs={tabs}
+                boatTab={boatTab}
+                applicantTab={applicantTab}
                 application={application}
               />
             )}
@@ -169,8 +142,10 @@ export default compose<Props, {}>(
     (state: Store) => ({
       initialValues: state.forms.values,
       selectedBerths: state.berths.selectedBerths,
-      application: state.application
+      application: state.application,
+      steps: state.steps.berthSteps.toJS(),
+      currentStep: state.steps.currentBerthStep
     }),
-    { onSubmit }
+    { onSubmit, completeStep: completeBerthStep }
   )
 )(FormPageContainer);

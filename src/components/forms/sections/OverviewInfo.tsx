@@ -35,11 +35,19 @@ type Props = {
   };
   selectedBerths: Berths;
   application?: ApplicationState;
-  tabs: string[];
+  boatTab: string;
+  applicantTab: string;
 } & InjectedIntlProps &
   WithBoatType;
 
-const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, application }: Props) => (
+const OverviewInfo = ({
+  values,
+  selectedBerths,
+  boatTab,
+  applicantTab,
+  boatTypes,
+  application
+}: Props) => (
   <div className="vene-overview-info">
     <Container fluid>
       <OldBerthInfo application={application} />
@@ -49,13 +57,13 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, application }: 
           <FormattedMessage tagName="h6" id="page.overview.info.boat_info" />
         </Col>
         <Col xs={4} md={2} className="vene-overview-info__edit-icon">
-          <LocalizedLink to={`form/${tabs[0]}`} className="vene-overview-info__edit-link">
+          <LocalizedLink to={`form/${boatTab}`} className="vene-overview-info__edit-link">
             <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
           </LocalizedLink>
         </Col>
       </Row>
-      {tabs[0] === 'registered_boat' && (
+      {boatTab === 'registered_boat' && (
         <Fragment>
           <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
           <BoatTypeAndModel
@@ -67,7 +75,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, application }: 
           <BoatDraughtAndWeight draught={values.boatDraught} weight={values.boatWeight} />
         </Fragment>
       )}
-      {tabs[0] === 'unregistered_boat' && (
+      {boatTab === 'unregistered_boat' && (
         <Fragment>
           <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
           <BoatTypeAndModel
@@ -78,7 +86,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, application }: 
           <BoatMeasures width={values.boatWidth} length={values.boatLength} />
         </Fragment>
       )}
-      {tabs[0] === 'no_boat' && (
+      {boatTab === 'no_boat' && (
         <Fragment>
           <BoatTypeAndModel
             boatTypeId={values.boatType}
@@ -113,7 +121,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, application }: 
           <FormattedMessage tagName="h6" id="page.overview.info.person" />
         </Col>
         <Col xs={4} md={2} className="vene-overview-info__edit-icon">
-          <LocalizedLink to={`form/${tabs[1]}`} className="vene-overview-info__edit-link">
+          <LocalizedLink to={`form/${applicantTab}`} className="vene-overview-info__edit-link">
             <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
           </LocalizedLink>

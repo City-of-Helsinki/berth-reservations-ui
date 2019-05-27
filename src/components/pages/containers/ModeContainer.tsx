@@ -17,70 +17,51 @@ const ModeContainer: SFC<{ match: matchType<{ mode: string; locale: string }> }>
 }) => {
   const boatTabParam = `:boatTab(${boatTabs[0]}|${boatTabs[1]}|${boatTabs[2]})`;
   const applicantTabParam = `:applicantTab(${applicantTabs[0]}|${applicantTabs[1]})`;
+  const isWinterMode = mode === FormMode.WinterStorage;
 
+  const steps = isWinterMode ? winterSteps : berthSteps;
   return (
     <div className="vene-mode-container">
-      {mode === FormMode.WinterStorage ? (
-        <Switch>
-          <Route
-            exact
-            path={`${path}/${winterSteps[1].key}`}
-            component={SelectedAreasPageContainer}
-          />
-          <Route
-            exact
-            path={`${path}/${winterSteps[2].key}/${boatTabParam}`}
-            component={WinterFormPageContainer}
-          />
+      <Switch>
+        <Route
+          exact
+          path={`${path}/${steps[1].key}`}
+          component={isWinterMode ? SelectedAreasPageContainer : SelectedBerthPageContainer}
+        />
+        <Route
+          exact
+          path={`${path}/${steps[2].key}/${boatTabParam}`}
+          component={isWinterMode ? WinterFormPageContainer : FormPageContainer}
+        />
 
-          <Redirect
-            exact
-            from={`${path}/${winterSteps[2].key}`}
-            to={`${path}/${winterSteps[2].key}/${boatTabs[0]}`}
-          />
+        <Redirect from={`${path}/${steps[2].key}`} to={`${path}/${steps[2].key}/${boatTabs[0]}`} />
 
-          <Route
-            exact
-            path={`${path}/${winterSteps[3].key}/${applicantTabParam}`}
-            component={WinterFormPageContainer}
-          />
+        <Route
+          exact
+          path={`${path}/${steps[3].key}/${applicantTabParam}`}
+          component={isWinterMode ? WinterFormPageContainer : FormPageContainer}
+        />
 
-          <Redirect
-            exact
-            from={`${path}/${winterSteps[3].key}`}
-            to={`${path}/${winterSteps[3].key}/${applicantTabs[0]}`}
-          />
+        <Redirect
+          exact
+          from={`${path}/${steps[3].key}`}
+          to={`${path}/${steps[3].key}/${applicantTabs[0]}`}
+        />
 
-          <Route exact path={`${path}/overview}`} component={WinterFormPageContainer} />
+        <Route
+          exact
+          path={`${path}/overview}`}
+          component={isWinterMode ? WinterFormPageContainer : FormPageContainer}
+        />
 
-          <Route exact path={path} component={WinterBerthPageContainer} />
+        <Route
+          exact
+          path={path}
+          component={isWinterMode ? WinterBerthPageContainer : BerthPageContainer}
+        />
 
-          <Redirect to={path} />
-        </Switch>
-      ) : (
-        <Switch>
-          <Route
-            exact
-            path={`${path}/${berthSteps[1].key}`}
-            component={SelectedBerthPageContainer}
-          />
-          <Route
-            exact
-            path={`${path}/${berthSteps[2].key}/:boatTab`}
-            component={FormPageContainer}
-          />
-
-          <Route
-            exact
-            path={`${path}/${berthSteps[3].key}/:applicantTab`}
-            component={FormPageContainer}
-          />
-
-          <Route exact path={`${path}/overview`} component={FormPageContainer} />
-
-          <Route component={BerthPageContainer} />
-        </Switch>
-      )}
+        <Redirect to={path} />
+      </Switch>
     </div>
   );
 };
