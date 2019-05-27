@@ -61,7 +61,7 @@ export default class MapCanvas extends Component<Props, State> {
           <FormattedMessage id="page.berths.list.berth_count" values={{ count: filtered.size }} />
         </h3>
         <Map center={position} zoom={this.state.zoom} className="vene-map__map">
-          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <TileLayer url="https://tiles.hel.ninja/styles/hel-osm-light/{z}/{x}/{y}@2x.png" />
           {filtered.map(berth => {
             const isSelected = isBerthSelected(selected, berth);
             const isPreviewed = !!selectedBerth && selectedBerth.id === berth.id;
