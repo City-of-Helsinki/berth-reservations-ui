@@ -34,17 +34,17 @@ const BoatDetails = ({ values, tab, mode = FormMode.Berth, boatTypes }: Props) =
         types={[
           {
             label: 'form.boat_type_selector.registered_boat.label',
-            tab: 'registered_boat',
+            tab: 'registered-boat',
             icon: 'registeredBoat'
           },
           {
             label: 'form.boat_type_selector.unregistered_boat.label',
-            tab: 'unregistered_boat',
+            tab: 'unregistered-boat',
             icon: 'unregisteredBoat'
           },
           {
             label: 'form.boat_type_selector.no_boat.label',
-            tab: 'no_boat',
+            tab: 'no-boat',
             icon: 'noBoat'
           }
         ]}
@@ -55,15 +55,15 @@ const BoatDetails = ({ values, tab, mode = FormMode.Berth, boatTypes }: Props) =
             <Container>
               {mode === FormMode.Winter && <StorageMethod showTrailerRegNum={showTrailerRegNum} />}
             </Container>
-            {tab === 'registered_boat' && (
+            {tab === 'registered-boat' && (
               <RegisteredBoat
                 mode={mode}
                 ShowBigShipsForm={ShowBigShipsForm}
                 boatTypes={boatTypes}
               />
             )}
-            {tab === 'unregistered_boat' && <UnRegisteredBoat mode={mode} boatTypes={boatTypes} />}
-            {tab === 'no_boat' && <NoBoat mode={mode} boatTypes={boatTypes} />}
+            {tab === 'unregistered-boat' && <UnRegisteredBoat mode={mode} boatTypes={boatTypes} />}
+            {tab === 'no-boat' && <NoBoat mode={mode} boatTypes={boatTypes} />}
           </Col>
         </Row>
       </Container>

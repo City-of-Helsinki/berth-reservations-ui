@@ -58,7 +58,7 @@ class FrontPage extends Component<Props> {
                 </Col>
                 <Col xs="6">
                   <Card
-                    onClick={() => localePush('/winter_storage')}
+                    onClick={() => localePush('/winter-storage')}
                     btnLabel="page.front.card.winter.button_label"
                     title="page.front.card.winter.title"
                   >

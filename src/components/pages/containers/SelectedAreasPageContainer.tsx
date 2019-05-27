@@ -31,7 +31,7 @@ const steps = [
     key: 'winter_areas',
     completed: true,
     current: false,
-    linkTo: `winter_storage`
+    linkTo: `winter-storage`
   },
   {
     key: 'review_areas',
@@ -61,11 +61,11 @@ const steps = [
 
 const UnconnectedSelectedBerthPage = (props: Props) => {
   const moveToForm = async () => {
-    await props.localePush('/winter_form/registered_boat');
+    await props.localePush('/winter-form/registered-boat');
   };
 
   const handlePrevious = async () => {
-    await props.localePush('/winter_storage');
+    await props.localePush('/winter-storage');
   };
 
   return (

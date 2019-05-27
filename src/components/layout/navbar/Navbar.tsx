@@ -44,7 +44,7 @@ const Navbar = () => {
             </LocalizedLink>
 
             <LocalizedLink
-              to="/winter_storage"
+              to="/winter-storage"
               className="vene-navbar__link"
               activeClassName="vene-navbar__link--active"
             >

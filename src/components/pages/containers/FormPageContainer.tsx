@@ -30,8 +30,8 @@ type Props = {
 } & RouteComponentProps<{ tab: string }>;
 
 const mapSteps = [
-  ['registered_boat', 'unregistered_boat', 'no_boat'],
-  ['private_person', 'company'],
+  ['registered-boat', 'unregistered-boat', 'no-boat'],
+  ['private-person', 'company'],
   ['overview']
 ];
 
@@ -46,7 +46,7 @@ const FormPageContainer = ({
 }: Props) => {
   const [step, setStep] = useState(0);
   const [currTab, setTab] = useState('');
-  const [tabs, setTabs] = useState(['registered_boat', 'private_person', 'overview']);
+  const [tabs, setTabs] = useState(['registered-boat', 'private-person', 'overview']);
 
   useEffect(() => {
     const currStep = Math.max(0, findIndex(mapSteps, s => s.includes(tab)));
@@ -65,7 +65,7 @@ const FormPageContainer = ({
       key: 'selected_berths',
       completed: true,
       current: false,
-      linkTo: `selected_berths`
+      linkTo: `selected-berths`
     },
     {
       key: 'boat_information',
@@ -130,13 +130,13 @@ const FormPageContainer = ({
           });
 
           setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
-          await localePush('/thank_you');
+          await localePush('/thank-you');
         };
 
         const goBackwards = async (values: {}) => {
           await onSubmit(values);
           setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
-          await localePush('/selected_berths');
+          await localePush('/selected-berths');
         };
 
         const goToStep = (nextStep: number) => (values: {}) => {

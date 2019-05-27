@@ -33,14 +33,14 @@ const App = ({
     <Switch>
       <Route exact path={`/${localeParam}`} component={FrontPage} />
       <Route exact path={`/${localeParam}/berths`} component={BerthPage} />
-      <Route exact path={`/${localeParam}/selected_berths`} component={SelectedBerthPage} />
+      <Route exact path={`/${localeParam}/selected-berths`} component={SelectedBerthPage} />
       <Route exact path={`/${localeParam}/form`} component={FormPage} />
       <Route exact path={`/${localeParam}/form/:tab`} component={FormPage} />
-      <Route exact path={`/${localeParam}/thank_you`} component={ThankYouPage} />
-      <Route exact path={`/${localeParam}/winter_storage`} component={WinterBerthPage} />
-      <Route exact path={`/${localeParam}/selected_areas`} component={SelectedAreasPage} />
-      <Route exact path={`/${localeParam}/winter_form`} component={WinterFormPage} />
-      <Route exact path={`/${localeParam}/winter_form/:tab`} component={WinterFormPage} />
+      <Route exact path={`/${localeParam}/thank-you`} component={ThankYouPage} />
+      <Route exact path={`/${localeParam}/winter-storage`} component={WinterBerthPage} />
+      <Route exact path={`/${localeParam}/selected-areas`} component={SelectedAreasPage} />
+      <Route exact path={`/${localeParam}/winter-form`} component={WinterFormPage} />
+      <Route exact path={`/${localeParam}/winter-form/:tab`} component={WinterFormPage} />
     </Switch>
   </IntlProvider>
 );
