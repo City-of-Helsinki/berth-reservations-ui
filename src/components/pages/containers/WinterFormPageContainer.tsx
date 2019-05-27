@@ -2,9 +2,11 @@ import findIndex from 'lodash/findIndex';
 import map from 'lodash/map';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
+
 import { onSubmit } from '../../../redux/actions/FormActions';
-import { withMatchParamsHandlers } from '../../../utils/container';
+import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../FormPage';
 
 import { CREATE_WINTER_STORAGE_RESERVATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
@@ -18,25 +20,31 @@ import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
 import { Berths } from '../../berths/types';
 
-interface Props {
+type Props = {
   initialValues: {};
   selectedBerths: Berths;
   onSubmit: Function;
-  localePush: Function;
-  tab: string;
+  localePush: LocalePush;
   step: number;
-}
+} & RouteComponentProps<{ tab: string }>;
 
 const mapSteps = [
-  ['registered_boat', 'unregistered_boat', 'no_boat'],
-  ['private_person', 'company'],
+  ['registered-boat', 'unregistered-boat', 'no-boat'],
+  ['private-person', 'company'],
   ['overview']
 ];
 
-const WinterFormPageContainer = ({ selectedBerths, localePush, tab, ...rest }: Props) => {
+const WinterFormPageContainer = ({
+  selectedBerths,
+  localePush,
+  match: {
+    params: { tab }
+  },
+  ...rest
+}: Props) => {
   const [step, setStep] = useState(0);
   const [currTab, setTab] = useState('');
-  const [tabs, setTabs] = useState(['registered_boat', 'private_person', 'overview']);
+  const [tabs, setTabs] = useState(['registered-boat', 'private-person', 'overview']);
 
   useEffect(() => {
     const currStep = Math.max(0, findIndex(mapSteps, s => s.includes(tab)));
@@ -49,31 +57,31 @@ const WinterFormPageContainer = ({ selectedBerths, localePush, tab, ...rest }: P
       key: 'winter_areas',
       completed: true,
       current: false,
-      linkTo: `winter_storage`
+      linkTo: `winter-storage`
     },
     {
       key: 'review_areas',
       completed: true,
       current: false,
-      linkTo: `selected_areas`
+      linkTo: `selected-areas`
     },
     {
       key: 'boat_information',
       completed: step > 0,
       current: step === 0,
-      linkTo: step > 0 ? `winter_form/${tabs[0]}` : undefined
+      linkTo: step > 0 ? `winter-form/${tabs[0]}` : undefined
     },
     {
       key: 'applicant',
       completed: step > 1,
       current: step === 1,
-      linkTo: step > 1 ? `winter_form/${tabs[1]}` : undefined
+      linkTo: step > 1 ? `winter-form/${tabs[1]}` : undefined
     },
     {
       key: 'send_application',
       completed: step > 2,
       current: step === 2,
-      linkTo: step > 2 ? `winter_form/${tabs[2]}` : undefined
+      linkTo: step > 2 ? `winter-form/${tabs[2]}` : undefined
     }
   ];
 
@@ -111,19 +119,19 @@ const WinterFormPageContainer = ({ selectedBerths, localePush, tab, ...rest }: P
           });
 
           setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
-          await localePush('/thank_you');
+          await localePush('/thank-you');
         };
 
         const goBackwards = async (values: {}) => {
           await onSubmit(values);
           setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
-          await localePush('/selected_areas');
+          await localePush('/selected-areas');
         };
 
         const goToStep = (nextStep: number) => (values: {}) => {
           onSubmit(values);
           setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
-          localePush(`/winter_form/${tabs[nextStep]}`);
+          localePush(`/winter-form/${tabs[nextStep]}`);
         };
 
         return (

@@ -1,0 +1,29 @@
+@import 'helsinki/colors';
+
+.vene-card {
+  padding: 2em;
+  background-color: $hel-white;
+  text-align: left;
+  min-width: 8em;
+  height: 100%;
+
+  &__title {
+    margin-bottom: 1em;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 1em;
+  }
+
+  &__description {
+    flex-grow: 1;
+  }
+
+  &__button {
+    display: block;
+    margin: 0 auto;
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { IntlProvider } from 'react-intl';
-import { Redirect, Route, Switch } from 'react-router';
+import { Route, RouteComponentProps, Switch } from 'react-router';
 import messages from '../config/translations';
 
 import BerthPage from './pages/containers/BerthPageContainer';
@@ -11,26 +11,36 @@ import ThankYouPage from './pages/containers/ThankYouPageContainer';
 import SelectedAreasPage from './pages/containers/SelectedAreasPageContainer';
 import WinterBerthPage from './pages/containers/WinterBerthPageContainer';
 import WinterFormPage from './pages/containers/WinterFormPageContainer';
+import FrontPage from './pages/FrontPage/FrontPage';
 
-export interface Props {
-  locale: 'fi' | 'en' | 'sv';
-}
+import { LocaleOpts } from '../types/intl';
+
+type Props = RouteComponentProps<{ locale: LocaleOpts }>;
 
 const localeParam = ':locale(fi|en|sv)';
 
-const App = ({ locale }: Props) => (
-  <IntlProvider locale={locale} key={locale} messages={messages[locale]}>
+const App = ({
+  match: {
+    params: { locale }
+  }
+}: Props) => (
+  <IntlProvider
+    locale={locale}
+    key={locale}
+    messages={messages[locale]}
+    defaultLocale={LocaleOpts.FI}
+  >
     <Switch>
-      <Redirect exact path={`/${localeParam}/`} to={`/${localeParam}/berths`} />
+      <Route exact path={`/${localeParam}`} component={FrontPage} />
       <Route exact path={`/${localeParam}/berths`} component={BerthPage} />
-      <Route exact path={`/${localeParam}/selected_berths`} component={SelectedBerthPage} />
+      <Route exact path={`/${localeParam}/selected-berths`} component={SelectedBerthPage} />
       <Route exact path={`/${localeParam}/form`} component={FormPage} />
       <Route exact path={`/${localeParam}/form/:tab`} component={FormPage} />
-      <Route exact path={`/${localeParam}/thank_you`} component={ThankYouPage} />
-      <Route exact path={`/${localeParam}/winter_storage`} component={WinterBerthPage} />
-      <Route exact path={`/${localeParam}/selected_areas`} component={SelectedAreasPage} />
-      <Route exact path={`/${localeParam}/winter_form`} component={WinterFormPage} />
-      <Route exact path={`/${localeParam}/winter_form/:tab`} component={WinterFormPage} />
+      <Route exact path={`/${localeParam}/thank-you`} component={ThankYouPage} />
+      <Route exact path={`/${localeParam}/winter-storage`} component={WinterBerthPage} />
+      <Route exact path={`/${localeParam}/selected-areas`} component={SelectedAreasPage} />
+      <Route exact path={`/${localeParam}/winter-form`} component={WinterFormPage} />
+      <Route exact path={`/${localeParam}/winter-form/:tab`} component={WinterFormPage} />
     </Switch>
   </IntlProvider>
 );

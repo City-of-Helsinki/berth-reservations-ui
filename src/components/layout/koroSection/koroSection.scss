@@ -1,0 +1,51 @@
+@import 'helsinki/mixins';
+@import 'helsinki/colors';
+
+$white: $hel-white;
+$fog: $hel-fog;
+$blue: $hel-coat;
+$divider-height: 1.25em;
+
+@mixin divider($color: $white) {
+  background-color: $color;
+
+  &::before {
+    display: block;
+    position: absolute;
+    content: '';
+    height: $divider-height;
+    width: 100%;
+    top: -$divider-height;
+    @include koro('basic', $color, 400);
+  }
+}
+
+.section-koro {
+  position: relative;
+  padding: 2em 0 3em;
+
+  @include divider;
+
+  &--fog {
+    @include divider($fog);
+  }
+
+  &--blue {
+    @include divider($blue);
+  }
+
+  &--bottom {
+    padding-bottom: 2em;
+
+    &::before {
+      top: unset;
+      bottom: -$divider-height;
+      transform: scaleY(-1);
+      z-index: 9;
+    }
+  }
+
+  &--centered {
+    text-align: center;
+  }
+}

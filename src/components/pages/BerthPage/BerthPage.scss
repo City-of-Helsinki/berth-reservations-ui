@@ -1,3 +1,7 @@
+@import 'helsinki/colors';
+
 .vene-berth-page {
-  margin-bottom: 5em;
+  &__tabs {
+    background-color: $hel-white;
+  }
 }

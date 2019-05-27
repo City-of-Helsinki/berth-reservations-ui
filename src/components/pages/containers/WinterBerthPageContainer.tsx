@@ -9,7 +9,7 @@ import {
   selectWinterArea
 } from '../../../redux/actions/WinterAreaActions';
 import { getBerths as getBerthsFromCache } from '../../../utils/berths';
-import { withMatchParamsHandlers } from '../../../utils/container';
+import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import { IconNames } from '../../common/Icon';
 import WinterAreasQuery from '../../query/WinterAreasQuery';
@@ -32,7 +32,7 @@ interface Props {
   selectService: Function;
   deselectService: Function;
   onSubmit: Function;
-  localePush: Function;
+  localePush: LocalePush;
 }
 
 const BerthPageContainer = (props: Props) => {
@@ -124,7 +124,6 @@ const BerthPageContainer = (props: Props) => {
             {...props}
             hero={FormMode.Winter}
             berths={winterAreas}
-            boatTypes={boatTypes}
             steps={steps}
             services={services}
           />

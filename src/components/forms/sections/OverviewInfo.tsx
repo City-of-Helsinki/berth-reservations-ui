@@ -55,7 +55,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, application }: 
           </LocalizedLink>
         </Col>
       </Row>
-      {tabs[0] === 'registered_boat' && (
+      {tabs[0] === 'registered-boat' && (
         <Fragment>
           <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
           <BoatTypeAndModel
@@ -67,7 +67,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, application }: 
           <BoatDraughtAndWeight draught={values.boatDraught} weight={values.boatWeight} />
         </Fragment>
       )}
-      {tabs[0] === 'unregistered_boat' && (
+      {tabs[0] === 'unregistered-boat' && (
         <Fragment>
           <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
           <BoatTypeAndModel
@@ -78,7 +78,7 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, application }: 
           <BoatMeasures width={values.boatWidth} length={values.boatLength} />
         </Fragment>
       )}
-      {tabs[0] === 'no_boat' && (
+      {tabs[0] === 'no-boat' && (
         <Fragment>
           <BoatTypeAndModel
             boatTypeId={values.boatType}

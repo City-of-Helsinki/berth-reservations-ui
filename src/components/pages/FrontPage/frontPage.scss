@@ -1,0 +1,11 @@
+@import 'helsinki/colors';
+
+.vene-front-page {
+  &__body {
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 2em;
+  }
+}

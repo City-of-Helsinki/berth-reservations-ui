@@ -2,9 +2,11 @@ import findIndex from 'lodash/findIndex';
 import map from 'lodash/map';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
+
 import { onSubmit } from '../../../redux/actions/FormActions';
-import { withMatchParamsHandlers } from '../../../utils/container';
+import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../FormPage';
 
 import { BOAT_TYPES_BERTHS_QUERY, CREATE_RESERVATION } from '../../../utils/graphql';
@@ -18,26 +20,33 @@ import { ApplicationState, Store } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
 import { Berths } from '../../berths/types';
 
-interface Props {
+type Props = {
   initialValues: {};
   selectedBerths: Berths;
   onSubmit: Function;
-  localePush: Function;
-  tab: string;
+  localePush: LocalePush;
   step: number;
   application: ApplicationState;
-}
+} & RouteComponentProps<{ tab: string }>;
 
 const mapSteps = [
-  ['registered_boat', 'unregistered_boat', 'no_boat'],
-  ['private_person', 'company'],
+  ['registered-boat', 'unregistered-boat', 'no-boat'],
+  ['private-person', 'company'],
   ['overview']
 ];
 
-const FormPageContainer = ({ selectedBerths, localePush, tab, application, ...rest }: Props) => {
+const FormPageContainer = ({
+  selectedBerths,
+  localePush,
+  match: {
+    params: { tab }
+  },
+  application,
+  ...rest
+}: Props) => {
   const [step, setStep] = useState(0);
   const [currTab, setTab] = useState('');
-  const [tabs, setTabs] = useState(['registered_boat', 'private_person', 'overview']);
+  const [tabs, setTabs] = useState(['registered-boat', 'private-person', 'overview']);
 
   useEffect(() => {
     const currStep = Math.max(0, findIndex(mapSteps, s => s.includes(tab)));
@@ -56,7 +65,7 @@ const FormPageContainer = ({ selectedBerths, localePush, tab, application, ...re
       key: 'selected_berths',
       completed: true,
       current: false,
-      linkTo: `selected_berths`
+      linkTo: `selected-berths`
     },
     {
       key: 'boat_information',
@@ -121,13 +130,13 @@ const FormPageContainer = ({ selectedBerths, localePush, tab, application, ...re
           });
 
           setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
-          await localePush('/thank_you');
+          await localePush('/thank-you');
         };
 
         const goBackwards = async (values: {}) => {
           await onSubmit(values);
           setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
-          await localePush('/selected_berths');
+          await localePush('/selected-berths');
         };
 
         const goToStep = (nextStep: number) => (values: {}) => {
@@ -163,7 +172,7 @@ const FormPageContainer = ({ selectedBerths, localePush, tab, application, ...re
   );
 };
 
-export default compose<Props, {}>(
+export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({

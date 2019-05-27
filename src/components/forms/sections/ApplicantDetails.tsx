@@ -20,7 +20,7 @@ const ApplicantDetails = ({ tab }: Props) => (
       types={[
         {
           label: 'form.boat_type_selector.private_person.label',
-          tab: 'private_person',
+          tab: 'private-person',
           icon: 'individual'
         },
         {
@@ -33,7 +33,7 @@ const ApplicantDetails = ({ tab }: Props) => (
     <Container>
       <Row>
         <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-          {tab === 'private_person' && <PrivatePerson />}
+          {tab === 'private-person' && <PrivatePerson />}
           {tab === 'company' && <Company />}
         </Col>
       </Row>

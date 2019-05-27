@@ -1,16 +1,15 @@
 import React from 'react';
 import { Field, FieldProps } from 'react-final-form';
-import { FormattedMessage, InjectedIntlProps } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import { FormFeedback, FormGroup, FormText } from 'reactstrap';
+
 import validator, { mustBePresent } from '../../../utils/formValidation';
 import Input from '../../common/Input';
-
 import Label from './Label';
 
 type Props = {
   items: Array<{ name: string; label: string; value: string }>;
-} & FieldProps &
-  InjectedIntlProps;
+} & FieldProps;
 
 type CustomInputType = 'select' | 'file' | 'radio' | 'checkbox' | 'switch';
 
@@ -22,7 +21,6 @@ const TextInput = (type: CustomInputType, inlineLabel: boolean) => ({
   text,
   validate,
   placeholder,
-  intl: { formatMessage },
   ...rest
 }: Props) => (
   <Field

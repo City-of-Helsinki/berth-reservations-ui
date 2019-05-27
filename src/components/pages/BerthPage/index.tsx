@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 
 import { getBerthFilterByValues } from '../../../utils/berths';
 import Berths from '../../berths';
@@ -7,18 +7,25 @@ import BerthsOnMap from '../../berths/BerthsOnMap';
 import TabSelector from '../../berths/TabSelector';
 import { IconNames } from '../../common/Icon';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
-import Layout from '../../layout';
+import Layout from '../../layout/Layout';
 import BerthsLegend from '../../legends/BerthLegend';
 
 import { BerthType } from '../../../types/berth';
 import { BoatTypes } from '../../../types/boatTypes';
 import { FormMode } from '../../../types/form';
 import { BerthsServices, SelectedServices, WinterServices } from '../../../types/services';
+import { LocalePush } from '../../../utils/container';
 import { Berths as BerthsType } from '../../berths/types';
+
+import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
+import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
+
+import Hero from '../../common/hero/Hero';
+import KoroSection from '../../layout/koroSection/KoroSection';
 
 import './BerthPage.scss';
 
-interface Props {
+type Props = {
   initialValues: {};
   filtered: BerthsType;
   filteredNot: BerthsType;
@@ -29,9 +36,9 @@ interface Props {
   selectService: Function;
   deselectService: Function;
   onSubmit: Function;
-  localePush: Function;
+  localePush: LocalePush;
   berths: BerthsType;
-  boatTypes: BoatTypes;
+  boatTypes?: BoatTypes;
   steps: Array<{
     key: string;
     completed: boolean;
@@ -45,8 +52,18 @@ interface Props {
   }>;
   hero?: FormMode;
   berthLimit: number;
-}
+} & InjectedIntlProps;
 
+const getHeroContentLink = (locale: string) => {
+  switch (locale) {
+    case 'en':
+      return 'https://www.hel.fi/helsinki/en/culture/recreation/boating/boat-berths/';
+    case 'sv':
+      return 'https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv/batplatser/';
+    default:
+      return 'https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/venepaikan-hakeminen/';
+  }
+};
 class BerthPage extends Component<Props> {
   constructor(props: Props) {
     super(props);
@@ -56,7 +73,7 @@ class BerthPage extends Component<Props> {
 
   moveToForm = async () => {
     const { hero, localePush } = this.props;
-    const path = hero === FormMode.Winter ? '/selected_areas' : '/selected_berths';
+    const path = hero === FormMode.Winter ? '/selected-areas' : '/selected-berths';
     await localePush(path);
   };
 
@@ -82,7 +99,8 @@ class BerthPage extends Component<Props> {
       hero,
       steps,
       services,
-      berthLimit
+      berthLimit,
+      intl
     } = this.props;
     const filter = getBerthFilterByValues(initialValues, selectedServices);
 
@@ -91,23 +109,34 @@ class BerthPage extends Component<Props> {
     const validSelection = berths
       .filter(berth => selectedBerths.find(selectedBerth => selectedBerth.id === berth.id))
       .every(filter);
-    const showBoatTypes = hero === FormMode.Berth;
     const showApplicationSelector = hero === FormMode.Berth;
+    const heroImg =
+      hero === FormMode.Berth
+        ? { bgUrl: berthsHeroImg }
+        : { bgUrl: winterHeroImg, bgPosition: 'center' };
 
     return (
-      <Layout hero={hero}>
-        <div className="vene-berth-page">
+      <Layout>
+        <Hero title={`site.${hero}.title`} {...heroImg} />
+        <KoroSection
+          top
+          title={`hero.${hero}.title`}
+          description={[
+            { id: `hero.${hero}.paragraph.first` },
+            {
+              id: `hero.${hero}.paragraph.second`,
+              values: { url: getHeroContentLink(intl.locale) }
+            }
+          ]}
+        />
+        <KoroSection color="fog" top>
           <BerthsLegend
             legend={{ title: `legend.${hero}.title`, legend: `legend.${hero}.legend` }}
             form={{
               onSubmit,
               initialValues,
               render: () => (
-                <UnRegisteredBoatDetails
-                  hideTitle
-                  fieldsNotRequired
-                  boatTypes={showBoatTypes ? boatTypes : undefined}
-                />
+                <UnRegisteredBoatDetails hideTitle fieldsNotRequired boatTypes={boatTypes} />
               )
             }}
             steps={steps}
@@ -120,33 +149,33 @@ class BerthPage extends Component<Props> {
             }}
             showApplicationSelector={showApplicationSelector}
           />
-          <TabSelector
-            progress={this.moveToForm}
-            selectedCount={selectedBerths.size}
-            validSelection={validSelection}
+        </KoroSection>
+        <TabSelector
+          progress={this.moveToForm}
+          selectedCount={selectedBerths.size}
+          validSelection={validSelection}
+          berthLimit={berthLimit}
+        >
+          <BerthsOnMap
+            TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
+            filtered={filtered}
+            filteredNot={filteredNot}
+            selected={selectedBerths}
+            onClick={this.toggleBerthSelect}
             berthLimit={berthLimit}
-          >
-            <BerthsOnMap
-              TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
-              filtered={filtered}
-              filteredNot={filteredNot}
-              selected={selectedBerths}
-              onClick={this.toggleBerthSelect}
-              berthLimit={berthLimit}
-            />
-            <Berths
-              TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
-              filtered={filtered}
-              filteredNot={filteredNot}
-              selected={selectedBerths}
-              onClick={this.toggleBerthSelect}
-              berthLimit={berthLimit}
-            />
-          </TabSelector>
-        </div>
+          />
+          <Berths
+            TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
+            filtered={filtered}
+            filteredNot={filteredNot}
+            selected={selectedBerths}
+            onClick={this.toggleBerthSelect}
+            berthLimit={berthLimit}
+          />
+        </TabSelector>
       </Layout>
     );
   }
 }
 
-export default BerthPage;
+export default injectIntl(BerthPage);

@@ -4,7 +4,7 @@ import { Col, Container, Row } from 'reactstrap';
 import Icon from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
 
-import './Footer.scss';
+import './footer.scss';
 
 type Props = InjectedIntlProps;
 
@@ -14,7 +14,7 @@ const Footer = ({ intl: { formatMessage } }: Props) => (
       <Row>
         <Col md="4">
           <div className="vene-footer__vene-link">
-            <LocalizedLink to="">
+            <LocalizedLink to="/">
               <FormattedMessage id="site.footer.berth_search" />
             </LocalizedLink>
           </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import Map from '../../common/Map';
 
+import './berths-on-map.scss';
+
 import { Berths as BerthsType } from '../../berths/types';
 interface Props {
   filtered: BerthsType;
@@ -11,8 +13,8 @@ interface Props {
   berthLimit: number;
 }
 
-export default ({ onClick, selected, filtered, filteredNot, berthLimit }: Props) => (
-  <div>
+const BerthsOnMap = ({ onClick, selected, filtered, filteredNot, berthLimit }: Props) => (
+  <div className="vene-berths-on-map">
     <Map
       onClick={onClick}
       selected={selected}
@@ -22,3 +24,5 @@ export default ({ onClick, selected, filtered, filteredNot, berthLimit }: Props)
     />
   </div>
 );
+
+export default BerthsOnMap;

@@ -17,7 +17,7 @@ import initApolloClient from './config/initApolloClient';
 import configureStore from './redux/store/configureStore';
 import * as serviceWorker from './serviceWorker';
 
-import App from './components/containers/AppContainer';
+import App from './components/App';
 
 const {
   REACT_APP_PIWIK_URL,

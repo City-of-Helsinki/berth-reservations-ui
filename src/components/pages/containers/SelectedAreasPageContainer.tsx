@@ -6,7 +6,7 @@ import {
   moveWinterAreaDown,
   moveWinterAreaUp
 } from '../../../redux/actions/WinterAreaActions';
-import { withMatchParamsHandlers } from '../../../utils/container';
+import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import SelectedBerthPage from '../BerthPage/SelectedBerthPage/SelectedBerthPage';
 
 import { Store } from '../../../redux/types';
@@ -22,7 +22,7 @@ interface Props {
   deselectBerth: Function;
   moveUp: Function;
   moveDown: Function;
-  localePush: Function;
+  localePush: LocalePush;
   values: {};
 }
 
@@ -31,7 +31,7 @@ const steps = [
     key: 'winter_areas',
     completed: true,
     current: false,
-    linkTo: `winter_storage`
+    linkTo: `winter-storage`
   },
   {
     key: 'review_areas',
@@ -61,11 +61,11 @@ const steps = [
 
 const UnconnectedSelectedBerthPage = (props: Props) => {
   const moveToForm = async () => {
-    await props.localePush('/winter_form/registered_boat');
+    await props.localePush('/winter-form/registered-boat');
   };
 
   const handlePrevious = async () => {
-    await props.localePush('/winter_storage');
+    await props.localePush('/winter-storage');
   };
 
   return (
@@ -96,7 +96,7 @@ const UnconnectedSelectedBerthPage = (props: Props) => {
   );
 };
 
-export default compose<Props, {}>(
+export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({

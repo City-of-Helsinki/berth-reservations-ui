@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Label } from 'reactstrap';
@@ -18,6 +19,7 @@ import { InjectedIntlProps, injectIntl } from 'react-intl';
 import './ApplicationSelector.scss';
 
 export type ApplicationSelectorProps = InjectedIntlProps & {
+  className?: string;
   selectedBerthCount: number;
   selectedApplicationType: string;
   switchApplication: Function;
@@ -60,12 +62,13 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
 
   render() {
     const {
+      className,
       intl: { formatMessage },
       selectedApplicationType
     } = this.props;
 
     return (
-      <div className="vene-application-selector">
+      <div className={classNames('vene-application-selector', className)}>
         <div className="vene-application-selector__input-wrapper">
           <Input
             type="radio"

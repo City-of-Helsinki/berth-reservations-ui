@@ -99,13 +99,13 @@ class Berth extends Component<Props, State> {
             key="maximumWidth"
             available
             value={maximumWidth}
-            titleId="page.berths.maximum_length"
+            titleId="page.berths.maximum_width"
           />,
           <BerthDetails
             key="maximumLength"
             available
             value={maximumLength}
-            titleId="page.berths.maximum_width"
+            titleId="page.berths.maximum_length"
           />,
           <BerthDetails
             key="appointed"

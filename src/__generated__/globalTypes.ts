@@ -12,6 +12,7 @@
 export enum WinterStorageMethod {
   ON_TRAILER = "ON_TRAILER",
   ON_TRESTLES = "ON_TRESTLES",
+  UNDER_TARP = "UNDER_TARP",
 }
 
 export interface BerthReservationInput {
@@ -49,7 +50,7 @@ export interface BerthReservationInput {
   boatIsInspected?: boolean | null;
   boatIsInsured?: boolean | null;
   agreeToTerms?: boolean | null;
-  choices?: (HarborChoiceInput | null)[] | null;
+  choices: HarborChoiceInput[];
 }
 
 export interface BerthSwitchInput {
@@ -59,8 +60,8 @@ export interface BerthSwitchInput {
 }
 
 export interface HarborChoiceInput {
-  harborId?: string | null;
-  priority?: number | null;
+  harborId: string;
+  priority: number;
 }
 
 export interface WinterStorageAreaChoiceInput {
@@ -93,7 +94,7 @@ export interface WinterStorageReservationInput {
   informationAccuracyConfirmed: boolean;
   storageMethod: WinterStorageMethod;
   trailerRegistrationNumber?: string | null;
-  chosenAreas: (WinterStorageAreaChoiceInput | null)[];
+  chosenAreas: WinterStorageAreaChoiceInput[];
 }
 
 //==============================================================
