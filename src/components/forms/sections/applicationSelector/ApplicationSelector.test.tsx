@@ -1,5 +1,5 @@
 import React from 'react';
-import { Label } from 'reactstrap';
+
 import { ApplicationOptions } from '../../../../types/applicationType';
 import { mountWithIntl } from '../../../../utils/testUtils';
 import Alert from '../../../common/Alert';
@@ -32,12 +32,18 @@ describe('forms/sections/ApplicationSelector', () => {
     expect(inputs).toHaveLength(2);
   });
 
-  test('each input contain label and text, each input is a radio', () => {
+  test('each input is a radio', () => {
     const wrapper = getWrapper();
     const input = wrapper.find(Input).first();
 
-    expect(input.find(Label)).toHaveLength(1);
     expect(input.prop('type')).toEqual('radio');
+  });
+
+  test('each input has a label that contains a title of type strong and description of as a paragraph', () => {
+    const wrapper = getWrapper();
+    const input = wrapper.find(Input).first();
+
+    expect(input.find('strong')).toHaveLength(1);
     expect(input.find('p')).toHaveLength(1);
   });
 
