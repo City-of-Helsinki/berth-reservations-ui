@@ -43,7 +43,7 @@ const KoroSection = (props: Props) => {
           <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
             {title && (
               <FormattedMessage id={title}>
-                {txt => <h1 className="section-koro__title">{txt}</h1>}
+                {txt => <h2 className="section-koro__title">{txt}</h2>}
               </FormattedMessage>
             )}
             {description.map(paragraph => (

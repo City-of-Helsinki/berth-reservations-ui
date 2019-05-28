@@ -25,7 +25,7 @@ const Navbar = () => {
       </div>
       <div className="vene-navbar__bottom">
         <Container>
-          <Nav expand="md">
+          <Nav className="vene-navbar__links-wrapper">
             <LocalizedLink
               to="/"
               className="vene-navbar__link vene-navbar__link--main"

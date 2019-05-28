@@ -6,7 +6,7 @@ import { Col, Container, Row } from 'reactstrap';
 import Icon, { IconNames } from '../../common/Icon';
 import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
-import ApplicationSelector from '../../forms/sections/ApplicationSelector';
+import ApplicationSelector from '../../forms/sections/applicationSelector/ApplicationSelector';
 import Steps from '../../steps';
 
 import {

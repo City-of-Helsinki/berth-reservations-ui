@@ -16,7 +16,9 @@ const Hero = ({ title, bgUrl, bgPosition }: Props) => (
     style={{ backgroundImage: `url(${bgUrl})`, backgroundPosition: bgPosition }}
   >
     <Container>
-      <FormattedMessage tagName="h1" id={title} />
+      <FormattedMessage id={title}>
+        {txt => <h1 className="vene-hero__title">{txt}</h1>}
+      </FormattedMessage>
     </Container>
   </div>
 );

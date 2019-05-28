@@ -1,22 +1,22 @@
 import classNames from 'classnames';
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+import { InjectedIntlProps, injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
-import { Label } from 'reactstrap';
-import { EXCHANGE_APPLICATION_LIMIT } from '../../../../constants/BerthConstants';
+import { Col, Container, Row } from 'reactstrap';
 
+import { EXCHANGE_APPLICATION_LIMIT } from '../../../../constants/BerthConstants';
 import { switchApplication as switchApplicationAction } from '../../../../redux/actions/ApplicationActions';
 import {
   resetBerthLimit as resetBerthLimitAction,
   setBerthLimit as setBirthLimitAction
 } from '../../../../redux/actions/BerthActions';
-
-import { Store } from '../../../../redux/types';
-import { ApplicationOptions } from '../../../../types/applicationType';
 import Alert from '../../../common/Alert';
 import Input from '../../../common/Input';
 
-import { InjectedIntlProps, injectIntl } from 'react-intl';
-import './ApplicationSelector.scss';
+import { Store } from '../../../../redux/types';
+import { ApplicationOptions } from '../../../../types/applicationType';
+
+import './applicationSelector.scss';
 
 export type ApplicationSelectorProps = InjectedIntlProps & {
   className?: string;
@@ -69,37 +69,46 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
 
     return (
       <div className={classNames('vene-application-selector', className)}>
-        <div className="vene-application-selector__input-wrapper">
-          <Input
-            type="radio"
-            value={ApplicationOptions.NewApplication}
-            checked={selectedApplicationType === ApplicationOptions.NewApplication}
-            id="vene-application-selector-new"
-            onChange={this.onToggleSwitch}
-            name="application-selector-radio"
-            label={
-              <Fragment>
-                <Label>{formatMessage({ id: 'page.berth.exchange_application.new' })}</Label>
-                <p>{formatMessage({ id: 'page.berth.exchange_application.new.info_text' })}</p>
-              </Fragment>
-            }
-          />
-
-          <Input
-            type="radio"
-            value={ApplicationOptions.ExchangeApplication}
-            checked={selectedApplicationType === ApplicationOptions.ExchangeApplication}
-            onChange={this.onToggleSwitch}
-            id="vene-application-selector-exchange"
-            name="application-selector-radio"
-            label={
-              <Fragment>
-                <Label>{formatMessage({ id: 'page.berth.exchange_application.exchange' })}</Label>
-                <p>{formatMessage({ id: 'page.berth.exchange_application.exchange.info_text' })}</p>
-              </Fragment>
-            }
-          />
-        </div>
+        <Container>
+          <Row>
+            <Col xs="12" md="6">
+              <Input
+                type="radio"
+                value={ApplicationOptions.NewApplication}
+                checked={selectedApplicationType === ApplicationOptions.NewApplication}
+                id="vene-application-selector-new"
+                onChange={this.onToggleSwitch}
+                name="application-selector-radio"
+                label={
+                  <>
+                    <strong>{formatMessage({ id: 'page.berth.exchange_application.new' })}</strong>
+                    <p>{formatMessage({ id: 'page.berth.exchange_application.new.info_text' })}</p>
+                  </>
+                }
+              />
+            </Col>
+            <Col xs="12" md="6">
+              <Input
+                type="radio"
+                value={ApplicationOptions.ExchangeApplication}
+                checked={selectedApplicationType === ApplicationOptions.ExchangeApplication}
+                onChange={this.onToggleSwitch}
+                id="vene-application-selector-exchange"
+                name="application-selector-radio"
+                label={
+                  <>
+                    <strong>
+                      {formatMessage({ id: 'page.berth.exchange_application.exchange' })}
+                    </strong>
+                    <p>
+                      {formatMessage({ id: 'page.berth.exchange_application.exchange.info_text' })}
+                    </p>
+                  </>
+                }
+              />
+            </Col>
+          </Row>
+        </Container>
 
         {this.state.alertVisibility && (
           <Alert
