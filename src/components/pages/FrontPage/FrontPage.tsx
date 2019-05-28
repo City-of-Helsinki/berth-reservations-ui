@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { RouteComponentProps } from 'react-router-dom';
 import { Col, Container, Row } from 'reactstrap';
@@ -17,62 +17,46 @@ type Props = {
   localePush: LocalePush;
 } & RouteComponentProps;
 
-class FrontPage extends Component<Props> {
-  constructor(props: Props) {
-    super(props);
+const FrontPage = ({ localePush }: Props) => {
+  useLayoutEffect(() => window.scrollTo(0, 0));
 
-    window.scrollTo(0, 0);
-  }
-
-  render() {
-    const { localePush } = this.props;
-
-    return (
-      <Layout>
-        <Hero title="page.front.title" bgUrl={frontHeroImg} />
-        <KoroSection
-          color="fog"
-          top
-          title="page.front.description.heading"
-          description={[{ id: 'page.front.description.body' }]}
-          centered
-        >
-          <div className="vene-front-page">
-            <Container className="vene-front-page__body">
-              {/* <Row className="vene-front-page__title">
-                <Col sm="12" md={{ size: 8, offset: 2 }}>
-                  <FormattedMessage tagName="h1" id="page.front.description.heading" />
-                  <FormattedMessage tagName="p" id="page.front.description.body" />
-                </Col>
-              </Row> */}
-              <Row>
-                <Col xs="6">
-                  <Card
-                    onClick={() => localePush('/berths')}
-                    btnLabel="page.front.card.berths.button_label"
-                    title="page.front.card.berths.title"
-                  >
-                    <FormattedMessage tagName="p" id="page.front.card.berths.description" />
-                    <FormattedMessage tagName="p" id="page.front.card.instructions" />
-                  </Card>
-                </Col>
-                <Col xs="6">
-                  <Card
-                    onClick={() => localePush('/winter-storage')}
-                    btnLabel="page.front.card.winter.button_label"
-                    title="page.front.card.winter.title"
-                  >
-                    <FormattedMessage tagName="p" id="page.front.card.winter.description" />
-                    <FormattedMessage tagName="p" id="page.front.card.instructions" />
-                  </Card>
-                </Col>
-              </Row>
-            </Container>
-          </div>
-        </KoroSection>
-      </Layout>
-    );
-  }
-}
+  return (
+    <Layout>
+      <Hero title="page.front.title" bgUrl={frontHeroImg} />
+      <KoroSection
+        color="fog"
+        top
+        title="page.front.description.heading"
+        description={[{ id: 'page.front.description.body' }]}
+        centered
+      >
+        <Container className="vene-front-page">
+          <Row>
+            <Col md="6" xs="12" className="vene-front-page__card-wrapper">
+              <Card
+                onClick={() => localePush('/berths')}
+                btnLabel="page.front.card.berths.button_label"
+                title="page.front.card.berths.title"
+              >
+                <FormattedMessage tagName="p" id="page.front.card.berths.description" />
+                <FormattedMessage tagName="p" id="page.front.card.instructions" />
+              </Card>
+            </Col>
+            <Col md="6" xs="12" className="vene-front-page__card-wrapper">
+              <Card
+                onClick={() => localePush('/winter-storage')}
+                btnLabel="page.front.card.winter.button_label"
+                title="page.front.card.winter.title"
+              >
+                <FormattedMessage tagName="p" id="page.front.card.winter.description" />
+                <FormattedMessage tagName="p" id="page.front.card.instructions" />
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </KoroSection>
+    </Layout>
+  );
+};
 
 export default withMatchParamsHandlers(FrontPage);

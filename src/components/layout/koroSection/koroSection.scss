@@ -1,5 +1,6 @@
 @import 'helsinki/mixins';
 @import 'helsinki/colors';
+@import 'styles/mixin';
 
 $white: $hel-white;
 $fog: $hel-fog;
@@ -25,6 +26,16 @@ $divider-height: 1.25em;
   padding: 2em 0 3em;
 
   @include divider;
+
+  &__title {
+    hyphens: auto;
+    font-size: 3em;
+
+    @include for-phone {
+      font-size: 2em;
+      text-align: center;
+    }
+  }
 
   &--fog {
     @include divider($fog);
