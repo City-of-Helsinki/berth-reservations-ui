@@ -39,9 +39,22 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
   }
 
   toggleAlert = (value: boolean) => {
-    this.setState({
-      alertVisibility: value
-    });
+    if (!value) {
+      this.setState({
+        alertVisibility: false
+      });
+    } else {
+      this.setState(
+        {
+          alertVisibility: true
+        },
+        () => {
+          window.setTimeout(() => {
+            this.setState({ alertVisibility: false });
+          }, 2000);
+        }
+      );
+    }
   };
 
   onToggleSwitch = (e: React.FormEvent<HTMLInputElement>) => {
