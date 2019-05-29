@@ -33,9 +33,17 @@ export interface ApplicationSelectorState {
 }
 
 class ApplicationSelector extends Component<ApplicationSelectorProps, ApplicationSelectorState> {
+  private autoDismiss: NodeJS.Timeout | null = null;
+
   constructor(props: ApplicationSelectorProps) {
     super(props);
     this.state = { alertVisibility: false };
+  }
+
+  componentWillUnmount() {
+    if (this.autoDismiss) {
+      clearTimeout(this.autoDismiss);
+    }
   }
 
   toggleAlert = (value: boolean) => {
@@ -49,7 +57,7 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
           alertVisibility: true
         },
         () => {
-          window.setTimeout(() => {
+          this.autoDismiss = setTimeout(() => {
             this.setState({ alertVisibility: false });
           }, 2000);
         }
