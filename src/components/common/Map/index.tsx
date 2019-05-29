@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { Map, TileLayer } from 'react-leaflet';
 import { Container } from 'reactstrap';
 
-import Berth from '../../berths/Berth';
+import Berth from '../../berths/Berth/Berth';
 import mapIcon from './MapIcon';
 import MapMarker from './MapMarker';
 
