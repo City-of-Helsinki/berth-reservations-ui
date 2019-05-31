@@ -12,13 +12,13 @@ import InvalidSelection from '../../InvalidSelection';
 import { BerthType } from '../../../../types/berth';
 import { WinterStorageType } from '../../../../types/winterStorage';
 
-import './SelectedBerth.scss';
+import './selectedBerth.scss';
 
-interface Props {
+export interface Props {
   berth: BerthType | WinterStorageType;
   handleRemove: Function;
   title: React.ReactNode;
-  isValid: boolean;
+  isValid?: boolean;
   services: Array<[IconNames, boolean]>;
   moveDown?: Function;
   moveUp?: Function;
@@ -64,7 +64,7 @@ class SelectedBerth extends Component<Props, State> {
   };
 
   render() {
-    const { title, berth, services, isValid, moveDown, moveUp, className } = this.props;
+    const { title, berth, services, isValid = true, moveDown, moveUp, className } = this.props;
     const id = genValidSelector(`popover_${berth.id}`);
 
     return (
@@ -123,7 +123,7 @@ class SelectedBerth extends Component<Props, State> {
                         key={service}
                         name={service}
                         className={classNames('vene-selected-berth__service-icn', {
-                          'vene-selected-berth__service--disabled': !value
+                          'vene-selected-berth__service-icn--disabled': !value
                         })}
                       />
                     ))}

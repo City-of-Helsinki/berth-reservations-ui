@@ -2,9 +2,8 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Alert } from 'reactstrap';
 
-import SelectedBerth from '../Berth/SelectedBerth';
-
 import { IconNames } from '../../common/Icon';
+import SelectedBerth from '../Berth/selectedBerth/SelectedBerth';
 import { Berths } from '../types';
 
 import './selectedBerths.scss';
