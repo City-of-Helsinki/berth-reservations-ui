@@ -18,15 +18,4 @@
       font-size: inherit;
     }
   }
-
-  &__invalid-selection {
-    .vene-icon {
-      width: 1em;
-      height: 1em;
-      fill: $hel-brick;
-    }
-    position: relative;
-    display: inline-block;
-    margin-left: 0.25em;
-  }
 }

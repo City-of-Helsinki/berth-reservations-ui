@@ -37,40 +37,15 @@ $berthImageHeight: 12em;
 
   &__availability-level {
     margin-top: 0.5em;
-
-    &__button {
-      padding: 0;
-      &.btn-link.btn-link:hover {
-        background-color: transparent !important;
-      }
-    }
-
-    &__marker {
-      display: inline-block;
-      width: 14px;
-      height: 14px;
-      margin-right: 0.3em;
-      border-radius: 50%;
-      background-color: $hel-white;
-
-      &--1 {
-        background-color: $hel-tram;
-      }
-      &--2 {
-        background-color: $hel-summer;
-      }
-      &--3 {
-        background-color: $hel-brick;
-      }
-    }
   }
 
   &__summary-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%;
     padding: 1em;
-
-    > * {
-      display: block;
-    }
 
     .vene-icon {
       height: 1em;

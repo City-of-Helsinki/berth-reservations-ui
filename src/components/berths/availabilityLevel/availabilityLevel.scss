@@ -1,0 +1,29 @@
+@import 'helsinki/colors';
+
+.vene-availability-level {
+  &::before {
+    display: inline-block;
+    content: '';
+    width: 1em;
+    height: 1em;
+    margin-right: 0.3em;
+    border-radius: 50%;
+    background-color: $hel-gray;
+    vertical-align: baseline;
+  }
+  &--green {
+    &::before {
+      background-color: $hel-tram;
+    }
+  }
+  &--yellow {
+    &::before {
+      background-color: $hel-summer;
+    }
+  }
+  &--red {
+    &::before {
+      background-color: $hel-brick;
+    }
+  }
+}

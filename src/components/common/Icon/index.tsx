@@ -60,6 +60,8 @@ export type IconNames = keyof typeof icons;
 
 export interface IconProps {
   name: IconNames;
+  width?: string;
+  height?: string;
   className?: string;
 }
 

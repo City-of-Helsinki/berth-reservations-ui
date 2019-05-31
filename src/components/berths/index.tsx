@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
 
 import { isBerthSelected } from '../../utils/berths';
-import Berth from './Berth';
+import Berth from './Berth/Berth';
 
 import { BerthProps } from './types';
 
