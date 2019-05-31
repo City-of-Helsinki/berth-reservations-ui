@@ -9,8 +9,8 @@ import SelectedBerthPage from './pages/containers/SelectedBerthPageContainer';
 import ThankYouPage from './pages/containers/ThankYouPageContainer';
 
 import SelectedAreasPage from './pages/containers/SelectedAreasPageContainer';
-import WinterBerthPage from './pages/containers/WinterBerthPageContainer';
 import WinterFormPage from './pages/containers/WinterFormPageContainer';
+import WinterStoragePage from './pages/containers/WinterStoragePageContainer';
 import FrontPage from './pages/FrontPage/FrontPage';
 
 import { LocaleOpts } from '../types/intl';
@@ -37,7 +37,7 @@ const App = ({
       <Route exact path={`/${localeParam}/berths/form`} component={FormPage} />
       <Route exact path={`/${localeParam}/berths/form/:tab`} component={FormPage} />
       <Route exact path={`/${localeParam}/thank-you`} component={ThankYouPage} />
-      <Route exact path={`/${localeParam}/winter-storage`} component={WinterBerthPage} />
+      <Route exact path={`/${localeParam}/winter-storage`} component={WinterStoragePage} />
       <Route exact path={`/${localeParam}/winter-storage/selected`} component={SelectedAreasPage} />
       <Route exact path={`/${localeParam}/winter-storage/form`} component={WinterFormPage} />
       <Route exact path={`/${localeParam}/winter-storage/form/:tab`} component={WinterFormPage} />
