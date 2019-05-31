@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
 import { getBerthFilterByValues } from '../../../../utils/berths';
-import SelectedBerths from '../../../berths/selectedBerths/SelectedBerths';
+import SelectedBerths from '../../../berths/SelectedBerths';
 import Icon from '../../../common/Icon';
 import LocalizedLink from '../../../common/LocalizedLink';
 import Layout from '../../../layout/Layout';
