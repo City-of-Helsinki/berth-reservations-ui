@@ -1,102 +1,123 @@
 @import 'helsinki/colors';
 @import 'helsinki/fonts';
 @import 'styles/mixin';
+@import 'styles/variables';
 
-.vene-berth__selected {
-  &__row {
-    display: flex;
-    margin-bottom: 0.5em;
+.vene-selected-berth {
+  position: relative;
 
-    button {
-      padding-left: 0;
-      padding-right: 0;
-      height: 100%;
-      background-color: transparent;
-
-      @include for-phone {
-        padding-left: 0.75rem;
-        padding-right: 0.75rem;
+  &__info {
+    &--moving-entering,
+    &--moving-exiting {
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: $hel-white;
+        opacity: 0.4;
       }
     }
   }
 
-  &__name {
-    display: flex;
-    flex-grow: 1;
-    align-items: center;
+  &__title-bar {
+    padding: $spacing-00-50 0;
     background-color: $hel-coat;
     color: $hel-white;
 
-    button {
-      padding: 0;
-      border: 0;
-
-      .vene-icon {
-        height: 30px;
-        width: 30px;
-        fill: $hel-white;
-      }
-    }
-
-    &.has-error {
+    &--has-error {
       background-color: $hel-silver;
       color: $hel-gray;
-    }
 
-    font-size: $font-size-sm;
-    line-height: 1;
-    hyphens: auto;
-    padding: 0.5em 1em;
-    margin-right: 0.5em;
-    transition: background-color 200ms ease-in;
-
-    &.moving-entering {
-      background-color: $hel-fog;
-    }
-
-    &.moving-exiting {
-      background-color: $hel-fog;
-    }
-
-    @include for-phone {
-      font-size: 1.2em;
-    }
-
-    span {
-      flex-grow: 1;
-      color: $hel-white;
+      .vene-selected-berth__close-btn {
+        fill: $hel-black;
+      }
     }
   }
 
-  &__options {
-    display: flex;
-    align-content: center;
+  &__title {
+    padding-right: 0;
+    font-size: $font-size-lg;
+  }
 
-    button {
-      padding: 0.5em;
+  &__services-bar {
+    padding: $spacing-00-50 0;
+    background-color: $hel-silver;
+  }
 
-      &.disabled {
-        .vene-icon {
-          fill: $hel-light;
-        }
-      }
-      &:first-child {
-        margin-right: 6px;
-      }
-      &:hover {
-        background-color: $hel-fog;
-      }
+  &__close {
+    padding-left: 0;
+  }
 
-      .vene-icon {
-        height: 36px;
-        width: 36px;
-        fill: $hel-black;
-      }
+  &__close-btn {
+    height: $spacing-02;
+    width: $spacing-02;
+    fill: $hel-white;
+  }
 
-      @include for-phone {
-        padding-left: 0.75rem;
-        padding-right: 0.75rem;
+  &__availability-level {
+    padding-right: 0;
+  }
+
+  &__services {
+    padding-left: 0;
+    margin-top: $spacing-00-50;
+
+    @include for-tablet {
+      margin-top: 0;
+      text-align: right;
+    }
+  }
+
+  &__service-icn {
+    height: $spacing-01-50;
+    width: $spacing-01-50;
+    fill: $hel-black;
+    margin-left: $spacing-00-75;
+    vertical-align: baseline;
+
+    &--disabled {
+      fill: lighten($hel-black, 50%);
+    }
+  }
+
+  &__ctrl {
+    padding: 0;
+    padding-left: $spacing-00-25;
+  }
+
+  &__arrow-btn {
+    $margin: $spacing-00-25;
+    padding: 0;
+    margin-left: $margin;
+    height: 100%;
+    width: calc(50% - #{$margin});
+
+    &:hover {
+      background-color: $hel-fog;
+    }
+
+    &.disabled {
+      .vene-selected-berth__arrow-icon {
+        fill: $hel-light;
       }
     }
+
+    @include for-phone {
+      width: calc(100% - #{$margin});
+      height: calc(50% - #{$margin} / 2);
+
+      &:first-child {
+        margin-bottom: $spacing-00-25;
+      }
+    }
+  }
+
+  &__arrow-icon {
+    height: $spacing-02;
+    width: $spacing-02;
   }
 }

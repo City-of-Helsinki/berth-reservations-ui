@@ -1,11 +1,12 @@
 import classNames from 'classnames';
 import React, { Component } from 'react';
-import { InjectedIntlProps, injectIntl } from 'react-intl';
 import Transition from 'react-transition-group/Transition';
-import { Button } from 'reactstrap';
+import { Button, Col, Container, Row } from 'reactstrap';
 
 import { genValidSelector } from '../../../../utils/berths';
-import Icon from '../../../common/Icon';
+import Icon, { IconNames } from '../../../common/Icon';
+import Popover from '../../../common/popover/Popover';
+import AvailabilityLevel from '../../availabilityLevel/AvailabilityLevel';
 import InvalidSelection from '../../InvalidSelection';
 
 import { BerthType } from '../../../../types/berth';
@@ -13,19 +14,19 @@ import { WinterStorageType } from '../../../../types/winterStorage';
 
 import './SelectedBerth.scss';
 
-type Props = {
+interface Props {
   berth: BerthType | WinterStorageType;
-  deselectBerth: Function;
-  first: boolean;
-  index: number;
+  handleRemove: Function;
+  title: React.ReactNode;
   isValid: boolean;
-  last: boolean;
-  moveDown: Function;
-  moveUp: Function;
-} & InjectedIntlProps;
+  services: Array<[IconNames, boolean]>;
+  moveDown?: Function;
+  moveUp?: Function;
+  className?: string;
+}
 
 interface State {
-  changed: string;
+  changed: 'nothing' | 'up' | 'down' | 'delete';
 }
 
 class SelectedBerth extends Component<Props, State> {
@@ -39,13 +40,13 @@ class SelectedBerth extends Component<Props, State> {
 
   toggleEnterState = () => {
     if (this.state.changed === 'down') {
-      this.props.moveDown(this.props.berth);
+      if (this.props.moveDown) this.props.moveDown(this.props.berth);
     }
     if (this.state.changed === 'up') {
-      this.props.moveUp(this.props.berth);
+      if (this.props.moveUp) this.props.moveUp(this.props.berth);
     }
     if (this.state.changed === 'delete') {
-      this.props.deselectBerth(this.props.berth);
+      this.props.handleRemove(this.props.berth);
     }
     this.setState({ changed: 'nothing' });
   };
@@ -63,8 +64,8 @@ class SelectedBerth extends Component<Props, State> {
   };
 
   render() {
-    const { berth, index, first, last, isValid } = this.props;
-    const id = genValidSelector(`tooltip_${berth.id}`);
+    const { title, berth, services, isValid, moveDown, moveUp, className } = this.props;
+    const id = genValidSelector(`popover_${berth.id}`);
 
     return (
       <Transition
@@ -73,34 +74,88 @@ class SelectedBerth extends Component<Props, State> {
         onEntered={this.toggleEnterState}
       >
         {state => (
-          <div className="vene-berth__selected__row">
-            <div
-              className={classNames('vene-berth__selected__name', `moving-${state}`, {
-                'has-error': !isValid
-              })}
-            >
-              <span key={berth.id}>
-                {index + 1}. {berth.name}
-                {!isValid && <InvalidSelection id={id} />}
-              </span>
-              <Button onClick={this.doDelete}>
-                <Icon name="times" />
-              </Button>
-            </div>
-            <div className="vene-berth__selected__options">
-              <Button outline color="primary" onClick={this.doMoveUp} disabled={first}>
-                <Icon name="angleUp" />
-              </Button>
-
-              <Button outline color="primary" onClick={this.doMoveDown} disabled={last}>
-                <Icon name="angleDown" />
-              </Button>
-            </div>
-          </div>
+          <Container className={classNames('vene-selected-berth', className)}>
+            <Row>
+              <Col
+                xs="10"
+                className={classNames(
+                  'vene-selected-berth__info',
+                  `vene-selected-berth__info--moving-${state}`
+                )}
+              >
+                <Row
+                  className={classNames('vene-selected-berth__title-bar', {
+                    'vene-selected-berth__title-bar--has-error': !isValid
+                  })}
+                >
+                  <Col xs="10" className="vene-selected-berth__title">
+                    {title}
+                    {!isValid && <InvalidSelection id={id} />}
+                  </Col>
+                  <Col xs="2" className="vene-selected-berth__close">
+                    <Button
+                      close
+                      aria-label="Cancel"
+                      onClick={this.doDelete}
+                      className="vene-selected-berth__close-btn"
+                    >
+                      <Icon name="times" />
+                    </Button>
+                  </Col>
+                </Row>
+                <Row className="vene-selected-berth__services-bar">
+                  <Col xs="12" md="6" className="vene-selected-berth__availability-level">
+                    {berth.availabilityLevel && (
+                      <Popover
+                        id={`availability-level-${id}`}
+                        body={berth.availabilityLevel.description || berth.availabilityLevel.title}
+                      >
+                        <AvailabilityLevel
+                          label={berth.availabilityLevel.title}
+                          level={berth.availabilityLevel.id}
+                        />
+                      </Popover>
+                    )}
+                  </Col>
+                  <Col xs="12" md="6" className="vene-selected-berth__services">
+                    {services.map(([service, value]) => (
+                      <Icon
+                        key={service}
+                        name={service}
+                        className={classNames('vene-selected-berth__service-icn', {
+                          'vene-selected-berth__service--disabled': !value
+                        })}
+                      />
+                    ))}
+                  </Col>
+                </Row>
+              </Col>
+              <Col xs="2" className="vene-selected-berth__ctrl">
+                <Button
+                  className="vene-selected-berth__arrow-btn"
+                  outline
+                  color="primary"
+                  onClick={this.doMoveUp}
+                  disabled={!moveUp}
+                >
+                  <Icon name="angleUp" className="vene-selected-berth__arrow-icon" />
+                </Button>
+                <Button
+                  className="vene-selected-berth__arrow-btn"
+                  outline
+                  color="primary"
+                  onClick={this.doMoveDown}
+                  disabled={!moveDown}
+                >
+                  <Icon name="angleDown" className="vene-selected-berth__arrow-icon" />
+                </Button>
+              </Col>
+            </Row>
+          </Container>
         )}
       </Transition>
     );
   }
 }
 
-export default injectIntl(SelectedBerth);
+export default SelectedBerth;
