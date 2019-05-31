@@ -33,15 +33,36 @@ export interface ApplicationSelectorState {
 }
 
 class ApplicationSelector extends Component<ApplicationSelectorProps, ApplicationSelectorState> {
+  private autoDismiss: NodeJS.Timeout | null = null;
+
   constructor(props: ApplicationSelectorProps) {
     super(props);
     this.state = { alertVisibility: false };
   }
 
+  componentWillUnmount() {
+    if (this.autoDismiss) {
+      clearTimeout(this.autoDismiss);
+    }
+  }
+
   toggleAlert = (value: boolean) => {
-    this.setState({
-      alertVisibility: value
-    });
+    if (!value) {
+      this.setState({
+        alertVisibility: false
+      });
+    } else {
+      this.setState(
+        {
+          alertVisibility: true
+        },
+        () => {
+          this.autoDismiss = setTimeout(() => {
+            this.setState({ alertVisibility: false });
+          }, 2000);
+        }
+      );
+    }
   };
 
   onToggleSwitch = (e: React.FormEvent<HTMLInputElement>) => {
