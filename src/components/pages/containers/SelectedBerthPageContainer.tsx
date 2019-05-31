@@ -1,10 +1,14 @@
+import get from 'lodash/get';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
+
 import { submitApplicationForm as submitExchangeForm } from '../../../redux/actions/ApplicationActions';
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
+import { getBerthFilterByValues } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
-import SelectedBerthPage from '../BerthPage/SelectedBerthPage/SelectedBerthPage';
+import { getHarbors } from '../../../utils/harborUtils';
+import SelectedBerthPage from '../selectedBerthPage/SelectedBerthPage';
 
 import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
@@ -59,13 +63,18 @@ const steps = [
   }
 ];
 
-const UnconnectedSelectedBerthPage = (props: Props) => {
+const UnconnectedSelectedBerthPage = ({
+  localePush,
+  values,
+  selectedServices,
+  selectedBerths,
+  ...rest
+}: Props) => {
   const moveToForm = async () => {
-    await props.localePush('/berths/form/registered-boat');
+    await localePush('/berths/form/registered-boat');
   };
-
   const handlePrevious = async () => {
-    await props.localePush('/berths');
+    await localePush('/berths');
   };
 
   return (
@@ -76,18 +85,33 @@ const UnconnectedSelectedBerthPage = (props: Props) => {
         data
       }) => {
         const boatTypes = !loading && data ? data.boatTypes : [];
+        const type = get(values, 'boatType');
+        const width = get(values, 'boatWidth');
+        const length = get(values, 'boatLength');
+        const boatType = boatTypes ? boatTypes.find(t => !!t && t.id === type) : undefined;
+        const boatTypeName = boatType && boatType.name;
+        const filter = getBerthFilterByValues(values, selectedServices);
+        const validSelection = selectedBerths.every(filter);
+        // @ts-ignore
+        const normalizedHarbors = getHarbors(data && data.harbors ? data.harbors.edges : []);
+
         return (
           <SelectedBerthPage
+            boatInfo={{ width, length, boatType: boatTypeName }}
             handlePrevious={handlePrevious}
             moveToForm={moveToForm}
-            boatTypes={boatTypes}
+            filter={filter}
+            validSelection={validSelection}
             steps={steps}
-            data={data || null}
+            initialValues={{}}
             legend={{
               title: 'legend.selected_berths.title',
               legend: 'legend.selected_berths.legend'
             }}
-            {...props}
+            selectedBerths={selectedBerths}
+            values={values}
+            harbors={normalizedHarbors}
+            {...rest}
           />
         );
       }}
