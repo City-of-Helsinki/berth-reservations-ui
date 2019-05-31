@@ -1,10 +1,15 @@
-.vene-berths__invalid-selection {
+@import 'helsinki/colors';
+@import 'styles/variables';
+
+.vene-invalid-selection {
   position: relative;
   display: inline-block;
-  margin-left: 0.25em;
+  padding-left: $spacing-00-25;
+  padding-right: $spacing-00-25;
+  height: 1em;
 
-  .vene-icon {
-    height: 1em;
-    width: 1em;
+  &__icn {
+    fill: $hel-brick;
+    vertical-align: baseline;
   }
 }
