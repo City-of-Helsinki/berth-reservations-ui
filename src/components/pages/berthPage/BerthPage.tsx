@@ -23,8 +23,6 @@ import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg'
 import Hero from '../../common/hero/Hero';
 import KoroSection from '../../layout/koroSection/KoroSection';
 
-import './BerthPage.scss';
-
 type Props = {
   initialValues: {};
   filtered: BerthsType;
