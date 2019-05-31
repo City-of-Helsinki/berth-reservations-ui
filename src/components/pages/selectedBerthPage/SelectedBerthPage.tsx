@@ -1,44 +1,51 @@
-import { get } from 'lodash';
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
-import { getBerthFilterByValues } from '../../../../utils/berths';
-import SelectedBerths from '../../../berths/selectedBerths/SelectedBerths';
-import Icon from '../../../common/Icon';
-import LocalizedLink from '../../../common/LocalizedLink';
-import Layout from '../../../layout/Layout';
-import SelectedBerthsLegend from '../../../legends/BerthLegend/SelectedBerthsLegend';
+import SelectedBerths from '../../berths/selectedBerths/SelectedBerths';
+import Icon from '../../common/Icon';
+import LocalizedLink from '../../common/LocalizedLink';
+import Layout from '../../layout/Layout';
+import SelectedBerthsLegend from '../../legends/BerthLegend/SelectedBerthsLegend';
 
-import { ApplicationOptions } from '../../../../types/applicationType';
-import { BoatTypes } from '../../../../types/boatTypes';
-import { SelectedServices } from '../../../../types/services';
-import { getHarbors } from '../../../../utils/harborUtils';
-import { Berths } from '../../../berths/types';
+import { ApplicationOptions } from '../../../types/applicationType';
+import { Berths } from '../../berths/types';
 
 import { Form } from 'react-final-form';
 
-import ExchangeApplication from '../../../forms/fragments/exchangeApplication/ExchangeApplication';
-import NewApplication from '../../../forms/fragments/newApplication/NewApplication';
+import ExchangeApplication from '../../forms/fragments/exchangeApplication/ExchangeApplication';
+import NewApplication from '../../forms/fragments/newApplication/NewApplication';
 
-import { BoatTypesBerthsQuery } from '../../../../utils/__generated__/BoatTypesBerthsQuery';
-import './SelectedBerthPage.scss';
+import { HarborOptions } from '../../../types/harborOptionsTypes';
+
+import './selectedBerthPage.scss';
+
+interface BoatInfoForBerths {
+  boatType: string;
+  width: string;
+  length: string;
+}
+interface BoatInfoForWinter {
+  width: string;
+  length: string;
+}
 
 export interface Props {
   selectedBerths: Berths;
-  selectedServices: SelectedServices;
   moveToForm: () => {};
   handlePrevious: () => {};
   deselectBerth: Function;
+  boatInfo: BoatInfoForBerths | BoatInfoForWinter;
   moveUp: Function;
   moveDown: Function;
-  boatTypes: BoatTypes;
-  data: BoatTypesBerthsQuery | null;
+  harbors?: HarborOptions;
   selectedApplicationType?: string;
   submitExchangeForm?: Function;
   values: {};
   initialValues: {};
   legend: { title: string; legend: string };
+  validSelection: boolean;
+  filter: Function;
   steps: Array<{
     key: string;
     completed: boolean;
@@ -68,26 +75,15 @@ class SelectedBerthPage extends Component<Props> {
       deselectBerth,
       moveUp,
       moveDown,
-      values,
-      selectedServices,
       initialValues,
-      data,
-      boatTypes,
+      filter,
+      boatInfo,
       handlePrevious,
       steps,
-      legend
+      legend,
+      validSelection,
+      harbors
     } = this.props;
-    const type = get(values, 'boatType');
-    const width = get(values, 'boatWidth');
-    const length = get(values, 'boatLength');
-    const filter = getBerthFilterByValues(values, selectedServices);
-    // TODO: fix types
-    // @ts-ignore
-    const normalizedHarbors = getHarbors(data && data.harbors ? data.harbors.edges : []);
-
-    const boatType = boatTypes && type ? boatTypes.find(t => !!t && t.id === type) : undefined;
-    const validSelection = selectedBerths.every(filter);
-
     return (
       <Form
         onSubmit={formValues => this.handleSubmitApplication(formValues)}
@@ -100,50 +96,42 @@ class SelectedBerthPage extends Component<Props> {
               <Container className="vene-berth-page-selected__wrapper">
                 <Row>
                   <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-                    {selectedApplicationType && (
+                    {selectedApplicationType && harbors && (
                       <div className="vene-berth-page-selected__application">
                         {selectedApplicationType === ApplicationOptions.NewApplication ? (
                           <NewApplication />
                         ) : (
-                          <ExchangeApplication harbors={normalizedHarbors} />
+                          <ExchangeApplication harbors={harbors} />
                         )}
                       </div>
                     )}
 
                     <FormattedMessage tagName="h3" id="page.berth.selected.title" />
                     <hr />
-                    {boatType ? (
+                    {Object.values(boatInfo).every(value => !!value) ? (
                       <Container>
                         <Row>
-                          {type && (
+                          {boatInfo.hasOwnProperty('boatType') && (
                             <Col md="5">
                               <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
                               <span className="vene-berth-page-selected__boat-value">
-                                {boatType.name}
+                                {(boatInfo as BoatInfoForBerths).boatType}
                               </span>
                             </Col>
                           )}
-                          {width && (
-                            <Col md="3">
-                              <FormattedMessage tagName="span" id="page.overview.info.boat_width" />
-                              :
-                              <span className="vene-berth-page-selected__boat-value">
-                                {width} m
-                              </span>
-                            </Col>
-                          )}
-                          {length && (
-                            <Col md="3">
-                              <FormattedMessage
-                                tagName="span"
-                                id="page.overview.info.boat_length"
-                              />
-                              :
-                              <span className="vene-berth-page-selected__boat-value">
-                                {length} m
-                              </span>
-                            </Col>
-                          )}
+                          <Col md="3">
+                            <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:
+                            <span className="vene-berth-page-selected__boat-value">
+                              {boatInfo.width} m
+                            </span>
+                          </Col>
+
+                          <Col md="3">
+                            <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:
+                            <span className="vene-berth-page-selected__boat-value">
+                              {boatInfo.length} m
+                            </span>
+                          </Col>
                         </Row>
                       </Container>
                     ) : (
