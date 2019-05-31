@@ -65,25 +65,25 @@ const FormPageContainer = ({
       key: 'selected_berths',
       completed: true,
       current: false,
-      linkTo: `selected-berths`
+      linkTo: `berths/selected`
     },
     {
       key: 'boat_information',
       completed: step > 0,
       current: step === 0,
-      linkTo: step > 0 ? `form/${tabs[0]}` : undefined
+      linkTo: step > 0 ? `berths/form/${tabs[0]}` : undefined
     },
     {
       key: 'applicant',
       completed: step > 1,
       current: step === 1,
-      linkTo: step > 1 ? `form/${tabs[1]}` : undefined
+      linkTo: step > 1 ? `berths/form/${tabs[1]}` : undefined
     },
     {
       key: 'send_application',
       completed: step > 2,
       current: step === 2,
-      linkTo: step > 2 ? `form/${tabs[2]}` : undefined
+      linkTo: step > 2 ? `berths/form/${tabs[2]}` : undefined
     }
   ];
 
@@ -136,13 +136,13 @@ const FormPageContainer = ({
         const goBackwards = async (values: {}) => {
           await onSubmit(values);
           setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
-          await localePush('/selected-berths');
+          await localePush('berths/selected');
         };
 
         const goToStep = (nextStep: number) => (values: {}) => {
           onSubmit(values);
           setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
-          localePush(`/form/${tabs[nextStep]}`);
+          localePush(`berths/form/${tabs[nextStep]}`);
         };
 
         return (
