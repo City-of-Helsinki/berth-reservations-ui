@@ -61,7 +61,7 @@ const steps = [
 
 const UnconnectedSelectedBerthPage = (props: Props) => {
   const moveToForm = async () => {
-    await props.localePush('/form/registered-boat');
+    await props.localePush('/berths/form/registered-boat');
   };
 
   const handlePrevious = async () => {
