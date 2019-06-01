@@ -14,12 +14,12 @@
   }
 
   &__title {
-    font-size: 2em;
-    padding: 8px 16px;
+    font-size: 3em;
+    //padding: 8px 16px;
     hyphens: auto;
 
     @include for-phone {
-      font-size: 3em;
+      font-size: 2em;
     }
     @include for-desktop {
       font-size: 4em;
