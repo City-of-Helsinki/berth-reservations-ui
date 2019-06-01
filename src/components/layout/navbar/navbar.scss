@@ -2,7 +2,7 @@
 @import 'helsinki/fonts';
 @import 'styles/mixin';
 
-$navBrandWidth: 90px;
+$navBrandWidth: 96px;
 $languageIconSize: 32px;
 $navbarTitleColor: rgba(0, 0, 0, 0.9);
 
@@ -10,10 +10,9 @@ $navbarTitleColor: rgba(0, 0, 0, 0.9);
   &__top {
     background-color: $hel-white;
     border-bottom: 1px solid $hel-light;
-
+    padding: 0.25em 0;
     .navbar {
-      padding-top: 0;
-      padding-bottom: 0;
+      padding: 0;
     }
   }
 
@@ -77,5 +76,6 @@ $navbarTitleColor: rgba(0, 0, 0, 0.9);
   &__icon {
     width: $navBrandWidth;
     color: $hel-black;
+    margin-left: -0.5em;
   }
 }
