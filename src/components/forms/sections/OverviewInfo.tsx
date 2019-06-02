@@ -43,18 +43,17 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, application }: 
   <div className="vene-overview-info">
     <Container fluid>
       <OldBerthInfo application={application} />
-
-      <Row>
-        <Col xs={8} md={10} className="vene-overview-info__header">
+      <div className="vene-overview-info__header">
+        <div className="vene-overview-info__title">
           <FormattedMessage tagName="h6" id="page.overview.info.boat_info" />
-        </Col>
-        <Col xs={4} md={2} className="vene-overview-info__edit-icon">
+        </div>
+        <div className="vene-overview-info__edit-icon">
           <LocalizedLink to={`form/${tabs[0]}`} className="vene-overview-info__edit-link">
-            <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
+            <Icon name="pencil" />
           </LocalizedLink>
-        </Col>
-      </Row>
+        </div>
+      </div>
       {tabs[0] === 'registered-boat' && (
         <Fragment>
           <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
@@ -88,17 +87,17 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, application }: 
           <BoatMeasures width={values.boatWidth} length={values.boatLength} />
         </Fragment>
       )}
-      <Row>
-        <Col xs={8} md={10} className="vene-overview-info__header">
+      <div className="vene-overview-info__header">
+        <div className="vene-overview-info__title">
           <FormattedMessage tagName="h6" id="page.overview.info.berths" />
-        </Col>
-        <Col xs={4} md={2} className="vene-overview-info__edit-icon">
+        </div>
+        <div className="vene-overview-info__edit-icon">
           <LocalizedLink to="berths" className="vene-overview-info__edit-link">
-            <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
+            <Icon name="pencil" />
           </LocalizedLink>
-        </Col>
-      </Row>
+        </div>
+      </div>
       <Row>
         <Col xs={12}>
           {selectedBerths.map((berth, index) => (
@@ -108,17 +107,17 @@ const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, application }: 
           ))}
         </Col>
       </Row>
-      <Row>
-        <Col xs={8} md={10} className="vene-overview-info__header">
+      <div className="vene-overview-info__header">
+        <div className="vene-overview-info__title">
           <FormattedMessage tagName="h6" id="page.overview.info.person" />
-        </Col>
-        <Col xs={4} md={2} className="vene-overview-info__edit-icon">
+        </div>
+        <div className="vene-overview-info__edit-icon">
           <LocalizedLink to={`form/${tabs[1]}`} className="vene-overview-info__edit-link">
-            <Icon name="pencil" />
             <FormattedMessage tagName="span" id="page.overview.info.edit" />
+            <Icon name="pencil" />
           </LocalizedLink>
-        </Col>
-      </Row>
+        </div>
+      </div>
       <Person
         firstName={values.firstName}
         lastName={values.lastName}
