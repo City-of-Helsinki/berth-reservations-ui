@@ -22,14 +22,14 @@ export default class Step extends React.Component<Props> {
     return (
       <div className="vene-step">
         {linkTo ? (
-          <LocalizedLink className="vene-step__link" to={linkTo}>
+          <LocalizedLink to={linkTo}>
             <div className={classNames('vene-step__status', { completed, current })} />
-            <span className="vene-step__label">{label}</span>
+            <div className={classNames('vene-step__label', { completed, current })}>{label}</div>
           </LocalizedLink>
         ) : (
           <Fragment>
             <div className={classNames('vene-step__status', { completed, current })} />
-            <span className="vene-step__label">{label}</span>
+            <div className={classNames('vene-step__label', { completed, current })}>{label}</div>
           </Fragment>
         )}
       </div>
