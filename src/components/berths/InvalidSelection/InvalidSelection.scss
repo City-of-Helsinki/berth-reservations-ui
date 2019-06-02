@@ -6,10 +6,10 @@
   display: inline-block;
   padding-left: $spacing-00-25;
   padding-right: $spacing-00-25;
-  height: 1em;
+  height: 1.25em;
 
   &__icn {
     fill: $hel-brick;
-    vertical-align: baseline;
+    vertical-align: text-top;
   }
 }
