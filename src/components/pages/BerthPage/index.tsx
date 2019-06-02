@@ -129,7 +129,7 @@ class BerthPage extends Component<Props> {
             }
           ]}
         />
-        <KoroSection color="fog" top>
+        <KoroSection color="fog" top className="berth-filters-section">
           <BerthsLegend
             legend={{ title: `legend.${hero}.title`, legend: `legend.${hero}.legend` }}
             form={{
