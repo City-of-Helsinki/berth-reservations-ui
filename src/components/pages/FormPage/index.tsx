@@ -4,8 +4,9 @@ import { Col, Container, Row } from 'reactstrap';
 import Wizard from '../../forms/Wizard';
 import Layout from '../../layout/Layout';
 import FormLegend from '../../legends/FormLegend';
-import Steps from '../../steps';
+import Steps from '../../steps/Steps';
 
+import { StepType } from '../../steps/step/Step';
 import './FormPage.scss';
 
 interface Props {
@@ -15,12 +16,7 @@ interface Props {
   nextStep: Function;
   prevStep: Function;
   step: number;
-  steps: Array<{
-    key: string;
-    completed: boolean;
-    current: boolean;
-    linkTo: string | undefined;
-  }>;
+  steps: StepType[];
   children: React.ReactNode;
 }
 

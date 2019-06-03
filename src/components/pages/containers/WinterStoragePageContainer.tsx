@@ -19,6 +19,7 @@ import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType } from '../../berths/types';
+import { StepType } from '../../steps/step/Step';
 
 interface Props {
   berthLimit: number;
@@ -36,36 +37,36 @@ interface Props {
 }
 
 const BerthPageContainer = (props: Props) => {
-  const steps = [
+  const steps: StepType[] = [
     {
       key: 'winter_areas',
       completed: false,
       current: true,
-      linkTo: undefined
+      linkTo: ''
     },
     {
       key: 'review_areas',
       completed: false,
       current: false,
-      linkTo: undefined
+      linkTo: ''
     },
     {
       key: 'boat_information',
       completed: false,
       current: false,
-      linkTo: undefined
+      linkTo: ''
     },
     {
       key: 'applicant',
       completed: false,
       current: false,
-      linkTo: undefined
+      linkTo: ''
     },
     {
       key: 'send_application',
       completed: false,
       current: false,
-      linkTo: undefined
+      linkTo: ''
     }
   ];
 

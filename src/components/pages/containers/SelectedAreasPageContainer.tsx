@@ -15,6 +15,7 @@ import SelectedBerthPage from '../selectedBerthPage/SelectedBerthPage';
 import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
 import { Berths } from '../../berths/types';
+import { StepType } from '../../steps/step/Step';
 
 interface Props {
   selectedAreas: Berths;
@@ -26,7 +27,7 @@ interface Props {
   values: {};
 }
 
-const steps = [
+const steps: StepType[] = [
   {
     key: 'winter_areas',
     completed: true,
@@ -37,25 +38,25 @@ const steps = [
     key: 'review_areas',
     completed: false,
     current: true,
-    linkTo: undefined
+    linkTo: ''
   },
   {
     key: 'boat_information',
     completed: false,
     current: false,
-    linkTo: undefined
+    linkTo: ''
   },
   {
     key: 'applicant',
     completed: false,
     current: false,
-    linkTo: undefined
+    linkTo: ''
   },
   {
     key: 'send_application',
     completed: false,
     current: false,
-    linkTo: undefined
+    linkTo: ''
   }
 ];
 

@@ -19,6 +19,7 @@ import WinterAreasQuery from '../../query/WinterAreasQuery';
 import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
 import { Berths } from '../../berths/types';
+import { StepType } from '../../steps/step/Step';
 
 type Props = {
   initialValues: {};
@@ -43,16 +44,21 @@ const WinterFormPageContainer = ({
   ...rest
 }: Props) => {
   const [step, setStep] = useState(0);
-  const [currTab, setTab] = useState('');
-  const [tabs, setTabs] = useState(['registered-boat', 'private-person', 'overview']);
+  const [boatTab, setBoatTab] = useState(mapSteps[0][0]);
+  const [applicantTab, setApplicantTab] = useState(mapSteps[1][0]);
 
   useEffect(() => {
     const currStep = Math.max(0, findIndex(mapSteps, s => s.includes(tab)));
     setStep(currStep);
-    setTab(tab || mapSteps[currStep][0]);
+    if (currStep === 0) {
+      setBoatTab(tab);
+    }
+    if (currStep === 1) {
+      setApplicantTab(tab);
+    }
   });
 
-  const steps = [
+  const steps: StepType[] = [
     {
       key: 'winter_areas',
       completed: true,
@@ -69,19 +75,19 @@ const WinterFormPageContainer = ({
       key: 'boat_information',
       completed: step > 0,
       current: step === 0,
-      linkTo: step > 0 ? `winter-storage/form/${tabs[0]}` : undefined
+      linkTo: `winter-storage/form/${boatTab}`
     },
     {
       key: 'applicant',
       completed: step > 1,
       current: step === 1,
-      linkTo: step > 1 ? `winter-storage/form/${tabs[1]}` : undefined
+      linkTo: `winter-storage/form/${applicantTab}`
     },
     {
       key: 'send_application',
       completed: step > 2,
       current: step === 2,
-      linkTo: step > 2 ? `winter-storage/form/${tabs[2]}` : undefined
+      linkTo: `winter-storage/form/${mapSteps[2][0]}`
     }
   ];
 
@@ -118,20 +124,17 @@ const WinterFormPageContainer = ({
             mutation: CREATE_WINTER_STORAGE_RESERVATION
           });
 
-          setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
           await localePush('/thank-you');
         };
 
         const goBackwards = async (values: {}) => {
           await onSubmit(values);
-          setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
-          await localePush('winter-storage/selected');
+          await localePush(steps[1].linkTo);
         };
 
         const goToStep = (nextStep: number) => (values: {}) => {
           onSubmit(values);
-          setTabs(map(tabs, (t, index) => (index === step ? currTab : t)));
-          localePush(`/winter-storage/form/${tabs[nextStep]}`);
+          localePush(steps[nextStep + 2].linkTo);
         };
 
         return (
@@ -144,10 +147,16 @@ const WinterFormPageContainer = ({
             steps={steps}
             {...rest}
           >
-            <BoatDetails tab={tab} values={{}} boatTypes={boatTypes} mode={FormMode.Winter} />
-            <ApplicantDetails tab={tab} />
+            <BoatDetails tab={boatTab} values={{}} boatTypes={boatTypes} mode={FormMode.Winter} />
+            <ApplicantDetails tab={applicantTab} />
             {!loading && (
-              <Overview selectedBerths={selectedBerths} boatTypes={boatTypes} tabs={tabs} />
+              <Overview
+                selectedBerths={selectedBerths}
+                boatTypes={boatTypes}
+                boatTab={boatTab}
+                steps={steps}
+                mode={FormMode.Winter}
+              />
             )}
           </FormPage>
         );

@@ -1,17 +1,13 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
-import Steps from '../../../steps';
+import { StepType } from '../../../steps/step/Step';
+import Steps from '../../../steps/Steps';
 import './SelectedBerthsLegend.scss';
 
 interface Props {
   legend: { title: string; legend: string };
-  steps: Array<{
-    key: string;
-    completed: boolean;
-    current: boolean;
-    linkTo?: string;
-  }>;
+  steps: StepType[];
 }
 
 const SelectedBerthsLegend = ({ steps, legend }: Props) => (
