@@ -7,7 +7,7 @@ export interface StepType {
   completed: boolean;
   current: boolean;
   key: string;
-  linkTo?: string;
+  linkTo: string;
 }
 interface Props extends StepType {
   label: string;

@@ -19,6 +19,7 @@ import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 import { ApplicationState, Store } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
 import { Berths } from '../../berths/types';
+import { StepType } from '../../steps/step/Step';
 
 type Props = {
   initialValues: {};
@@ -54,7 +55,7 @@ const FormPageContainer = ({
     setTab(tab || mapSteps[currStep][0]);
   });
 
-  const steps = [
+  const steps: StepType[] = [
     {
       key: 'berths',
       completed: true,
@@ -71,19 +72,19 @@ const FormPageContainer = ({
       key: 'boat_information',
       completed: step > 0,
       current: step === 0,
-      linkTo: step > 0 ? `berths/form/${tabs[0]}` : undefined
+      linkTo: `berths/form/${tabs[0]}`
     },
     {
       key: 'applicant',
       completed: step > 1,
       current: step === 1,
-      linkTo: step > 1 ? `berths/form/${tabs[1]}` : undefined
+      linkTo: `berths/form/${tabs[1]}`
     },
     {
       key: 'send_application',
       completed: step > 2,
       current: step === 2,
-      linkTo: step > 2 ? `berths/form/${tabs[2]}` : undefined
+      linkTo: `berths/form/${tabs[2]}`
     }
   ];
 
@@ -162,6 +163,7 @@ const FormPageContainer = ({
                 selectedBerths={selectedBerths}
                 boatTypes={boatTypes}
                 tabs={tabs}
+                steps={steps}
                 application={application}
               />
             )}

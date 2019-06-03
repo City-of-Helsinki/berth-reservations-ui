@@ -16,6 +16,7 @@ import { Berths } from '../../berths/types';
 
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
+import { StepType } from '../../steps/step/Step';
 
 interface Props {
   selectedBerths: Berths;
@@ -30,7 +31,7 @@ interface Props {
   initialValues: {};
 }
 
-const steps = [
+const steps: StepType[] = [
   {
     key: 'berths',
     completed: true,
@@ -41,25 +42,25 @@ const steps = [
     key: 'selected_berths',
     completed: false,
     current: true,
-    linkTo: undefined
+    linkTo: ''
   },
   {
     key: 'boat_information',
     completed: false,
     current: false,
-    linkTo: undefined
+    linkTo: ''
   },
   {
     key: 'applicant',
     completed: false,
     current: false,
-    linkTo: undefined
+    linkTo: ''
   },
   {
     key: 'send_application',
     completed: false,
     current: false,
-    linkTo: undefined
+    linkTo: ''
   }
 ];
 

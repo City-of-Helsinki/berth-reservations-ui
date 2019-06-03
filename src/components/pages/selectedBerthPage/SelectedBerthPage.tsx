@@ -18,6 +18,7 @@ import NewApplication from '../../forms/fragments/newApplication/NewApplication'
 
 import { HarborOptions } from '../../../types/harborOptionsTypes';
 
+import { StepType } from '../../steps/step/Step';
 import './selectedBerthPage.scss';
 
 interface BoatInfoForBerths {
@@ -46,12 +47,7 @@ export interface Props {
   legend: { title: string; legend: string };
   validSelection: boolean;
   filter: Function;
-  steps: Array<{
-    key: string;
-    completed: boolean;
-    current: boolean;
-    linkTo?: string;
-  }>;
+  steps: StepType[];
 }
 
 class SelectedBerthPage extends Component<Props> {

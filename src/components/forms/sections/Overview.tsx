@@ -3,6 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
 import { ApplicationState } from '../../../redux/types';
 import { Berths } from '../../berths/types';
+import { StepType } from '../../steps/step/Step';
 import Agreement from '../fragments/Agreement';
 import ApplicationCode from '../fragments/ApplicationCode';
 import Newsletter from '../fragments/Newsletter';
@@ -30,6 +31,7 @@ type Props = {
   selectedBerths: Berths;
   application?: ApplicationState;
   tabs: string[];
+  steps: StepType[];
 } & WithBoatType;
 
 const Submit = ({
@@ -53,7 +55,8 @@ const Submit = ({
   selectedBerths,
   application,
   tabs,
-  boatTypes
+  boatTypes,
+  steps
 }: Props) => (
   <Container>
     <Row>
@@ -65,6 +68,7 @@ const Submit = ({
             values={values}
             boatTypes={boatTypes}
             application={application}
+            steps={steps}
           />
           <ApplicationCode />
           <FormattedMessage tagName="h5" id="form.overview.header.receivable_items.title" />

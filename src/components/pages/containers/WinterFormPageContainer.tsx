@@ -70,19 +70,19 @@ const WinterFormPageContainer = ({
       key: 'boat_information',
       completed: step > 0,
       current: step === 0,
-      linkTo: step > 0 ? `winter-storage/form/${tabs[0]}` : undefined
+      linkTo: `winter-storage/form/${tabs[0]}`
     },
     {
       key: 'applicant',
       completed: step > 1,
       current: step === 1,
-      linkTo: step > 1 ? `winter-storage/form/${tabs[1]}` : undefined
+      linkTo: `winter-storage/form/${tabs[1]}`
     },
     {
       key: 'send_application',
       completed: step > 2,
       current: step === 2,
-      linkTo: step > 2 ? `winter-storage/form/${tabs[2]}` : undefined
+      linkTo: `winter-storage/form/${tabs[2]}`
     }
   ];
 
@@ -148,7 +148,12 @@ const WinterFormPageContainer = ({
             <BoatDetails tab={tab} values={{}} boatTypes={boatTypes} mode={FormMode.Winter} />
             <ApplicantDetails tab={tab} />
             {!loading && (
-              <Overview selectedBerths={selectedBerths} boatTypes={boatTypes} tabs={tabs} />
+              <Overview
+                selectedBerths={selectedBerths}
+                boatTypes={boatTypes}
+                tabs={tabs}
+                steps={steps}
+              />
             )}
           </FormPage>
         );
