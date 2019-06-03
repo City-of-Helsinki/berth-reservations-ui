@@ -185,15 +185,17 @@ const Berth = (props: Props) => {
               </Popover>
             )}
             {berth.wwwUrl && (
-              <div><a
-                className="vene-berth__website-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                href={berth.wwwUrl}
-              >
-                <FormattedMessage tagName="span" id="page.berths.website" />
-                <Icon name="arrowRight" />
-              </a></div>
+              <div>
+                <a
+                  className="vene-berth__website-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={berth.wwwUrl}
+                >
+                  <FormattedMessage tagName="span" id="page.berths.website" />
+                  <Icon name="arrowRight" />
+                </a>
+              </div>
             )}
           </div>
         </Col>
