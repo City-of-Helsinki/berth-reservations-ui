@@ -3,15 +3,12 @@ import React from 'react';
 
 import SelectedBerthPage, { Props } from './SelectedBerthPage';
 
-import { berths } from '../../../../__fixtures__/berthFixture';
-import { boatTypes } from '../../../../__fixtures__/boatTypeFixture';
-import { harbors } from '../../../../__fixtures__/harborFixture';
-import { services } from '../../../../__fixtures__/serviceFixture';
-import { ApplicationOptions } from '../../../../types/applicationType';
+import { berths } from '../../../__fixtures__/berthFixture';
+import { ApplicationOptions } from '../../../types/applicationType';
 
 describe('pages/BerthPage/SelectedBerthPage', () => {
   const defaultProps: Props = {
-    selectedServices: services,
+    boatInfo: { width: '4', length: '10' },
     selectedBerths: berths,
     initialValues: {},
     deselectBerth: jest.fn(),
@@ -22,14 +19,15 @@ describe('pages/BerthPage/SelectedBerthPage', () => {
     values: {},
     moveToForm: jest.fn(),
     handlePrevious: jest.fn(),
-    boatTypes: [],
-    data: {
-      boatTypes,
-      harbors
-    },
     legend: { title: 'foo', legend: 'bar' },
-    steps: []
+    steps: [],
+    validSelection: true,
+    filter: jest.fn()
   };
+
+  beforeEach(() => {
+    jest.resetAllMocks();
+  });
 
   const getWrapper = (props?: object) =>
     shallow(<SelectedBerthPage {...defaultProps} {...props} />);

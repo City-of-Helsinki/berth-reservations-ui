@@ -3,9 +3,11 @@ import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
 
 import { ApplicationState } from '../../../redux/types';
+import { FormMode } from '../../../types/form';
 import { Berths } from '../../berths/types';
 import Icon from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
+import { StepType } from '../../steps/step/Step';
 import BoatDraughtAndWeight from '../fragments/overview/BoatDraughtAndWeight';
 import BoatInfo from '../fragments/overview/BoatInfo';
 import BoatMeasures from '../fragments/overview/BoatMeasures';
@@ -35,100 +37,118 @@ type Props = {
   };
   selectedBerths: Berths;
   application?: ApplicationState;
-  tabs: string[];
+  steps: StepType[];
+  boatTab: string;
+  mode: FormMode;
 } & InjectedIntlProps &
   WithBoatType;
 
-const OverviewInfo = ({ values, selectedBerths, tabs, boatTypes, application }: Props) => (
-  <div className="vene-overview-info">
-    <Container fluid>
-      <OldBerthInfo application={application} />
-      <div className="vene-overview-info__header">
-        <div className="vene-overview-info__title">
-          <FormattedMessage tagName="h6" id="page.overview.info.boat_info" />
+
+const OverviewInfo = ({
+  values,
+  selectedBerths,
+  boatTypes,
+  application,
+  steps,
+  boatTab,
+  mode
+}: Props) => {
+  const isWinterStorageFormMode = mode === FormMode.Winter;
+
+  return (
+    <div className="vene-overview-info">
+      <Container fluid>
+        {!isWinterStorageFormMode && <OldBerthInfo application={application} />}
+
+        <div className="vene-overview-info__header">
+          <div className="vene-overview-info__title">
+            <FormattedMessage tagName="h6" id="page.overview.info.boat_info" />
+          </div>
+          <div className="vene-overview-info__edit-icon">
+            <LocalizedLink to={steps[2].linkTo} className="vene-overview-info__edit-link">
+              <Icon name="pencil" />
+              <FormattedMessage tagName="span" id="page.overview.info.edit" />
+            </LocalizedLink>
+          </div>
         </div>
-        <div className="vene-overview-info__edit-icon">
-          <LocalizedLink to={`form/${tabs[0]}`} className="vene-overview-info__edit-link">
-            <FormattedMessage tagName="span" id="page.overview.info.edit" />
-            <Icon name="pencil" />
-          </LocalizedLink>
+        {boatTab === 'registered-boat' && (
+          <Fragment>
+            <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
+            <BoatTypeAndModel
+              boatTypeId={values.boatType}
+              boatModel={values.boatModel}
+              boatTypes={boatTypes}
+            />
+            <BoatMeasures width={values.boatWidth} length={values.boatLength} />
+            {!isWinterStorageFormMode && (
+              <BoatDraughtAndWeight draught={values.boatDraught} weight={values.boatWeight} />
+            )}
+          </Fragment>
+        )}
+        {boatTab === 'unregistered-boat' && (
+          <Fragment>
+            <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
+            <BoatTypeAndModel
+              boatTypeId={values.boatType}
+              boatModel={values.boatModel}
+              boatTypes={boatTypes}
+            />
+            <BoatMeasures width={values.boatWidth} length={values.boatLength} />
+          </Fragment>
+        )}
+        {boatTab === 'no-boat' && (
+          <Fragment>
+            <BoatTypeAndModel
+              boatTypeId={values.boatType}
+              boatModel={values.boatModel}
+              boatTypes={boatTypes}
+            />
+            <BoatMeasures width={values.boatWidth} length={values.boatLength} />
+          </Fragment>
+        )}
+        <div className="vene-overview-info__header">
+          <div className="vene-overview-info__title">
+            <FormattedMessage tagName="h6" id="page.overview.info.berths" />
+          </div>
+          <div className="vene-overview-info__edit-icon">
+            <LocalizedLink to={steps[1].linkTo} className="vene-overview-info__edit-link">
+              <Icon name="pencil" />
+              <FormattedMessage tagName="span" id="page.overview.info.edit" />
+            </LocalizedLink>
+          </div>
         </div>
-      </div>
-      {tabs[0] === 'registered-boat' && (
-        <Fragment>
-          <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
-          <BoatTypeAndModel
-            boatTypeId={values.boatType}
-            boatModel={values.boatModel}
-            boatTypes={boatTypes}
-          />
-          <BoatMeasures width={values.boatWidth} length={values.boatLength} />
-          <BoatDraughtAndWeight draught={values.boatDraught} weight={values.boatWeight} />
-        </Fragment>
-      )}
-      {tabs[0] === 'unregistered-boat' && (
-        <Fragment>
-          <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
-          <BoatTypeAndModel
-            boatTypeId={values.boatType}
-            boatModel={values.boatModel}
-            boatTypes={boatTypes}
-          />
-          <BoatMeasures width={values.boatWidth} length={values.boatLength} />
-        </Fragment>
-      )}
-      {tabs[0] === 'no-boat' && (
-        <Fragment>
-          <BoatTypeAndModel
-            boatTypeId={values.boatType}
-            boatModel={values.boatModel}
-            boatTypes={boatTypes}
-          />
-          <BoatMeasures width={values.boatWidth} length={values.boatLength} />
-        </Fragment>
-      )}
-      <div className="vene-overview-info__header">
-        <div className="vene-overview-info__title">
-          <FormattedMessage tagName="h6" id="page.overview.info.berths" />
+        <Row>
+          <Col xs={12}>
+            {selectedBerths.map((berth, index) => (
+              <div key={berth.id}>
+                {index + 1}. {berth.name}
+              </div>
+            ))}
+          </Col>
+        </Row>
+        <div className="vene-overview-info__header">
+          <div className="vene-overview-info__title">
+            <FormattedMessage tagName="h6" id="page.overview.info.person" />
+          </div>
+          <div className="vene-overview-info__edit-icon">
+            <LocalizedLink to={steps[3].linkTo} className="vene-overview-info__edit-link">
+              <Icon name="pencil" />
+              <FormattedMessage tagName="span" id="page.overview.info.edit" />
+            </LocalizedLink>
+          </div>
         </div>
-        <div className="vene-overview-info__edit-icon">
-          <LocalizedLink to="berths" className="vene-overview-info__edit-link">
-            <FormattedMessage tagName="span" id="page.overview.info.edit" />
-            <Icon name="pencil" />
-          </LocalizedLink>
-        </div>
-      </div>
-      <Row>
-        <Col xs={12}>
-          {selectedBerths.map((berth, index) => (
-            <div key={berth.id}>
-              {index + 1}. {berth.name}
-            </div>
-          ))}
-        </Col>
-      </Row>
-      <div className="vene-overview-info__header">
-        <div className="vene-overview-info__title">
-          <FormattedMessage tagName="h6" id="page.overview.info.person" />
-        </div>
-        <div className="vene-overview-info__edit-icon">
-          <LocalizedLink to={`form/${tabs[1]}`} className="vene-overview-info__edit-link">
-            <FormattedMessage tagName="span" id="page.overview.info.edit" />
-            <Icon name="pencil" />
-          </LocalizedLink>
-        </div>
-      </div>
-      <Person
-        firstName={values.firstName}
-        lastName={values.lastName}
-        email={values.email}
-        phoneNumber={values.phoneNumber}
-        address={values.address}
-        zipCode={values.zipCode}
-        municipality={values.municipality}
-      />
-    </Container>
-  </div>
-);
+        <Person
+          firstName={values.firstName}
+          lastName={values.lastName}
+          email={values.email}
+          phoneNumber={values.phoneNumber}
+          address={values.address}
+          zipCode={values.zipCode}
+          municipality={values.municipality}
+        />
+      </Container>
+    </div>
+  );
+};
 
 export default injectIntl(OverviewInfo);

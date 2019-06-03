@@ -2,7 +2,9 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
 import { ApplicationState } from '../../../redux/types';
+import { FormMode } from '../../../types/form';
 import { Berths } from '../../berths/types';
+import { StepType } from '../../steps/step/Step';
 import Agreement from '../fragments/Agreement';
 import ApplicationCode from '../fragments/ApplicationCode';
 import Newsletter from '../fragments/Newsletter';
@@ -29,7 +31,9 @@ type Props = {
   };
   selectedBerths: Berths;
   application?: ApplicationState;
-  tabs: string[];
+  boatTab: string;
+  steps: StepType[];
+  mode: FormMode;
 } & WithBoatType;
 
 const Submit = ({
@@ -52,8 +56,10 @@ const Submit = ({
   },
   selectedBerths,
   application,
-  tabs,
-  boatTypes
+  boatTab,
+  boatTypes,
+  steps,
+  mode
 }: Props) => (
   <Container>
     <Row>
@@ -61,10 +67,12 @@ const Submit = ({
         <div className="vene-form__styled-container">
           <OverviewInfo
             selectedBerths={selectedBerths}
-            tabs={tabs}
+            boatTab={boatTab}
             values={values}
             boatTypes={boatTypes}
             application={application}
+            steps={steps}
+            mode={mode}
           />
           <ApplicationCode />
           <FormattedMessage tagName="h5" id="form.overview.header.receivable_items.title" />

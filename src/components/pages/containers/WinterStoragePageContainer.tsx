@@ -13,12 +13,13 @@ import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import { IconNames } from '../../common/Icon';
 import WinterAreasQuery from '../../query/WinterAreasQuery';
-import BerthPage from '../BerthPage';
+import BerthPage from '../berthPage/BerthPage';
 
 import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType } from '../../berths/types';
+import { StepType } from '../../steps/step/Step';
 
 interface Props {
   berthLimit: number;
@@ -36,36 +37,36 @@ interface Props {
 }
 
 const BerthPageContainer = (props: Props) => {
-  const steps = [
+  const steps: StepType[] = [
     {
       key: 'winter_areas',
       completed: false,
       current: true,
-      linkTo: undefined
+      linkTo: ''
     },
     {
       key: 'review_areas',
       completed: false,
       current: false,
-      linkTo: undefined
+      linkTo: ''
     },
     {
       key: 'boat_information',
       completed: false,
       current: false,
-      linkTo: undefined
+      linkTo: ''
     },
     {
       key: 'applicant',
       completed: false,
       current: false,
-      linkTo: undefined
+      linkTo: ''
     },
     {
       key: 'send_application',
       completed: false,
       current: false,
-      linkTo: undefined
+      linkTo: ''
     }
   ];
 
@@ -117,7 +118,6 @@ const BerthPageContainer = (props: Props) => {
         data
       }) => {
         const winterAreas = getBerthsFromCache(data ? data.winterStorageAreas : null);
-        const boatTypes = data ? data.boatTypes : [];
 
         return (
           <BerthPage

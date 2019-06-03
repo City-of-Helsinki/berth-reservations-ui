@@ -13,12 +13,13 @@ import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import { IconNames } from '../../common/Icon';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
-import BerthPage from '../BerthPage';
+import BerthPage from '../berthPage/BerthPage';
 
 import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType } from '../../berths/types';
+import { StepType } from '../../steps/step/Step';
 
 interface Props {
   initialValues: {};
@@ -36,36 +37,36 @@ interface Props {
 }
 
 const BerthPageContainer = (props: Props) => {
-  const steps = [
+  const steps: StepType[] = [
     {
       key: 'berths',
       completed: false,
       current: true,
-      linkTo: undefined
+      linkTo: ''
     },
     {
       key: 'selected_berths',
       completed: false,
       current: false,
-      linkTo: undefined
+      linkTo: ''
     },
     {
       key: 'boat_information',
       completed: false,
       current: false,
-      linkTo: undefined
+      linkTo: ''
     },
     {
       key: 'applicant',
       completed: false,
       current: false,
-      linkTo: undefined
+      linkTo: ''
     },
     {
       key: 'send_application',
       completed: false,
       current: false,
-      linkTo: undefined
+      linkTo: ''
     }
   ];
 

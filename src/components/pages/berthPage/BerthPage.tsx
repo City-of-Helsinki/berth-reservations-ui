@@ -22,8 +22,7 @@ import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg'
 
 import Hero from '../../common/hero/Hero';
 import KoroSection from '../../layout/koroSection/KoroSection';
-
-import './BerthPage.scss';
+import { StepType } from '../../steps/step/Step';
 
 type Props = {
   initialValues: {};
@@ -39,12 +38,7 @@ type Props = {
   localePush: LocalePush;
   berths: BerthsType;
   boatTypes?: BoatTypes;
-  steps: Array<{
-    key: string;
-    completed: boolean;
-    current: boolean;
-    linkTo?: string;
-  }>;
+  steps: StepType[];
   services: Array<{
     label: string;
     value: BerthsServices | WinterServices;

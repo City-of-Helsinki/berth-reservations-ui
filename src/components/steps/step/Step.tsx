@@ -3,11 +3,14 @@ import React, { Fragment } from 'react';
 import LocalizedLink from '../../common/LocalizedLink';
 import './Step.scss';
 
-interface Props {
+export interface StepType {
   completed: boolean;
   current: boolean;
+  key: string;
+  linkTo: string;
+}
+interface Props extends StepType {
   label: string;
-  linkTo?: string;
 }
 
 export default class Step extends React.Component<Props> {
@@ -21,8 +24,8 @@ export default class Step extends React.Component<Props> {
 
     return (
       <div className="vene-step">
-        {linkTo ? (
-          <LocalizedLink to={linkTo}>
+        {linkTo && completed ? (
+          <LocalizedLink className="vene-step__link" to={linkTo}>
             <div className={classNames('vene-step__status', { completed, current })} />
             <div className={classNames('vene-step__label', { completed, current })}>{label}</div>
           </LocalizedLink>

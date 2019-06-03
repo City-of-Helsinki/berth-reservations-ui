@@ -1,18 +1,11 @@
 import React from 'react';
 import { InjectedIntlProps, injectIntl } from 'react-intl';
-import Step from './Step';
+import Step, { StepType } from './step/Step';
 
 import './Steps.scss';
 
-interface StepProp {
-  key: string;
-  completed: boolean;
-  current: boolean;
-  linkTo?: string;
-}
-type StepsProp = StepProp[];
 type Props = {
-  steps: StepsProp;
+  steps: StepType[];
 } & InjectedIntlProps;
 
 const Steps = ({ intl: { formatMessage }, steps }: Props) => (

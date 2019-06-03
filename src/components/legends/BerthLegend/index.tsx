@@ -7,7 +7,7 @@ import Icon, { IconNames } from '../../common/Icon';
 import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
 import ApplicationSelector from '../../forms/sections/applicationSelector/ApplicationSelector';
-import Steps from '../../steps';
+import Steps from '../../steps/Steps';
 
 import {
   BerthsServices,
@@ -15,6 +15,7 @@ import {
   SelectedWinterServices,
   WinterServices
 } from '../../../types/services';
+import { StepType } from '../../steps/step/Step';
 import './BerthLegend.scss';
 
 interface Props {
@@ -28,12 +29,7 @@ interface Props {
     legend: string;
   };
   showApplicationSelector?: boolean;
-  steps?: Array<{
-    key: string;
-    completed: boolean;
-    current: boolean;
-    linkTo?: string;
-  }>;
+  steps?: StepType[];
   services?: {
     available: Array<{
       label: string;

@@ -1,23 +1,24 @@
+import get from 'lodash/get';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
+
 import {
   deselectWinterArea,
   moveWinterAreaDown,
   moveWinterAreaUp
 } from '../../../redux/actions/WinterAreaActions';
+import { getBerthFilterByValues } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
-import SelectedBerthPage from '../BerthPage/SelectedBerthPage/SelectedBerthPage';
+import SelectedBerthPage from '../selectedBerthPage/SelectedBerthPage';
 
 import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
 import { Berths } from '../../berths/types';
-
-import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
-import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
+import { StepType } from '../../steps/step/Step';
 
 interface Props {
-  selectedBerths: Berths;
+  selectedAreas: Berths;
   selectedServices: SelectedServices;
   deselectBerth: Function;
   moveUp: Function;
@@ -26,7 +27,7 @@ interface Props {
   values: {};
 }
 
-const steps = [
+const steps: StepType[] = [
   {
     key: 'winter_areas',
     completed: true,
@@ -37,62 +38,63 @@ const steps = [
     key: 'review_areas',
     completed: false,
     current: true,
-    linkTo: undefined
+    linkTo: ''
   },
   {
     key: 'boat_information',
     completed: false,
     current: false,
-    linkTo: undefined
+    linkTo: ''
   },
   {
     key: 'applicant',
     completed: false,
     current: false,
-    linkTo: undefined
+    linkTo: ''
   },
   {
     key: 'send_application',
     completed: false,
     current: false,
-    linkTo: undefined
+    linkTo: ''
   }
 ];
 
-const UnconnectedSelectedBerthPage = (props: Props) => {
+const UnconnectedSelectedBerthPage = ({
+  localePush,
+  values,
+  selectedAreas,
+  selectedServices,
+  ...rest
+}: Props) => {
   const moveToForm = async () => {
-    await props.localePush('/winter-storage/form/registered-boat');
+    await localePush('/winter-storage/form/registered-boat');
   };
-
   const handlePrevious = async () => {
-    await props.localePush('/winter-storage');
+    await localePush('/winter-storage');
   };
+  const width = get(values, 'boatWidth');
+  const length = get(values, 'boatLength');
+  const filter = getBerthFilterByValues(values, selectedServices);
+  const validSelection = selectedAreas.every(filter);
 
   return (
-    <BoatsBerthsQuery query={BOAT_TYPES_BERTHS_QUERY}>
-      {({
-        // error, TODO: handle errors
-        data
-      }) => {
-        const boatTypes = data ? data.boatTypes : [];
-
-        return (
-          <SelectedBerthPage
-            handlePrevious={handlePrevious}
-            moveToForm={moveToForm}
-            boatTypes={boatTypes}
-            steps={steps}
-            data={data || null}
-            initialValues={{}}
-            legend={{
-              title: 'legend.selected_areas.title',
-              legend: 'legend.selected_areas.legend'
-            }}
-            {...props}
-          />
-        );
+    <SelectedBerthPage
+      boatInfo={{ width, length }}
+      handlePrevious={handlePrevious}
+      moveToForm={moveToForm}
+      filter={filter}
+      validSelection={validSelection}
+      steps={steps}
+      initialValues={{}}
+      legend={{
+        title: 'legend.selected_areas.title',
+        legend: 'legend.selected_areas.legend'
       }}
-    </BoatsBerthsQuery>
+      selectedBerths={selectedAreas}
+      values={values}
+      {...rest}
+    />
   );
 };
 
@@ -100,7 +102,7 @@ export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({
-      selectedBerths: state.winterAreas.selectedWinterAreas,
+      selectedAreas: state.winterAreas.selectedWinterAreas,
       selectedServices: state.winterAreas.selectedWinterServices,
       values: state.forms.values
     }),
