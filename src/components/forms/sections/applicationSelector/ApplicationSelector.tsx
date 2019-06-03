@@ -59,7 +59,7 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
         () => {
           this.autoDismiss = setTimeout(() => {
             this.setState({ alertVisibility: false });
-          }, 2000);
+          }, 10000);
         }
       );
     }
