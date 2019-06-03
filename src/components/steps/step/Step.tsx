@@ -3,12 +3,14 @@ import React, { Fragment } from 'react';
 import LocalizedLink from '../../common/LocalizedLink';
 import './Step.scss';
 
-interface Props {
+export interface StepType {
   completed: boolean;
   current: boolean;
-  label: string;
+  key: string;
   linkTo?: string;
-  key?: string;
+}
+interface Props extends StepType {
+  label: string;
 }
 
 export default class Step extends React.Component<Props> {

@@ -19,6 +19,7 @@ import WinterAreasQuery from '../../query/WinterAreasQuery';
 import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
 import { Berths } from '../../berths/types';
+import { StepType } from '../../steps/step/Step';
 
 type Props = {
   initialValues: {};
@@ -52,7 +53,7 @@ const WinterFormPageContainer = ({
     setTab(tab || mapSteps[currStep][0]);
   });
 
-  const steps = [
+  const steps: StepType[] = [
     {
       key: 'winter_areas',
       completed: true,
