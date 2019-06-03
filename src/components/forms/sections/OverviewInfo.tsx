@@ -43,7 +43,6 @@ type Props = {
 } & InjectedIntlProps &
   WithBoatType;
 
-
 const OverviewInfo = ({
   values,
   selectedBerths,
@@ -66,8 +65,8 @@ const OverviewInfo = ({
           </div>
           <div className="vene-overview-info__edit-icon">
             <LocalizedLink to={steps[2].linkTo} className="vene-overview-info__edit-link">
-              <Icon name="pencil" />
               <FormattedMessage tagName="span" id="page.overview.info.edit" />
+              <Icon name="pencil" />
             </LocalizedLink>
           </div>
         </div>
@@ -112,8 +111,8 @@ const OverviewInfo = ({
           </div>
           <div className="vene-overview-info__edit-icon">
             <LocalizedLink to={steps[1].linkTo} className="vene-overview-info__edit-link">
-              <Icon name="pencil" />
               <FormattedMessage tagName="span" id="page.overview.info.edit" />
+              <Icon name="pencil" />
             </LocalizedLink>
           </div>
         </div>
@@ -132,8 +131,8 @@ const OverviewInfo = ({
           </div>
           <div className="vene-overview-info__edit-icon">
             <LocalizedLink to={steps[3].linkTo} className="vene-overview-info__edit-link">
-              <Icon name="pencil" />
               <FormattedMessage tagName="span" id="page.overview.info.edit" />
+              <Icon name="pencil" />
             </LocalizedLink>
           </div>
         </div>
