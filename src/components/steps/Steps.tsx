@@ -1,6 +1,6 @@
 import React from 'react';
 import { InjectedIntlProps, injectIntl } from 'react-intl';
-import Step from './Step';
+import Step from './step/Step';
 
 import './Steps.scss';
 

@@ -8,6 +8,7 @@ interface Props {
   current: boolean;
   label: string;
   linkTo?: string;
+  key?: string;
 }
 
 export default class Step extends React.Component<Props> {
