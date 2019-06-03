@@ -13,7 +13,7 @@ import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import { IconNames } from '../../common/Icon';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
-import BerthPage from '../BerthPage';
+import BerthPage from '../berthPage/BerthPage';
 
 import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
