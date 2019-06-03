@@ -30,7 +30,7 @@ type Props = {
   };
   selectedBerths: Berths;
   application?: ApplicationState;
-  tabs: string[];
+  boatTab: string;
   steps: StepType[];
 } & WithBoatType;
 
@@ -54,7 +54,7 @@ const Submit = ({
   },
   selectedBerths,
   application,
-  tabs,
+  boatTab,
   boatTypes,
   steps
 }: Props) => (
@@ -64,7 +64,7 @@ const Submit = ({
         <Container className="vene-form__styled-container">
           <OverviewInfo
             selectedBerths={selectedBerths}
-            tabs={tabs}
+            boatTab={boatTab}
             values={values}
             boatTypes={boatTypes}
             application={application}

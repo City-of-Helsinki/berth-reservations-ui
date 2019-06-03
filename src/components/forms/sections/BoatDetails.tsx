@@ -21,7 +21,6 @@ type Props = {
 const BoatDetails = ({ values, tab, mode = FormMode.Berth, boatTypes }: Props) => {
   const ShowBigShipsForm = get(values, 'boatType') === BigBoatTypeValue;
   const showTrailerRegNum = get(values, 'storageMethod') === WinterStorageMethod.ON_TRAILER;
-
   return (
     <>
       <SectionSelector
