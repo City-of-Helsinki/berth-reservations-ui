@@ -155,6 +155,7 @@ const WinterFormPageContainer = ({
                 boatTypes={boatTypes}
                 boatTab={boatTab}
                 steps={steps}
+                mode={FormMode.Winter}
               />
             )}
           </FormPage>

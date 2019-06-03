@@ -18,6 +18,7 @@ import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 
 import { ApplicationState, Store } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
+import { FormMode } from '../../../types/form';
 import { Berths } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
@@ -162,6 +163,7 @@ const FormPageContainer = ({
             <ApplicantDetails tab={applicantTab} />
             {!loading && (
               <Overview
+                mode={FormMode.Berth}
                 selectedBerths={selectedBerths}
                 boatTypes={boatTypes}
                 boatTab={boatTab}
