@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
 
+import omit from 'lodash/omit';
 import { onSubmit } from '../../../redux/actions/FormActions';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
-import FormPage from '../FormPage';
-
 import { CREATE_WINTER_STORAGE_RESERVATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
+import FormPage from '../FormPage';
 
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/BoatDetails';
@@ -110,6 +110,9 @@ const WinterFormPageContainer = ({
             }))
             .toArray();
 
+          const allowedFormValues = omit(values, 'boatStorageType');
+          // Omit boatStorageType checkbox out of form data when submit.
+
           await client.mutate({
             variables: {
               reservation: {
@@ -118,7 +121,7 @@ const WinterFormPageContainer = ({
                 acceptFitnessNews: false,
                 acceptLibraryNews: false,
                 acceptOtherCultureNews: false,
-                ...values
+                ...allowedFormValues
               }
             },
             mutation: CREATE_WINTER_STORAGE_RESERVATION
