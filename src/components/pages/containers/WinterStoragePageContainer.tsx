@@ -76,17 +76,11 @@ const BerthPageContainer = (props: Props) => {
       | 'electricity'
       | 'water'
       | 'gate'
-      | 'numberOfMarkedPlaces'
       | 'repairArea'
       | 'summerStorageForDockingEquipment'
       | 'summerStorageForTrailers';
     icon: IconNames;
   }> = [
-    {
-      label: 'form.services.field.appointed_spaces.label',
-      value: 'numberOfMarkedPlaces',
-      icon: 'divided'
-    },
     { label: 'form.services.field.water.label', value: 'water', icon: 'waterTap' },
     { label: 'form.services.field.gate.label', value: 'gate', icon: 'fence' },
     {
@@ -122,7 +116,7 @@ const BerthPageContainer = (props: Props) => {
         return (
           <BerthPage
             {...props}
-            hero={FormMode.Winter}
+            formMode={FormMode.Winter}
             berths={winterAreas}
             steps={steps}
             services={services}

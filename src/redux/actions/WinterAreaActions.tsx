@@ -1,6 +1,7 @@
 import { createAction } from 'redux-actions';
 import { WinterStorageType } from '../../types/winterStorage';
 
+const filterByStorageArea = createAction('FILTER_BY_STORAGE_AREA');
 const selectWinterArea = createAction('SELECT_WINTER_AREA', (area: WinterStorageType) => area);
 const deselectWinterArea = createAction('DESELECT_WINTER_AREA', (area: WinterStorageType) => area);
 const moveWinterAreaUp = createAction('MOVE_WINTER_AREA_UP', (area: WinterStorageType) => area);
@@ -16,5 +17,6 @@ export {
   moveWinterAreaDown,
   resetWinterAreas,
   selectService,
-  deselectService
+  deselectService,
+  filterByStorageArea
 };
