@@ -1,7 +1,5 @@
-import classNames from 'classnames';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Sticky, StickyContainer } from 'react-sticky';
 import { Button, Container } from 'reactstrap';
 import IntlComponent from '../../common/IntlComponent';
 import InvalidSelection from '../InvalidSelection';
@@ -60,47 +58,49 @@ class TabSelector extends React.Component<Props, State> {
       return '';
     });
     return (
-      <StickyContainer>
-        <Sticky>
-          {({ style, isSticky }) => (
-            <div
-              className={classNames('vene-berth__tab-selector', { 'is-sticky': isSticky })}
-              style={style}
-            >
-              <Container className="vene-berth__tab-selector__wrapper">
-                {headers.map((TabComponent, i) => (
-                  <Button
-                    className="vene-berth__tab-selector__tab-button"
-                    key={i}
-                    onClick={() => this.selectTab(i)}
-                    active={i === tab}
-                  >
-                    <TabComponent />
-                  </Button>
-                ))}
-                <div className="vene-berth__tab-selector__application-promt">
-                  <FormattedMessage
-                    id={getFormatedMessageId(selectedCount, berthLimit)}
-                    values={{
-                      total: berthLimit,
-                      count: berthLimit - selectedCount
-                    }}
-                  />
-                  {!validSelection && <InvalidSelection />}
-                  <IntlComponent
-                    id="tab_selector.progress.button"
-                    Component={Button}
-                    className="vene-berth__tab-selector__progress-button"
-                    onClick={progress}
-                    disabled={selectedCount === 0}
-                  />
-                </div>
-              </Container>
+      <div className='vene-berth__tab-selector'>
+        <div className="vene-berth__tab-selector__header">
+          <Container>
+            {headers.map((TabComponent, i) => (
+              <Button
+                className="vene-berth__tab-selector__tab-button"
+                key={i}
+                onClick={() => this.selectTab(i)}
+                active={i === tab}
+              >
+                <TabComponent />
+              </Button>
+            ))}
+          </Container>
+        </div>
+        <div className="vene-berth__tab-selector__tabs">
+          <Container>
+            {this.getActiveTab()}
+          </Container>
+        </div>
+        <div className="vene-berth__tab-selector__application-promt">
+          <Container>
+            <div className="vene-berth__tab-selector__application-promt__wrapper">
+              <FormattedMessage
+                id={getFormatedMessageId(selectedCount, berthLimit)}
+                values={{
+                  total: berthLimit,
+                  count: berthLimit - selectedCount
+                }}
+              />
+              {!validSelection && <InvalidSelection />}
+              <IntlComponent
+                id="tab_selector.progress.button"
+                Component={Button}
+                className="vene-berth__tab-selector__progress-button"
+                onClick={progress}
+                disabled={selectedCount === 0}
+              />
             </div>
-          )}
-        </Sticky>
-        <div className="vene-berth__tab-selector__tabs">{this.getActiveTab()}</div>
-      </StickyContainer>
+          </Container>
+        </div>
+      </div>
+
     );
   }
 }
