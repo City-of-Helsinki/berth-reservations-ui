@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 
-import { getBerthFilterByValues } from '../../../utils/berths';
+import { getBerthFilterByValues, stringToFloat } from '../../../utils/berths';
 import Berths from '../../berths';
 import BerthsOnMap from '../../berths/BerthsOnMap';
 import TabSelector from '../../berths/TabSelector';
@@ -20,6 +20,7 @@ import { Berths as BerthsType } from '../../berths/types';
 import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
 
+import createDecorator from 'final-form-calculate';
 import Hero from '../../common/hero/Hero';
 import KoroSection from '../../layout/koroSection/KoroSection';
 import { StepType } from '../../steps/step/Step';
@@ -58,6 +59,30 @@ const getHeroContentLink = (locale: string) => {
       return 'https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/venepaikan-hakeminen/';
   }
 };
+
+const calculator = createDecorator({
+  field: 'boatStorageType',
+  updates: {
+    boatLength: (boatStorageTypeValue, allValues) => {
+      // @ts-ignore
+      if (!allValues.boatLength) {
+        return '1';
+      }
+
+      // @ts-ignore
+      const boatLengthInNumber = stringToFloat(allValues.boatLength);
+      // @ts-ignore
+
+      if (!boatStorageTypeValue && boatLengthInNumber < 1) {
+        return boatLengthInNumber.toString();
+      }
+
+      return boatStorageTypeValue
+        ? (boatLengthInNumber + 1).toString()
+        : (boatLengthInNumber - 1).toString();
+    }
+  }
+});
 class BerthPage extends Component<Props> {
   constructor(props: Props) {
     super(props);
@@ -127,6 +152,7 @@ class BerthPage extends Component<Props> {
           <BerthsLegend
             legend={{ title: `legend.${hero}.title`, legend: `legend.${hero}.legend` }}
             form={{
+              calculator,
               onSubmit,
               initialValues,
               render: () => (

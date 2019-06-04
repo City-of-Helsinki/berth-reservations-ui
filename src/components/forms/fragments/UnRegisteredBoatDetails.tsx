@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { Col, Row } from 'reactstrap';
 
 import { mustBePositiveNumber } from '../../../utils/formValidation';
-import { Number, Checkbox } from '../Fields';
+import { Checkbox, Number } from '../Fields';
 import { BoatType } from '../Selects';
 
 import { BoatTypes } from '../../../types/boatTypes';
@@ -15,6 +15,8 @@ interface Props {
 }
 
 const UnRegisteredBoatDetailsFragment = ({ fieldsNotRequired, boatTypes, hideTitle }: Props) => {
+  const [checked, toggleBoatStorage] = useState(false);
+
   return (
     <>
       {!hideTitle && <FormattedMessage tagName="h3" id="form.unregistered.header.title" />}
@@ -41,17 +43,21 @@ const UnRegisteredBoatDetailsFragment = ({ fieldsNotRequired, boatTypes, hideTit
             name={`boatLength`}
             label="form.no_boat.field.length.label"
             placeholder="form.no_boat.field.length.placeholder"
-            append="m"
+            append={checked ? '+1 m' : 'm'}
             min="0"
             required={!fieldsNotRequired}
           />
         </Col>
         <Col sm={4}>
-          <Checkbox name={`storageType`} label="form.registered.field.winter_storage.storage_type.label" inline="false" />
+          <Checkbox
+            name={`boatStorageType`}
+            label="form.registered.field.winter_storage.storage_type.label"
+            onClick={() => toggleBoatStorage(!checked)}
+          />
         </Col>
       </Row>
     </>
-  )
+  );
 };
 
 export default UnRegisteredBoatDetailsFragment;
