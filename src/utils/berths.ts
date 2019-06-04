@@ -32,8 +32,8 @@ export const getBerthFilterByValues = (
   values: {},
   selectedServices: SelectedServices | SelectedWinterServices
 ) => {
-  const width = Number(get(values, 'boatWidth', '').replace(',', '.')) * 100;
-  const length = Number(get(values, 'boatLength', '').replace(',', '.')) * 100;
+  const width = stringToFloat(get(values, 'boatWidth', '')) * 100;
+  const length = stringToFloat(get(values, 'boatLength', '')) * 100;
   const boatType = get(values, 'boatType', '');
   const services = Object.entries(selectedServices.toObject())
     .filter(([, state]) => state)
@@ -132,3 +132,14 @@ export const isBerthSelected = (
  * @returns A valid CSS selector.
  */
 export const genValidSelector = (selector: string) => selector.replace(/^[^a-z]+|[^\w:.-]+/gi, 'x');
+
+/**
+ * Convert number in string to floating number.
+ *
+ * @param {string} str
+ * @returns {number}
+ */
+export const stringToFloat = (str: string) => {
+  if (!str) return 0;
+  return Number(str.replace(',', '.'));
+};

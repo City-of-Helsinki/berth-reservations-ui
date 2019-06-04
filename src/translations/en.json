@@ -10,9 +10,7 @@
   "site.language.fi": "Suomeksi",
   "site.language.sv": "På svenska",
   "site.language.en": "In English",
-
   "site.buttons.back_to_frontpage": "Back to frontpage",
-
   "hero.berth.title": "Applying for a berth in the boat harbours of the City of Helsinki",
   "hero.berth.paragraph.first": "This service allows for you to browse through the boat harbours in Helsinki and submit new applications to the harbours of your choice. ",
   "hero.berth.paragraph.second": "NOTE! Please read the instructions on selecting harbours as well as further details concerning the principles of assigning berths and the processing times for applications on the <a href='{url}'>hel.fi</a> website before completing your application.",
@@ -26,7 +24,6 @@
   "site.steps.send_application": "Summary",
   "site.steps.winter_areas": "Select areas",
   "site.steps.review_areas": "Selected areas",
-
   "site.footer.berth_search": "Boat berth search",
   "site.footer.browse_berths": "Browse harbours",
   "site.footer.boating_info": "Information on boating",
@@ -40,18 +37,15 @@
   "site.footer.url.berthing": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/",
   "site.footer.url.current_news": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/ajankohtaista/",
   "site.footer.url.feedback": "https://www.hel.fi/helsinki/en/administration/participate/feedback/",
-
   "tab_selector.progress.button": "Next",
   "tab_selector.progress.message.zero": "Choose a maximum of { total } harbours for your application",
   "tab_selector.progress.message.other": "You can still select { count } harbours for your application",
   "tab_selector.progress.message.max": "Maximum number of ({ total }) harbours selected",
-
   "validation.message.required": "Mandatory field",
   "validation.message.must_be_number": "The value must be a number",
   "validation.message.must_be_positive_number": "The value must be positive",
   "validation.message.must_be_phone_number": "The value must be a telephone number",
   "validation.message.must_be_email": "The value must be an e-mail address",
-
   "page.front.title": "Boat berths",
   "page.front.description.heading": "Berths and winter storage spaces",
   "page.front.description.body": "Browse the boat harbours and boat winter storage spaces provided by the City of Helsinki. You can submit applications to reserve a new berth, switch your existing berth or reserve a winter storage space for your boat.",
@@ -84,7 +78,6 @@
   "page.berths.list.header.hits": "Harbours matching the search criteria:",
   "page.berths.list.header.others": "Other harbours:",
   "page.berths.appointed": "Appointed spaces",
-
   "legend.berth.title": "What type of berths are you looking for?",
   "legend.berth.legend": "Browse the harbours and berths offered by the City. Choose up to ten suitable harbours for your application.",
   "legend.selected_berths.title": "Selected harbours",
@@ -98,28 +91,23 @@
   "legend.thankyou.title": "Thank you, your application has been sent succesfully!",
   "legend.thankyou.legend.regards": "Kind regards,",
   "legend.thankyou.legend.contact_information": "Helsingin kaupungin venepaikkavaraukset (Berth reservations of the City of Helsinki)<br/>venepaikkavaraukset@hel.fi<br/>Advice over the telephone is available 9–14 Monday–Friday by calling 09 310 87900.<br/>Service hours 9–16 Monday–Friday at Töölö Sports Hall at Paavo Nurmen kuja 1 E.",
-
   "legend.winter.title": "Browse and select winter storage areas",
   "legend.winter.legend": "Submit the details of the boat you will be storing. The list of areas will be filtered according to your specifications. You can also define what services you require from the area.",
   "legend.selected_areas.title": "Review storage areas",
   "legend.selected_areas.legend": "Review the winter storage areas you have chosen and their suitability for your boat. Order the areas you have chosen by preference.",
-
   "form.wizard.button.previous": "Previous page",
   "form.wizard.button.invalid": "Complete the form to continue",
   "form.wizard.button.next": "Next",
   "form.wizard.button.submit": "Send",
-
   "form.boat_type_selector.private_person.label": "Private individual",
   "form.boat_type_selector.company.label": "Company or community",
   "form.boat_type_selector.registered_boat.label": "Registered boat",
   "form.boat_type_selector.unregistered_boat.label": "Unregistered boat",
   "form.boat_type_selector.no_boat.label": "No boat",
-
   "form.big_ship.header.title": "Spaces for larger vessels",
   "form.big_ship.text.summary": "Vessels weighing more than 20,000 kg are moored in designated berths. Berths for larger vessels are reserved either on a fixed-term basis or until further notice.",
   "form.big_ship.header.details": "Additional information concerning larger vessels",
   "form.big_ship.text.inspection_and_insurance": "The inspection certificate and an extract from the insurance policy must be provided prior to berth assignment. The inspection and insurance must remain valid with no interruptions. The lessor has the right to demand that the inspection certificate and the extract from the insurance policy are presented at any time.",
-
   "form.big_ship.field.propulsion.label": "Propulsion",
   "form.big_ship.field.propulsion.placeholder": "Select boat propulsion",
   "form.big_ship.field.propulsion.gasoline": "Petrol",
@@ -128,7 +116,6 @@
   "form.big_ship.field.propulsion.electricity": "Electricity",
   "form.big_ship.field.propulsion.natural_gas": "LNG/LPG",
   "form.big_ship.field.propulsion.other": "Other",
-
   "form.big_ship.field.hull_material.label": "Hull material",
   "form.big_ship.field.hull_material.placeholder": "Select boat hull material",
   "form.big_ship.field.hull_material.aluminium": "Aluminium",
@@ -139,7 +126,6 @@
   "form.big_ship.field.hull_material.wood": "Wood",
   "form.big_ship.field.hull_material.steel": "Steel",
   "form.big_ship.field.hull_material.other": "Other",
-
   "form.big_ship.field.usage.label": "Intended use",
   "form.big_ship.field.usage.placeholder": "Intended use of the vessel",
   "form.big_ship.field.time_period.label": "Rental period",
@@ -151,7 +137,6 @@
   "form.big_ship.field.inspected.label": "I confirm that the vessel has been inspected.",
   "form.big_ship.field.insurance.label": "I confirm that the vessel is insured, and that the insurance covers any costs arising from having to lift the vessel.",
   "form.big_ship.field.agreed.label": "I have read the terms and conditions of the contract and I commit to adhering by them.",
-
   "form.registered.header.title": "Information on a registered boat",
   "form.registered.header.measures": "Boat measurements",
   "form.registered.field.register_number.label": "Register number",
@@ -165,6 +150,9 @@
   "form.registered.field.draught.label": "Boat draught",
   "form.registered.field.draught.placeholder": "0.0",
   "form.registered.field.weight.label": "Boat weight",
+  "form.registered.field.winter_storage.storage_type.label": "The boat is stored on trailer.",
+  "form.registered.field.winter_storage.storage_type.text": "When stored on trailer, we will add +1m on required space.",
+
   "form.registered.field.weight.placeholder": "1,000",
   "form.registered.header.additional_info": "Further information",
   "form.registered.field.name.label": "Name",
@@ -172,9 +160,7 @@
   "form.registered.field.model.label": "Make",
   "form.registered.field.model.placeholder": "Make of the boat",
   "form.registered.header.accessibility": "Accessibility",
-
   "form.accessibility.field.accessibility.label": "I need an accessible berth",
-
   "form.unregistered.header.title": "Information on an unregistered boat",
   "form.unregistered.header.additional_info": "Further information",
   "form.unregistered.header.accessibility": "Accessibility",
@@ -187,7 +173,6 @@
   "form.unregistered.field.model.label": "Make",
   "form.unregistered.field.model.placeholder": "Make of the boat",
   "form.unregistered.field.accessibility.label": "I need an accessible berth",
-
   "form.no_boat.header.title": "Information on the boat to be purchased",
   "form.no_boat.header.additional_info": "Further information",
   "form.no_boat.header.accessibility": "Accessibility",
@@ -202,13 +187,11 @@
   "form.no_boat.field.lenght.placeholder": "0.0",
   "form.no_boat.field.brand.label": "Name",
   "form.no_boat.field.brand.placeholder": "Name",
-
   "form.winter_storage_method.field.storage_method.label": "Storage Method",
   "form.winter_storage_method.field.storage_method.on_trestles": "Boat stored on trestles",
   "form.winter_storage_method.field.storage_method.on_trailer": "Boat stored on a trailer",
   "form.winter_storage_method.field.trailer_reg_num.field.label": "Boat stored on a trailer",
   "form.winter_storage_method.field.trailer_reg_num.field.text": "Only registered trailer are allowed on winter storage areas. Storing on a trailer requires 1m extra storage space length.",
-
   "form.company.header.title": "Company or community information",
   "form.company.header.contact_person": "Contact person",
   "form.company.field.first_name.label": "First name",
@@ -219,30 +202,25 @@
   "form.company.field.mobile_phone.placeholder": "+358 555 245 555",
   "form.company.field.email.label": "E-mail",
   "form.company.field.email.placeholder": "betty.boatman@hel.fi",
-
   "form.company_details.field.name.label": "Company or community name",
   "form.company_details.field.name.placeholder": "Boatman Oy",
   "form.company_details.field.business_id.label": "Business ID",
   "form.company_details.field.business_id.placeholder": "1234567-8",
-
   "form.postal_details.field.street_address.label": "Street address",
   "form.postal_details.field.street_address.placeholder": "Street address",
   "form.postal_details.field.postal_code.label": "Postal code",
   "form.postal_details.field.postal_code.placeholder": "Postal code",
   "form.postal_details.field.munacipality.label": "City",
   "form.postal_details.field.munacipality.placeholder": "City",
-
   "form.contact_details.field.mobile_phone.label": "Mobile phone",
   "form.contact_details.field.mobile_phone.placeholder": "+358 555 245 555",
   "form.contact_details.field.email.label": "E-mail",
   "form.contact_details.field.email.placeholder": "betty.boatman@hel.fi",
-
   "form.private_person.header.title": "Applicant’s personal information",
   "form.private_person.field.first_name.label": "First name",
   "form.private_person.field.first_name.placeholder": "Betty",
   "form.private_person.field.last_name.label": "Last name",
   "form.private_person.field.last_name.placeholder": "Boatman",
-
   "form.overview.field.application_code.title": "Application code",
   "form.overview.field.application_code.placeholder": "Code",
   "form.overview.field.application_code.description": "If you have received an application code from our customer service, please enter it here. The application code is usually sent to the customers who have a pending application submitted in paper format.",
@@ -254,7 +232,6 @@
   "form.overview.field.library_services.label": "library services",
   "form.overview.field.other_cultural_services.label": "other cultural services",
   "form.overview.header.agreement.title": "I confirm that the information I have provided is correct",
-
   "form.services.field.berth.services.label": "Filter the list by available harbour services",
   "form.services.field.winter.services.label": "Filter the list by available area services",
   "form.services.field.electricity.label": "Electricity",
@@ -266,7 +243,6 @@
   "form.services.field.storage_for_trailers.label": "Summer storage for trailers",
   "form.services.field.storage_for_docking_equip.label": "Summer storage for docking equipment",
   "form.services.field.repair_area.label": "Boat repair area",
-
   "page.overview.info.edit": "Edit",
   "page.overview.info.boat_info": "Boat information",
   "page.overview.info.berths": "Selected harbours",
@@ -279,20 +255,17 @@
   "page.overview.info.boat_length": "Length",
   "page.overview.info.boat_draught": "Draught",
   "page.overview.info.boat_weight": "Weight",
-
   "page.berth.selected.title": "Order the selected harbours by preference",
   "page.berth.selected.info_text": "Select the type and size of your boat to see if the selected harbour has any available berths.",
   "page.berth.selected.warning.heading": "Please note! You have selected areas with no spaces for your boat type or size.",
   "page.berth.selected.alert.strong": "Please note! You have not yet selected any harbours.",
   "page.berth.selected.alert.paragraph": "Select the desired harbours from the list of harbours.",
   "page.berth.selected.submit": "Next ",
-
   "page.berth.exchange_application.new": "New application",
   "page.berth.exchange_application.exchange": "Switch application",
   "page.berth.exchange_application.new.info_text": "The applicant does not yet have the boats offered by the City of Helsinki",
   "page.berth.exchange_application.exchange.info_text": "Exchange of a berth in the port of Helsinki to another port",
   "page.berth.exchange_application.warning": "You can choose up to five ports for the exchange application. Please remove the extra options and re-type the application.",
-
   "page.berth.exchange_application.current_berth.title": "Your current berth",
   "page.berth.exchange_application.current_berth.info_text": "To submit a switch application please provide the information on your current berth",
   "page.berth.exchange_application.form.current_harbour_area.label": "Current harbour area",

@@ -9,6 +9,7 @@ import Form from '../../forms/Form';
 import ApplicationSelector from '../../forms/sections/applicationSelector/ApplicationSelector';
 import Steps from '../../steps/Steps';
 
+import { Decorator } from 'final-form';
 import {
   BerthsServices,
   SelectedServices,
@@ -22,6 +23,7 @@ interface Props {
   form?: {
     initialValues: object;
     onSubmit: Function;
+    calculator?: Decorator;
     render: () => JSX.Element;
   };
   legend?: {
@@ -62,7 +64,11 @@ const BerthsLegend = ({ form, legend, steps, services, showApplicationSelector }
           )}
 
           {form && (
-            <Form initialValues={form.initialValues} onSubmit={form.onSubmit}>
+            <Form
+              decorators={form.calculator && [form.calculator]}
+              initialValues={form.initialValues}
+              onSubmit={form.onSubmit}
+            >
               {() => (
                 <>
                   {form.render()}

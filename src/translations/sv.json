@@ -8,9 +8,7 @@
   "site.language.fi": "Suomeksi",
   "site.language.sv": "På svenska",
   "site.language.en": "In English",
-
   "site.buttons.back_to_frontpage": "Tillbaka till förstasidan",
-
   "hero.berth.title": "Ansökan om båtplats i Helsingfors båthamnar",
   "hero.berth.paragraph.first": "I denna tjänst kan du bläddra bland Helsingfors stads båthamnar och göra en ny ansökan om båtplats i önskade hamnar. ",
   "hero.berth.paragraph.second": "Obs! Läs igenom anvisningarna för val av hamnar samt information om utdelningsgrunderna för båtplatser och om tidsschemat för handläggningen av ansökningar på <a href='{url}'>hel.fi</a> innan du fyller i ansökan.",
@@ -24,7 +22,6 @@
   "site.steps.send_application": "Skicka ansökan",
   "site.steps.winter_areas": "Select areas",
   "site.steps.review_areas": "Review areas",
-
   "site.footer.berth_search": "Ansökan om båtplats",
   "site.footer.browse_berths": "Bläddra bland båthamnar",
   "site.footer.boating_info": "Information om båtliv",
@@ -33,24 +30,20 @@
   "site.footer.send_feedback": "Ge respons",
   "site.footer.contact_us": "Ta kontakt",
   "site.footer.copyright": "2018 Helsingfors stad",
-
   "site.footer.url.terms_of_service": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri-SV.pdf",
   "site.footer.url.helsinki_berths": "https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv/batplatser/",
   "site.footer.url.berthing": "https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv/",
   "site.footer.url.current_news": "https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv/batplatser/",
   "site.footer.url.feedback": "https://www.hel.fi/helsinki/sv/stad-och-forvaltning/delta/feedback/",
-
   "tab_selector.progress.button": "Börja ansökan",
   "tab_selector.progress.message.zero": "Välj högst { total } hamnar i din ansökan",
   "tab_selector.progress.message.other": "Du kan ännu välja { count } hamnar i din ansökan",
   "tab_selector.progress.message.max": "Maximiantalet hamnar ({ total }) har valts",
-
   "validation.message.required": "Obligatoriskt fält",
   "validation.message.must_be_number": "Värdet ska vara en siffra",
   "validation.message.must_be_positive_number": "Värdet måste vara positivt",
   "validation.message.must_be_phone_number": "Värdet ska vara ett telefonnummer",
   "validation.message.must_be_email": "Värdet ska vara en e-postadress",
-
   "page.front.title": "Boat berths",
   "page.front.description.heading": "Berths and winter storage spaces",
   "page.front.description.body": "Browse the boat harbours and boat winter storage spaces provided by the City of Helsinki. You can submit applications to reserve a new berth, switch your existing berth or reserve a winter storage space for your boat.",
@@ -83,7 +76,6 @@
   "page.berths.list.header.hits": "Hamnarna som motsvarar sökkriterierna:",
   "page.berths.list.header.others": "Övriga hamnar:",
   "page.berths.appointed": "Appointed spaces",
-
   "legend.berth.title": "Hurdan båtplats söker du?",
   "legend.berth.legend": "Bläddra bland stadens hamnar och båtplatser. Välj högst tio lämpliga hamnar i din ansökan.",
   "legend.selected_berths.title": "Kontroll av hamnar",
@@ -97,28 +89,23 @@
   "legend.thankyou.title": "Tack, din ansökan har skickats!",
   "legend.thankyou.legend.regards": "Med vänlig hälsning,",
   "legend.thankyou.legend.contact_information": "Helsingfors stads båtplatsbokningar<br/>venepaikkavaraukset@hel.fi<br/>Telefonrådgivning må–fr kl. 9–14 på numret 09 310 87900.<br/>Betjäningstid vardagar kl. 9–16 i Tölö Sporthall på Paavo Nurmis gränd 1 E.",
-
   "legend.winter.title": "Browse and Select Winter Storage Areas",
   "legend.winter.legend": "Submit the details of the boat you will be storing. The list of areas will be filtered according to your specifications. You can also define what services you require from the area.",
   "legend.selected_areas.title": "Review storage areas",
   "legend.selected_areas.legend": "Review the winter storage areas you have chosen and their suitability for your boat. Order the areas you have chosen by preference.",
-
   "form.wizard.button.previous": "Föregående sida",
   "form.wizard.button.invalid": "Fyll i formuläret för att fortsätta",
   "form.wizard.button.next": "Nästa",
   "form.wizard.button.submit": "Skicka",
-
   "form.boat_type_selector.private_person.label": "Privatperson",
   "form.boat_type_selector.company.label": "Företag eller sammanslutning",
   "form.boat_type_selector.registered_boat.label": "Registrerad båt",
   "form.boat_type_selector.unregistered_boat.label": "Icke-registrerad båt",
   "form.boat_type_selector.no_boat.label": "Ingen båt",
-
   "form.big_ship.header.title": "Kajplatser för stora fartyg",
   "form.big_ship.text.summary": "Fartyg som väger mer än 20 000 kg läggs upp vid kajplatser som reserverats för dem. Kajplatser för stora fartyg reserveras antingen för en viss tid eller tills vidare.",
   "form.big_ship.header.details": "Tilläggsuppgifter om stora fartyg",
   "form.big_ship.text.inspection_and_insurance": "Ett besiktningsintyg och ett utdrag ur försäkringsbrevet ska lämnas in innan en kajplats kan beviljas. Besiktningen och försäkringen ska vara i kraft utan avbrott. Uthyraren har när som helst rätt att kräva att besiktningsintyget och utdraget ur försäkringsbrevet visas upp.",
-
   "form.big_ship.field.propulsion.label": "Drivkraft",
   "form.big_ship.field.propulsion.placeholder": "Ange fartygets drivkraft",
   "form.big_ship.field.propulsion.gasoline": "Bensin",
@@ -127,7 +114,6 @@
   "form.big_ship.field.propulsion.electricity": "El",
   "form.big_ship.field.propulsion.natural_gas": "LNG/LPG",
   "form.big_ship.field.propulsion.other": "Annat",
-
   "form.big_ship.field.hull_material.label": "Skrovmaterial",
   "form.big_ship.field.hull_material.placeholder": "Ange fartygets skrovmaterial",
   "form.big_ship.field.hull_material.aluminium": "Aluminium",
@@ -138,7 +124,6 @@
   "form.big_ship.field.hull_material.wood": "Trä",
   "form.big_ship.field.hull_material.steel": "Stål",
   "form.big_ship.field.hull_material.other": "Annat",
-
   "form.big_ship.field.usage.label": "Användningsändamål",
   "form.big_ship.field.usage.placeholder": "Fartygets användningsändamål",
   "form.big_ship.field.time_period.label": "Hyrestid",
@@ -150,7 +135,6 @@
   "form.big_ship.field.inspected.label": "Jag intygar att fartyget har besiktigats.",
   "form.big_ship.field.insurance.label": "Jag intygar att fartyget har en gällande försäkring som täcker kostnaderna för lyft av fartyget.",
   "form.big_ship.field.agreed.label": "Jag har läst igenom avtalsvillkoren och förbinder mig att iaktta dem.",
-
   "form.registered.header.title": "Uppgifter om en registrerad båt",
   "form.registered.header.measures": "Båtens dimensioner",
   "form.registered.field.register_number.label": "Registernummer",
@@ -164,6 +148,9 @@
   "form.registered.field.draught.label": "Djupgående",
   "form.registered.field.draught.placeholder": "0,0",
   "form.registered.field.weight.label": "Vikt",
+  "form.registered.field.winter_storage.storage_type.label": "The boat is stored on trailer.",
+  "form.registered.field.winter_storage.storage_type.text": "When stored on trailer, we will add +1m on required space.",
+
   "form.registered.field.weight.placeholder": "1 000",
   "form.registered.header.additional_info": "Tilläggsuppgifter",
   "form.registered.field.name.label": "Namn",
@@ -171,9 +158,7 @@
   "form.registered.field.model.label": "Modell",
   "form.registered.field.model.placeholder": "Båtens modell",
   "form.registered.header.accessibility": "Tillgänglighet",
-
   "form.accessibility.field.accessibility.label": "Jag behöver en tillgänglig plats",
-
   "form.unregistered.header.title": "Uppgifter om en icke-registrerad båt",
   "form.unregistered.header.additional_info": "Tilläggsuppgifter",
   "form.unregistered.header.accessibility": "Tillgänglighet",
@@ -186,7 +171,6 @@
   "form.unregistered.field.model.label": "Modell",
   "form.unregistered.field.model.placeholder": "Båtens modell",
   "form.unregistered.field.accessibility.label": "Jag behöver en tillgänglig båtplats",
-
   "form.no_boat.header.title": "Uppgifter om en båt som ska köpas",
   "form.no_boat.header.additional_info": "Tilläggsuppgifter",
   "form.no_boat.header.accessibility": "Tillgänglighet",
@@ -201,13 +185,11 @@
   "form.no_boat.field.lenght.placeholder": "0,0",
   "form.no_boat.field.brand.label": "Namn",
   "form.no_boat.field.brand.placeholder": "Namn",
-
   "form.winter_storage_method.field.storage_method.label": "Storage Method",
   "form.winter_storage_method.field.storage_method.on_trestles": "Boat stored on trestles",
   "form.winter_storage_method.field.storage_method.on_trailer": "Boat stored on a trailer",
   "form.winter_storage_method.field.trailer_reg_num.field.label": "Boat stored on a trailer",
   "form.winter_storage_method.field.trailer_reg_num.field.text": "Only registered trailer are allowed on winter storage areas. Storing on a trailer requires 1m extra storage space length.",
-
   "form.company.header.title": "Uppgifter om företaget eller sammanslutningen",
   "form.company.header.contact_person": "Kontaktperson",
   "form.company.field.first_name.label": "Förnamn",
@@ -218,30 +200,25 @@
   "form.company.field.mobile_phone.placeholder": "+358 555 245 555",
   "form.company.field.email.label": "E-postadress",
   "form.company.field.email.placeholder": "vellamo.merenkavija@hel.fi",
-
   "form.company_details.field.name.label": "Företagets eller sammanslutningens namn",
   "form.company_details.field.name.placeholder": "Vellamo Ab",
   "form.company_details.field.business_id.label": "FO-nummer",
   "form.company_details.field.business_id.placeholder": "1234567-8",
-
   "form.postal_details.field.street_address.label": "Utdelningsadress",
   "form.postal_details.field.street_address.placeholder": "Utdelningsadress",
   "form.postal_details.field.postal_code.label": "Postnummer",
   "form.postal_details.field.postal_code.placeholder": "Postnummer",
   "form.postal_details.field.munacipality.label": "Postanstalt",
   "form.postal_details.field.munacipality.placeholder": "Postanstalt",
-
   "form.contact_details.field.mobile_phone.label": "Mobiltelefon",
   "form.contact_details.field.mobile_phone.placeholder": "+358 555 245 555",
   "form.contact_details.field.email.label": "E-postadress",
   "form.contact_details.field.email.placeholder": "vellamo.merenkavija@hel.fi",
-
   "form.private_person.header.title": "Den sökandes personuppgifter",
   "form.private_person.field.first_name.label": "Förnamn",
   "form.private_person.field.first_name.placeholder": "Vellamo",
   "form.private_person.field.last_name.label": "Efternamn",
   "form.private_person.field.last_name.placeholder": "Merenkävijä",
-
   "form.overview.field.application_code.title": "Application code",
   "form.overview.field.application_code.placeholder": "Code",
   "form.overview.field.application_code.description": "If you have received an application code from our customer service, please enter it here. The application code is usually sent to the customers who have a pending application submitted in paper format.",
@@ -253,7 +230,6 @@
   "form.overview.field.library_services.label": "bibliotekstjänster",
   "form.overview.field.other_cultural_services.label": "övriga kulturtjänster",
   "form.overview.header.agreement.title": "Jag intygar att uppgifterna är korrekta.",
-
   "form.services.field.berth.services.label": "Välj önskade hamntjänster:",
   "form.services.field.winter.services.label": "Select the area facilities you need:",
   "form.services.field.electricity.label": "El",
@@ -265,7 +241,6 @@
   "form.services.field.storage_for_trailers.label": "Summer storage for trailers",
   "form.services.field.storage_for_docking_equip.label": "Summer storage for docking equipment",
   "form.services.field.repair_area.label": "Boat repair area",
-
   "page.overview.info.edit": "Redigera",
   "page.overview.info.boat_info": "Uppgifter om båten",
   "page.overview.info.berths": "Valda hamnar",
@@ -278,20 +253,17 @@
   "page.overview.info.boat_length": "Längd",
   "page.overview.info.boat_draught": "Djupgående",
   "page.overview.info.boat_weight": "Vikt",
-
   "page.berth.selected.title": "Egna val",
   "page.berth.selected.info_text": "Ange typ för och storlek på båten som ska placeras för att se om det finns lämpliga platser i de valda hamnarna.",
   "page.berth.selected.warning.heading": "Obs! Du har valt hamnar som saknar lämpliga platser.",
   "page.berth.selected.alert.strong": "Obs! Du har inga valda hamnar ännu.",
   "page.berth.selected.alert.paragraph": "Välj de hamnar i förteckningen där du vill ansöka om båtplats.",
   "page.berth.selected.submit": "Ansök om båtplats",
-
   "page.berth.exchange_application.new": "Ny båtplatsansökan",
   "page.berth.exchange_application.exchange": "Bytansökan",
   "page.berth.exchange_application.new.info_text": "Du har ingen båtplats i Helsingfors båthamnar ännu",
   "page.berth.exchange_application.exchange.info_text": "För att byta båtplats mellan Helsingfors båthamnar",
   "page.berth.exchange_application.warning": "Man kan väljä högst fem hamnar i en bytansökan. Ta bort extra hamnar och välj denna typ av ansökan igen.",
-
   "page.berth.exchange_application.current_berth.title": "Your current berth",
   "page.berth.exchange_application.current_berth.info_text": "To submit a switch application please provide the information on your current berth",
   "page.berth.exchange_application.form.current_harbour_area.label": "Current harbour area",
