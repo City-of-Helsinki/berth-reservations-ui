@@ -128,7 +128,7 @@ class BerthPage extends Component<Props> {
     const validSelection = berths
       .filter(berth => selectedBerths.find(selectedBerth => selectedBerth.id === berth.id))
       .every(filter);
-    const showApplicationSelector = hero === FormMode.Berth;
+    const isBerthForm = hero === FormMode.Berth;
     const heroImg =
       hero === FormMode.Berth
         ? { bgUrl: berthsHeroImg }
@@ -156,7 +156,12 @@ class BerthPage extends Component<Props> {
               onSubmit,
               initialValues,
               render: () => (
-                <UnRegisteredBoatDetails hideTitle fieldsNotRequired boatTypes={boatTypes} />
+                <UnRegisteredBoatDetails
+                  showBoatStorageType={!isBerthForm}
+                  hideTitle
+                  fieldsNotRequired
+                  boatTypes={boatTypes}
+                />
               )
             }}
             steps={steps}
@@ -167,7 +172,7 @@ class BerthPage extends Component<Props> {
               label: `form.services.field.${hero}.services.label`,
               available: services
             }}
-            showApplicationSelector={showApplicationSelector}
+            showApplicationSelector={isBerthForm}
           />
         </KoroSection>
         <TabSelector

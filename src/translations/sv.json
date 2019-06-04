@@ -148,7 +148,9 @@
   "form.registered.field.draught.label": "Djupgående",
   "form.registered.field.draught.placeholder": "0,0",
   "form.registered.field.weight.label": "Vikt",
-  "form.registered.field.winter_storage.storage_type.label": "The boat is stored on trailer or under a tarp.",
+  "form.registered.field.winter_storage.storage_type.label": "The boat is stored on trailer.",
+  "form.registered.field.winter_storage.storage_type.text": "When stored on trailer, we will add +1m on required space.",
+
   "form.registered.field.weight.placeholder": "1 000",
   "form.registered.header.additional_info": "Tilläggsuppgifter",
   "form.registered.field.name.label": "Namn",

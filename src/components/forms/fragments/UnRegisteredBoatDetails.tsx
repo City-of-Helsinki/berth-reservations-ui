@@ -7,18 +7,25 @@ import { Checkbox, Number } from '../Fields';
 import { BoatType } from '../Selects';
 
 import { BoatTypes } from '../../../types/boatTypes';
+import './unregisteredBoatDetails.scss';
 
 interface Props {
   hideTitle?: boolean;
   fieldsNotRequired?: boolean;
   boatTypes?: BoatTypes;
+  showBoatStorageType?: boolean;
 }
 
-const UnRegisteredBoatDetailsFragment = ({ fieldsNotRequired, boatTypes, hideTitle }: Props) => {
+const UnRegisteredBoatDetailsFragment = ({
+  fieldsNotRequired,
+  boatTypes,
+  hideTitle,
+  showBoatStorageType
+}: Props) => {
   const [checked, toggleBoatStorage] = useState(false);
 
   return (
-    <>
+    <div className="vene-unregistered-boat-detail">
       {!hideTitle && <FormattedMessage tagName="h3" id="form.unregistered.header.title" />}
       <Row>
         {boatTypes && (
@@ -48,15 +55,22 @@ const UnRegisteredBoatDetailsFragment = ({ fieldsNotRequired, boatTypes, hideTit
             required={!fieldsNotRequired}
           />
         </Col>
-        <Col sm={4}>
-          <Checkbox
-            name={`boatStorageType`}
-            label="form.registered.field.winter_storage.storage_type.label"
-            onClick={() => toggleBoatStorage(!checked)}
-          />
-        </Col>
+        {showBoatStorageType && (
+          <Col sm={4}>
+            <Checkbox
+              name={`boatStorageType`}
+              label="form.registered.field.winter_storage.storage_type.label"
+              onClick={() => toggleBoatStorage(!checked)}
+              inline={false}
+            >
+              {checked && (
+                <FormattedMessage id="form.registered.field.winter_storage.storage_type.text" />
+              )}
+            </Checkbox>
+          </Col>
+        )}
       </Row>
-    </>
+    </div>
   );
 };
 
