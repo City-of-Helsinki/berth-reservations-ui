@@ -58,7 +58,7 @@ class TabSelector extends React.Component<Props, State> {
       return '';
     });
     return (
-      <div className='vene-berth__tab-selector'>
+      <div className="vene-berth__tab-selector">
         <div className="vene-berth__tab-selector__header">
           <Container>
             {headers.map((TabComponent, i) => (
@@ -74,9 +74,7 @@ class TabSelector extends React.Component<Props, State> {
           </Container>
         </div>
         <div className="vene-berth__tab-selector__tabs">
-          <Container>
-            {this.getActiveTab()}
-          </Container>
+          <Container>{this.getActiveTab()}</Container>
         </div>
         <div className="vene-berth__tab-selector__application-promt">
           <Container>
