@@ -6,6 +6,7 @@ import { filterByStorageArea as filterByStorageAreaAction } from '../../../redux
 import { StorageAreaFilter } from '../../../redux/reducers/WinterAreaReducers';
 import { Store } from '../../../redux/types';
 import Input from '../../common/Input';
+import './storageAreas.scss';
 
 const StorageAreas: SFC<{ filterByStorageArea: Function; selectedFilter: StorageAreaFilter }> = ({
   filterByStorageArea,
@@ -20,7 +21,9 @@ const StorageAreas: SFC<{ filterByStorageArea: Function; selectedFilter: Storage
   };
   return (
     <div className="vene-storage-areas">
-      <FormattedMessage id="page.winter_storage.storage_areas.type.title" />
+      <div className="vene-storage-areas__title">
+        <FormattedMessage id="page.winter_storage.storage_areas.type.title" tagName="p" />
+      </div>
       <Row>
         <Col sm={6}>
           <Input
