@@ -39,7 +39,9 @@ const FrontPage = ({ localePush }: Props) => {
                 title="page.front.card.berths.title"
               >
                 <FormattedMessage tagName="p" id="page.front.card.berths.description" />
-                <FormattedMessage tagName="p" id="page.front.card.instructions" />
+                <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/">
+                  <FormattedMessage tagName="p" id="page.front.card.instructions" />
+                </a>
               </Card>
             </Col>
             <Col md="6" xs="12" className="vene-front-page__card-wrapper">
@@ -49,7 +51,9 @@ const FrontPage = ({ localePush }: Props) => {
                 title="page.front.card.winter.title"
               >
                 <FormattedMessage tagName="p" id="page.front.card.winter.description" />
-                <FormattedMessage tagName="p" id="page.front.card.instructions" />
+                <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/veneiden-talvisailytys/">
+                  <FormattedMessage tagName="p" id="page.front.card.instructions" />
+                </a>
               </Card>
             </Col>
           </Row>
