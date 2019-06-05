@@ -1,0 +1,12 @@
+@import 'helsinki/fonts';
+
+.vene-unregistered-boat-detail {
+  .vene-input {
+    &.custom-checkbox {
+      margin-top: 1.5rem;
+      span {
+        font-size: $font-size-sm;
+      }
+    }
+  }
+}
