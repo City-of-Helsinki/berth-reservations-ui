@@ -1,25 +1,36 @@
 import { List, Record } from 'immutable';
-import { Action, WinterAreasFactory, WinterAreasState } from '../types';
+import { Action, WinterAreasFactory, WinterAreasProps, WinterAreasState } from '../types';
+
+export enum StorageAreaFilter {
+  SHOW_APPOINTED_AREA = 'SHOW_APPOINTED_AREA',
+  SHOW_FREE_AREA = 'SHOW_FREE_AREA',
+  SHOW_ALL_AREA = 'SHOW_ALL_AREA'
+}
 
 const selectedWinterServices = Record({
   electricity: false,
   water: false,
   gate: false,
-  numberOfMarkedPlaces: false,
   repairArea: false,
   summerStorageForDockingEquipment: false,
   summerStorageForTrailers: false
 });
 
-const defaultState: WinterAreasFactory = Record({
+const init: WinterAreasProps = {
+  storageAreaFilter: StorageAreaFilter.SHOW_ALL_AREA,
   selectedWinterAreas: List(),
   selectedWinterServices: selectedWinterServices(),
   areasLimit: Number(process.env.REACT_APP_MAX_SELECTED_BERTHS) || 10
-});
+};
+
+const defaultState: WinterAreasFactory = Record(init);
 
 export default (state: WinterAreasState = defaultState(), action: Action): WinterAreasState => {
   const { type, payload } = action;
   switch (type) {
+    case 'FILTER_BY_STORAGE_AREA':
+      return state.merge({ storageAreaFilter: payload });
+
     case 'SELECT_WINTER_SERVICE':
       return state.setIn(['selectedWinterServices', payload], true);
     case 'DESELECT_WINTER_SERVICE':

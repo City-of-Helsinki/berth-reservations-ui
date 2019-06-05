@@ -16,7 +16,6 @@ export interface SelectedWinterServicesProps {
   electricity: boolean;
   water: boolean;
   gate: boolean;
-  numberOfMarkedPlaces: boolean;
   repairArea: boolean;
   summerStorageForDockingEquipment: boolean;
   summerStorageForTrailers: boolean;

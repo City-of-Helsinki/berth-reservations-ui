@@ -1,0 +1,15 @@
+@import 'helsinki/fonts';
+
+.vene-storage-areas {
+  margin-bottom: 2em;
+
+  &__title {
+    font-weight: $font-weight-bold;
+  }
+  .vene-input {
+    margin-bottom: 0.2em;
+  }
+  span {
+    font-size: $font-size-sm;
+  }
+}

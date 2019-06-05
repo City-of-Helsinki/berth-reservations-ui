@@ -12,6 +12,7 @@ import {
 import { BerthType } from '../types/berth';
 import { WinterStorageType } from '../types/winterStorage';
 
+import { StorageAreaFilter } from '../redux/reducers/WinterAreaReducers';
 import { BoatTypesBerthsQuery_harbors } from './__generated__/BoatTypesBerthsQuery';
 import { WinterAreasQuery_winterStorageAreas } from './__generated__/WinterAreasQuery';
 
@@ -30,7 +31,8 @@ export const convertCmToM = (length?: number | null) => length && length / 100;
  */
 export const getBerthFilterByValues = (
   values: {},
-  selectedServices: SelectedServices | SelectedWinterServices
+  selectedServices: SelectedServices | SelectedWinterServices,
+  storageAreaFilter?: StorageAreaFilter
 ) => {
   const width = stringToFloat(get(values, 'boatWidth', '')) * 100;
   const length = stringToFloat(get(values, 'boatLength', '')) * 100;
@@ -44,6 +46,7 @@ export const getBerthFilterByValues = (
     const filterByLength = b.maximumLength ? Number(b.maximumLength) >= length : true;
     let filterByService = true;
     let filterByBoatTypeIds = true;
+    const filterByStorageArea = filterStorageArea(b, storageAreaFilter);
 
     switch (b.__typename) {
       case 'HarborType':
@@ -64,8 +67,36 @@ export const getBerthFilterByValues = (
         );
         break;
     }
-    return filterByService && filterByWidth && filterByLength && filterByBoatTypeIds;
+    return (
+      filterByService &&
+      filterByWidth &&
+      filterByLength &&
+      filterByBoatTypeIds &&
+      filterByStorageArea
+    );
   };
+};
+/**
+ * Check if current storage is fit with current filter
+ *
+ * @param {(WinterStorageType | BerthType)} storage
+ * @param {StorageAreaFilter} [filterType]
+ * @returns {boolean}
+ */
+const filterStorageArea = (
+  storage: WinterStorageType | BerthType,
+  filterType?: StorageAreaFilter
+) => {
+  // @ts-ignore
+  if (filterType === StorageAreaFilter.SHOW_APPOINTED_AREA && storage.numberOfMarkedPlaces) {
+    return false;
+  }
+  // @ts-ignore
+  if (filterType === StorageAreaFilter.SHOW_FREE_AREA && !storage.numberOfMarkedPlaces) {
+    return false;
+  }
+
+  return true;
 };
 
 export const getBerths = (
