@@ -191,6 +191,8 @@
   "form.winter_storage_method.field.storage_method.on_trailer": "Säilytän veneen trailerilla",
   "form.winter_storage_method.field.trailer_reg_num.field.label": "Trailerin rekisterinumero",
   "form.winter_storage_method.field.trailer_reg_num.field.text": "Trailerilla säilytys vain rekisteröidylle trailereille. Trailerilla säilyttäminen vaatii veneen pituuden lisäksi 1m lisätilaa.",
+  "form.winter_storage_method.field.trailer_reg_num.field.placeholder": "ABC-123",
+
   "form.company.header.title": "Yrityksen tai yhteisön tiedot",
   "form.company.header.contact_person": "Yhteyshenkilö",
   "form.company.field.first_name.label": "Etunimi",
