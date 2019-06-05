@@ -21,6 +21,7 @@ import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
 
 import createDecorator from 'final-form-calculate';
+import { StorageAreaFilter } from '../../../redux/reducers/WinterAreaReducers';
 import Hero from '../../common/hero/Hero';
 import KoroSection from '../../layout/koroSection/KoroSection';
 import { StepType } from '../../steps/step/Step';
@@ -47,6 +48,7 @@ type Props = {
   }>;
   formMode?: FormMode;
   berthLimit: number;
+  storageAreaFilter?: StorageAreaFilter;
 } & InjectedIntlProps;
 
 const getHeroContentLink = (locale: string) => {
@@ -119,9 +121,10 @@ class BerthPage extends Component<Props> {
       steps,
       services,
       berthLimit,
+      storageAreaFilter,
       intl
     } = this.props;
-    const filter = getBerthFilterByValues(initialValues, selectedServices);
+    const filter = getBerthFilterByValues(initialValues, selectedServices, storageAreaFilter);
 
     const filtered = berths.filter(filter);
     const filteredNot = berths.filterNot(filter);

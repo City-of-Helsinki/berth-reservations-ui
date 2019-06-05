@@ -28,7 +28,7 @@ const StorageAreas: SFC<{ filterByStorageArea: Function; selectedFilter: Storage
             id={`appointedStorageSpace`}
             label="page.winter_storage.storage_areas.appointed_spaces.label"
             checked={selectedFilter === StorageAreaFilter.SHOW_APPOINTED_AREA}
-            onClick={e =>
+            onChange={e =>
               onClickHandler((e.target as any).checked, StorageAreaFilter.SHOW_APPOINTED_AREA)
             }
           />
@@ -41,7 +41,7 @@ const StorageAreas: SFC<{ filterByStorageArea: Function; selectedFilter: Storage
             id={`freeStorageSpace`}
             label="page.winter_storage.storage_areas.free_spaces.label"
             checked={selectedFilter === StorageAreaFilter.SHOW_FREE_AREA}
-            onClick={e =>
+            onChange={e =>
               onClickHandler((e.target as any).checked, StorageAreaFilter.SHOW_FREE_AREA)
             }
           />

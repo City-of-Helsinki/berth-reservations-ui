@@ -134,7 +134,8 @@ export default compose<Props, {}>(
       initialValues: state.forms.values,
       selectedBerths: state.winterAreas.selectedWinterAreas,
       selectedServices: state.winterAreas.selectedWinterServices,
-      berthLimit: state.winterAreas.areasLimit
+      berthLimit: state.winterAreas.areasLimit,
+      storageAreaFilter: state.winterAreas.storageAreaFilter
     }),
     {
       onSubmit,
