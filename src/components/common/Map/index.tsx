@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Map, TileLayer } from 'react-leaflet';
-import { Container } from 'reactstrap';
 
 import Berth from '../../berths/Berth/Berth';
 import mapIcon from './MapIcon';
@@ -56,7 +55,7 @@ export default class MapCanvas extends Component<Props, State> {
     const excluded = !!selectedBerth && filteredNot.some(berth => berth.id === selectedBerth.id);
 
     return (
-      <Container className="vene-map">
+      <div className="vene-map">
         <h3 className="vene-map__header">
           <FormattedMessage id="page.berths.list.berth_count" values={{ count: filtered.size }} />
         </h3>
@@ -101,7 +100,7 @@ export default class MapCanvas extends Component<Props, State> {
             disabled={selected.size >= berthLimit}
           />
         )}
-      </Container>
+      </div>
     );
   }
 }
