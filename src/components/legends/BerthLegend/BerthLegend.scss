@@ -20,7 +20,7 @@ $berthLegendIconSize: 42px;
     flex-flow: wrap;
 
     &__header {
-      margin-bottom: 1.5em;
+      margin-bottom: 1em;
 
       span {
         font-weight: $display1-weight;
@@ -47,12 +47,13 @@ $berthLegendIconSize: 42px;
     .vene-icon {
       height: $berthLegendIconSize;
       width: $berthLegendIconSize;
+      padding: 6px;
     }
   }
 
   &__label {
     width: 1.8 * $berthLegendIconSize;
-    line-height: 1.2;
+    line-height: 1;
     margin-top: 0.5em;
 
     span {
@@ -67,14 +68,14 @@ $berthLegendIconSize: 42px;
     padding: 4px;
 
     &:hover {
-      background-color: $hel-gray;
+      background-color: lighten($hel-fog, 10%);
     }
 
     &.selected {
       background-color: $hel-white;
 
       &:hover {
-        background-color: $hel-dark;
+        background-color: lighten($hel-fog, 15%);
       }
     }
   }

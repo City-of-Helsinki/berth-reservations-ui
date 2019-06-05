@@ -7,6 +7,7 @@ describe('components/berths/BerthDetails', () => {
   const defaultProps: BerthDetailsProps = {
     available: false,
     value: 123,
+    unit: 'm',
     titleId: 'test',
     iconName: 'check'
   };

@@ -150,7 +150,7 @@ class BerthPage extends Component<Props> {
             }
           ]}
         />
-        <KoroSection color="fog" top>
+        <KoroSection color="fog" top className="vene-berth-filters-section">
           <BerthsLegend
             legend={{ title: `legend.${formMode}.title`, legend: `legend.${formMode}.legend` }}
             form={{

@@ -29,8 +29,8 @@
     color: $hel-white;
 
     &--has-error {
-      background-color: $hel-silver;
-      color: $hel-gray;
+      background-color: lighten($hel-brick, 50%);
+      color: $hel-black;
 
       .vene-selected-berth__close-btn {
         fill: $hel-black;
@@ -40,12 +40,15 @@
 
   &__title {
     padding-right: 0;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
     font-size: $font-size-lg;
+    line-height: 1;
   }
 
   &__services-bar {
     padding: $spacing-00-50 0;
-    background-color: $hel-silver;
+    background-color: $hel-light;
   }
 
   &__close {
@@ -60,6 +63,10 @@
 
   &__availability-level {
     padding-right: 0;
+
+    .vene-availability-level {
+      font-size: $font-size-sm;
+    }
   }
 
   &__services {

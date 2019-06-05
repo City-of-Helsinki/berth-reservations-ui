@@ -10,6 +10,9 @@ $berthImageHeight: 12em;
   background-color: $hel-light;
   margin-bottom: 2em;
 
+  h5 {
+    line-height: 1;
+  }
   &__image {
     position: relative;
     height: 100%;
@@ -36,14 +39,11 @@ $berthImageHeight: 12em;
   }
 
   &__availability-level {
-    margin-top: 0.5em;
+    display: block;
+    margin: 0.5em 0;
   }
 
   &__summary-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
     height: 100%;
     padding: 1em;
 
@@ -81,7 +81,8 @@ $berthImageHeight: 12em;
   }
 
   &__address {
-    margin: 0.5em 0;
+    margin-bottom: 1em;
+    line-height: 1;
   }
 
   &__website-link {

@@ -42,6 +42,7 @@ const getBerthDetails = (berth: BerthType | WinterStorageType) => {
           key="maximumWidth"
           available
           value={maximumWidth}
+          unit="m"
           titleId="page.berths.maximum_width"
         />,
         <BerthDetails
@@ -82,12 +83,14 @@ const getBerthDetails = (berth: BerthType | WinterStorageType) => {
           key="maximumWidth"
           available
           value={maximumWidth}
+          unit="m"
           titleId="page.berths.maximum_width"
         />,
         <BerthDetails
           key="maximumLength"
           available
           value={maximumLength}
+          unit="m"
           titleId="page.berths.maximum_length"
         />,
         <BerthDetails
@@ -152,7 +155,7 @@ const Berth = (props: Props) => {
 
         <Col md={4}>
           <div className="vene-berth__summary-wrapper">
-            <strong>{berth.name}</strong>
+            <h5>{berth.name}</h5>
 
             <div className="vene-berth__address">
               {berth.streetAddress}, {berth.zipCode} {berth.municipality}
@@ -182,15 +185,17 @@ const Berth = (props: Props) => {
               </Popover>
             )}
             {berth.wwwUrl && (
-              <a
-                className="vene-berth__website-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                href={berth.wwwUrl}
-              >
-                <FormattedMessage tagName="span" id="page.berths.website" />
-                <Icon name="arrowRight" />
-              </a>
+              <div>
+                <a
+                  className="vene-berth__website-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={berth.wwwUrl}
+                >
+                  <FormattedMessage tagName="span" id="page.berths.website" />
+                  <Icon name="arrowRight" />
+                </a>
+              </div>
             )}
           </div>
         </Col>
