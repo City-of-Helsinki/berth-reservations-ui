@@ -270,5 +270,11 @@
   "page.berth.exchange_application.form.pier.title": "Pier",
   "page.berth.exchange_application.form.pier.placeholder": "Pier ID (if applicable)",
   "page.berth.exchange_application.form.berth.title": "Berth",
-  "page.berth.exchange_application.form.berth.placeholder": "Berth ID"
+  "page.berth.exchange_application.form.berth.placeholder": "Berth ID",
+
+  "page.winter_storage.storage_areas.type.title": "Type of storage area",
+  "page.winter_storage.storage_areas.appointed_spaces.label": "Appointed spaces",
+  "page.winter_storage.storage_areas.appointed_spaces.text": "Each boat has their own appointed space. There are rarely spaces available on these areas",
+  "page.winter_storage.storage_areas.free_spaces.label": "Free placement",
+  "page.winter_storage.storage_areas.free_spaces.text": "Boat are stored and placed on the area in the order of arrival"
 }

@@ -21,6 +21,7 @@ import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
 
 import createDecorator from 'final-form-calculate';
+import { StorageAreaFilter } from '../../../redux/reducers/WinterAreaReducers';
 import Hero from '../../common/hero/Hero';
 import KoroSection from '../../layout/koroSection/KoroSection';
 import { StepType } from '../../steps/step/Step';
@@ -45,8 +46,9 @@ type Props = {
     value: BerthsServices | WinterServices;
     icon: IconNames;
   }>;
-  hero?: FormMode;
+  formMode?: FormMode;
   berthLimit: number;
+  storageAreaFilter?: StorageAreaFilter;
 } & InjectedIntlProps;
 
 const getHeroContentLink = (locale: string) => {
@@ -91,8 +93,8 @@ class BerthPage extends Component<Props> {
   }
 
   moveToForm = async () => {
-    const { hero, localePush } = this.props;
-    const path = hero === FormMode.Winter ? 'winter-storage/selected' : 'berths/selected';
+    const { formMode, localePush } = this.props;
+    const path = formMode === FormMode.Winter ? 'winter-storage/selected' : 'berths/selected';
     await localePush(path);
   };
 
@@ -115,42 +117,42 @@ class BerthPage extends Component<Props> {
       deselectService,
       onSubmit,
       boatTypes,
-      hero,
+      formMode,
       steps,
       services,
       berthLimit,
+      storageAreaFilter,
       intl
     } = this.props;
-    const filter = getBerthFilterByValues(initialValues, selectedServices);
+    const filter = getBerthFilterByValues(initialValues, selectedServices, storageAreaFilter);
 
     const filtered = berths.filter(filter);
     const filteredNot = berths.filterNot(filter);
     const validSelection = berths
       .filter(berth => selectedBerths.find(selectedBerth => selectedBerth.id === berth.id))
       .every(filter);
-    const isBerthForm = hero === FormMode.Berth;
-    const heroImg =
-      hero === FormMode.Berth
-        ? { bgUrl: berthsHeroImg }
-        : { bgUrl: winterHeroImg, bgPosition: 'center' };
+    const isBerthForm = formMode === FormMode.Berth;
+    const heroImg = isBerthForm
+      ? { bgUrl: berthsHeroImg }
+      : { bgUrl: winterHeroImg, bgPosition: 'center' };
 
     return (
       <Layout>
-        <Hero title={`site.${hero}.title`} {...heroImg} />
+        <Hero title={`site.${formMode}.title`} {...heroImg} />
         <KoroSection
           top
-          title={`hero.${hero}.title`}
+          title={`hero.${formMode}.title`}
           description={[
-            { id: `hero.${hero}.paragraph.first` },
+            { id: `hero.${formMode}.paragraph.first` },
             {
-              id: `hero.${hero}.paragraph.second`,
+              id: `hero.${formMode}.paragraph.second`,
               values: { url: getHeroContentLink(intl.locale) }
             }
           ]}
         />
         <KoroSection color="fog" top>
           <BerthsLegend
-            legend={{ title: `legend.${hero}.title`, legend: `legend.${hero}.legend` }}
+            legend={{ title: `legend.${formMode}.title`, legend: `legend.${formMode}.legend` }}
             form={{
               calculator,
               onSubmit,
@@ -169,10 +171,10 @@ class BerthPage extends Component<Props> {
               selectedServices,
               selectService,
               deselectService,
-              label: `form.services.field.${hero}.services.label`,
+              label: `form.services.field.${formMode}.services.label`,
               available: services
             }}
-            showApplicationSelector={isBerthForm}
+            formMode={formMode}
           />
         </KoroSection>
         <TabSelector
