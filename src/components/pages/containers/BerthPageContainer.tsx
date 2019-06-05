@@ -106,7 +106,7 @@ const BerthPageContainer = (props: Props) => {
         return (
           <BerthPage
             {...props}
-            hero={FormMode.Berth}
+            formMode={FormMode.Berth}
             berths={berths}
             boatTypes={boatTypes}
             steps={steps}
