@@ -98,7 +98,6 @@ class TabSelector extends React.Component<Props, State> {
           </Container>
         </div>
       </div>
-
     );
   }
 }
