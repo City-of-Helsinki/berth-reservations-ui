@@ -16,20 +16,24 @@ const OldBerthInfo: SFC<{ application?: ApplicationState }> = ({ application }) 
       {application &&
       application.selectedApplicationType === ApplicationOptions.ExchangeApplication ? (
         <Fragment>
-          <div className="vene-overview-info__header">
-            <div className="vene-overview-info__title">
-              <FormattedMessage
-                tagName="h6"
-                id="page.berth.exchange_application.current_berth.title"
-              />
-            </div>
-            <div className="vene-overview-info__edit-icon">
-              <LocalizedLink to={`berths/selected`} className="vene-overview-info__edit-link">
-                <FormattedMessage tagName="span" id="page.overview.info.edit" />
-                <Icon name="pencil" />
-              </LocalizedLink>
-            </div>
-          </div>
+          <Row>
+            <Col xs={12}>
+              <div className="vene-overview-info__header">
+                <div className="vene-overview-info__title">
+                  <FormattedMessage
+                    tagName="h6"
+                    id="page.berth.exchange_application.current_berth.title"
+                  />
+                </div>
+                <div className="vene-overview-info__edit-icon">
+                  <LocalizedLink to={`berths/selected`} className="vene-overview-info__edit-link">
+                    <FormattedMessage tagName="span" id="page.overview.info.edit" />
+                    <Icon name="pencil" />
+                  </LocalizedLink>
+                </div>
+              </div>
+            </Col>
+          </Row>
           <Row>
             <Col xs={12}>
               <div className="vene-overview-info__old-berth-info">

@@ -58,18 +58,21 @@ const OverviewInfo = ({
     <div className="vene-overview-info">
       <Container fluid>
         {!isWinterStorageFormMode && <OldBerthInfo application={application} />}
-
-        <div className="vene-overview-info__header">
-          <div className="vene-overview-info__title">
-            <FormattedMessage tagName="h6" id="page.overview.info.boat_info" />
-          </div>
-          <div className="vene-overview-info__edit-icon">
-            <LocalizedLink to={steps[2].linkTo} className="vene-overview-info__edit-link">
-              <FormattedMessage tagName="span" id="page.overview.info.edit" />
-              <Icon name="pencil" />
-            </LocalizedLink>
-          </div>
-        </div>
+        <Row>
+          <Col xs={12}>
+            <div className="vene-overview-info__header">
+              <div className="vene-overview-info__title">
+                <FormattedMessage tagName="h6" id="page.overview.info.boat_info" />
+              </div>
+              <div className="vene-overview-info__edit-icon">
+                <LocalizedLink to={steps[2].linkTo} className="vene-overview-info__edit-link">
+                  <FormattedMessage tagName="span" id="page.overview.info.edit" />
+                  <Icon name="pencil" />
+                </LocalizedLink>
+              </div>
+            </div>
+          </Col>
+        </Row>
         {boatTab === 'registered-boat' && (
           <Fragment>
             <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
@@ -105,17 +108,21 @@ const OverviewInfo = ({
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
           </Fragment>
         )}
-        <div className="vene-overview-info__header">
-          <div className="vene-overview-info__title">
-            <FormattedMessage tagName="h6" id="page.overview.info.berths" />
-          </div>
-          <div className="vene-overview-info__edit-icon">
-            <LocalizedLink to={steps[1].linkTo} className="vene-overview-info__edit-link">
-              <FormattedMessage tagName="span" id="page.overview.info.edit" />
-              <Icon name="pencil" />
-            </LocalizedLink>
-          </div>
-        </div>
+        <Row>
+          <Col xs={12}>
+            <div className="vene-overview-info__header">
+              <div className="vene-overview-info__title">
+                <FormattedMessage tagName="h6" id="page.overview.info.berths" />
+              </div>
+              <div className="vene-overview-info__edit-icon">
+                <LocalizedLink to={steps[1].linkTo} className="vene-overview-info__edit-link">
+                  <FormattedMessage tagName="span" id="page.overview.info.edit" />
+                  <Icon name="pencil" />
+                </LocalizedLink>
+              </div>
+            </div>
+          </Col>
+        </Row>
         <Row>
           <Col xs={12}>
             {selectedBerths.map((berth, index) => (
@@ -125,26 +132,30 @@ const OverviewInfo = ({
             ))}
           </Col>
         </Row>
-        <div className="vene-overview-info__header">
-          <div className="vene-overview-info__title">
-            <FormattedMessage tagName="h6" id="page.overview.info.person" />
-          </div>
-          <div className="vene-overview-info__edit-icon">
-            <LocalizedLink to={steps[3].linkTo} className="vene-overview-info__edit-link">
-              <FormattedMessage tagName="span" id="page.overview.info.edit" />
-              <Icon name="pencil" />
-            </LocalizedLink>
-          </div>
-        </div>
-        <Person
-          firstName={values.firstName}
-          lastName={values.lastName}
-          email={values.email}
-          phoneNumber={values.phoneNumber}
-          address={values.address}
-          zipCode={values.zipCode}
-          municipality={values.municipality}
-        />
+        <Row>
+          <Col xs={12}>
+            <div className="vene-overview-info__header">
+              <div className="vene-overview-info__title">
+                <FormattedMessage tagName="h6" id="page.overview.info.person" />
+              </div>
+              <div className="vene-overview-info__edit-icon">
+                <LocalizedLink to={steps[3].linkTo} className="vene-overview-info__edit-link">
+                  <FormattedMessage tagName="span" id="page.overview.info.edit" />
+                  <Icon name="pencil" />
+                </LocalizedLink>
+              </div>
+            </div>
+            <Person
+              firstName={values.firstName}
+              lastName={values.lastName}
+              email={values.email}
+              phoneNumber={values.phoneNumber}
+              address={values.address}
+              zipCode={values.zipCode}
+              municipality={values.municipality}
+            />
+          </Col>
+        </Row>
       </Container>
     </div>
   );
