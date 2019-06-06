@@ -1,4 +1,3 @@
-import { Decorator } from 'final-form';
 import React from 'react';
 import { Field, Form as FinalForm } from 'react-final-form';
 import { injectIntl } from 'react-intl';
@@ -9,12 +8,10 @@ interface Props {
   initialValues: object;
   children: (props: any) => React.ReactNode;
   intl: any;
-  decorators?: Decorator[];
 }
 
-const form = ({ onSubmit, initialValues, children, intl, decorators }: Props) => (
+const form = ({ onSubmit, initialValues, children, intl }: Props) => (
   <FinalForm
-    decorators={decorators}
     onSubmit={formData => onSubmit(formData)}
     initialValues={{ ...initialValues, language: intl.locale }}
     render={({ handleSubmit, ...renderProps }) => (
