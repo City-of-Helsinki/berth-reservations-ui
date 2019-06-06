@@ -1,24 +1,29 @@
-import React, { SFC } from 'react';
+import React, { SFC, useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { Col, Row } from 'reactstrap';
 import { filterByStorageArea as filterByStorageAreaAction } from '../../../redux/actions/WinterAreaActions';
 import { StorageAreaFilter } from '../../../redux/reducers/WinterAreaReducers';
-import { Store } from '../../../redux/types';
 import Input from '../../common/Input';
 import './storageAreas.scss';
 
-const StorageAreas: SFC<{ filterByStorageArea: Function; selectedFilter: StorageAreaFilter }> = ({
-  filterByStorageArea,
-  selectedFilter
-}) => {
-  const onClickHandler = (checked: boolean, filterType: StorageAreaFilter) => {
-    if (!checked && selectedFilter === filterType) {
+const StorageAreas: SFC<{ filterByStorageArea: Function }> = ({ filterByStorageArea }) => {
+  const [appointed, onAppointedCheck] = useState(false);
+  const [free, onFreeCheck] = useState(false);
+
+  useEffect(() => {
+    if ((!appointed && !free) || (appointed && free)) {
       filterByStorageArea(StorageAreaFilter.SHOW_ALL_AREA);
-    } else {
-      filterByStorageArea(filterType);
     }
-  };
+
+    if (appointed && !free) {
+      filterByStorageArea(StorageAreaFilter.SHOW_APPOINTED_AREA);
+    }
+
+    if (free && !appointed) {
+      filterByStorageArea(StorageAreaFilter.SHOW_FREE_AREA);
+    }
+  });
   return (
     <div className="vene-storage-areas">
       <div className="vene-storage-areas__title">
@@ -30,10 +35,7 @@ const StorageAreas: SFC<{ filterByStorageArea: Function; selectedFilter: Storage
             type="checkbox"
             id={`appointedStorageSpace`}
             label="page.winter_storage.storage_areas.appointed_spaces.label"
-            checked={selectedFilter === StorageAreaFilter.SHOW_APPOINTED_AREA}
-            onChange={e =>
-              onClickHandler((e.target as any).checked, StorageAreaFilter.SHOW_APPOINTED_AREA)
-            }
+            onChange={e => onAppointedCheck((e.target as any).checked)}
           />
           <FormattedMessage id="page.winter_storage.storage_areas.appointed_spaces.text" />
         </Col>
@@ -43,10 +45,7 @@ const StorageAreas: SFC<{ filterByStorageArea: Function; selectedFilter: Storage
             type="checkbox"
             id={`freeStorageSpace`}
             label="page.winter_storage.storage_areas.free_spaces.label"
-            checked={selectedFilter === StorageAreaFilter.SHOW_FREE_AREA}
-            onChange={e =>
-              onClickHandler((e.target as any).checked, StorageAreaFilter.SHOW_FREE_AREA)
-            }
+            onChange={e => onFreeCheck((e.target as any).checked)}
           />
           <FormattedMessage id="page.winter_storage.storage_areas.free_spaces.text" />
         </Col>
@@ -55,10 +54,7 @@ const StorageAreas: SFC<{ filterByStorageArea: Function; selectedFilter: Storage
   );
 };
 
-const mapStateToProps = (state: Store) => ({
-  selectedFilter: state.winterAreas.storageAreaFilter
-});
 export default connect(
-  mapStateToProps,
+  null,
   { filterByStorageArea: filterByStorageAreaAction }
 )(StorageAreas);
