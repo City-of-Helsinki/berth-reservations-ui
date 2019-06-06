@@ -6,6 +6,9 @@ import { mustBePositiveNumber } from '../../../utils/formValidation';
 import { Checkbox, Number } from '../Fields';
 import { BoatType } from '../Selects';
 
+import get from 'lodash/get';
+import { connect } from 'react-redux';
+import { Store } from '../../../redux/types';
 import { BoatTypes } from '../../../types/boatTypes';
 import './unregisteredBoatDetails.scss';
 
@@ -14,16 +17,16 @@ interface Props {
   fieldsNotRequired?: boolean;
   boatTypes?: BoatTypes;
   showBoatStorageType?: boolean;
+  boatStorageType: boolean;
 }
 
 const UnRegisteredBoatDetailsFragment = ({
   fieldsNotRequired,
   boatTypes,
   hideTitle,
-  showBoatStorageType
+  showBoatStorageType,
+  boatStorageType
 }: Props) => {
-  const [checked, toggleBoatStorage] = useState(false);
-
   return (
     <div className="vene-unregistered-boat-detail">
       {!hideTitle && <FormattedMessage tagName="h3" id="form.unregistered.header.title" />}
@@ -50,7 +53,7 @@ const UnRegisteredBoatDetailsFragment = ({
             name={`boatLength`}
             label="form.no_boat.field.length.label"
             placeholder="form.no_boat.field.length.placeholder"
-            append={checked ? '+1 m' : 'm'}
+            append={boatStorageType ? '+1 m' : 'm'}
             min="0"
             required={!fieldsNotRequired}
           />
@@ -60,10 +63,9 @@ const UnRegisteredBoatDetailsFragment = ({
             <Checkbox
               name={`boatStorageType`}
               label="form.registered.field.winter_storage.storage_type.label"
-              onClick={() => toggleBoatStorage(!checked)}
               inline={false}
             >
-              {checked && (
+              {boatStorageType && (
                 <FormattedMessage id="form.registered.field.winter_storage.storage_type.text" />
               )}
             </Checkbox>
@@ -73,5 +75,7 @@ const UnRegisteredBoatDetailsFragment = ({
     </div>
   );
 };
-
-export default UnRegisteredBoatDetailsFragment;
+const mapStateToProps = (state: Store) => ({
+  boatStorageType: get(state, 'forms.values.boatStorageType', false)
+});
+export default connect(mapStateToProps)(UnRegisteredBoatDetailsFragment);
