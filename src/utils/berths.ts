@@ -88,11 +88,11 @@ const filterStorageArea = (
   filterType?: StorageAreaFilter
 ) => {
   // @ts-ignore
-  if (filterType === StorageAreaFilter.SHOW_APPOINTED_AREA && storage.numberOfMarkedPlaces) {
+  if (filterType === StorageAreaFilter.SHOW_APPOINTED_AREA && !storage.numberOfMarkedPlaces) {
     return false;
   }
   // @ts-ignore
-  if (filterType === StorageAreaFilter.SHOW_FREE_AREA && !storage.numberOfMarkedPlaces) {
+  if (filterType === StorageAreaFilter.SHOW_FREE_AREA && storage.numberOfMarkedPlaces) {
     return false;
   }
 
