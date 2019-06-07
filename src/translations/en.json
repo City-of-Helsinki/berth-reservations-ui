@@ -15,8 +15,8 @@
   "hero.berth.paragraph.first": "This service allows for you to browse through the boat harbours in Helsinki and submit new applications to the harbours of your choice.",
   "hero.berth.paragraph.second": "NOTE! Please read the instructions on selecting harbours as well as further details concerning the principles of assigning berths and the processing times for applications on the <a href='{url}'>hel.fi</a> website before completing your application.",
   "hero.winter.title": "Winter storage place search",
-  "hero.winter.paragraph.first": "Here you can apply for a winter storage space for your boat in the City of Helsinki’s storage locations. Square spaces become available only rarely, so please also include locations with no designated spaces in your application.",
-  "hero.winter.paragraph.second": "NOTE! Please read the instructions on selecting harbours as well as further details concerning the principles of assigning berths and the processing times for applications on the <a href='{url}'>hel.fi</a> website before completing your application.<br/>If you are interested in storing your boat in the water at your designated boat berth over the winter, please contact us.</p>",
+  "hero.winter.paragraph.first": "Here you can apply for a winter storage space for your boat in the City of Helsinki’s storage locations. Appointed spaces become available only rarely, so please also include locations with no designated spaces in your application.",
+  "hero.winter.paragraph.second": "NOTE! Please read the instructions on selecting storage areas as well as further details concerning the principles of assigning storage spaces and the processing times for applications on the <a href='{url}'>hel.fi</a> website before completing your application.<br/>If you are interested in storing your boat in the water at your designated boat berth over the winter, please contact us.</p>",
   "site.steps.berths": "Select harbours",
   "site.steps.selected_berths": "Your selection",
   "site.steps.boat_information": "Boat information",
@@ -277,8 +277,8 @@
   "page.berth.exchange_application.form.berth.placeholder": "Berth ID",
 
   "page.winter_storage.storage_areas.type.title": "Type of storage area",
-  "page.winter_storage.storage_areas.appointed_spaces.label": "Marked locations",
-  "page.winter_storage.storage_areas.appointed_spaces.text": "Boats have their own marked places. Square spaces become available rarely.",
-  "page.winter_storage.storage_areas.free_spaces.label": "Unmarked locations",
+  "page.winter_storage.storage_areas.appointed_spaces.label": "Appointed spaces",
+  "page.winter_storage.storage_areas.appointed_spaces.text": "Boats have their own marked places. Appointed spaces become available rarely.",
+  "page.winter_storage.storage_areas.free_spaces.label": "Unmarked areas",
   "page.winter_storage.storage_areas.free_spaces.text": "Unmarked storage locations are filled in the order that the boats are hoisted."
 }
