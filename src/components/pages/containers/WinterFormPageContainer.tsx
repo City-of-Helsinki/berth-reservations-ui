@@ -146,6 +146,7 @@ const WinterFormPageContainer = ({
             goBackwards={goBackwards}
             nextStep={goToStep(step + 1)}
             prevStep={goToStep(step - 1)}
+            onSubmit={onSubmit}
             step={step}
             steps={steps}
             {...rest}
