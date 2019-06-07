@@ -14,8 +14,8 @@ interface Props {
 
 const form = ({ onSubmit, initialValues, children, intl, decorators }: Props) => (
   <FinalForm
-    decorators={decorators}
     onSubmit={formData => onSubmit(formData)}
+    decorators={decorators}
     initialValues={{ ...initialValues, language: intl.locale }}
     render={({ handleSubmit, ...renderProps }) => (
       <BootstrapForm noValidate onSubmit={handleSubmit}>
