@@ -24,7 +24,6 @@ import { StorageAreaFilter } from '../../../redux/reducers/WinterAreaReducers';
 import Hero from '../../common/hero/Hero';
 import KoroSection from '../../layout/koroSection/KoroSection';
 import { StepType } from '../../steps/step/Step';
-
 type Props = {
   initialValues: {};
   filtered: BerthsType;
@@ -101,7 +100,6 @@ class BerthPage extends Component<Props> {
       intl
     } = this.props;
     const filter = getBerthFilterByValues(initialValues, selectedServices, storageAreaFilter);
-
     const filtered = berths.filter(filter);
     const filteredNot = berths.filterNot(filter);
     const validSelection = berths
@@ -134,6 +132,8 @@ class BerthPage extends Component<Props> {
               initialValues,
               render: () => (
                 <UnRegisteredBoatDetails
+                  // @ts-ignore
+                  boatStorageType={!!initialValues.boatStorageType}
                   showBoatStorageType={!isBerthForm}
                   hideTitle
                   fieldsNotRequired

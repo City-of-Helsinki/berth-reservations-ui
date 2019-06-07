@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Row } from 'reactstrap';
 
@@ -6,9 +6,6 @@ import { mustBePositiveNumber } from '../../../utils/formValidation';
 import { Checkbox, Number } from '../Fields';
 import { BoatType } from '../Selects';
 
-import get from 'lodash/get';
-import { connect } from 'react-redux';
-import { Store } from '../../../redux/types';
 import { BoatTypes } from '../../../types/boatTypes';
 import './unregisteredBoatDetails.scss';
 
@@ -17,7 +14,7 @@ interface Props {
   fieldsNotRequired?: boolean;
   boatTypes?: BoatTypes;
   showBoatStorageType?: boolean;
-  boatStorageType: boolean;
+  boatStorageType?: boolean;
 }
 
 const UnRegisteredBoatDetailsFragment = ({
@@ -75,7 +72,5 @@ const UnRegisteredBoatDetailsFragment = ({
     </div>
   );
 };
-const mapStateToProps = (state: Store) => ({
-  boatStorageType: get(state, 'forms.values.boatStorageType', false)
-});
-export default connect(mapStateToProps)(UnRegisteredBoatDetailsFragment);
+
+export default UnRegisteredBoatDetailsFragment;
