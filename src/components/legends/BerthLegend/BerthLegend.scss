@@ -55,7 +55,7 @@ $berthLegendIconSize: 42px;
     width: 1.8 * $berthLegendIconSize;
     line-height: 1;
     margin-top: 0.5em;
-
+    hyphens: auto;
     span {
       font-size: $font-size-sm;
     }
