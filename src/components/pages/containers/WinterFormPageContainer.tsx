@@ -110,8 +110,8 @@ const WinterFormPageContainer = ({
             }))
             .toArray();
 
-          const allowedFormValues = omit(values, 'boatStorageType');
-          // Omit boatStorageType checkbox out of form data when submit.
+          const allowedFormValues = omit(values, 'boatStoredOnTrailer');
+          // Omit boatStoredOnTrailer checkbox out of form data when submit.
 
           await client.mutate({
             variables: {

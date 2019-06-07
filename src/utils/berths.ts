@@ -34,7 +34,7 @@ export const getBerthFilterByValues = (
   selectedServices: SelectedServices | SelectedWinterServices,
   storageAreaFilter?: StorageAreaFilter
 ) => {
-  const boatHasTrailer = get(values, 'boatStorageType');
+  const boatHasTrailer = get(values, 'boatStoredOnTrailer');
 
   const width = stringToFloat(get(values, 'boatWidth', '')) * 100;
   const userBoatLength = stringToFloat(get(values, 'boatLength', ''));

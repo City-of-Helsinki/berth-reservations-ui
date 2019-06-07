@@ -48,10 +48,10 @@ interface Props {
 }
 
 const calculator = createDecorator({
-  field: 'boatStorageType',
+  field: 'boatStoredOnTrailer',
   updates: {
-    storageMethod: boatStorageTypeValue =>
-      boatStorageTypeValue ? WinterStorageMethod.ON_TRAILER : WinterStorageMethod.ON_TRESTLES
+    storageMethod: boatStoredOnTrailerValue =>
+      boatStoredOnTrailerValue ? WinterStorageMethod.ON_TRAILER : WinterStorageMethod.ON_TRESTLES
   }
 });
 

@@ -133,8 +133,8 @@ class BerthPage extends Component<Props> {
               render: () => (
                 <UnRegisteredBoatDetails
                   // @ts-ignore
-                  boatStorageType={!!initialValues.boatStorageType}
-                  showBoatStorageType={!isBerthForm}
+                  boatStoredOnTrailer={!!initialValues.boatStoredOnTrailer}
+                  showBoatStoredOnTrailer={!isBerthForm}
                   hideTitle
                   fieldsNotRequired
                   boatTypes={boatTypes}
