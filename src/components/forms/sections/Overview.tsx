@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
+import { WinterStorageMethod } from '../../../__generated__/globalTypes';
 import { ApplicationState } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
 import { Berths } from '../../berths/types';
@@ -28,6 +29,8 @@ type Props = {
     address: string;
     zipCode: string;
     municipality: string;
+    storageMethod?: WinterStorageMethod;
+    trailerRegistrationNumber?: string;
   };
   selectedBerths: Berths;
   application?: ApplicationState;
