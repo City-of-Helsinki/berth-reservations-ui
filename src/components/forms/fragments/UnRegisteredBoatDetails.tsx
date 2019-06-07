@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Row } from 'reactstrap';
 
@@ -13,17 +13,17 @@ interface Props {
   hideTitle?: boolean;
   fieldsNotRequired?: boolean;
   boatTypes?: BoatTypes;
-  showBoatStorageType?: boolean;
+  showBoatStoredOnTrailer?: boolean;
+  boatStoredOnTrailer?: boolean;
 }
 
 const UnRegisteredBoatDetailsFragment = ({
   fieldsNotRequired,
   boatTypes,
   hideTitle,
-  showBoatStorageType
+  showBoatStoredOnTrailer,
+  boatStoredOnTrailer
 }: Props) => {
-  const [checked, toggleBoatStorage] = useState(false);
-
   return (
     <div className="vene-unregistered-boat-detail">
       {!hideTitle && <FormattedMessage tagName="h3" id="form.unregistered.header.title" />}
@@ -50,20 +50,19 @@ const UnRegisteredBoatDetailsFragment = ({
             name={`boatLength`}
             label="form.no_boat.field.length.label"
             placeholder="form.no_boat.field.length.placeholder"
-            append={checked ? '+1 m' : 'm'}
+            append={boatStoredOnTrailer ? '+1 m' : 'm'}
             min="0"
             required={!fieldsNotRequired}
           />
         </Col>
-        {showBoatStorageType && (
+        {showBoatStoredOnTrailer && (
           <Col sm={4}>
             <Checkbox
-              name={`boatStorageType`}
+              name={`boatStoredOnTrailer`}
               label="form.registered.field.winter_storage.storage_type.label"
-              onClick={() => toggleBoatStorage(!checked)}
               inline={false}
             >
-              {checked && (
+              {boatStoredOnTrailer && (
                 <FormattedMessage id="form.registered.field.winter_storage.storage_type.text" />
               )}
             </Checkbox>

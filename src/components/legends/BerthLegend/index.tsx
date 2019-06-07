@@ -9,7 +9,8 @@ import Form from '../../forms/Form';
 import ApplicationSelector from '../../forms/sections/applicationSelector/ApplicationSelector';
 import Steps from '../../steps/Steps';
 
-import { Decorator } from 'final-form';
+import createDecorator from 'final-form-calculate';
+import { WinterStorageMethod } from '../../../__generated__/globalTypes';
 import { FormMode } from '../../../types/form';
 import {
   BerthsServices,
@@ -25,7 +26,6 @@ interface Props {
   form?: {
     initialValues: object;
     onSubmit: Function;
-    calculator?: Decorator;
     render: () => JSX.Element;
   };
   legend?: {
@@ -47,6 +47,14 @@ interface Props {
   };
 }
 
+const calculator = createDecorator({
+  field: 'boatStoredOnTrailer',
+  updates: {
+    storageMethod: boatStoredOnTrailerValue =>
+      boatStoredOnTrailerValue ? WinterStorageMethod.ON_TRAILER : WinterStorageMethod.ON_TRESTLES
+  }
+});
+
 const BerthsLegend = ({ form, legend, steps, services, formMode }: Props) => {
   const isBerthForm = formMode === FormMode.Berth;
 
@@ -65,9 +73,9 @@ const BerthsLegend = ({ form, legend, steps, services, formMode }: Props) => {
             )}
             {form && (
               <Form
-                decorators={form.calculator && [form.calculator]}
                 initialValues={form.initialValues}
                 onSubmit={form.onSubmit}
+                decorators={[calculator]}
               >
                 {() => (
                   <>

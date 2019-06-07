@@ -20,12 +20,10 @@ import { Berths as BerthsType } from '../../berths/types';
 import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
 
-import createDecorator from 'final-form-calculate';
 import { StorageAreaFilter } from '../../../redux/reducers/WinterAreaReducers';
 import Hero from '../../common/hero/Hero';
 import KoroSection from '../../layout/koroSection/KoroSection';
 import { StepType } from '../../steps/step/Step';
-
 type Props = {
   initialValues: {};
   filtered: BerthsType;
@@ -62,29 +60,6 @@ const getHeroContentLink = (locale: string) => {
   }
 };
 
-const calculator = createDecorator({
-  field: 'boatStorageType',
-  updates: {
-    boatLength: (boatStorageTypeValue, allValues) => {
-      // @ts-ignore
-      if (!allValues.boatLength) {
-        return '1';
-      }
-
-      // @ts-ignore
-      const boatLengthInNumber = stringToFloat(allValues.boatLength);
-      // @ts-ignore
-
-      if (!boatStorageTypeValue && boatLengthInNumber < 1) {
-        return boatLengthInNumber.toString();
-      }
-
-      return boatStorageTypeValue
-        ? (boatLengthInNumber + 1).toString()
-        : (boatLengthInNumber - 1).toString();
-    }
-  }
-});
 class BerthPage extends Component<Props> {
   constructor(props: Props) {
     super(props);
@@ -125,7 +100,6 @@ class BerthPage extends Component<Props> {
       intl
     } = this.props;
     const filter = getBerthFilterByValues(initialValues, selectedServices, storageAreaFilter);
-
     const filtered = berths.filter(filter);
     const filteredNot = berths.filterNot(filter);
     const validSelection = berths
@@ -154,12 +128,13 @@ class BerthPage extends Component<Props> {
           <BerthsLegend
             legend={{ title: `legend.${formMode}.title`, legend: `legend.${formMode}.legend` }}
             form={{
-              calculator,
               onSubmit,
               initialValues,
               render: () => (
                 <UnRegisteredBoatDetails
-                  showBoatStorageType={!isBerthForm}
+                  // @ts-ignore
+                  boatStoredOnTrailer={!!initialValues.boatStoredOnTrailer}
+                  showBoatStoredOnTrailer={!isBerthForm}
                   hideTitle
                   fieldsNotRequired
                   boatTypes={boatTypes}
