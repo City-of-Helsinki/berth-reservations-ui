@@ -1,4 +1,5 @@
 {
+  "test.message": "Testiteksti",
   "error.message.invalid_berth_selection": "Huomio: Olet valinnut satamia joissa ei ole veneesi koolle tai tyypille sopivia paikkoja.",
   "error.message.invalid_berth": "Tässä satamassa ei todennäköisesti ole veneesi koolle tai tyypille sopivia paikkoja.",
   "storybook.dummy.label": "dummy",
@@ -149,8 +150,8 @@
   "form.registered.field.draught.label": "Veneen syväys",
   "form.registered.field.draught.placeholder": "0,0",
   "form.registered.field.weight.label": "Veneen paino",
-  "form.registered.field.winter_storage.storage_type.label": "The boat is stored on trailer.",
-  "form.registered.field.winter_storage.storage_type.text": "When stored on trailer, we will add +1m on required space.",
+  "form.registered.field.winter_storage.storage_type.label": "Vene säilytetään trailerilla",
+  "form.registered.field.winter_storage.storage_type.text": "Trailerilla säilytettäessä veneen pituuteen lisätään +1m.",
 
   "form.registered.field.weight.placeholder": "1000",
   "form.registered.header.additional_info": "Lisätiedot",
@@ -275,9 +276,9 @@
   "page.berth.exchange_application.form.berth.title": "Paikkanumero",
   "page.berth.exchange_application.form.berth.placeholder": "Numero",
 
-  "page.winter_storage.storage_areas.type.title": "Type of storage area",
-  "page.winter_storage.storage_areas.appointed_spaces.label": "Appointed spaces",
-  "page.winter_storage.storage_areas.appointed_spaces.text": "Each boat has their own appointed space. There are rarely spaces available on these areas",
-  "page.winter_storage.storage_areas.free_spaces.label": "Free placement",
-  "page.winter_storage.storage_areas.free_spaces.text": "Boat are stored and placed on the area in the order of arrival"
+  "page.winter_storage.storage_areas.type.title": "Säilytysalueen tyyppi",
+  "page.winter_storage.storage_areas.appointed_spaces.label": "Merkityt paikat",
+  "page.winter_storage.storage_areas.appointed_spaces.text": "Veneillä on omat merkityt paikkansa. Ruutupaikka-alueilta paikkoja vapautuu harvoin.",
+  "page.winter_storage.storage_areas.free_spaces.label": "Merkitsemättömät paikat",
+  "page.winter_storage.storage_areas.free_spaces.text": "Merkitsemättömien säilytyspaikkojen alueet täytetään veneiden nostojärjestyksessä."
 }
