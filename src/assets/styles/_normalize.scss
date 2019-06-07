@@ -54,3 +54,15 @@ h3 {
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
+
+.custom-control {
+  padding-left: 2rem;
+}
+.custom-control-label {
+  &::before {
+    left: -2rem;
+  }
+  &::after {
+    left: -2rem;
+  }
+}

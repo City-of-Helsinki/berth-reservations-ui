@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
 
+import { WinterStorageMethod } from '../../../__generated__/globalTypes';
 import { ApplicationState } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
 import { Berths } from '../../berths/types';
@@ -13,6 +14,7 @@ import BoatInfo from '../fragments/overview/BoatInfo';
 import BoatMeasures from '../fragments/overview/BoatMeasures';
 import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
 import OldBerthInfo from '../fragments/overview/oldBerth/OldBerthInfo';
+import OverviewStorageMethod from '../fragments/overview/OverviewStorageMethod';
 import Person from '../fragments/overview/Person';
 import { WithBoatType } from '../Selects';
 import './OverviewInfo.scss';
@@ -34,6 +36,8 @@ type Props = {
     address: string;
     zipCode: string;
     municipality: string;
+    storageMethod?: WinterStorageMethod;
+    trailerRegistrationNumber?: string;
   };
   selectedBerths: Berths;
   application?: ApplicationState;
@@ -107,6 +111,12 @@ const OverviewInfo = ({
             />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
           </Fragment>
+        )}
+        {isWinterStorageFormMode && values.storageMethod && (
+          <OverviewStorageMethod
+            registrationNumber={values.trailerRegistrationNumber}
+            storageMethod={values.storageMethod}
+          />
         )}
         <Row>
           <Col xs={12}>
