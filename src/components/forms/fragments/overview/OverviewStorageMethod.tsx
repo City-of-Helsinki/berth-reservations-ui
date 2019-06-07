@@ -4,8 +4,8 @@ import { Col, Row } from 'reactstrap';
 import { WinterStorageMethod } from '../../../../__generated__/globalTypes';
 
 const OverviewStorageMethod: SFC<{
-  storageMethod: WinterStorageMethod | undefined;
-  registrationNumber: string | undefined;
+  storageMethod: WinterStorageMethod;
+  registrationNumber?: string;
 }> = ({ storageMethod, registrationNumber }) => {
   const storageLabel =
     storageMethod === WinterStorageMethod.ON_TRESTLES
