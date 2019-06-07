@@ -190,6 +190,8 @@
   "form.winter_storage_method.field.storage_method.on_trailer": "Boat stored on a trailer",
   "form.winter_storage_method.field.trailer_reg_num.field.label": "Boat stored on a trailer",
   "form.winter_storage_method.field.trailer_reg_num.field.text": "Only registered trailer are allowed on winter storage areas. Storing on a trailer requires 1m extra storage space length.",
+  "form.winter_storage_method.field.trailer_reg_num.field.placeholder": "ABC-123",
+
   "form.company.header.title": "Uppgifter om företaget eller sammanslutningen",
   "form.company.header.contact_person": "Kontaktperson",
   "form.company.field.first_name.label": "Förnamn",

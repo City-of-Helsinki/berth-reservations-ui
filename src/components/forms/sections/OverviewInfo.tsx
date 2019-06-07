@@ -58,16 +58,19 @@ const OverviewInfo = ({
     <div className="vene-overview-info">
       <Container fluid>
         {!isWinterStorageFormMode && <OldBerthInfo application={application} />}
-
         <Row>
-          <Col xs={8} md={10} className="vene-overview-info__header">
-            <FormattedMessage tagName="h6" id="page.overview.info.boat_info" />
-          </Col>
-          <Col xs={4} md={2} className="vene-overview-info__edit-icon">
-            <LocalizedLink to={steps[2].linkTo} className="vene-overview-info__edit-link">
-              <Icon name="pencil" />
-              <FormattedMessage tagName="span" id="page.overview.info.edit" />
-            </LocalizedLink>
+          <Col xs={12}>
+            <div className="vene-overview-info__header">
+              <div className="vene-overview-info__title">
+                <FormattedMessage tagName="h6" id="page.overview.info.boat_info" />
+              </div>
+              <div className="vene-overview-info__edit-icon">
+                <LocalizedLink to={steps[2].linkTo} className="vene-overview-info__edit-link">
+                  <FormattedMessage tagName="span" id="page.overview.info.edit" />
+                  <Icon name="pencil" />
+                </LocalizedLink>
+              </div>
+            </div>
           </Col>
         </Row>
         {boatTab === 'registered-boat' && (
@@ -106,14 +109,18 @@ const OverviewInfo = ({
           </Fragment>
         )}
         <Row>
-          <Col xs={8} md={10} className="vene-overview-info__header">
-            <FormattedMessage tagName="h6" id="page.overview.info.berths" />
-          </Col>
-          <Col xs={4} md={2} className="vene-overview-info__edit-icon">
-            <LocalizedLink to={steps[1].linkTo} className="vene-overview-info__edit-link">
-              <Icon name="pencil" />
-              <FormattedMessage tagName="span" id="page.overview.info.edit" />
-            </LocalizedLink>
+          <Col xs={12}>
+            <div className="vene-overview-info__header">
+              <div className="vene-overview-info__title">
+                <FormattedMessage tagName="h6" id="page.overview.info.berths" />
+              </div>
+              <div className="vene-overview-info__edit-icon">
+                <LocalizedLink to={steps[1].linkTo} className="vene-overview-info__edit-link">
+                  <FormattedMessage tagName="span" id="page.overview.info.edit" />
+                  <Icon name="pencil" />
+                </LocalizedLink>
+              </div>
+            </div>
           </Col>
         </Row>
         <Row>
@@ -126,25 +133,29 @@ const OverviewInfo = ({
           </Col>
         </Row>
         <Row>
-          <Col xs={8} md={10} className="vene-overview-info__header">
-            <FormattedMessage tagName="h6" id="page.overview.info.person" />
-          </Col>
-          <Col xs={4} md={2} className="vene-overview-info__edit-icon">
-            <LocalizedLink to={steps[3].linkTo} className="vene-overview-info__edit-link">
-              <Icon name="pencil" />
-              <FormattedMessage tagName="span" id="page.overview.info.edit" />
-            </LocalizedLink>
+          <Col xs={12}>
+            <div className="vene-overview-info__header">
+              <div className="vene-overview-info__title">
+                <FormattedMessage tagName="h6" id="page.overview.info.person" />
+              </div>
+              <div className="vene-overview-info__edit-icon">
+                <LocalizedLink to={steps[3].linkTo} className="vene-overview-info__edit-link">
+                  <FormattedMessage tagName="span" id="page.overview.info.edit" />
+                  <Icon name="pencil" />
+                </LocalizedLink>
+              </div>
+            </div>
+            <Person
+              firstName={values.firstName}
+              lastName={values.lastName}
+              email={values.email}
+              phoneNumber={values.phoneNumber}
+              address={values.address}
+              zipCode={values.zipCode}
+              municipality={values.municipality}
+            />
           </Col>
         </Row>
-        <Person
-          firstName={values.firstName}
-          lastName={values.lastName}
-          email={values.email}
-          phoneNumber={values.phoneNumber}
-          address={values.address}
-          zipCode={values.zipCode}
-          municipality={values.municipality}
-        />
       </Container>
     </div>
   );

@@ -9,6 +9,8 @@ import './ThankYouPage.scss';
 interface Props {
   resetValues: Function;
   resetBerths: Function;
+  resetWinterAreas: Function;
+  resetApplication: Function;
 }
 
 class ThankYouPage extends Component<Props> {

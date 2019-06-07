@@ -1,7 +1,7 @@
 @import 'styles/mixin';
 @import 'helsinki/fonts';
 
-$berthIconSize: 42px;
+$berthIconSize: 48px;
 
 .vene-berth__details {
   &-wrapper {
@@ -17,10 +17,11 @@ $berthIconSize: 42px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 50%;
+  width: 33%;
   height: auto;
   overflow: hidden;
   opacity: 1;
+  margin-bottom: 0.5em;
 
   &-not-available {
     opacity: 0.15;
@@ -30,6 +31,7 @@ $berthIconSize: 42px;
     .vene-icon {
       height: $berthIconSize;
       width: $berthIconSize;
+      padding: 6px;
       margin: 0 auto;
     }
 
@@ -65,6 +67,8 @@ $berthIconSize: 42px;
     p {
       margin: 0;
       white-space: pre-wrap;
+      line-height: 1;
+      font-size: 12px;
     }
 
     @include for-desktop {

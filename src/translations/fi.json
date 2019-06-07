@@ -2,7 +2,7 @@
   "error.message.invalid_berth_selection": "Huomio: Olet valinnut satamia joissa ei ole veneesi koolle tai tyypille sopivia paikkoja.",
   "error.message.invalid_berth": "Tässä satamassa ei todennäköisesti ole veneesi koolle tai tyypille sopivia paikkoja.",
   "storybook.dummy.label": "dummy",
-  "site.front.title": "Boat berths",
+  "site.front.title": "Venepaikat",
   "site.berth.title": "Venepaikkahaku",
   "site.winter.title": "Talvisäilytyspaikat",
   "site.link.front_page": "Etusivulle",
@@ -191,6 +191,8 @@
   "form.winter_storage_method.field.storage_method.on_trailer": "Säilytän veneen trailerilla",
   "form.winter_storage_method.field.trailer_reg_num.field.label": "Trailerin rekisterinumero",
   "form.winter_storage_method.field.trailer_reg_num.field.text": "Trailerilla säilytys vain rekisteröidylle trailereille. Trailerilla säilyttäminen vaatii veneen pituuden lisäksi 1m lisätilaa.",
+  "form.winter_storage_method.field.trailer_reg_num.field.placeholder": "ABC-123",
+
   "form.company.header.title": "Yrityksen tai yhteisön tiedot",
   "form.company.header.contact_person": "Yhteyshenkilö",
   "form.company.field.first_name.label": "Etunimi",

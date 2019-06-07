@@ -39,7 +39,7 @@ const StorageMethod = ({ showTrailerRegNum }: Props) => {
             <Text
               label="form.winter_storage_method.field.trailer_reg_num.field.label"
               name={`trailerRegistrationNumber`}
-              placeholder={`ABC-123`}
+              placeholder={`form.winter_storage_method.field.trailer_reg_num.field.placeholder`}
               text="form.winter_storage_method.field.trailer_reg_num.field.text"
               required
             />

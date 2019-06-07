@@ -64,7 +64,7 @@ const Submit = ({
   <Container>
     <Row>
       <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-        <Container className="vene-form__styled-container">
+        <div className="vene-form__styled-container">
           <OverviewInfo
             selectedBerths={selectedBerths}
             boatTab={boatTab}
@@ -79,7 +79,7 @@ const Submit = ({
           <Newsletter />
           <FormattedMessage tagName="h3" id="form.overview.header.agreement.title" />
           <Agreement />
-        </Container>
+        </div>
       </Col>
     </Row>
   </Container>

@@ -23,13 +23,14 @@ $divider-height: 1.25em;
 
 .section-koro {
   position: relative;
-  padding: 2em 0 3em;
+  padding: 4em 0 5em;
 
   @include divider;
 
   &__title {
     hyphens: auto;
-    font-size: 3em;
+    font-size: 2.5rem;
+    margin-bottom: 1em;
 
     @include for-phone {
       font-size: 2em;

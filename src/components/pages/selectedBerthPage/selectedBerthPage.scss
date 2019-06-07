@@ -8,6 +8,10 @@
     padding: 1.5em;
     margin-top: 3em;
     margin-bottom: 3em;
+
+    h3 {
+      margin-top: 0;
+    }
   }
 
   &__wrapper {
@@ -50,6 +54,12 @@
       fill: $hel-brick;
       width: 1.5em;
       height: 1.5em;
+      margin-right: 0.5em;
+    }
+
+    a {
+      color: $hel-black;
+      text-decoration: underline;
     }
   }
 }
