@@ -18,6 +18,7 @@ interface Props {
   step: number;
   steps: StepType[];
   children: React.ReactNode;
+  onSubmit: Function;
 }
 
 const BoatPage = ({
@@ -28,6 +29,7 @@ const BoatPage = ({
   prevStep,
   step,
   steps,
+  onSubmit,
   children
 }: Props) => {
   return (
@@ -49,6 +51,7 @@ const BoatPage = ({
         goBackwards={goBackwards}
         nextStep={nextStep}
         prevStep={prevStep}
+        onSubmit={onSubmit}
       >
         {children}
       </Wizard>

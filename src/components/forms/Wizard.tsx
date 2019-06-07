@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Button, Col, Container, Row } from 'reactstrap';
+import AutoSave from './AutoSave';
 import Form from './Form';
 import './Wizard.scss';
 
@@ -74,6 +75,7 @@ class Wizard extends Component<Props, State> {
           <Fragment>
             {React.isValidElement(activePage) &&
               React.cloneElement<{ values?: {} }>(activePage, { values })}
+            <AutoSave debounce={500} save={this.props.onSubmit} />
             <div className="vene-form__wizard-wrapper">
               <Container>
                 <Row>
