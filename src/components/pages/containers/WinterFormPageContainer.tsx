@@ -1,12 +1,11 @@
 import findIndex from 'lodash/findIndex';
-import map from 'lodash/map';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
 
 import omit from 'lodash/omit';
-import { onSubmitWinterForm as onSubmit } from '../../../redux/actions/FormActions';
+import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { CREATE_WINTER_STORAGE_RESERVATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import FormPage from '../FormPage';
@@ -41,6 +40,7 @@ const WinterFormPageContainer = ({
   match: {
     params: { tab }
   },
+  onSubmit,
   ...rest
 }: Props) => {
   const [step, setStep] = useState(0);
@@ -146,7 +146,6 @@ const WinterFormPageContainer = ({
             goBackwards={goBackwards}
             nextStep={goToStep(step + 1)}
             prevStep={goToStep(step - 1)}
-            onSubmit={onSubmit}
             step={step}
             steps={steps}
             {...rest}
@@ -176,6 +175,6 @@ export default compose<Props, {}>(
       initialValues: state.forms.winterValues,
       selectedBerths: state.winterAreas.selectedWinterAreas
     }),
-    { onSubmit }
+    { onSubmit: onSubmitWinterForm }
   )
 )(WinterFormPageContainer);

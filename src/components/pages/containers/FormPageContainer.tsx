@@ -1,11 +1,10 @@
 import findIndex from 'lodash/findIndex';
-import map from 'lodash/map';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
 
-import { onSubmitBerthForm as onSubmit } from '../../../redux/actions/FormActions';
+import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../FormPage';
 
@@ -44,6 +43,7 @@ const FormPageContainer = ({
     params: { tab }
   },
   application,
+  onSubmit,
   ...rest
 }: Props) => {
   const [step, setStep] = useState(0);
@@ -155,7 +155,6 @@ const FormPageContainer = ({
             goBackwards={goBackwards}
             nextStep={goToStep(step + 1)}
             prevStep={goToStep(step - 1)}
-            onSubmit={onSubmit}
             step={step}
             steps={steps}
             {...rest}
@@ -187,6 +186,6 @@ export default compose<Props, Props>(
       selectedBerths: state.berths.selectedBerths,
       application: state.application
     }),
-    { onSubmit }
+    { onSubmit: onSubmitBerthForm }
   )
 )(FormPageContainer);
