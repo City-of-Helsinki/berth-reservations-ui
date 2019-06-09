@@ -22,7 +22,7 @@ import { StepType } from '../../steps/step/Step';
 import './selectedBerthPage.scss';
 
 interface BoatInfoForBerths {
-  boatType: string;
+  boatType: string | null;
   width: string;
   length: string;
 }

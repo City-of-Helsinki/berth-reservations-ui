@@ -1,3 +1,4 @@
+import get from 'lodash/get';
 import React, { Component, Fragment } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Button, Col, Container, Row } from 'reactstrap';
@@ -13,6 +14,7 @@ class Wizard extends Component<Props, State> {
     super(props);
 
     window.scrollTo(0, 0);
+    const onTrailer = get(props, 'initialValues.boatStoredOnTrailer', false);
     this.state = {
       initialValues: props.initialValues,
       isSubmitting: false
