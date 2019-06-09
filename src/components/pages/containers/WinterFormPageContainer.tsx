@@ -6,7 +6,7 @@ import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
 
 import omit from 'lodash/omit';
-import { onSubmit } from '../../../redux/actions/FormActions';
+import { onSubmitWinterForm as onSubmit } from '../../../redux/actions/FormActions';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { CREATE_WINTER_STORAGE_RESERVATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import FormPage from '../FormPage';
@@ -173,7 +173,7 @@ export default compose<Props, {}>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({
-      initialValues: state.forms.values,
+      initialValues: state.forms.winterValues,
       selectedBerths: state.winterAreas.selectedWinterAreas
     }),
     { onSubmit }

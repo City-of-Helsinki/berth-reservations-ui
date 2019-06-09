@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
 
-import { onSubmit } from '../../../redux/actions/FormActions';
+import { onSubmitBerthForm as onSubmit } from '../../../redux/actions/FormActions';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../FormPage';
 
@@ -183,7 +183,7 @@ export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({
-      initialValues: state.forms.values,
+      initialValues: state.forms.berthValues,
       selectedBerths: state.berths.selectedBerths,
       application: state.application
     }),
