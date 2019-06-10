@@ -126,7 +126,7 @@ export default compose<Props, Props>(
     (state: Store) => ({
       selectedBerths: state.berths.selectedBerths,
       selectedServices: state.berths.selectedServices,
-      values: state.forms.values,
+      values: state.forms.berthValues,
       selectedApplicationType: state.application.selectedApplicationType,
       initialValues: state.application.berthSwitch
     }),

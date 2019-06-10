@@ -4,8 +4,12 @@
   .vene-input {
     &.custom-checkbox {
       margin-top: 1.5rem;
+      line-height: 1.25;
       span {
+        display: block;
         font-size: $font-size-sm;
+        margin-top: 0.5rem;
+        line-height: 1.25;
       }
     }
   }
