@@ -1,0 +1,47 @@
+@import 'helsinki/colors';
+@import 'helsinki/fonts';
+@import 'styles/mixin';
+
+.vene-step {
+  flex: 1;
+  padding: 0 0.25em;
+  color: inherit;
+  &:hover,
+  &:active {
+    text-decoration: none;
+    color: #000000;
+  }
+  text-align: left;
+
+  &__status {
+    height: 1em;
+    margin: auto;
+    margin-bottom: 0.5em;
+    padding-top: 0.1em;
+    border-radius: 0.67em;
+
+    background-color: $hel-light;
+
+    &.current,
+    &.completed {
+      background-color: $hel-coat;
+    }
+  }
+
+  &__label {
+    font-weight: $display1-weight;
+    font-size: $font-size-sm;
+    line-height: 1;
+    padding-left: 0.3em;
+    color: lighten($hel-black, 30%);
+
+    @include for-tablet {
+      font-size: $font-size-sm;
+    }
+
+    &.current,
+    &.completed {
+      color: $hel-black;
+    }
+  }
+}

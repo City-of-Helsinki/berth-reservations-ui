@@ -4,7 +4,6 @@ import { configure, addDecorator } from '@storybook/react';
 import messages from '../src/config/translations';
 import theme from '../src/config/theme';
 
-import { ThemeProvider } from 'styled-components';
 import { IntlProvider } from 'react-intl';
 
 const locale = 'fi';

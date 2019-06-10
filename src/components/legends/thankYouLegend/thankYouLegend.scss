@@ -1,0 +1,12 @@
+@import 'helsinki/colors';
+@import 'styles/variables';
+
+.vene-thankyou-legend {
+  background-color: $hel-fog;
+  padding-top: $spacing-01;
+  padding-bottom: $spacing-03;
+
+  &__title {
+    margin-bottom: $spacing-01-50;
+  }
+}

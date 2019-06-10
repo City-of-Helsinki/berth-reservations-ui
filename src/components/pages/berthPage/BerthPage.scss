@@ -1,0 +1,11 @@
+@import 'helsinki/colors';
+
+.vene-berth-page {
+  &__tabs {
+    background-color: $hel-white;
+  }
+}
+
+.vene-berth-filters-section {
+  padding-bottom: 3em;
+}

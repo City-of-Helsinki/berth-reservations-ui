@@ -1,0 +1,15 @@
+@import 'helsinki/colors';
+@import 'styles/variables';
+
+.vene-invalid-selection {
+  position: relative;
+  display: inline-block;
+  padding-left: $spacing-00-25;
+  padding-right: $spacing-00-25;
+  height: 1.25em;
+
+  &__icn {
+    fill: $hel-brick;
+    vertical-align: text-top;
+  }
+}

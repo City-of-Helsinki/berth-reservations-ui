@@ -1,11 +1,8 @@
 {
-  "javascript.validate.enable": false,
+  "javascript.validate.enable": true,
   "editor.formatOnSave": true,
   "editor.rulers": [100],
-  "flow.enabled": true,
-  "flow.runOnEdit": true,
-  "flow.showStatus": true,
-  "flow.runOnAllFiles": true,
-  "flow.stopFlowOnExit": true,
-  "flow.useNPMPackagedFlow": true
+  "search.exclude": {
+    "**/coverage": true
+  }
 }
