@@ -104,7 +104,7 @@ export default compose<Props, Props>(
     (state: Store) => ({
       selectedAreas: state.winterAreas.selectedWinterAreas,
       selectedServices: state.winterAreas.selectedWinterServices,
-      values: state.forms.values
+      values: state.forms.winterValues
     }),
     {
       deselectBerth: deselectWinterArea,

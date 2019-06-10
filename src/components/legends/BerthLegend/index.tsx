@@ -9,8 +9,6 @@ import Form from '../../forms/Form';
 import ApplicationSelector from '../../forms/sections/applicationSelector/ApplicationSelector';
 import Steps from '../../steps/Steps';
 
-import createDecorator from 'final-form-calculate';
-import { WinterStorageMethod } from '../../../__generated__/globalTypes';
 import { FormMode } from '../../../types/form';
 import {
   BerthsServices,
@@ -47,14 +45,6 @@ interface Props {
   };
 }
 
-const calculator = createDecorator({
-  field: 'boatStoredOnTrailer',
-  updates: {
-    storageMethod: boatStoredOnTrailerValue =>
-      boatStoredOnTrailerValue ? WinterStorageMethod.ON_TRAILER : WinterStorageMethod.ON_TRESTLES
-  }
-});
-
 const BerthsLegend = ({ form, legend, steps, services, formMode }: Props) => {
   const isBerthForm = formMode === FormMode.Berth;
 
@@ -72,11 +62,7 @@ const BerthsLegend = ({ form, legend, steps, services, formMode }: Props) => {
               </div>
             )}
             {form && (
-              <Form
-                initialValues={form.initialValues}
-                onSubmit={form.onSubmit}
-                decorators={[calculator]}
-              >
+              <Form initialValues={form.initialValues} onSubmit={form.onSubmit}>
                 {() => (
                   <>
                     {form.render()}

@@ -173,16 +173,17 @@ const Berth = (props: Props) => {
             )}
 
             {berth.availabilityLevel && (
-              <Popover
-                id={tooltipId}
-                body={berth.availabilityLevel.description || berth.availabilityLevel.title}
-                className="vene-berth__availability-level"
-              >
-                <AvailabilityLevel
-                  label={berth.availabilityLevel.title}
-                  level={berth.availabilityLevel.id}
-                />
-              </Popover>
+              <div className="vene-berth__availability-level">
+                <Popover
+                  id={tooltipId}
+                  body={berth.availabilityLevel.description || berth.availabilityLevel.title}
+                >
+                  <AvailabilityLevel
+                    label={berth.availabilityLevel.title}
+                    level={berth.availabilityLevel.id}
+                  />
+                </Popover>
+              </div>
             )}
             {berth.wwwUrl && (
               <div>

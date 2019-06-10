@@ -7,7 +7,7 @@ import {
   selectBerth,
   selectService
 } from '../../../redux/actions/BerthActions';
-import { onSubmit } from '../../../redux/actions/FormActions';
+import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
 import { getBerths as getBerthsFromCache } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
@@ -122,17 +122,17 @@ export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({
-      initialValues: state.forms.values,
+      initialValues: state.forms.berthValues,
       selectedBerths: state.berths.selectedBerths,
       selectedServices: state.berths.selectedServices,
       berthLimit: state.berths.berthLimit
     }),
     {
-      onSubmit,
       selectBerth,
       deselectBerth,
       selectService,
-      deselectService
+      deselectService,
+      onSubmit: onSubmitBerthForm
     }
   )
 )(BerthPageContainer);
