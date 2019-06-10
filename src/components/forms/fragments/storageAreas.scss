@@ -10,6 +10,9 @@
     margin-bottom: 0.2em;
   }
   span {
+    display: block;
+    margin-top: 0.5rem;
     font-size: $font-size-sm;
+    line-height: 1.25;
   }
 }
