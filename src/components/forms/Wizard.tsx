@@ -1,7 +1,9 @@
+import get from 'lodash/get';
 import React, { Component, Fragment } from 'react';
+import { WinterStorageMethod } from '../../__generated__/globalTypes';
+
 import { FormattedMessage } from 'react-intl';
 import { Button, Col, Container, Row } from 'reactstrap';
-import AutoSave from './AutoSave';
 import Form from './Form';
 import './Wizard.scss';
 
@@ -13,8 +15,15 @@ class Wizard extends Component<Props, State> {
     super(props);
 
     window.scrollTo(0, 0);
+    const onTrailer = get(props, 'initialValues.boatStoredOnTrailer');
+    const currentStorageMethod = get(props, 'initialValues.storageMethod');
+
+    // Suggest using trail option if have no selected data.
     this.state = {
-      initialValues: props.initialValues,
+      initialValues:
+        onTrailer && !currentStorageMethod
+          ? { ...props.initialValues, storageMethod: WinterStorageMethod.ON_TRAILER }
+          : props.initialValues,
       isSubmitting: false
     };
   }
@@ -75,7 +84,6 @@ class Wizard extends Component<Props, State> {
           <Fragment>
             {React.isValidElement(activePage) &&
               React.cloneElement<{ values?: {} }>(activePage, { values })}
-            <AutoSave debounce={500} save={this.props.onSubmit} />
             <div className="vene-form__wizard-wrapper">
               <Container>
                 <Row>

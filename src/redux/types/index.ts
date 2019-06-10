@@ -6,7 +6,8 @@ import { SelectedServices, SelectedWinterServices } from '../../types/services';
 import { StorageAreaFilter } from '../reducers/WinterAreaReducers';
 
 interface FormProps {
-  values: object;
+  berthValues: object;
+  winterValues: object;
 }
 
 interface BerthsProps {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import { onSubmit } from '../../../redux/actions/FormActions';
+import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
 import {
   deselectService,
   deselectWinterArea,
@@ -131,16 +131,16 @@ export default compose<Props, {}>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({
-      initialValues: state.forms.values,
+      initialValues: state.forms.winterValues,
       selectedBerths: state.winterAreas.selectedWinterAreas,
       selectedServices: state.winterAreas.selectedWinterServices,
       berthLimit: state.winterAreas.areasLimit,
       storageAreaFilter: state.winterAreas.storageAreaFilter
     }),
     {
-      onSubmit,
       selectService,
       deselectService,
+      onSubmit: onSubmitWinterForm,
       selectBerth: selectWinterArea,
       deselectBerth: deselectWinterArea
     }
