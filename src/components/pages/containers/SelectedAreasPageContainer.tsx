@@ -73,8 +73,8 @@ const UnconnectedSelectedBerthPage = ({
   const handlePrevious = async () => {
     await localePush('/winter-storage');
   };
-  const width = get(values, 'boatWidth', 0);
-  const length = get(values, 'boatLength', 0);
+  const width = get(values, 'boatWidth', '');
+  const length = get(values, 'boatLength', '');
   const filter = getBerthFilterByValues(values, selectedServices);
   const validSelection = selectedAreas.every(filter);
 

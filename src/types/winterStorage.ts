@@ -1,3 +1,4 @@
+import { WinterStorageReservationInput } from '../__generated__/globalTypes';
 import {
   WinterAreasQuery_winterStorageAreas_edges_node,
   WinterAreasQuery_winterStorageAreas_edges_node_geometry,
@@ -14,3 +15,8 @@ export type WinterStorageType = Pick<
   >;
 } & Pick<WinterAreasQuery_winterStorageAreas_edges_node, 'id'> &
   Pick<WinterAreasQuery_winterStorageAreas_edges_node, '__typename'>;
+
+export type WinterFormValues = WinterStorageReservationInput & {
+  boatLength: string;
+  boatWidth: string;
+};

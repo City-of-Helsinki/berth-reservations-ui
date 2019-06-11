@@ -1,10 +1,9 @@
 import findIndex from 'lodash/findIndex';
+import omit from 'lodash/omit';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
-
-import omit from 'lodash/omit';
 import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { CREATE_WINTER_STORAGE_RESERVATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
@@ -17,6 +16,8 @@ import WinterAreasQuery from '../../query/WinterAreasQuery';
 
 import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
+import { WinterFormValues } from '../../../types/winterStorage';
+import { stringToFloat } from '../../../utils/berths';
 import { Berths } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
@@ -100,7 +101,7 @@ const WinterFormPageContainer = ({
         client
       }) => {
         const boatTypes = data ? data.boatTypes : [];
-        const goForward = async (values: {}) => {
+        const goForward = async (values: WinterFormValues) => {
           await onSubmit(values);
 
           const chosenAreas = selectedBerths
@@ -110,8 +111,12 @@ const WinterFormPageContainer = ({
             }))
             .toArray();
 
-          const allowedFormValues = omit(values, 'boatStoredOnTrailer');
-          // Omit boatStoredOnTrailer checkbox out of form data when submit.
+          const normalizedValues = Object.assign({}, values, {
+            boatWidth: stringToFloat(values.boatWidth),
+            boatLength: stringToFloat(values.boatLength)
+          });
+
+          const allowedFormValues = omit(normalizedValues, 'boatStoredOnTrailer');
 
           await client.mutate({
             variables: {

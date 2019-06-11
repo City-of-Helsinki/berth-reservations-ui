@@ -25,10 +25,10 @@ type Props = {
     boatRegistrationNumber: string;
     boatType: string;
     boatModel: string;
-    boatWidth: number;
-    boatLength: number;
-    boatDraught: number;
-    boatWeight: number;
+    boatWidth: string;
+    boatLength: string;
+    boatDraught: string;
+    boatWeight: string;
     firstName: string;
     lastName: string;
     email: string;

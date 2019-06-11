@@ -17,7 +17,9 @@ import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 
 import { ApplicationState, Store } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
+import { BerthFormValues } from '../../../types/berth';
 import { FormMode } from '../../../types/form';
+import { stringToFloat } from '../../../utils/berths';
 import { Berths } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
@@ -103,7 +105,7 @@ const FormPageContainer = ({
         client
       }) => {
         const boatTypes = data ? data.boatTypes : [];
-        const goForward = async (values: {}) => {
+        const goForward = async (values: BerthFormValues) => {
           await onSubmit(values);
 
           const choices = selectedBerths
@@ -112,7 +114,20 @@ const FormPageContainer = ({
               priority: priority + 1
             }))
             .toArray();
-
+          const normalizedValues = Object.assign(
+            {},
+            values,
+            {
+              boatLength: stringToFloat(values.boatLength),
+              boatWidth: stringToFloat(values.boatWidth)
+            },
+            values.boatDraught && values.boatWeight
+              ? {
+                  boatDraught: stringToFloat(values.boatDraught),
+                  boatWeight: stringToFloat(values.boatWeight)
+                }
+              : {}
+          );
           // Append berthSwitch property only when exchange application is selected.
           const payload = Object.assign(
             {},
@@ -123,7 +138,7 @@ const FormPageContainer = ({
                 acceptFitnessNews: false,
                 acceptLibraryNews: false,
                 acceptOtherCultureNews: false,
-                ...values
+                ...normalizedValues
               }
             },
             ApplicationOptions.ExchangeApplication === application.selectedApplicationType && {

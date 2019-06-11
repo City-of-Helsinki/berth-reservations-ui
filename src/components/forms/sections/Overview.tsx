@@ -18,10 +18,10 @@ type Props = {
     boatRegistrationNumber: string;
     boatType: string;
     boatModel: string;
-    boatWidth: number;
-    boatLength: number;
-    boatDraught: number;
-    boatWeight: number;
+    boatWidth: string;
+    boatLength: string;
+    boatDraught: string;
+    boatWeight: string;
     firstName: string;
     lastName: string;
     email: string;
@@ -45,10 +45,10 @@ const Submit = ({
     boatRegistrationNumber: '',
     boatType: '',
     boatModel: '',
-    boatWidth: 0,
-    boatLength: 0,
-    boatDraught: 0,
-    boatWeight: 0,
+    boatWidth: '0',
+    boatLength: '0',
+    boatDraught: '0',
+    boatWeight: '0',
     firstName: '',
     lastName: '',
     email: '',
