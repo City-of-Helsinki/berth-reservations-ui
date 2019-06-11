@@ -1,3 +1,4 @@
+import { BerthReservationInput } from '../__generated__/globalTypes';
 import {
   BoatTypesBerthsQuery_harbors_edges_node,
   BoatTypesBerthsQuery_harbors_edges_node_geometry,
@@ -14,3 +15,10 @@ export type BerthType = Pick<
   >;
 } & Pick<BoatTypesBerthsQuery_harbors_edges_node, 'id'> &
   Pick<BoatTypesBerthsQuery_harbors_edges_node, '__typename'>;
+
+export type BerthFormValues = BerthReservationInput & {
+  boatLength: string;
+  boatWidth: string;
+  boatDraught?: string;
+  boatWeight?: string;
+};

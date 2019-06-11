@@ -13,6 +13,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import './assets/styles/main.scss';
 
+import { version } from '../package.json';
 import initApolloClient from './config/initApolloClient';
 import configureStore from './redux/store/configureStore';
 import * as serviceWorker from './serviceWorker';
@@ -40,6 +41,14 @@ Sentry.init({
 
 const client = initApolloClient();
 const { store, persistor } = configureStore();
+
+const localVersion = localStorage.getItem('venepaikka_version');
+
+// Purge user's localStorage to ensure no persisted data in sync with version
+if (localVersion !== version) {
+  persistor.purge();
+  localStorage.setItem('venepaikka_version', version);
+}
 
 const Root = () => (
   <ApolloProvider client={client}>
