@@ -36,8 +36,8 @@ export const getBerthFilterByValues = (
 ) => {
   const boatHasTrailer = get(values, 'boatStoredOnTrailer');
 
-  const width = stringToFloat(get(values, 'boatWidth', '')) * 100;
-  const userBoatLength = stringToFloat(get(values, 'boatLength', ''));
+  const width = get(values, 'boatWidth', 0) * 100;
+  const userBoatLength = get(values, 'boatLength', 0);
 
   const length = (boatHasTrailer ? userBoatLength + 1 : userBoatLength) * 100;
   // Increase by 1 meter to filter if user have trailer.

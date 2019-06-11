@@ -4,6 +4,7 @@ import { Col, Row } from 'reactstrap';
 
 import { Number } from '../Fields';
 
+import { stringToFloat } from '../../../utils/berths';
 import { mustBePositiveNumber } from '../../../utils/formValidation';
 
 interface Props {
@@ -21,6 +22,7 @@ const RegisteredBoatFragment = ({ showDraught, showWeight }: Props) => (
           name={`boatWidth`}
           label="form.registered.field.width.label"
           placeholder="form.registered.field.width.placeholder"
+          parse={stringToFloat}
           append="m"
           min="0"
           required
@@ -32,6 +34,7 @@ const RegisteredBoatFragment = ({ showDraught, showWeight }: Props) => (
           name={`boatLength`}
           label="form.registered.field.length.label"
           placeholder="form.registered.field.length.placeholder"
+          parse={stringToFloat}
           append="m"
           min="0"
           required
@@ -44,6 +47,7 @@ const RegisteredBoatFragment = ({ showDraught, showWeight }: Props) => (
             name={`boatDraught`}
             label="form.registered.field.draught.label"
             placeholder="form.registered.field.draught.placeholder"
+            parse={stringToFloat}
             append="m"
             min="0"
             required
@@ -56,6 +60,7 @@ const RegisteredBoatFragment = ({ showDraught, showWeight }: Props) => (
             validate={mustBePositiveNumber}
             name={`boatWeight`}
             step={100}
+            parse={stringToFloat}
             label="form.registered.field.weight.label"
             placeholder="form.registered.field.weight.placeholder"
             append="kg"

@@ -7,6 +7,7 @@ import { Checkbox, Number } from '../Fields';
 import { BoatType } from '../Selects';
 
 import { BoatTypes } from '../../../types/boatTypes';
+import { stringToFloat } from '../../../utils/berths';
 import './unregisteredBoatDetails.scss';
 
 interface Props {
@@ -42,6 +43,7 @@ const UnRegisteredBoatDetailsFragment = ({
             append="m"
             min="0"
             required={!fieldsNotRequired}
+            parse={stringToFloat}
           />
         </Col>
         <Col sm={4}>
@@ -53,6 +55,7 @@ const UnRegisteredBoatDetailsFragment = ({
             append={boatStoredOnTrailer ? '+1 m' : 'm'}
             min="0"
             required={!fieldsNotRequired}
+            parse={stringToFloat}
           />
         </Col>
         {showBoatStoredOnTrailer && (
