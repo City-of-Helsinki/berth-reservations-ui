@@ -4,5 +4,6 @@
   "editor.rulers": [100],
   "search.exclude": {
     "**/coverage": true
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

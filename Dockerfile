@@ -9,8 +9,10 @@ WORKDIR /usr/src/app
 
 COPY package.json package.json
 
+COPY yarn.lock yarn.lock
+
 COPY .env.example .env.development.local
 
-RUN yarn install --silent
+RUN yarn install
 
 CMD ["yarn", "start"]

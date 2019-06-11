@@ -4,6 +4,7 @@ import { FormSpy, FormSpyRenderProps } from 'react-final-form';
 interface Props {
   save: Function;
   debounce: number;
+  values: any;
 }
 
 class AutoSave extends Component<Props & FormSpyRenderProps> {
