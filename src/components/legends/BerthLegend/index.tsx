@@ -63,10 +63,10 @@ const BerthsLegend = ({ form, legend, steps, services, formMode }: Props) => {
             )}
             {form && (
               <Form initialValues={form.initialValues} onSubmit={form.onSubmit}>
-                {() => (
+                {({ invalid }: { invalid: boolean }) => (
                   <>
                     {form.render()}
-                    <AutoSave debounce={500} save={form.onSubmit} />
+                    {!invalid && <AutoSave debounce={500} save={form.onSubmit} />}
                   </>
                 )}
               </Form>

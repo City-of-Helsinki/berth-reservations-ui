@@ -1,3 +1,5 @@
+import { stringToFloat } from './berths';
+
 export const mustBePresent = (value: any): any =>
   value ? undefined : 'validation.message.required';
 
@@ -5,7 +7,8 @@ export const mustBeNumber = (value: any): any =>
   isNaN(value) ? 'validation.message.must_be_number' : undefined;
 
 export const mustBePositiveNumber = (value: string): string | undefined => {
-  const fixedFloatValue: any = (value || '').replace(',', '.');
+  const fixedFloatValue: number = stringToFloat((value || '').replace(',', '.'));
+
   if (isNaN(fixedFloatValue)) {
     return 'validation.message.must_be_number';
   }
