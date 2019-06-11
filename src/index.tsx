@@ -18,6 +18,7 @@ import configureStore from './redux/store/configureStore';
 import * as serviceWorker from './serviceWorker';
 
 import App from './components/App';
+import { purgeLocalStorage } from './utils/localStorageUtils';
 
 const {
   REACT_APP_PIWIK_URL,
@@ -40,6 +41,9 @@ Sentry.init({
 
 const client = initApolloClient();
 const { store, persistor } = configureStore();
+purgeLocalStorage();
+
+// Purge user's localStorage to ensure no persisted data in sync with version
 
 const Root = () => (
   <ApolloProvider client={client}>
