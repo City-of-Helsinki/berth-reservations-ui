@@ -92,15 +92,13 @@ class SelectedBerthPage extends Component<Props> {
               <Container className="vene-berth-page-selected__wrapper">
                 <Row>
                   <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-                    {selectedApplicationType && harbors && (
-                      <div className="vene-berth-page-selected__application">
-                        {selectedApplicationType === ApplicationOptions.NewApplication ? (
-                          <NewApplication />
-                        ) : (
-                          <ExchangeApplication harbors={harbors} />
-                        )}
-                      </div>
-                    )}
+                    {selectedApplicationType &&
+                      harbors &&
+                      (selectedApplicationType === ApplicationOptions.NewApplication ? (
+                        <NewApplication />
+                      ) : (
+                        <ExchangeApplication harbors={harbors} />
+                      ))}
 
                     <FormattedMessage tagName="h3" id="page.berth.selected.title" />
                     <hr />
