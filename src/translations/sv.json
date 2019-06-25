@@ -270,6 +270,8 @@
   "page.berth.exchange_application.warning": "I ansökan om byte kan högst fem hamnar väljas. Radera extravalen och byt ansökningstyp igen.",
   "page.berth.exchange_application.current_berth.title": "Uppgifter om den nuvarande platsen",
   "page.berth.exchange_application.current_berth.info_text": "Fyll i uppgifterna om den nuvarande platsen i ansökan om byte. ",
+  "page.berth.exchange_application.special_request.title": "Erityistoive uudelle paikalle",
+  "page.berth.exchange_application.special_request.info_text": "Voit valita listalta toiveen uuden paikan tyypistä. Otathan huomioon että jos valitset erityistoiveen, sinulle tarjotaan paikkaa vasta kun toivettasi vastaava paikka vapautuu.",
   "page.berth.exchange_application.form.current_harbour_area.label": "Nuvarande hamn",
   "page.berth.exchange_application.form.pier.title": "Kaj",
   "page.berth.exchange_application.form.pier.placeholder": "Kajkod",
