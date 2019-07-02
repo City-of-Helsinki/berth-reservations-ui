@@ -16,7 +16,6 @@ export const createWinterArea = (options?: Partial<WinterStorageType>): WinterSt
     numberOfSectionSpaces: null,
     maxLengthOfSectionSpaces: null,
     numberOfUnmarkedSpaces: 100,
-    numberofMarkedSpaces: null,
     electricity: true,
     water: true,
     gate: false,
@@ -25,7 +24,7 @@ export const createWinterArea = (options?: Partial<WinterStorageType>): WinterSt
     summerStorageForTrailers: true,
     summerStorageForBoats: false,
     municipality: 'Helsinki',
-    wwwUrl: null,
+    wwwUrl: '',
     availabilityLevel: {
       __typename: 'AvailabilityLevelType',
       id: '1',

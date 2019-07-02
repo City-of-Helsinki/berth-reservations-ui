@@ -37,11 +37,11 @@ export interface BoatTypesBerthsQuery_harbors_edges_node_properties {
    */
   servicemapId: string | null;
   streetAddress: string | null;
-  zipCode: string | null;
+  zipCode: string;
   municipality: string | null;
-  phone: string | null;
-  email: string | null;
-  wwwUrl: string | null;
+  phone: string;
+  email: string;
+  wwwUrl: string;
   imageFile: string | null;
   mooring: boolean;
   electricity: boolean;
