@@ -67,10 +67,10 @@ const ExchangeApplication: FC<ExchangeApplicationProps> = ({ harbors, reasons })
 
       <Row>
         <Col>
-          <FormattedMessage id="page.berth.exchange_application.special_request.title">
+          <FormattedMessage id="page.berth.exchange_application.reason.title">
             {txt => <h3 className="vene-exchange-application__heading">{txt}</h3>}
           </FormattedMessage>
-          <FormattedMessage id="page.berth.exchange_application.special_request.info_text">
+          <FormattedMessage id="page.berth.exchange_application.reason.info_text">
             {txt => <p className="vene-exchange-application__description">{txt}</p>}
           </FormattedMessage>
         </Col>
