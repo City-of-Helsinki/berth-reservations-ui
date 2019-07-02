@@ -16,12 +16,12 @@ describe('fragments/ExchangeApplication', () => {
     expect(wrapper).toBeDefined();
   });
 
-  test('contain 1 select component', () => {
+  test('contain select components', () => {
     const wrapper = getWrapper();
     const select = wrapper.find(Select);
-    expect(select).toHaveLength(1);
-    expect(select.prop('required')).toBeTruthy();
-    expect(select.prop('name')).toEqual('harborId');
+    expect(select).toHaveLength(2);
+    expect(select.first().prop('required')).toBe(true);
+    expect(select.last().prop('required')).toBeFalsy();
   });
 
   test('contain 2 text component', () => {
