@@ -13,7 +13,7 @@ import { Berths } from '../../berths/types';
 
 import { Form } from 'react-final-form';
 
-import ExchangeApplication from '../../forms/fragments/exchangeApplication/ExchangeApplication';
+import ExchangeApplication from '../../forms/fragments/exchangeApplication/ExchangeApplicationContainer';
 import NewApplication from '../../forms/fragments/newApplication/NewApplication';
 
 import { HarborOptions } from '../../../types/harborOptionsTypes';
