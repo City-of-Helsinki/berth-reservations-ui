@@ -93,6 +93,15 @@ export const WINTER_AREAS_QUERY = gql`
   }
 `;
 
+export const BERTH_SWITCH_REASONS_QUERY = gql`
+  query BerthSwitchReasonsQuery {
+    berthSwitchReasons {
+      id
+      title
+    }
+  }
+`;
+
 export const CREATE_RESERVATION = gql`
   mutation SubmitBerth($reservation: BerthReservationInput!, $berthSwitch: BerthSwitchInput) {
     createBerthReservation(berthReservation: $reservation, berthSwitch: $berthSwitch) {
