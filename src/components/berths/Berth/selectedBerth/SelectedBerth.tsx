@@ -5,6 +5,7 @@ import { Button, Col, Container, Row } from 'reactstrap';
 
 import { genValidSelector } from '../../../../utils/berths';
 import Icon, { IconNames } from '../../../common/Icon';
+import Modal from '../../../common/modal/Modal';
 import Popover from '../../../common/popover/Popover';
 import AvailabilityLevel from '../../availabilityLevel/AvailabilityLevel';
 import InvalidSelection from '../../InvalidSelection';
@@ -27,6 +28,7 @@ export interface Props {
 
 interface State {
   changed: 'nothing' | 'up' | 'down' | 'delete';
+  isModalOpen: boolean;
 }
 
 class SelectedBerth extends Component<Props, State> {
@@ -34,7 +36,8 @@ class SelectedBerth extends Component<Props, State> {
     super(props);
 
     this.state = {
-      changed: 'nothing'
+      changed: 'nothing',
+      isModalOpen: false
     };
   }
 
@@ -63,95 +66,106 @@ class SelectedBerth extends Component<Props, State> {
     this.setState({ changed: 'delete' });
   };
 
+  toggleModal = () => {
+    this.setState(prevState => ({ isModalOpen: !prevState.isModalOpen }));
+  };
+
   render() {
     const { title, berth, services, isValid = true, moveDown, moveUp, className } = this.props;
+    const { changed, isModalOpen } = this.state;
     const id = genValidSelector(`popover_${berth.id}`);
 
     return (
-      <Transition
-        in={this.state.changed !== 'nothing'}
-        timeout={300}
-        onEntered={this.toggleEnterState}
-      >
+      <Transition in={changed !== 'nothing'} timeout={300} onEntered={this.toggleEnterState}>
         {state => (
-          <Container className={classNames('vene-selected-berth', className)}>
-            <Row>
-              <Col
-                xs="10"
-                className={classNames(
-                  'vene-selected-berth__info',
-                  `vene-selected-berth__info--moving-${state}`
-                )}
-              >
-                <Row
-                  className={classNames('vene-selected-berth__title-bar', {
-                    'vene-selected-berth__title-bar--has-error': !isValid
-                  })}
+          <>
+            <Container className={classNames('vene-selected-berth', className)}>
+              <Row>
+                <Col
+                  xs="10"
+                  className={classNames(
+                    'vene-selected-berth__info',
+                    `vene-selected-berth__info--moving-${state}`
+                  )}
                 >
-                  <Col xs="10" className="vene-selected-berth__title">
-                    {title}
-                    {!isValid && <InvalidSelection id={id} />}
-                  </Col>
-                  <Col xs="2" className="vene-selected-berth__close">
-                    <Button
-                      close
-                      aria-label="Cancel"
-                      onClick={this.doDelete}
-                      className="vene-selected-berth__close-btn"
-                    >
-                      <Icon name="times" />
-                    </Button>
-                  </Col>
-                </Row>
-                <Row className="vene-selected-berth__services-bar">
-                  <Col xs="12" md="6" className="vene-selected-berth__availability-level">
-                    {berth.availabilityLevel && (
-                      <Popover
-                        id={`availability-level-${id}`}
-                        body={berth.availabilityLevel.description || berth.availabilityLevel.title}
+                  <Row
+                    className={classNames('vene-selected-berth__title-bar', {
+                      'vene-selected-berth__title-bar--has-error': !isValid
+                    })}
+                  >
+                    <Col xs="10" className="vene-selected-berth__title">
+                      {title}
+                      {!isValid && <InvalidSelection id={id} />}
+                    </Col>
+                    <Col xs="2" className="vene-selected-berth__close">
+                      <Button
+                        close
+                        aria-label="Cancel"
+                        onClick={this.toggleModal}
+                        className="vene-selected-berth__close-btn"
                       >
-                        <AvailabilityLevel
-                          label={berth.availabilityLevel.title}
-                          level={berth.availabilityLevel.id}
+                        <Icon name="times" />
+                      </Button>
+                    </Col>
+                  </Row>
+                  <Row className="vene-selected-berth__services-bar">
+                    <Col xs="12" md="6" className="vene-selected-berth__availability-level">
+                      {berth.availabilityLevel && (
+                        <Popover
+                          id={`availability-level-${id}`}
+                          body={
+                            berth.availabilityLevel.description || berth.availabilityLevel.title
+                          }
+                        >
+                          <AvailabilityLevel
+                            label={berth.availabilityLevel.title}
+                            level={berth.availabilityLevel.id}
+                          />
+                        </Popover>
+                      )}
+                    </Col>
+                    <Col xs="12" md="6" className="vene-selected-berth__services">
+                      {services.map(([service, value]) => (
+                        <Icon
+                          key={service}
+                          name={service}
+                          className={classNames('vene-selected-berth__service-icn', {
+                            'vene-selected-berth__service-icn--disabled': !value
+                          })}
                         />
-                      </Popover>
-                    )}
-                  </Col>
-                  <Col xs="12" md="6" className="vene-selected-berth__services">
-                    {services.map(([service, value]) => (
-                      <Icon
-                        key={service}
-                        name={service}
-                        className={classNames('vene-selected-berth__service-icn', {
-                          'vene-selected-berth__service-icn--disabled': !value
-                        })}
-                      />
-                    ))}
-                  </Col>
-                </Row>
-              </Col>
-              <Col xs="2" className="vene-selected-berth__ctrl">
-                <Button
-                  className="vene-selected-berth__arrow-btn"
-                  outline
-                  color="primary"
-                  onClick={this.doMoveUp}
-                  disabled={!moveUp}
-                >
-                  <Icon name="angleUp" className="vene-selected-berth__arrow-icon" />
-                </Button>
-                <Button
-                  className="vene-selected-berth__arrow-btn"
-                  outline
-                  color="primary"
-                  onClick={this.doMoveDown}
-                  disabled={!moveDown}
-                >
-                  <Icon name="angleDown" className="vene-selected-berth__arrow-icon" />
-                </Button>
-              </Col>
-            </Row>
-          </Container>
+                      ))}
+                    </Col>
+                  </Row>
+                </Col>
+                <Col xs="2" className="vene-selected-berth__ctrl">
+                  <Button
+                    className="vene-selected-berth__arrow-btn"
+                    outline
+                    color="primary"
+                    onClick={this.doMoveUp}
+                    disabled={!moveUp}
+                  >
+                    <Icon name="angleUp" className="vene-selected-berth__arrow-icon" />
+                  </Button>
+                  <Button
+                    className="vene-selected-berth__arrow-btn"
+                    outline
+                    color="primary"
+                    onClick={this.doMoveDown}
+                    disabled={!moveDown}
+                  >
+                    <Icon name="angleDown" className="vene-selected-berth__arrow-icon" />
+                  </Button>
+                </Col>
+              </Row>
+            </Container>
+            <Modal
+              body="page.berth.selected.confirmation_body"
+              isOpen={isModalOpen}
+              handleAccept={this.doDelete}
+              handleToggle={this.toggleModal}
+            />
+          </>
         )}
       </Transition>
     );

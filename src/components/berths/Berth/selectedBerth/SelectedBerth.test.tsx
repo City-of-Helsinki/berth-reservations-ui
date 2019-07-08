@@ -3,6 +3,7 @@ import React from 'react';
 import { Container } from 'reactstrap';
 
 import { berth } from '../../../../__fixtures__/berthFixture';
+import Modal from '../../../common/modal/Modal';
 import SelectedBerth, { Props } from './SelectedBerth';
 
 describe('SelectedBerth', () => {
@@ -11,7 +12,7 @@ describe('SelectedBerth', () => {
   const handleRemove = jest.fn();
 
   const getWrapper = (props?: Partial<Props>) =>
-    shallow<{}, { changed: string }>(
+    shallow<{}, { changed: string; isModalOpen: boolean }>(
       <SelectedBerth
         title="foo"
         berth={berth}
@@ -79,13 +80,31 @@ describe('SelectedBerth', () => {
     expect(disabledServiceIcons).toHaveLength(2);
   });
 
-  test('should set the "changed" state to "delete" when the close button is clicked', () => {
+  test('should set the "isModalOpen" state to "true" when the close button is clicked', () => {
     const wrapper = getWrapper({
       services: [['plug', false], ['waterTap', true], ['trash', false]]
     });
     const closeBtn = wrapper.dive().find('.vene-selected-berth__close-btn');
 
     closeBtn.simulate('click');
+    expect(wrapper.state().isModalOpen).toBe(true);
+  });
+
+  test('should render Modal component', () => {
+    const wrapper = getWrapper();
+    const modal = wrapper.dive().find(Modal);
+
+    expect(modal).toHaveLength(1);
+  });
+
+  test('invoking handleAccept prop of Modal should set "changed" state to "delete"', () => {
+    const wrapper = getWrapper();
+    const handleAccept = wrapper
+      .dive()
+      .find(Modal)
+      .prop('handleAccept');
+
+    handleAccept();
     expect(wrapper.state().changed).toBe('delete');
   });
 });
