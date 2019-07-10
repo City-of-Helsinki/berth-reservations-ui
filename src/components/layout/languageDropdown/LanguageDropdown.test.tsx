@@ -4,8 +4,11 @@ import { Dropdown } from 'reactstrap';
 import { mountWithIntl } from '../../../utils/testUtils';
 import LanguageDropdown from './LanguageDropdown';
 
+import { LocaleOpts } from '../../../types/intl';
+
 describe('LanguageDropdown', () => {
-  const getWrapper = () => mountWithIntl(<LanguageDropdown />);
+  const getWrapper = (locale?: LocaleOpts) =>
+    mountWithIntl(<LanguageDropdown />, undefined, locale);
 
   test('should render Dropdown component', () => {
     const wrapper = getWrapper();
@@ -14,12 +17,12 @@ describe('LanguageDropdown', () => {
   });
 
   test('should set the HTML lang attribute as the value of locale', () => {
-    const locale = 'fr-ch';
-    const wrapper = getWrapper();
-    const intl = wrapper.prop('intl');
+    const localeFi = LocaleOpts.FI;
+    const localeSv = LocaleOpts.SV;
 
-    wrapper.setContext({ intl: { ...intl, locale } });
-
-    expect(document.documentElement.lang).toBe(locale);
+    getWrapper(localeFi);
+    expect(document.documentElement.lang).toBe(localeFi);
+    getWrapper(localeSv);
+    expect(document.documentElement.lang).toBe(localeSv);
   });
 });
