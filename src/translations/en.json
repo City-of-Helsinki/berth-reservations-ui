@@ -275,6 +275,7 @@
   "page.berth.exchange_application.current_berth.info_text": "Please provide the details of your current berth for the exchange application. ",
   "page.berth.exchange_application.reason.title": "Erityistoive uudelle paikalle",
   "page.berth.exchange_application.reason.info_text": "Voit valita listalta toiveen uuden paikan tyypistä. Otathan huomioon että jos valitset erityistoiveen, sinulle tarjotaan paikkaa vasta kun toivettasi vastaava paikka vapautuu.",
+  "page.berth.exchange_application.reason.default": "No special request",
   "page.berth.exchange_application.form.current_harbour_area.label": "Current harbour",
   "page.berth.exchange_application.form.pier.title": "Pier",
   "page.berth.exchange_application.form.pier.placeholder": "Pier ID",
