@@ -56,7 +56,7 @@ describe('fragments/ExchangeApplication', () => {
   });
 
   describe('Select: reason', () => {
-    test('reasons are provided: render reasons as options component along with the default option', () => {
+    test('reasons are provided: render reasons as options along with the default FormattedMessage/option', () => {
       const wrapper = getWrapper();
       const reasonSelect = wrapper.find('[name="reason"]');
       const reasonSelectChildren = reasonSelect.children();
