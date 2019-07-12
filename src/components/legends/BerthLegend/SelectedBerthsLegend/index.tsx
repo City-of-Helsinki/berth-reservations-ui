@@ -1,8 +1,10 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
+
 import { StepType } from '../../../steps/step/Step';
-import Steps from '../../../steps/Steps';
+import Steps from '../../../steps/StepsContainer';
+
 import './SelectedBerthsLegend.scss';
 
 interface Props {
