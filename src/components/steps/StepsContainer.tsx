@@ -27,7 +27,7 @@ const StepsContainer = ({ match, appType, ...props }: Props) => {
 };
 
 const mapStateToProps = ({ application }: Store) => ({
-  appType: application.get('selectedApplicationType')
+  appType: application.get('berthsApplicationType')
 });
 
 export default compose<Props, Pick<StepsProps, Exclude<keyof StepsProps, 'title'>>>(

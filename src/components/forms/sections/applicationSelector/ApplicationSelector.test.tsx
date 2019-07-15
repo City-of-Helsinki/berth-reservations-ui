@@ -9,7 +9,7 @@ import { UnconnectedApplicationSelector as ApplicationSelector } from './Applica
 describe('forms/sections/ApplicationSelector', () => {
   const defaultProps = {
     selectedBerthCount: 0,
-    selectedApplicationType: ApplicationOptions.NewApplication,
+    berthsApplicationType: ApplicationOptions.NewApplication,
     switchApplication: jest.fn(),
     setBerthLimit: jest.fn(),
     resetBerthLimit: jest.fn(),

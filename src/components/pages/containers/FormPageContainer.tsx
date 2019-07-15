@@ -126,7 +126,7 @@ const FormPageContainer = ({
                 ...values
               }
             },
-            ApplicationOptions.ExchangeApplication === application.selectedApplicationType && {
+            ApplicationOptions.ExchangeApplication === application.berthsApplicationType && {
               berthSwitch: application.berthSwitch
             }
           );

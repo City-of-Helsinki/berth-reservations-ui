@@ -40,7 +40,7 @@ export interface Props {
   moveUp: Function;
   moveDown: Function;
   harbors?: HarborOptions;
-  selectedApplicationType?: string;
+  berthsApplicationType?: string;
   submitExchangeForm?: Function;
   values: {};
   initialValues: {};
@@ -66,7 +66,7 @@ class SelectedBerthPage extends Component<Props> {
 
   render() {
     const {
-      selectedApplicationType,
+      berthsApplicationType,
       selectedBerths,
       deselectBerth,
       moveUp,
@@ -92,9 +92,9 @@ class SelectedBerthPage extends Component<Props> {
               <Container className="vene-berth-page-selected__wrapper">
                 <Row>
                   <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-                    {selectedApplicationType &&
+                    {berthsApplicationType &&
                       harbors &&
-                      (selectedApplicationType === ApplicationOptions.NewApplication ? (
+                      (berthsApplicationType === ApplicationOptions.NewApplication ? (
                         <NewApplication />
                       ) : (
                         <ExchangeApplication harbors={harbors} />
