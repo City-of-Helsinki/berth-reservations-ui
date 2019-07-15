@@ -6,7 +6,7 @@ import { compose } from 'recompose';
 
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
-import FormPage from '../FormPage';
+import FormPage from '../formPage/FormPage';
 
 import { BOAT_TYPES_BERTHS_QUERY, CREATE_RESERVATION } from '../../../utils/graphql';
 

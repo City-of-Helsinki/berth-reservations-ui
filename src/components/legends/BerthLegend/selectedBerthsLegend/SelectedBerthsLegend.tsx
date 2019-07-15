@@ -5,7 +5,7 @@ import { Col, Container, Row } from 'reactstrap';
 import { StepType } from '../../../steps/step/Step';
 import Steps from '../../../steps/StepsContainer';
 
-import './SelectedBerthsLegend.scss';
+import './selectedBerthsLegend.scss';
 
 interface Props {
   legend: { title: string; legend: string };

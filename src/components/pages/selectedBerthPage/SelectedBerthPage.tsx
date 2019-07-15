@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
+import { Form } from 'react-final-form';
 import { FormattedMessage } from 'react-intl';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
 import SelectedBerths from '../../berths/selectedBerths/SelectedBerths';
 import Icon from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
-import Layout from '../../layout/Layout';
-import SelectedBerthsLegend from '../../legends/BerthLegend/SelectedBerthsLegend';
-
-import { ApplicationOptions } from '../../../types/applicationType';
-import { Berths } from '../../berths/types';
-
-import { Form } from 'react-final-form';
-
 import ExchangeApplication from '../../forms/fragments/exchangeApplication/ExchangeApplicationContainer';
 import NewApplication from '../../forms/fragments/newApplication/NewApplication';
+import Layout from '../../layout/Layout';
+import SelectedBerthsLegend from '../../legends/berthLegend/selectedBerthsLegend/SelectedBerthsLegend';
 
+import { ApplicationOptions } from '../../../types/applicationType';
 import { HarborOptions } from '../../../types/harborOptionsTypes';
-
+import { Berths } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
+
 import './selectedBerthPage.scss';
 
 interface BoatInfoForBerths {

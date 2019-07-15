@@ -18,7 +18,8 @@ import {
 } from '../../../types/services';
 import StorageAreas from '../../forms/fragments/StorageAreas';
 import { StepType } from '../../steps/step/Step';
-import './BerthLegend.scss';
+
+import './berthLegend.scss';
 
 interface Props {
   form?: {
