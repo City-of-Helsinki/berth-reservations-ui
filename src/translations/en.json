@@ -275,6 +275,7 @@
   "page.berth.exchange_application.current_berth.info_text": "Please provide the details of your current berth for the exchange application. ",
   "page.berth.exchange_application.reason.title": "Special request for a new berth",
   "page.berth.exchange_application.reason.info_text": "You can select a special request concerning the type of the new berth from the list. Please note, however, that if you select a special request, you will only be offered a berth when a berth meeting your request becomes available.",
+  "page.berth.exchange_application.reason.default": "No special request",
   "page.berth.exchange_application.form.current_harbour_area.label": "Current harbour",
   "page.berth.exchange_application.form.pier.title": "Pier",
   "page.berth.exchange_application.form.pier.placeholder": "Pier ID",

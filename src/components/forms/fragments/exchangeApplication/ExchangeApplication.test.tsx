@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
 import { List } from 'immutable';
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { HarborOptions } from '../../../../types/harborOptionsTypes';
 import { Select, Text } from '../../Fields';
 
@@ -45,22 +46,6 @@ describe('fragments/ExchangeApplication', () => {
     ).toBeFalsy();
   });
 
-  test('Select has more than one option when reasons are provided as prop', () => {
-    const wrapper = getWrapper();
-    const reasonsSelect = wrapper.find('[name="reason"]').find('option');
-
-    expect(reasonsSelect.length).toBeGreaterThan(1);
-  });
-
-  test('Select has one option with no value when reasons are not provided as prop', () => {
-    const wrapper = getWrapper({ reasons: undefined });
-    const reasonsSelect = wrapper.find('[name="reason"]');
-    const options = reasonsSelect.find('option');
-
-    expect(options).toHaveLength(1);
-    expect(options.prop('value')).toBeUndefined();
-  });
-
   test('contain 2 text component', () => {
     const wrapper = getWrapper();
     const texts = wrapper.find(Text);
@@ -68,5 +53,27 @@ describe('fragments/ExchangeApplication', () => {
     expect(texts).toHaveLength(2);
     expect(texts.first().prop('required')).toBeFalsy();
     expect(texts.last().prop('required')).toBeTruthy();
+  });
+
+  describe('Select: reason', () => {
+    test('reasons are provided: render reasons as options along with the default FormattedMessage/option', () => {
+      const wrapper = getWrapper();
+      const reasonSelect = wrapper.find('[name="reason"]');
+      const reasonSelectChildren = reasonSelect.children();
+      const options = reasonSelect.find('option');
+
+      expect(reasonSelectChildren.length).toBeGreaterThan(1);
+      expect(options.length).toBeGreaterThan(0);
+    });
+
+    test('reasons are NOT provided: render FormattedMessage as the only child that yields to option elem', () => {
+      const wrapper = getWrapper({ reasons: undefined });
+      const reasonSelect = wrapper.find('[name="reason"]');
+      const reasonSelectChildren = reasonSelect.children();
+      const formattedMessage = reasonSelect.find(FormattedMessage);
+
+      expect(reasonSelectChildren).toHaveLength(1);
+      expect(formattedMessage.prop('tagName')).toBe('option');
+    });
   });
 });

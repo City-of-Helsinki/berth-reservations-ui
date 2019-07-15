@@ -275,6 +275,7 @@
   "page.berth.exchange_application.current_berth.info_text": "Fyll i uppgifterna om den nuvarande platsen i ansökan om byte. ",
   "page.berth.exchange_application.reason.title": "Särskilda önskemål för den nya platsen",
   "page.berth.exchange_application.reason.info_text": "Du kan välja önskemål gällande den nya platsen i listan. Observera att om du har särskilda önskemål kommer du att erbjudas en plats först när en plats som motsvarar dina önskemål blir ledig.",
+  "page.berth.exchange_application.reason.default": "Inga särskilda önskemål",
   "page.berth.exchange_application.form.current_harbour_area.label": "Nuvarande hamn",
   "page.berth.exchange_application.form.pier.title": "Kaj",
   "page.berth.exchange_application.form.pier.placeholder": "Kajkod",
