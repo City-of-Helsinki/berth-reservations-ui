@@ -4,7 +4,7 @@ import { ApplicationOptions } from '../../types/applicationType';
 import { Action, ApplicationFactory, ApplicationProps, ApplicationState } from '../types';
 
 const initState: ApplicationProps = {
-  selectedApplicationType: ApplicationOptions.NewApplication,
+  berthsApplicationType: ApplicationOptions.NewApplication,
   berthSwitch: {
     harborId: '',
     pier: '',
@@ -18,7 +18,7 @@ export default (state: ApplicationState = defaultState(), action: Action): Appli
 
   switch (type) {
     case 'APPLICATION.SWITCH_APPLICATION':
-      return state.set('selectedApplicationType', payload);
+      return state.set('berthsApplicationType', payload);
     case 'APPLICATION.SUBMIT_FORM':
       return state.set('berthSwitch', payload);
     case 'APPLICATION.RESET_APPLICATION':

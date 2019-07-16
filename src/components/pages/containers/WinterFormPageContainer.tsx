@@ -8,7 +8,7 @@ import omit from 'lodash/omit';
 import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { CREATE_WINTER_STORAGE_RESERVATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
-import FormPage from '../FormPage';
+import FormPage from '../formPage/FormPage';
 
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/BoatDetails';

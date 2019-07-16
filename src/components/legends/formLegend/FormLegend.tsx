@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import './FormLegend.scss';
+import './formLegend.scss';
 
 const stepLegends = [
   {

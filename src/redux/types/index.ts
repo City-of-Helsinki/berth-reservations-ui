@@ -18,7 +18,7 @@ interface BerthsProps {
 
 export interface ApplicationProps {
   berthSwitch: BerthSwitchInput;
-  selectedApplicationType: ApplicationOptions;
+  berthsApplicationType: ApplicationOptions;
 }
 
 export interface WinterAreasProps {
