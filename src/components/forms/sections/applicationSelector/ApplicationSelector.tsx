@@ -21,7 +21,7 @@ import './applicationSelector.scss';
 export type ApplicationSelectorProps = InjectedIntlProps & {
   className?: string;
   selectedBerthCount: number;
-  selectedApplicationType: string;
+  berthsApplicationType: string;
   switchApplication: Function;
   setBerthLimit: Function;
   resetBerthLimit: Function;
@@ -85,7 +85,7 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
     const {
       className,
       intl: { formatMessage },
-      selectedApplicationType
+      berthsApplicationType
     } = this.props;
 
     return (
@@ -96,7 +96,7 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
               <Input
                 type="radio"
                 value={ApplicationOptions.NewApplication}
-                checked={selectedApplicationType === ApplicationOptions.NewApplication}
+                checked={berthsApplicationType === ApplicationOptions.NewApplication}
                 id="vene-application-selector-new"
                 onChange={this.onToggleSwitch}
                 name="application-selector-radio"
@@ -112,7 +112,7 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
               <Input
                 type="radio"
                 value={ApplicationOptions.ExchangeApplication}
-                checked={selectedApplicationType === ApplicationOptions.ExchangeApplication}
+                checked={berthsApplicationType === ApplicationOptions.ExchangeApplication}
                 onChange={this.onToggleSwitch}
                 id="vene-application-selector-exchange"
                 name="application-selector-radio"
@@ -145,7 +145,7 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
 
 const mapStateToProps = (state: Store) => ({
   selectedBerthCount: state.berths.selectedBerths.size,
-  selectedApplicationType: state.application.selectedApplicationType,
+  berthsApplicationType: state.application.berthsApplicationType,
   berthLimit: state.berths.berthLimit
 });
 

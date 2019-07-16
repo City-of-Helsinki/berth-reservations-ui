@@ -8,7 +8,7 @@ import TabSelector from '../../berths/TabSelector';
 import { IconNames } from '../../common/Icon';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
 import Layout from '../../layout/Layout';
-import BerthsLegend from '../../legends/BerthLegend';
+import BerthsLegend from '../../legends/berthLegend/BerthLegend';
 
 import { BerthType } from '../../../types/berth';
 import { BoatTypes } from '../../../types/boatTypes';

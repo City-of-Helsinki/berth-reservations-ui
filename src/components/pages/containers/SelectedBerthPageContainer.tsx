@@ -26,7 +26,7 @@ interface Props {
   moveDown: Function;
   localePush: LocalePush;
   values: {};
-  selectedApplicationType: string;
+  berthsApplicationType: string;
   submitExchangeForm: Function;
   initialValues: {};
 }
@@ -127,7 +127,7 @@ export default compose<Props, Props>(
       selectedBerths: state.berths.selectedBerths,
       selectedServices: state.berths.selectedServices,
       values: state.forms.berthValues,
-      selectedApplicationType: state.application.selectedApplicationType,
+      berthsApplicationType: state.application.berthsApplicationType,
       initialValues: state.application.berthSwitch
     }),
     {
