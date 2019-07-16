@@ -1,10 +1,10 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Container, Nav, Navbar as BSNavbar, NavItem } from 'reactstrap';
+import { Container, Nav, Navbar as BSNavbar } from 'reactstrap';
 
 import Icon from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
-import LanguageDropdown from '../LanguageDropdown';
+import LanguageDropdown from '../languageDropdown/LanguageDropdown';
 
 import './navbar.scss';
 
