@@ -21,7 +21,7 @@ const StepsContainer = ({ match, appType, ...props }: Props) => {
     title =
       appType === 'new_application'
         ? 'site.steps.title.berths.new'
-        : 'site.steps.title.berths.switch';
+        : 'site.steps.title.berths.exchange';
   }
   return <Steps title={title} {...props} />;
 };
