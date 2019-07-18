@@ -1,6 +1,7 @@
 @import 'helsinki/colors';
+@import 'styles/variables';
 
 .vene-berths-legend__legend {
   background-color: $hel-fog;
-  padding-bottom: 3em;
+  padding-bottom: $spacing-02;
 }
