@@ -39,7 +39,7 @@ export default (state: WinterAreasState = defaultState(), action: Action): Winte
       return state.update('selectedWinterAreas', selectedAreas => selectedAreas.push(payload));
     case 'DESELECT_WINTER_AREA':
       return state.update('selectedWinterAreas', selectedAreas =>
-        selectedAreas.filterNot(b => b.id === payload.id)
+        selectedAreas.filterNot(b => b === payload)
       );
     case 'MOVE_WINTER_AREA_UP':
       return state.update('selectedWinterAreas', selectedAreas => {
