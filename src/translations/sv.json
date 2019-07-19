@@ -196,7 +196,7 @@
   "form.winter_storage_method.field.storage_method.on_trestles": "Jag lägger upp båten på bockar",
   "form.winter_storage_method.field.storage_method.on_trailer": "Jag lägger upp båten på trailer",
   "form.winter_storage_method.field.trailer_reg_num.field.label": "Trailerns registernummer",
-  "form.winter_storage_method.field.trailer_reg_num.field.text": "Enbart registrerade trailrar får användas för uppläggning. Uppläggning på trailer kräver en meter utrymme utöver båtens längd.",
+  "form.winter_storage_method.field.trailer_reg_num.field.text": "Enbart registrerade trailrar får användas för uppläggning. Om trailerns registernummer har ännu inte uppgetts, meddela registernumret innan vinteruppläggningen inleds. Uppläggning på trailer kräver en meter utrymme utöver båtens längd.",
   "form.winter_storage_method.field.trailer_reg_num.field.placeholder": "ABC-123",
 
   "form.company.header.title": "Uppgifter om företaget eller sammanslutningen",
