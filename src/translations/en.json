@@ -196,7 +196,7 @@
   "form.winter_storage_method.field.storage_method.on_trestles": "I will be storing the boat on trestles",
   "form.winter_storage_method.field.storage_method.on_trailer": "I will be storing the boat on a trailer",
   "form.winter_storage_method.field.trailer_reg_num.field.label": "Trailer’s register number",
-  "form.winter_storage_method.field.trailer_reg_num.field.text": "Boats may be stored on registered trailers only. Storing on a trailer requires 1 m of additional space on top of the boat’s length.",
+  "form.winter_storage_method.field.trailer_reg_num.field.text": "Only registered trailers are allowed on winter storage areas. If the trailer’s registration number is not yet known, report the registration number before bringing the boat in for winter storage. Storing on a trailer requires 1m extra storage space length.",
   "form.winter_storage_method.field.trailer_reg_num.field.placeholder": "ABC-123",
 
   "form.company.header.title": "Company or community information",
