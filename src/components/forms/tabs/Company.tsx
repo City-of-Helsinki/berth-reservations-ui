@@ -1,10 +1,12 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Container } from 'reactstrap';
+
 import CompanyDetails from '../fragments/CompanyDetails';
 import ContactDetails from '../fragments/ContactDetails';
 import FullName from '../fragments/FullName';
 import PostalDetails from '../fragments/PostalDetails';
+
 import './Tabs.scss';
 
 export default () => (
