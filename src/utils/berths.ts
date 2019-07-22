@@ -163,7 +163,7 @@ export const getSelectedResources = (selectedIds: SelectedIds, resources: Berths
   }, List([]));
 
 export const isBerthSelected = (
-  selectedBerths: List<string>,
+  selectedBerths: SelectedIds,
   berth: BerthType | WinterStorageType
 ): boolean => !!selectedBerths.find(selectedBerth => selectedBerth === berth.id);
 
