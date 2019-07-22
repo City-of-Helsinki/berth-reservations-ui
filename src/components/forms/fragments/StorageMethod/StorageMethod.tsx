@@ -42,7 +42,6 @@ const StorageMethod = ({ showTrailerRegNum }: Props) => {
               maxLength={64} // https://helsinkisolutionoffice.atlassian.net/browse/VEN-113
               placeholder={`form.winter_storage_method.field.trailer_reg_num.field.placeholder`}
               text="form.winter_storage_method.field.trailer_reg_num.field.text"
-              required
             />
           </Col>
         )}
