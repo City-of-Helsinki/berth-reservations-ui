@@ -2,7 +2,13 @@ import { List, Record } from 'immutable';
 
 import { createBerth } from '../__fixtures__/berthFixture';
 import { winterArea } from '../__fixtures__/winterStorageFixture';
-import { convertCmToM, genValidSelector, getBerthFilterByValues, isBerthSelected } from './berths';
+import {
+  convertCmToM,
+  genValidSelector,
+  getBerthFilterByValues,
+  getSelectedResources,
+  isBerthSelected
+} from './berths';
 
 import { SelectedServicesProps } from '../types/services';
 
@@ -109,11 +115,41 @@ describe('utils/berths', () => {
     });
   });
 
+  describe('getSelectedResources', () => {
+    const berthA = createBerth({ id: 'a' });
+    const berthB = createBerth({ id: 'b' });
+    const berthC = createBerth({ id: 'c' });
+    const allBerths = List([berthA, berthB, berthC]);
+
+    test('return a List of resources of the matching ids', () => {
+      const selectedIds = List(['b', 'a']);
+      const berths = getSelectedResources(selectedIds, allBerths);
+
+      expect(berths).toBeInstanceOf(List);
+      expect(berths.size).toBe(2);
+    });
+
+    test('returned List should have the same order as the corresponding ids', () => {
+      const selectedIds = List(['b', 'a']);
+      const berths = getSelectedResources(selectedIds, allBerths);
+
+      expect(berths.getIn(['0', 'id'])).toBe(selectedIds.get(0));
+      expect(berths.getIn(['1', 'id'])).toBe(selectedIds.get(1));
+    });
+
+    test('ignore invalid ids', () => {
+      const selectedIds = List(['foo']);
+      const berths = getSelectedResources(selectedIds, allBerths);
+
+      expect(berths.size).toBe(0);
+    });
+  });
+
   describe('isBerthSelected', () => {
     const berthA = createBerth({ id: 'a' });
     const berthB = createBerth({ id: 'b' });
     const berthC = createBerth({ id: 'c' });
-    const selectedBerths = List([berthA, berthB]);
+    const selectedBerths = List([berthA.id, berthB.id]);
 
     test('should return true if the supplied berth is in the selected list', () => {
       expect(isBerthSelected(selectedBerths, berthA)).toBe(true);

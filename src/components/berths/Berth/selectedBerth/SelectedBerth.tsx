@@ -43,13 +43,13 @@ class SelectedBerth extends Component<Props, State> {
 
   toggleEnterState = () => {
     if (this.state.changed === 'down') {
-      if (this.props.moveDown) this.props.moveDown(this.props.berth);
+      if (this.props.moveDown) this.props.moveDown(this.props.berth.id);
     }
     if (this.state.changed === 'up') {
-      if (this.props.moveUp) this.props.moveUp(this.props.berth);
+      if (this.props.moveUp) this.props.moveUp(this.props.berth.id);
     }
     if (this.state.changed === 'delete') {
-      this.props.handleRemove(this.props.berth);
+      this.props.handleRemove(this.props.berth.id);
     }
     this.setState({ changed: 'nothing' });
   };

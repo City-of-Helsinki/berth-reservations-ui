@@ -5,21 +5,21 @@ import { compose } from 'recompose';
 
 import { submitApplicationForm as submitExchangeForm } from '../../../redux/actions/ApplicationActions';
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
-import { getBerthFilterByValues } from '../../../utils/berths';
+import { getBerthFilterByValues, getBerths, getSelectedResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { getHarbors } from '../../../utils/harborUtils';
 import SelectedBerthPage from '../selectedBerthPage/SelectedBerthPage';
 
 import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
-import { Berths } from '../../berths/types';
+import { SelectedIds } from '../../berths/types';
 
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 import { StepType } from '../../steps/step/Step';
 
 interface Props {
-  selectedBerths: Berths;
+  selectedBerths: SelectedIds;
   selectedServices: SelectedServices;
   deselectBerth: Function;
   moveUp: Function;
@@ -85,6 +85,8 @@ const UnconnectedSelectedBerthPage = ({
         // error, TODO: handle errors
         data
       }) => {
+        const berths = getBerths(data ? data.harbors : null);
+        const selected = getSelectedResources(selectedBerths, berths);
         const boatTypes = !loading && data ? data.boatTypes : [];
         const type = get(values, 'boatType');
         const width = get(values, 'boatWidth');
@@ -92,7 +94,7 @@ const UnconnectedSelectedBerthPage = ({
         const boatType = boatTypes ? boatTypes.find(t => !!t && t.id === type) : undefined;
         const boatTypeName = boatType && boatType.name;
         const filter = getBerthFilterByValues(values, selectedServices);
-        const validSelection = selectedBerths.every(filter);
+        const validSelection = selected.every(filter);
         // @ts-ignore
         const normalizedHarbors = getHarbors(data && data.harbors ? data.harbors.edges : []);
 
@@ -109,7 +111,7 @@ const UnconnectedSelectedBerthPage = ({
               title: 'legend.selected_berths.title',
               legend: 'legend.selected_berths.legend'
             }}
-            selectedBerths={selectedBerths}
+            selectedBerths={selected}
             values={values}
             harbors={normalizedHarbors}
             {...rest}

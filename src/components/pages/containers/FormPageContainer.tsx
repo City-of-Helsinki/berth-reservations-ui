@@ -5,6 +5,7 @@ import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
 
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
+import { getBerths, getSelectedResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../formPage/FormPage';
 
@@ -18,12 +19,12 @@ import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 import { ApplicationState, Store } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
 import { FormMode } from '../../../types/form';
-import { Berths } from '../../berths/types';
+import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 type Props = {
   initialValues: {};
-  selectedBerths: Berths;
+  selectedBerths: SelectedIds;
   onSubmit: Function;
   localePush: LocalePush;
   step: number;
@@ -103,12 +104,15 @@ const FormPageContainer = ({
         client
       }) => {
         const boatTypes = data ? data.boatTypes : [];
+        const berths = getBerths(data ? data.harbors : null);
+        const selected = getSelectedResources(selectedBerths, berths);
+
         const goForward = async (values: {}) => {
           await onSubmit(values);
 
           const choices = selectedBerths
-            .map((harbor, priority) => ({
-              harborId: harbor.id,
+            .map((harborId, priority) => ({
+              harborId,
               priority: priority + 1
             }))
             .toArray();
@@ -164,7 +168,7 @@ const FormPageContainer = ({
             {!loading && (
               <Overview
                 mode={FormMode.Berth}
-                selectedBerths={selectedBerths}
+                selectedBerths={selected}
                 boatTypes={boatTypes}
                 boatTab={boatTab}
                 steps={steps}
