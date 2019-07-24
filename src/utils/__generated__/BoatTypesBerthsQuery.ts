@@ -49,7 +49,7 @@ export interface BoatTypesBerthsQuery_harbors_edges_node_properties {
   wasteCollection: boolean;
   gate: boolean;
   lighting: boolean;
-  suitableBoatTypes: (BoatTypesBerthsQuery_harbors_edges_node_properties_suitableBoatTypes | null)[] | null;
+  suitableBoatTypes: BoatTypesBerthsQuery_harbors_edges_node_properties_suitableBoatTypes[];
   availabilityLevel: BoatTypesBerthsQuery_harbors_edges_node_properties_availabilityLevel | null;
   numberOfPlaces: number | null;
   maximumWidth: number | null;
@@ -77,6 +77,9 @@ export interface BoatTypesBerthsQuery_harbors_edges {
 
 export interface BoatTypesBerthsQuery_harbors {
   __typename: "HarborTypeConnection";
+  /**
+   * Contains the nodes in this connection.
+   */
   edges: (BoatTypesBerthsQuery_harbors_edges | null)[];
 }
 

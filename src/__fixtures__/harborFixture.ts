@@ -30,7 +30,7 @@ export const harbor: BoatTypesBerthsQuery_harbors_edges = {
       lighting: false,
       mooring: false,
       servicemapId: '123',
-      suitableBoatTypes: null,
+      suitableBoatTypes: [],
       availabilityLevel: {
         __typename: 'AvailabilityLevelType',
         id: 'test',
