@@ -1,3 +1,4 @@
+import { List } from 'immutable';
 import get from 'lodash/get';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -8,17 +9,20 @@ import {
   moveWinterAreaDown,
   moveWinterAreaUp
 } from '../../../redux/actions/WinterAreaActions';
-import { getBerthFilterByValues } from '../../../utils/berths';
+import { getBerthFilterByValues, getBerths, getSelectedResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import SelectedBerthPage from '../selectedBerthPage/SelectedBerthPage';
 
+import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
+import WinterAreasQuery from '../../query/WinterAreasQuery';
+
 import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
-import { Berths } from '../../berths/types';
+import { Berths, SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 interface Props {
-  selectedAreas: Berths;
+  selectedAreas: SelectedIds;
   selectedServices: SelectedServices;
   deselectBerth: Function;
   moveUp: Function;
@@ -73,28 +77,40 @@ const UnconnectedSelectedBerthPage = ({
   const handlePrevious = async () => {
     await localePush('/winter-storage');
   };
-  const width = get(values, 'boatWidth');
-  const length = get(values, 'boatLength');
-  const filter = getBerthFilterByValues(values, selectedServices);
-  const validSelection = selectedAreas.every(filter);
-
   return (
-    <SelectedBerthPage
-      boatInfo={{ width, length }}
-      handlePrevious={handlePrevious}
-      moveToForm={moveToForm}
-      filter={filter}
-      validSelection={validSelection}
-      steps={steps}
-      initialValues={{}}
-      legend={{
-        title: 'legend.selected_areas.title',
-        legend: 'legend.selected_areas.legend'
+    <WinterAreasQuery query={WINTER_AREAS_QUERY}>
+      {({
+        // error, TODO: handle errors
+        data
+      }) => {
+        const width = get(values, 'boatWidth');
+        const length = get(values, 'boatLength');
+        const filter = getBerthFilterByValues(values, selectedServices);
+        // @ts-ignore
+        const validSelection = true;
+        const areas = getBerths(data ? data.winterStorageAreas : null);
+        const selected = getSelectedResources(selectedAreas, areas);
+
+        return (
+          <SelectedBerthPage
+            boatInfo={{ width, length }}
+            handlePrevious={handlePrevious}
+            moveToForm={moveToForm}
+            filter={filter}
+            validSelection={validSelection}
+            steps={steps}
+            initialValues={{}}
+            legend={{
+              title: 'legend.selected_areas.title',
+              legend: 'legend.selected_areas.legend'
+            }}
+            selectedBerths={selected}
+            values={values}
+            {...rest}
+          />
+        );
       }}
-      selectedBerths={selectedAreas}
-      values={values}
-      {...rest}
-    />
+    </WinterAreasQuery>
   );
 };
 

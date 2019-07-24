@@ -1,0 +1,11 @@
+@import 'helsinki/colors';
+@import 'styles/variables';
+
+.vene-new-application {
+  background-color: $hel-light;
+  padding: $spacing-02 $spacing-01-50;
+
+  &__heading {
+    margin-top: 0;
+  }
+}

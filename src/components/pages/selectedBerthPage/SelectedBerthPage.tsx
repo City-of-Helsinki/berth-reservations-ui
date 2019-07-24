@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
+import { Form } from 'react-final-form';
 import { FormattedMessage } from 'react-intl';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
 import SelectedBerths from '../../berths/selectedBerths/SelectedBerths';
 import Icon from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
+import ExchangeApplication from '../../forms/fragments/exchangeApplication/ExchangeApplicationContainer';
+import NewApplication from '../../forms/fragments/newApplication/NewApplication';
 import Layout from '../../layout/Layout';
-import SelectedBerthsLegend from '../../legends/BerthLegend/SelectedBerthsLegend';
+import SelectedBerthsLegend from '../../legends/berthLegend/selectedBerthsLegend/SelectedBerthsLegend';
 
 import { ApplicationOptions } from '../../../types/applicationType';
-import { Berths } from '../../berths/types';
-
-import { Form } from 'react-final-form';
-
-import ExchangeApplication from '../../forms/fragments/exchangeApplication/ExchangeApplication';
-import NewApplication from '../../forms/fragments/newApplication/NewApplication';
-
 import { HarborOptions } from '../../../types/harborOptionsTypes';
-
+import { Berths } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
+
 import './selectedBerthPage.scss';
 
 interface BoatInfoForBerths {
@@ -40,7 +37,7 @@ export interface Props {
   moveUp: Function;
   moveDown: Function;
   harbors?: HarborOptions;
-  selectedApplicationType?: string;
+  berthsApplicationType?: string;
   submitExchangeForm?: Function;
   values: {};
   initialValues: {};
@@ -66,7 +63,7 @@ class SelectedBerthPage extends Component<Props> {
 
   render() {
     const {
-      selectedApplicationType,
+      berthsApplicationType,
       selectedBerths,
       deselectBerth,
       moveUp,
@@ -92,15 +89,13 @@ class SelectedBerthPage extends Component<Props> {
               <Container className="vene-berth-page-selected__wrapper">
                 <Row>
                   <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-                    {selectedApplicationType && harbors && (
-                      <div className="vene-berth-page-selected__application">
-                        {selectedApplicationType === ApplicationOptions.NewApplication ? (
-                          <NewApplication />
-                        ) : (
-                          <ExchangeApplication harbors={harbors} />
-                        )}
-                      </div>
-                    )}
+                    {berthsApplicationType &&
+                      harbors &&
+                      (berthsApplicationType === ApplicationOptions.NewApplication ? (
+                        <NewApplication />
+                      ) : (
+                        <ExchangeApplication harbors={harbors} />
+                      ))}
 
                     <FormattedMessage tagName="h3" id="page.berth.selected.title" />
                     <hr />

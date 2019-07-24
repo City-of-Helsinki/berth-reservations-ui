@@ -14,7 +14,7 @@ const OldBerthInfo: SFC<{ application?: ApplicationState }> = ({ application }) 
   return (
     <Fragment>
       {application &&
-      application.selectedApplicationType === ApplicationOptions.ExchangeApplication ? (
+      application.berthsApplicationType === ApplicationOptions.ExchangeApplication ? (
         <Fragment>
           <Row>
             <Col xs={12}>

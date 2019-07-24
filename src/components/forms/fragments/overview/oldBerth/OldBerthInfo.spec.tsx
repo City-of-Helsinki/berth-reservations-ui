@@ -8,7 +8,7 @@ import { ApplicationOptions } from '../../../../../types/applicationType';
 import OldBerthInfo from './OldBerthInfo';
 describe('fragments/ExchangeApplication', () => {
   const defaultData: ApplicationProps = {
-    selectedApplicationType: ApplicationOptions.NewApplication,
+    berthsApplicationType: ApplicationOptions.NewApplication,
     berthSwitch: {
       harborId: '',
       berthNumber: ''
@@ -33,7 +33,7 @@ describe('fragments/ExchangeApplication', () => {
 
   test('render current berth info if exchange application is selected', () => {
     const wrapper = getWrapper({
-      selectedApplicationType: ApplicationOptions.ExchangeApplication,
+      berthsApplicationType: ApplicationOptions.ExchangeApplication,
       berthSwitch: {
         harborId: 'foo',
         berthNumber: '123'

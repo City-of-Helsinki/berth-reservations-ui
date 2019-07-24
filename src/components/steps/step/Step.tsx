@@ -1,7 +1,10 @@
 import classNames from 'classnames';
-import React, { Fragment } from 'react';
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
+
 import LocalizedLink from '../../common/LocalizedLink';
-import './Step.scss';
+
+import './step.scss';
 
 export interface StepType {
   completed: boolean;
@@ -11,6 +14,7 @@ export interface StepType {
 }
 interface Props extends StepType {
   label: string;
+  className?: string;
 }
 
 export default class Step extends React.Component<Props> {
@@ -20,20 +24,26 @@ export default class Step extends React.Component<Props> {
   };
 
   render() {
-    const { completed, current, label, linkTo } = this.props;
+    const { completed, current, label, linkTo, className } = this.props;
+    const step = (
+      <>
+        <div className={classNames('vene-step__status', { completed, current })} />
+        <FormattedMessage id={label}>
+          {txt => (
+            <div className={classNames('vene-step__label', { completed, current })}>{txt}</div>
+          )}
+        </FormattedMessage>
+      </>
+    );
 
     return (
-      <div className="vene-step">
+      <div className={classNames('vene-step', className)}>
         {linkTo && completed ? (
           <LocalizedLink className="vene-step__link" to={linkTo}>
-            <div className={classNames('vene-step__status', { completed, current })} />
-            <div className={classNames('vene-step__label', { completed, current })}>{label}</div>
+            {step}
           </LocalizedLink>
         ) : (
-          <Fragment>
-            <div className={classNames('vene-step__status', { completed, current })} />
-            <div className={classNames('vene-step__label', { completed, current })}>{label}</div>
-          </Fragment>
+          step
         )}
       </div>
     );

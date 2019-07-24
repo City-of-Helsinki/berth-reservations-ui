@@ -1,13 +1,14 @@
 import React from 'react';
 import Map from '../../common/Map';
 
+import { Berths as BerthsType, SelectedIds } from '../../berths/types';
+
 import './berths-on-map.scss';
 
-import { Berths as BerthsType } from '../../berths/types';
 interface Props {
   filtered: BerthsType;
   filteredNot: BerthsType;
-  selected: BerthsType;
+  selected: SelectedIds;
   TabHeader?: React.FC;
   onClick: Function;
   berthLimit: number;
