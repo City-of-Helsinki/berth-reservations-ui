@@ -7,35 +7,34 @@
 // ====================================================
 
 export interface WinterAreasQuery_boatTypes {
-  __typename: 'BoatTypeType';
+  __typename: "BoatTypeType";
   id: string;
   name: string | null;
 }
 
 export interface WinterAreasQuery_winterStorageAreas_edges_node_geometry {
-  __typename: 'GeometryObjectType';
+  __typename: "GeometryObjectType";
   coordinates: any | null;
 }
 
 export interface WinterAreasQuery_winterStorageAreas_edges_node_properties_availabilityLevel {
-  __typename: 'AvailabilityLevelType';
+  __typename: "AvailabilityLevelType";
   id: string;
   title: string | null;
   description: string | null;
 }
 
 export interface WinterAreasQuery_winterStorageAreas_edges_node_properties {
-  __typename: 'WinterStorageAreaProperties';
+  __typename: "WinterStorageAreaProperties";
   name: string | null;
   streetAddress: string | null;
-  zipCode: string | null;
+  zipCode: string;
   imageFile: string | null;
   numberOfMarkedPlaces: number | null;
   maximumWidth: number | null;
   maximumLength: number | null;
   numberOfSectionSpaces: number | null;
   maxLengthOfSectionSpaces: number | null;
-  numberofMarkedSpaces: number | null;
   numberOfUnmarkedSpaces: number | null;
   electricity: boolean;
   water: boolean;
@@ -45,12 +44,12 @@ export interface WinterAreasQuery_winterStorageAreas_edges_node_properties {
   summerStorageForTrailers: boolean;
   summerStorageForBoats: boolean;
   municipality: string | null;
-  wwwUrl: string | null;
+  wwwUrl: string;
   availabilityLevel: WinterAreasQuery_winterStorageAreas_edges_node_properties_availabilityLevel | null;
 }
 
 export interface WinterAreasQuery_winterStorageAreas_edges_node {
-  __typename: 'WinterStorageAreaType';
+  __typename: "WinterStorageAreaType";
   /**
    * The ID of the object.
    */
@@ -60,7 +59,7 @@ export interface WinterAreasQuery_winterStorageAreas_edges_node {
 }
 
 export interface WinterAreasQuery_winterStorageAreas_edges {
-  __typename: 'WinterStorageAreaTypeEdge';
+  __typename: "WinterStorageAreaTypeEdge";
   /**
    * The item at the end of the edge
    */
@@ -68,7 +67,10 @@ export interface WinterAreasQuery_winterStorageAreas_edges {
 }
 
 export interface WinterAreasQuery_winterStorageAreas {
-  __typename: 'WinterStorageAreaTypeConnection';
+  __typename: "WinterStorageAreaTypeConnection";
+  /**
+   * Contains the nodes in this connection.
+   */
   edges: (WinterAreasQuery_winterStorageAreas_edges | null)[];
 }
 

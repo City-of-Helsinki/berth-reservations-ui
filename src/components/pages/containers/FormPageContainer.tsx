@@ -5,8 +5,9 @@ import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
 
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
+import { getBerths, getSelectedResources, stringToFloat } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
-import FormPage from '../FormPage';
+import FormPage from '../formPage/FormPage';
 
 import { BOAT_TYPES_BERTHS_QUERY, CREATE_RESERVATION } from '../../../utils/graphql';
 
@@ -19,13 +20,12 @@ import { ApplicationState, Store } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
 import { BerthFormValues } from '../../../types/berth';
 import { FormMode } from '../../../types/form';
-import { stringToFloat } from '../../../utils/berths';
-import { Berths } from '../../berths/types';
+import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 type Props = {
   initialValues: {};
-  selectedBerths: Berths;
+  selectedBerths: SelectedIds;
   onSubmit: Function;
   localePush: LocalePush;
   step: number;
@@ -105,12 +105,15 @@ const FormPageContainer = ({
         client
       }) => {
         const boatTypes = data ? data.boatTypes : [];
+        const berths = getBerths(data ? data.harbors : null);
+        const selected = getSelectedResources(selectedBerths, berths);
+
         const goForward = async (values: BerthFormValues) => {
           await onSubmit(values);
 
           const choices = selectedBerths
-            .map((harbor, priority) => ({
-              harborId: harbor.id,
+            .map((harborId, priority) => ({
+              harborId,
               priority: priority + 1
             }))
             .toArray();
@@ -141,7 +144,7 @@ const FormPageContainer = ({
                 ...normalizedValues
               }
             },
-            ApplicationOptions.ExchangeApplication === application.selectedApplicationType && {
+            ApplicationOptions.ExchangeApplication === application.berthsApplicationType && {
               berthSwitch: application.berthSwitch
             }
           );
@@ -179,7 +182,7 @@ const FormPageContainer = ({
             {!loading && (
               <Overview
                 mode={FormMode.Berth}
-                selectedBerths={selectedBerths}
+                selectedBerths={selected}
                 boatTypes={boatTypes}
                 boatTab={boatTab}
                 steps={steps}

@@ -7,7 +7,7 @@ import Icon, { IconNames } from '../../common/Icon';
 import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
 import ApplicationSelector from '../../forms/sections/applicationSelector/ApplicationSelector';
-import Steps from '../../steps/Steps';
+import Steps from '../../steps/StepsContainer';
 
 import { FormMode } from '../../../types/form';
 import {
@@ -18,7 +18,8 @@ import {
 } from '../../../types/services';
 import StorageAreas from '../../forms/fragments/StorageAreas';
 import { StepType } from '../../steps/step/Step';
-import './BerthLegend.scss';
+
+import './berthLegend.scss';
 
 interface Props {
   form?: {

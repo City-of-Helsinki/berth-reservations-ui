@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import FormLegend from '../src/components/legends/FormLegend';
+import FormLegend from '../src/components/legends/formLegend/FormLegend';
 import ThankYouLegend from '../src/components/legends/ThankYouLegend';
 
 storiesOf('Legends/Form', module)
