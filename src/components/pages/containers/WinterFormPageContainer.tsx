@@ -7,7 +7,7 @@ import { compose } from 'recompose';
 import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { CREATE_WINTER_STORAGE_RESERVATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
-import FormPage from '../FormPage';
+import FormPage from '../formPage/FormPage';
 
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/BoatDetails';
@@ -18,12 +18,13 @@ import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
 import { WinterFormValues } from '../../../types/winterStorage';
 import { stringToFloat } from '../../../utils/berths';
-import { Berths } from '../../berths/types';
+import { getBerths, getSelectedResources } from '../../../utils/berths';
+import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 type Props = {
   initialValues: {};
-  selectedBerths: Berths;
+  selectedAreas: SelectedIds;
   onSubmit: Function;
   localePush: LocalePush;
   step: number;
@@ -36,7 +37,7 @@ const mapSteps = [
 ];
 
 const WinterFormPageContainer = ({
-  selectedBerths,
+  selectedAreas,
   localePush,
   match: {
     params: { tab }
@@ -101,12 +102,13 @@ const WinterFormPageContainer = ({
         client
       }) => {
         const boatTypes = data ? data.boatTypes : [];
+        const areas = getBerths(data ? data.winterStorageAreas : null);
         const goForward = async (values: WinterFormValues) => {
           await onSubmit(values);
 
-          const chosenAreas = selectedBerths
-            .map((harbor, priority) => ({
-              winterAreaId: harbor.id,
+          const chosenAreas = selectedAreas
+            .map((winterAreaId, priority) => ({
+              winterAreaId,
               priority: priority + 1
             }))
             .toArray();
@@ -145,6 +147,8 @@ const WinterFormPageContainer = ({
           localePush(steps[nextStep + 2].linkTo);
         };
 
+        const selected = getSelectedResources(selectedAreas, areas);
+
         return (
           <FormPage
             goForward={goForward}
@@ -159,7 +163,7 @@ const WinterFormPageContainer = ({
             <ApplicantDetails tab={applicantTab} />
             {!loading && (
               <Overview
-                selectedBerths={selectedBerths}
+                selectedBerths={selected}
                 boatTypes={boatTypes}
                 boatTab={boatTab}
                 steps={steps}
@@ -173,12 +177,12 @@ const WinterFormPageContainer = ({
   );
 };
 
-export default compose<Props, {}>(
+export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({
       initialValues: state.forms.winterValues,
-      selectedBerths: state.winterAreas.selectedWinterAreas
+      selectedAreas: state.winterAreas.selectedWinterAreas
     }),
     { onSubmit: onSubmitWinterForm }
   )

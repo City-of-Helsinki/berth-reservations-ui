@@ -1,18 +1,16 @@
 import { List } from 'immutable';
 import get from 'lodash/get';
 
-import { Berths } from '../components/berths/types';
+import { Berths, SelectedIds } from '../components/berths/types';
+import { StorageAreaFilter } from '../redux/reducers/WinterAreaReducers';
+import { BerthType } from '../types/berth';
 import {
   SelectedServices,
   SelectedServicesProps,
   SelectedWinterServices,
   SelectedWinterServicesProps
 } from '../types/services';
-
-import { BerthType } from '../types/berth';
 import { WinterStorageType } from '../types/winterStorage';
-
-import { StorageAreaFilter } from '../redux/reducers/WinterAreaReducers';
 import { BoatTypesBerthsQuery_harbors } from './__generated__/BoatTypesBerthsQuery';
 import { WinterAreasQuery_winterStorageAreas } from './__generated__/WinterAreasQuery';
 
@@ -158,10 +156,16 @@ export const getBerths = (
   }
 };
 
+export const getSelectedResources = (selectedIds: SelectedIds, resources: Berths) =>
+  selectedIds.reduce<Berths>((acc, id) => {
+    const matched = resources.find(resource => resource.id === id);
+    return matched ? acc.push(matched) : acc;
+  }, List([]));
+
 export const isBerthSelected = (
-  selectedBerths: Berths,
+  selectedBerths: SelectedIds,
   berth: BerthType | WinterStorageType
-): boolean => !!selectedBerths.find(selectedBerth => selectedBerth.id === berth.id);
+): boolean => !!selectedBerths.find(selectedBerth => selectedBerth === berth.id);
 
 /**
  * Generates a valid CSS selector from a string by replacing invalid characters.

@@ -57,6 +57,7 @@ export interface BerthSwitchInput {
   harborId: string;
   pier?: string | null;
   berthNumber: string;
+  reason?: string | null;
 }
 
 export interface HarborChoiceInput {

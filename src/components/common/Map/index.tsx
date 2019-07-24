@@ -8,7 +8,7 @@ import MapMarker from './MapMarker';
 
 import { BerthType } from '../../../types/berth';
 import { WinterStorageType } from '../../../types/winterStorage';
-import { Berths } from '../../berths/types';
+import { Berths, SelectedIds } from '../../berths/types';
 
 import { isBerthSelected } from '../../../utils/berths';
 
@@ -24,7 +24,7 @@ interface State {
 interface Props {
   filtered: Berths;
   filteredNot: Berths;
-  selected: Berths;
+  selected: SelectedIds;
   onClick: Function;
   berthLimit: number;
 }

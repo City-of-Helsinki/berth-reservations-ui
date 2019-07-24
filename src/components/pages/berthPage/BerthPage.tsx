@@ -8,14 +8,14 @@ import TabSelector from '../../berths/TabSelector';
 import { IconNames } from '../../common/Icon';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
 import Layout from '../../layout/Layout';
-import BerthsLegend from '../../legends/BerthLegend';
+import BerthsLegend from '../../legends/berthLegend/BerthLegend';
 
 import { BerthType } from '../../../types/berth';
 import { BoatTypes } from '../../../types/boatTypes';
 import { FormMode } from '../../../types/form';
 import { BerthsServices, SelectedServices, WinterServices } from '../../../types/services';
 import { LocalePush } from '../../../utils/container';
-import { Berths as BerthsType } from '../../berths/types';
+import { Berths as BerthsType, SelectedIds } from '../../berths/types';
 
 import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
@@ -28,7 +28,7 @@ type Props = {
   initialValues: {};
   filtered: BerthsType;
   filteredNot: BerthsType;
-  selectedBerths: BerthsType;
+  selectedBerthsIds: SelectedIds;
   selectedServices: SelectedServices;
   selectBerth: Function;
   deselectBerth: Function;
@@ -74,18 +74,18 @@ class BerthPage extends Component<Props> {
   };
 
   toggleBerthSelect = (berth: BerthType) => {
-    const { selectedBerths, selectBerth, deselectBerth } = this.props;
-    if (selectedBerths.find(selectedBerth => selectedBerth.id === berth.id)) {
-      deselectBerth(berth);
+    const { selectedBerthsIds, selectBerth, deselectBerth } = this.props;
+    if (selectedBerthsIds.find(selectedId => selectedId === berth.id)) {
+      deselectBerth(berth.id);
     } else {
-      selectBerth(berth);
+      selectBerth(berth.id);
     }
   };
 
   render() {
     const {
       initialValues,
-      selectedBerths,
+      selectedBerthsIds,
       berths,
       selectedServices,
       selectService,
@@ -103,7 +103,7 @@ class BerthPage extends Component<Props> {
     const filtered = berths.filter(filter);
     const filteredNot = berths.filterNot(filter);
     const validSelection = berths
-      .filter(berth => selectedBerths.find(selectedBerth => selectedBerth.id === berth.id))
+      .filter(berth => selectedBerthsIds.find(selectedId => selectedId === berth.id))
       .every(filter);
     const isBerthForm = formMode === FormMode.Berth;
     const heroImg = isBerthForm
@@ -154,7 +154,7 @@ class BerthPage extends Component<Props> {
         </KoroSection>
         <TabSelector
           progress={this.moveToForm}
-          selectedCount={selectedBerths.size}
+          selectedCount={selectedBerthsIds.size}
           validSelection={validSelection}
           berthLimit={berthLimit}
         >
@@ -162,7 +162,7 @@ class BerthPage extends Component<Props> {
             TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
             filtered={filtered}
             filteredNot={filteredNot}
-            selected={selectedBerths}
+            selected={selectedBerthsIds}
             onClick={this.toggleBerthSelect}
             berthLimit={berthLimit}
           />
@@ -170,7 +170,7 @@ class BerthPage extends Component<Props> {
             TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
             filtered={filtered}
             filteredNot={filteredNot}
-            selected={selectedBerths}
+            selected={selectedBerthsIds}
             onClick={this.toggleBerthSelect}
             berthLimit={berthLimit}
           />

@@ -1,0 +1,26 @@
+@import 'helsinki/fonts';
+@import 'helsinki/colors';
+@import 'styles/variables';
+
+.vene-steps {
+  margin-top: $spacing-02;
+  margin-bottom: $spacing-03;
+
+  &__title {
+    font-size: $font-size-base;
+    margin-bottom: $spacing-00-75;
+  }
+
+  &__items {
+    display: flex;
+  }
+
+  &__item {
+    flex: 1 1 0;
+    margin-right: $spacing-00-25;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,61 +1,98 @@
 import React, { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Col, Row } from 'reactstrap';
+import { Col, Container, Row } from 'reactstrap';
 
 import { Select, Text } from '../../Fields';
 
 import { HarborOption, HarborOptions } from '../../../../types/harborOptionsTypes';
+import { BerthSwitchReasonsQuery_berthSwitchReasons } from '../../../../utils/__generated__/BerthSwitchReasonsQuery';
 
-import './ExchangeApplication.scss';
+import './exchangeApplication.scss';
 
-const ExchangeApplication: FC<{
+export interface ExchangeApplicationProps {
   harbors: HarborOptions;
-}> = ({ harbors }) => {
+  reasons?: BerthSwitchReasonsQuery_berthSwitchReasons[];
+}
+
+const ExchangeApplication: FC<ExchangeApplicationProps> = ({ harbors, reasons }) => {
   return (
-    <div className="vene-exchange-application">
-      <div className="vene-exchange-application__title">
-        <FormattedMessage tagName="h3" id="page.berth.exchange_application.current_berth.title" />
-        <FormattedMessage
-          tagName="p"
-          id="page.berth.exchange_application.current_berth.info_text"
-        />
-      </div>
+    <Container className="vene-exchange-application">
+      <Row>
+        <Col>
+          <FormattedMessage id="page.berth.exchange_application.current_berth.title">
+            {txt => <h3 className="vene-exchange-application__heading">{txt}</h3>}
+          </FormattedMessage>
+          <FormattedMessage id="page.berth.exchange_application.current_berth.info_text">
+            {txt => <p className="vene-exchange-application__description">{txt}</p>}
+          </FormattedMessage>
+        </Col>
+      </Row>
 
-      <div className="vene-exchange-application__select-harbour">
-        <Select
-          name={`harborId`}
-          label="page.berth.exchange_application.form.current_harbour_area.label"
-          required
-        >
-          <option />
-          {harbors.size &&
-            harbors.map((harbor: HarborOption) => (
-              <option key={harbor.id} value={harbor.id}>
-                {harbor.name}
-              </option>
-            ))}
-        </Select>
+      <Row>
+        <Col>
+          <Select
+            name="harborId"
+            label="page.berth.exchange_application.form.current_harbour_area.label"
+            required
+          >
+            <option />
+            {harbors.size &&
+              harbors.map((harbor: HarborOption) => (
+                <option key={harbor.id} value={harbor.id}>
+                  {harbor.name}
+                </option>
+              ))}
+          </Select>
+        </Col>
+      </Row>
 
-        <Row>
-          <Col sm={6}>
-            <Text
-              name={`pier`}
-              label={`page.berth.exchange_application.form.pier.title`}
-              placeholder={`page.berth.exchange_application.form.pier.placeholder`}
+      <Row>
+        <Col sm={6}>
+          <Text
+            name="pier"
+            label="page.berth.exchange_application.form.pier.title"
+            placeholder="page.berth.exchange_application.form.pier.placeholder"
+          />
+        </Col>
+
+        <Col sm={6}>
+          <Text
+            name="berthNumber"
+            required
+            label="page.berth.exchange_application.form.berth.title"
+            placeholder="page.berth.exchange_application.form.berth.placeholder"
+          />
+        </Col>
+      </Row>
+
+      <Row>
+        <Col>
+          <FormattedMessage id="page.berth.exchange_application.reason.title">
+            {txt => <h3 className="vene-exchange-application__heading">{txt}</h3>}
+          </FormattedMessage>
+          <FormattedMessage id="page.berth.exchange_application.reason.info_text">
+            {txt => <p className="vene-exchange-application__description">{txt}</p>}
+          </FormattedMessage>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col>
+          <Select name="reason">
+            <FormattedMessage
+              tagName="option"
+              id="page.berth.exchange_application.reason.default"
             />
-          </Col>
-
-          <Col sm={6}>
-            <Text
-              name={`berthNumber`}
-              required
-              label={`page.berth.exchange_application.form.berth.title`}
-              placeholder={`page.berth.exchange_application.form.berth.placeholder`}
-            />
-          </Col>
-        </Row>
-      </div>
-    </div>
+            {reasons &&
+              reasons.map(reason => (
+                <option key={reason.id} value={reason.id}>
+                  {reason.title}
+                </option>
+              ))}
+          </Select>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

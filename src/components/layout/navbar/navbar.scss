@@ -3,7 +3,6 @@
 @import 'styles/mixin';
 
 $navBrandWidth: 96px;
-$languageIconSize: 32px;
 $navbarTitleColor: rgba(0, 0, 0, 0.9);
 
 .vene-navbar {
@@ -46,30 +45,6 @@ $navbarTitleColor: rgba(0, 0, 0, 0.9);
 
     &--main span {
       font-weight: bolder;
-    }
-  }
-
-  &__language-dropdown {
-    .vene-icon {
-      width: $languageIconSize;
-      height: $languageIconSize;
-      color: $hel-black;
-    }
-
-    .dropdown {
-      color: $hel-black;
-      background-color: $hel-white;
-      box-shadow: none;
-
-      button {
-        display: flex;
-        align-items: center;
-        color: $hel-black;
-
-        span {
-          margin-left: 5px;
-        }
-      }
     }
   }
 

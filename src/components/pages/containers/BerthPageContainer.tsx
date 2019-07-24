@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
+
 import {
   deselectBerth,
   deselectService,
@@ -18,14 +19,14 @@ import BerthPage from '../berthPage/BerthPage';
 import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
 import { SelectedServices } from '../../../types/services';
-import { Berths as BerthsType } from '../../berths/types';
+import { Berths as BerthsType, SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 interface Props {
   initialValues: {};
   filtered: BerthsType;
   filteredNot: BerthsType;
-  selectedBerths: BerthsType;
+  selectedBerthsIds: SelectedIds;
   selectedServices: SelectedServices;
   selectBerth: Function;
   deselectBerth: Function;
@@ -123,7 +124,7 @@ export default compose<Props, Props>(
   connect(
     (state: Store) => ({
       initialValues: state.forms.berthValues,
-      selectedBerths: state.berths.selectedBerths,
+      selectedBerthsIds: state.berths.selectedBerths,
       selectedServices: state.berths.selectedServices,
       berthLimit: state.berths.berthLimit
     }),

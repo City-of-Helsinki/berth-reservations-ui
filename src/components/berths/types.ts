@@ -5,10 +5,12 @@ import { WinterStorageType } from '../../types/winterStorage';
 
 export type Berths = List<BerthType | WinterStorageType>;
 
+export type SelectedIds = List<string>;
+
 export interface BerthProps {
   filtered: Berths;
   filteredNot: Berths;
-  selected: Berths;
+  selected: SelectedIds;
   onClick: Function;
   TabHeader?: React.FC;
   berthLimit: number;

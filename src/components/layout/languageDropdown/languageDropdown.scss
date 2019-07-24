@@ -1,0 +1,21 @@
+@import 'helsinki/colors';
+
+$languageIconSize: 32px;
+
+.vene-language-dropdown {
+  color: $hel-black;
+  background-color: $hel-white;
+  box-shadow: none;
+
+  &__selected {
+    margin-left: 5px;
+    line-height: $languageIconSize;
+    vertical-align: middle;
+  }
+
+  &__icon {
+    width: $languageIconSize;
+    height: $languageIconSize;
+    color: $hel-black;
+  }
+}

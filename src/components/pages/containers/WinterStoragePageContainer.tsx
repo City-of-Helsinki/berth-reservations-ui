@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
+
 import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
 import {
   deselectService,
@@ -18,7 +19,7 @@ import BerthPage from '../berthPage/BerthPage';
 import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
 import { SelectedServices } from '../../../types/services';
-import { Berths as BerthsType } from '../../berths/types';
+import { Berths as BerthsType, SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 interface Props {
@@ -26,7 +27,7 @@ interface Props {
   initialValues: {};
   filtered: BerthsType;
   filteredNot: BerthsType;
-  selectedBerths: BerthsType;
+  selectedBerthsIds: SelectedIds;
   selectedServices: SelectedServices;
   selectBerth: Function;
   deselectBerth: Function;
@@ -132,7 +133,7 @@ export default compose<Props, {}>(
   connect(
     (state: Store) => ({
       initialValues: state.forms.winterValues,
-      selectedBerths: state.winterAreas.selectedWinterAreas,
+      selectedBerthsIds: state.winterAreas.selectedWinterAreas,
       selectedServices: state.winterAreas.selectedWinterServices,
       berthLimit: state.winterAreas.areasLimit,
       storageAreaFilter: state.winterAreas.storageAreaFilter
