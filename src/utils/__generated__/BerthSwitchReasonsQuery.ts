@@ -7,7 +7,7 @@
 // ====================================================
 
 export interface BerthSwitchReasonsQuery_berthSwitchReasons {
-  __typename: 'BerthSwitchReasonType';
+  __typename: "BerthSwitchReasonType";
   id: string;
   title: string | null;
 }

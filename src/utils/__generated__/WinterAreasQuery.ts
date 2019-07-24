@@ -68,6 +68,9 @@ export interface WinterAreasQuery_winterStorageAreas_edges {
 
 export interface WinterAreasQuery_winterStorageAreas {
   __typename: "WinterStorageAreaTypeConnection";
+  /**
+   * Contains the nodes in this connection.
+   */
   edges: (WinterAreasQuery_winterStorageAreas_edges | null)[];
 }
 

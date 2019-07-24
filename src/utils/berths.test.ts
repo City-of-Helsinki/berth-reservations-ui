@@ -37,7 +37,7 @@ describe('utils/berths', () => {
 
     const matchOptions = {
       maximumLength: 1100,
-      suitableBoatTypes: null,
+      suitableBoatTypes: [],
       maximumWidth: 500
     };
 

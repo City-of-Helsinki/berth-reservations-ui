@@ -22,7 +22,7 @@ export const createBerth = (options?: Partial<BerthType>): BerthType => {
     lighting: false,
     mooring: false,
     servicemapId: '123',
-    suitableBoatTypes: null,
+    suitableBoatTypes: [],
     availabilityLevel: {
       __typename: 'AvailabilityLevelType',
       id: 'test',
