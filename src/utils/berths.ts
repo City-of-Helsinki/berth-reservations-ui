@@ -177,10 +177,10 @@ export const genValidSelector = (selector: string) => selector.replace(/^[^a-z]+
 /**
  * Convert number in string to floating number.
  *
- * @param {string} str
+ * @param {string | undefined} str
  * @returns {number}
  */
-export const stringToFloat = (str: string) => {
+export const stringToFloat = (str: string | undefined) => {
   if (!str) return 0;
   return Number(str.replace(',', '.'));
 };

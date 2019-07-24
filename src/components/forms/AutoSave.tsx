@@ -4,6 +4,7 @@ import { FormSpy, FormSpyRenderProps } from 'react-final-form';
 interface Props {
   save: Function;
   debounce: number;
+  values?: FormData;
 }
 
 class AutoSave extends Component<Props & FormSpyRenderProps> {
@@ -30,7 +31,6 @@ class AutoSave extends Component<Props & FormSpyRenderProps> {
     }
 
     const { values, save } = this.props;
-
     this.promise = save(values);
     await this.promise;
     delete this.promise;

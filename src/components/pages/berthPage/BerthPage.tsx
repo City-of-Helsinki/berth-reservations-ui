@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 
-import { getBerthFilterByValues, stringToFloat } from '../../../utils/berths';
+import { getBerthFilterByValues } from '../../../utils/berths';
 import Berths from '../../berths';
 import BerthsOnMap from '../../berths/BerthsOnMap';
 import TabSelector from '../../berths/TabSelector';

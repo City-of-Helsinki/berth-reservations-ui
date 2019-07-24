@@ -1,23 +1,23 @@
 import findIndex from 'lodash/findIndex';
+import omit from 'lodash/omit';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
 
-import omit from 'lodash/omit';
 import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
+import { getBerths, getSelectedResources, stringToFloat } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { CREATE_WINTER_STORAGE_RESERVATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
-import FormPage from '../formPage/FormPage';
-
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/BoatDetails';
 import Overview from '../../forms/sections/Overview';
 import WinterAreasQuery from '../../query/WinterAreasQuery';
+import FormPage from '../formPage/FormPage';
 
 import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
-import { getBerths, getSelectedResources } from '../../../utils/berths';
+import { WinterFormValues } from '../../../types/winterStorage';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
@@ -102,7 +102,7 @@ const WinterFormPageContainer = ({
       }) => {
         const boatTypes = data ? data.boatTypes : [];
         const areas = getBerths(data ? data.winterStorageAreas : null);
-        const goForward = async (values: {}) => {
+        const goForward = async (values: WinterFormValues) => {
           await onSubmit(values);
 
           const chosenAreas = selectedAreas
@@ -112,8 +112,12 @@ const WinterFormPageContainer = ({
             }))
             .toArray();
 
-          const allowedFormValues = omit(values, 'boatStoredOnTrailer');
-          // Omit boatStoredOnTrailer checkbox out of form data when submit.
+          const normalizedValues = Object.assign({}, values, {
+            boatWidth: stringToFloat(values.boatWidth),
+            boatLength: stringToFloat(values.boatLength)
+          });
+
+          const allowedFormValues = omit(normalizedValues, 'boatStoredOnTrailer');
 
           await client.mutate({
             variables: {

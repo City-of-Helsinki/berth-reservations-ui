@@ -1,4 +1,3 @@
-import { List } from 'immutable';
 import get from 'lodash/get';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -83,11 +82,11 @@ const UnconnectedSelectedBerthPage = ({
         // error, TODO: handle errors
         data
       }) => {
-        const width = get(values, 'boatWidth');
-        const length = get(values, 'boatLength');
+        const width = get(values, 'boatWidth', '');
+        const length = get(values, 'boatLength', '');
         const filter = getBerthFilterByValues(values, selectedServices);
         // @ts-ignore
-        const validSelection = true;
+        const validSelection = selectedAreas.every(filter);
         const areas = getBerths(data ? data.winterStorageAreas : null);
         const selected = getSelectedResources(selectedAreas, areas);
 

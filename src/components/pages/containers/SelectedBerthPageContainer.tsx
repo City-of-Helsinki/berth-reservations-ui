@@ -89,8 +89,8 @@ const UnconnectedSelectedBerthPage = ({
         const selected = getSelectedResources(selectedBerths, berths);
         const boatTypes = !loading && data ? data.boatTypes : [];
         const type = get(values, 'boatType');
-        const width = get(values, 'boatWidth');
-        const length = get(values, 'boatLength');
+        const width = get(values, 'boatWidth', '');
+        const length = get(values, 'boatLength', '');
         const boatType = boatTypes ? boatTypes.find(t => !!t && t.id === type) : undefined;
         const boatTypeName = boatType && boatType.name;
         const filter = getBerthFilterByValues(values, selectedServices);
