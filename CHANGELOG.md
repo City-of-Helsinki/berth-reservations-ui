@@ -1,3 +1,30 @@
+# [Unreleased]
+
+<details>
+  <summary>
+    Changes that landed in develop and might be expected in the upcoming releases.
+    Click to see more.
+  </summary>
+  ...
+</details>
+
+# 0.3.0 (July 24, 2019)
+
+**Added:**
+
+- Berth exchange application: Field for selecting the reason of requesting a new berth. in ([#229](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/229))
+
+**Changed:**
+
+- Selected page: Confirmation prompt before removing the selection. in ([#230](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/230))
+- Application steps: Application type as a header. in ([#236](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/236))
+
+**Fixed:**
+
+- Selected page: translations for the selected berths/storage-areas. in ([#238](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/238))
+- Winter Storage application: Trailer Registration Number is no longer required. in ([#239](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/239))
+- HTML tag: lang attribute match the selected language. in ([#232](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/232))
+
 # 0.2.0
 
 **MAJOR CHANGES**
