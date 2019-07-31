@@ -14,10 +14,9 @@ import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import { IconNames } from '../../common/Icon';
 import WinterAreasQuery from '../../query/WinterAreasQuery';
-import BerthPage from '../berthPage/BerthPage';
+import WinterStoragePage from '../winterStoragePage/WinterStoragePage';
 
 import { Store } from '../../../redux/types';
-import { FormMode } from '../../../types/form';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType, SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
@@ -115,13 +114,7 @@ const BerthPageContainer = (props: Props) => {
         const winterAreas = getBerthsFromCache(data ? data.winterStorageAreas : null);
 
         return (
-          <BerthPage
-            {...props}
-            formMode={FormMode.Winter}
-            berths={winterAreas}
-            steps={steps}
-            services={services}
-          />
+          <WinterStoragePage {...props} berths={winterAreas} steps={steps} services={services} />
         );
       }}
     </WinterAreasQuery>

@@ -7,16 +7,14 @@ import Icon, { IconNames } from '../../common/Icon';
 import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
 import ApplicationSelector from '../../forms/sections/applicationSelector/ApplicationSelector';
-import Steps from '../../steps/StepsContainer';
+import Steps from '../../steps/Steps';
 
-import { FormMode } from '../../../types/form';
 import {
   BerthsServices,
   SelectedServices,
   SelectedWinterServices,
   WinterServices
 } from '../../../types/services';
-import StorageAreas from '../../forms/fragments/StorageAreas';
 import { StepType } from '../../steps/step/Step';
 
 import './berthLegend.scss';
@@ -31,7 +29,6 @@ interface Props {
     title: string;
     legend: string;
   };
-  formMode?: FormMode;
   steps?: StepType[];
   services?: {
     available: Array<{
@@ -46,15 +43,13 @@ interface Props {
   };
 }
 
-const BerthsLegend = ({ form, legend, steps, services, formMode }: Props) => {
-  const isBerthForm = formMode === FormMode.Berth;
-
+const BerthsLegend = ({ form, legend, steps, services }: Props) => {
   return (
     <div className="vene-berths-legend">
       <Container>
         <Row>
           <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-            {isBerthForm && <ApplicationSelector className="vene-berths-legend__app-selector" />}
+            <ApplicationSelector className="vene-berths-legend__app-selector" />
             {steps && <Steps steps={steps} />}
             {legend && (
               <div className="vene-berths-legend__header">
@@ -72,7 +67,6 @@ const BerthsLegend = ({ form, legend, steps, services, formMode }: Props) => {
                 )}
               </Form>
             )}
-            {!isBerthForm && <StorageAreas />}
             {services && (
               <>
                 <div className="vene-berths-legend__services__header">
