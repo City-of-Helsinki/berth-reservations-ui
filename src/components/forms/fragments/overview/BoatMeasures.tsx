@@ -1,7 +1,9 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import { Col, Row } from 'reactstrap';
+
 import { stringToFloat } from '../../../../utils/berths';
+import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
+
 import './Form.scss';
 
 interface Props {
@@ -12,18 +14,10 @@ interface Props {
 const BoatMeasures = ({ width, length }: Props) => (
   <Row>
     <Col md={6}>
-      <div className="vene-overview-info__boat-info">
-        <FormattedMessage tagName="span" id="page.overview.info.boat_width" />
-        <span>:</span>
-        <span className="vene-form__data">{stringToFloat(width)}m</span>
-      </div>
+      <LabelValuePair label="page.overview.info.boat_width" value={`${stringToFloat(width)}m`} />
     </Col>
     <Col md={6}>
-      <div className="vene-overview-info__boat-info">
-        <FormattedMessage tagName="span" id="page.overview.info.boat_length" />
-        <span>:</span>
-        <span className="vene-form__data">{stringToFloat(length)}m</span>
-      </div>
+      <LabelValuePair label="page.overview.info.boat_length" value={`${stringToFloat(length)}m`} />
     </Col>
   </Row>
 );
