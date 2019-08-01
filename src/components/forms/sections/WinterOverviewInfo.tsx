@@ -8,7 +8,7 @@ import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
 import LinkedEditSection from '../fragments/overview/linkedEditSection/LinkedEditSection';
 import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
 import OverviewStorageMethod from '../fragments/overview/OverviewStorageMethod';
-import Person from '../fragments/overview/Person';
+import Person from '../fragments/overview/person/Person';
 
 import { WinterStorageMethod } from '../../../__generated__/globalTypes';
 import { ApplicationState } from '../../../redux/types';

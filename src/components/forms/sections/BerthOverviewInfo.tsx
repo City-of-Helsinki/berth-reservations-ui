@@ -11,7 +11,7 @@ import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
 import LinkedEditSection from '../fragments/overview/linkedEditSection/LinkedEditSection';
 import OldBerthInfo from '../fragments/overview/oldBerthInfo/OldBerthInfo';
 import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
-import Person from '../fragments/overview/Person';
+import Person from '../fragments/overview/person/Person';
 
 import { ApplicationState } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';

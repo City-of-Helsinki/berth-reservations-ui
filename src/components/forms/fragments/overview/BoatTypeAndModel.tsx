@@ -4,8 +4,6 @@ import { Col, Row } from 'reactstrap';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import { WithBoatType } from '../../Selects';
 
-import './Form.scss';
-
 type Props = {
   boatTypeId: string;
   boatModel: string;

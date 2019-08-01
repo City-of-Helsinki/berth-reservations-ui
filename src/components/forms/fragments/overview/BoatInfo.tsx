@@ -3,8 +3,6 @@ import { Col, Row } from 'reactstrap';
 
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 
-import './Form.scss';
-
 interface Props {
   name: string;
   registerNumber: string;

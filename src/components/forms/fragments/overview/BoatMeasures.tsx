@@ -4,8 +4,6 @@ import { Col, Row } from 'reactstrap';
 import { stringToFloat } from '../../../../utils/berths';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 
-import './Form.scss';
-
 interface Props {
   width: string;
   length: string;

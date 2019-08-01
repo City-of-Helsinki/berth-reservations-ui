@@ -1,6 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Col, Row } from 'reactstrap';
-import './Form.scss';
+
+import './person.scss';
 
 interface Props {
   firstName: string;
@@ -21,7 +22,7 @@ const Person = ({
   zipCode,
   municipality
 }: Props) => (
-  <Fragment>
+  <>
     <Row>
       <Col md={12}>
         {firstName} {lastName}
@@ -36,12 +37,12 @@ const Person = ({
     </Row>
     <Row>
       <Col md={12}>
-        {zipCode && address && <div className="vene-form__contact-section">{address}</div>}
-        {zipCode && <div className="vene-form__contact-section">{zipCode}</div>}
+        {zipCode && address && <div className="vene-person__contact-section">{address}</div>}
+        {zipCode && <div className="vene-person__contact-section">{zipCode}</div>}
         {municipality && municipality}
       </Col>
     </Row>
-  </Fragment>
+  </>
 );
 
 export default Person;
