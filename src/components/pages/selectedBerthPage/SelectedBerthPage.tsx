@@ -9,7 +9,7 @@ import LocalizedLink from '../../common/LocalizedLink';
 import ExchangeApplication from '../../forms/fragments/exchangeApplication/ExchangeApplicationContainer';
 import NewApplication from '../../forms/fragments/newApplication/NewApplication';
 import Layout from '../../layout/Layout';
-import SelectedBerthsLegend from '../../legends/berthLegend/selectedBerthsLegend/SelectedBerthsLegend';
+import SelectedBerthsLegend from '../../legends/selectedBerthsLegend/SelectedBerthsLegend';
 
 import { ApplicationOptions } from '../../../types/applicationType';
 import { HarborOptions } from '../../../types/harborOptionsTypes';
