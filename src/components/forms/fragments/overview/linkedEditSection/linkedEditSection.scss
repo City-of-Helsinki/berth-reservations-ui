@@ -1,0 +1,46 @@
+@import 'helsinki/colors';
+@import 'helsinki/fonts';
+@import 'styles/variables';
+
+$hover-color: $hel-coat;
+
+.vene-linked-edit-section {
+  padding: 0 0 $spacing-01;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid $hel-black;
+    padding-bottom: 0 0 $spacing-00-25;
+    margin-bottom: $spacing-01;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: $font-size-base;
+  }
+
+  &__link {
+    color: $hel-black;
+
+    &:hover {
+      text-decoration: none;
+      color: $hel-coat;
+
+      .vene-linked-edit-section__link-label {
+        color: $hover-color;
+      }
+
+      .vene-linked-edit-section__link-icon {
+        fill: $hover-color;
+      }
+    }
+  }
+
+  &__link-icon {
+    height: 1.25em;
+    width: 1.25em;
+    margin-left: 0.25em;
+    fill: $hel-black;
+  }
+}

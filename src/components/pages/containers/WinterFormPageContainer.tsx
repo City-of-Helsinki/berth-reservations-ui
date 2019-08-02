@@ -10,13 +10,12 @@ import { getBerths, getSelectedResources, stringToFloat } from '../../../utils/b
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { CREATE_WINTER_STORAGE_RESERVATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
-import BoatDetails from '../../forms/sections/BoatDetails';
-import Overview from '../../forms/sections/Overview';
+import BoatDetails from '../../forms/sections/WinterBoatDetails';
+import WinterOverview from '../../forms/sections/WinterOverview';
 import WinterAreasQuery from '../../query/WinterAreasQuery';
 import FormPage from '../formPage/FormPage';
 
 import { Store } from '../../../redux/types';
-import { FormMode } from '../../../types/form';
 import { WinterFormValues } from '../../../types/winterStorage';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
@@ -158,15 +157,14 @@ const WinterFormPageContainer = ({
             steps={steps}
             {...rest}
           >
-            <BoatDetails tab={boatTab} values={{}} boatTypes={boatTypes} mode={FormMode.Winter} />
+            <BoatDetails tab={boatTab} values={{}} boatTypes={boatTypes} />
             <ApplicantDetails tab={applicantTab} />
             {!loading && (
-              <Overview
+              <WinterOverview
                 selectedBerths={selected}
                 boatTypes={boatTypes}
                 boatTab={boatTab}
                 steps={steps}
-                mode={FormMode.Winter}
               />
             )}
           </FormPage>

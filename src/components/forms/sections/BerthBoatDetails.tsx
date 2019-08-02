@@ -2,25 +2,20 @@ import { get } from 'lodash';
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
-import StorageMethod from '../fragments/StorageMethod';
-import NoBoat from '../tabs/NoBoat';
-import RegisteredBoat from '../tabs/RegisteredBoat';
-import UnRegisteredBoat from '../tabs/UnRegisteredBoat';
-
-import { WinterStorageMethod } from '../../../__generated__/globalTypes';
-import { FormMode } from '../../../types/form';
-import { BigBoatTypeValue, WithBoatType } from '../Selects';
+import BerthNoBoat from '../tabs/BerthNoBoat';
+import BerthRegisteredBoat from '../tabs/BerthRegisteredBoat';
+import BerthUnRegisteredBoat from '../tabs/BerthUnRegisteredBoat';
 import SectionSelector from './SectionSelector';
+
+import { BigBoatTypeValue, WithBoatType } from '../Selects';
 
 type Props = {
   values: object;
   tab: string;
-  mode?: FormMode;
 } & WithBoatType;
 
-const BoatDetails = ({ values, tab, mode = FormMode.Berth, boatTypes }: Props) => {
-  const ShowBigShipsForm = get(values, 'boatType') === BigBoatTypeValue;
-  const showTrailerRegNum = get(values, 'storageMethod') === WinterStorageMethod.ON_TRAILER;
+const BoatDetails = ({ values, tab, boatTypes }: Props) => {
+  const showBigShipsForm = get(values, 'boatType') === BigBoatTypeValue;
   return (
     <>
       <SectionSelector
@@ -51,18 +46,11 @@ const BoatDetails = ({ values, tab, mode = FormMode.Berth, boatTypes }: Props) =
       <Container>
         <Row>
           <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-            <Container>
-              {mode === FormMode.Winter && <StorageMethod showTrailerRegNum={showTrailerRegNum} />}
-            </Container>
             {tab === 'registered-boat' && (
-              <RegisteredBoat
-                mode={mode}
-                ShowBigShipsForm={ShowBigShipsForm}
-                boatTypes={boatTypes}
-              />
+              <BerthRegisteredBoat showBigShipsForm={showBigShipsForm} boatTypes={boatTypes} />
             )}
-            {tab === 'unregistered-boat' && <UnRegisteredBoat mode={mode} boatTypes={boatTypes} />}
-            {tab === 'no-boat' && <NoBoat mode={mode} boatTypes={boatTypes} />}
+            {tab === 'unregistered-boat' && <BerthUnRegisteredBoat boatTypes={boatTypes} />}
+            {tab === 'no-boat' && <BerthNoBoat boatTypes={boatTypes} />}
           </Col>
         </Row>
       </Container>

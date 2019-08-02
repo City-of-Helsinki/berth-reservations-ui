@@ -17,7 +17,6 @@ import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 import BerthPage from '../berthPage/BerthPage';
 
 import { Store } from '../../../redux/types';
-import { FormMode } from '../../../types/form';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType, SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
@@ -107,7 +106,6 @@ const BerthPageContainer = (props: Props) => {
         return (
           <BerthPage
             {...props}
-            formMode={FormMode.Berth}
             berths={berths}
             boatTypes={boatTypes}
             steps={steps}

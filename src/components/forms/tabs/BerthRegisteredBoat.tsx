@@ -8,21 +8,19 @@ import BoatInfo from '../fragments/BoatInfo';
 import BoatMeasures from '../fragments/BoatMeasures';
 import RegisteredBoatDetails from '../fragments/RegisteredBoatDetails';
 
-import { FormMode } from '../../../types/form';
 import { WithBoatType } from '../Selects';
 
 import './Tabs.scss';
 
 type Props = {
-  ShowBigShipsForm: boolean;
-  mode: FormMode;
+  showBigShipsForm: boolean;
 } & WithBoatType;
 
-const RegisteredBoat = ({ mode, ShowBigShipsForm, boatTypes }: Props) => (
+const BerthRegisteredBoat = ({ showBigShipsForm, boatTypes }: Props) => (
   <Container className="vene-form__styled-container">
     <RegisteredBoatDetails boatTypes={boatTypes} />
-    <BoatMeasures showWeight={mode === FormMode.Berth} showDraught={mode === FormMode.Berth} />
-    {ShowBigShipsForm && (
+    <BoatMeasures showWeight showDraught />
+    {showBigShipsForm && (
       <div className="vene-form__big-ships">
         <FormattedMessage tagName="h3" id="form.big_ship.header.title" />
         <FormattedMessage tagName="p" id="form.big_ship.text.summary" />
@@ -32,9 +30,8 @@ const RegisteredBoat = ({ mode, ShowBigShipsForm, boatTypes }: Props) => (
       </div>
     )}
     <BoatInfo />
-
-    {mode === FormMode.Berth && <Accessibility />}
+    <Accessibility />
   </Container>
 );
 
-export default RegisteredBoat;
+export default BerthRegisteredBoat;

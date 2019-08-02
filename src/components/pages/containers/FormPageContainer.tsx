@@ -12,14 +12,13 @@ import FormPage from '../formPage/FormPage';
 import { BOAT_TYPES_BERTHS_QUERY, CREATE_RESERVATION } from '../../../utils/graphql';
 
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
-import BoatDetails from '../../forms/sections/BoatDetails';
-import Overview from '../../forms/sections/Overview';
+import BoatDetails from '../../forms/sections/BerthBoatDetails';
+import Overview from '../../forms/sections/BerthOverview';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 
 import { ApplicationState, Store } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
 import { BerthFormValues } from '../../../types/berth';
-import { FormMode } from '../../../types/form';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
@@ -181,7 +180,6 @@ const FormPageContainer = ({
             <ApplicantDetails tab={applicantTab} />
             {!loading && (
               <Overview
-                mode={FormMode.Berth}
                 selectedBerths={selected}
                 boatTypes={boatTypes}
                 boatTab={boatTab}

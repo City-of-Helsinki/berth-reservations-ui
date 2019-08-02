@@ -5,19 +5,18 @@ import Accessibility from '../fragments/Accessibility';
 import BoatInfo from '../fragments/BoatInfo';
 import UnRegisteredBoatDetails from '../fragments/UnRegisteredBoatDetails';
 
-import { FormMode } from '../../../types/form';
 import { WithBoatType } from '../Selects';
 
 import './Tabs.scss';
 
-type Props = {
-  mode: FormMode;
-} & WithBoatType;
+type Props = WithBoatType;
 
-export default ({ mode, boatTypes }: Props) => (
+const BerthUnRegisteredBoat = ({ boatTypes }: Props) => (
   <Container>
     <UnRegisteredBoatDetails boatTypes={boatTypes} />
     <BoatInfo />
-    {mode === FormMode.Berth && <Accessibility />}
+    <Accessibility />
   </Container>
 );
+
+export default BerthUnRegisteredBoat;

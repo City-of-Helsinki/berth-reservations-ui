@@ -1,0 +1,14 @@
+@import 'helsinki/colors';
+@import 'helsinki/fonts';
+@import 'styles/variables';
+
+.vene-overview-info {
+  background-color: $hel-light;
+  padding: $spacing-02;
+  margin-bottom: $spacing-01-50;
+
+  &__title {
+    font-size: $font-size-lg;
+    margin-top: 0;
+  }
+}

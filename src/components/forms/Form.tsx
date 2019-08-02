@@ -1,4 +1,3 @@
-import { Decorator } from 'final-form';
 import React from 'react';
 import { Field, Form as FinalForm } from 'react-final-form';
 import { injectIntl } from 'react-intl';

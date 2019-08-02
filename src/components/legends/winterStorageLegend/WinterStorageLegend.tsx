@@ -6,7 +6,7 @@ import { Col, Container, Row } from 'reactstrap';
 import Icon, { IconNames } from '../../common/Icon';
 import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
-import ApplicationSelector from '../../forms/sections/applicationSelector/ApplicationSelector';
+import StorageAreas from '../../forms/fragments/StorageAreas';
 import Steps from '../../steps/Steps';
 
 import {
@@ -17,7 +17,7 @@ import {
 } from '../../../types/services';
 import { StepType } from '../../steps/step/Step';
 
-import './berthLegend.scss';
+import './winterStorageLegend.scss';
 
 interface Props {
   form?: {
@@ -43,13 +43,12 @@ interface Props {
   };
 }
 
-const BerthsLegend = ({ form, legend, steps, services }: Props) => {
+const WinterStorageLegend = ({ form, legend, steps, services }: Props) => {
   return (
     <div className="vene-berths-legend">
       <Container>
         <Row>
           <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-            <ApplicationSelector className="vene-berths-legend__app-selector" />
             {steps && <Steps steps={steps} />}
             {legend && (
               <div className="vene-berths-legend__header">
@@ -59,14 +58,15 @@ const BerthsLegend = ({ form, legend, steps, services }: Props) => {
             )}
             {form && (
               <Form initialValues={form.initialValues} onSubmit={form.onSubmit}>
-                {({ invalid }: { invalid: boolean }) => (
+                {() => (
                   <>
                     {form.render()}
-                    {!invalid && <AutoSave debounce={500} save={form.onSubmit} />}
+                    <AutoSave debounce={500} save={form.onSubmit} />
                   </>
                 )}
               </Form>
             )}
+            <StorageAreas />
             {services && (
               <>
                 <div className="vene-berths-legend__services__header">
@@ -109,4 +109,4 @@ const BerthsLegend = ({ form, legend, steps, services }: Props) => {
   );
 };
 
-export default BerthsLegend;
+export default WinterStorageLegend;

@@ -5,23 +5,23 @@ import { getBerthFilterByValues } from '../../../utils/berths';
 import Berths from '../../berths';
 import BerthsOnMap from '../../berths/BerthsOnMap';
 import TabSelector from '../../berths/TabSelector';
+import Hero from '../../common/hero/Hero';
 import { IconNames } from '../../common/Icon';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
+import KoroSection from '../../layout/koroSection/KoroSection';
 import Layout from '../../layout/Layout';
-import BerthsLegend from '../../legends/berthLegend/BerthLegend';
-
-import { BerthType } from '../../../types/berth';
-import { BoatTypes } from '../../../types/boatTypes';
-import { BerthsServices, SelectedServices, WinterServices } from '../../../types/services';
-import { LocalePush } from '../../../utils/container';
-import { Berths as BerthsType, SelectedIds } from '../../berths/types';
-
-import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
+import WinterStorageLegend from '../../legends/winterStorageLegend/WinterStorageLegend';
 
 import { StorageAreaFilter } from '../../../redux/reducers/WinterAreaReducers';
-import Hero from '../../common/hero/Hero';
-import KoroSection from '../../layout/koroSection/KoroSection';
+import { BerthType } from '../../../types/berth';
+import { BoatTypes } from '../../../types/boatTypes';
+import { SelectedServices, WinterServices } from '../../../types/services';
+import { LocalePush } from '../../../utils/container';
+import { Berths as BerthsType, SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
+
+import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
+
 type Props = {
   initialValues: {};
   filtered: BerthsType;
@@ -39,7 +39,7 @@ type Props = {
   steps: StepType[];
   services: Array<{
     label: string;
-    value: BerthsServices | WinterServices;
+    value: WinterServices;
     icon: IconNames;
   }>;
   berthLimit: number;
@@ -57,7 +57,7 @@ const getHeroContentLink = (locale: string) => {
   }
 };
 
-class BerthPage extends Component<Props> {
+class WinterStoragePage extends Component<Props> {
   constructor(props: Props) {
     super(props);
 
@@ -66,7 +66,7 @@ class BerthPage extends Component<Props> {
 
   moveToForm = async () => {
     const { localePush } = this.props;
-    await localePush('berths/selected');
+    await localePush('winter-storage/selected');
   };
 
   toggleBerthSelect = (berth: BerthType) => {
@@ -103,21 +103,21 @@ class BerthPage extends Component<Props> {
 
     return (
       <Layout>
-        <Hero title={`site.berth.title`} bgUrl={berthsHeroImg} />
+        <Hero title={`site.winter.title`} bgUrl={winterHeroImg} bgPosition="center" />
         <KoroSection
           top
-          title={`hero.berth.title`}
+          title={`hero.winter.title`}
           description={[
-            { id: `hero.berth.paragraph.first` },
+            { id: `hero.winter.paragraph.first` },
             {
-              id: `hero.berth.paragraph.second`,
+              id: `hero.winter.paragraph.second`,
               values: { url: getHeroContentLink(intl.locale) }
             }
           ]}
         />
         <KoroSection color="fog" top className="vene-berth-filters-section">
-          <BerthsLegend
-            legend={{ title: `legend.berth.title`, legend: `legend.berth.legend` }}
+          <WinterStorageLegend
+            legend={{ title: `legend.winter.title`, legend: `legend.winter.legend` }}
             form={{
               onSubmit,
               initialValues,
@@ -125,7 +125,7 @@ class BerthPage extends Component<Props> {
                 <UnRegisteredBoatDetails
                   // @ts-ignore
                   boatStoredOnTrailer={!!initialValues.boatStoredOnTrailer}
-                  showBoatStoredOnTrailer={false}
+                  showBoatStoredOnTrailer
                   hideTitle
                   fieldsNotRequired
                   boatTypes={boatTypes}
@@ -137,7 +137,7 @@ class BerthPage extends Component<Props> {
               selectedServices,
               selectService,
               deselectService,
-              label: `form.services.field.berth.services.label`,
+              label: `form.services.field.winter.services.label`,
               available: services
             }}
           />
@@ -170,4 +170,4 @@ class BerthPage extends Component<Props> {
   }
 }
 
-export default injectIntl(BerthPage);
+export default injectIntl(WinterStoragePage);
