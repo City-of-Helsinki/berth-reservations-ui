@@ -7,10 +7,10 @@ import LabelValuePair from '../../../../common/labelValuePair/LabelValuePair';
 import './bigShipsInfo.scss';
 
 interface Props {
-  propulsion?: string;
-  hullMaterial?: string;
-  intendedUse?: string;
-  rentingPeriod?: string;
+  propulsion?: string | null;
+  hullMaterial?: string | null;
+  intendedUse?: string | null;
+  rentingPeriod?: string | null;
 }
 
 const BigShipsInfo = ({ propulsion, hullMaterial, intendedUse, rentingPeriod }: Props) => (

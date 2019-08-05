@@ -4,8 +4,8 @@ import { Col, Row } from 'reactstrap';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 
 interface Props {
-  name: string;
-  registerNumber: string;
+  name?: string | null;
+  registerNumber?: string | null;
 }
 
 const BoatInfo = ({ name, registerNumber }: Props) => (

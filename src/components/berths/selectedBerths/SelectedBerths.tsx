@@ -3,13 +3,14 @@ import { FormattedMessage } from 'react-intl';
 import { Alert } from 'reactstrap';
 
 import { IconNames } from '../../common/Icon';
-import SelectedBerth from '../Berth/selectedBerth/SelectedBerth';
-import { Berths } from '../types';
+import SelectedResource from '../Berth/selectedResource/SelectedResource';
+
+import { Resources } from '../types';
 
 import './selectedBerths.scss';
 
 interface Props {
-  berths: Berths;
+  berths: Resources;
   moveDown: Function;
   moveUp: Function;
   deselectBerth: Function;
@@ -48,16 +49,17 @@ const SelectedBerths = ({ berths, moveUp, moveDown, deselectBerth, berthValidato
               ];
 
         return (
-          <SelectedBerth
+          <SelectedResource
             className="vene-selected-berths__berth"
             title={`${index + 1}. ${berth.name}`}
+            id={berth.id}
             key={berth.id}
-            berth={berth}
             services={services}
             moveUp={index !== 0 ? moveUp : undefined}
             moveDown={index !== berths.size - 1 ? moveDown : undefined}
             handleRemove={deselectBerth}
-            isValid={berthValidator(berth)}
+            availabilityLevel={berth.availabilityLevel}
+            validationErrMsg={berthValidator(berth) && 'error.message.invalid_berth'}
           />
         );
       })}
