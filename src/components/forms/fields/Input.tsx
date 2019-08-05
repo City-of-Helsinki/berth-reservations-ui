@@ -6,9 +6,9 @@ import validator, { mustBePresent } from '../../../utils/formValidation';
 
 import Label from './Label';
 
-type Props = FieldProps & InjectedIntlProps;
+type Props = FieldProps<string, HTMLElement> & InjectedIntlProps;
 
-const TextInput = (type: string) => ({
+const TextInput = (type: 'text') => ({
   id,
   name,
   label,
@@ -34,6 +34,7 @@ const TextInput = (type: string) => ({
           placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
           {...input}
           {...rest}
+          type={type}
         />
         {meta.error && (
           <FormFeedback>
