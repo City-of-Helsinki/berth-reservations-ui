@@ -8,53 +8,21 @@ import Newsletter from '../fragments/Newsletter';
 import BerthOverviewInfo from './BerthOverviewInfo';
 
 import { ApplicationState } from '../../../redux/types';
+import { BerthFormValues } from '../../../types/berth';
 import { Berths } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 import { WithBoatType } from '../Selects';
 
 type Props = {
-  values?: {
-    boatName: string;
-    boatRegistrationNumber: string;
-    boatType: string;
-    boatModel: string;
-    boatWidth: string;
-    boatLength: string;
-    boatDraught: string;
-    boatWeight: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    phoneNumber: string;
-    address: string;
-    zipCode: string;
-    municipality: string;
-    trailerRegistrationNumber?: string;
-  };
+  values?: BerthFormValues;
   selectedBerths: Berths;
   application?: ApplicationState;
   boatTab: string;
   steps: StepType[];
 } & WithBoatType;
 
-const Submit = ({
-  values = {
-    boatName: '',
-    boatRegistrationNumber: '',
-    boatType: '',
-    boatModel: '',
-    boatWidth: '0',
-    boatLength: '0',
-    boatDraught: '0',
-    boatWeight: '0',
-    firstName: '',
-    lastName: '',
-    email: '',
-    phoneNumber: '',
-    address: '',
-    zipCode: '',
-    municipality: ''
-  },
+const BerthOverview = ({
+  values,
   selectedBerths,
   application,
   boatTab,
@@ -65,14 +33,16 @@ const Submit = ({
     <Row>
       <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
         <div className="vene-form__styled-container">
-          <BerthOverviewInfo
-            selectedBerths={selectedBerths}
-            boatTab={boatTab}
-            values={values}
-            boatTypes={boatTypes}
-            application={application}
-            steps={steps}
-          />
+          {values && (
+            <BerthOverviewInfo
+              selectedBerths={selectedBerths}
+              boatTab={boatTab}
+              values={values}
+              boatTypes={boatTypes}
+              application={application}
+              steps={steps}
+            />
+          )}
           <ApplicationCode />
           <FormattedMessage tagName="h5" id="form.overview.header.receivable_items.title" />
           <Newsletter />
@@ -84,4 +54,4 @@ const Submit = ({
   </Container>
 );
 
-export default Submit;
+export default BerthOverview;

@@ -9,7 +9,7 @@ import {
   selectService
 } from '../../../redux/actions/BerthActions';
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
-import { getBerths as getBerthsFromCache } from '../../../utils/berths';
+import { getResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import { IconNames } from '../../common/Icon';
@@ -17,12 +17,13 @@ import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 import BerthPage from '../berthPage/BerthPage';
 
 import { Store } from '../../../redux/types';
+import { BerthFormValues } from '../../../types/berth';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType, SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 interface Props {
-  initialValues: {};
+  initialValues: BerthFormValues;
   filtered: BerthsType;
   filteredNot: BerthsType;
   selectedBerthsIds: SelectedIds;
@@ -100,7 +101,7 @@ const BerthPageContainer = (props: Props) => {
         // error, TODO: handle errors
         data
       }) => {
-        const berths = getBerthsFromCache(data ? data.harbors : null);
+        const berths = getResources(data ? data.harbors : null);
         const boatTypes = data ? data.boatTypes : [];
 
         return (

@@ -3,27 +3,26 @@ import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 
 import { getBerthFilterByValues } from '../../../utils/berths';
 import Berths from '../../berths';
-import BerthsOnMap from '../../berths/BerthsOnMap';
 import TabSelector from '../../berths/TabSelector';
+import Hero from '../../common/hero/Hero';
 import { IconNames } from '../../common/Icon';
+import Map from '../../common/Map';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
+import KoroSection from '../../layout/koroSection/KoroSection';
 import Layout from '../../layout/Layout';
 import BerthsLegend from '../../legends/berthLegend/BerthLegend';
 
-import { BerthType } from '../../../types/berth';
+import { BerthFormValues, BerthType } from '../../../types/berth';
 import { BoatTypes } from '../../../types/boatTypes';
-import { BerthsServices, SelectedServices, WinterServices } from '../../../types/services';
+import { BerthsServices, SelectedServices } from '../../../types/services';
 import { LocalePush } from '../../../utils/container';
 import { Berths as BerthsType, SelectedIds } from '../../berths/types';
+import { StepType } from '../../steps/step/Step';
 
 import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
 
-import { StorageAreaFilter } from '../../../redux/reducers/WinterAreaReducers';
-import Hero from '../../common/hero/Hero';
-import KoroSection from '../../layout/koroSection/KoroSection';
-import { StepType } from '../../steps/step/Step';
 type Props = {
-  initialValues: {};
+  initialValues: BerthFormValues;
   filtered: BerthsType;
   filteredNot: BerthsType;
   selectedBerthsIds: SelectedIds;
@@ -39,11 +38,10 @@ type Props = {
   steps: StepType[];
   services: Array<{
     label: string;
-    value: BerthsServices | WinterServices;
+    value: BerthsServices;
     icon: IconNames;
   }>;
   berthLimit: number;
-  storageAreaFilter?: StorageAreaFilter;
 } & InjectedIntlProps;
 
 const getHeroContentLink = (locale: string) => {
@@ -91,10 +89,9 @@ class BerthPage extends Component<Props> {
       steps,
       services,
       berthLimit,
-      storageAreaFilter,
       intl
     } = this.props;
-    const filter = getBerthFilterByValues(initialValues, selectedServices, storageAreaFilter);
+    const filter = getBerthFilterByValues(initialValues, selectedServices);
     const filtered = berths.filter(filter);
     const filteredNot = berths.filterNot(filter);
     const validSelection = berths
@@ -123,8 +120,6 @@ class BerthPage extends Component<Props> {
               initialValues,
               render: () => (
                 <UnRegisteredBoatDetails
-                  // @ts-ignore
-                  boatStoredOnTrailer={!!initialValues.boatStoredOnTrailer}
                   showBoatStoredOnTrailer={false}
                   hideTitle
                   fieldsNotRequired
@@ -148,7 +143,7 @@ class BerthPage extends Component<Props> {
           validSelection={validSelection}
           berthLimit={berthLimit}
         >
-          <BerthsOnMap
+          <Map
             TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
             filtered={filtered}
             filteredNot={filteredNot}

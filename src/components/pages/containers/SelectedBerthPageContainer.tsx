@@ -5,15 +5,15 @@ import { compose } from 'recompose';
 
 import { submitApplicationForm as submitExchangeForm } from '../../../redux/actions/ApplicationActions';
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
-import { getBerthFilterByValues, getBerths, getSelectedResources } from '../../../utils/berths';
+import { getBerthFilterByValues, getResources, getSelectedResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
-import { getHarbors } from '../../../utils/harborUtils';
 import SelectedBerthPage from '../selectedBerthPage/SelectedBerthPage';
 
 import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
 import { SelectedIds } from '../../berths/types';
 
+import { BerthFormValues } from '../../../types/berth';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 import { StepType } from '../../steps/step/Step';
@@ -25,10 +25,10 @@ interface Props {
   moveUp: Function;
   moveDown: Function;
   localePush: LocalePush;
-  values: {};
+  values: BerthFormValues;
   berthsApplicationType: string;
   submitExchangeForm: Function;
-  initialValues: {};
+  initialValues: BerthFormValues;
 }
 
 const steps: StepType[] = [
@@ -85,7 +85,7 @@ const UnconnectedSelectedBerthPage = ({
         // error, TODO: handle errors
         data
       }) => {
-        const berths = getBerths(data ? data.harbors : null);
+        const berths = getResources(data ? data.harbors : null);
         const selected = getSelectedResources(selectedBerths, berths);
         const boatTypes = !loading && data ? data.boatTypes : [];
         const type = get(values, 'boatType');
@@ -95,8 +95,6 @@ const UnconnectedSelectedBerthPage = ({
         const boatTypeName = boatType && boatType.name;
         const filter = getBerthFilterByValues(values, selectedServices);
         const validSelection = selected.every(filter);
-        // @ts-ignore
-        const normalizedHarbors = getHarbors(data && data.harbors ? data.harbors.edges : []);
 
         return (
           <SelectedBerthPage
@@ -113,7 +111,7 @@ const UnconnectedSelectedBerthPage = ({
             }}
             selectedBerths={selected}
             values={values}
-            harbors={normalizedHarbors}
+            berths={berths}
             {...rest}
           />
         );

@@ -9,7 +9,7 @@ import {
   selectService,
   selectWinterArea
 } from '../../../redux/actions/WinterAreaActions';
-import { getBerths as getBerthsFromCache } from '../../../utils/berths';
+import { getResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import { IconNames } from '../../common/Icon';
@@ -17,26 +17,30 @@ import WinterAreasQuery from '../../query/WinterAreasQuery';
 import WinterStoragePage from '../winterStoragePage/WinterStoragePage';
 
 import { Store } from '../../../redux/types';
-import { SelectedServices } from '../../../types/services';
-import { Berths as BerthsType, SelectedIds } from '../../berths/types';
+import { SelectedWinterServices } from '../../../types/services';
+import { WinterFormValues } from '../../../types/winterStorage';
+import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
-interface Props {
-  berthLimit: number;
-  initialValues: {};
-  filtered: BerthsType;
-  filteredNot: BerthsType;
-  selectedBerthsIds: SelectedIds;
-  selectedServices: SelectedServices;
-  selectBerth: Function;
-  deselectBerth: Function;
-  selectService: Function;
-  deselectService: Function;
-  onSubmit: Function;
+interface WithLocalePush {
   localePush: LocalePush;
 }
 
-const BerthPageContainer = (props: Props) => {
+interface PropsFromState {
+  initialValues: WinterFormValues;
+  selectedAreasIds: SelectedIds;
+  selectedServices: SelectedWinterServices;
+  berthLimit: number;
+  selectService: Function;
+  deselectService: Function;
+  onSubmit: Function;
+  selectArea: Function;
+  deselectArea: Function;
+}
+
+type Props = WithLocalePush & PropsFromState;
+
+const WinterStoragePageContainer = (props: Props) => {
   const steps: StepType[] = [
     {
       key: 'winter_areas',
@@ -111,10 +115,10 @@ const BerthPageContainer = (props: Props) => {
         // error, TODO: handle errors
         data
       }) => {
-        const winterAreas = getBerthsFromCache(data ? data.winterStorageAreas : null);
+        const winterAreas = getResources(data ? data.winterStorageAreas : null);
 
         return (
-          <WinterStoragePage {...props} berths={winterAreas} steps={steps} services={services} />
+          <WinterStoragePage {...props} areas={winterAreas} steps={steps} services={services} />
         );
       }}
     </WinterAreasQuery>
@@ -126,17 +130,16 @@ export default compose<Props, {}>(
   connect(
     (state: Store) => ({
       initialValues: state.forms.winterValues,
-      selectedBerthsIds: state.winterAreas.selectedWinterAreas,
+      selectedAreasIds: state.winterAreas.selectedWinterAreas,
       selectedServices: state.winterAreas.selectedWinterServices,
-      berthLimit: state.winterAreas.areasLimit,
-      storageAreaFilter: state.winterAreas.storageAreaFilter
+      berthLimit: state.winterAreas.areasLimit
     }),
     {
       selectService,
       deselectService,
       onSubmit: onSubmitWinterForm,
-      selectBerth: selectWinterArea,
-      deselectBerth: deselectWinterArea
+      selectArea: selectWinterArea,
+      deselectArea: deselectWinterArea
     }
   )
-)(BerthPageContainer);
+)(WinterStoragePageContainer);

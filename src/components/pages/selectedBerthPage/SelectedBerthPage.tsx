@@ -12,18 +12,14 @@ import Layout from '../../layout/Layout';
 import SelectedBerthsLegend from '../../legends/selectedBerthsLegend/SelectedBerthsLegend';
 
 import { ApplicationOptions } from '../../../types/applicationType';
-import { HarborOptions } from '../../../types/harborOptionsTypes';
+import { BerthFormValues } from '../../../types/berth';
 import { Berths } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 import './selectedBerthPage.scss';
 
 interface BoatInfoForBerths {
-  boatType: string | null;
-  width: string;
-  length: string;
-}
-interface BoatInfoForWinter {
+  boatType?: string | null;
   width: string;
   length: string;
 }
@@ -33,14 +29,14 @@ export interface Props {
   moveToForm: () => {};
   handlePrevious: () => {};
   deselectBerth: Function;
-  boatInfo: BoatInfoForBerths | BoatInfoForWinter;
+  boatInfo: BoatInfoForBerths;
   moveUp: Function;
   moveDown: Function;
-  harbors?: HarborOptions;
+  berths?: Berths;
   berthsApplicationType?: string;
   submitExchangeForm?: Function;
-  values: {};
-  initialValues: {};
+  values: BerthFormValues;
+  initialValues?: BerthFormValues;
   legend: { title: string; legend: string };
   validSelection: boolean;
   filter: Function;
@@ -54,7 +50,7 @@ class SelectedBerthPage extends Component<Props> {
     window.scrollTo(0, 0);
   }
 
-  handleSubmitApplication = (values: any) => {
+  handleSubmitApplication = (values: BerthFormValues) => {
     if (this.props.submitExchangeForm) {
       this.props.submitExchangeForm(values);
     }
@@ -75,11 +71,11 @@ class SelectedBerthPage extends Component<Props> {
       steps,
       legend,
       validSelection,
-      harbors
+      berths
     } = this.props;
     return (
       <Form
-        onSubmit={formValues => this.handleSubmitApplication(formValues)}
+        onSubmit={this.handleSubmitApplication}
         initialValues={initialValues}
         render={({ handleSubmit, invalid }) => (
           <Layout>
@@ -90,11 +86,11 @@ class SelectedBerthPage extends Component<Props> {
                 <Row>
                   <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
                     {berthsApplicationType &&
-                      harbors &&
+                      berths &&
                       (berthsApplicationType === ApplicationOptions.NewApplication ? (
                         <NewApplication />
                       ) : (
-                        <ExchangeApplication harbors={harbors} />
+                        <ExchangeApplication berths={berths} />
                       ))}
 
                     <FormattedMessage tagName="h3" id="page.berth.selected.title" />
@@ -102,21 +98,18 @@ class SelectedBerthPage extends Component<Props> {
                     {Object.values(boatInfo).every(value => !!value) ? (
                       <Container>
                         <Row>
-                          {boatInfo.hasOwnProperty('boatType') && (
-                            <Col md="5">
-                              <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
-                              <span className="vene-berth-page-selected__boat-value">
-                                {(boatInfo as BoatInfoForBerths).boatType}
-                              </span>
-                            </Col>
-                          )}
+                          <Col md="5">
+                            <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
+                            <span className="vene-berth-page-selected__boat-value">
+                              {boatInfo.boatType}
+                            </span>
+                          </Col>
                           <Col md="3">
                             <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:
                             <span className="vene-berth-page-selected__boat-value">
                               {boatInfo.width} m
                             </span>
                           </Col>
-
                           <Col md="3">
                             <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:
                             <span className="vene-berth-page-selected__boat-value">

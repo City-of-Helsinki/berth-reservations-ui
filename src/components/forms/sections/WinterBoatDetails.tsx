@@ -8,11 +8,12 @@ import WinterRegisteredBoat from '../tabs/WinterRegisteredBoat';
 import WinterUnRegisteredBoat from '../tabs/WinterUnRegisteredBoat';
 
 import { WinterStorageMethod } from '../../../__generated__/globalTypes';
+import { WinterFormValues } from '../../../types/winterStorage';
 import { WithBoatType } from '../Selects';
 import SectionSelector from './SectionSelector';
 
 type Props = {
-  values: object;
+  values?: WinterFormValues;
   tab: string;
 } & WithBoatType;
 

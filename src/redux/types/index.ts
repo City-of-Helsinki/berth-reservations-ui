@@ -1,13 +1,16 @@
 import { Record, RecordOf } from 'immutable';
+
 import { BerthSwitchInput } from '../../__generated__/globalTypes';
 import { SelectedIds } from '../../components/berths/types';
 import { ApplicationOptions } from '../../types/applicationType';
+import { BerthFormValues } from '../../types/berth';
 import { SelectedServices, SelectedWinterServices } from '../../types/services';
+import { WinterFormValues } from '../../types/winterStorage';
 import { StorageAreaFilter } from '../reducers/WinterAreaReducers';
 
 interface FormProps {
-  berthValues: object;
-  winterValues: object;
+  berthValues: BerthFormValues;
+  winterValues: WinterFormValues;
 }
 
 interface BerthsProps {

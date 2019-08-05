@@ -124,7 +124,7 @@ const filterStorageArea = (storage: WinterStorageType, filterType?: StorageAreaF
   return true;
 };
 
-export const getBerths = <T, P, G extends { coordinates: [number, number] }>(
+export const getResources = <T, P, G extends { coordinates: [number, number] }>(
   data: {
     edges: Array<{
       node: {
