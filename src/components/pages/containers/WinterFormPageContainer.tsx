@@ -6,7 +6,7 @@ import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
 
 import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
-import { getBerths, getSelectedResources, stringToFloat } from '../../../utils/berths';
+import { getResources, getSelectedResources, stringToFloat } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { CREATE_WINTER_STORAGE_RESERVATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
@@ -15,6 +15,7 @@ import WinterOverview from '../../forms/sections/WinterOverview';
 import WinterAreasQuery from '../../query/WinterAreasQuery';
 import FormPage from '../formPage/FormPage';
 
+import { WinterStorageReservationInput } from '../../../__generated__/globalTypes';
 import { Store } from '../../../redux/types';
 import { WinterFormValues } from '../../../types/winterStorage';
 import { SelectedIds } from '../../berths/types';
@@ -100,7 +101,7 @@ const WinterFormPageContainer = ({
         client
       }) => {
         const boatTypes = data ? data.boatTypes : [];
-        const areas = getBerths(data ? data.winterStorageAreas : null);
+        const areas = getResources(data ? data.winterStorageAreas : null);
         const goForward = async (values: WinterFormValues) => {
           await onSubmit(values);
 
@@ -118,14 +119,10 @@ const WinterFormPageContainer = ({
 
           const allowedFormValues = omit(normalizedValues, 'boatStoredOnTrailer');
 
-          await client.mutate({
+          await client.mutate<any, { reservation: WinterStorageReservationInput }>({
             variables: {
               reservation: {
                 chosenAreas,
-                acceptBoatingNewsletter: false,
-                acceptFitnessNews: false,
-                acceptLibraryNews: false,
-                acceptOtherCultureNews: false,
                 ...allowedFormValues
               }
             },
@@ -157,11 +154,11 @@ const WinterFormPageContainer = ({
             steps={steps}
             {...rest}
           >
-            <BoatDetails tab={boatTab} values={{}} boatTypes={boatTypes} />
+            <BoatDetails tab={boatTab} boatTypes={boatTypes} />
             <ApplicantDetails tab={applicantTab} />
             {!loading && (
               <WinterOverview
-                selectedBerths={selected}
+                selectedAreas={selected}
                 boatTypes={boatTypes}
                 boatTab={boatTab}
                 steps={steps}
