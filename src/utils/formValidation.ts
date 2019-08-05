@@ -1,25 +1,21 @@
-import { stringToFloat } from './berths';
-
-export const mustBePresent = (value: any): any =>
+export const mustBePresent = (value: any): string | undefined =>
   value ? undefined : 'validation.message.required';
 
-export const mustBeNumber = (value: any): any =>
+export const mustBeNumber = (value: any): string | undefined =>
   isNaN(value) ? 'validation.message.must_be_number' : undefined;
 
-export const mustBePositiveNumber = (value: string): string | undefined => {
-  const fixedFloatValue: number = stringToFloat((value || '').replace(',', '.'));
-
-  if (isNaN(fixedFloatValue)) {
+export const mustBePositiveNumber = (value: number): string | undefined => {
+  if (isNaN(value)) {
     return 'validation.message.must_be_number';
   }
-  if (fixedFloatValue < 0) {
+  if (value < 0) {
     return 'validation.message.must_be_positive_number';
   }
 
   return undefined;
 };
 
-export const mustBePhoneNumber = (value: any): any => {
+export const mustBePhoneNumber = (value: string): string | undefined => {
   const phoneRe = /^([0-9\(\)\s\+\-])+$/im;
   if (phoneRe.test(value)) {
     return undefined;

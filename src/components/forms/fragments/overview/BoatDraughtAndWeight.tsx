@@ -1,24 +1,20 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
-import { stringToFloat } from '../../../../utils/berths';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 
 interface Props {
-  draught: string;
-  weight: string;
+  draught?: string | null;
+  weight?: string | null;
 }
 
 const BoatDraughtAndWeight = ({ draught, weight }: Props) => (
   <Row>
     <Col md={6}>
-      <LabelValuePair
-        label="page.overview.info.boat_draught"
-        value={`${stringToFloat(draught)}m`}
-      />
+      <LabelValuePair label="page.overview.info.boat_draught" value={`${draught}m`} />
     </Col>
     <Col md={6}>
-      <LabelValuePair label="page.overview.info.boat_weight" value={`${stringToFloat(weight)}`} />
+      <LabelValuePair label="page.overview.info.boat_weight" value={`${weight}`} />
     </Col>
   </Row>
 );

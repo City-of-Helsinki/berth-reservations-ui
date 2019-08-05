@@ -4,17 +4,17 @@ import { Col, Container, Row } from 'reactstrap';
 
 import { Select, Text } from '../../Fields';
 
-import { HarborOption, HarborOptions } from '../../../../types/harborOptionsTypes';
 import { BerthSwitchReasonsQuery_berthSwitchReasons } from '../../../../utils/__generated__/BerthSwitchReasonsQuery';
+import { Berths } from '../../../berths/types';
 
 import './exchangeApplication.scss';
 
 export interface ExchangeApplicationProps {
-  harbors: HarborOptions;
+  berths: Berths;
   reasons?: BerthSwitchReasonsQuery_berthSwitchReasons[];
 }
 
-const ExchangeApplication: FC<ExchangeApplicationProps> = ({ harbors, reasons }) => {
+const ExchangeApplication: FC<ExchangeApplicationProps> = ({ berths, reasons }) => {
   return (
     <Container className="vene-exchange-application">
       <Row>
@@ -36,10 +36,10 @@ const ExchangeApplication: FC<ExchangeApplicationProps> = ({ harbors, reasons })
             required
           >
             <option />
-            {harbors.size &&
-              harbors.map((harbor: HarborOption) => (
-                <option key={harbor.id} value={harbor.id}>
-                  {harbor.name}
+            {berths.size &&
+              berths.map(berth => (
+                <option key={berth.id} value={berth.id}>
+                  {berth.name}
                 </option>
               ))}
           </Select>
