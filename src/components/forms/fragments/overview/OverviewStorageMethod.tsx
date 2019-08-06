@@ -8,7 +8,7 @@ import { WinterStorageMethod } from '../../../../__generated__/globalTypes';
 
 type Props = {
   storageMethod: WinterStorageMethod;
-  registrationNumber?: string;
+  registrationNumber?: string | null;
 } & InjectedIntlProps;
 
 const OverviewStorageMethod: SFC<Props> = ({

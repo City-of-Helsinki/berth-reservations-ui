@@ -21,10 +21,9 @@ type Props = {
     md?: number;
     lg?: number;
   };
-} & RouteComponentProps;
+} & RouteComponentProps<{ tab: string }>;
 
 const SectionSelector = ({ name, types, sizes, location, match }: Props) => {
-  // @ts-ignore
   const url = location.pathname.replace(match.params.tab, '');
   return (
     <div className="vene-section-selector">

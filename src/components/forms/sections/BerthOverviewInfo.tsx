@@ -15,32 +15,13 @@ import Person from '../fragments/overview/person/Person';
 
 import { ApplicationState } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
+import { BerthFormValues } from '../../../types/berth';
 import { Berths } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 import { BigBoatTypeValue, WithBoatType } from '../Selects';
 
 type Props = {
-  values: {
-    boatName: string;
-    boatRegistrationNumber: string;
-    boatType: string;
-    boatModel: string;
-    boatWidth: string;
-    boatLength: string;
-    boatDraught: string;
-    boatWeight: string;
-    boatPropulsion?: string;
-    boatHullMaterial?: string;
-    boatIntendedUse?: string;
-    rentingPeriod?: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    phoneNumber: string;
-    address: string;
-    zipCode: string;
-    municipality: string;
-  };
+  values: BerthFormValues;
   selectedBerths: Berths;
   application?: ApplicationState;
   steps: StepType[];
@@ -58,6 +39,7 @@ const BerthOverviewInfo = ({
   applicationType
 }: Props) => {
   const showBigShipsForm = get(values, 'boatType') === BigBoatTypeValue;
+
   return (
     <OverviewInfo title={applicationType}>
       {application && application.berthsApplicationType === ApplicationOptions.ExchangeApplication && (
@@ -85,6 +67,8 @@ const BerthOverviewInfo = ({
                 hullMaterial={values.boatHullMaterial}
                 intendedUse={values.boatIntendedUse}
                 rentingPeriod={values.rentingPeriod}
+                rentFrom={values.rentFrom}
+                rentTill={values.rentTill}
               />
             )}
           </Fragment>

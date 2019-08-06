@@ -10,33 +10,15 @@ import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
 import OverviewStorageMethod from '../fragments/overview/OverviewStorageMethod';
 import Person from '../fragments/overview/person/Person';
 
-import { WinterStorageMethod } from '../../../__generated__/globalTypes';
 import { ApplicationState } from '../../../redux/types';
-import { Berths } from '../../berths/types';
+import { WinterFormValues } from '../../../types/winterStorage';
+import { WinterAreas } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 import { WithBoatType } from '../Selects';
 
 type Props = {
-  values: {
-    boatName: string;
-    boatRegistrationNumber: string;
-    boatType: string;
-    boatModel: string;
-    boatWidth: string;
-    boatLength: string;
-    boatDraught: string;
-    boatWeight: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    phoneNumber: string;
-    address: string;
-    zipCode: string;
-    municipality: string;
-    storageMethod?: WinterStorageMethod;
-    trailerRegistrationNumber?: string;
-  };
-  selectedBerths: Berths;
+  values: WinterFormValues;
+  selectedAreas: WinterAreas;
   application?: ApplicationState;
   steps: StepType[];
   boatTab: string;
@@ -45,7 +27,7 @@ type Props = {
 
 const WinterOverviewInfo = ({
   values,
-  selectedBerths,
+  selectedAreas,
   boatTypes,
   steps,
   boatTab,
@@ -95,9 +77,9 @@ const WinterOverviewInfo = ({
     <LinkedEditSection title="page.overview.info.berths" link={steps[1].linkTo}>
       <Row>
         <Col xs={12}>
-          {selectedBerths.map((berth, index) => (
-            <div key={berth.id}>
-              {index + 1}. {berth.name}
+          {selectedAreas.map((area, index) => (
+            <div key={area.id}>
+              {index + 1}. {area.name}
             </div>
           ))}
         </Col>

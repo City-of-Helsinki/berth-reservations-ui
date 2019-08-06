@@ -6,7 +6,7 @@ import { WithBoatType } from '../../Selects';
 
 type Props = {
   boatTypeId: string;
-  boatModel: string;
+  boatModel?: string | null;
 } & WithBoatType;
 
 const BoatTypeAndModel = ({ boatTypeId, boatModel, boatTypes }: Props) => {

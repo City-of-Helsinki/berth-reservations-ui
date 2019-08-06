@@ -33,12 +33,12 @@ interface Props {
   services?: {
     available: Array<{
       label: string;
-      value: BerthsServices | WinterServices;
+      value: BerthsServices;
       icon: IconNames;
     }>;
     deselectService: Function;
     label: string;
-    selectedServices: SelectedServices | SelectedWinterServices;
+    selectedServices: SelectedServices;
     selectService: Function;
   };
 }
@@ -74,7 +74,6 @@ const BerthsLegend = ({ form, legend, steps, services }: Props) => {
                 </div>
                 <div className="vene-berths-legend__services">
                   {services.available.map((service, index) => {
-                    // @ts-ignore
                     const selected = services.selectedServices.get(service.value) || false;
                     return (
                       <button

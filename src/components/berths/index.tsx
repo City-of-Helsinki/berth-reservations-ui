@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
 
-import { isBerthSelected } from '../../utils/berths';
+import { isResourceSelected } from '../../utils/berths';
 import Berth from './Berth/Berth';
 
 import { BerthProps } from './types';
@@ -27,7 +27,7 @@ export default ({ filtered, filteredNot, onClick, selected, berthLimit }: BerthP
         key={berth.id}
         berth={berth}
         onClick={() => onClick(berth)}
-        selected={isBerthSelected(selected, berth)}
+        selected={isResourceSelected(selected, berth.id)}
         disabled={selected.size >= berthLimit}
       />
     ))}
@@ -45,7 +45,7 @@ export default ({ filtered, filteredNot, onClick, selected, berthLimit }: BerthP
         key={berth.id}
         berth={berth}
         onClick={() => onClick(berth)}
-        selected={isBerthSelected(selected, berth)}
+        selected={isResourceSelected(selected, berth.id)}
         disabled={selected.size >= berthLimit}
       />
     ))}

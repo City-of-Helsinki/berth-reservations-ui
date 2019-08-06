@@ -9,12 +9,7 @@ import Form from '../../forms/Form';
 import StorageAreas from '../../forms/fragments/StorageAreas';
 import Steps from '../../steps/Steps';
 
-import {
-  BerthsServices,
-  SelectedServices,
-  SelectedWinterServices,
-  WinterServices
-} from '../../../types/services';
+import { SelectedWinterServices, WinterServices } from '../../../types/services';
 import { StepType } from '../../steps/step/Step';
 
 import './winterStorageLegend.scss';
@@ -33,12 +28,12 @@ interface Props {
   services?: {
     available: Array<{
       label: string;
-      value: BerthsServices | WinterServices;
+      value: WinterServices;
       icon: IconNames;
     }>;
     deselectService: Function;
     label: string;
-    selectedServices: SelectedServices | SelectedWinterServices;
+    selectedServices: SelectedWinterServices;
     selectService: Function;
   };
 }
@@ -74,7 +69,6 @@ const WinterStorageLegend = ({ form, legend, steps, services }: Props) => {
                 </div>
                 <div className="vene-berths-legend__services">
                   {services.available.map((service, index) => {
-                    // @ts-ignore
                     const selected = services.selectedServices.get(service.value) || false;
                     return (
                       <button

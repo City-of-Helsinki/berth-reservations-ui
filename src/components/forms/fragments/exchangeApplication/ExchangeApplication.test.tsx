@@ -1,14 +1,13 @@
 import { shallow } from 'enzyme';
-import { List } from 'immutable';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { HarborOptions } from '../../../../types/harborOptionsTypes';
-import { Select, Text } from '../../Fields';
 
+import { berths } from '../../../../__fixtures__/berthFixture';
+import { Select, Text } from '../../Fields';
 import ExchangeApplication, { ExchangeApplicationProps } from './ExchangeApplication';
 
 describe('fragments/ExchangeApplication', () => {
-  const mockHarbor: HarborOptions = List([{ id: 'foo', name: 'bar' }]);
+  const mockHarbor = berths;
 
   const getWrapper = (props?: Partial<ExchangeApplicationProps>) =>
     shallow(
@@ -17,7 +16,7 @@ describe('fragments/ExchangeApplication', () => {
           { __typename: 'BerthSwitchReasonType', id: '1', title: 'foo' },
           { __typename: 'BerthSwitchReasonType', id: '2', title: 'bar' }
         ]}
-        harbors={mockHarbor}
+        berths={mockHarbor}
         {...props}
       />
     );

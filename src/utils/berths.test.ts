@@ -1,16 +1,18 @@
 import { List, Record } from 'immutable';
 
-import { createBerth } from '../__fixtures__/berthFixture';
-import { winterArea } from '../__fixtures__/winterStorageFixture';
+import { berth, createBerth } from '../__fixtures__/berthFixture';
+import { createBerthValues, createWinterValues } from '../__fixtures__/formValuesFixture';
+import { createWinterArea, winterArea } from '../__fixtures__/winterStorageFixture';
 import {
   convertCmToM,
   genValidSelector,
   getBerthFilterByValues,
   getSelectedResources,
-  isBerthSelected
+  getWinterStorageFilterByValues,
+  isResourceSelected
 } from './berths';
 
-import { SelectedServicesProps } from '../types/services';
+import { SelectedServicesProps, SelectedWinterServicesProps } from '../types/services';
 
 describe('utils/berths', () => {
   describe('convertCmToM', () => {
@@ -28,11 +30,10 @@ describe('utils/berths', () => {
   });
 
   describe('getBerthFilterByValues', () => {
-    const createValues = (values?: {}) => ({
+    const defaultValues = createBerthValues({
       boatLength: '10.2',
       boatType: '8',
-      boatWidth: '4.2',
-      ...values
+      boatWidth: '4.2'
     });
 
     const matchOptions = {
@@ -57,15 +58,15 @@ describe('utils/berths', () => {
       })();
 
     test('should return a function that returns a boolean', () => {
-      const returnValue = getBerthFilterByValues(createValues(), createSelectedServices());
+      const returnValue = getBerthFilterByValues(defaultValues, createSelectedServices());
 
       expect(typeof returnValue).toBe('function');
       expect(typeof returnValue(createBerth())).toBe('boolean');
-      expect(typeof returnValue(winterArea)).toBe('boolean');
+      expect(typeof returnValue(berth)).toBe('boolean');
     });
 
     test('should return true if all filter conditions are met', () => {
-      const value = getBerthFilterByValues(createValues(), createSelectedServices())(
+      const value = getBerthFilterByValues(defaultValues, createSelectedServices())(
         createBerth(matchOptions)
       );
 
@@ -74,7 +75,7 @@ describe('utils/berths', () => {
 
     test("should return false if services don't match", () => {
       const customOptions = createBerthOptions({ gate: false });
-      const value = getBerthFilterByValues(createValues(), createSelectedServices({ gate: true }))(
+      const value = getBerthFilterByValues(defaultValues, createSelectedServices({ gate: true }))(
         createBerth(customOptions)
       );
 
@@ -84,7 +85,7 @@ describe('utils/berths', () => {
     test('should return false if the supplied width is larger than maximumWidth after converting to cm', () => {
       const customOptions = createBerthOptions({ maximumWidth: 490 });
       const value = getBerthFilterByValues(
-        createValues({ boatWidth: '5' }),
+        createBerthValues({ boatWidth: '5' }),
         createSelectedServices()
       )(createBerth(customOptions));
 
@@ -94,7 +95,7 @@ describe('utils/berths', () => {
     test('should return false if the supplied length is larger than maximumLength after converting to cm', () => {
       const customOptions = createBerthOptions({ maximumLength: 900 });
       const value = getBerthFilterByValues(
-        createValues({ boatLength: '10' }),
+        createBerthValues({ boatLength: '10' }),
         createSelectedServices()
       )(createBerth(customOptions));
 
@@ -105,11 +106,89 @@ describe('utils/berths', () => {
       const berthOptions = createBerthOptions({
         suitableBoatTypes: [{ __typename: 'BoatTypeType', id: '19' }]
       });
-      const berth = createBerth(berthOptions);
+      const newBerth = createBerth(berthOptions);
       const value = getBerthFilterByValues(
-        createValues({ boatType: '10' }),
+        createBerthValues({ boatType: '10' }),
         createSelectedServices()
-      )(berth);
+      )(newBerth);
+
+      expect(value).toBe(false);
+    });
+  });
+
+  describe('getWinterStorageFilterByValues', () => {
+    const defaultValues = createWinterValues({
+      boatLength: '10.2',
+      boatType: '8',
+      boatWidth: '4.2'
+    });
+
+    const matchOptions = {
+      maximumLength: 1100,
+      maximumWidth: 500
+    };
+
+    const createAreaOptions = (options?: {}) => ({
+      ...matchOptions,
+      ...options
+    });
+
+    const createWinterSelectedServices = (services?: Partial<SelectedWinterServicesProps>) =>
+      Record({
+        electricity: false,
+        water: false,
+        gate: false,
+        repairArea: false,
+        summerStorageForDockingEquipment: false,
+        summerStorageForTrailers: false,
+        ...services
+      })();
+
+    test('should return a function that returns a boolean', () => {
+      const returnValue = getWinterStorageFilterByValues(
+        defaultValues,
+        createWinterSelectedServices()
+      );
+
+      expect(typeof returnValue).toBe('function');
+      expect(typeof returnValue(createWinterArea())).toBe('boolean');
+      expect(typeof returnValue(winterArea)).toBe('boolean');
+    });
+
+    test('should return true if all filter conditions are met', () => {
+      const value = getWinterStorageFilterByValues(defaultValues, createWinterSelectedServices())(
+        createWinterArea(matchOptions)
+      );
+
+      expect(value).toBe(true);
+    });
+
+    test("should return false if services don't match", () => {
+      const customOptions = createAreaOptions({ gate: false });
+      const value = getWinterStorageFilterByValues(
+        defaultValues,
+        createWinterSelectedServices({ gate: true })
+      )(createWinterArea(customOptions));
+
+      expect(value).toBe(false);
+    });
+
+    test('should return false if the supplied width is larger than maximumWidth after converting to cm', () => {
+      const customOptions = createAreaOptions({ maximumWidth: 490 });
+      const value = getWinterStorageFilterByValues(
+        createWinterValues({ boatWidth: '5' }),
+        createWinterSelectedServices()
+      )(createWinterArea(customOptions));
+
+      expect(value).toBe(false);
+    });
+
+    test('should return false if the supplied length is larger than maximumLength after converting to cm', () => {
+      const customOptions = createAreaOptions({ maximumLength: 900 });
+      const value = getWinterStorageFilterByValues(
+        createWinterValues({ boatLength: '10' }),
+        createWinterSelectedServices()
+      )(createWinterArea(customOptions));
 
       expect(value).toBe(false);
     });
@@ -145,18 +224,18 @@ describe('utils/berths', () => {
     });
   });
 
-  describe('isBerthSelected', () => {
-    const berthA = createBerth({ id: 'a' });
-    const berthB = createBerth({ id: 'b' });
-    const berthC = createBerth({ id: 'c' });
-    const selectedBerths = List([berthA.id, berthB.id]);
+  describe('isResourceSelected', () => {
+    const berthIdA = 'a';
+    const berthIdB = 'b';
+    const berthIdC = 'c';
+    const selectedBerths = List([berthIdA, berthIdB]);
 
     test('should return true if the supplied berth is in the selected list', () => {
-      expect(isBerthSelected(selectedBerths, berthA)).toBe(true);
+      expect(isResourceSelected(selectedBerths, berthIdA)).toBe(true);
     });
 
     test('should return false if the supplied berth is not in the selected list', () => {
-      expect(isBerthSelected(selectedBerths, berthC)).toBe(false);
+      expect(isResourceSelected(selectedBerths, berthIdC)).toBe(false);
     });
   });
 

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
-import { Alert, Button, Col, Popover as RsPopover, PopoverBody, Row } from 'reactstrap';
+import { Alert, Button, Col, Row } from 'reactstrap';
 
 import { convertCmToM, genValidSelector } from '../../../utils/berths';
 import Icon from '../../common/Icon';

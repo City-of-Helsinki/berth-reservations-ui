@@ -1,40 +1,38 @@
 import React, { Component } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 
-import { getBerthFilterByValues } from '../../../utils/berths';
+import { getWinterStorageFilterByValues } from '../../../utils/berths';
 import Berths from '../../berths';
-import BerthsOnMap from '../../berths/BerthsOnMap';
 import TabSelector from '../../berths/TabSelector';
 import Hero from '../../common/hero/Hero';
 import { IconNames } from '../../common/Icon';
+import Map from '../../common/Map';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
 import KoroSection from '../../layout/koroSection/KoroSection';
 import Layout from '../../layout/Layout';
 import WinterStorageLegend from '../../legends/winterStorageLegend/WinterStorageLegend';
 
 import { StorageAreaFilter } from '../../../redux/reducers/WinterAreaReducers';
-import { BerthType } from '../../../types/berth';
 import { BoatTypes } from '../../../types/boatTypes';
-import { SelectedServices, WinterServices } from '../../../types/services';
+import { SelectedWinterServices, WinterServices } from '../../../types/services';
+import { WinterFormValues, WinterStorageType } from '../../../types/winterStorage';
 import { LocalePush } from '../../../utils/container';
-import { Berths as BerthsType, SelectedIds } from '../../berths/types';
+import { SelectedIds, WinterAreas } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
 
 type Props = {
-  initialValues: {};
-  filtered: BerthsType;
-  filteredNot: BerthsType;
-  selectedBerthsIds: SelectedIds;
-  selectedServices: SelectedServices;
-  selectBerth: Function;
-  deselectBerth: Function;
+  initialValues: WinterFormValues;
+  selectedAreasIds: SelectedIds;
+  selectedServices: SelectedWinterServices;
+  selectArea: Function;
+  deselectArea: Function;
   selectService: Function;
   deselectService: Function;
   onSubmit: Function;
   localePush: LocalePush;
-  berths: BerthsType;
+  areas: WinterAreas;
   boatTypes?: BoatTypes;
   steps: StepType[];
   services: Array<{
@@ -69,20 +67,20 @@ class WinterStoragePage extends Component<Props> {
     await localePush('winter-storage/selected');
   };
 
-  toggleBerthSelect = (berth: BerthType) => {
-    const { selectedBerthsIds, selectBerth, deselectBerth } = this.props;
-    if (selectedBerthsIds.find(selectedId => selectedId === berth.id)) {
-      deselectBerth(berth.id);
+  toggleBerthSelect = (winterArea: WinterStorageType) => {
+    const { selectedAreasIds, selectArea, deselectArea } = this.props;
+    if (selectedAreasIds.find(selectedId => selectedId === winterArea.id)) {
+      deselectArea(winterArea.id);
     } else {
-      selectBerth(berth.id);
+      selectArea(winterArea.id);
     }
   };
 
   render() {
     const {
       initialValues,
-      selectedBerthsIds,
-      berths,
+      selectedAreasIds,
+      areas,
       selectedServices,
       selectService,
       deselectService,
@@ -94,11 +92,15 @@ class WinterStoragePage extends Component<Props> {
       storageAreaFilter,
       intl
     } = this.props;
-    const filter = getBerthFilterByValues(initialValues, selectedServices, storageAreaFilter);
-    const filtered = berths.filter(filter);
-    const filteredNot = berths.filterNot(filter);
-    const validSelection = berths
-      .filter(berth => selectedBerthsIds.find(selectedId => selectedId === berth.id))
+    const filter = getWinterStorageFilterByValues(
+      initialValues,
+      selectedServices,
+      storageAreaFilter
+    );
+    const filtered = areas.filter(filter);
+    const filteredNot = areas.filterNot(filter);
+    const validSelection = areas
+      .filter(area => selectedAreasIds.find(selectedId => selectedId === area.id))
       .every(filter);
 
     return (
@@ -123,7 +125,6 @@ class WinterStoragePage extends Component<Props> {
               initialValues,
               render: () => (
                 <UnRegisteredBoatDetails
-                  // @ts-ignore
                   boatStoredOnTrailer={!!initialValues.boatStoredOnTrailer}
                   showBoatStoredOnTrailer
                   hideTitle
@@ -144,15 +145,15 @@ class WinterStoragePage extends Component<Props> {
         </KoroSection>
         <TabSelector
           progress={this.moveToForm}
-          selectedCount={selectedBerthsIds.size}
+          selectedCount={selectedAreasIds.size}
           validSelection={validSelection}
           berthLimit={berthLimit}
         >
-          <BerthsOnMap
+          <Map
             TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
             filtered={filtered}
             filteredNot={filteredNot}
-            selected={selectedBerthsIds}
+            selected={selectedAreasIds}
             onClick={this.toggleBerthSelect}
             berthLimit={berthLimit}
           />
@@ -160,7 +161,7 @@ class WinterStoragePage extends Component<Props> {
             TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
             filtered={filtered}
             filteredNot={filteredNot}
-            selected={selectedBerthsIds}
+            selected={selectedAreasIds}
             onClick={this.toggleBerthSelect}
             berthLimit={berthLimit}
           />
