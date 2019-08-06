@@ -10,16 +10,14 @@ import Popover from '../../../common/popover/Popover';
 import AvailabilityLevel from '../../availabilityLevel/AvailabilityLevel';
 import InvalidSelection from '../../InvalidSelection';
 
-import { BerthType } from '../../../../types/berth';
-import { WinterStorageType } from '../../../../types/winterStorage';
-
-import './selectedBerth.scss';
+import './selectedResource.scss';
 
 export interface Props {
-  berth: BerthType | WinterStorageType;
+  id: string;
+  availabilityLevel?: { id: string; title: string | null; description: string | null } | null;
   handleRemove: Function;
   title: React.ReactNode;
-  isValid?: boolean;
+  validationErrMsg?: string;
   services: Array<[IconNames, boolean]>;
   moveDown?: Function;
   moveUp?: Function;
@@ -31,7 +29,7 @@ interface State {
   isModalOpen: boolean;
 }
 
-class SelectedBerth extends Component<Props, State> {
+class SelectedResource extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
@@ -42,15 +40,19 @@ class SelectedBerth extends Component<Props, State> {
   }
 
   toggleEnterState = () => {
-    if (this.state.changed === 'down') {
-      if (this.props.moveDown) this.props.moveDown(this.props.berth.id);
+    const { id, moveDown, moveUp, handleRemove } = this.props;
+    const { changed } = this.state;
+
+    if (changed === 'down') {
+      if (moveDown) moveDown(id);
     }
-    if (this.state.changed === 'up') {
-      if (this.props.moveUp) this.props.moveUp(this.props.berth.id);
+    if (changed === 'up') {
+      if (moveUp) moveUp(id);
     }
-    if (this.state.changed === 'delete') {
-      this.props.handleRemove(this.props.berth.id);
+    if (changed === 'delete') {
+      handleRemove(id);
     }
+
     this.setState({ changed: 'nothing' });
   };
 
@@ -71,9 +73,18 @@ class SelectedBerth extends Component<Props, State> {
   };
 
   render() {
-    const { title, berth, services, isValid = true, moveDown, moveUp, className } = this.props;
+    const {
+      id,
+      availabilityLevel,
+      title,
+      services,
+      validationErrMsg,
+      moveDown,
+      moveUp,
+      className
+    } = this.props;
     const { changed, isModalOpen } = this.state;
-    const id = genValidSelector(`popover_${berth.id}`);
+    const validDomId = genValidSelector(`popover_${id}`);
 
     return (
       <Transition in={changed !== 'nothing'} timeout={300} onEntered={this.toggleEnterState}>
@@ -90,12 +101,14 @@ class SelectedBerth extends Component<Props, State> {
                 >
                   <Row
                     className={classNames('vene-selected-berth__title-bar', {
-                      'vene-selected-berth__title-bar--has-error': !isValid
+                      'vene-selected-berth__title-bar--has-error': !!validationErrMsg
                     })}
                   >
                     <Col xs="10" className="vene-selected-berth__title">
                       {title}
-                      {!isValid && <InvalidSelection id={id} />}
+                      {validationErrMsg && (
+                        <InvalidSelection id={validDomId} msg={validationErrMsg} />
+                      )}
                     </Col>
                     <Col xs="2" className="vene-selected-berth__close">
                       <Button
@@ -110,16 +123,14 @@ class SelectedBerth extends Component<Props, State> {
                   </Row>
                   <Row className="vene-selected-berth__services-bar">
                     <Col xs="12" md="6" className="vene-selected-berth__availability-level">
-                      {berth.availabilityLevel && (
+                      {availabilityLevel && (
                         <Popover
-                          id={`availability-level-${id}`}
-                          body={
-                            berth.availabilityLevel.description || berth.availabilityLevel.title
-                          }
+                          id={`availability-level-${validDomId}`}
+                          body={availabilityLevel.description || availabilityLevel.title}
                         >
                           <AvailabilityLevel
-                            label={berth.availabilityLevel.title}
-                            level={berth.availabilityLevel.id}
+                            label={availabilityLevel.title}
+                            level={availabilityLevel.id}
                           />
                         </Popover>
                       )}
@@ -172,4 +183,4 @@ class SelectedBerth extends Component<Props, State> {
   }
 }
 
-export default SelectedBerth;
+export default SelectedResource;

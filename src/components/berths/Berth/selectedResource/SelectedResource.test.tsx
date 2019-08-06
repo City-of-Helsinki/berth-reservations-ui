@@ -4,18 +4,18 @@ import { Container } from 'reactstrap';
 
 import { berth } from '../../../../__fixtures__/berthFixture';
 import Modal from '../../../common/modal/Modal';
-import SelectedBerth, { Props } from './SelectedBerth';
+import SelectedResource, { Props } from './SelectedResource';
 
-describe('SelectedBerth', () => {
+describe('SelectedResource', () => {
   const moveUp = jest.fn();
   const moveDown = jest.fn();
   const handleRemove = jest.fn();
 
   const getWrapper = (props?: Partial<Props>) =>
     shallow<{}, { changed: string; isModalOpen: boolean }>(
-      <SelectedBerth
+      <SelectedResource
         title="foo"
-        berth={berth}
+        id={berth.id}
         services={[
           ['plug', berth.electricity],
           ['waterTap', berth.water],

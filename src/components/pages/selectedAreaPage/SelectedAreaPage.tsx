@@ -6,51 +6,45 @@ import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 import SelectedBerths from '../../berths/selectedBerths/SelectedBerths';
 import Icon from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
-import ExchangeApplication from '../../forms/fragments/exchangeApplication/ExchangeApplicationContainer';
-import NewApplication from '../../forms/fragments/newApplication/NewApplication';
 import Layout from '../../layout/Layout';
 import SelectedBerthsLegend from '../../legends/selectedBerthsLegend/SelectedBerthsLegend';
 
-import { ApplicationOptions } from '../../../types/applicationType';
-import { BerthFormValues } from '../../../types/berth';
-import { Berths } from '../../berths/types';
+import { WinterFormValues } from '../../../types/winterStorage';
+import { WinterAreas } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
-import './selectedBerthPage.scss';
+import './selectedAreaPage.scss';
 
-interface BoatInfoForBerths {
-  boatType?: string | null;
+interface BoatInfoForWinter {
   width: string;
   length: string;
 }
 
 export interface Props {
-  selectedBerths: Berths;
+  selectedAreas: WinterAreas;
   moveToForm: () => {};
   handlePrevious: () => {};
-  deselectBerth: Function;
-  boatInfo: BoatInfoForBerths;
+  deselectArea: Function;
+  boatInfo: BoatInfoForWinter;
   moveUp: Function;
   moveDown: Function;
-  berths?: Berths;
-  berthsApplicationType?: string;
   submitExchangeForm?: Function;
-  values: BerthFormValues;
-  initialValues?: BerthFormValues;
+  values: WinterFormValues;
+  initialValues?: WinterFormValues;
   legend: { title: string; legend: string };
   validSelection: boolean;
   filter: Function;
   steps: StepType[];
 }
 
-class SelectedBerthPage extends Component<Props> {
+class SelectedAreaPage extends Component<Props> {
   constructor(props: Props) {
     super(props);
 
     window.scrollTo(0, 0);
   }
 
-  handleSubmitApplication = (values: BerthFormValues) => {
+  handleSubmitApplication = (values: WinterFormValues) => {
     if (this.props.submitExchangeForm) {
       this.props.submitExchangeForm(values);
     }
@@ -59,9 +53,8 @@ class SelectedBerthPage extends Component<Props> {
 
   render() {
     const {
-      berthsApplicationType,
-      selectedBerths,
-      deselectBerth,
+      selectedAreas,
+      deselectArea,
       moveUp,
       moveDown,
       initialValues,
@@ -70,8 +63,7 @@ class SelectedBerthPage extends Component<Props> {
       handlePrevious,
       steps,
       legend,
-      validSelection,
-      berths
+      validSelection
     } = this.props;
     return (
       <Form
@@ -80,36 +72,21 @@ class SelectedBerthPage extends Component<Props> {
         render={({ handleSubmit, invalid }) => (
           <Layout>
             <SelectedBerthsLegend steps={steps} legend={legend} />
-
             <BTForm onSubmit={handleSubmit}>
               <Container className="vene-berth-page-selected__wrapper">
                 <Row>
                   <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-                    {berthsApplicationType &&
-                      berths &&
-                      (berthsApplicationType === ApplicationOptions.NewApplication ? (
-                        <NewApplication />
-                      ) : (
-                        <ExchangeApplication berths={berths} />
-                      ))}
-
-                    <FormattedMessage tagName="h3" id="page.berth.selected.title" />
-                    <hr />
+                    <FormattedMessage tagName="h3" id="page.winter_storage.selected.title" />
                     {Object.values(boatInfo).every(value => !!value) ? (
                       <Container>
                         <Row>
-                          <Col md="5">
-                            <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
-                            <span className="vene-berth-page-selected__boat-value">
-                              {boatInfo.boatType}
-                            </span>
-                          </Col>
                           <Col md="3">
                             <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:
                             <span className="vene-berth-page-selected__boat-value">
                               {boatInfo.width} m
                             </span>
                           </Col>
+
                           <Col md="3">
                             <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:
                             <span className="vene-berth-page-selected__boat-value">
@@ -122,7 +99,10 @@ class SelectedBerthPage extends Component<Props> {
                       <div className="vene-berth-page-selected__notice">
                         <Icon name="exclamationCircle" />
                         <LocalizedLink to={steps[0].linkTo || ''}>
-                          <FormattedMessage tagName="span" id="page.berth.selected.info_text" />
+                          <FormattedMessage
+                            tagName="span"
+                            id="page.winter_storage.selected.info_text"
+                          />
                         </LocalizedLink>
                       </div>
                     )}
@@ -131,22 +111,28 @@ class SelectedBerthPage extends Component<Props> {
                       <Alert color="warning">
                         <FormattedMessage
                           tagName="strong"
-                          id="page.berth.selected.warning.heading"
+                          id="page.winter_storage.selected.warning.heading"
                         />
                       </Alert>
                     )}
-                    {selectedBerths.size === 0 ? (
+                    {selectedAreas.size === 0 ? (
                       <Alert color="danger">
-                        <FormattedMessage tagName="strong" id="page.berth.selected.alert.strong" />
-                        <FormattedMessage tagName="h2" id="page.berth.selected.alert.paragraph" />
+                        <FormattedMessage
+                          tagName="strong"
+                          id="page.winter_storage.selected.alert.strong"
+                        />
+                        <FormattedMessage
+                          tagName="h2"
+                          id="page.winter_storage.selected.alert.paragraph"
+                        />
                       </Alert>
                     ) : (
                       <SelectedBerths
                         moveUp={moveUp}
                         moveDown={moveDown}
-                        deselectBerth={deselectBerth}
+                        deselectBerth={deselectArea}
                         berthValidator={filter}
-                        resources={selectedBerths}
+                        resources={selectedAreas}
                       />
                     )}
                   </Col>
@@ -165,9 +151,12 @@ class SelectedBerthPage extends Component<Props> {
                           outline
                           color="primary"
                           size="lg"
-                          disabled={selectedBerths.size === 0 || invalid}
+                          disabled={selectedAreas.size === 0 || invalid}
                         >
-                          <FormattedMessage tagName="span" id="page.berth.selected.submit" />
+                          <FormattedMessage
+                            tagName="span"
+                            id="page.winter_storage.selected.submit"
+                          />
                         </Button>
                       </div>
                     </Col>
@@ -182,4 +171,4 @@ class SelectedBerthPage extends Component<Props> {
   }
 }
 
-export default SelectedBerthPage;
+export default SelectedAreaPage;

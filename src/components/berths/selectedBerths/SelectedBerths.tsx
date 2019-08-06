@@ -1,6 +1,4 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import { Alert } from 'reactstrap';
 
 import { IconNames } from '../../common/Icon';
 import SelectedResource from '../Berth/selectedResource/SelectedResource';
@@ -10,56 +8,47 @@ import { Resources } from '../types';
 import './selectedBerths.scss';
 
 interface Props {
-  berths: Resources;
+  resources: Resources;
   moveDown: Function;
   moveUp: Function;
   deselectBerth: Function;
   berthValidator: Function;
 }
 
-const SelectedBerths = ({ berths, moveUp, moveDown, deselectBerth, berthValidator }: Props) => {
-  if (berths.size === 0) {
-    return (
-      <Alert color="danger">
-        <FormattedMessage tagName="strong" id="page.berth.selected.alert.strong" />
-        <FormattedMessage tagName="h2" id="page.berth.selected.alert.paragraph" />
-      </Alert>
-    );
-  }
-
+const SelectedBerths = ({ resources, moveUp, moveDown, deselectBerth, berthValidator }: Props) => {
   return (
     <div className="vene-selected-berths">
-      {berths.map((berth, index) => {
+      {resources.map((resource, index) => {
         const services: Array<[IconNames, boolean]> =
-          berth.__typename === 'HarborType'
+          resource.__typename === 'HarborType'
             ? [
-                ['plug', berth.electricity],
-                ['waterTap', berth.water],
-                ['trash', berth.wasteCollection],
-                ['fence', berth.gate],
-                ['streetLight', berth.lighting]
+                ['plug', resource.electricity],
+                ['waterTap', resource.water],
+                ['trash', resource.wasteCollection],
+                ['fence', resource.gate],
+                ['streetLight', resource.lighting]
               ]
             : [
-                ['waterTap', berth.water],
-                ['fence', berth.gate],
-                ['plug', berth.electricity],
-                ['dollyEmpty', berth.summerStorageForTrailers],
-                ['trestle', berth.summerStorageForDockingEquipment],
-                ['tools', berth.repairArea]
+                ['waterTap', resource.water],
+                ['fence', resource.gate],
+                ['plug', resource.electricity],
+                ['dollyEmpty', resource.summerStorageForTrailers],
+                ['trestle', resource.summerStorageForDockingEquipment],
+                ['tools', resource.repairArea]
               ];
 
         return (
           <SelectedResource
             className="vene-selected-berths__berth"
-            title={`${index + 1}. ${berth.name}`}
-            id={berth.id}
-            key={berth.id}
+            title={`${index + 1}. ${resource.name}`}
+            id={resource.id}
+            key={resource.id}
             services={services}
             moveUp={index !== 0 ? moveUp : undefined}
-            moveDown={index !== berths.size - 1 ? moveDown : undefined}
+            moveDown={index !== resources.size - 1 ? moveDown : undefined}
             handleRemove={deselectBerth}
-            availabilityLevel={berth.availabilityLevel}
-            validationErrMsg={berthValidator(berth) && 'error.message.invalid_berth'}
+            availabilityLevel={resource.availabilityLevel}
+            validationErrMsg={berthValidator(resource) && 'error.message.invalid_berth'}
           />
         );
       })}
