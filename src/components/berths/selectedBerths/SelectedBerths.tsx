@@ -48,7 +48,7 @@ const SelectedBerths = ({ resources, moveUp, moveDown, deselectBerth, berthValid
             moveDown={index !== resources.size - 1 ? moveDown : undefined}
             handleRemove={deselectBerth}
             availabilityLevel={resource.availabilityLevel}
-            validationErrMsg={berthValidator(resource) && 'error.message.invalid_berth'}
+            validationErrMsg={berthValidator(resource) ? undefined : 'error.message.invalid_berth'}
           />
         );
       })}
