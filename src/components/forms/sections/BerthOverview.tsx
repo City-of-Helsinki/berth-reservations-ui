@@ -47,7 +47,7 @@ const BerthOverview = ({
           <FormattedMessage tagName="h5" id="form.overview.header.receivable_items.title" />
           <Newsletter />
           <FormattedMessage tagName="h3" id="form.overview.header.agreement.title" />
-          <Agreement />
+          <Agreement label="form.overview.field.berth.guarantee.label" />
         </div>
       </Col>
     </Row>
