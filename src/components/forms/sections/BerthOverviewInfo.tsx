@@ -39,6 +39,7 @@ const BerthOverviewInfo = ({
   applicationType
 }: Props) => {
   const showBigShipsForm = get(values, 'boatType') === BigBoatTypeValue;
+
   return (
     <OverviewInfo title={applicationType}>
       {application && application.berthsApplicationType === ApplicationOptions.ExchangeApplication && (
@@ -66,6 +67,8 @@ const BerthOverviewInfo = ({
                 hullMaterial={values.boatHullMaterial}
                 intendedUse={values.boatIntendedUse}
                 rentingPeriod={values.rentingPeriod}
+                rentFrom={values.rentFrom}
+                rentTill={values.rentTill}
               />
             )}
           </Fragment>
