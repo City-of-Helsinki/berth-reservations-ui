@@ -19,8 +19,8 @@ export type BerthType = Pick<
 interface ValuesToOverride {
   boatLength: string;
   boatWidth: string;
-  boatDraught?: string | null;
-  boatWeight?: string | null;
+  boatDraught: string;
+  boatWeight: string;
 }
 
 export type BerthFormValues = Pick<

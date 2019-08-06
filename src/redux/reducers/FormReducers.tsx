@@ -16,6 +16,8 @@ const berthValues: BerthFormValues = {
   municipality: '',
   boatType: '',
   boatLength: '',
+  boatWeight: '',
+  boatDraught: '',
   boatWidth: '',
   acceptBoatingNewsletter: false,
   acceptFitnessNews: false,
