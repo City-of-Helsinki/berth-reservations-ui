@@ -1,9 +1,8 @@
 // import { Record } from 'immutable';
 
 import { WinterStorageMethod } from '../__generated__/globalTypes';
-// import { BerthFormValues } from '../../types/berth';
-// import { WinterFormValues } from '../../types/winterStorage';
-// import { FormsFactory } from '../types';
+import { BerthFormValues } from '../types/berth';
+import { WinterFormValues } from '../types/winterStorage';
 
 export const berthValues = {
   language: 'fi',
@@ -48,3 +47,13 @@ export const winterValues = {
   chosenAreas: [],
   boatStoredOnTrailer: false
 };
+
+export const createBerthValues = (values: Partial<BerthFormValues>): BerthFormValues => ({
+  ...berthValues,
+  ...values
+});
+
+export const createWinterValues = (values: Partial<BerthFormValues>): WinterFormValues => ({
+  ...winterValues,
+  ...values
+});
