@@ -31,8 +31,8 @@ export const getBerthFilterByValues = (
 ) => {
   const boatHasTrailer = get(values, 'boatStoredOnTrailer');
 
-  const width = stringToFloat(get(values, 'boatWidth', '')) * 100;
-  const userBoatLength = stringToFloat(get(values, 'boatLength', ''));
+  const width = (stringToFloat(get(values, 'boatWidth', '')) || 0) * 100;
+  const userBoatLength = stringToFloat(get(values, 'boatLength', '')) || 0;
 
   const length = (boatHasTrailer ? userBoatLength + 1 : userBoatLength) * 100;
   // Increase by 1 meter to filter if user have trailer.
@@ -74,8 +74,8 @@ export const getWinterStorageFilterByValues = (
 ) => {
   const boatHasTrailer = get(values, 'boatStoredOnTrailer');
 
-  const width = stringToFloat(get(values, 'boatWidth', '')) * 100;
-  const userBoatLength = stringToFloat(get(values, 'boatLength', ''));
+  const width = (stringToFloat(get(values, 'boatWidth', '')) || 0) * 100;
+  const userBoatLength = stringToFloat(get(values, 'boatLength', '')) || 0;
 
   const length = (boatHasTrailer ? userBoatLength + 1 : userBoatLength) * 100;
   // Increase by 1 meter to filter if user have trailer.
@@ -187,9 +187,9 @@ export const genValidSelector = (selector: string) => selector.replace(/^[^a-z]+
  * Convert number in string to floating number.
  *
  * @param {string | undefined} str
- * @returns {number}
+ * @returns {number | undefined}
  */
 export const stringToFloat = (str: string | undefined | null) => {
-  if (!str) return 0;
+  if (!str) return undefined;
   return Number(str.replace(',', '.'));
 };
