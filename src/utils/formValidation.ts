@@ -15,6 +15,21 @@ export const mustBePositiveNumber = (value: number): string | undefined => {
   return undefined;
 };
 
+export const mustNotExceedTwoDecimals = (value: string): string | undefined => {
+  const regex = /^-?\d+(\.\d{1,2})?$/;
+  if (regex.test(value)) {
+    return undefined;
+  }
+  return 'validation.message.invalid_value';
+};
+
+export const mustBeLessThan = (limit: number) => (value: string): string | undefined => {
+  if (Number(value) >= limit) {
+    return 'validation.message.must_be_less';
+  }
+  return undefined;
+};
+
 export const mustBePhoneNumber = (value: string): string | undefined => {
   const phoneRe = /^([0-9\(\)\s\+\-])+$/im;
   if (phoneRe.test(value)) {
