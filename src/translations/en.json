@@ -49,6 +49,8 @@
   "validation.message.required": "Mandatory field",
   "validation.message.must_be_number": "The value must be a number",
   "validation.message.must_be_positive_number": "The value must be greater than zero",
+  "validation.message.must_be_less": "Entered value is too high",
+  "validation.message.invalid_value": "Invalid value",
   "validation.message.must_be_phone_number": "The value must be a telephone number",
   "validation.message.must_be_email": "The value must be an e-mail address",
   "page.front.title": "Boat berths",

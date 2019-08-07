@@ -15,6 +15,21 @@ export const mustBePositiveNumber = (value: number): string | undefined => {
   return undefined;
 };
 
+export const mustNotExceedTwoDecimals = (value: string): string | undefined => {
+  const regex = /^-?\d+(\.\d{1,2})?$/;
+  if (regex.test(value)) {
+    return undefined;
+  }
+  return 'validation.message.invalid_value';
+};
+
+export const mustBeLessThan = (limit: number) => (value: string): string | undefined => {
+  if (Number(value) >= limit) {
+    return 'validation.message.must_be_less';
+  }
+  return undefined;
+};
+
 export const mustBePhoneNumber = (value: string): string | undefined => {
   const phoneRe = /^([0-9\(\)\s\+\-])+$/im;
   if (phoneRe.test(value)) {
@@ -31,13 +46,16 @@ export const mustBeEmail = (value: any): any => {
   return 'validation.message.must_be_email';
 };
 
-export default (f1: Function | null, f2: Function | null) => (x: any): any => {
-  let validated;
-  if (f1) {
-    validated = f1(x);
-  }
-  if (!validated && f2) {
-    validated = f2(x);
-  }
+export default <T>(...fns: Array<((...args: any[]) => T | undefined) | null>) => (
+  value: string
+): T | undefined => {
+  let validated: T | undefined;
+
+  fns.forEach(fn => {
+    if (!validated && fn) {
+      validated = fn(value);
+    }
+  });
+
   return validated;
 };

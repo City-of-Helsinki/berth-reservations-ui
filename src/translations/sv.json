@@ -49,6 +49,8 @@
   "validation.message.required": "Obligatoriskt fält",
   "validation.message.must_be_number": "Värdet ska vara en siffra",
   "validation.message.must_be_positive_number": "Värdet ska vara större än noll",
+  "validation.message.must_be_less": "Det angivna värdet är för stort",
+  "validation.message.invalid_value": "Ogiltig värde",
   "validation.message.must_be_phone_number": "Värdet ska vara ett telefonnummer",
   "validation.message.must_be_email": "Värdet ska vara en e-postadress",
   "page.front.title": "Båtplatser",
