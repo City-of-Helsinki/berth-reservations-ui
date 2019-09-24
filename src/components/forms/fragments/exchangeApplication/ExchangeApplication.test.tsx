@@ -65,14 +65,14 @@ describe('fragments/ExchangeApplication', () => {
       expect(options.length).toBeGreaterThan(0);
     });
 
-    test('reasons are NOT provided: render FormattedMessage as the only child that yields to option elem', () => {
+    test('reasons are NOT provided: render FormattedMessage as the only child', () => {
       const wrapper = getWrapper({ reasons: undefined });
       const reasonSelect = wrapper.find('[name="reason"]');
       const reasonSelectChildren = reasonSelect.children();
       const formattedMessage = reasonSelect.find(FormattedMessage);
 
       expect(reasonSelectChildren).toHaveLength(1);
-      expect(formattedMessage.prop('tagName')).toBe('option');
+      expect(formattedMessage).toHaveLength(1);
     });
   });
 });

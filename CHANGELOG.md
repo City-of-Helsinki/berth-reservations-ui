@@ -22,6 +22,8 @@
 
 - Technical: TS types for form values. in ([#245](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/245))
 
+- Switch reason: send an empty string when 'No special request' is selected. in ([#248](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/248))
+
 </details>
 
 # 0.3.0 (July 24, 2019)
