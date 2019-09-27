@@ -122,8 +122,8 @@ const WinterFormPageContainer = ({
           await client.mutate<any, { reservation: WinterStorageReservationInput }>({
             variables: {
               reservation: {
-                chosenAreas,
-                ...allowedFormValues
+                ...allowedFormValues,
+                chosenAreas
               }
             },
             mutation: CREATE_WINTER_STORAGE_RESERVATION
