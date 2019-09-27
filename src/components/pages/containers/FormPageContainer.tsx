@@ -136,8 +136,8 @@ const FormPageContainer = ({
             {},
             {
               reservation: {
-                choices,
-                ...normalizedValues
+                ...normalizedValues,
+                choices
               }
             },
             ApplicationOptions.ExchangeApplication === application.berthsApplicationType && {
