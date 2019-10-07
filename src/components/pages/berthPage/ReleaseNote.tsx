@@ -11,7 +11,7 @@ const ReleaseNote = () => (
         <div className="vene-release-note">
           <FormattedMessage id="page.winter_storage.release_note.title" tagName="h3" />
           <FormattedHTMLMessage id="page.winter_storage.release_note.description" />
-          <FormattedMessage id="page.winter_storage.release_note.list_title" tagName="h5" />
+          <FormattedMessage id="page.winter_storage.release_note.list_title" tagName="strong" />
           <ol className="vene-release-note__list">
             <li className="vene-release-note__list-item">
               <FormattedMessage id="page.winter_storage.release_note.list_item.one" />
