@@ -9,6 +9,7 @@ import { IconNames } from '../../common/Icon';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
 import Layout from '../../layout/Layout';
 import BerthsLegend from '../../legends/berthLegend/BerthLegend';
+import ReleaseNote from './ReleaseNote';
 
 import { BerthType } from '../../../types/berth';
 import { BoatTypes } from '../../../types/boatTypes';
@@ -123,7 +124,9 @@ class BerthPage extends Component<Props> {
               values: { url: getHeroContentLink(intl.locale) }
             }
           ]}
-        />
+        >
+          {formMode === FormMode.Winter && <ReleaseNote />}
+        </KoroSection>
         <KoroSection color="fog" top className="vene-berth-filters-section">
           <BerthsLegend
             legend={{ title: `legend.${formMode}.title`, legend: `legend.${formMode}.legend` }}

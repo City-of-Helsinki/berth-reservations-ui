@@ -1,0 +1,15 @@
+@import 'helsinki/colors';
+
+.vene-release-note {
+  padding: 0 2em 2em;
+  border: solid $red 2px;
+  margin-top: 1em;
+
+  &__list {
+    padding-inline-start: 1.2em;
+  }
+
+  &__list-item {
+    padding-left: 1em;
+  }
+}
