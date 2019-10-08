@@ -10,8 +10,8 @@ type Props = {
   body?: string;
   className?: string;
   isOpen: boolean;
-  handleToggle?: () => void;
-  handleAccept: (e: React.SyntheticEvent) => void;
+  handleToggle: () => void;
+  handleAccept?: (e: React.SyntheticEvent) => void;
 } & InjectedIntlProps;
 
 const Modal = ({
@@ -24,8 +24,8 @@ const Modal = ({
   intl: { formatMessage }
 }: Props) => {
   const onAccept = (e: React.SyntheticEvent) => {
-    handleAccept(e);
-    if (handleToggle) handleToggle();
+    if (handleAccept) handleAccept(e);
+    handleToggle();
   };
 
   return (
@@ -33,7 +33,7 @@ const Modal = ({
       {title && <ModalHeader>{formatMessage({ id: title })}</ModalHeader>}
       {body && <ModalBody className="vene-modal__body">{formatMessage({ id: body })}</ModalBody>}
       <ModalFooter>
-        {handleToggle && (
+        {handleAccept && (
           <Button className="vene-modal__btn" color="danger" onClick={onAccept}>
             {formatMessage({ id: 'site.buttons.remove' })}
           </Button>

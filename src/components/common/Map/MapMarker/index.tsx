@@ -1,21 +1,17 @@
-import { List } from 'immutable';
-import React, { Component } from 'react';
+import L from 'leaflet';
+import React from 'react';
 import { Marker } from 'react-leaflet';
 
-type Props = any;
-
-export default class MapMarker extends Component<Props> {
-  static defaultProps = {
-    berth: Object,
-    selected: List,
-    onClick: Function,
-    markerIcon: String,
-    position: Array
-  };
-
-  render() {
-    const { berth, onClick, markerIcon, position } = this.props;
-
-    return <Marker onClick={onClick} icon={markerIcon} key={berth.id} position={position} />;
-  }
+interface Props {
+  id: string;
+  selected: boolean;
+  onClick: Function;
+  markerIcon: L.Icon;
+  position: [number, number];
 }
+
+const MapMarker = ({ id, onClick, markerIcon, position }: Props) => {
+  return <Marker onClick={onClick} icon={markerIcon} key={id} position={position} />;
+};
+
+export default MapMarker;

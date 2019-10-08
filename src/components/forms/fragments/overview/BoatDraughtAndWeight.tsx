@@ -1,30 +1,20 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import { Col, Row } from 'reactstrap';
-import { stringToFloat } from '../../../../utils/berths';
-import './Form.scss';
+
+import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 
 interface Props {
-  draught: string;
-  weight: string;
+  draught?: string | null;
+  weight?: string | null;
 }
 
 const BoatDraughtAndWeight = ({ draught, weight }: Props) => (
   <Row>
     <Col md={6}>
-      <div className="vene-overview-info__boat-info">
-        <FormattedMessage tagName="span" id="page.overview.info.boat_draught" />
-        <span>:</span>
-        <span className="vene-form__data">{stringToFloat(draught)}m</span>
-      </div>
+      <LabelValuePair label="page.overview.info.boat_draught" value={`${draught}m`} />
     </Col>
     <Col md={6}>
-      <div className="vene-overview-info__boat-info">
-        <FormattedMessage tagName="span" id="page.overview.info.boat_weight" />
-        <span>:</span>
-        <span className="vene-form__data">{stringToFloat(weight)}</span>
-        kg
-      </div>
+      <LabelValuePair label="page.overview.info.boat_weight" value={`${weight}`} />
     </Col>
   </Row>
 );
