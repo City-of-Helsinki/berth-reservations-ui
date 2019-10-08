@@ -7,17 +7,17 @@ import { LocaleOpts } from '../../../types/intl';
 import './winterStorage2019Warning.scss';
 
 const ReleaseNote = ({ intl }: InjectedIntlProps) => {
-  let title = 'Tiedote 7.10.2019';
-  let desc1 =
+  const title = 'Tiedote 7.10.2019';
+  const desc1 =
     'Asiakaspalvelumme on ruuhkautunut uuden järjestelmän viivästymisen vuoksi. Sähköisellä hakemuksella voi hakea ainoastaan ruutupaikkoja (Rajasaari, Laivalahti, Iso-Sarvasto ja Porslahti). Ruutupaikat alkavat olla jo täynnä tälle kaudelle, mutta voit halutessasi jättää hakemuksen.';
-  let desc2 =
+  const desc2 =
     ' Nostojärjestyksessä täytettävien talvisäilytysalueiden paikkoja voi kysellä venepaikkavarauksista seuraavan toimintaohjeen mukaisesti:';
-  let listTitle = 'TOIMINTAOHJE KAIKILLE NOSTOJÄRJESTYSALUEILLE HALUAVILLE:';
-  let listItem1 =
+  const listTitle = 'TOIMINTAOHJE KAIKILLE NOSTOJÄRJESTYSALUEILLE HALUAVILLE:';
+  const listItem1 =
     'Käy katsomassa onko haluamallasi nostojärjestysalueella tilaa veneellesi. Nostojärjestysalueita ovat LÄNNESSÄ Hernesaari, Pajalahti, Kaisaniemi ja Lähteelä IDÄSSÄ Ruusuniemi I ja II, Puotila, Marjaniemi, Strömsinlahti.';
-  let listItem2 =
+  const listItem2 =
     'Kun löydät sopivan paikan, tule venepaikkavarauksiin maksamaan talvisäilytys (vain korttimaksut). Palvelemme arkisin klo 9-16, Paavo Nurmen kuja 1 E, 00250 Helsinki. Saat samalla talvisäilytykseen oikeuttavan tarran.';
-  let listItem3 =
+  const listItem3 =
     'Nosta veneesi alueelle ja kiinnitä tarra näkyvälle paikalle telakointivälineeseen tai veneeseen.';
 
   // We opted for checking the language manually to make the component encapsulated because it's a one-timer component.
