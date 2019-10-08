@@ -11,6 +11,7 @@ import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetai
 import KoroSection from '../../layout/koroSection/KoroSection';
 import Layout from '../../layout/Layout';
 import WinterStorageLegend from '../../legends/winterStorageLegend/WinterStorageLegend';
+import WinterStorage2019Warning from './WinterStorage2019Warning';
 
 import { StorageAreaFilter } from '../../../redux/reducers/WinterAreaReducers';
 import { BoatTypes } from '../../../types/boatTypes';
@@ -116,7 +117,9 @@ class WinterStoragePage extends Component<Props> {
               values: { url: getHeroContentLink(intl.locale) }
             }
           ]}
-        />
+        >
+          <WinterStorage2019Warning />
+        </KoroSection>
         <KoroSection color="fog" top className="vene-berth-filters-section">
           <WinterStorageLegend
             legend={{ title: `legend.winter.title`, legend: `legend.winter.legend` }}

@@ -11,7 +11,6 @@ import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetai
 import KoroSection from '../../layout/koroSection/KoroSection';
 import Layout from '../../layout/Layout';
 import BerthsLegend from '../../legends/berthLegend/BerthLegend';
-import WinterStorage2019Warning from './WinterStorage2019Warning';
 
 import { BerthFormValues, BerthType } from '../../../types/berth';
 import { BoatTypes } from '../../../types/boatTypes';
@@ -112,9 +111,7 @@ class BerthPage extends Component<Props> {
               values: { url: getHeroContentLink(intl.locale) }
             }
           ]}
-        >
-          {formMode === FormMode.Winter && <WinterStorage2019Warning />}
-        </KoroSection>
+        />
         <KoroSection color="fog" top className="vene-berth-filters-section">
           <BerthsLegend
             legend={{ title: `legend.berth.title`, legend: `legend.berth.legend` }}
