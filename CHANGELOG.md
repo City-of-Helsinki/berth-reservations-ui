@@ -5,9 +5,14 @@
     Changes that landed in develop and might be expected in the upcoming releases.
     Click to see more.
   </summary>
-    Added: 
-    - Notification for winter storage application. in ([#250](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/250))
+  ...
 </details>
+
+# 0.3.1 (October 8, 2019)
+
+**Added:**
+
+- Notification for winter storage application. in ([#250](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/250))
 
 # 0.3.0 (July 24, 2019)
 
