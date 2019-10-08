@@ -289,11 +289,5 @@
   "page.winter_storage.storage_areas.appointed_spaces.label": "Appointed spaces",
   "page.winter_storage.storage_areas.appointed_spaces.text": "Boats have their own marked places. Appointed spaces become available rarely.",
   "page.winter_storage.storage_areas.free_spaces.label": "Unmarked areas",
-  "page.winter_storage.storage_areas.free_spaces.text": "Unmarked storage locations are filled in the order that the boats are hoisted.",
-  "page.winter_storage.release_note.title": "Tiedote 7.10.2019",
-  "page.winter_storage.release_note.description": "<p>Asiakaspalvelumme on ruuhkautunut uuden järjestelmän viivästymisen vuoksi. Sähköisellä hakemuksella voi hakea ainoastaan ruutupaikkoja (Rajasaari, Laivalahti, Iso-Sarvasto ja Porslahti). Ruutupaikat alkavat olla jo täynnä tälle kaudelle, mutta voit halutessasi jättää hakemuksen.</p><p>Nostojärjestyksessä täytettävien talvisäilytysalueiden paikkoja voi kysellä venepaikkavarauksista seuraavan toimintaohjeen mukaisesti:</p>",
-  "page.winter_storage.release_note.list_title": "TOIMINTAOHJE KAIKILLE NOSTOJÄRJESTYSALUEILLE HALUAVILLE:",
-  "page.winter_storage.release_note.list_item.one": "Käy katsomassa onko haluamallasi nostojärjestysalueella tilaa veneellesi. Nostojärjestysalueita ovat LÄNNESSÄ Hernesaari, Pajalahti, Kaisaniemi ja Lähteelä IDÄSSÄ Ruusuniemi I ja II, Puotila, Marjaniemi, Strömsinlahti.",
-  "page.winter_storage.release_note.list_item.two": "Kun löydät sopivan paikan, tule venepaikkavarauksiin maksamaan talvisäilytys (vain korttimaksut). Palvelemme arkisin klo 9-16, Paavo Nurmen kuja 1 E, 00250 Helsinki. Saat samalla talvisäilytykseen oikeuttavan tarran.",
-  "page.winter_storage.release_note.list_item.three": "  Nosta veneesi alueelle ja kiinnitä tarra näkyvälle paikalle telakointivälineeseen tai veneeseen."
+  "page.winter_storage.storage_areas.free_spaces.text": "Unmarked storage locations are filled in the order that the boats are hoisted."
 }

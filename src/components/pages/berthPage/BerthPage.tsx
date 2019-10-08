@@ -9,7 +9,7 @@ import { IconNames } from '../../common/Icon';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
 import Layout from '../../layout/Layout';
 import BerthsLegend from '../../legends/berthLegend/BerthLegend';
-import ReleaseNote from './ReleaseNote';
+import WinterStorage2019Warning from './WinterStorage2019Warning';
 
 import { BerthType } from '../../../types/berth';
 import { BoatTypes } from '../../../types/boatTypes';
@@ -125,7 +125,7 @@ class BerthPage extends Component<Props> {
             }
           ]}
         >
-          {formMode === FormMode.Winter && <ReleaseNote />}
+          {formMode === FormMode.Winter && <WinterStorage2019Warning />}
         </KoroSection>
         <KoroSection color="fog" top className="vene-berth-filters-section">
           <BerthsLegend
