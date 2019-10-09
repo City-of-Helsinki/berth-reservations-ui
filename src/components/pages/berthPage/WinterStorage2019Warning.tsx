@@ -39,8 +39,9 @@ const ReleaseNote = ({ intl }: InjectedIntlProps) => {
       footer = (
         <p>
           The application for client-specific square spaces remains online at{' '}
-          <a href="venepaikat.hel.fi">venepaikat.hel.fi</a>. The number of square spaces is limited,
-          and due to the large number of applicants, we cannot grant everyone a square space.
+          <a href="https://venepaikat.hel.fi">venepaikat.hel.fi</a>. The number of square spaces is
+          limited, and due to the large number of applicants, we cannot grant everyone a square
+          space.
         </p>
       );
       break;
@@ -60,8 +61,8 @@ const ReleaseNote = ({ intl }: InjectedIntlProps) => {
       footer = (
         <p>
           Ansökan om kundspecifika rutplatser sker fortsättningsvis elektroniskt på adressen{' '}
-          <a href="venepaikat.hel.fi">venepaikat.hel.fi</a>. Antalet rutplatser är begränsat och på
-          grund av det stora antalet sökande räcker platserna inte till alla.
+          <a href="https://venepaikat.hel.fi">venepaikat.hel.fi</a>. Antalet rutplatser är begränsat
+          och på grund av det stora antalet sökande räcker platserna inte till alla.
         </p>
       );
       break;
