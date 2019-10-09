@@ -12,7 +12,7 @@
 
 **Added:**
 
-- Notification for winter storage application. in ([#250](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/250) & [#252](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/252/files))
+- Notification for winter storage application. in ([#250](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/250) & [#252](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/252))
 
 # 0.3.0 (July 24, 2019)
 
