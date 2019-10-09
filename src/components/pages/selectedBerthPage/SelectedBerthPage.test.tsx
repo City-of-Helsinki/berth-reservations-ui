@@ -4,19 +4,19 @@ import React from 'react';
 import SelectedBerthPage, { Props } from './SelectedBerthPage';
 
 import { berths } from '../../../__fixtures__/berthFixture';
+import { berthValues } from '../../../__fixtures__/formValuesFixture';
 import { ApplicationOptions } from '../../../types/applicationType';
 
 describe('pages/BerthPage/SelectedBerthPage', () => {
   const defaultProps: Props = {
     boatInfo: { width: '4', length: '10' },
     selectedBerths: berths,
-    initialValues: {},
     deselectBerth: jest.fn(),
     moveUp: jest.fn(),
     moveDown: jest.fn(),
     berthsApplicationType: ApplicationOptions.NewApplication,
     submitExchangeForm: jest.fn(),
-    values: {},
+    values: berthValues,
     moveToForm: jest.fn(),
     handlePrevious: jest.fn(),
     legend: { title: 'foo', legend: 'bar' },

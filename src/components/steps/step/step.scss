@@ -8,10 +8,12 @@
   text-align: left;
   hyphens: auto;
 
-  &:hover,
-  &:active {
-    text-decoration: none;
-    color: $hel-black;
+  &__link {
+    &:hover,
+    &:active {
+      text-decoration: none;
+      color: $hel-black;
+    }
   }
 
   &__status {

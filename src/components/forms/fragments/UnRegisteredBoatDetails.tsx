@@ -2,7 +2,11 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Row } from 'reactstrap';
 
-import { mustBePositiveNumber } from '../../../utils/formValidation';
+import validator, {
+  mustBeLessThan,
+  mustBePositiveNumber,
+  mustNotExceedTwoDecimals
+} from '../../../utils/formValidation';
 import { Checkbox, Number } from '../Fields';
 import { BoatType } from '../Selects';
 
@@ -35,7 +39,11 @@ const UnRegisteredBoatDetailsFragment = ({
         )}
         <Col sm={4}>
           <Number
-            validate={mustBePositiveNumber}
+            validate={validator(
+              mustBeLessThan(1000),
+              mustBePositiveNumber,
+              mustNotExceedTwoDecimals
+            )}
             name={`boatWidth`}
             label="form.no_boat.field.width.label"
             placeholder="form.no_boat.field.width.placeholder"
@@ -46,7 +54,11 @@ const UnRegisteredBoatDetailsFragment = ({
         </Col>
         <Col sm={4}>
           <Number
-            validate={mustBePositiveNumber}
+            validate={validator(
+              mustBeLessThan(1000),
+              mustBePositiveNumber,
+              mustNotExceedTwoDecimals
+            )}
             name={`boatLength`}
             label="form.no_boat.field.length.label"
             placeholder="form.no_boat.field.length.placeholder"

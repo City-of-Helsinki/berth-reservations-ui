@@ -8,26 +8,31 @@ import {
   moveWinterAreaDown,
   moveWinterAreaUp
 } from '../../../redux/actions/WinterAreaActions';
-import { getBerthFilterByValues, getBerths, getSelectedResources } from '../../../utils/berths';
+import {
+  getResources,
+  getSelectedResources,
+  getWinterStorageFilterByValues
+} from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
-import SelectedBerthPage from '../selectedBerthPage/SelectedBerthPage';
+import SelectedAreaPage from '../selectedAreaPage/SelectedAreaPage';
 
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import WinterAreasQuery from '../../query/WinterAreasQuery';
 
 import { Store } from '../../../redux/types';
-import { SelectedServices } from '../../../types/services';
-import { Berths, SelectedIds } from '../../berths/types';
+import { SelectedWinterServices } from '../../../types/services';
+import { WinterFormValues } from '../../../types/winterStorage';
+import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 interface Props {
   selectedAreas: SelectedIds;
-  selectedServices: SelectedServices;
-  deselectBerth: Function;
+  selectedServices: SelectedWinterServices;
+  deselectArea: Function;
   moveUp: Function;
   moveDown: Function;
   localePush: LocalePush;
-  values: {};
+  values: WinterFormValues;
 }
 
 const steps: StepType[] = [
@@ -63,7 +68,7 @@ const steps: StepType[] = [
   }
 ];
 
-const UnconnectedSelectedBerthPage = ({
+const UnconnectedSelectedAreaPage = ({
   localePush,
   values,
   selectedAreas,
@@ -84,26 +89,24 @@ const UnconnectedSelectedBerthPage = ({
       }) => {
         const width = get(values, 'boatWidth', '');
         const length = get(values, 'boatLength', '');
-        const filter = getBerthFilterByValues(values, selectedServices);
-        // @ts-ignore
-        const validSelection = selectedAreas.every(filter);
-        const areas = getBerths(data ? data.winterStorageAreas : null);
+        const filter = getWinterStorageFilterByValues(values, selectedServices);
+        const areas = getResources(data ? data.winterStorageAreas : null);
         const selected = getSelectedResources(selectedAreas, areas);
+        const validSelection = areas.every(filter);
 
         return (
-          <SelectedBerthPage
+          <SelectedAreaPage
             boatInfo={{ width, length }}
             handlePrevious={handlePrevious}
             moveToForm={moveToForm}
             filter={filter}
             validSelection={validSelection}
             steps={steps}
-            initialValues={{}}
             legend={{
               title: 'legend.selected_areas.title',
               legend: 'legend.selected_areas.legend'
             }}
-            selectedBerths={selected}
+            selectedAreas={selected}
             values={values}
             {...rest}
           />
@@ -122,9 +125,9 @@ export default compose<Props, Props>(
       values: state.forms.winterValues
     }),
     {
-      deselectBerth: deselectWinterArea,
+      deselectArea: deselectWinterArea,
       moveUp: moveWinterAreaUp,
       moveDown: moveWinterAreaDown
     }
   )
-)(UnconnectedSelectedBerthPage);
+)(UnconnectedSelectedAreaPage);

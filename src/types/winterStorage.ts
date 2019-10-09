@@ -16,7 +16,18 @@ export type WinterStorageType = Pick<
 } & Pick<WinterAreasQuery_winterStorageAreas_edges_node, 'id'> &
   Pick<WinterAreasQuery_winterStorageAreas_edges_node, '__typename'>;
 
-export type WinterFormValues = WinterStorageReservationInput & {
+interface ValuesToOverride {
   boatLength: string;
   boatWidth: string;
-};
+}
+
+interface AdditionalValues {
+  boatStoredOnTrailer: boolean;
+}
+
+export type WinterFormValues = Pick<
+  WinterStorageReservationInput,
+  Exclude<keyof WinterStorageReservationInput, keyof ValuesToOverride>
+> &
+  ValuesToOverride &
+  AdditionalValues;

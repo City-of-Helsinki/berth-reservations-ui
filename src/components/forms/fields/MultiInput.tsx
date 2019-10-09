@@ -8,7 +8,7 @@ import Label from './Label';
 
 type Props = {
   items: Array<{ name: string; label: string; value: string }>;
-} & FieldProps &
+} & FieldProps<string, HTMLElement> &
   InjectedIntlProps;
 
 type CustomInputType = 'select' | 'file' | 'radio' | 'checkbox' | 'switch';
@@ -42,12 +42,12 @@ const TextInput = (type: CustomInputType) => ({
             {({ input, meta }) => (
               <CustomInput
                 id={key}
-                type={type}
                 required={required}
                 label={formatMessage({ id: itemLabel })}
                 invalid={!!(meta.touched && meta.error)}
                 {...input}
                 {...rest}
+                type={type}
               >
                 {meta.error && (
                   <FormFeedback>
