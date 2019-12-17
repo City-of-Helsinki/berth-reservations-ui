@@ -272,7 +272,7 @@
   "page.berth.exchange_application.new": "Uusi hakemus",
   "page.berth.exchange_application.exchange": "Vaihtohakemus",
   "page.berth.exchange_application.new.info_text": "Hakijalla ei ole vielä Helsingin kaupungin tarjoamaa venepaikkaa",
-  "page.berth.exchange_application.exchange.info_text": "Helsingin kaupungin satamassa olevan venepaikan vaihto toiseen satamaan",
+  "page.berth.exchange_application.exchange.info_text": "Helsingin kaupungin satamassa olevan venepaikan vaihto",
   "page.berth.exchange_application.warning": "Vaihtohakemukseen voit valita enintään viisi satamaa. Poista ylimääräiset valinnat ja vaihda hakemuksen tyyppi uudelleen.",
   "page.berth.exchange_application.current_berth.title": "Nykyisen paikan tiedot",
   "page.berth.exchange_application.current_berth.info_text": "Vaihtohakemusta varten syötä nykyisen venepaikan tiedot. ",
