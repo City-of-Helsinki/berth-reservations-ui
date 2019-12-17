@@ -14,8 +14,6 @@
 
 - The wording of the text under exchange application. in ([#256](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/256))
 
-# 0.3.0 (July 24, 2019)
-
 # 0.3.1 (October 9, 2019)
 
 **Added:**
