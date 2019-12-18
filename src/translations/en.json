@@ -282,7 +282,7 @@
   "page.berth.exchange_application.new": "New application",
   "page.berth.exchange_application.exchange": "Exchange application",
   "page.berth.exchange_application.new.info_text": "The applicant does not yet have a berth provided by the City of Helsinki",
-  "page.berth.exchange_application.exchange.info_text": "Exchanging a berth at a City of Helsinki harbour for another harbour",
+  "page.berth.exchange_application.exchange.info_text": "Exchanging a berth at a City of Helsinki harbour",
   "page.berth.exchange_application.warning": "You can select up to five harbours for your exchange application. Please remove excess selections and change the application type again.",
   "page.berth.exchange_application.current_berth.title": "Information on your current berth",
   "page.berth.exchange_application.current_berth.info_text": "Please provide the details of your current berth for the exchange application. ",

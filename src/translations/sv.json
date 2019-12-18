@@ -282,7 +282,7 @@
   "page.berth.exchange_application.new": "Ny ansökan",
   "page.berth.exchange_application.exchange": "Ansökan om byte",
   "page.berth.exchange_application.new.info_text": "Den sökande har inte ännu någon båtplats som Helsingfors stad erbjuder",
-  "page.berth.exchange_application.exchange.info_text": "Byte av båtplats i någon av Helsingfors stads hamnar till en annan hamn",
+  "page.berth.exchange_application.exchange.info_text": "Byte av båtplats i någon av Helsingfors stads hamnar",
   "page.berth.exchange_application.warning": "I ansökan om byte kan högst fem hamnar väljas. Radera extravalen och byt ansökningstyp igen.",
   "page.berth.exchange_application.current_berth.title": "Uppgifter om den nuvarande platsen",
   "page.berth.exchange_application.current_berth.info_text": "Fyll i uppgifterna om den nuvarande platsen i ansökan om byte. ",

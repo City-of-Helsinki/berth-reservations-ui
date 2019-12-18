@@ -26,6 +26,12 @@
 
 </details>
 
+# 0.3.2 (December 17, 2019)
+
+**Fixed:**
+
+- The wording of the text under exchange application. in ([#256](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/256))
+
 # 0.3.1 (October 9, 2019)
 
 **Added:**
