@@ -9,11 +9,11 @@ interface Props {
 }
 
 const ApplicantDetails = ({ tab }: Props) => (
-  <div>
+  <>
     <SectionSelector
       name="boat"
       sizes={{
-        xs: 6,
+        xs: 12,
         md: 4,
         lg: 3
       }}
@@ -38,7 +38,7 @@ const ApplicantDetails = ({ tab }: Props) => (
         </Col>
       </Row>
     </Container>
-  </div>
+  </>
 );
 
 export default ApplicantDetails;

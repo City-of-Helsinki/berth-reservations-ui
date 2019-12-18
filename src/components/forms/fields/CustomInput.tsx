@@ -9,7 +9,7 @@ import Label from './Label';
 
 type Props = {
   items: Array<{ name: string; label: string; value: string }>;
-} & FieldProps;
+} & FieldProps<string, HTMLElement>;
 
 type CustomInputType = 'select' | 'file' | 'radio' | 'checkbox' | 'switch';
 
@@ -34,13 +34,13 @@ const TextInput = (type: CustomInputType, inlineLabel: boolean) => ({
         {!inlineLabel && label && <Label htmlFor={id} required={required} text={label} />}
         <Input
           id={id}
-          type={type}
           required={required}
           placeholder={placeholder}
           label={inlineLabel ? label : undefined}
           invalid={!!(meta.touched && meta.error)}
           {...input}
           {...rest}
+          type={type}
         />
         {meta.error && (
           <FormFeedback>

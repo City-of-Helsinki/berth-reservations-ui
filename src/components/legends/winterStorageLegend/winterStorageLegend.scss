@@ -1,0 +1,82 @@
+@import 'helsinki/colors';
+@import 'helsinki/fonts';
+
+$berthLegendIconSize: 42px;
+
+.vene-berths-legend {
+  background-color: $hel-fog;
+
+  &__app-selector {
+    margin-bottom: 2em;
+  }
+
+  &__header {
+    margin-bottom: 2em;
+  }
+
+  &__services {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: wrap;
+
+    &__header {
+      margin-bottom: 1em;
+
+      span {
+        font-weight: $display1-weight;
+      }
+    }
+  }
+
+  &__service {
+    cursor: pointer;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    background-color: transparent;
+    padding: 0;
+    flex-basis: 0;
+    margin-right: 1em;
+
+    &:focus {
+      outline: none;
+    }
+
+    .vene-icon {
+      height: $berthLegendIconSize;
+      width: $berthLegendIconSize;
+      padding: 6px;
+    }
+  }
+
+  &__label {
+    width: 1.8 * $berthLegendIconSize;
+    line-height: 1;
+    margin-top: 0.5em;
+    hyphens: auto;
+    span {
+      font-size: $font-size-sm;
+    }
+  }
+
+  &__icon-wrapper {
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: transparent;
+    padding: 4px;
+
+    &:hover {
+      background-color: lighten($hel-fog, 10%);
+    }
+
+    &.selected {
+      background-color: $hel-white;
+
+      &:hover {
+        background-color: lighten($hel-fog, 15%);
+      }
+    }
+  }
+}

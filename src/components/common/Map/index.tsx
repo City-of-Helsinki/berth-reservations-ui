@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Map, TileLayer } from 'react-leaflet';
+import { Map as LeafletMap, TileLayer } from 'react-leaflet';
 
 import Berth from '../../berths/Berth/Berth';
 import mapIcon from './MapIcon';
@@ -8,9 +8,9 @@ import MapMarker from './MapMarker';
 
 import { BerthType } from '../../../types/berth';
 import { WinterStorageType } from '../../../types/winterStorage';
-import { Berths, SelectedIds } from '../../berths/types';
+import { Resources, SelectedIds } from '../../berths/types';
 
-import { isBerthSelected } from '../../../utils/berths';
+import { isResourceSelected } from '../../../utils/berths';
 
 import './Map.scss';
 
@@ -22,14 +22,15 @@ interface State {
 }
 
 interface Props {
-  filtered: Berths;
-  filteredNot: Berths;
+  TabHeader?: React.FC; // required for TabSelector component
+  filtered: Resources;
+  filteredNot: Resources;
   selected: SelectedIds;
   onClick: Function;
   berthLimit: number;
 }
 
-export default class MapCanvas extends Component<Props, State> {
+class Map extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
@@ -59,14 +60,14 @@ export default class MapCanvas extends Component<Props, State> {
         <h3 className="vene-map__header">
           <FormattedMessage id="page.berths.list.berth_count" values={{ count: filtered.size }} />
         </h3>
-        <Map center={position} zoom={this.state.zoom} className="vene-map__map">
+        <LeafletMap center={position} zoom={this.state.zoom} className="vene-map__map">
           <TileLayer url="https://tiles.hel.ninja/styles/hel-osm-light/{z}/{x}/{y}@2x.png" />
           {filtered.map(berth => {
-            const isSelected = isBerthSelected(selected, berth);
+            const isSelected = isResourceSelected(selected, berth.id);
             const isPreviewed = !!selectedBerth && selectedBerth.id === berth.id;
             return (
               <MapMarker
-                berth={berth}
+                id={berth.id}
                 selected={isSelected}
                 markerIcon={mapIcon(isSelected, isPreviewed, false)}
                 key={berth.id}
@@ -76,11 +77,11 @@ export default class MapCanvas extends Component<Props, State> {
             );
           })}
           {filteredNot.map(berth => {
-            const isSelected = isBerthSelected(selected, berth);
+            const isSelected = isResourceSelected(selected, berth.id);
             const isPreviewed = !!selectedBerth && selectedBerth.id === berth.id;
             return (
               <MapMarker
-                berth={berth}
+                id={berth.id}
                 selected={isSelected}
                 markerIcon={mapIcon(isSelected, isPreviewed, true)}
                 key={berth.id}
@@ -89,14 +90,14 @@ export default class MapCanvas extends Component<Props, State> {
               />
             );
           })}
-        </Map>
+        </LeafletMap>
         {selectedBerth && (
           <Berth
             excluded={!!excluded}
             key={selectedBerth.id}
             berth={selectedBerth}
             onClick={() => onClick(selectedBerth)}
-            selected={isBerthSelected(selected, selectedBerth)}
+            selected={isResourceSelected(selected, selectedBerth.id)}
             disabled={selected.size >= berthLimit}
           />
         )}
@@ -104,3 +105,5 @@ export default class MapCanvas extends Component<Props, State> {
     );
   }
 }
+
+export default Map;
