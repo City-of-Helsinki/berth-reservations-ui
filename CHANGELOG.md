@@ -8,6 +8,12 @@
   ...
 </details>
 
+# 0.3.3 (January 16, 2020)
+
+**Fixed:**
+
+- The links on the berths page lead to the service map after the individual harbor pages were deleted. in ([#258](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/258))
+
 # 0.3.2 (December 17, 2019)
 
 **Fixed:**
