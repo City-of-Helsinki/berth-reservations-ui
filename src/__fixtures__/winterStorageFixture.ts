@@ -16,6 +16,7 @@ export const createWinterArea = (options?: Partial<WinterStorageType>): WinterSt
     numberOfSectionSpaces: null,
     maxLengthOfSectionSpaces: null,
     numberOfUnmarkedSpaces: 100,
+    servicemapId: null,
     electricity: true,
     water: true,
     gate: false,
