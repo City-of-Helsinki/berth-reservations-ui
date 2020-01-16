@@ -6,7 +6,7 @@ import Icon, { IconNames } from '../../../common/Icon';
 
 import './BerthDetails.scss';
 
-interface Props {
+export interface Props {
   iconName?: IconNames;
   available: boolean;
   value?: number | null;

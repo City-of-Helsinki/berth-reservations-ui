@@ -1,5 +1,5 @@
 import { List } from 'immutable';
-import { Berths } from '../components/berths/types';
+import { WinterAreas } from '../components/berths/types';
 import { WinterStorageType } from '../types/winterStorage';
 
 export const createWinterArea = (options?: Partial<WinterStorageType>): WinterStorageType => {
@@ -39,4 +39,4 @@ export const createWinterArea = (options?: Partial<WinterStorageType>): WinterSt
 };
 
 export const winterArea = createWinterArea();
-export const winterAreas: Berths = List([winterArea]);
+export const winterAreas: WinterAreas = List([winterArea]);

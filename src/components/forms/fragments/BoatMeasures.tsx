@@ -4,7 +4,11 @@ import { Col, Row } from 'reactstrap';
 
 import { Number } from '../Fields';
 
-import { mustBePositiveNumber } from '../../../utils/formValidation';
+import validator, {
+  mustBeLessThan,
+  mustBePositiveNumber,
+  mustNotExceedTwoDecimals
+} from '../../../utils/formValidation';
 
 interface Props {
   showDraught?: boolean;
@@ -17,7 +21,7 @@ const RegisteredBoatFragment = ({ showDraught, showWeight }: Props) => (
     <Row>
       <Col sm={3}>
         <Number
-          validate={mustBePositiveNumber}
+          validate={validator(mustBeLessThan(1000), mustBePositiveNumber, mustNotExceedTwoDecimals)}
           name={`boatWidth`}
           label="form.registered.field.width.label"
           placeholder="form.registered.field.width.placeholder"
@@ -28,7 +32,7 @@ const RegisteredBoatFragment = ({ showDraught, showWeight }: Props) => (
       </Col>
       <Col sm={3}>
         <Number
-          validate={mustBePositiveNumber}
+          validate={validator(mustBeLessThan(1000), mustBePositiveNumber, mustNotExceedTwoDecimals)}
           name={`boatLength`}
           label="form.registered.field.length.label"
           placeholder="form.registered.field.length.placeholder"
@@ -40,7 +44,11 @@ const RegisteredBoatFragment = ({ showDraught, showWeight }: Props) => (
       {showDraught && (
         <Col sm={3}>
           <Number
-            validate={mustBePositiveNumber}
+            validate={validator(
+              mustBeLessThan(1000),
+              mustBePositiveNumber,
+              mustNotExceedTwoDecimals
+            )}
             name={`boatDraught`}
             label="form.registered.field.draught.label"
             placeholder="form.registered.field.draught.placeholder"
@@ -53,7 +61,11 @@ const RegisteredBoatFragment = ({ showDraught, showWeight }: Props) => (
       {showWeight && (
         <Col sm={3}>
           <Number
-            validate={mustBePositiveNumber}
+            validate={validator(
+              mustBeLessThan(100000000),
+              mustBePositiveNumber,
+              mustNotExceedTwoDecimals
+            )}
             name={`boatWeight`}
             step={100}
             label="form.registered.field.weight.label"

@@ -86,7 +86,12 @@ class TabSelector extends React.Component<Props, State> {
                   count: berthLimit - selectedCount
                 }}
               />
-              {!validSelection && <InvalidSelection />}
+              {!validSelection && (
+                <InvalidSelection
+                  id="invalid-selection"
+                  msg="error.message.invalid_berth_selection"
+                />
+              )}
               <IntlComponent
                 id="tab_selector.progress.button"
                 Component={Button}

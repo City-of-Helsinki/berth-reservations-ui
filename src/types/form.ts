@@ -8,8 +8,3 @@ export interface DefaultFieldProps {
   text?: string;
   children?: any;
 }
-
-export enum FormMode {
-  Berth = 'berth',
-  Winter = 'winter'
-}
