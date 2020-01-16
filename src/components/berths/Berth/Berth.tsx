@@ -133,8 +133,15 @@ const getBerthDetails = (berth: BerthType | WinterStorageType) => {
   }
 };
 
-const Berth = (props: Props) => {
-  const { berth, excluded = false, onClick, selected, disabled, className } = props;
+const Berth = ({
+  berth,
+  excluded = false,
+  onClick,
+  selected,
+  disabled,
+  className,
+  intl
+}: Props) => {
   const tooltipId = genValidSelector(`availability_${berth.id}`);
 
   return (
@@ -185,13 +192,16 @@ const Berth = (props: Props) => {
                 </Popover>
               </div>
             )}
-            {berth.wwwUrl && (
+            {berth.servicemapId && (
               <div>
                 <a
                   className="vene-berth__website-link"
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={berth.wwwUrl}
+                  href={intl.formatMessage(
+                    { id: 'page.berths.servicemapURL' },
+                    { servicemapId: berth.servicemapId }
+                  )}
                 >
                   <FormattedMessage tagName="span" id="page.berths.website" />
                   <Icon name="arrowRight" />

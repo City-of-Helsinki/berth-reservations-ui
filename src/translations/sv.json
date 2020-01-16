@@ -85,6 +85,7 @@
   "page.berths.list.header.hits": "Hamnarna som motsvarar sökkriterierna:",
   "page.berths.list.header.others": "Övriga hamnar",
   "page.berths.appointed": "Markerade rutor",
+  "page.berths.servicemapURL": "https://servicekarta.hel.fi/unit/{ servicemapId }",
   "legend.berth.title": "Hurdan båtplats söker du?",
   "legend.berth.legend": "Bläddra bland stadens hamnar och båtplatser. Välj högst tio lämpliga hamnar i din ansökan.",
   "legend.selected_berths.title": "Egna val",

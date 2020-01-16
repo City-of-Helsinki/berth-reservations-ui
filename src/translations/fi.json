@@ -85,6 +85,7 @@
   "page.berths.list.header.hits": "Hakukriteerit täyttävät satamat:",
   "page.berths.list.header.others": "Muut satamat",
   "page.berths.appointed": "Merkityt ruutupaikat",
+  "page.berths.servicemapURL": "https://palvelukartta.hel.fi/unit/{ servicemapId }",
   "legend.berth.title": "Millaista venepaikkaa olet hakemassa?",
   "legend.berth.legend": "Selaa kaupungin tarjoamia satamia ja venepaikkoja. Valitse enintään kymmenen sopivaa satamaa hakemukseesi.",
   "legend.selected_berths.title": "Omat valinnat",

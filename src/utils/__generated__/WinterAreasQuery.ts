@@ -34,6 +34,10 @@ export interface WinterAreasQuery_winterStorageAreas_edges_node_properties {
   maximumWidth: number | null;
   maximumLength: number | null;
   numberOfSectionSpaces: number | null;
+  /**
+   * ID in the Servicemap system
+   */
+  servicemapId: string | null;
   maxLengthOfSectionSpaces: number | null;
   numberOfUnmarkedSpaces: number | null;
   electricity: boolean;

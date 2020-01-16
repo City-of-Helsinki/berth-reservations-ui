@@ -85,6 +85,7 @@
   "page.berths.list.header.hits": "Harbours matching the search criteria:",
   "page.berths.list.header.others": "Other harbours",
   "page.berths.appointed": "Appointed spaces",
+  "page.berths.servicemapURL": "https://servicemap.hel.fi/unit/{ servicemapId }",
   "legend.berth.title": "What type of berth are you looking for?",
   "legend.berth.legend": "Browse the harbours and berths offered by the City. Choose up to ten suitable harbours for your application.",
   "legend.selected_berths.title": "Your selection",

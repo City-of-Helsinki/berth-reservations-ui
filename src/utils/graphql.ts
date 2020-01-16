@@ -70,6 +70,7 @@ export const WINTER_AREAS_QUERY = gql`
             maximumWidth: maxWidth
             maximumLength: maxLength
             numberOfSectionSpaces
+            servicemapId
             maxLengthOfSectionSpaces
             numberOfUnmarkedSpaces
             electricity
