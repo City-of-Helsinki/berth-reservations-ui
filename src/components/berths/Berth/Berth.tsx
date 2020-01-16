@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
-import { Alert, Button, Col, Popover as RsPopover, PopoverBody, Row } from 'reactstrap';
+import { Alert, Button, Col, Row } from 'reactstrap';
 
 import { convertCmToM, genValidSelector } from '../../../utils/berths';
 import Icon from '../../common/Icon';
@@ -133,8 +133,15 @@ const getBerthDetails = (berth: BerthType | WinterStorageType) => {
   }
 };
 
-const Berth = (props: Props) => {
-  const { berth, excluded = false, onClick, selected, disabled, className } = props;
+const Berth = ({
+  berth,
+  excluded = false,
+  onClick,
+  selected,
+  disabled,
+  className,
+  intl
+}: Props) => {
   const tooltipId = genValidSelector(`availability_${berth.id}`);
 
   return (
@@ -185,13 +192,16 @@ const Berth = (props: Props) => {
                 </Popover>
               </div>
             )}
-            {berth.wwwUrl && (
+            {berth.servicemapId && (
               <div>
                 <a
                   className="vene-berth__website-link"
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={berth.wwwUrl}
+                  href={intl.formatMessage(
+                    { id: 'page.berths.servicemapURL' },
+                    { servicemapId: berth.servicemapId }
+                  )}
                 >
                   <FormattedMessage tagName="span" id="page.berths.website" />
                   <Icon name="arrowRight" />
