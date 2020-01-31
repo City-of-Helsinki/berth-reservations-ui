@@ -111,7 +111,7 @@ export const CREATE_APPLICATION = gql`
   }
 `;
 
-export const CREATE_WINTER_STORAGE_RESERVATION = gql`
+export const CREATE_WINTER_STORAGE_APPLICATION = gql`
   mutation SubmitWinterStorage($application: WinterStorageApplicationInput!) {
     createWinterStorageApplication(winterStorageApplication: $application) {
       ok
