@@ -126,9 +126,9 @@ const FormPageContainer = ({
             },
             values.boatDraught && values.boatWeight
               ? {
-                boatDraught: stringToFloat(values.boatDraught),
-                boatWeight: stringToFloat(values.boatWeight)
-              }
+                  boatDraught: stringToFloat(values.boatDraught),
+                  boatWeight: stringToFloat(values.boatWeight)
+                }
               : {}
           );
           // Append berthSwitch property only when exchange application is selected.
