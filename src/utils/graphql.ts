@@ -103,17 +103,17 @@ export const BERTH_SWITCH_REASONS_QUERY = gql`
   }
 `;
 
-export const CREATE_RESERVATION = gql`
-  mutation SubmitBerth($reservation: BerthReservationInput!, $berthSwitch: BerthSwitchInput) {
-    createBerthReservation(berthReservation: $reservation, berthSwitch: $berthSwitch) {
+export const CREATE_APPLICATION = gql`
+  mutation SubmitBerth($application: BerthApplicationInput!, $berthSwitch: BerthSwitchInput) {
+    createBerthApplication(berthApplication: $application, berthSwitch: $berthSwitch) {
       ok
     }
   }
 `;
 
-export const CREATE_WINTER_STORAGE_RESERVATION = gql`
-  mutation SubmitWinterStorage($reservation: WinterStorageReservationInput!) {
-    createWinterStorageReservation(winterStorageReservation: $reservation) {
+export const CREATE_WINTER_STORAGE_APPLICATION = gql`
+  mutation SubmitWinterStorage($application: WinterStorageApplicationInput!) {
+    createWinterStorageApplication(winterStorageApplication: $application) {
       ok
     }
   }

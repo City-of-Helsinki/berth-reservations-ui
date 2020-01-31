@@ -9,7 +9,7 @@ import { getBerths, getSelectedResources, stringToFloat } from '../../../utils/b
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../formPage/FormPage';
 
-import { BOAT_TYPES_BERTHS_QUERY, CREATE_RESERVATION } from '../../../utils/graphql';
+import { BOAT_TYPES_BERTHS_QUERY, CREATE_APPLICATION } from '../../../utils/graphql';
 
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/BoatDetails';
@@ -151,7 +151,7 @@ const FormPageContainer = ({
 
           await client.mutate({
             variables: payload,
-            mutation: CREATE_RESERVATION
+            mutation: CREATE_APPLICATION
           });
 
           await localePush('/thank-you');
