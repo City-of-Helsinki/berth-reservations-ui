@@ -8,7 +8,7 @@ import { compose } from 'recompose';
 import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
 import { getResources, getSelectedResources, stringToFloat } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
-import { CREATE_WINTER_STORAGE_RESERVATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
+import { CREATE_WINTER_STORAGE_APPLICATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/WinterBoatDetails';
 import WinterOverview from '../../forms/sections/WinterOverview';
@@ -126,7 +126,7 @@ const WinterFormPageContainer = ({
                 chosenAreas
               }
             },
-            mutation: CREATE_WINTER_STORAGE_RESERVATION
+            mutation: CREATE_WINTER_STORAGE_APPLICATION
           });
 
           await localePush('/thank-you');

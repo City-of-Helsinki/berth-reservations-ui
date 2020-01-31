@@ -9,7 +9,7 @@ import { getResources, getSelectedResources, stringToFloat } from '../../../util
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../formPage/FormPage';
 
-import { BOAT_TYPES_BERTHS_QUERY, CREATE_RESERVATION } from '../../../utils/graphql';
+import { BOAT_TYPES_BERTHS_QUERY, CREATE_APPLICATION } from '../../../utils/graphql';
 
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/BerthBoatDetails';
@@ -126,9 +126,9 @@ const FormPageContainer = ({
             },
             values.boatDraught && values.boatWeight
               ? {
-                  boatDraught: stringToFloat(values.boatDraught),
-                  boatWeight: stringToFloat(values.boatWeight)
-                }
+                boatDraught: stringToFloat(values.boatDraught),
+                boatWeight: stringToFloat(values.boatWeight)
+              }
               : {}
           );
           // Append berthSwitch property only when exchange application is selected.
@@ -147,7 +147,7 @@ const FormPageContainer = ({
 
           await client.mutate<any, { reservation: BerthReservationInput }>({
             variables: payload,
-            mutation: CREATE_RESERVATION
+            mutation: CREATE_APPLICATION
           });
 
           await localePush('/thank-you');

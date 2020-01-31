@@ -103,7 +103,7 @@ export const BERTH_SWITCH_REASONS_QUERY = gql`
   }
 `;
 
-export const CREATE_RESERVATION = gql`
+export const CREATE_APPLICATION = gql`
   mutation SubmitBerth($application: BerthApplicationInput!, $berthSwitch: BerthSwitchInput) {
     createBerthApplication(berthApplication: $application, berthSwitch: $berthSwitch) {
       ok
