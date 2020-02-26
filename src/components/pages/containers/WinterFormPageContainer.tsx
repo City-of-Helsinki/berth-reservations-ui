@@ -20,6 +20,10 @@ import { FormMode } from '../../../types/form';
 import { WinterFormValues } from '../../../types/winterStorage';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
+import {
+  SubmitWinterStorage,
+  SubmitWinterStorageVariables
+} from '../../../utils/__generated__/SubmitWinterStorage';
 
 type Props = {
   initialValues: {};
@@ -119,9 +123,9 @@ const WinterFormPageContainer = ({
 
           const allowedFormValues = omit(normalizedValues, 'boatStoredOnTrailer');
 
-          await client.mutate({
+          await client.mutate<SubmitWinterStorage, SubmitWinterStorageVariables>({
             variables: {
-              reservation: {
+              application: {
                 chosenAreas,
                 acceptBoatingNewsletter: false,
                 acceptFitnessNews: false,
