@@ -2,22 +2,22 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { BerthReservationInput, BerthSwitchInput } from "./../../__generated__/globalTypes";
+import { BerthApplicationInput, BerthSwitchInput } from "./../../__generated__/globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: SubmitBerth
 // ====================================================
 
-export interface SubmitBerth_createBerthReservation {
-  __typename: "CreateBerthReservation";
+export interface SubmitBerth_createBerthApplication {
+  __typename: "CreateBerthApplication";
   ok: boolean | null;
 }
 
 export interface SubmitBerth {
-  createBerthReservation: SubmitBerth_createBerthReservation | null;
+  createBerthApplication: SubmitBerth_createBerthApplication | null;
 }
 
 export interface SubmitBerthVariables {
-  reservation: BerthReservationInput;
+  application: BerthApplicationInput;
   berthSwitch?: BerthSwitchInput | null;
 }

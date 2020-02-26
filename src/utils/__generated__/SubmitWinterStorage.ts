@@ -2,21 +2,21 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { WinterStorageReservationInput } from "./../../__generated__/globalTypes";
+import { WinterStorageApplicationInput } from "./../../__generated__/globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: SubmitWinterStorage
 // ====================================================
 
-export interface SubmitWinterStorage_createWinterStorageReservation {
-  __typename: "CreateWinterStorageReservation";
+export interface SubmitWinterStorage_createWinterStorageApplication {
+  __typename: "CreateWinterStorageApplication";
   ok: boolean | null;
 }
 
 export interface SubmitWinterStorage {
-  createWinterStorageReservation: SubmitWinterStorage_createWinterStorageReservation | null;
+  createWinterStorageApplication: SubmitWinterStorage_createWinterStorageApplication | null;
 }
 
 export interface SubmitWinterStorageVariables {
-  reservation: WinterStorageReservationInput;
+  application: WinterStorageApplicationInput;
 }
