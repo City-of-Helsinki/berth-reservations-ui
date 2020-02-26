@@ -5,21 +5,20 @@ import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
 
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
-import { getBerths, getSelectedResources, stringToFloat } from '../../../utils/berths';
+import { getResources, getSelectedResources, stringToFloat } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../formPage/FormPage';
 
 import { BOAT_TYPES_BERTHS_QUERY, CREATE_APPLICATION } from '../../../utils/graphql';
 
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
-import BoatDetails from '../../forms/sections/BoatDetails';
-import Overview from '../../forms/sections/Overview';
+import BoatDetails from '../../forms/sections/BerthBoatDetails';
+import BerthOverview from '../../forms/sections/BerthOverview';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 
 import { ApplicationState, Store } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
 import { BerthFormValues } from '../../../types/berth';
-import { FormMode } from '../../../types/form';
 import { SubmitBerth, SubmitBerthVariables } from '../../../utils/__generated__/SubmitBerth';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
@@ -106,7 +105,7 @@ const FormPageContainer = ({
         client
       }) => {
         const boatTypes = data ? data.boatTypes : [];
-        const berths = getBerths(data ? data.harbors : null);
+        const berths = getResources(data ? data.harbors : null);
         const selected = getSelectedResources(selectedBerths, berths);
 
         const goForward = async (values: BerthFormValues) => {
@@ -137,12 +136,8 @@ const FormPageContainer = ({
             {},
             {
               application: {
-                choices,
-                acceptBoatingNewsletter: false,
-                acceptFitnessNews: false,
-                acceptLibraryNews: false,
-                acceptOtherCultureNews: false,
-                ...normalizedValues
+                ...normalizedValues,
+                choices
               }
             },
             ApplicationOptions.ExchangeApplication === application.berthsApplicationType && {
@@ -178,11 +173,10 @@ const FormPageContainer = ({
             steps={steps}
             {...rest}
           >
-            <BoatDetails tab={boatTab} values={{}} boatTypes={boatTypes} />
+            <BoatDetails tab={boatTab} boatTypes={boatTypes} />
             <ApplicantDetails tab={applicantTab} />
             {!loading && (
-              <Overview
-                mode={FormMode.Berth}
+              <BerthOverview
                 selectedBerths={selected}
                 boatTypes={boatTypes}
                 boatTab={boatTab}

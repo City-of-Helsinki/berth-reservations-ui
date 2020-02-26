@@ -7,16 +7,15 @@ import Popover from '../../common/popover/Popover';
 import './InvalidSelection.scss';
 
 interface Props {
-  id?: string;
+  id: string;
+  msg: string;
 }
 
-const InvalidSelection = ({ id = 'default' }: Props) => {
-  const errorMessageId =
-    id === 'default' ? 'error.message.invalid_berth_selection' : 'error.message.invalid_berth';
+const InvalidSelection = ({ id, msg }: Props) => {
   return (
     <Popover
       id={id}
-      body={<FormattedMessage id={errorMessageId} />}
+      body={<FormattedMessage id={msg} />}
       placement="bottom"
       className="vene-invalid-selection"
     >

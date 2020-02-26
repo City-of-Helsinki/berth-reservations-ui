@@ -16,9 +16,15 @@ export type BerthType = Pick<
 } & Pick<BoatTypesBerthsQuery_harbors_edges_node, 'id'> &
   Pick<BoatTypesBerthsQuery_harbors_edges_node, '__typename'>;
 
-export type BerthFormValues = BerthApplicationInput & {
+interface ValuesToOverride {
   boatLength: string;
   boatWidth: string;
-  boatDraught?: string;
-  boatWeight?: string;
-};
+  boatDraught: string;
+  boatWeight: string;
+}
+
+export type BerthFormValues = Pick<
+  BerthApplicationInput,
+  Exclude<keyof BerthApplicationInput, keyof ValuesToOverride>
+> &
+  ValuesToOverride;
