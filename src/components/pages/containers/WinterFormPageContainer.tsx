@@ -18,12 +18,12 @@ import FormPage from '../formPage/FormPage';
 import { Store } from '../../../redux/types';
 import { FormMode } from '../../../types/form';
 import { WinterFormValues } from '../../../types/winterStorage';
-import { SelectedIds } from '../../berths/types';
-import { StepType } from '../../steps/step/Step';
 import {
   SubmitWinterStorage,
   SubmitWinterStorageVariables
 } from '../../../utils/__generated__/SubmitWinterStorage';
+import { SelectedIds } from '../../berths/types';
+import { StepType } from '../../steps/step/Step';
 
 type Props = {
   initialValues: {};

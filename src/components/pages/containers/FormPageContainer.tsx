@@ -20,9 +20,9 @@ import { ApplicationState, Store } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
 import { BerthFormValues } from '../../../types/berth';
 import { FormMode } from '../../../types/form';
+import { SubmitBerth, SubmitBerthVariables } from '../../../utils/__generated__/SubmitBerth';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
-import { SubmitBerth, SubmitBerthVariables } from '../../../utils/__generated__/SubmitBerth';
 
 type Props = {
   initialValues: {};
