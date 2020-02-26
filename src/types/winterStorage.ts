@@ -1,4 +1,4 @@
-import { WinterStorageReservationInput } from '../__generated__/globalTypes';
+import { WinterStorageApplicationInput } from '../__generated__/globalTypes';
 import {
   WinterAreasQuery_winterStorageAreas_edges_node,
   WinterAreasQuery_winterStorageAreas_edges_node_geometry,
@@ -26,8 +26,8 @@ interface AdditionalValues {
 }
 
 export type WinterFormValues = Pick<
-  WinterStorageReservationInput,
-  Exclude<keyof WinterStorageReservationInput, keyof ValuesToOverride>
+  WinterStorageApplicationInput,
+  Exclude<keyof WinterStorageApplicationInput, keyof ValuesToOverride>
 > &
   ValuesToOverride &
   AdditionalValues;

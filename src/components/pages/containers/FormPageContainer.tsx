@@ -9,17 +9,17 @@ import { getResources, getSelectedResources, stringToFloat } from '../../../util
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from '../formPage/FormPage';
 
-import { BOAT_TYPES_BERTHS_QUERY, CREATE_RESERVATION } from '../../../utils/graphql';
+import { BOAT_TYPES_BERTHS_QUERY, CREATE_APPLICATION } from '../../../utils/graphql';
 
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/BerthBoatDetails';
 import BerthOverview from '../../forms/sections/BerthOverview';
 import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 
-import { BerthReservationInput } from '../../../__generated__/globalTypes';
 import { ApplicationState, Store } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
 import { BerthFormValues } from '../../../types/berth';
+import { SubmitBerth, SubmitBerthVariables } from '../../../utils/__generated__/SubmitBerth';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
@@ -135,7 +135,7 @@ const FormPageContainer = ({
           const payload = Object.assign(
             {},
             {
-              reservation: {
+              application: {
                 ...normalizedValues,
                 choices
               }
@@ -145,9 +145,9 @@ const FormPageContainer = ({
             }
           );
 
-          await client.mutate<any, { reservation: BerthReservationInput }>({
+          await client.mutate<SubmitBerth, SubmitBerthVariables>({
             variables: payload,
-            mutation: CREATE_RESERVATION
+            mutation: CREATE_APPLICATION
           });
 
           await localePush('/thank-you');

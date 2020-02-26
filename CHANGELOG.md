@@ -26,6 +26,12 @@
 
 </details>
 
+# 0.4.0 (February 26, 2020)
+
+**Fixed:**
+
+- Mutations for submitting applications to follow the latest API. in ([#262](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/262))
+
 # 0.3.3 (January 16, 2020)
 
 **Fixed:**

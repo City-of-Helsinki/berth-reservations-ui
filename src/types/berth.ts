@@ -1,4 +1,4 @@
-import { BerthReservationInput } from '../__generated__/globalTypes';
+import { BerthApplicationInput } from '../__generated__/globalTypes';
 import {
   BoatTypesBerthsQuery_harbors_edges_node,
   BoatTypesBerthsQuery_harbors_edges_node_geometry,
@@ -24,7 +24,7 @@ interface ValuesToOverride {
 }
 
 export type BerthFormValues = Pick<
-  BerthReservationInput,
-  Exclude<keyof BerthReservationInput, keyof ValuesToOverride>
+  BerthApplicationInput,
+  Exclude<keyof BerthApplicationInput, keyof ValuesToOverride>
 > &
   ValuesToOverride;
