@@ -22,6 +22,7 @@ import { BerthFormValues } from '../../../types/berth';
 import { FormMode } from '../../../types/form';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
+import { SubmitBerth, SubmitBerthVariables } from '../../../utils/__generated__/SubmitBerth';
 
 type Props = {
   initialValues: {};
@@ -135,7 +136,7 @@ const FormPageContainer = ({
           const payload = Object.assign(
             {},
             {
-              reservation: {
+              application: {
                 choices,
                 acceptBoatingNewsletter: false,
                 acceptFitnessNews: false,
@@ -149,7 +150,7 @@ const FormPageContainer = ({
             }
           );
 
-          await client.mutate({
+          await client.mutate<SubmitBerth, SubmitBerthVariables>({
             variables: payload,
             mutation: CREATE_APPLICATION
           });

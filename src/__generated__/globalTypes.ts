@@ -15,7 +15,7 @@ export enum WinterStorageMethod {
   UNDER_TARP = "UNDER_TARP",
 }
 
-export interface BerthReservationInput {
+export interface BerthApplicationInput {
   language: string;
   firstName: string;
   lastName: string;
@@ -65,12 +65,7 @@ export interface HarborChoiceInput {
   priority: number;
 }
 
-export interface WinterStorageAreaChoiceInput {
-  winterAreaId: string;
-  priority: number;
-}
-
-export interface WinterStorageReservationInput {
+export interface WinterStorageApplicationInput {
   language: string;
   firstName: string;
   lastName: string;
@@ -96,6 +91,11 @@ export interface WinterStorageReservationInput {
   storageMethod: WinterStorageMethod;
   trailerRegistrationNumber?: string | null;
   chosenAreas: WinterStorageAreaChoiceInput[];
+}
+
+export interface WinterStorageAreaChoiceInput {
+  winterAreaId: string;
+  priority: number;
 }
 
 //==============================================================
