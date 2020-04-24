@@ -166,7 +166,7 @@
   "form.registered.field.model.label": "Merkki",
   "form.registered.field.model.placeholder": "Veneen merkki",
   "form.registered.header.accessibility": "Esteettömyys",
-  "form.accessibility.field.accessibility.label": "Tarvitsen esteettömän paikan",
+  "form.accessibility.field.accessibility.label": "Venesatamissamme ei ole tällä hetkellä esteettömiä venepaikkoja.",
   "form.unregistered.header.title": "Rekisteröimättömän veneen tiedot",
   "form.unregistered.header.additional_info": "Lisätiedot",
   "form.unregistered.header.accessibility": "Esteettömyys",
