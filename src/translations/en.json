@@ -36,7 +36,7 @@
   "site.footer.terms_of_service": "Description of the personal data file",
   "site.footer.send_feedback": "Send feedback",
   "site.footer.contact_us": "Contact us",
-  "site.footer.copyright": "2019 City of Helsinki",
+  "site.footer.copyright": "{ year } City of Helsinki",
   "site.footer.url.terms_of_service": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri.pdf",
   "site.footer.url.helsinki_berths": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/",
   "site.footer.url.berthing": "https://www.hel.fi/helsinki/en/culture/recreation/boating",
