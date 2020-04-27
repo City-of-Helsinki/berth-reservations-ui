@@ -79,6 +79,7 @@
   "page.berths.fence": "Portti",
   "page.berths.lighting": "Valaistus",
   "page.berths.storage_for_docking_equip": "Tarvikkeiden kesäsäilytys",
+  "page.berths.storage_for_trailers": "Trailerien kesäsäilytys",
   "page.berths.list.berth_count": "{count} hakuehdot täyttävää satamaa",
   "page.berths.list.header.hits": "Hakukriteerit täyttävät satamat:",
   "page.berths.list.header.others": "Muut satamat",

@@ -79,6 +79,7 @@
   "page.berths.fence": "Port",
   "page.berths.lighting": "Belysning",
   "page.berths.storage_for_docking_equip": "Sommarförvaring för utrustning",
+  "page.berths.storage_for_trailers": "Jag behöver en tillgänglig plats",
   "page.berths.list.berth_count": "{count} hamnar motsvarar sökkriterierna",
   "page.berths.list.header.hits": "Hamnarna som motsvarar sökkriterierna:",
   "page.berths.list.header.others": "Övriga hamnar",

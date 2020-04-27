@@ -127,7 +127,7 @@ const getBerthDetails = (berth: BerthType | WinterStorageType) => {
           key="summerStorageForTrailers"
           available={berth.summerStorageForTrailers}
           iconName="dollyEmpty"
-          titleId="page.berths.storage_for_docking_equip"
+          titleId="page.berths.storage_for_trailers"
         />
       ];
   }
