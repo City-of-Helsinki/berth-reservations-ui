@@ -84,50 +84,50 @@ const getBerthDetails = (berth: BerthType | WinterStorageType) => {
           available
           value={maximumWidth}
           unit="m"
-          titleId="page.berths.maximum_width"
+          titleId="page.winter_storage.maximum_width"
         />,
         <BerthDetails
           key="maximumLength"
           available
           value={maximumLength}
           unit="m"
-          titleId="page.berths.maximum_length"
+          titleId="page.winter_storage.maximum_length"
         />,
         <BerthDetails
           key="appointed"
           available={!!berth.numberOfMarkedPlaces}
           iconName="divided"
-          titleId="page.berths.appointed"
+          titleId="page.winter_storage.appointed"
         />,
         <BerthDetails
           key="gate"
           available={berth.gate}
           iconName="fence"
-          titleId="page.berths.fence"
+          titleId="page.winter_storage.fence"
         />,
         <BerthDetails
           key="electricity"
           available={berth.electricity}
           iconName="plug"
-          titleId="page.berths.electricity"
+          titleId="page.winter_storage.electricity"
         />,
         <BerthDetails
           key="summerStorageForDockingEquipment"
           available={berth.summerStorageForDockingEquipment}
           iconName="trestle"
-          titleId="page.berths.storage_for_docking_equip"
+          titleId="page.winter_storage.storage_for_docking_equip"
         />,
         <BerthDetails
           key="water"
           available={berth.water}
           iconName="waterTap"
-          titleId="page.berths.water_tap"
+          titleId="page.winter_storage.water_tap"
         />,
         <BerthDetails
           key="summerStorageForTrailers"
           available={berth.summerStorageForTrailers}
           iconName="dollyEmpty"
-          titleId="page.berths.storage_for_trailers"
+          titleId="page.winter_storage.storage_for_trailers"
         />
       ];
   }
