@@ -78,7 +78,7 @@
   "page.berths.waste_collection": "Waste management",
   "page.berths.fence": "Gate",
   "page.berths.lighting": "Lighting",
-  "page.berths.storage_for_trailers": "Summer storage of trailers",
+  "page.berths.storage_for_docking_equip": "Winter storage of accessories",
   "page.berths.list.berth_count": "{count} harbours match the search criteria",
   "page.berths.list.header.hits": "Harbours matching the search criteria:",
   "page.berths.list.header.others": "Other harbours",
