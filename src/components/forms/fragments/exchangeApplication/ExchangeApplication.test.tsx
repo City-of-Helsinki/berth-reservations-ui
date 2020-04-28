@@ -73,7 +73,11 @@ describe('fragments/ExchangeApplication', () => {
       const formattedMessage = reasonSelect.find(FormattedMessage);
 
       expect(reasonSelectChildren).toHaveLength(1);
-      expect(formattedMessage.prop('tagName')).toBe('option');
+      expect(
+        formattedMessage
+          .renderProp('children')()
+          .find('option[value=""]')
+      ).toHaveLength(1);
     });
   });
 });
