@@ -165,7 +165,6 @@
   "form.registered.field.name.placeholder": "Båtens namn",
   "form.registered.field.model.label": "Modell",
   "form.registered.field.model.placeholder": "Båtens modell",
-  "form.registered.header.accessibility": "Tillgänglighet",
   "form.accessibility.field.accessibility.label": "För närvarande finns det inga tillgängliga platser i våra hamnar.",
   "form.unregistered.header.title": "Uppgifter om icke-registrerad båt",
   "form.unregistered.header.additional_info": "Tilläggsuppgifter",

@@ -165,7 +165,6 @@
   "form.registered.field.name.placeholder": "Name of the boat",
   "form.registered.field.model.label": "Make",
   "form.registered.field.model.placeholder": "Make of the boat",
-  "form.registered.header.accessibility": "Accessibility",
   "form.accessibility.field.accessibility.label": "Currently, there are no accessible berths in our harbors.",
   "form.unregistered.header.title": "Information on an unregistered boat",
   "form.unregistered.header.additional_info": "Further information",
