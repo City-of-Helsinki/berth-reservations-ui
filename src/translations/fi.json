@@ -36,7 +36,7 @@
   "site.footer.terms_of_service": "Rekisteriseloste",
   "site.footer.send_feedback": "Lähetä palautetta",
   "site.footer.contact_us": "Ota yhteyttä",
-  "site.footer.copyright": "2019 Helsingin kaupunki",
+  "site.footer.copyright": "{ year } Helsingin kaupunki",
   "site.footer.url.terms_of_service": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri.pdf",
   "site.footer.url.helsinki_berths": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/",
   "site.footer.url.berthing": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/",
