@@ -56,8 +56,10 @@ $berthLegendIconSize: 42px;
     line-height: 1;
     margin-top: 0.5em;
     hyphens: auto;
-    span {
-      font-size: $font-size-sm;
+    font-size: $font-size-sm;
+
+    &:first-letter {
+      text-transform: uppercase;
     }
   }
 
