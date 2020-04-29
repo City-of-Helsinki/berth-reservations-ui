@@ -26,6 +26,16 @@
 
 </details>
 
+# 0.4.1 (April 29, 2020)
+
+**Fixed:**
+
+- Fix the overlapping icons' labels on the Winter Storage page in Firefox. in ([#268](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/268))
+- Fix the icon's incorrect label on the Winter Storage page. in ([#267](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/267))
+- Failure in submitting switch applications when the user selects "no preference" as a reason. in ([#266](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/266))
+- Remove the accessibility checkbox. in ([#265](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/265))
+- Update the year on the footer. in ([#264](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/264))
+
 # 0.4.0 (February 26, 2020)
 
 **Fixed:**

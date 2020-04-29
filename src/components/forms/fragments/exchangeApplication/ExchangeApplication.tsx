@@ -80,7 +80,7 @@ const ExchangeApplication: FC<ExchangeApplicationProps> = ({ berths, reasons }) 
         <Col>
           <Select name="reason">
             <FormattedMessage id="page.berth.exchange_application.reason.default">
-              {id => <option value="">{id}</option>}
+              {txt => <option value="">{txt}</option>}
             </FormattedMessage>
             {reasons &&
               reasons.map(reason => (
