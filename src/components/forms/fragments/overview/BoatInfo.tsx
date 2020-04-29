@@ -1,29 +1,21 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import { Col, Row } from 'reactstrap';
-import './Form.scss';
+
+import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 
 interface Props {
-  name: string;
-  registerNumber: string;
+  name?: string | null;
+  registerNumber?: string | null;
 }
 
 const BoatInfo = ({ name, registerNumber }: Props) => (
   <Row>
     <Col md={registerNumber ? 6 : 12}>
-      <div className="vene-overview-info__boat-info">
-        <FormattedMessage tagName="span" id="page.overview.info.boat_name" />
-        <span>:</span>
-        <span className="vene-form__data">{name}</span>
-      </div>
+      <LabelValuePair label="page.overview.info.boat_name" value={name} />
     </Col>
     {registerNumber && (
       <Col md={6}>
-        <div className="vene-overview-info__boat-info">
-          <FormattedMessage tagName="span" id="page.overview.info.boat_register_number" />
-          <span>:</span>
-          <span className="vene-form__data">{registerNumber}</span>
-        </div>
+        <LabelValuePair label="page.overview.info.boat_register_number" value={registerNumber} />
       </Col>
     )}
   </Row>

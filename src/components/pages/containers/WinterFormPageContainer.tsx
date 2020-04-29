@@ -6,17 +6,16 @@ import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
 
 import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
-import { getBerths, getSelectedResources, stringToFloat } from '../../../utils/berths';
+import { getResources, getSelectedResources, stringToFloat } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { CREATE_WINTER_STORAGE_APPLICATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
-import BoatDetails from '../../forms/sections/BoatDetails';
-import Overview from '../../forms/sections/Overview';
+import BoatDetails from '../../forms/sections/WinterBoatDetails';
+import WinterOverview from '../../forms/sections/WinterOverview';
 import WinterAreasQuery from '../../query/WinterAreasQuery';
 import FormPage from '../formPage/FormPage';
 
 import { Store } from '../../../redux/types';
-import { FormMode } from '../../../types/form';
 import { WinterFormValues } from '../../../types/winterStorage';
 import {
   SubmitWinterStorage,
@@ -105,7 +104,7 @@ const WinterFormPageContainer = ({
         client
       }) => {
         const boatTypes = data ? data.boatTypes : [];
-        const areas = getBerths(data ? data.winterStorageAreas : null);
+        const areas = getResources(data ? data.winterStorageAreas : null);
         const goForward = async (values: WinterFormValues) => {
           await onSubmit(values);
 
@@ -126,12 +125,8 @@ const WinterFormPageContainer = ({
           await client.mutate<SubmitWinterStorage, SubmitWinterStorageVariables>({
             variables: {
               application: {
-                chosenAreas,
-                acceptBoatingNewsletter: false,
-                acceptFitnessNews: false,
-                acceptLibraryNews: false,
-                acceptOtherCultureNews: false,
-                ...allowedFormValues
+                ...allowedFormValues,
+                chosenAreas
               }
             },
             mutation: CREATE_WINTER_STORAGE_APPLICATION
@@ -162,15 +157,14 @@ const WinterFormPageContainer = ({
             steps={steps}
             {...rest}
           >
-            <BoatDetails tab={boatTab} values={{}} boatTypes={boatTypes} mode={FormMode.Winter} />
+            <BoatDetails tab={boatTab} boatTypes={boatTypes} />
             <ApplicantDetails tab={applicantTab} />
             {!loading && (
-              <Overview
-                selectedBerths={selected}
+              <WinterOverview
+                selectedAreas={selected}
                 boatTypes={boatTypes}
                 boatTab={boatTab}
                 steps={steps}
-                mode={FormMode.Winter}
               />
             )}
           </FormPage>

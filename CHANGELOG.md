@@ -5,7 +5,25 @@
     Changes that landed in develop and might be expected in the upcoming releases.
     Click to see more.
   </summary>
-  ...
+
+**Changed:**
+
+- Invalid URL: redirect to the front page. in ([#244](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/244))
+
+**Fixed:**
+
+- Winter storage application: replace the content that is inherited from berth application in "Selected" and "Overview" pages. in ([#245](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/245))
+
+- Winter storage application: remove "Large vessel" additional information. in ([#244](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/244))
+
+- Summary page: add missing fields. in ([#244](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/244))
+
+- Boat dimensions fields: add validation to prevent large numbers and floating point numbers with more than two decimals. in ([#246](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/246))
+
+- Technical: TS types for form values. in ([#245](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/245))
+
+- Switch reason: send an empty string when 'No special request' is selected. in ([#248](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/248))
+
 </details>
 
 # 0.4.1 (April 29, 2020)

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Col, Row } from 'reactstrap';
+import { Col, Container, Row } from 'reactstrap';
 
 import { MultiRadio, Text } from '../../Fields';
 
@@ -14,7 +14,7 @@ interface Props {
 
 const StorageMethod = ({ showTrailerRegNum }: Props) => {
   return (
-    <div className="vene-storage-method">
+    <Container className="vene-storage-method">
       <FormattedMessage tagName="h3" id="form.winter_storage_method.field.storage_method.label" />
       <Row>
         <Col sm={5}>
@@ -46,7 +46,7 @@ const StorageMethod = ({ showTrailerRegNum }: Props) => {
           </Col>
         )}
       </Row>
-    </div>
+    </Container>
   );
 };
 
