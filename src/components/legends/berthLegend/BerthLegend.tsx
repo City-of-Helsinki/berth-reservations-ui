@@ -100,7 +100,13 @@ const BerthsLegend = ({ form, legend, steps, services, formMode }: Props) => {
                           <Icon name={service.icon} />
                         </div>
                         <div className="vene-berths-legend__label">
-                          <FormattedMessage id={service.label} />
+                          <FormattedMessage id={service.label}>
+                            {txt =>
+                              typeof txt === 'string'
+                                ? txt.toLowerCase() // Firefox doesn't hyphenate words with capital letters. https://helsinkisolutionoffice.atlassian.net/browse/VEN-520
+                                : txt
+                            }
+                          </FormattedMessage>
                         </div>
                       </button>
                     );

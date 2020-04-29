@@ -79,10 +79,9 @@ const ExchangeApplication: FC<ExchangeApplicationProps> = ({ harbors, reasons })
       <Row>
         <Col>
           <Select name="reason">
-            <FormattedMessage
-              tagName="option"
-              id="page.berth.exchange_application.reason.default"
-            />
+            <FormattedMessage id="page.berth.exchange_application.reason.default">
+              {txt => <option value="">{txt}</option>}
+            </FormattedMessage>
             {reasons &&
               reasons.map(reason => (
                 <option key={reason.id} value={reason.id}>

@@ -58,7 +58,11 @@ const Footer = ({ intl: { formatMessage } }: Props) => (
           <a href={formatMessage({ id: 'site.footer.url.berthing' })}>
             <FormattedMessage tagName="li" id="site.footer.contact_us" />
           </a>
-          <FormattedMessage tagName="li" id="site.footer.copyright" />
+          <FormattedMessage
+            tagName="li"
+            id="site.footer.copyright"
+            values={{ year: new Date().getFullYear() }}
+          />
         </div>
       </Row>
     </Container>
