@@ -117,20 +117,13 @@ const FormPageContainer = ({
               priority: priority + 1
             }))
             .toArray();
-          const normalizedValues = Object.assign(
-            {},
-            values,
-            {
-              boatLength: stringToFloat(values.boatLength),
-              boatWidth: stringToFloat(values.boatWidth)
-            },
-            values.boatDraught && values.boatWeight
-              ? {
-                  boatDraught: stringToFloat(values.boatDraught),
-                  boatWeight: stringToFloat(values.boatWeight)
-                }
-              : {}
-          );
+
+          const normalizedValues = Object.assign({}, values, {
+            boatLength: stringToFloat(values.boatLength),
+            boatWidth: stringToFloat(values.boatWidth),
+            boatDraught: stringToFloat(values.boatDraught),
+            boatWeight: stringToFloat(values.boatWeight)
+          });
           // Append berthSwitch property only when exchange application is selected.
           const payload = Object.assign(
             {},
