@@ -23,23 +23,22 @@ const Person = ({
   municipality
 }: Props) => (
   <>
-    <Row>
+    <Row className="vene-person__contact-section">
       <Col md={12}>
         {firstName} {lastName}
-      </Col>
-    </Row>
-    <Row>
-      <Col md={12}>
+        <br />
         {email}
         <br />
         {phoneNumber}
       </Col>
     </Row>
-    <Row>
+    <Row className="vene-person__contact-section">
       <Col md={12}>
-        {zipCode && address && <div className="vene-person__contact-section">{address}</div>}
-        {zipCode && <div className="vene-person__contact-section">{zipCode}</div>}
-        {municipality && municipality}
+        {address}
+        <br />
+        {zipCode}
+        <br />
+        {municipality}
       </Col>
     </Row>
   </>
