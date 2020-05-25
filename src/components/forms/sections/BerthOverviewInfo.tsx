@@ -12,6 +12,7 @@ import LinkedEditSection from '../fragments/overview/linkedEditSection/LinkedEdi
 import OldBerthInfo from '../fragments/overview/oldBerthInfo/OldBerthInfo';
 import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
 import Person from '../fragments/overview/person/Person';
+import Company from '../fragments/overview/company/Company';
 
 import { ApplicationState } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
@@ -107,15 +108,29 @@ const BerthOverviewInfo = ({
         </Row>
       </LinkedEditSection>
       <LinkedEditSection title="page.overview.info.person" link={steps[3].linkTo}>
-        <Person
-          firstName={values.firstName}
-          lastName={values.lastName}
-          email={values.email}
-          phoneNumber={values.phoneNumber}
-          address={values.address}
-          zipCode={values.zipCode}
-          municipality={values.municipality}
-        />
+        {values.companyName && values.businessId ? (
+          <Company
+            companyName={values.companyName}
+            businessId={values.businessId}
+            firstName={values.firstName}
+            lastName={values.lastName}
+            email={values.email}
+            phoneNumber={values.phoneNumber}
+            address={values.address}
+            zipCode={values.zipCode}
+            municipality={values.municipality}
+          />
+        ) : (
+          <Person
+            firstName={values.firstName}
+            lastName={values.lastName}
+            email={values.email}
+            phoneNumber={values.phoneNumber}
+            address={values.address}
+            zipCode={values.zipCode}
+            municipality={values.municipality}
+          />
+        )}
       </LinkedEditSection>
     </OverviewInfo>
   );
