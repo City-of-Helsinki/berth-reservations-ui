@@ -191,5 +191,7 @@ export const genValidSelector = (selector: string) => selector.replace(/^[^a-z]+
  */
 export const stringToFloat = (str: string | undefined | null) => {
   if (!str) return undefined;
-  return Number(str.replace(',', '.'));
+
+  const num = Number(str.replace(',', '.'));
+  return !Number.isNaN(num) ? num : undefined;
 };
