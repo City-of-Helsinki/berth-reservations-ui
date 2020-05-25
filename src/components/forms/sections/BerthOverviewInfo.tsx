@@ -8,11 +8,11 @@ import BoatDraughtAndWeight from '../fragments/overview/BoatDraughtAndWeight';
 import BoatInfo from '../fragments/overview/BoatInfo';
 import BoatMeasures from '../fragments/overview/BoatMeasures';
 import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
+import Company from '../fragments/overview/company/Company';
 import LinkedEditSection from '../fragments/overview/linkedEditSection/LinkedEditSection';
 import OldBerthInfo from '../fragments/overview/oldBerthInfo/OldBerthInfo';
 import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
 import Person from '../fragments/overview/person/Person';
-import Company from '../fragments/overview/company/Company';
 
 import { ApplicationState } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';

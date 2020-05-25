@@ -5,11 +5,11 @@ import withApplicationType from '../../common/withApplicationType/withApplicatio
 import BoatInfo from '../fragments/overview/BoatInfo';
 import BoatMeasures from '../fragments/overview/BoatMeasures';
 import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
+import Company from '../fragments/overview/company/Company';
 import LinkedEditSection from '../fragments/overview/linkedEditSection/LinkedEditSection';
 import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
 import OverviewStorageMethod from '../fragments/overview/OverviewStorageMethod';
 import Person from '../fragments/overview/person/Person';
-import Company from '../fragments/overview/company/Company';
 
 import { ApplicationState } from '../../../redux/types';
 import { WinterFormValues } from '../../../types/winterStorage';
