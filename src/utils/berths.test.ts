@@ -251,7 +251,7 @@ describe('utils/berths', () => {
   });
 
   describe('stringToFloat', () => {
-    test('should return corresponding number of the provided string', () => {
+    test('should return the corresponding number of the provided string', () => {
       expect(stringToFloat('1.5')).toBe(1.5);
       expect(stringToFloat('1,5')).toBe(1.5);
     });
