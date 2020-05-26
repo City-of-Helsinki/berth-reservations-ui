@@ -1,9 +1,11 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
-import './person.scss';
+import './company.scss';
 
 interface Props {
+  companyName: string;
+  businessId: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -13,7 +15,9 @@ interface Props {
   municipality: string;
 }
 
-const Person = ({
+const Company = ({
+  companyName,
+  businessId,
   firstName,
   lastName,
   email,
@@ -23,16 +27,14 @@ const Person = ({
   municipality
 }: Props) => (
   <>
-    <Row className="vene-person__contact-section">
+    <Row className="vene-company__contact-section">
       <Col md={12}>
-        {firstName} {lastName}
+        {companyName}
         <br />
-        {email}
-        <br />
-        {phoneNumber}
+        {businessId}
       </Col>
     </Row>
-    <Row className="vene-person__contact-section">
+    <Row className="vene-company__contact-section">
       <Col md={12}>
         {address}
         <br />
@@ -41,7 +43,16 @@ const Person = ({
         {municipality}
       </Col>
     </Row>
+    <Row className="vene-company__contact-section">
+      <Col md={12}>
+        {firstName} {lastName}
+        <br />
+        {email}
+        <br />
+        {phoneNumber}
+      </Col>
+    </Row>
   </>
 );
 
-export default Person;
+export default Company;
