@@ -9,7 +9,8 @@ import {
   getBerthFilterByValues,
   getSelectedResources,
   getWinterStorageFilterByValues,
-  isResourceSelected
+  isResourceSelected,
+  stringToFloat
 } from './berths';
 
 import { SelectedServicesProps, SelectedWinterServicesProps } from '../types/services';
@@ -246,6 +247,21 @@ describe('utils/berths', () => {
 
     test('should replace illegal characters', () => {
       expect(genValidSelector('ABC=123/')).toBe('ABCx123x');
+    });
+  });
+
+  describe('stringToFloat', () => {
+    test('should return the corresponding number of the provided string', () => {
+      expect(stringToFloat('1.5')).toBe(1.5);
+      expect(stringToFloat('1,5')).toBe(1.5);
+    });
+
+    test('should return undefined when the provided value cannot be converted to a valid number', () => {
+      expect(stringToFloat('random')).toBeUndefined();
+    });
+
+    test('should return undefined when the provided value is an empty string', () => {
+      expect(stringToFloat('')).toBeUndefined();
     });
   });
 });
