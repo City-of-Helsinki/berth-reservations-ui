@@ -8,6 +8,7 @@ import BoatDraughtAndWeight from '../fragments/overview/BoatDraughtAndWeight';
 import BoatInfo from '../fragments/overview/BoatInfo';
 import BoatMeasures from '../fragments/overview/BoatMeasures';
 import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
+import Company from '../fragments/overview/company/Company';
 import LinkedEditSection from '../fragments/overview/linkedEditSection/LinkedEditSection';
 import OldBerthInfo from '../fragments/overview/oldBerthInfo/OldBerthInfo';
 import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
@@ -107,15 +108,29 @@ const BerthOverviewInfo = ({
         </Row>
       </LinkedEditSection>
       <LinkedEditSection title="page.overview.info.person" link={steps[3].linkTo}>
-        <Person
-          firstName={values.firstName}
-          lastName={values.lastName}
-          email={values.email}
-          phoneNumber={values.phoneNumber}
-          address={values.address}
-          zipCode={values.zipCode}
-          municipality={values.municipality}
-        />
+        {values.companyName && values.businessId ? (
+          <Company
+            companyName={values.companyName}
+            businessId={values.businessId}
+            firstName={values.firstName}
+            lastName={values.lastName}
+            email={values.email}
+            phoneNumber={values.phoneNumber}
+            address={values.address}
+            zipCode={values.zipCode}
+            municipality={values.municipality}
+          />
+        ) : (
+          <Person
+            firstName={values.firstName}
+            lastName={values.lastName}
+            email={values.email}
+            phoneNumber={values.phoneNumber}
+            address={values.address}
+            zipCode={values.zipCode}
+            municipality={values.municipality}
+          />
+        )}
       </LinkedEditSection>
     </OverviewInfo>
   );
