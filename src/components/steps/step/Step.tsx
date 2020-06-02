@@ -29,9 +29,7 @@ export default class Step extends React.Component<Props> {
       <>
         <div className={classNames('vene-step__status', { completed, current })} />
         <FormattedMessage id={label}>
-          {txt => (
-            <div className={classNames('vene-step__label', { completed, current })}>{txt}</div>
-          )}
+          {txt => <div className="vene-step__label">{txt}</div>}
         </FormattedMessage>
       </>
     );
