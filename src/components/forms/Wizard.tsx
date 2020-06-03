@@ -47,6 +47,7 @@ class Wizard extends Component<Props, State> {
     const { nextStep, goForward } = this.props;
     if (this.hasNextStep()) {
       window.scrollTo(0, 0);
+      this.focusFirstPageElement();
       nextStep(values);
     } else {
       this.setState({ isSubmitting: true });
@@ -58,9 +59,19 @@ class Wizard extends Component<Props, State> {
     const { prevStep, goBackwards } = this.props;
 
     if (this.hasPreviousStep()) {
+      this.focusFirstPageElement();
       prevStep(values);
     } else {
       goBackwards(values);
+    }
+  };
+
+  focusFirstPageElement = () => {
+    const mainLink = document.getElementById('main-link');
+    if (mainLink) {
+      mainLink.focus();
+      // Lose the focus so that blue rect is not displayed
+      mainLink.blur();
     }
   };
 

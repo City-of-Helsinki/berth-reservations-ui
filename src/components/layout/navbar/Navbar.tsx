@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="vene-navbar__top">
         <Container>
           <BSNavbar expand="md">
-            <LocalizedLink to="/">
+            <LocalizedLink id="main-link" to="/">
               <Icon className="vene-navbar__icon" name="helsinkiLogo" />
             </LocalizedLink>
             <Nav className="ml-auto" navbar>
