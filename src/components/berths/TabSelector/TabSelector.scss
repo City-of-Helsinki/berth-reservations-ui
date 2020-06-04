@@ -14,26 +14,42 @@
     }
   }
 
-  &__tab-button {
+  &__tab-button:not(:disabled):not(.disabled) {
     outline: none;
     border: none;
-    color: $hel-black !important;
     padding: 0.5em 1em;
     border-radius: 0;
-    background-color: transparent !important;
+    background-color: transparent;
 
     span {
+      color: $hel-black;
       font-weight: $font-weight-bold;
     }
-    &.active {
-      background-color: $hel-white !important;
-    }
-    &:active,
+
     &:focus {
-      outline: none !important;
-      box-shadow: none !important;
+      span {
+        color: #0072c6;
+      }
     }
+
+    &.active {
+      background-color: $hel-white;
+
+      &:hover {
+        background-color: lighten($hel-fog, 15%);
+      }
+    }
+
+    &:active,
+    &:focus,
+    &.active:active,
+    &.active:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
     &:hover {
+      background-color: lighten($hel-fog, 10%);
       cursor: pointer;
     }
 
