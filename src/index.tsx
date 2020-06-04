@@ -1,6 +1,6 @@
 import '@babel/polyfill';
-import 'react-app-polyfill/ie11';
 import 'focus-visible';
+import 'react-app-polyfill/ie11';
 
 import * as Sentry from '@sentry/browser';
 import createHistory from 'history/createBrowserHistory';
