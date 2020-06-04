@@ -1,4 +1,5 @@
 @import 'helsinki/fonts';
+@import 'helsinki/colors';
 
 .vene-unregistered-boat-detail {
   .vene-input {
@@ -12,5 +13,9 @@
         line-height: 1.25;
       }
     }
+  }
+
+  .vene-unregistered-boat__input {
+    color: $hel-black;
   }
 }

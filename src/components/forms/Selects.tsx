@@ -11,11 +11,17 @@ export interface WithBoatType {
 export const BigBoatTypeValue = '8';
 
 type BoatTypeProps = {
+  className?: string;
   required: boolean;
 } & WithBoatType;
 
-export const BoatType = ({ boatTypes, required }: BoatTypeProps) => (
-  <Select name={`boatType`} label="form.registered.field.type.label" required={required}>
+export const BoatType = ({ boatTypes, required, className }: BoatTypeProps) => (
+  <Select
+    className={className}
+    name={`boatType`}
+    label="form.registered.field.type.label"
+    required={required}
+  >
     <option />
     {boatTypes &&
       boatTypes.reduce<JSX.Element[]>((acc, type) => {
