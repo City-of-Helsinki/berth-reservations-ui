@@ -37,7 +37,7 @@ const UnRegisteredBoatDetailsFragment = ({
             <BoatType
               boatTypes={boatTypes}
               required={!fieldsNotRequired}
-              className="unregistered-boat-input"
+              className="vene-unregistered-boat__input"
             />
           </Col>
         )}
@@ -54,7 +54,7 @@ const UnRegisteredBoatDetailsFragment = ({
             append="m"
             min="0"
             required={!fieldsNotRequired}
-            className="unregistered-boat-input"
+            className="vene-unregistered-boat__input"
           />
         </Col>
         <Col sm={4}>
@@ -70,7 +70,7 @@ const UnRegisteredBoatDetailsFragment = ({
             append={boatStoredOnTrailer ? '+1 m' : 'm'}
             min="0"
             required={!fieldsNotRequired}
-            className="unregistered-boat-input"
+            className="vene-unregistered-boat__input"
           />
         </Col>
         {showBoatStoredOnTrailer && (
