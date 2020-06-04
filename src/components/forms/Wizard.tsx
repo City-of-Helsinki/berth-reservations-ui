@@ -70,8 +70,6 @@ class Wizard extends Component<Props, State> {
     const mainLink = document.getElementById('main-link');
     if (mainLink) {
       mainLink.focus();
-      // Lose the focus so that blue rect is not displayed
-      mainLink.blur();
     }
   };
 
