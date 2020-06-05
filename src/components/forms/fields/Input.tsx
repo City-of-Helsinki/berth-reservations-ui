@@ -30,6 +30,7 @@ const TextInput = (type: InputProps['type']) => ({
       <FormGroup>
         {label && <Label htmlFor={id} required={required} text={label} />}
         <Input
+          id={id}
           required={required}
           invalid={!!(meta.touched && meta.error)}
           placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
