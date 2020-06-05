@@ -22,9 +22,9 @@ const LanguageDropdown = ({ intl: { locale } }: Props) => {
 
   return (
     <>
-      <ScreenReaderLabel id="languageSwitch" text="site.language.switch" append={locale} />
+      <ScreenReaderLabel id="languageSelect" text="site.language.select" append={locale} />
       <Dropdown className="vene-language-dropdown" size="lg" isOpen={dropdownOpen} toggle={toggle}>
-        <DropdownToggle aria-labelledby="languageSwitch" color="link">
+        <DropdownToggle aria-labelledby="languageSelect" color="link">
           <Icon aria-hidden name="globe" className="vene-language-dropdown__icon" />
           <span className="vene-language-dropdown__selected">{locale.toUpperCase()}</span>
         </DropdownToggle>
