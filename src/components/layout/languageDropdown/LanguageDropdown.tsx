@@ -5,6 +5,7 @@ import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap
 import Icon from '../../common/Icon';
 import IntlComponent from '../../common/IntlComponent';
 
+import ScreenReaderLabel from '../../forms/fields/ScreenReaderLabel';
 import './languageDropdown.scss';
 
 type Props = {
@@ -20,19 +21,20 @@ const LanguageDropdown = ({ intl: { locale } }: Props) => {
   });
 
   return (
-    <Dropdown className="vene-language-dropdown" size="lg" isOpen={dropdownOpen} toggle={toggle}>
-      <DropdownToggle color="link">
-        <>
-          <Icon name="globe" className="vene-language-dropdown__icon" />
+    <>
+      <ScreenReaderLabel id="languageSwitch" text="site.language.switch" append={locale} />
+      <Dropdown className="vene-language-dropdown" size="lg" isOpen={dropdownOpen} toggle={toggle}>
+        <DropdownToggle aria-labelledby="languageSwitch" color="link">
+          <Icon aria-hidden name="globe" className="vene-language-dropdown__icon" />
           <span className="vene-language-dropdown__selected">{locale.toUpperCase()}</span>
-        </>
-      </DropdownToggle>
-      <DropdownMenu>
-        <IntlComponent Component={DropdownItem} href="/fi" id="site.language.fi" />
-        <IntlComponent Component={DropdownItem} href="/sv" id="site.language.sv" />
-        <IntlComponent Component={DropdownItem} href="/en" id="site.language.en" />
-      </DropdownMenu>
-    </Dropdown>
+        </DropdownToggle>
+        <DropdownMenu>
+          <IntlComponent Component={DropdownItem} href="/fi" id="site.language.fi" lang="fi" />
+          <IntlComponent Component={DropdownItem} href="/sv" id="site.language.sv" lang="sv" />
+          <IntlComponent Component={DropdownItem} href="/en" id="site.language.en" lang="en" />
+        </DropdownMenu>
+      </Dropdown>
+    </>
   );
 };
 
