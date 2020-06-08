@@ -17,13 +17,13 @@ const buildLabelString = (parts: Array<string | undefined>): string => {
 
 const ScreenReaderLabel: React.FC<Props> = ({ intl, id, prepend, textKey, append }) => {
   return (
-    <p id={id} className={classNames('vene-formfield__screen-reader-label')}>
+    <label id={id} className={classNames('vene-formfield__screen-reader-label')}>
       {buildLabelString([
         prepend,
         textKey ? intl.formatMessage({ id: textKey }) : undefined,
         append
       ])}
-    </p>
+    </label>
   );
 };
 
