@@ -63,6 +63,8 @@ class TabSelector extends React.Component<Props, State> {
           <Container>
             {headers.map((TabComponent, i) => (
               <Button
+                role="tab"
+                aria-selected={i === tab}
                 className="vene-berth__tab-selector__tab-button"
                 key={i}
                 onClick={() => this.selectTab(i)}

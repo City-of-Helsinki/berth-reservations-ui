@@ -7,6 +7,16 @@ $languageIconSize: 32px;
   background-color: $hel-white;
   box-shadow: none;
 
+  &.show > button.btn.btn-link,
+  > button[type='button'].btn-link:hover,
+  > button[type='button'].btn-link:focus {
+    color: #0072c6;
+
+    .vene-language-dropdown__icon {
+      fill: #0072c6;
+    }
+  }
+
   &__selected {
     margin-left: 5px;
     line-height: $languageIconSize;
@@ -17,5 +27,6 @@ $languageIconSize: 32px;
     width: $languageIconSize;
     height: $languageIconSize;
     color: $hel-black;
+    transition: fill 0.15s ease-in-out;
   }
 }

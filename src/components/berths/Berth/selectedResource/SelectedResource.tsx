@@ -7,6 +7,7 @@ import { genValidSelector } from '../../../../utils/berths';
 import Icon, { IconNames } from '../../../common/Icon';
 import Modal from '../../../common/modal/Modal';
 import Popover from '../../../common/popover/Popover';
+import ScreenReaderLabel from '../../../forms/fields/ScreenReaderLabel';
 import AvailabilityLevel from '../../availabilityLevel/AvailabilityLevel';
 import InvalidSelection from '../../InvalidSelection';
 
@@ -113,12 +114,16 @@ class SelectedResource extends Component<Props, State> {
                     <Col xs="2" className="vene-selected-berth__close">
                       <Button
                         close
-                        aria-label="Cancel"
                         onClick={this.toggleModal}
                         className="vene-selected-berth__close-btn"
+                        aria-labelledby="vene-selected-berth__remove"
                       >
                         <Icon name="times" />
                       </Button>
+                      <ScreenReaderLabel
+                        id="vene-selected-berth__remove"
+                        textKey="page.berth.selected.button.remove"
+                      />
                     </Col>
                   </Row>
                   <Row className="vene-selected-berth__services-bar">
@@ -155,6 +160,7 @@ class SelectedResource extends Component<Props, State> {
                     color="primary"
                     onClick={this.doMoveUp}
                     disabled={!moveUp}
+                    aria-labelledby="vene-selected-berth__up"
                   >
                     <Icon name="angleUp" className="vene-selected-berth__arrow-icon" />
                   </Button>
@@ -164,9 +170,18 @@ class SelectedResource extends Component<Props, State> {
                     color="primary"
                     onClick={this.doMoveDown}
                     disabled={!moveDown}
+                    aria-labelledby="vene-selected-berth__down"
                   >
                     <Icon name="angleDown" className="vene-selected-berth__arrow-icon" />
                   </Button>
+                  <ScreenReaderLabel
+                    id="vene-selected-berth__up"
+                    textKey="page.berth.selected.button.up"
+                  />
+                  <ScreenReaderLabel
+                    id="vene-selected-berth__down"
+                    textKey="page.berth.selected.button.down"
+                  />
                 </Col>
               </Row>
             </Container>

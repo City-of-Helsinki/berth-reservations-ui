@@ -9,12 +9,7 @@ import Form from '../../forms/Form';
 import ApplicationSelector from '../../forms/sections/applicationSelector/ApplicationSelector';
 import Steps from '../../steps/Steps';
 
-import {
-  BerthsServices,
-  SelectedServices,
-  SelectedWinterServices,
-  WinterServices
-} from '../../../types/services';
+import { BerthsServices, SelectedServices } from '../../../types/services';
 import { StepType } from '../../steps/step/Step';
 
 import './berthLegend.scss';
@@ -69,7 +64,7 @@ const BerthsLegend = ({ form, legend, steps, services }: Props) => {
             )}
             {services && (
               <>
-                <div className="vene-berths-legend__services__header">
+                <div className="vene-berths-legend__services__header" id="services-header">
                   <FormattedMessage tagName="span" id={services.label} />
                 </div>
                 <div className="vene-berths-legend__services">
@@ -79,6 +74,9 @@ const BerthsLegend = ({ form, legend, steps, services }: Props) => {
                       <button
                         className="vene-berths-legend__service"
                         key={index}
+                        role="switch"
+                        aria-checked={!!selected}
+                        aria-labelledby={`${service.value}-label`}
                         onClick={() =>
                           selected
                             ? services.deselectService(service.value)
@@ -86,13 +84,14 @@ const BerthsLegend = ({ form, legend, steps, services }: Props) => {
                         }
                       >
                         <div
+                          aria-hidden
                           className={classNames('vene-berths-legend__icon-wrapper', {
                             selected
                           })}
                         >
                           <Icon name={service.icon} />
                         </div>
-                        <div className="vene-berths-legend__label">
+                        <label id={`${service.value}-label`} className="vene-berths-legend__label">
                           <FormattedMessage id={service.label}>
                             {txt =>
                               typeof txt === 'string'
@@ -100,7 +99,7 @@ const BerthsLegend = ({ form, legend, steps, services }: Props) => {
                                 : txt
                             }
                           </FormattedMessage>
-                        </div>
+                        </label>
                       </button>
                     );
                   })}

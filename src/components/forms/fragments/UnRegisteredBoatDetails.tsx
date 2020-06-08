@@ -48,6 +48,7 @@ const UnRegisteredBoatDetailsFragment = ({
               mustBePositiveNumber,
               mustNotExceedTwoDecimals
             )}
+            id="boatWidth"
             name={`boatWidth`}
             label="form.no_boat.field.width.label"
             placeholder="form.no_boat.field.width.placeholder"
@@ -64,6 +65,7 @@ const UnRegisteredBoatDetailsFragment = ({
               mustBePositiveNumber,
               mustNotExceedTwoDecimals
             )}
+            id="boatLength"
             name={`boatLength`}
             label="form.no_boat.field.length.label"
             placeholder="form.no_boat.field.length.placeholder"
@@ -76,6 +78,7 @@ const UnRegisteredBoatDetailsFragment = ({
         {showBoatStoredOnTrailer && (
           <Col sm={4}>
             <Checkbox
+              id="boatStoredOnTrailer"
               name={`boatStoredOnTrailer`}
               label="form.registered.field.winter_storage.storage_type.label"
               inline={false}

@@ -12,6 +12,7 @@ import {
 } from 'reactstrap';
 
 import validator, { mustBePresent } from '../../../utils/formValidation';
+import ScreenReaderLabel from './ScreenReaderLabel';
 
 import Label from './Label';
 
@@ -47,9 +48,17 @@ const TextInput = (
     {({ input, meta }) => (
       <FormGroup>
         {label && <Label htmlFor={id} required={required} text={label} />}
+        <ScreenReaderLabel
+          id={`${id}-description`}
+          prepend={prepend}
+          append={append}
+          textKey={label}
+        />
         <InputGroup>
           {prepend && <InputGroupAddon addonType="prepend">{prepend}</InputGroupAddon>}
           <Input
+            id={id}
+            aria-labelledby={`${id}-description`}
             required={required}
             invalid={!!(meta.touched && meta.error)}
             placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
