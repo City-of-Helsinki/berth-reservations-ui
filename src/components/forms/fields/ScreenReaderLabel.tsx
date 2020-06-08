@@ -7,7 +7,7 @@ interface Props {
   intl: InjectedIntl;
   id: string;
   prepend?: string;
-  text?: string;
+  textKey?: string;
   append?: string;
 }
 
@@ -15,10 +15,14 @@ const buildLabelString = (parts: Array<string | undefined>): string => {
   return parts.filter(value => value !== undefined).join(', ');
 };
 
-const ScreenReaderLabel: React.FC<Props> = ({ intl, id, prepend, text, append }) => {
+const ScreenReaderLabel: React.FC<Props> = ({ intl, id, prepend, textKey, append }) => {
   return (
     <p id={id} className={classNames('vene-formfield__screen-reader-label')}>
-      {buildLabelString([prepend, text ? intl.formatMessage({ id: text }) : undefined, append])}
+      {buildLabelString([
+        prepend,
+        textKey ? intl.formatMessage({ id: textKey }) : undefined,
+        append
+      ])}
     </p>
   );
 };

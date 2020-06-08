@@ -52,7 +52,7 @@ const TextInput = (
           id={`${id}-description`}
           prepend={prepend}
           append={append}
-          text={label}
+          textKey={label}
         />
         <InputGroup>
           {prepend && <InputGroupAddon addonType="prepend">{prepend}</InputGroupAddon>}

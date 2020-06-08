@@ -122,7 +122,7 @@ class SelectedResource extends Component<Props, State> {
                       </Button>
                       <ScreenReaderLabel
                         id="vene-selected-berth__remove"
-                        text="page.berth.selected.button.remove"
+                        textKey="page.berth.selected.button.remove"
                       />
                     </Col>
                   </Row>
@@ -176,11 +176,11 @@ class SelectedResource extends Component<Props, State> {
                   </Button>
                   <ScreenReaderLabel
                     id="vene-selected-berth__up"
-                    text="page.berth.selected.button.up"
+                    textKey="page.berth.selected.button.up"
                   />
                   <ScreenReaderLabel
                     id="vene-selected-berth__down"
-                    text="page.berth.selected.button.down"
+                    textKey="page.berth.selected.button.down"
                   />
                 </Col>
               </Row>
