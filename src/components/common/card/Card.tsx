@@ -22,7 +22,9 @@ const Card = ({
   return (
     <RSCard className="vene-card">
       <CardBody className="vene-card__body">
-        <CardTitle className="vene-card__title">{formatMessage({ id: title })}</CardTitle>
+        <CardTitle className="vene-card__title" tag="h3">
+          {formatMessage({ id: title })}
+        </CardTitle>
         <div className="vene-card__description">{children}</div>
         <Button
           onClick={onClick}
