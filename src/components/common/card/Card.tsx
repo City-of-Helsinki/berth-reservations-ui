@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card as RSCard, CardBody, CardText, CardTitle } from 'reactstrap';
+import { Button, Card as RSCard, CardBody, CardTitle } from 'reactstrap';
 
 import { InjectedIntlProps, injectIntl } from 'react-intl';
 
