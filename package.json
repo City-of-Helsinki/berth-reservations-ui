@@ -36,6 +36,7 @@
     "classnames": "^2.2.6",
     "enzyme-adapter-react-16": "^1.11.2",
     "final-form": "^4.18.2",
+    "focus-visible": "5.1.0",
     "graphql": "^14.2.1",
     "history": "^4.7.2",
     "immutable": "^4.0.0-rc.12",
@@ -64,8 +65,7 @@
     "redux-persist": "^5.10.0",
     "redux-promise-middleware": "^5.1.1",
     "redux-thunk": "^2.3.0",
-    "typescript": "^3.4.1",
-    "focus-visible": "5.1.0"
+    "typescript": "^3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
