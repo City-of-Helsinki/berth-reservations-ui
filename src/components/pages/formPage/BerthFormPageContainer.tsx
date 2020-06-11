@@ -28,7 +28,6 @@ type Props = {
   selectedBerths: SelectedIds;
   onSubmit: Function;
   localePush: LocalePush;
-  step: number;
   application: ApplicationState;
 } & RouteComponentProps<{ tab: string }>;
 
@@ -53,7 +52,10 @@ const BerthFormPageContainer = ({
   const [applicantTab, setApplicantTab] = useState(mapSteps[1][0]);
 
   useEffect(() => {
-    const currStep = Math.max(0, findIndex(mapSteps, s => s.includes(tab)));
+    const currStep = Math.max(
+      0,
+      findIndex(mapSteps, s => s.includes(tab))
+    );
     setStep(currStep);
     if (currStep === 0) {
       setBoatTab(tab);

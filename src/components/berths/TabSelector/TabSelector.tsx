@@ -50,18 +50,19 @@ class TabSelector extends React.Component<Props, State> {
       <div className="vene-tab-selector">
         <div className="vene-tab-selector__header">
           <Container>
-            {headers.map((TabComponent, i) => (
-              <Button
-                role="tab"
-                aria-selected={i === tab}
-                className="vene-tab-selector__tab-button"
-                key={i}
-                onClick={() => this.selectTab(i)}
-                active={i === tab}
-              >
-                <TabComponent />
-              </Button>
-            ))}
+            {headers &&
+              headers.map((TabComponent, i) => (
+                <Button
+                  role="tab"
+                  aria-selected={i === tab}
+                  className="vene-tab-selector__tab-button"
+                  key={i}
+                  onClick={() => this.selectTab(i)}
+                  active={i === tab}
+                >
+                  <TabComponent />
+                </Button>
+              ))}
           </Container>
         </div>
         <div className="vene-tab-selector__tabs">

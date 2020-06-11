@@ -104,7 +104,6 @@ const UnconnectedSelectedBerthPage = ({
             filter={filter}
             validSelection={validSelection}
             steps={steps}
-            initialValues={{}}
             legend={{
               title: 'legend.selected_berths.title',
               legend: 'legend.selected_berths.legend'

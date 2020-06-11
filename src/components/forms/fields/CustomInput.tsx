@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, FieldProps } from 'react-final-form';
+import { Field, FieldRenderProps } from 'react-final-form';
 import { FormattedMessage } from 'react-intl';
 import { FormFeedback, FormGroup, FormText } from 'reactstrap';
 
@@ -9,7 +9,7 @@ import Label from './Label';
 
 type Props = {
   items: Array<{ name: string; label: string; value: string }>;
-} & FieldProps<string, HTMLElement>;
+} & FieldRenderProps<string, HTMLInputElement>;
 
 type CustomInputType = 'select' | 'file' | 'radio' | 'checkbox' | 'switch';
 

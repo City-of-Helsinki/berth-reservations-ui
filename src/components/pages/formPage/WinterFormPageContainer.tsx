@@ -29,7 +29,6 @@ type Props = {
   selectedAreas: SelectedIds;
   onSubmit: Function;
   localePush: LocalePush;
-  step: number;
 } & RouteComponentProps<{ tab: string }>;
 
 const mapSteps = [
@@ -52,7 +51,10 @@ const WinterFormPageContainer = ({
   const [applicantTab, setApplicantTab] = useState(mapSteps[1][0]);
 
   useEffect(() => {
-    const currStep = Math.max(0, findIndex(mapSteps, s => s.includes(tab)));
+    const currStep = Math.max(
+      0,
+      findIndex(mapSteps, s => s.includes(tab))
+    );
     setStep(currStep);
     if (currStep === 0) {
       setBoatTab(tab);
