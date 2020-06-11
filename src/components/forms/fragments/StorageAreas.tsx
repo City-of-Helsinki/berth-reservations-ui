@@ -54,7 +54,4 @@ const StorageAreas: SFC<{ filterByStorageArea: Function }> = ({ filterByStorageA
   );
 };
 
-export default connect(
-  null,
-  { filterByStorageArea: filterByStorageAreaAction }
-)(StorageAreas);
+export default connect(null, { filterByStorageArea: filterByStorageAreaAction })(StorageAreas);

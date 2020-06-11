@@ -66,18 +66,20 @@ describe('utils/berths', () => {
     });
 
     test('should return true if all filter conditions are met', () => {
-      const value = getBerthFilterByValues(defaultValues, createSelectedServices())(
-        createBerth(matchOptions)
-      );
+      const value = getBerthFilterByValues(
+        defaultValues,
+        createSelectedServices()
+      )(createBerth(matchOptions));
 
       expect(value).toBe(true);
     });
 
     test("should return false if services don't match", () => {
       const customOptions = createBerthOptions({ gate: false });
-      const value = getBerthFilterByValues(defaultValues, createSelectedServices({ gate: true }))(
-        createBerth(customOptions)
-      );
+      const value = getBerthFilterByValues(
+        defaultValues,
+        createSelectedServices({ gate: true })
+      )(createBerth(customOptions));
 
       expect(value).toBe(false);
     });
@@ -156,9 +158,10 @@ describe('utils/berths', () => {
     });
 
     test('should return true if all filter conditions are met', () => {
-      const value = getWinterStorageFilterByValues(defaultValues, createWinterSelectedServices())(
-        createWinterArea(matchOptions)
-      );
+      const value = getWinterStorageFilterByValues(
+        defaultValues,
+        createWinterSelectedServices()
+      )(createWinterArea(matchOptions));
 
       expect(value).toBe(true);
     });

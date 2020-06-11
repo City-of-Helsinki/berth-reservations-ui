@@ -73,6 +73,7 @@
     "eject": "react-scripts eject",
     "prettier": "prettier",
     "lint": "tslint 'src/**/*.ts?(x)'",
+    "lint:fix": "tslint 'src/**/*.ts?(x)' --fix",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test:ci": "CI=true && yarn test:coverage",
     "e2e-test": "cypress open",

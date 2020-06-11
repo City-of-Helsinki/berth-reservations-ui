@@ -14,10 +14,7 @@ interface Props {
 }
 
 export default compose<Props, {}>(
-  connect(
-    () => ({}),
-    { resetValues, resetBerths, resetWinterAreas, resetApplication }
-  ),
+  connect(() => ({}), { resetValues, resetBerths, resetWinterAreas, resetApplication }),
   lifecycle<Props, {}>({
     componentDidMount() {
       const {

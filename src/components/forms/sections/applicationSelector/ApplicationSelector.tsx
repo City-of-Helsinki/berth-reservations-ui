@@ -151,11 +151,8 @@ const mapStateToProps = (state: Store) => ({
 
 export const UnconnectedApplicationSelector = injectIntl(ApplicationSelector);
 
-export default connect(
-  mapStateToProps,
-  {
-    switchApplication: switchApplicationAction,
-    setBerthLimit: setBirthLimitAction,
-    resetBerthLimit: resetBerthLimitAction
-  }
-)(UnconnectedApplicationSelector);
+export default connect(mapStateToProps, {
+  switchApplication: switchApplicationAction,
+  setBerthLimit: setBirthLimitAction,
+  resetBerthLimit: resetBerthLimitAction
+})(UnconnectedApplicationSelector);
