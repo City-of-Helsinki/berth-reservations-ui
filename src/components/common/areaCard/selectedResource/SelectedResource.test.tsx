@@ -64,7 +64,11 @@ describe('SelectedResource', () => {
 
   test('should render an Icon for each service', () => {
     const wrapper = getWrapper({
-      services: [['plug', true], ['waterTap', true], ['trash', false]]
+      services: [
+        ['plug', true],
+        ['waterTap', true],
+        ['trash', false]
+      ]
     }).dive();
     const serviceIcons = wrapper.find('.vene-selected-berth__service-icn');
 
@@ -73,7 +77,11 @@ describe('SelectedResource', () => {
 
   test('should add a "disabled" modifier to the service icon when the supplied value is false', () => {
     const wrapper = getWrapper({
-      services: [['plug', false], ['waterTap', true], ['trash', false]]
+      services: [
+        ['plug', false],
+        ['waterTap', true],
+        ['trash', false]
+      ]
     }).dive();
     const disabledServiceIcons = wrapper.find('.vene-selected-berth__service-icn--disabled');
 
@@ -82,7 +90,11 @@ describe('SelectedResource', () => {
 
   test('should set the "isModalOpen" state to "true" when the close button is clicked', () => {
     const wrapper = getWrapper({
-      services: [['plug', false], ['waterTap', true], ['trash', false]]
+      services: [
+        ['plug', false],
+        ['waterTap', true],
+        ['trash', false]
+      ]
     });
     const closeBtn = wrapper.dive().find('.vene-selected-berth__close-btn');
 
@@ -104,7 +116,7 @@ describe('SelectedResource', () => {
       .find(Modal)
       .prop('handleAccept');
 
-    handleAccept();
+    (handleAccept as (e: React.SyntheticEvent<Element, Event>) => void)({} as React.SyntheticEvent);
     expect(wrapper.state().changed).toBe('delete');
   });
 });
