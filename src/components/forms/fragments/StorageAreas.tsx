@@ -35,7 +35,7 @@ const StorageAreas: SFC<{ filterByStorageArea: Function }> = ({ filterByStorageA
             type="checkbox"
             id={`appointedStorageSpace`}
             label="page.winter_storage.storage_areas.appointed_spaces.label"
-            onChange={e => onAppointedCheck((e.target as any).checked)}
+            onChange={(e) => onAppointedCheck((e.target as any).checked)}
           />
           <FormattedMessage id="page.winter_storage.storage_areas.appointed_spaces.text" />
         </Col>
@@ -45,7 +45,7 @@ const StorageAreas: SFC<{ filterByStorageArea: Function }> = ({ filterByStorageA
             type="checkbox"
             id={`freeStorageSpace`}
             label="page.winter_storage.storage_areas.free_spaces.label"
-            onChange={e => onFreeCheck((e.target as any).checked)}
+            onChange={(e) => onFreeCheck((e.target as any).checked)}
           />
           <FormattedMessage id="page.winter_storage.storage_areas.free_spaces.text" />
         </Col>

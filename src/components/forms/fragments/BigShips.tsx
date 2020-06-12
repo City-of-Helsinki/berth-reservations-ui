@@ -32,13 +32,13 @@ const BigShipsFragment = () => (
             {
               name: `rentingPeriod`,
               label: 'form.big_ship.field.time_period.for_now',
-              value: 'for_now'
+              value: 'for_now',
             },
             {
               name: `rentingPeriod`,
               label: 'form.big_ship.field.time_period.fixed',
-              value: 'fixed'
-            }
+              value: 'fixed',
+            },
           ]}
           required
           label="form.big_ship.field.time_period.label"

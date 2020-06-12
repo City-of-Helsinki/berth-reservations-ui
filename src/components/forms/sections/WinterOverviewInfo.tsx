@@ -32,7 +32,7 @@ const WinterOverviewInfo = ({
   boatTypes,
   steps,
   boatTab,
-  applicationType
+  applicationType,
 }: Props) => (
   <OverviewInfo title={applicationType}>
     <LinkedEditSection title="page.overview.info.boat_info" link={steps[2].linkTo}>

@@ -21,12 +21,12 @@ export default compose<Props, {}>(
         resetValues: resetForm,
         resetBerths: resetBerthsState,
         resetWinterAreas: resetWinterStorageState,
-        resetApplication: resetApplicationState
+        resetApplication: resetApplicationState,
       } = this.props;
       resetForm();
       resetBerthsState();
       resetWinterStorageState();
       resetApplicationState();
-    }
+    },
   })
 )(ThankYouPage);

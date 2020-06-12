@@ -24,8 +24,8 @@ const winterParam = `:app(${ApplicationType.WinterStorageApp})`;
 
 const App = ({
   match: {
-    params: { locale = LocaleOpts.FI }
-  }
+    params: { locale = LocaleOpts.FI },
+  },
 }: Props) => (
   <IntlProvider
     locale={locale}

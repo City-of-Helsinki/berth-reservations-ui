@@ -9,7 +9,7 @@ import {
   getSelectedResources,
   getWinterStorageFilterByValues,
   isResourceSelected,
-  stringToFloat
+  stringToFloat,
 } from './berths';
 
 import { SelectedServicesProps, SelectedWinterServicesProps } from '../types/services';
@@ -33,18 +33,18 @@ describe('utils/berths', () => {
     const defaultValues = createBerthValues({
       boatLength: '10.2',
       boatType: '8',
-      boatWidth: '4.2'
+      boatWidth: '4.2',
     });
 
     const matchOptions = {
       maximumLength: 1100,
       suitableBoatTypes: [],
-      maximumWidth: 500
+      maximumWidth: 500,
     };
 
     const createBerthOptions = (options?: {}) => ({
       ...matchOptions,
-      ...options
+      ...options,
     });
 
     const createSelectedServices = (services?: Partial<SelectedServicesProps>) =>
@@ -54,7 +54,7 @@ describe('utils/berths', () => {
         wasteCollection: false,
         gate: false,
         lighting: false,
-        ...services
+        ...services,
       })();
 
     test('should return a function that returns a boolean', () => {
@@ -106,7 +106,7 @@ describe('utils/berths', () => {
 
     test("should return false if suitableBoatTypes doesn't match with the supplied boatType", () => {
       const berthOptions = createBerthOptions({
-        suitableBoatTypes: [{ __typename: 'BoatTypeType', id: '19' }]
+        suitableBoatTypes: [{ __typename: 'BoatTypeType', id: '19' }],
       });
       const newBerth = createBerth(berthOptions);
       const value = getBerthFilterByValues(
@@ -122,17 +122,17 @@ describe('utils/berths', () => {
     const defaultValues = createWinterValues({
       boatLength: '10.2',
       boatType: '8',
-      boatWidth: '4.2'
+      boatWidth: '4.2',
     });
 
     const matchOptions = {
       maximumLength: 1100,
-      maximumWidth: 500
+      maximumWidth: 500,
     };
 
     const createAreaOptions = (options?: {}) => ({
       ...matchOptions,
-      ...options
+      ...options,
     });
 
     const createWinterSelectedServices = (services?: Partial<SelectedWinterServicesProps>) =>
@@ -143,7 +143,7 @@ describe('utils/berths', () => {
         repairArea: false,
         summerStorageForDockingEquipment: false,
         summerStorageForTrailers: false,
-        ...services
+        ...services,
       })();
 
     test('should return a function that returns a boolean', () => {

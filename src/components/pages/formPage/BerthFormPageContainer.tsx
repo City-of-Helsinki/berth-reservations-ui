@@ -34,14 +34,14 @@ type Props = {
 const mapSteps = [
   ['registered-boat', 'unregistered-boat', 'no-boat'],
   ['private-person', 'company'],
-  ['overview']
+  ['overview'],
 ];
 
 const BerthFormPageContainer = ({
   selectedBerths,
   localePush,
   match: {
-    params: { tab }
+    params: { tab },
   },
   application,
   onSubmit,
@@ -54,7 +54,7 @@ const BerthFormPageContainer = ({
   useEffect(() => {
     const currStep = Math.max(
       0,
-      findIndex(mapSteps, s => s.includes(tab))
+      findIndex(mapSteps, (s) => s.includes(tab))
     );
     setStep(currStep);
     if (currStep === 0) {
@@ -70,32 +70,32 @@ const BerthFormPageContainer = ({
       key: 'berths',
       completed: true,
       current: false,
-      linkTo: `berths`
+      linkTo: `berths`,
     },
     {
       key: 'selected_berths',
       completed: true,
       current: false,
-      linkTo: `berths/selected`
+      linkTo: `berths/selected`,
     },
     {
       key: 'boat_information',
       completed: step > 0,
       current: step === 0,
-      linkTo: `berths/form/${boatTab}`
+      linkTo: `berths/form/${boatTab}`,
     },
     {
       key: 'applicant',
       completed: step > 1,
       current: step === 1,
-      linkTo: `berths/form/${applicantTab}`
+      linkTo: `berths/form/${applicantTab}`,
     },
     {
       key: 'send_application',
       completed: step > 2,
       current: step === 2,
-      linkTo: `berths/form/${mapSteps[2][0]}`
-    }
+      linkTo: `berths/form/${mapSteps[2][0]}`,
+    },
   ];
 
   return (
@@ -104,7 +104,7 @@ const BerthFormPageContainer = ({
         loading,
         // error, TODO: handle errors
         data,
-        client
+        client,
       }) => {
         const boatTypes = data ? data.boatTypes : [];
         const berths = getResources(data ? data.harbors : null);
@@ -116,7 +116,7 @@ const BerthFormPageContainer = ({
           const choices = selectedBerths
             .map((harborId, priority) => ({
               harborId,
-              priority: priority + 1
+              priority: priority + 1,
             }))
             .toArray();
 
@@ -124,7 +124,7 @@ const BerthFormPageContainer = ({
             boatLength: stringToFloat(values.boatLength),
             boatWidth: stringToFloat(values.boatWidth),
             boatDraught: stringToFloat(values.boatDraught),
-            boatWeight: stringToFloat(values.boatWeight)
+            boatWeight: stringToFloat(values.boatWeight),
           });
           // Append berthSwitch property only when exchange application is selected.
           const payload = Object.assign(
@@ -132,17 +132,17 @@ const BerthFormPageContainer = ({
             {
               application: {
                 ...normalizedValues,
-                choices
-              }
+                choices,
+              },
             },
             ApplicationOptions.ExchangeApplication === application.berthsApplicationType && {
-              berthSwitch: application.berthSwitch
+              berthSwitch: application.berthSwitch,
             }
           );
 
           await client.mutate<SubmitBerth, SubmitBerthVariables>({
             variables: payload,
-            mutation: CREATE_APPLICATION
+            mutation: CREATE_APPLICATION,
           });
 
           await localePush('/thank-you');
@@ -192,7 +192,7 @@ export default compose<Props, Props>(
     (state: Store) => ({
       initialValues: state.forms.berthValues,
       selectedBerths: state.berths.selectedBerths,
-      application: state.application
+      application: state.application,
     }),
     { onSubmit: onSubmitBerthForm }
   )

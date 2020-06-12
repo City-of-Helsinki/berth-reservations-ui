@@ -17,7 +17,7 @@ const Card = ({
   onClick,
   btnLabel,
   children,
-  intl: { formatMessage, formatHTMLMessage }
+  intl: { formatMessage, formatHTMLMessage },
 }: Props) => {
   return (
     <RSCard className="vene-card">

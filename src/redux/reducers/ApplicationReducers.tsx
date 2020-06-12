@@ -8,8 +8,8 @@ const initState: ApplicationProps = {
   berthSwitch: {
     harborId: '',
     pier: '',
-    berthNumber: ''
-  }
+    berthNumber: '',
+  },
 };
 const defaultState: ApplicationFactory = Record(initState);
 

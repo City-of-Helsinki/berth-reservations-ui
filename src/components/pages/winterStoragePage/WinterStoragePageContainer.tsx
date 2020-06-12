@@ -7,7 +7,7 @@ import {
   deselectService,
   deselectWinterArea,
   selectService,
-  selectWinterArea
+  selectWinterArea,
 } from '../../../redux/actions/WinterAreaActions';
 import { getResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
@@ -46,35 +46,35 @@ const WinterStoragePageContainer = (props: Props) => {
       key: 'winter_areas',
       completed: false,
       current: true,
-      linkTo: ''
+      linkTo: '',
     },
     {
       key: 'review_areas',
       completed: false,
       current: false,
-      linkTo: ''
+      linkTo: '',
     },
     {
       key: 'boat_information',
       completed: false,
       current: false,
-      linkTo: ''
+      linkTo: '',
     },
     {
       key: 'applicant',
       completed: false,
       current: false,
-      linkTo: ''
+      linkTo: '',
     },
     {
       key: 'send_application',
       completed: false,
       current: false,
-      linkTo: ''
-    }
+      linkTo: '',
+    },
   ];
 
-  const services: Array<{
+  const services: {
     label: string;
     value:
       | 'electricity'
@@ -84,36 +84,36 @@ const WinterStoragePageContainer = (props: Props) => {
       | 'summerStorageForDockingEquipment'
       | 'summerStorageForTrailers';
     icon: IconNames;
-  }> = [
+  }[] = [
     { label: 'form.services.field.water.label', value: 'water', icon: 'waterTap' },
     { label: 'form.services.field.gate.label', value: 'gate', icon: 'fence' },
     {
       label: 'form.services.field.electricity.label',
       value: 'electricity',
-      icon: 'plug'
+      icon: 'plug',
     },
     {
       label: 'form.services.field.storage_for_trailers.label',
       value: 'summerStorageForTrailers',
-      icon: 'dollyEmpty'
+      icon: 'dollyEmpty',
     },
     {
       label: 'form.services.field.storage_for_docking_equip.label',
       value: 'summerStorageForDockingEquipment',
-      icon: 'trestle'
+      icon: 'trestle',
     },
     {
       label: 'form.services.field.repair_area.label',
       value: 'repairArea',
-      icon: 'tools'
-    }
+      icon: 'tools',
+    },
   ];
 
   return (
     <WinterAreasQuery query={WINTER_AREAS_QUERY}>
       {({
         // error, TODO: handle errors
-        data
+        data,
       }) => {
         const winterAreas = getResources(data ? data.winterStorageAreas : null);
 
@@ -132,14 +132,14 @@ export default compose<Props, {}>(
       initialValues: state.forms.winterValues,
       selectedAreasIds: state.winterAreas.selectedWinterAreas,
       selectedServices: state.winterAreas.selectedWinterServices,
-      areasLimit: state.winterAreas.areasLimit
+      areasLimit: state.winterAreas.areasLimit,
     }),
     {
       selectService,
       deselectService,
       onSubmit: onSubmitWinterForm,
       selectArea: selectWinterArea,
-      deselectArea: deselectWinterArea
+      deselectArea: deselectWinterArea,
     }
   )
 )(WinterStoragePageContainer);

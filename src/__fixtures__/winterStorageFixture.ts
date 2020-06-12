@@ -30,9 +30,9 @@ export const createWinterArea = (options?: Partial<WinterStorageType>): WinterSt
       __typename: 'AvailabilityLevelType',
       id: '1',
       title: 'Short waiting periods.',
-      description: ''
+      description: '',
     },
-    geometry: { coordinates: [60.18808000000039, 25.0665395178596] }
+    geometry: { coordinates: [60.18808000000039, 25.0665395178596] },
   };
 
   return { ...newWinterArea, ...options };

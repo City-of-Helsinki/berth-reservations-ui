@@ -11,7 +11,7 @@ interface Props {
 const LabelValuePair = ({ label, value = '-' }: Props) => (
   <div className="vene-label-value-pair">
     <FormattedMessage id={label}>
-      {lbl => <span className="vene-label-value-pair__label">{lbl}</span>}
+      {(lbl) => <span className="vene-label-value-pair__label">{lbl}</span>}
     </FormattedMessage>
     <span className="vene-label-value-pair__label">:</span>
     <span className="vene-label-value-pair__value">{value}</span>

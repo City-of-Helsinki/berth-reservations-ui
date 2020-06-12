@@ -8,7 +8,7 @@ import { EXCHANGE_APPLICATION_LIMIT } from '../../../../constants/BerthConstants
 import { switchApplication as switchApplicationAction } from '../../../../redux/actions/ApplicationActions';
 import {
   resetBerthLimit as resetBerthLimitAction,
-  setBerthLimit as setBirthLimitAction
+  setBerthLimit as setBirthLimitAction,
 } from '../../../../redux/actions/BerthActions';
 import Alert from '../../../common/Alert';
 import Input from '../../../common/Input';
@@ -49,12 +49,12 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
   toggleAlert = (value: boolean) => {
     if (!value) {
       this.setState({
-        alertVisibility: false
+        alertVisibility: false,
       });
     } else {
       this.setState(
         {
-          alertVisibility: true
+          alertVisibility: true,
         },
         () => {
           this.autoDismiss = setTimeout(() => {
@@ -85,7 +85,7 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
     const {
       className,
       intl: { formatMessage },
-      berthsApplicationType
+      berthsApplicationType,
     } = this.props;
 
     return (
@@ -146,7 +146,7 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
 const mapStateToProps = (state: Store) => ({
   selectedBerthCount: state.berths.selectedBerths.size,
   berthsApplicationType: state.application.berthsApplicationType,
-  berthLimit: state.berths.berthLimit
+  berthLimit: state.berths.berthLimit,
 });
 
 export const UnconnectedApplicationSelector = injectIntl(ApplicationSelector);
@@ -154,5 +154,5 @@ export const UnconnectedApplicationSelector = injectIntl(ApplicationSelector);
 export default connect(mapStateToProps, {
   switchApplication: switchApplicationAction,
   setBerthLimit: setBirthLimitAction,
-  resetBerthLimit: resetBerthLimitAction
+  resetBerthLimit: resetBerthLimitAction,
 })(UnconnectedApplicationSelector);

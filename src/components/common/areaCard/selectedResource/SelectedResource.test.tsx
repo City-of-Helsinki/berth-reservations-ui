@@ -21,7 +21,7 @@ describe('SelectedResource', () => {
           ['waterTap', berth.water],
           ['trash', berth.wasteCollection],
           ['fence', berth.gate],
-          ['streetLight', berth.lighting]
+          ['streetLight', berth.lighting],
         ]}
         moveUp={moveUp}
         moveDown={moveDown}
@@ -42,22 +42,14 @@ describe('SelectedResource', () => {
   test('should set the "changed" state to "up" when the button with up arrow is clicked', () => {
     const wrapper = getWrapper();
 
-    wrapper
-      .dive()
-      .find('.vene-selected-berth__arrow-btn')
-      .first()
-      .simulate('click');
+    wrapper.dive().find('.vene-selected-berth__arrow-btn').first().simulate('click');
     expect(wrapper.state().changed).toBe('up');
   });
 
   test('should set the "changed" state to "down" when the button with down arrow is clicked', () => {
     const wrapper = getWrapper();
 
-    wrapper
-      .dive()
-      .find('.vene-selected-berth__arrow-btn')
-      .last()
-      .simulate('click');
+    wrapper.dive().find('.vene-selected-berth__arrow-btn').last().simulate('click');
 
     expect(wrapper.state().changed).toBe('down');
   });
@@ -67,8 +59,8 @@ describe('SelectedResource', () => {
       services: [
         ['plug', true],
         ['waterTap', true],
-        ['trash', false]
-      ]
+        ['trash', false],
+      ],
     }).dive();
     const serviceIcons = wrapper.find('.vene-selected-berth__service-icn');
 
@@ -80,8 +72,8 @@ describe('SelectedResource', () => {
       services: [
         ['plug', false],
         ['waterTap', true],
-        ['trash', false]
-      ]
+        ['trash', false],
+      ],
     }).dive();
     const disabledServiceIcons = wrapper.find('.vene-selected-berth__service-icn--disabled');
 
@@ -93,8 +85,8 @@ describe('SelectedResource', () => {
       services: [
         ['plug', false],
         ['waterTap', true],
-        ['trash', false]
-      ]
+        ['trash', false],
+      ],
     });
     const closeBtn = wrapper.dive().find('.vene-selected-berth__close-btn');
 
@@ -111,10 +103,7 @@ describe('SelectedResource', () => {
 
   test('invoking handleAccept prop of Modal should set "changed" state to "delete"', () => {
     const wrapper = getWrapper();
-    const handleAccept = wrapper
-      .dive()
-      .find(Modal)
-      .prop('handleAccept');
+    const handleAccept = wrapper.dive().find(Modal).prop('handleAccept');
 
     (handleAccept as (e: React.SyntheticEvent<Element, Event>) => void)({} as React.SyntheticEvent);
     expect(wrapper.state().changed).toBe('delete');

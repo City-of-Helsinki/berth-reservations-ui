@@ -19,7 +19,7 @@ import { Store } from '../../../redux/types';
 import { WinterFormValues } from '../../../types/winterStorage';
 import {
   SubmitWinterStorage,
-  SubmitWinterStorageVariables
+  SubmitWinterStorageVariables,
 } from '../../../utils/__generated__/SubmitWinterStorage';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
@@ -34,14 +34,14 @@ type Props = {
 const mapSteps = [
   ['registered-boat', 'unregistered-boat', 'no-boat'],
   ['private-person', 'company'],
-  ['overview']
+  ['overview'],
 ];
 
 const WinterFormPageContainer = ({
   selectedAreas,
   localePush,
   match: {
-    params: { tab }
+    params: { tab },
   },
   onSubmit,
   ...rest
@@ -53,7 +53,7 @@ const WinterFormPageContainer = ({
   useEffect(() => {
     const currStep = Math.max(
       0,
-      findIndex(mapSteps, s => s.includes(tab))
+      findIndex(mapSteps, (s) => s.includes(tab))
     );
     setStep(currStep);
     if (currStep === 0) {
@@ -69,32 +69,32 @@ const WinterFormPageContainer = ({
       key: 'winter_areas',
       completed: true,
       current: false,
-      linkTo: `winter-storage`
+      linkTo: `winter-storage`,
     },
     {
       key: 'review_areas',
       completed: true,
       current: false,
-      linkTo: `winter-storage/selected`
+      linkTo: `winter-storage/selected`,
     },
     {
       key: 'boat_information',
       completed: step > 0,
       current: step === 0,
-      linkTo: `winter-storage/form/${boatTab}`
+      linkTo: `winter-storage/form/${boatTab}`,
     },
     {
       key: 'applicant',
       completed: step > 1,
       current: step === 1,
-      linkTo: `winter-storage/form/${applicantTab}`
+      linkTo: `winter-storage/form/${applicantTab}`,
     },
     {
       key: 'send_application',
       completed: step > 2,
       current: step === 2,
-      linkTo: `winter-storage/form/${mapSteps[2][0]}`
-    }
+      linkTo: `winter-storage/form/${mapSteps[2][0]}`,
+    },
   ];
 
   return (
@@ -103,7 +103,7 @@ const WinterFormPageContainer = ({
         loading,
         // error, TODO: handle errors
         data,
-        client
+        client,
       }) => {
         const boatTypes = data ? data.boatTypes : [];
         const areas = getResources(data ? data.winterStorageAreas : null);
@@ -113,13 +113,13 @@ const WinterFormPageContainer = ({
           const chosenAreas = selectedAreas
             .map((winterAreaId, priority) => ({
               winterAreaId,
-              priority: priority + 1
+              priority: priority + 1,
             }))
             .toArray();
 
           const normalizedValues = Object.assign({}, values, {
             boatWidth: stringToFloat(values.boatWidth),
-            boatLength: stringToFloat(values.boatLength)
+            boatLength: stringToFloat(values.boatLength),
           });
 
           const allowedFormValues = omit(normalizedValues, 'boatStoredOnTrailer');
@@ -128,10 +128,10 @@ const WinterFormPageContainer = ({
             variables: {
               application: {
                 ...allowedFormValues,
-                chosenAreas
-              }
+                chosenAreas,
+              },
             },
-            mutation: CREATE_WINTER_STORAGE_APPLICATION
+            mutation: CREATE_WINTER_STORAGE_APPLICATION,
           });
 
           await localePush('/thank-you');
@@ -181,7 +181,7 @@ export default compose<Props, Props>(
   connect(
     (state: Store) => ({
       initialValues: state.forms.winterValues,
-      selectedAreas: state.winterAreas.selectedWinterAreas
+      selectedAreas: state.winterAreas.selectedWinterAreas,
     }),
     { onSubmit: onSubmitWinterForm }
   )

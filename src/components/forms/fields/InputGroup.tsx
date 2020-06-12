@@ -8,7 +8,7 @@ import {
   Input,
   InputGroup,
   InputGroupAddon,
-  InputProps
+  InputProps,
 } from 'reactstrap';
 
 import validator, { mustBePresent } from '../../../utils/formValidation';

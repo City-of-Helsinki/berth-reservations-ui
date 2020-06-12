@@ -14,7 +14,7 @@ type Props = {
 const OverviewStorageMethod: SFC<Props> = ({
   storageMethod,
   registrationNumber,
-  intl: { formatMessage }
+  intl: { formatMessage },
 }) => {
   const storageLabel =
     storageMethod === WinterStorageMethod.ON_TRESTLES

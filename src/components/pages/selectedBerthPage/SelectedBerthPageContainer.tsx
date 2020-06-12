@@ -36,32 +36,32 @@ const steps: StepType[] = [
     key: 'berths',
     completed: true,
     current: false,
-    linkTo: `berths`
+    linkTo: `berths`,
   },
   {
     key: 'selected_berths',
     completed: false,
     current: true,
-    linkTo: ''
+    linkTo: '',
   },
   {
     key: 'boat_information',
     completed: false,
     current: false,
-    linkTo: ''
+    linkTo: '',
   },
   {
     key: 'applicant',
     completed: false,
     current: false,
-    linkTo: ''
+    linkTo: '',
   },
   {
     key: 'send_application',
     completed: false,
     current: false,
-    linkTo: ''
-  }
+    linkTo: '',
+  },
 ];
 
 const UnconnectedSelectedBerthPage = ({
@@ -83,7 +83,7 @@ const UnconnectedSelectedBerthPage = ({
       {({
         loading,
         // error, TODO: handle errors
-        data
+        data,
       }) => {
         const berths = getResources(data ? data.harbors : null);
         const selected = getSelectedResources(selectedBerths, berths);
@@ -91,7 +91,7 @@ const UnconnectedSelectedBerthPage = ({
         const type = get(values, 'boatType');
         const width = get(values, 'boatWidth', '');
         const length = get(values, 'boatLength', '');
-        const boatType = boatTypes ? boatTypes.find(t => !!t && t.id === type) : undefined;
+        const boatType = boatTypes ? boatTypes.find((t) => !!t && t.id === type) : undefined;
         const boatTypeName = boatType && boatType.name;
         const filter = getBerthFilterByValues(values, selectedServices);
         const validSelection = selected.every(filter);
@@ -106,7 +106,7 @@ const UnconnectedSelectedBerthPage = ({
             steps={steps}
             legend={{
               title: 'legend.selected_berths.title',
-              legend: 'legend.selected_berths.legend'
+              legend: 'legend.selected_berths.legend',
             }}
             selectedBerths={selected}
             values={values}
@@ -127,13 +127,13 @@ export default compose<Props, Props>(
       selectedServices: state.berths.selectedServices,
       values: state.forms.berthValues,
       berthsApplicationType: state.application.berthsApplicationType,
-      initialValues: state.application.berthSwitch
+      initialValues: state.application.berthSwitch,
     }),
     {
       deselectBerth,
       moveUp,
       moveDown,
-      submitExchangeForm
+      submitExchangeForm,
     }
   )
 )(UnconnectedSelectedBerthPage);

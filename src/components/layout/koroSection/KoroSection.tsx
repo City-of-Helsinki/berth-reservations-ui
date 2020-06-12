@@ -7,10 +7,10 @@ import './koroSection.scss';
 
 interface Props {
   title?: string;
-  description?: Array<{
+  description?: {
     id: string;
     values?: { [key: string]: string };
-  }>;
+  }[];
   className?: string;
   children?: React.ReactNode;
   color?: 'fog' | 'blue' | 'white';
@@ -28,12 +28,12 @@ const KoroSection = (props: Props) => {
     centered = false,
     children,
     className,
-    color = 'white'
+    color = 'white',
   } = props;
   const classes = classnames(className, `section-koro--${color}`, 'section-koro', {
     'section-koro--top': top,
     'section-koro--bottom': bottom,
-    'section-koro--centered': centered
+    'section-koro--centered': centered,
   });
 
   return (
@@ -43,10 +43,10 @@ const KoroSection = (props: Props) => {
           <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
             {title && (
               <FormattedMessage id={title}>
-                {txt => <h2 className="section-koro__title">{txt}</h2>}
+                {(txt) => <h2 className="section-koro__title">{txt}</h2>}
               </FormattedMessage>
             )}
-            {description.map(paragraph => (
+            {description.map((paragraph) => (
               <FormattedHTMLMessage
                 key={paragraph.id}
                 tagName="p"

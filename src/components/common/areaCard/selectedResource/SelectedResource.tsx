@@ -18,7 +18,7 @@ export interface Props {
   availabilityLevel?: { id: string; title: string | null; description: string | null } | null;
   title: React.ReactNode;
   validationErrMsg?: string;
-  services: Array<[IconNames, boolean]>;
+  services: [IconNames, boolean][];
   className?: string;
   handleRemove(id: string): void;
   moveDown?(id: string): void;
@@ -36,7 +36,7 @@ class SelectedResource extends Component<Props, State> {
 
     this.state = {
       changed: 'nothing',
-      isModalOpen: false
+      isModalOpen: false,
     };
   }
 
@@ -70,7 +70,7 @@ class SelectedResource extends Component<Props, State> {
   };
 
   toggleModal = () => {
-    this.setState(prevState => ({ isModalOpen: !prevState.isModalOpen }));
+    this.setState((prevState) => ({ isModalOpen: !prevState.isModalOpen }));
   };
 
   render() {
@@ -82,14 +82,14 @@ class SelectedResource extends Component<Props, State> {
       validationErrMsg,
       moveDown,
       moveUp,
-      className
+      className,
     } = this.props;
     const { changed, isModalOpen } = this.state;
     const validDomId = genValidSelector(`popover_${id}`);
 
     return (
       <Transition in={changed !== 'nothing'} timeout={300} onEntered={this.toggleEnterState}>
-        {state => (
+        {(state) => (
           <>
             <Container className={classNames('vene-selected-berth', className)}>
               <Row>
@@ -102,7 +102,7 @@ class SelectedResource extends Component<Props, State> {
                 >
                   <Row
                     className={classNames('vene-selected-berth__title-bar', {
-                      'vene-selected-berth__title-bar--has-error': !!validationErrMsg
+                      'vene-selected-berth__title-bar--has-error': !!validationErrMsg,
                     })}
                   >
                     <Col xs="10" className="vene-selected-berth__title">
@@ -146,7 +146,7 @@ class SelectedResource extends Component<Props, State> {
                           key={service}
                           name={service}
                           className={classNames('vene-selected-berth__service-icn', {
-                            'vene-selected-berth__service-icn--disabled': !value
+                            'vene-selected-berth__service-icn--disabled': !value,
                           })}
                         />
                       ))}

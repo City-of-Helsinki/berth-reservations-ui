@@ -46,12 +46,12 @@ export const mustBeEmail = (value: any): any => {
   return 'validation.message.must_be_email';
 };
 
-export default <T>(...fns: Array<((...args: any[]) => T | undefined) | null>) => (
+export default <T>(...fns: (((...args: any[]) => T | undefined) | null)[]) => (
   value: string
 ): T | undefined => {
   let validated: T | undefined;
 
-  fns.forEach(fn => {
+  fns.forEach((fn) => {
     if (!validated && fn) {
       validated = fn(value);
     }

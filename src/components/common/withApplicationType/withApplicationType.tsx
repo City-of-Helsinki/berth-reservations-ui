@@ -29,7 +29,7 @@ export const withApplicationType = (
 };
 
 const mapStateToProps = ({ application }: Store) => ({
-  appType: application.get('berthsApplicationType')
+  appType: application.get('berthsApplicationType'),
 });
 
 export default <P extends object>(C: React.ComponentType<P>) =>

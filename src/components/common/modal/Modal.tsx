@@ -21,7 +21,7 @@ const Modal = ({
   isOpen,
   handleToggle,
   handleAccept,
-  intl: { formatMessage }
+  intl: { formatMessage },
 }: Props) => {
   const onAccept = (e: React.SyntheticEvent) => {
     if (handleAccept) handleAccept(e);

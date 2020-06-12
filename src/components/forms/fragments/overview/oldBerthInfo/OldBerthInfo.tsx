@@ -10,7 +10,7 @@ import SelectedHarborQuery from '../../../../query/SelectedHarborQuery';
 import { ApplicationState } from '../../../../../redux/types';
 import {
   BerthSwitchReasonsQuery,
-  BerthSwitchReasonsQuery_berthSwitchReasons as Reason
+  BerthSwitchReasonsQuery_berthSwitchReasons as Reason,
 } from '../../../../../utils/__generated__/BerthSwitchReasonsQuery';
 
 const OldBerthInfo: SFC<{ application: ApplicationState }> = ({ application }) => {
@@ -22,7 +22,7 @@ const OldBerthInfo: SFC<{ application: ApplicationState }> = ({ application }) =
         <SelectedHarborQuery query={GET_HARBOR_NAME(application.berthSwitch.harborId)}>
           {({
             // TODO: handle errors
-            data
+            data,
           }) => (
             <LabelValuePair
               label="page.berth.exchange_application.form.current_harbour_area.label"
@@ -46,7 +46,7 @@ const OldBerthInfo: SFC<{ application: ApplicationState }> = ({ application }) =
             const reasons =
               data && data.berthSwitchReasons ? data.berthSwitchReasons.filter(isReason) : [];
             const selectedReason = reasons.find(
-              reason => reason.id === application.berthSwitch.reason
+              (reason) => reason.id === application.berthSwitch.reason
             );
 
             return (

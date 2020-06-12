@@ -40,7 +40,7 @@ const AvailabilityLevel = ({ label, level }: Props) => {
   return (
     <span
       className={classNames('vene-availability-level', {
-        [`vene-availability-level--${color}`]: color
+        [`vene-availability-level--${color}`]: color,
       })}
     >
       {label}

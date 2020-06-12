@@ -15,7 +15,7 @@ export interface Props {
 const Steps = ({ applicationType, steps }: Props) => (
   <div className="vene-steps">
     <FormattedMessage id={applicationType}>
-      {txt => <h4 className="vene-steps__title">{txt}</h4>}
+      {(txt) => <h4 className="vene-steps__title">{txt}</h4>}
     </FormattedMessage>
     <div className="vene-steps__items">
       {steps.map(({ key, completed, current, linkTo }) => (

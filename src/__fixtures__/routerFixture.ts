@@ -9,7 +9,7 @@ export const getMockRouterProps = <Params>(data: Params) => {
     key: '',
     pathname: '',
     search: '',
-    state: {}
+    state: {},
   };
 
   const props: RouteComponentProps<Params> = {
@@ -18,7 +18,7 @@ export const getMockRouterProps = <Params>(data: Params) => {
       isExact: true,
       params: data,
       path: '',
-      url: ''
+      url: '',
     },
     history: {
       location,
@@ -29,11 +29,11 @@ export const getMockRouterProps = <Params>(data: Params) => {
       go: dummyFunction,
       goBack: dummyFunction,
       goForward: dummyFunction,
-      block: t => dummyFunction,
-      createHref: t => '',
-      listen: t => dummyFunction
+      block: (t) => dummyFunction,
+      createHref: (t) => '',
+      listen: (t) => dummyFunction,
     },
-    staticContext: {}
+    staticContext: {},
   };
 
   return props;

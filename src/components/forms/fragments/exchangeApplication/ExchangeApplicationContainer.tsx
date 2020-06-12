@@ -3,7 +3,7 @@ import { Query } from 'react-apollo';
 
 import {
   BerthSwitchReasonsQuery,
-  BerthSwitchReasonsQuery_berthSwitchReasons as Reason
+  BerthSwitchReasonsQuery_berthSwitchReasons as Reason,
 } from '../../../../utils/__generated__/BerthSwitchReasonsQuery';
 import { BERTH_SWITCH_REASONS_QUERY } from '../../../../utils/graphql';
 import ExchangeApplication, { ExchangeApplicationProps } from './ExchangeApplication';

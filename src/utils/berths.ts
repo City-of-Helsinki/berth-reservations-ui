@@ -8,7 +8,7 @@ import {
   SelectedServices,
   SelectedServicesProps,
   SelectedWinterServices,
-  SelectedWinterServicesProps
+  SelectedWinterServicesProps,
 } from '../types/services';
 import { WinterFormValues, WinterStorageType } from '../types/winterStorage';
 
@@ -48,13 +48,13 @@ export const getBerthFilterByValues = (
     let filterByService = true;
     let filterByBoatTypeIds = true;
 
-    filterByService = (services as Array<keyof SelectedServicesProps>).reduce<boolean>(
+    filterByService = (services as (keyof SelectedServicesProps)[]).reduce<boolean>(
       (acc, service) => acc && !!b[service],
       true
     );
     filterByBoatTypeIds =
       boatType && b.suitableBoatTypes.length
-        ? !!b.suitableBoatTypes.find(type => type.id === boatType)
+        ? !!b.suitableBoatTypes.find((type) => type.id === boatType)
         : true;
 
     return filterByService && filterByWidth && filterByLength && filterByBoatTypeIds;
@@ -91,7 +91,7 @@ export const getWinterStorageFilterByValues = (
     const filterByBoatTypeIds = true;
     const filterByStorageArea = filterStorageArea(b, storageAreaFilter);
 
-    filterByService = (services as Array<keyof SelectedWinterServicesProps>).reduce<boolean>(
+    filterByService = (services as (keyof SelectedWinterServicesProps)[]).reduce<boolean>(
       (acc, service) => acc && !!b[service],
       true
     );
@@ -126,26 +126,24 @@ const filterStorageArea = (storage: WinterStorageType, filterType?: StorageAreaF
 
 export const getResources = <T, P, G extends { coordinates: [number, number] }>(
   data: {
-    edges: Array<{
+    edges: ({
       node: {
         id: string;
         __typename: T;
         properties?: P;
         geometry?: G | null;
       } | null;
-    } | null>;
+    } | null)[];
   } | null
 ) => {
   if (!data || !data.edges) return List([]);
   return List(
     data.edges.reduce<
-      Array<
-        {
-          __typename: T;
-          id: string;
-          geometry: { coordinates: number[] };
-        } & P
-      >
+      ({
+        __typename: T;
+        id: string;
+        geometry: { coordinates: number[] };
+      } & P)[]
     >((acc, harbor) => {
       if (!(harbor && harbor.node && harbor.node.properties && harbor.node.geometry)) return [];
 
@@ -154,11 +152,11 @@ export const getResources = <T, P, G extends { coordinates: [number, number] }>(
           ...harbor.node.properties,
           id: harbor.node.id,
           geometry: {
-            coordinates: [harbor.node.geometry.coordinates[1], harbor.node.geometry.coordinates[0]]
+            coordinates: [harbor.node.geometry.coordinates[1], harbor.node.geometry.coordinates[0]],
           },
-          __typename: harbor.node.__typename
+          __typename: harbor.node.__typename,
         },
-        ...acc
+        ...acc,
       ];
     }, [])
   );
@@ -169,12 +167,12 @@ export const getSelectedResources = <T extends { id: string }>(
   resources: List<T>
 ) =>
   selectedIds.reduce<List<T>>((acc, id) => {
-    const matched = resources.find(resource => resource.id === id);
+    const matched = resources.find((resource) => resource.id === id);
     return matched ? acc.push(matched) : acc;
   }, List([]));
 
 export const isResourceSelected = (selectedBerths: SelectedIds, resourceId: string): boolean =>
-  !!selectedBerths.find(selectedBerth => selectedBerth === resourceId);
+  !!selectedBerths.find((selectedBerth) => selectedBerth === resourceId);
 
 /**
  * Convert number in string to floating number.

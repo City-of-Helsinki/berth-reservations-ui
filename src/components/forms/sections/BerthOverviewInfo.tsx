@@ -37,7 +37,7 @@ const BerthOverviewInfo = ({
   application,
   steps,
   boatTab,
-  applicationType
+  applicationType,
 }: Props) => {
   const showBigShipsForm = get(values, 'boatType') === BigBoatTypeValue;
 

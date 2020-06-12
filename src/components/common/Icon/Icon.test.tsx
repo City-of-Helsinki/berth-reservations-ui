@@ -4,7 +4,7 @@ import Icon, { IconProps } from './index';
 
 describe('common/Icon', () => {
   const defaultProps: IconProps = {
-    name: 'helsinkiLogo'
+    name: 'helsinkiLogo',
   };
   const getWrapper = (props?: IconProps) => {
     return shallow(<Icon {...defaultProps} {...props} />);

@@ -49,7 +49,7 @@ export function shallowWithIntl<P, S>(
 ) {
   return shallow<P, S>(nodeWithIntlProp(node), {
     context: Object.assign({}, context, { intl: getIntl(locale) }),
-    ...additionalOptions
+    ...additionalOptions,
   })
     .first()
     .shallow(); // TODO: Improve when https://github.com/formatjs/react-intl/issues/929#issuecomment-296391428 gets fixed
@@ -63,6 +63,6 @@ export function mountWithIntl<P, S>(
   return mount<P, S>(nodeWithIntlProp(node), {
     context: Object.assign({}, context, { intl: getIntl(locale) }),
     childContextTypes: Object.assign({}, { intl: intlShape }, childContextTypes),
-    ...additionalOptions
+    ...additionalOptions,
   });
 }

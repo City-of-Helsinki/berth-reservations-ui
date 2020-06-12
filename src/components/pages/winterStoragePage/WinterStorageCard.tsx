@@ -18,7 +18,7 @@ const WinterStorageCard = ({
   selected,
   disabled,
   isExcluded,
-  handleSelect
+  handleSelect,
 }: WinterStorageCardProps) => {
   const maximumWidth = convertCmToM(area.maximumWidth);
   const maximumLength = convertCmToM(area.maximumLength);
@@ -87,7 +87,7 @@ const WinterStorageCard = ({
           available={area.summerStorageForTrailers}
           iconName="dollyEmpty"
           titleId="page.winter_storage.storage_for_trailers"
-        />
+        />,
       ]}
     />
   );

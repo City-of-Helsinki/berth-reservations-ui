@@ -14,7 +14,7 @@ describe('fragments/ExchangeApplication', () => {
       <ExchangeApplication
         reasons={[
           { __typename: 'BerthSwitchReasonType', id: '1', title: 'foo' },
-          { __typename: 'BerthSwitchReasonType', id: '2', title: 'bar' }
+          { __typename: 'BerthSwitchReasonType', id: '2', title: 'bar' },
         ]}
         berths={mockHarbor}
         {...props}
@@ -37,12 +37,7 @@ describe('fragments/ExchangeApplication', () => {
     const wrapper = getWrapper();
     const select = wrapper.find(Select);
 
-    expect(
-      select
-        .find('[name="reason"]')
-        .last()
-        .prop('required')
-    ).toBeFalsy();
+    expect(select.find('[name="reason"]').last().prop('required')).toBeFalsy();
   });
 
   test('contain 2 text component', () => {
@@ -72,11 +67,7 @@ describe('fragments/ExchangeApplication', () => {
       const formattedMessage = reasonSelect.find(FormattedMessage);
 
       expect(reasonSelectChildren).toHaveLength(1);
-      expect(
-        formattedMessage
-          .renderProp('children')()
-          .find('option[value=""]')
-      ).toHaveLength(1);
+      expect(formattedMessage.renderProp('children')().find('option[value=""]')).toHaveLength(1);
     });
   });
 });

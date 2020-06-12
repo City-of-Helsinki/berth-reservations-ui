@@ -22,7 +22,7 @@ class TabSelector extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      tab: 0
+      tab: 0,
     };
   }
 
@@ -40,7 +40,7 @@ class TabSelector extends React.Component<Props, State> {
     const { tab } = this.state;
     const { tabMessage, children, progress, selectedCount, invalidSelection } = this.props;
 
-    const headers = React.Children.map(children, c => {
+    const headers = React.Children.map(children, (c) => {
       if (c && typeof c === 'object' && 'props' in c) {
         return c.props.TabHeader;
       }

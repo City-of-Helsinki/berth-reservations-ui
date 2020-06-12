@@ -28,10 +28,7 @@ describe('AvailabilityLevel', () => {
 
   test("should NOT add a modifier className if supplied level doesn't belong to the range 1-5", () => {
     const wrapper = getWrapper({ level: '6' });
-    const className = wrapper
-      .find('span')
-      .first()
-      .prop('className');
+    const className = wrapper.find('span').first().prop('className');
 
     expect(className).toEqual(expect.not.stringMatching('vene-availability-level--'));
   });

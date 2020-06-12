@@ -7,7 +7,7 @@ import { Number } from '../Fields';
 import validator, {
   mustBeLessThan,
   mustBePositiveNumber,
-  mustNotExceedTwoDecimals
+  mustNotExceedTwoDecimals,
 } from '../../../utils/formValidation';
 
 interface Props {
