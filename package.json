@@ -89,7 +89,6 @@
     "lint-staged": "^10.2.9",
     "prettier": "^2.0.5",
     "redux-devtools-extension": "^2.13.8",
-    "serve": "^10.1.2",
     "tslint": "^6.1.2",
     "tslint-config-airbnb": "^5.11.2",
     "tslint-config-prettier": "^1.18.0",
