@@ -63,7 +63,7 @@ const WinterFormPageContainer = ({
     if (currStep === 1) {
       setApplicantTab(tab);
     }
-  });
+  }, [tab]);
 
   const steps: StepType[] = [
     {

@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import { string } from 'prop-types';
 import './availabilityLevel.scss';
 
 export interface Props {

@@ -31,7 +31,7 @@ export const mustBeLessThan = (limit: number) => (value: string): string | undef
 };
 
 export const mustBePhoneNumber = (value: string): string | undefined => {
-  const phoneRe = /^([0-9\(\)\s\+\-])+$/im;
+  const phoneRe = /^([0-9()\s+-])+$/im;
   if (phoneRe.test(value)) {
     return undefined;
   }
@@ -39,7 +39,7 @@ export const mustBePhoneNumber = (value: string): string | undefined => {
 };
 
 export const mustBeEmail = (value: any): any => {
-  const emailRe = /^.*\@.*\..*$/im;
+  const emailRe = /^.*@.*\..*$/im;
   if (emailRe.test(value)) {
     return undefined;
   }

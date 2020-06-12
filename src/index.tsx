@@ -1,4 +1,3 @@
-import '@babel/polyfill';
 import 'focus-visible';
 import 'react-app-polyfill/ie11';
 
