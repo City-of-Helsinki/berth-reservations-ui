@@ -5,6 +5,7 @@ import { compose } from 'recompose';
 
 import { submitApplicationForm as submitExchangeForm } from '../../../redux/actions/ApplicationActions';
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
+import { BoatTypesBerthsQuery } from '../../../utils/__generated__/BoatTypesBerthsQuery';
 import { getBerthFilterByValues, getResources, getSelectedResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import SelectedBerthPage from './SelectedBerthPage';
@@ -15,8 +16,8 @@ import { SelectedIds } from '../../berths/types';
 
 import { BerthFormValues } from '../../../types/berth';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
-import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 import { StepType } from '../../steps/step/Step';
+import { Query } from 'react-apollo';
 
 interface Props {
   selectedBerths: SelectedIds;
@@ -79,7 +80,7 @@ const UnconnectedSelectedBerthPage = ({
   };
 
   return (
-    <BoatsBerthsQuery query={BOAT_TYPES_BERTHS_QUERY}>
+    <Query<BoatTypesBerthsQuery> query={BOAT_TYPES_BERTHS_QUERY}>
       {({
         loading,
         // error, TODO: handle errors
@@ -115,7 +116,7 @@ const UnconnectedSelectedBerthPage = ({
           />
         );
       }}
-    </BoatsBerthsQuery>
+    </Query>
   );
 };
 

@@ -9,11 +9,11 @@ import {
   selectService,
 } from '../../../redux/actions/BerthActions';
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
+import { BoatTypesBerthsQuery } from '../../../utils/__generated__/BoatTypesBerthsQuery';
 import { getResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import { IconNames } from '../../common/Icon';
-import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 import BerthPage from './BerthPage';
 
 import { Store } from '../../../redux/types';
@@ -21,6 +21,7 @@ import { BerthFormValues } from '../../../types/berth';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType, SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
+import { Query } from 'react-apollo';
 
 interface Props {
   initialValues: BerthFormValues;
@@ -96,7 +97,7 @@ const BerthPageContainer = (props: Props) => {
   ];
 
   return (
-    <BoatsBerthsQuery query={BOAT_TYPES_BERTHS_QUERY}>
+    <Query<BoatTypesBerthsQuery> query={BOAT_TYPES_BERTHS_QUERY}>
       {({
         // error, TODO: handle errors
         data,
@@ -114,7 +115,7 @@ const BerthPageContainer = (props: Props) => {
           />
         );
       }}
-    </BoatsBerthsQuery>
+    </Query>
   );
 };
 

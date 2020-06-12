@@ -6,13 +6,13 @@ import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
 
 import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
+import { WinterAreasQuery } from '../../../utils/__generated__/WinterAreasQuery';
 import { getResources, getSelectedResources, stringToFloat } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { CREATE_WINTER_STORAGE_APPLICATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/WinterBoatDetails';
 import WinterOverview from '../../forms/sections/WinterOverview';
-import WinterAreasQuery from '../../query/WinterAreasQuery';
 import FormPage from './FormPage';
 
 import { Store } from '../../../redux/types';
@@ -23,6 +23,7 @@ import {
 } from '../../../utils/__generated__/SubmitWinterStorage';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
+import { Query } from 'react-apollo';
 
 type Props = {
   initialValues: {};
@@ -98,7 +99,7 @@ const WinterFormPageContainer = ({
   ];
 
   return (
-    <WinterAreasQuery query={WINTER_AREAS_QUERY}>
+    <Query<WinterAreasQuery> query={WINTER_AREAS_QUERY}>
       {({
         loading,
         // error, TODO: handle errors
@@ -172,7 +173,7 @@ const WinterFormPageContainer = ({
           </FormPage>
         );
       }}
-    </WinterAreasQuery>
+    </Query>
   );
 };
 

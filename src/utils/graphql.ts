@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+import { gql } from 'apollo-boost';
 
 export const BOAT_TYPES_BERTHS_QUERY = gql`
   query BoatTypesBerthsQuery {

@@ -2,10 +2,10 @@ import get from 'lodash/get';
 import React, { SFC } from 'react';
 import { Query } from 'react-apollo';
 import { Col, Row } from 'reactstrap';
+import { BoatTypesBerthsQuery_harbors_edges_node as Harbor } from '../../../../../utils/__generated__/BoatTypesBerthsQuery';
 
 import { BERTH_SWITCH_REASONS_QUERY, GET_HARBOR_NAME } from '../../../../../utils/graphql';
 import LabelValuePair from '../../../../common/labelValuePair/LabelValuePair';
-import SelectedHarborQuery from '../../../../query/SelectedHarborQuery';
 
 import { ApplicationState } from '../../../../../redux/types';
 import {
@@ -19,7 +19,14 @@ const OldBerthInfo: SFC<{ application: ApplicationState }> = ({ application }) =
   return (
     <Row>
       <Col xs={12}>
-        <SelectedHarborQuery query={GET_HARBOR_NAME(application.berthSwitch.harborId)}>
+        <Query<
+          Harbor,
+          {
+            id: string;
+          }
+        >
+          query={GET_HARBOR_NAME(application.berthSwitch.harborId)}
+        >
           {({
             // TODO: handle errors
             data,
@@ -29,7 +36,7 @@ const OldBerthInfo: SFC<{ application: ApplicationState }> = ({ application }) =
               value={get(data, 'harbor.properties.name') || application.berthSwitch.harborId}
             />
           )}
-        </SelectedHarborQuery>
+        </Query>
 
         <LabelValuePair
           label="page.berth.exchange_application.form.pier.title"

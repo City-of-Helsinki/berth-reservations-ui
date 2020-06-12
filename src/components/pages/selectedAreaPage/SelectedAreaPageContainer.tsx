@@ -8,6 +8,7 @@ import {
   moveWinterAreaDown,
   moveWinterAreaUp,
 } from '../../../redux/actions/WinterAreaActions';
+import { WinterAreasQuery } from '../../../utils/__generated__/WinterAreasQuery';
 import {
   getResources,
   getSelectedResources,
@@ -17,13 +18,13 @@ import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import SelectedAreaPage from './SelectedAreaPage';
 
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
-import WinterAreasQuery from '../../query/WinterAreasQuery';
 
 import { Store } from '../../../redux/types';
 import { SelectedWinterServices } from '../../../types/services';
 import { WinterFormValues } from '../../../types/winterStorage';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
+import { Query } from 'react-apollo';
 
 interface Props {
   selectedAreas: SelectedIds;
@@ -82,7 +83,7 @@ const UnconnectedSelectedAreaPage = ({
     await localePush('/winter-storage');
   };
   return (
-    <WinterAreasQuery query={WINTER_AREAS_QUERY}>
+    <Query<WinterAreasQuery> query={WINTER_AREAS_QUERY}>
       {({
         // error, TODO: handle errors
         data,
@@ -112,7 +113,7 @@ const UnconnectedSelectedAreaPage = ({
           />
         );
       }}
-    </WinterAreasQuery>
+    </Query>
   );
 };
 

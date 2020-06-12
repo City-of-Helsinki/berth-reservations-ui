@@ -9,11 +9,11 @@ import {
   selectService,
   selectWinterArea,
 } from '../../../redux/actions/WinterAreaActions';
+import { WinterAreasQuery } from '../../../utils/__generated__/WinterAreasQuery';
 import { getResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import { IconNames } from '../../common/Icon';
-import WinterAreasQuery from '../../query/WinterAreasQuery';
 import WinterStoragePage from './WinterStoragePage';
 
 import { Store } from '../../../redux/types';
@@ -21,6 +21,7 @@ import { SelectedWinterServices } from '../../../types/services';
 import { WinterFormValues } from '../../../types/winterStorage';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
+import { Query } from 'react-apollo';
 
 interface WithLocalePush {
   localePush: LocalePush;
@@ -110,7 +111,7 @@ const WinterStoragePageContainer = (props: Props) => {
   ];
 
   return (
-    <WinterAreasQuery query={WINTER_AREAS_QUERY}>
+    <Query<WinterAreasQuery> query={WINTER_AREAS_QUERY}>
       {({
         // error, TODO: handle errors
         data,
@@ -121,7 +122,7 @@ const WinterStoragePageContainer = (props: Props) => {
           <WinterStoragePage {...props} areas={winterAreas} steps={steps} services={services} />
         );
       }}
-    </WinterAreasQuery>
+    </Query>
   );
 };
 

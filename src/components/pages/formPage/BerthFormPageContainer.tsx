@@ -5,6 +5,7 @@ import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
 
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
+import { BoatTypesBerthsQuery } from '../../../utils/__generated__/BoatTypesBerthsQuery';
 import { getResources, getSelectedResources, stringToFloat } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import FormPage from './FormPage';
@@ -14,7 +15,6 @@ import { BOAT_TYPES_BERTHS_QUERY, CREATE_APPLICATION } from '../../../utils/grap
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/BerthBoatDetails';
 import BerthOverview from '../../forms/sections/BerthOverview';
-import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 
 import { ApplicationState, Store } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
@@ -22,6 +22,7 @@ import { BerthFormValues } from '../../../types/berth';
 import { SubmitBerth, SubmitBerthVariables } from '../../../utils/__generated__/SubmitBerth';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
+import { Query } from 'react-apollo';
 
 type Props = {
   initialValues: {};
@@ -99,7 +100,7 @@ const BerthFormPageContainer = ({
   ];
 
   return (
-    <BoatsBerthsQuery query={BOAT_TYPES_BERTHS_QUERY}>
+    <Query<BoatTypesBerthsQuery> query={BOAT_TYPES_BERTHS_QUERY}>
       {({
         loading,
         // error, TODO: handle errors
@@ -182,7 +183,7 @@ const BerthFormPageContainer = ({
           </FormPage>
         );
       }}
-    </BoatsBerthsQuery>
+    </Query>
   );
 };
 
