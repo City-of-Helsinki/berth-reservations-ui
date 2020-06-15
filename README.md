@@ -48,7 +48,7 @@ This will start [the application](http://localhost:3000) on port `3000`.
 
 ## Testing
 
-End-to-end testing is created with Cypress.io framework. To run tests:
+To run tests:
 
 ```
 $ yarn test
