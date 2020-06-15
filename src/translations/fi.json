@@ -4,7 +4,6 @@
   "error.message.invalid_berth": "Tässä satamassa ei todennäköisesti ole veneesi koolle tai tyypille sopivia paikkoja.",
   "error.message.invalid_area_selection": "Huomio: Olet valinnut alueita joilla ei ole veneesi koolle sopivia paikkoja.",
   "error.message.invalid_area": "Tällä alueella ei todennäköisesti ole veneesi koolle sopivia paikkoja.",
-  "storybook.dummy.label": "dummy",
   "site.front.title": "Venepaikat",
   "site.berth.title": "Venepaikkahaku",
   "site.winter.title": "Talvisäilytyspaikat",
