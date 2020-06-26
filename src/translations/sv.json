@@ -313,5 +313,10 @@
   "page.winter_storage.storage_areas.appointed_spaces.label": "Markerade platser",
   "page.winter_storage.storage_areas.appointed_spaces.text": "Varje båt har en egen, markerad ruta. Rutor blir sällan lediga.",
   "page.winter_storage.storage_areas.free_spaces.label": "Omarkerade platser",
-  "page.winter_storage.storage_areas.free_spaces.text": "Områdena med omarkerade uppläggningsplatser fylls i den ordning som båtarna läggs upp."
+  "page.winter_storage.storage_areas.free_spaces.text": "Områdena med omarkerade uppläggningsplatser fylls i den ordning som båtarna läggs upp.",
+
+  "page.winter_storage.notice.title": "Ansökan om vinteruppläggningsplatser 2020–2021",
+  "page.winter_storage.notice.paragraph1": "Ansökan om vinteruppläggningsplatser för säsongen 2020–2021 är nu aktuell. Vi skickar en faktura till de kunder som har haft rutplats förra säsongen. Om du är ny sökande, ansök om rutplats genom att göra en elektronisk ansökan på webben på <a href='https://venepaikat.hel.fi/sv'>venepaikat.hel.fi/sv</a>. Lediga rutplatser delas ut på hösten i ansökningsordning. Vi skickar ut erbjudande om plats via e-post.",
+  "page.winter_storage.notice.paragraph2": "Vi skickar inte någon faktura till de kunder som har haft vinteruppläggningsplats i upptagningsordningsområdet, utan betalning sker till båtplatsreserveringens konto efter att båten har tagits till upptagningsordningsområdet. Vi informerar senare på webben om betalning för plats i upptagningsordningsområdet på adressen <a href='https://hel.fi/båtliv'>hel.fi/båtliv</a>, samt på upptagningsordningsområdets infotavlor. Till de kunder som har betalat för en vinteruppläggningsplats skickas en vinteruppläggningsdekal till hemadressen, Vi ber er klistra dekalen på en synlig plats på båten.",
+  "page.winter_storage.notice.paragraph3": "Båtägarna kan ta sin båt till önskat upptagningsordningsområde från och med den 15 september 2020. Observera att man inte får ta båtar till upptagningsordningsområdena innan uppläggningstiden börjar den 15 september 2020."
 }

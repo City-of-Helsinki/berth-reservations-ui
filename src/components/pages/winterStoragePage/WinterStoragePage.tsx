@@ -11,7 +11,6 @@ import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetai
 import KoroSection from '../../layout/koroSection/KoroSection';
 import Layout from '../../layout/Layout';
 import WinterStorageLegend from '../../legends/winterStorageLegend/WinterStorageLegend';
-import WinterStorage2019Warning from './WinterStorage2019Warning';
 
 import { StorageAreaFilter } from '../../../redux/reducers/WinterAreaReducers';
 import { BoatTypes } from '../../../types/boatTypes';
@@ -22,6 +21,7 @@ import { SelectedIds, WinterAreas } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
+import WinterStorageNotice from './WinterStorageNotice';
 
 type Props = {
   initialValues: WinterFormValues;
@@ -118,7 +118,7 @@ class WinterStoragePage extends Component<Props> {
             }
           ]}
         >
-          <WinterStorage2019Warning />
+          <WinterStorageNotice />
         </KoroSection>
         <KoroSection color="fog" top className="vene-berth-filters-section">
           <WinterStorageLegend

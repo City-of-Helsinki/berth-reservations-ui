@@ -313,5 +313,10 @@
   "page.winter_storage.storage_areas.appointed_spaces.label": "Appointed spaces",
   "page.winter_storage.storage_areas.appointed_spaces.text": "Boats have their own marked places. Appointed spaces become available rarely.",
   "page.winter_storage.storage_areas.free_spaces.label": "Unmarked areas",
-  "page.winter_storage.storage_areas.free_spaces.text": "Unmarked storage locations are filled in the order that the boats are hoisted."
+  "page.winter_storage.storage_areas.free_spaces.text": "Unmarked storage locations are filled in the order that the boats are hoisted.",
+
+  "page.winter_storage.notice.title": "Applying for winter storage spaces 2020–2021",
+  "page.winter_storage.notice.paragraph1": "Applying for winter storage spaces in the 2020–2021 season is now current. Customers who have had a square space in the last season will be sent an invoice for the space. If you are a new applicant, you can apply for a square space by filling out the online application at <a href='https://venepaikat.hel.fi/en'>venepaikat.hel.fi/en</a>. Available squares will be assigned on a first-come, first-served basis in the autumn. We will send offers for these spaces by e-mail.",
+  "page.winter_storage.notice.paragraph2": "Customers who have had a winter storage space in a hoisting order area will not be sent an invoice. Instead, they can pay their fee onto the berth reservation account after the boat has been brought to the hoisting order area. We will provide information about paying for hoisting order area spaces later online at <a href='https://hel.fi/boating'>hel.fi/boating</a> and on the information boards of hoisting order areas. Customers who have paid for a winter storage space will be sent a winter storage sticker to be attached to their boats on a visible spot.",
+  "page.winter_storage.notice.paragraph3": "Boaters can bring their boats to the hoisting order area of their choosing starting from 15 September 2020. Please note that boats must not be brought to hoisting order areas before the storage season starts on 15 September."
 }
