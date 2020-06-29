@@ -14,7 +14,7 @@ import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import { IconNames } from '../../common/Icon';
 import WinterAreasQuery from '../../query/WinterAreasQuery';
-import WinterStoragePage from '../winterStoragePage/WinterStoragePage';
+import WinterStoragePage from './WinterStoragePage';
 
 import { Store } from '../../../redux/types';
 import { SelectedWinterServices } from '../../../types/services';

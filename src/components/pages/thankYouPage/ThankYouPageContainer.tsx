@@ -4,7 +4,7 @@ import { resetApplication } from '../../../redux/actions/ApplicationActions';
 import { resetBerths } from '../../../redux/actions/BerthActions';
 import { resetValues } from '../../../redux/actions/FormActions';
 import { resetWinterAreas } from '../../../redux/actions/WinterAreaActions';
-import ThankYouPage from '../ThankYouPage';
+import ThankYouPage from './ThankYouPage';
 
 interface Props {
   resetValues: Function;

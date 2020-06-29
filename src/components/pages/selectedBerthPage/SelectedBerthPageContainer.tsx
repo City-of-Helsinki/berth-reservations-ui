@@ -7,7 +7,7 @@ import { submitApplicationForm as submitExchangeForm } from '../../../redux/acti
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
 import { getBerthFilterByValues, getResources, getSelectedResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
-import SelectedBerthPage from '../selectedBerthPage/SelectedBerthPage';
+import SelectedBerthPage from './SelectedBerthPage';
 
 import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';

@@ -14,7 +14,7 @@ import {
   getWinterStorageFilterByValues
 } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
-import SelectedAreaPage from '../selectedAreaPage/SelectedAreaPage';
+import SelectedAreaPage from './SelectedAreaPage';
 
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import WinterAreasQuery from '../../query/WinterAreasQuery';

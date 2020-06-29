@@ -73,7 +73,7 @@ class SelectedAreaPage extends Component<Props> {
           <Layout>
             <SelectedBerthsLegend steps={steps} legend={legend} />
             <BTForm onSubmit={handleSubmit}>
-              <Container className="vene-berth-page-selected__wrapper">
+              <Container className="vene-selected-area-page__wrapper">
                 <Row>
                   <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
                     <FormattedMessage tagName="h3" id="page.winter_storage.selected.title" />
@@ -82,21 +82,21 @@ class SelectedAreaPage extends Component<Props> {
                         <Row>
                           <Col md="3">
                             <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:
-                            <span className="vene-berth-page-selected__boat-value">
+                            <span className="vene-selected-area-page__boat-value">
                               {boatInfo.width} m
                             </span>
                           </Col>
 
                           <Col md="3">
                             <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:
-                            <span className="vene-berth-page-selected__boat-value">
+                            <span className="vene-selected-area-page__boat-value">
                               {boatInfo.length} m
                             </span>
                           </Col>
                         </Row>
                       </Container>
                     ) : (
-                      <div className="vene-berth-page-selected__notice">
+                      <div className="vene-selected-area-page__notice">
                         <Icon name="exclamationCircle" />
                         <LocalizedLink to={steps[0].linkTo || ''}>
                           <FormattedMessage
@@ -138,11 +138,11 @@ class SelectedAreaPage extends Component<Props> {
                   </Col>
                 </Row>
               </Container>
-              <div className="vene-berth-page-selected__button-wrapper">
+              <div className="vene-selected-area-page__button-wrapper">
                 <Container>
                   <Row>
                     <Col xs={12}>
-                      <div className="vene-berth-page-selected__button-wrapper__button-groups">
+                      <div className="vene-selected-area-page__button-wrapper__button-groups">
                         <Button color="link" type="button" onClick={handlePrevious}>
                           <FormattedMessage id="form.wizard.button.previous" />
                         </Button>
