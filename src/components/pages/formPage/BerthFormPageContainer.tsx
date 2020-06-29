@@ -38,7 +38,7 @@ const mapSteps = [
   ['overview']
 ];
 
-const FormPageContainer = ({
+const BerthFormPageContainer = ({
   selectedBerths,
   localePush,
   match: {
@@ -194,4 +194,4 @@ export default compose<Props, Props>(
     }),
     { onSubmit: onSubmitBerthForm }
   )
-)(FormPageContainer);
+)(BerthFormPageContainer);

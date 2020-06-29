@@ -4,7 +4,7 @@ import { Redirect, Route, RouteComponentProps, Switch } from 'react-router';
 import messages from '../config/translations';
 
 import BerthPage from './pages/berthPage/BerthPageContainer';
-import FormPage from './pages/formPage/FormPageContainer';
+import BerthFormPage from './pages/formPage/BerthFormPageContainer';
 import WinterFormPage from './pages/formPage/WinterFormPageContainer';
 import FrontPage from './pages/frontPage/FrontPage';
 import SelectedAreaPage from './pages/selectedAreaPage/SelectedAreaPageContainer';
@@ -36,8 +36,8 @@ const App = ({
       <Route exact path={`/${localeParam}`} component={FrontPage} />
       <Route exact path={`/${localeParam}/${berthParam}`} component={BerthPage} />
       <Route exact path={`/${localeParam}/${berthParam}/selected`} component={SelectedBerthPage} />
-      <Route exact path={`/${localeParam}/${berthParam}/form`} component={FormPage} />
-      <Route exact path={`/${localeParam}/${berthParam}/form/:tab`} component={FormPage} />
+      <Route exact path={`/${localeParam}/${berthParam}/form`} component={BerthFormPage} />
+      <Route exact path={`/${localeParam}/${berthParam}/form/:tab`} component={BerthFormPage} />
       <Route exact path={`/${localeParam}/thank-you`} component={ThankYouPage} />
       <Route exact path={`/${localeParam}/${winterParam}`} component={WinterStoragePage} />
       <Route exact path={`/${localeParam}/${winterParam}/selected`} component={SelectedAreaPage} />
