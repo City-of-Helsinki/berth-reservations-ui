@@ -1,6 +1,6 @@
 import React from 'react';
 import { IntlProvider } from 'react-intl';
-import { Redirect, Route, RouteComponentProps, Switch } from 'react-router';
+import { Route, RouteComponentProps, Switch } from 'react-router';
 import messages from '../config/translations';
 
 import BerthPage from './pages/berthPage/BerthPageContainer';
@@ -45,7 +45,6 @@ const App = ({
       <Route exact path={`/${localeParam}/${winterParam}/form`} component={WinterFormPage} />
       <Route exact path={`/${localeParam}/${winterParam}/form/:tab`} component={WinterFormPage} />
       <Route component={NotFoundPage} />
-      <Redirect to="/" />
     </Switch>
   </IntlProvider>
 );
