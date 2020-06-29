@@ -82,7 +82,7 @@ class SelectedBerthPage extends Component<Props> {
             <SelectedBerthsLegend steps={steps} legend={legend} />
 
             <BTForm onSubmit={handleSubmit}>
-              <Container className="vene-berth-page-selected__wrapper">
+              <Container className="vene-selected-berth-page__wrapper">
                 <Row>
                   <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
                     {berthsApplicationType &&
@@ -100,26 +100,26 @@ class SelectedBerthPage extends Component<Props> {
                         <Row>
                           <Col md="5">
                             <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
-                            <span className="vene-berth-page-selected__boat-value">
+                            <span className="vene-selected-berth-page__boat-value">
                               {boatInfo.boatType}
                             </span>
                           </Col>
                           <Col md="3">
                             <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:
-                            <span className="vene-berth-page-selected__boat-value">
+                            <span className="vene-selected-berth-page__boat-value">
                               {boatInfo.width} m
                             </span>
                           </Col>
                           <Col md="3">
                             <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:
-                            <span className="vene-berth-page-selected__boat-value">
+                            <span className="vene-selected-berth-page__boat-value">
                               {boatInfo.length} m
                             </span>
                           </Col>
                         </Row>
                       </Container>
                     ) : (
-                      <div className="vene-berth-page-selected__notice">
+                      <div className="vene-selected-berth-page__notice">
                         <Icon name="exclamationCircle" />
                         <LocalizedLink to={steps[0].linkTo || ''}>
                           <FormattedMessage tagName="span" id="page.berth.selected.info_text" />
@@ -152,11 +152,11 @@ class SelectedBerthPage extends Component<Props> {
                   </Col>
                 </Row>
               </Container>
-              <div className="vene-berth-page-selected__button-wrapper">
+              <div className="vene-selected-berth-page__button-wrapper">
                 <Container>
                   <Row>
                     <Col xs={12}>
-                      <div className="vene-berth-page-selected__button-wrapper__button-groups">
+                      <div className="vene-selected-berth-page__button-wrapper__button-groups">
                         <Button color="link" type="button" onClick={handlePrevious}>
                           <FormattedMessage id="form.wizard.button.previous" />
                         </Button>
