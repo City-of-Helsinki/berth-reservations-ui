@@ -314,9 +314,10 @@
   "page.winter_storage.storage_areas.appointed_spaces.text": "Veneillä on omat merkityt paikkansa. Ruutupaikka-alueilta paikkoja vapautuu harvoin.",
   "page.winter_storage.storage_areas.free_spaces.label": "Merkitsemättömät paikat",
   "page.winter_storage.storage_areas.free_spaces.text": "Merkitsemättömien säilytyspaikkojen alueet täytetään veneiden nostojärjestyksessä.",
-
   "page.winter_storage.notice.title": "Talvisäilytyspaikkojen 2020–2021 hakeminen",
   "page.winter_storage.notice.paragraph1": "Talvisäilytyspaikkojen haku kaudelle 2020–2021 on nyt ajankohtainen. Niille asiakkaille, joilla on ollut ruutupaikka viime kaudella, lähetetään lasku paikasta. Mikäli olet uusi hakija, hae ruutupaikkaa tekemällä sähköinen hakemus verkossa osoitteessa <a href='https://venepaikat.hel.fi'>venepaikat.hel.fi</a>. Vapautuneet ruudut jaetaan hakujärjestyksessä syksyllä. Lähetämme paikasta tarjouksen sähköpostilla.",
   "page.winter_storage.notice.paragraph2": "Niille asiakkaille, joilla on ollut talvisäilytyspaikka nostojärjestysalueella, emme lähetä laskua vaan maksaminen tapahtuu venepaikkavarausten tilille sen jälkeen, kun vene on viety nostojärjestysalueelle. Tiedotamme nostojärjestysaluepaikan maksamisesta myöhemmin verkossa osoitteessa <a href='https://hel.fi/veneily'>hel.fi/veneily</a> sekä nostojärjestysalueiden infotauluissa. Talvisäilytyspaikan maksaneille asiakkaille lähetetään talvisäilytys-tarra, joka kiinnitetään näkyvälle paikalle veneeseen.",
-  "page.winter_storage.notice.paragraph3": "Veneilijät voivat viedä veneensä haluamalleen nostojärjestysalueelle 15.9.2020 alkaen. Huomioithan, että nostojärjestysalueille ei tule viedä veneitä ennen 15.9. alkavaa säilytyskautta."
+  "page.winter_storage.notice.paragraph3": "Veneilijät voivat viedä veneensä haluamalleen nostojärjestysalueelle 15.9.2020 alkaen. Huomioithan, että nostojärjestysalueille ei tule viedä veneitä ennen 15.9. alkavaa säilytyskautta.",
+  "page.not_found.info_text": "Pahoittelemme, mutta hakemaasi sivua ei löydy.",
+  "page.not_found.to_front_page": "Etusivulle"
 }

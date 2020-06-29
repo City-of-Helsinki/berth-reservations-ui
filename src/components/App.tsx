@@ -7,6 +7,7 @@ import BerthPage from './pages/berthPage/BerthPageContainer';
 import BerthFormPage from './pages/formPage/BerthFormPageContainer';
 import WinterFormPage from './pages/formPage/WinterFormPageContainer';
 import FrontPage from './pages/frontPage/FrontPage';
+import NotFoundPage from './pages/notFoundPage/NotFoundPage';
 import SelectedAreaPage from './pages/selectedAreaPage/SelectedAreaPageContainer';
 import SelectedBerthPage from './pages/selectedBerthPage/SelectedBerthPageContainer';
 import ThankYouPage from './pages/thankYouPage/ThankYouPageContainer';
@@ -43,6 +44,7 @@ const App = ({
       <Route exact path={`/${localeParam}/${winterParam}/selected`} component={SelectedAreaPage} />
       <Route exact path={`/${localeParam}/${winterParam}/form`} component={WinterFormPage} />
       <Route exact path={`/${localeParam}/${winterParam}/form/:tab`} component={WinterFormPage} />
+      <Route component={NotFoundPage} />
       <Redirect to="/" />
     </Switch>
   </IntlProvider>
