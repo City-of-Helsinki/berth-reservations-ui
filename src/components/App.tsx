@@ -6,10 +6,10 @@ import messages from '../config/translations';
 import BerthPage from './pages/berthPage/BerthPageContainer';
 import FormPage from './pages/formPage/FormPageContainer';
 import WinterFormPage from './pages/formPage/WinterFormPageContainer';
-import FrontPage from './pages/FrontPage/FrontPage';
+import FrontPage from './pages/frontPage/FrontPage';
 import SelectedAreasPage from './pages/selectedAreaPage/SelectedAreasPageContainer';
 import SelectedBerthPage from './pages/selectedBerthPage/SelectedBerthPageContainer';
-import ThankYouPage from './pages/ThankYouPage/ThankYouPageContainer';
+import ThankYouPage from './pages/thankYouPage/ThankYouPageContainer';
 import WinterStoragePage from './pages/winterStoragePage/WinterStoragePageContainer';
 
 import { ApplicationType } from '../types/applicationType';
