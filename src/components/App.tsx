@@ -3,15 +3,14 @@ import { IntlProvider } from 'react-intl';
 import { Redirect, Route, RouteComponentProps, Switch } from 'react-router';
 import messages from '../config/translations';
 
-import BerthPage from './pages/containers/BerthPageContainer';
-import FormPage from './pages/containers/FormPageContainer';
-import SelectedBerthPage from './pages/containers/SelectedBerthPageContainer';
-import ThankYouPage from './pages/containers/ThankYouPageContainer';
-
-import SelectedAreasPage from './pages/containers/SelectedAreasPageContainer';
-import WinterFormPage from './pages/containers/WinterFormPageContainer';
-import WinterStoragePage from './pages/containers/WinterStoragePageContainer';
+import BerthPage from './pages/berthPage/BerthPageContainer';
+import FormPage from './pages/formPage/FormPageContainer';
+import WinterFormPage from './pages/formPage/WinterFormPageContainer';
 import FrontPage from './pages/FrontPage/FrontPage';
+import SelectedAreasPage from './pages/selectedAreaPage/SelectedAreasPageContainer';
+import SelectedBerthPage from './pages/selectedBerthPage/SelectedBerthPageContainer';
+import ThankYouPage from './pages/ThankYouPage/ThankYouPageContainer';
+import WinterStoragePage from './pages/winterStoragePage/WinterStoragePageContainer';
 
 import { ApplicationType } from '../types/applicationType';
 import { LocaleOpts } from '../types/intl';

@@ -13,7 +13,7 @@ import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/WinterBoatDetails';
 import WinterOverview from '../../forms/sections/WinterOverview';
 import WinterAreasQuery from '../../query/WinterAreasQuery';
-import FormPage from '../formPage/FormPage';
+import FormPage from './FormPage';
 
 import { Store } from '../../../redux/types';
 import { WinterFormValues } from '../../../types/winterStorage';
