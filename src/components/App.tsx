@@ -9,6 +9,7 @@ import WinterFormPage from './pages/formPage/WinterFormPageContainer';
 import FrontPage from './pages/frontPage/FrontPage';
 import ApplicationThankYouPage from './pages/notice/ApplicationSentPage';
 import NotFoundPage from './pages/notice/NotFoundPage';
+import NotificationSentPage from './pages/notice/NotificationSentPage';
 import AlreadyPaidPage from './pages/notice/paymentError/AlreadyPaidPage';
 import CustomerInformationErrorPage from './pages/notice/paymentError/CustomerInformationErrorPage';
 import GeneralErrorPage from './pages/notice/paymentError/GeneralErrorPage';
@@ -50,6 +51,7 @@ const App = ({
       <Route exact path={`/${localeParam}/${winterParam}/form/:tab`} component={WinterFormPage} />
 
       <Route exact path={`/${localeParam}/thank-you`} component={ApplicationThankYouPage} />
+      <Route exact path={`/${localeParam}/notification-sent`} component={NotificationSentPage} />
       <Route exact path={`/${localeParam}/payment-received`} component={PaymentReceivedPage} />
       <Route exact path={`/${localeParam}/already-paid`} component={AlreadyPaidPage} />
       <Route
