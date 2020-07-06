@@ -7,10 +7,10 @@ import BerthPage from './pages/berthPage/BerthPageContainer';
 import BerthFormPage from './pages/formPage/BerthFormPageContainer';
 import WinterFormPage from './pages/formPage/WinterFormPageContainer';
 import FrontPage from './pages/frontPage/FrontPage';
-import NotFoundPage from './pages/notFoundPage/NotFoundPage';
+import ApplicationThankYouPage from './pages/notice/ApplicationSentPage';
+import NotFoundPage from './pages/notice/NotFoundPage';
 import SelectedAreaPage from './pages/selectedAreaPage/SelectedAreaPageContainer';
 import SelectedBerthPage from './pages/selectedBerthPage/SelectedBerthPageContainer';
-import ThankYouPage from './pages/thankYouPage/ThankYouPageContainer';
 import WinterStoragePage from './pages/winterStoragePage/WinterStoragePageContainer';
 
 import { ApplicationType } from '../types/applicationType';
@@ -39,11 +39,12 @@ const App = ({
       <Route exact path={`/${localeParam}/${berthParam}/selected`} component={SelectedBerthPage} />
       <Route exact path={`/${localeParam}/${berthParam}/form`} component={BerthFormPage} />
       <Route exact path={`/${localeParam}/${berthParam}/form/:tab`} component={BerthFormPage} />
-      <Route exact path={`/${localeParam}/thank-you`} component={ThankYouPage} />
       <Route exact path={`/${localeParam}/${winterParam}`} component={WinterStoragePage} />
       <Route exact path={`/${localeParam}/${winterParam}/selected`} component={SelectedAreaPage} />
       <Route exact path={`/${localeParam}/${winterParam}/form`} component={WinterFormPage} />
       <Route exact path={`/${localeParam}/${winterParam}/form/:tab`} component={WinterFormPage} />
+
+      <Route exact path={`/${localeParam}/thank-you`} component={ApplicationThankYouPage} />
       <Route component={NotFoundPage} />
     </Switch>
   </IntlProvider>
