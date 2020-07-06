@@ -327,5 +327,16 @@
   "page.application_sent.message.paragraph2": "Helsingfors stads båtplatsreservering<br/>venepaikkavaraukset.hel.fi<br/>Telefonrådgivning må–fr kl. 9–14 på 09 310 87900<br/>Betjäningstid vardagar kl. 9–16 i Tölö Sporthall på Paavo Nurmis gränd 1 E.",
   "page.application_sent.title": "Tack, din ansökan har skickats!",
   "page.not_found.message": "Sidan du sökte kunde tyvärr inte hittas.",
-  "page.not_found.title": "404"
+  "page.not_found.title": "404",
+  "page.payment_error.already_paid.message": "",
+  "page.payment_error.already_paid.title": "",
+  "page.payment_error.customer_information_error.message": "A",
+  "page.payment_error.customer_information_error.title": "",
+  "page.payment_error.general_error.message": "",
+  "page.payment_error.general_error.title": "",
+  "page.payment_error.past_due_date.message": "",
+  "page.payment_error.past_due_date.title": "",
+  "page.payment_received.message.paragraph1": "",
+  "page.payment_received.message.paragraph2": "",
+  "page.payment_received.title": ""
 }

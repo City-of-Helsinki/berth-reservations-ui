@@ -326,5 +326,16 @@
   "page.application_sent.message.paragraph2": "Helsingin kaupungin venepaikkavaraukset<br/>venepaikkavaraukset.hel.fi<br/>Puhelinneuvonta ma-pe klo 9-14 numerossa 09 310 87900.<br/>Palveluaika arkisin klo 9-16 Töölön Kisahallissa osoitteessa Paavo Nurmen kuja 1 E.",
   "page.application_sent.title": "Kiitos, hakemuksesi on lähetetty!",
   "page.not_found.message": "Pahoittelemme, mutta hakemaasi sivua ei löydy.",
-  "page.not_found.title": "404"
+  "page.not_found.title": "404",
+  "page.payment_error.already_paid.message": "Maksu, jota yritit maksaa, on merkitty jo maksetuksi. Kiitos!",
+  "page.payment_error.already_paid.title": "Maksu on jo maksettu",
+  "page.payment_error.customer_information_error.message": "Asiakastietomme eivät vastaa antamiasi tietoja.",
+  "page.payment_error.customer_information_error.title": "Virhe asiakastiedoissa",
+  "page.payment_error.general_error.message": "Pahoittelemme, mutta maksua ei löydsy. Se on voitu peruuttaa tai linkki voi olla virheellinen.",
+  "page.payment_error.general_error.title": "Virhetilanne",
+  "page.payment_error.past_due_date.message": "Pahoittelemme, mutta maksua ei voi enää maksaa, koska eräpäivä on ylittynyt. Venepaikkamaksuja ei voi maksaa enää eräpäivän jälkeen.",
+  "page.payment_error.past_due_date.title": "Eräpäivä on ylittynyt",
+  "page.payment_received.message.paragraph1": "Hyvä asiakkaamme, olemme vastaanottaneet maksusuorituksesi. Lähetämme sinulle vielä kuitin sähköpostilla.",
+  "page.payment_received.message.paragraph2": "Toivotamme hienoja veneilyhetkiä!",
+  "page.payment_received.title": "Kiitos!"
 }
