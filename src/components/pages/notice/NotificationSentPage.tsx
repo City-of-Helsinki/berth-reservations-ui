@@ -7,7 +7,7 @@ const NotificationSentPage = () => (
     titleKey="page.notification_sent.title"
     messageKey="page.notification_sent.message.paragraph1"
     secondMessageKey="page.notification_sent.message.paragraph2"
-    backgroundColor="fog"
+    success
   />
 );
 

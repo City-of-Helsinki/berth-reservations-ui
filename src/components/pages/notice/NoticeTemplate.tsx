@@ -11,23 +11,30 @@ export interface NoticePageProps {
   titleKey: string;
   messageKey: string;
   secondMessageKey?: string;
-  backgroundColor?: 'light' | 'fog';
+  success?: boolean;
 }
 
 const NoticeTemplate = ({
   titleKey,
   messageKey,
   secondMessageKey,
-  backgroundColor = 'light'
+  success = false
 }: NoticePageProps) => {
   window.scrollTo(0, 0);
 
   return (
     <Layout>
-      <div className={classNames('vene-notice-page', `vene-notice-page--${backgroundColor}`)}>
-        <FormattedMessage id={titleKey} tagName="h2" />
-        <FormattedHTMLMessage id={messageKey} tagName="p" />
-        {secondMessageKey && <FormattedHTMLMessage id={secondMessageKey} tagName="p" />}
+      <div className="vene-notice-page">
+        <div
+          className={classNames(
+            'vene-notice-page__content',
+            success && 'vene-notice-page--success'
+          )}
+        >
+          <FormattedMessage id={titleKey} tagName="h2" />
+          <FormattedHTMLMessage id={messageKey} tagName="p" />
+          {secondMessageKey && <FormattedHTMLMessage id={secondMessageKey} tagName="p" />}
+        </div>
         <LocalizedLink to="/">
           <FormattedMessage id="site.buttons.to_front_page">
             {txt => (

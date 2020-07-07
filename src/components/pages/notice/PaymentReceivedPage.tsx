@@ -7,7 +7,7 @@ const PaymentReceivedPage = () => (
     titleKey="page.payment_received.title"
     messageKey="page.payment_received.message.paragraph1"
     secondMessageKey="page.payment_received.message.paragraph2"
-    backgroundColor="fog"
+    success
   />
 );
 

@@ -1,10 +1,13 @@
 @import 'helsinki/colors';
 
 .vene-notice-page {
+  background-color: $hel-light;
   text-align: center;
-  padding-top: 5em;
-  padding-bottom: 10em;
   flex-grow: 1;
+
+  &__content {
+    padding: 4em 0;
+  }
 
   h2 {
     margin-bottom: 1em;
@@ -12,19 +15,15 @@
 
   p {
     max-width: 640px;
-    margin: 2em auto;
+    margin: 1em auto;
   }
 
   &__front-page-button {
-    margin-top: 3em;
+    margin: 2em 0 6em 0;
     padding: 1em 8em;
   }
 
-  &--light {
-    background-color: $hel-light;
-  }
-
-  &--fog {
+  &--success {
     background-color: $hel-fog;
   }
 }
