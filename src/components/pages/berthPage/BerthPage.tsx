@@ -19,7 +19,6 @@ import { LocalePush } from '../../../utils/container';
 import { Berths as BerthsType, SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
-import { berth } from '../../../__fixtures__/berthFixture';
 import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
 import AreaCard from '../../common/areaCard/AreaCard';
 import Property from '../../common/areaCard/property/Property';
@@ -117,18 +116,20 @@ class BerthPage extends Component<Props> {
       excluded: boolean
     ) => (selected: BerthType) => React.ReactNode = excluded => selectedBerth => {
       const maximumWidth = convertCmToM(selectedBerth.maximumWidth);
-      const address = `${berth.streetAddress}, ${berth.zipCode} ${berth.municipality}`;
+      const address = `${selectedBerth.streetAddress}, ${selectedBerth.zipCode} ${
+        selectedBerth.municipality
+      }`;
 
       return (
         <AreaCard
-          name={berth.name}
+          name={selectedBerth.name}
           excluded={excluded}
           key={selectedBerth.id}
           id={selectedBerth.id}
           address={address}
-          imageFile={berth.imageFile}
-          servicemapId={berth.servicemapId}
-          availabilityLevel={berth.availabilityLevel}
+          imageFile={selectedBerth.imageFile}
+          servicemapId={selectedBerth.servicemapId}
+          availabilityLevel={selectedBerth.availabilityLevel}
           handleSelect={() => this.toggleBerthSelect(selectedBerth)}
           selected={isResourceSelected(selectedBerthsIds, selectedBerth.id)}
           disabled={selectedBerthsIds.size >= berthLimit}
@@ -235,7 +236,7 @@ class BerthPage extends Component<Props> {
           }
         >
           <Map
-            TabHeader={() => <FormattedMessage tagName="span" id="stie.common.map" />}
+            TabHeader={() => <FormattedMessage tagName="span" id="site.common.map" />}
             mapHeader={
               <FormattedMessage
                 id="page.berths.list.berth_count"

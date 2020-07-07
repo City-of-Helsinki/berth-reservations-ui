@@ -10,7 +10,7 @@ interface Props {
 
 const Agreement = ({ label }: Props) => (
   <Row>
-    <Col sm={6}>
+    <Col sm={10}>
       <Checkbox
         name={`informationAccuracyConfirmed`}
         label={<FormattedHTMLMessage id={label} />}
