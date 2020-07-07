@@ -1,5 +1,4 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import { Button, Container } from 'reactstrap';
 import IntlComponent from '../../common/IntlComponent';
 import InvalidSelection from '../InvalidSelection';
@@ -11,22 +10,12 @@ interface Props {
   progress: Function;
   selectedCount: number;
   validSelection: boolean;
-  berthLimit: number;
+  tabMessage: React.ReactNode;
 }
 
 interface State {
   tab: number;
 }
-
-const getFormatedMessageId = (count: number, total: number): string => {
-  if (count) {
-    if (count === total) {
-      return 'tab_selector.progress.message.max';
-    }
-    return 'tab_selector.progress.message.other';
-  }
-  return 'tab_selector.progress.message.zero';
-};
 
 class TabSelector extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -49,7 +38,7 @@ class TabSelector extends React.Component<Props, State> {
 
   render() {
     const { tab } = this.state;
-    const { children, progress, selectedCount, validSelection, berthLimit } = this.props;
+    const { tabMessage, children, progress, selectedCount, validSelection } = this.props;
 
     const headers = React.Children.map(children, c => {
       if (c && typeof c === 'object' && 'props' in c) {
@@ -81,13 +70,7 @@ class TabSelector extends React.Component<Props, State> {
         <div className="vene-berth__tab-selector__application-promt">
           <Container>
             <div className="vene-berth__tab-selector__application-promt__wrapper">
-              <FormattedMessage
-                id={getFormatedMessageId(selectedCount, berthLimit)}
-                values={{
-                  total: berthLimit,
-                  count: berthLimit - selectedCount
-                }}
-              />
+              {tabMessage}
               {!validSelection && (
                 <InvalidSelection
                   id="invalid-selection"
@@ -95,7 +78,7 @@ class TabSelector extends React.Component<Props, State> {
                 />
               )}
               <IntlComponent
-                id="tab_selector.progress.button"
+                id="site.buttons.next"
                 Component={Button}
                 className="vene-berth__tab-selector__progress-button"
                 onClick={progress}
