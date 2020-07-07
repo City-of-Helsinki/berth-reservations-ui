@@ -4,11 +4,11 @@ import { FormattedMessage } from 'react-intl';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
 import SelectedBerths from '../../berths/selectedBerths/SelectedBerths';
+import SelectedResource from '../../common/areaCard/selectedResource/SelectedResource';
 import Icon, { IconNames } from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
 import Layout from '../../layout/Layout';
 import SelectedBerthsLegend from '../../legends/selectedBerthsLegend/SelectedBerthsLegend';
-import SelectedResource from '../../common/areaCard/selectedResource/SelectedResource';
 
 import { WinterFormValues, WinterStorageType } from '../../../types/winterStorage';
 import { WinterAreas } from '../../berths/types';

@@ -80,12 +80,12 @@ class BerthPage extends Component<Props> {
     await localePush('berths/selected');
   };
 
-  toggleBerthSelect = (berth: BerthType) => {
+  toggleBerthSelect = (selectedBerth: BerthType) => {
     const { selectedBerthsIds, selectBerth, deselectBerth } = this.props;
-    if (selectedBerthsIds.find(selectedId => selectedId === berth.id)) {
-      deselectBerth(berth.id);
+    if (selectedBerthsIds.find(selectedId => selectedId === selectedBerth.id)) {
+      deselectBerth(selectedBerth.id);
     } else {
-      selectBerth(berth.id);
+      selectBerth(selectedBerth.id);
     }
   };
 
@@ -108,7 +108,9 @@ class BerthPage extends Component<Props> {
     const filtered = berths.filter(filter);
     const filteredNot = berths.filterNot(filter);
     const validSelection = berths
-      .filter(berth => selectedBerthsIds.find(selectedId => selectedId === berth.id))
+      .filter(selectedBerth =>
+        selectedBerthsIds.find(selectedId => selectedId === selectedBerth.id)
+      )
       .every(filter);
 
     const renderHarborCard: (
