@@ -78,7 +78,7 @@ const AreaCard = ({
               </Button>
             ) : (
               <Button outline primary="true" onClick={handleSelect} disabled={disabled}>
-                + <FormattedMessage tagName="span" id="site.buttons.select" />
+                + <FormattedMessage tagName="span" id="site.buttons.add_to_selected" />
               </Button>
             )}
 
@@ -99,7 +99,7 @@ const AreaCard = ({
                   className="vene-area-card__website-link"
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={intl.formatMessage({ id: 'site.servicemapURL' }, { servicemapId })}
+                  href={intl.formatMessage({ id: 'site.common.servicemapURL' }, { servicemapId })}
                 >
                   <FormattedMessage tagName="span" id="page.berths.website" />
                   <Icon name="arrowRight" />

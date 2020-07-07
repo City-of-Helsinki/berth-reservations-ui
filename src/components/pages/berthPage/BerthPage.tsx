@@ -233,7 +233,7 @@ class BerthPage extends Component<Props> {
           }
         >
           <Map
-            TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
+            TabHeader={() => <FormattedMessage tagName="span" id="stie.common.map" />}
             mapHeader={
               <FormattedMessage
                 id="page.berths.list.berth_count"
@@ -246,7 +246,7 @@ class BerthPage extends Component<Props> {
             renderSelected={renderHarborCard(false)}
           />
           <CardsList
-            TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
+            TabHeader={() => <FormattedMessage tagName="span" id="site.common.list" />}
             includedHeader="page.berths.list.berth_count"
             included={filtered.map(renderHarborCard(false)).toArray()}
             excludedHeader="page.berths.list.header.others"

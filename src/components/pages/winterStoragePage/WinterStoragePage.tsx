@@ -253,7 +253,7 @@ class WinterStoragePage extends Component<Props> {
           }
         >
           <Map
-            TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
+            TabHeader={() => <FormattedMessage tagName="span" id="site.common.map" />}
             mapHeader={
               <FormattedMessage
                 id="page.winter_storage.list.areas_count"
@@ -266,10 +266,10 @@ class WinterStoragePage extends Component<Props> {
             renderSelected={renderAreaCard(false)}
           />
           <CardsList
-            TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
-            includedHeader="page.berths.list.berth_count"
+            TabHeader={() => <FormattedMessage tagName="span" id="site.common.list" />}
+            includedHeader="page.winter_storage.list.areas_count"
             included={filtered.map(renderAreaCard(false)).toArray()}
-            excludedHeader="page.berths.list.header.others"
+            excludedHeader="page.winter_storage.list.header.others"
             excluded={filteredNot.map(renderAreaCard(true)).toArray()}
           />
         </TabSelector>
