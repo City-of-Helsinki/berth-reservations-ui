@@ -3,7 +3,7 @@ import React from 'react';
 import { Container } from 'reactstrap';
 
 import { berth } from '../../../../__fixtures__/berthFixture';
-import Modal from '../../../common/modal/Modal';
+import Modal from '../../modal/Modal';
 import SelectedResource, { Props } from './SelectedResource';
 
 describe('SelectedResource', () => {

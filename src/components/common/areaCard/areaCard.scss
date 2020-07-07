@@ -1,32 +1,32 @@
 @import 'helsinki/colors';
 @import 'helsinki/fonts';
 
+@import 'styles/variables';
 @import 'styles/mixin';
 
-$berthIconSize: 42px;
-$berthImageHeight: 12em;
+$imageHeight: 12em;
 
-.vene-berth {
+.vene-area-card {
   background-color: $hel-light;
-  margin-bottom: 2em;
 
   h5 {
     line-height: 1;
   }
+
   &__image {
     position: relative;
     height: 100%;
 
     .alert {
       position: absolute;
-      margin: 1em;
-      padding: 0.5em 1em;
+      margin: $spacing-01;
+      padding: $spacing-00-50 $spacing-01;
     }
     .vene-image {
       height: 100%;
       img {
         object-fit: cover;
-        height: $berthImageHeight;
+        height: $imageHeight;
         width: 100%;
         display: none;
 
@@ -40,7 +40,7 @@ $berthImageHeight: 12em;
 
   &__availability-level {
     display: block;
-    margin: 0.5em 0;
+    margin: $spacing-00-50 0;
   }
 
   &__summary-wrapper {
@@ -48,11 +48,11 @@ $berthImageHeight: 12em;
     padding: 1em;
 
     .vene-icon {
-      height: 1em;
-      width: 1em;
+      height: $spacing-01;
+      width: $spacing-01;
       fill: $hel-white;
       display: inline-block;
-      margin-right: 5px;
+      margin-right: $spacing-00-25;
     }
 
     strong {
@@ -71,17 +71,18 @@ $berthImageHeight: 12em;
     small {
       font-size: $font-size-sm;
     }
+
     a {
       color: black;
     }
 
     @include for-tablet {
-      padding: 1em 0;
+      padding: $spacing-01 0;
     }
   }
 
   &__address {
-    margin-bottom: 1em;
+    margin-bottom: $spacing-01;
     line-height: 1;
   }
 
@@ -92,10 +93,20 @@ $berthImageHeight: 12em;
     }
 
     .vene-icon {
-      height: 1em;
-      width: 1em;
+      height: $spacing-01;
+      width: $spacing-01;
       fill: $hel-black;
       display: inline-block;
     }
+  }
+
+  &__details-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    height: 100%;
+    padding: $spacing-01 0;
+    white-space: nowrap;
   }
 }
