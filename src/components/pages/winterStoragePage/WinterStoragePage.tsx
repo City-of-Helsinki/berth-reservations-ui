@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 
-import { getWinterStorageFilterByValues } from '../../../utils/berths';
-import Berths from '../../berths';
-import TabSelector from '../../berths/TabSelector';
+import {
+  getWinterStorageFilterByValues,
+  isResourceSelected,
+  convertCmToM
+} from '../../../utils/berths';
+import CardsList from '../../common/cardsList/CardsList';
+import TabSelector from '../../berths/TabSelector/TabSelector';
 import Hero from '../../common/hero/Hero';
 import { IconNames } from '../../common/Icon';
-import Map from '../../common/Map';
+import Map from '../../common/Map/Map';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
 import KoroSection from '../../layout/koroSection/KoroSection';
 import Layout from '../../layout/Layout';
@@ -22,6 +26,8 @@ import { StepType } from '../../steps/step/Step';
 
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
 import WinterStorageNotice from './WinterStorageNotice';
+import AreaCard from '../../common/areaCard/AreaCard';
+import Property from '../../common/areaCard/property/Property';
 
 type Props = {
   initialValues: WinterFormValues;
@@ -41,7 +47,7 @@ type Props = {
     value: WinterServices;
     icon: IconNames;
   }>;
-  berthLimit: number;
+  areasLimit: number;
   storageAreaFilter?: StorageAreaFilter;
 } & InjectedIntlProps;
 
@@ -54,6 +60,16 @@ const getHeroContentLink = (locale: string) => {
     default:
       return 'https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/venepaikan-hakeminen/';
   }
+};
+
+const getFormattedMessageId = (count: number, total: number): string => {
+  if (count) {
+    if (count === total) {
+      return 'page.winter_storage.list.progress.message.max';
+    }
+    return 'page.winter_storage.list.progress.message.other';
+  }
+  return 'page.winter_storage.list.progress.message.zero';
 };
 
 class WinterStoragePage extends Component<Props> {
@@ -89,7 +105,7 @@ class WinterStoragePage extends Component<Props> {
       boatTypes,
       steps,
       services,
-      berthLimit,
+      areasLimit,
       storageAreaFilter,
       intl
     } = this.props;
@@ -103,6 +119,82 @@ class WinterStoragePage extends Component<Props> {
     const validSelection = areas
       .filter(area => selectedAreasIds.find(selectedId => selectedId === area.id))
       .every(filter);
+
+    const renderAreaCard: (
+      excluded: boolean
+    ) => (selected: WinterStorageType) => React.ReactNode = excluded => area => {
+      const maximumWidth = convertCmToM(area.maximumWidth);
+      const maximumLength = convertCmToM(area.maximumLength);
+      const address = `${area.streetAddress}, ${area.zipCode} ${area.municipality}`;
+
+      return (
+        <AreaCard
+          name={area.name}
+          excluded={excluded}
+          key={area.id}
+          id={area.id}
+          address={address}
+          imageFile={area.imageFile}
+          availabilityLevel={area.availabilityLevel}
+          servicemapId={area.servicemapId}
+          handleSelect={() => this.toggleBerthSelect(area)}
+          selected={isResourceSelected(selectedAreasIds, area.id)}
+          disabled={selectedAreasIds.size >= areasLimit}
+          details={[
+            <Property
+              key="maximumWidth"
+              available
+              value={maximumWidth}
+              unit="m"
+              titleId="page.winter_storage.maximum_width"
+            />,
+            <Property
+              key="maximumLength"
+              available
+              value={maximumLength}
+              unit="m"
+              titleId="page.winter_storage.maximum_length"
+            />,
+            <Property
+              key="appointed"
+              available={!!area.numberOfMarkedPlaces}
+              iconName="divided"
+              titleId="page.winter_storage.appointed"
+            />,
+            <Property
+              key="gate"
+              available={area.gate}
+              iconName="fence"
+              titleId="page.winter_storage.fence"
+            />,
+            <Property
+              key="electricity"
+              available={area.electricity}
+              iconName="plug"
+              titleId="page.winter_storage.electricity"
+            />,
+            <Property
+              key="summerStorageForDockingEquipment"
+              available={area.summerStorageForDockingEquipment}
+              iconName="trestle"
+              titleId="page.winter_storage.storage_for_docking_equip"
+            />,
+            <Property
+              key="water"
+              available={area.water}
+              iconName="waterTap"
+              titleId="page.winter_storage.water_tap"
+            />,
+            <Property
+              key="summerStorageForTrailers"
+              available={area.summerStorageForTrailers}
+              iconName="dollyEmpty"
+              titleId="page.winter_storage.storage_for_trailers"
+            />
+          ]}
+        />
+      );
+    };
 
     return (
       <Layout>
@@ -150,23 +242,35 @@ class WinterStoragePage extends Component<Props> {
           progress={this.moveToForm}
           selectedCount={selectedAreasIds.size}
           validSelection={validSelection}
-          berthLimit={berthLimit}
+          tabMessage={
+            <FormattedMessage
+              id={getFormattedMessageId(selectedAreasIds.size, areasLimit)}
+              values={{
+                total: areasLimit,
+                count: areasLimit - selectedAreasIds.size
+              }}
+            />
+          }
         >
           <Map
             TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
+            mapHeader={
+              <FormattedMessage
+                id="page.winter_storage.list.areas_count"
+                values={{ count: filtered.size }}
+              />
+            }
             filtered={filtered}
             filteredNot={filteredNot}
-            selected={selectedAreasIds}
-            onClick={this.toggleBerthSelect}
-            berthLimit={berthLimit}
+            selectedIds={selectedAreasIds}
+            renderSelected={renderAreaCard(false)}
           />
-          <Berths
+          <CardsList
             TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
-            filtered={filtered}
-            filteredNot={filteredNot}
-            selected={selectedAreasIds}
-            onClick={this.toggleBerthSelect}
-            berthLimit={berthLimit}
+            includedHeader="page.berths.list.berth_count"
+            included={filtered.map(renderAreaCard(false)).toArray()}
+            excludedHeader="page.berths.list.header.others"
+            excluded={filteredNot.map(renderAreaCard(true)).toArray()}
           />
         </TabSelector>
       </Layout>

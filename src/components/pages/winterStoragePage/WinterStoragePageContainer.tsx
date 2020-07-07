@@ -30,7 +30,7 @@ interface PropsFromState {
   initialValues: WinterFormValues;
   selectedAreasIds: SelectedIds;
   selectedServices: SelectedWinterServices;
-  berthLimit: number;
+  areasLimit: number;
   selectService: Function;
   deselectService: Function;
   onSubmit: Function;
@@ -132,7 +132,7 @@ export default compose<Props, {}>(
       initialValues: state.forms.winterValues,
       selectedAreasIds: state.winterAreas.selectedWinterAreas,
       selectedServices: state.winterAreas.selectedWinterServices,
-      berthLimit: state.winterAreas.areasLimit
+      areasLimit: state.winterAreas.areasLimit
     }),
     {
       selectService,

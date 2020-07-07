@@ -4,16 +4,17 @@ import { FormattedMessage } from 'react-intl';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
 import SelectedBerths from '../../berths/selectedBerths/SelectedBerths';
-import Icon from '../../common/Icon';
+import Icon, { IconNames } from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
 import Layout from '../../layout/Layout';
 import SelectedBerthsLegend from '../../legends/selectedBerthsLegend/SelectedBerthsLegend';
 
-import { WinterFormValues } from '../../../types/winterStorage';
+import { WinterFormValues, WinterStorageType } from '../../../types/winterStorage';
 import { WinterAreas } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 import './selectedAreaPage.scss';
+import SelectedResource from '../../common/areaCard/selectedResource/SelectedResource';
 
 interface BoatInfoForWinter {
   width: string;
@@ -22,19 +23,19 @@ interface BoatInfoForWinter {
 
 export interface Props {
   selectedAreas: WinterAreas;
-  moveToForm: () => {};
-  handlePrevious: () => {};
-  deselectArea: Function;
   boatInfo: BoatInfoForWinter;
-  moveUp: Function;
-  moveDown: Function;
-  submitExchangeForm?: Function;
   values: WinterFormValues;
   initialValues?: WinterFormValues;
   legend: { title: string; legend: string };
   validSelection: boolean;
-  filter: Function;
   steps: StepType[];
+  moveUp(id: string): void;
+  moveDown(id: string): void;
+  moveToForm(): void;
+  submitExchangeForm?(values: WinterFormValues): void;
+  handlePrevious(): void;
+  deselectArea(id: string): void;
+  filter(resource: WinterStorageType): boolean;
 }
 
 class SelectedAreaPage extends Component<Props> {
@@ -127,13 +128,37 @@ class SelectedAreaPage extends Component<Props> {
                         />
                       </Alert>
                     ) : (
-                      <SelectedBerths
-                        moveUp={moveUp}
-                        moveDown={moveDown}
-                        deselectBerth={deselectArea}
-                        berthValidator={filter}
-                        resources={selectedAreas}
-                      />
+                      <SelectedBerths>
+                        {selectedAreas
+                          .map((resource, index) => {
+                            const services: Array<[IconNames, boolean]> = [
+                              ['waterTap', resource.water],
+                              ['fence', resource.gate],
+                              ['plug', resource.electricity],
+                              ['dollyEmpty', resource.summerStorageForTrailers],
+                              ['trestle', resource.summerStorageForDockingEquipment],
+                              ['tools', resource.repairArea]
+                            ];
+
+                            return (
+                              <SelectedResource
+                                className="vene-selected-berths__berth"
+                                title={`${index + 1}. ${resource.name}`}
+                                id={resource.id}
+                                key={resource.id}
+                                services={services}
+                                moveUp={index !== 0 ? moveUp : undefined}
+                                moveDown={index !== selectedAreas.size - 1 ? moveDown : undefined}
+                                handleRemove={deselectArea}
+                                availabilityLevel={resource.availabilityLevel}
+                                validationErrMsg={
+                                  filter(resource) ? undefined : 'error.message.invalid_berth'
+                                }
+                              />
+                            );
+                          })
+                          .toArray()}
+                      </SelectedBerths>
                     )}
                   </Col>
                 </Row>

@@ -28,11 +28,11 @@ import { StepType } from '../../steps/step/Step';
 interface Props {
   selectedAreas: SelectedIds;
   selectedServices: SelectedWinterServices;
-  deselectArea: Function;
-  moveUp: Function;
-  moveDown: Function;
   localePush: LocalePush;
   values: WinterFormValues;
+  deselectArea(id: string): void;
+  moveUp(id: string): void;
+  moveDown(id: string): void;
 }
 
 const steps: StepType[] = [

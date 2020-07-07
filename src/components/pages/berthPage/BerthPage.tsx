@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 
-import { getBerthFilterByValues } from '../../../utils/berths';
-import Berths from '../../berths';
-import TabSelector from '../../berths/TabSelector';
+import { getBerthFilterByValues, isResourceSelected, convertCmToM } from '../../../utils/berths';
+import CardsList from '../../common/cardsList/CardsList';
+import TabSelector from '../../berths/TabSelector/TabSelector';
 import Hero from '../../common/hero/Hero';
 import { IconNames } from '../../common/Icon';
-import Map from '../../common/Map';
+import Map from '../../common/Map/Map';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
 import KoroSection from '../../layout/koroSection/KoroSection';
 import Layout from '../../layout/Layout';
@@ -20,6 +20,9 @@ import { Berths as BerthsType, SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
+import AreaCard from '../../common/areaCard/AreaCard';
+import Property from '../../common/areaCard/property/Property';
+import { berth } from '../../../__fixtures__/berthFixture';
 
 type Props = {
   initialValues: BerthFormValues;
@@ -53,6 +56,16 @@ const getHeroContentLink = (locale: string) => {
     default:
       return 'https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/venepaikan-hakeminen/';
   }
+};
+
+const getFormattedMessageId = (count: number, total: number): string => {
+  if (count) {
+    if (count === total) {
+      return 'page.berths.list.progress.message.max';
+    }
+    return 'page.berths.list.progress.message.other';
+  }
+  return 'page.berths.list.progress.message.zero';
 };
 
 class BerthPage extends Component<Props> {
@@ -98,6 +111,74 @@ class BerthPage extends Component<Props> {
       .filter(berth => selectedBerthsIds.find(selectedId => selectedId === berth.id))
       .every(filter);
 
+    const renderHarborCard: (
+      excluded: boolean
+    ) => (selected: BerthType) => React.ReactNode = excluded => selectedBerth => {
+      const maximumWidth = convertCmToM(selectedBerth.maximumWidth);
+      const address = `${berth.streetAddress}, ${berth.zipCode} ${berth.municipality}`;
+
+      return (
+        <AreaCard
+          name={berth.name}
+          excluded={excluded}
+          key={selectedBerth.id}
+          id={selectedBerth.id}
+          address={address}
+          imageFile={berth.imageFile}
+          servicemapId={berth.servicemapId}
+          availabilityLevel={berth.availabilityLevel}
+          handleSelect={() => this.toggleBerthSelect(selectedBerth)}
+          selected={isResourceSelected(selectedBerthsIds, selectedBerth.id)}
+          disabled={selectedBerthsIds.size >= berthLimit}
+          details={[
+            <Property
+              key="numberOfPlaces"
+              available
+              value={selectedBerth.numberOfPlaces}
+              titleId="page.berths.number_of_places"
+            />,
+            <Property
+              key="maximumWidth"
+              available
+              value={maximumWidth}
+              unit="m"
+              titleId="page.berths.maximum_width"
+            />,
+            <Property
+              key="wasteCollection"
+              available={selectedBerth.wasteCollection}
+              iconName="trash"
+              titleId="page.berths.waste_collection"
+            />,
+            <Property
+              key="electricity"
+              available={selectedBerth.electricity}
+              iconName="plug"
+              titleId="page.berths.electricity"
+            />,
+            <Property
+              key="gate"
+              available={selectedBerth.gate}
+              iconName="fence"
+              titleId="page.berths.fence"
+            />,
+            <Property
+              key="water"
+              available={selectedBerth.water}
+              iconName="waterTap"
+              titleId="page.berths.water_tap"
+            />,
+            <Property
+              key="lighting"
+              available={selectedBerth.lighting}
+              iconName="streetLight"
+              titleId="page.berths.lighting"
+            />
+          ]}
+        />
+      );
+    };
+
     return (
       <Layout>
         <Hero title={`site.berth.title`} bgUrl={berthsHeroImg} />
@@ -141,23 +222,35 @@ class BerthPage extends Component<Props> {
           progress={this.moveToForm}
           selectedCount={selectedBerthsIds.size}
           validSelection={validSelection}
-          berthLimit={berthLimit}
+          tabMessage={
+            <FormattedMessage
+              id={getFormattedMessageId(selectedBerthsIds.size, berthLimit)}
+              values={{
+                total: berthLimit,
+                count: berthLimit - selectedBerthsIds.size
+              }}
+            />
+          }
         >
           <Map
             TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
+            mapHeader={
+              <FormattedMessage
+                id="page.berths.list.berth_count"
+                values={{ count: filtered.size }}
+              />
+            }
             filtered={filtered}
             filteredNot={filteredNot}
-            selected={selectedBerthsIds}
-            onClick={this.toggleBerthSelect}
-            berthLimit={berthLimit}
+            selectedIds={selectedBerthsIds}
+            renderSelected={renderHarborCard(false)}
           />
-          <Berths
+          <CardsList
             TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
-            filtered={filtered}
-            filteredNot={filteredNot}
-            selected={selectedBerthsIds}
-            onClick={this.toggleBerthSelect}
-            berthLimit={berthLimit}
+            includedHeader="page.berths.list.berth_count"
+            included={filtered.map(renderHarborCard(false)).toArray()}
+            excludedHeader="page.berths.list.header.others"
+            excluded={filteredNot.map(renderHarborCard(true)).toArray()}
           />
         </TabSelector>
       </Layout>
