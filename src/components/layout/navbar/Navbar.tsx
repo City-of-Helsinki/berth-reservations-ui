@@ -14,8 +14,11 @@ const Navbar = () => {
       <div className="vene-navbar__top">
         <Container>
           <BSNavbar expand="md">
-            <LocalizedLink id="main-link" to="/">
+            <LocalizedLink className="vene-navbar__main-link" id="main-link" to="/">
               <Icon className="vene-navbar__icon" name="helsinkiLogo" />
+              <FormattedMessage id="site.front.title">
+                {txt => <span className="vene-navbar__title">{txt}</span>}
+              </FormattedMessage>
             </LocalizedLink>
             <Nav className="ml-auto" navbar>
               <LanguageDropdown />
@@ -23,36 +26,25 @@ const Navbar = () => {
           </BSNavbar>
         </Container>
       </div>
-      <div className="vene-navbar__bottom">
-        <Container>
-          <Nav className="vene-navbar__links-wrapper">
-            <LocalizedLink
-              to="/"
-              className="vene-navbar__link vene-navbar__link--main"
-              activeClassName="vene-navbar__link--active"
-              exact
-            >
-              <FormattedMessage id="site.front.title" />
-            </LocalizedLink>
+      <Container>
+        <Nav className="vene-navbar__links-wrapper">
+          <LocalizedLink
+            to="/berths"
+            className="vene-navbar__link"
+            activeClassName="vene-navbar__link--active"
+          >
+            <FormattedMessage id="site.berth.title" />
+          </LocalizedLink>
 
-            <LocalizedLink
-              to="/berths"
-              className="vene-navbar__link"
-              activeClassName="vene-navbar__link--active"
-            >
-              <FormattedMessage id="site.berth.title" />
-            </LocalizedLink>
-
-            <LocalizedLink
-              to="/winter-storage"
-              className="vene-navbar__link"
-              activeClassName="vene-navbar__link--active"
-            >
-              <FormattedMessage id="site.winter.title" />
-            </LocalizedLink>
-          </Nav>
-        </Container>
-      </div>
+          <LocalizedLink
+            to="/winter-storage"
+            className="vene-navbar__link"
+            activeClassName="vene-navbar__link--active"
+          >
+            <FormattedMessage id="site.winter.title" />
+          </LocalizedLink>
+        </Nav>
+      </Container>
     </div>
   );
 };

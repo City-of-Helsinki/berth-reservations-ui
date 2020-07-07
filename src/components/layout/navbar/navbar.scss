@@ -15,10 +15,6 @@ $navbarTitleColor: rgba(0, 0, 0, 0.9);
     }
   }
 
-  &__bottom {
-    padding: 1em 0;
-  }
-
   &__links-wrapper {
     display: flex;
 
@@ -31,26 +27,38 @@ $navbarTitleColor: rgba(0, 0, 0, 0.9);
     }
   }
 
-  &__link {
+  &__main-link {
     @include underline($hel-black);
-    margin-right: 1em;
-
-    span {
-      font-weight: $display1-weight;
-    }
-
-    &--active {
-      @include underline($hel-black, true);
-    }
-
-    &--main span {
-      font-weight: bolder;
-    }
   }
 
   &__icon {
     width: $navBrandWidth;
     color: $hel-black;
     margin-left: -0.5em;
+  }
+
+  &__title {
+    margin-left: 0.5em;
+    font-weight: bold;
+  }
+
+  &__link {
+    margin-right: 1em;
+    padding: 1em 0.5em;
+    box-sizing: border-box;
+    @include underline($hel-black);
+
+    span {
+      font-weight: $display1-weight;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &--active {
+      padding-bottom: 0.7em;
+      border-bottom: 0.3em solid $hel-coat;
+    }
   }
 }
