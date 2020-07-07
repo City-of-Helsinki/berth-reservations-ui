@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 
-import { getBerthFilterByValues, isResourceSelected, convertCmToM } from '../../../utils/berths';
-import CardsList from '../../common/cardsList/CardsList';
+import { convertCmToM, getBerthFilterByValues, isResourceSelected } from '../../../utils/berths';
 import TabSelector from '../../berths/TabSelector/TabSelector';
+import CardsList from '../../common/cardsList/CardsList';
 import Hero from '../../common/hero/Hero';
 import { IconNames } from '../../common/Icon';
 import Map from '../../common/Map/Map';
@@ -19,10 +19,10 @@ import { LocalePush } from '../../../utils/container';
 import { Berths as BerthsType, SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
+import { berth } from '../../../__fixtures__/berthFixture';
 import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
 import AreaCard from '../../common/areaCard/AreaCard';
 import Property from '../../common/areaCard/property/Property';
-import { berth } from '../../../__fixtures__/berthFixture';
 
 type Props = {
   initialValues: BerthFormValues;

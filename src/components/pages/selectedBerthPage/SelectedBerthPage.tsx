@@ -14,8 +14,8 @@ import SelectedBerthsLegend from '../../legends/selectedBerthsLegend/SelectedBer
 import { ApplicationOptions } from '../../../types/applicationType';
 import { BerthFormValues, BerthType } from '../../../types/berth';
 import { Berths } from '../../berths/types';
-import { StepType } from '../../steps/step/Step';
 import SelectedResource from '../../common/areaCard/selectedResource/SelectedResource';
+import { StepType } from '../../steps/step/Step';
 
 import './selectedBerthPage.scss';
 

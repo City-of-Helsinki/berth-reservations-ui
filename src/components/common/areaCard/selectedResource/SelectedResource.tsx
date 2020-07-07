@@ -4,12 +4,12 @@ import Transition from 'react-transition-group/Transition';
 import { Button, Col, Container, Row } from 'reactstrap';
 
 import { genValidSelector } from '../../../../utils/berths';
+import AvailabilityLevel from '../../../berths/availabilityLevel/AvailabilityLevel';
+import InvalidSelection from '../../../berths/InvalidSelection';
+import ScreenReaderLabel from '../../../forms/fields/ScreenReaderLabel';
 import Icon, { IconNames } from '../../Icon';
 import Modal from '../../modal/Modal';
 import Popover from '../../popover/Popover';
-import ScreenReaderLabel from '../../../forms/fields/ScreenReaderLabel';
-import AvailabilityLevel from '../../../berths/availabilityLevel/AvailabilityLevel';
-import InvalidSelection from '../../../berths/InvalidSelection';
 
 import './selectedResource.scss';
 

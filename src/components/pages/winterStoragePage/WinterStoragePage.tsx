@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 
 import {
+  convertCmToM,
   getWinterStorageFilterByValues,
-  isResourceSelected,
-  convertCmToM
+  isResourceSelected
 } from '../../../utils/berths';
-import CardsList from '../../common/cardsList/CardsList';
 import TabSelector from '../../berths/TabSelector/TabSelector';
+import CardsList from '../../common/cardsList/CardsList';
 import Hero from '../../common/hero/Hero';
 import { IconNames } from '../../common/Icon';
 import Map from '../../common/Map/Map';
@@ -25,9 +25,9 @@ import { SelectedIds, WinterAreas } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
-import WinterStorageNotice from './WinterStorageNotice';
 import AreaCard from '../../common/areaCard/AreaCard';
 import Property from '../../common/areaCard/property/Property';
+import WinterStorageNotice from './WinterStorageNotice';
 
 type Props = {
   initialValues: WinterFormValues;

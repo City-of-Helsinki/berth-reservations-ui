@@ -8,13 +8,12 @@ import Icon, { IconNames } from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
 import Layout from '../../layout/Layout';
 import SelectedBerthsLegend from '../../legends/selectedBerthsLegend/SelectedBerthsLegend';
+import SelectedResource from '../../common/areaCard/selectedResource/SelectedResource';
 
 import { WinterFormValues, WinterStorageType } from '../../../types/winterStorage';
 import { WinterAreas } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
-
 import './selectedAreaPage.scss';
-import SelectedResource from '../../common/areaCard/selectedResource/SelectedResource';
 
 interface BoatInfoForWinter {
   width: string;

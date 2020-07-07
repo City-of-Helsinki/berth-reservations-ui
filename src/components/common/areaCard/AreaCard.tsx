@@ -1,18 +1,18 @@
+import classNames from 'classnames';
 import React from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 import { Alert, Button, Col, Row } from 'reactstrap';
-import classNames from 'classnames';
 
 import { genValidSelector } from '../../../utils/berths';
+import AvailabilityLevel from '../../berths/availabilityLevel/AvailabilityLevel';
 import Icon from '../Icon';
 import Image from '../Image';
 import IntlComponent from '../IntlComponent';
 import Popover from '../popover/Popover';
-import AvailabilityLevel from '../../berths/availabilityLevel/AvailabilityLevel';
 
 import './areaCard.scss';
 
-interface AvailabilityLevel {
+interface IAvailabilityLevel {
   id: string;
   title: string | null;
   description: string | null;
@@ -23,7 +23,7 @@ type Props = {
   imageFile: string | null;
   address: string;
   id: string;
-  availabilityLevel: AvailabilityLevel | null;
+  availabilityLevel: IAvailabilityLevel | null;
   servicemapId: string | null;
   className?: string;
   selected: boolean;

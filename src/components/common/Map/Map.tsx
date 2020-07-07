@@ -1,6 +1,6 @@
+import { List } from 'immutable';
 import React, { useState } from 'react';
 import { Map as LeafletMap, TileLayer } from 'react-leaflet';
-import { List } from 'immutable';
 
 import mapIcon from './MapIcon';
 import MapMarker from './MapMarker';

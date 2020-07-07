@@ -1,7 +1,7 @@
+import classNames from 'classnames';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Col, Container, Row } from 'reactstrap';
-import classNames from 'classnames';
 
 import './cardsList.scss';
 
