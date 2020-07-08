@@ -3,12 +3,11 @@ import { Form } from 'react-final-form';
 import { FormattedMessage } from 'react-intl';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
-import SelectedBerths from '../../berths/selectedBerths/SelectedBerths';
 import SelectedResource from '../../common/areaCard/selectedResource/SelectedResource';
 import Icon, { IconNames } from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
 import Layout from '../../layout/Layout';
-import SelectedBerthsLegend from '../../legends/selectedBerthsLegend/SelectedBerthsLegend';
+import SelectionPageLegend from '../../legends/selectionPageLegend/SelectionPageLegend';
 
 import { WinterFormValues, WinterStorageType } from '../../../types/winterStorage';
 import { WinterAreas } from '../../berths/types';
@@ -71,7 +70,7 @@ class SelectedAreaPage extends Component<Props> {
         initialValues={initialValues}
         render={({ handleSubmit, invalid }) => (
           <Layout>
-            <SelectedBerthsLegend steps={steps} legend={legend} />
+            <SelectionPageLegend steps={steps} legend={legend} />
             <BTForm onSubmit={handleSubmit}>
               <Container className="vene-selected-area-page__wrapper">
                 <Row>
@@ -127,37 +126,35 @@ class SelectedAreaPage extends Component<Props> {
                         />
                       </Alert>
                     ) : (
-                      <SelectedBerths>
-                        {selectedAreas
-                          .map((resource, index) => {
-                            const services: Array<[IconNames, boolean]> = [
-                              ['waterTap', resource.water],
-                              ['fence', resource.gate],
-                              ['plug', resource.electricity],
-                              ['dollyEmpty', resource.summerStorageForTrailers],
-                              ['trestle', resource.summerStorageForDockingEquipment],
-                              ['tools', resource.repairArea]
-                            ];
+                      <div>
+                        {selectedAreas.map((resource, index) => {
+                          const services: Array<[IconNames, boolean]> = [
+                            ['waterTap', resource.water],
+                            ['fence', resource.gate],
+                            ['plug', resource.electricity],
+                            ['dollyEmpty', resource.summerStorageForTrailers],
+                            ['trestle', resource.summerStorageForDockingEquipment],
+                            ['tools', resource.repairArea]
+                          ];
 
-                            return (
-                              <SelectedResource
-                                className="vene-selected-berths__berth"
-                                title={`${index + 1}. ${resource.name}`}
-                                id={resource.id}
-                                key={resource.id}
-                                services={services}
-                                moveUp={index !== 0 ? moveUp : undefined}
-                                moveDown={index !== selectedAreas.size - 1 ? moveDown : undefined}
-                                handleRemove={deselectArea}
-                                availabilityLevel={resource.availabilityLevel}
-                                validationErrMsg={
-                                  filter(resource) ? undefined : 'error.message.invalid_berth'
-                                }
-                              />
-                            );
-                          })
-                          .toArray()}
-                      </SelectedBerths>
+                          return (
+                            <SelectedResource
+                              className="vene-selected-area-page__area"
+                              title={`${index + 1}. ${resource.name}`}
+                              id={resource.id}
+                              key={resource.id}
+                              services={services}
+                              moveUp={index !== 0 ? moveUp : undefined}
+                              moveDown={index !== selectedAreas.size - 1 ? moveDown : undefined}
+                              handleRemove={deselectArea}
+                              availabilityLevel={resource.availabilityLevel}
+                              validationErrMsg={
+                                filter(resource) ? undefined : 'error.message.invalid_berth'
+                              }
+                            />
+                          );
+                        })}
+                      </div>
                     )}
                   </Col>
                 </Row>

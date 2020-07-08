@@ -1,5 +1,6 @@
 @import 'helsinki/colors';
 @import 'styles/mixin';
+@import 'styles/variables';
 @import 'helsinki/fonts';
 
 .vene-selected-berth-page {
@@ -28,6 +29,10 @@
         flex-direction: column;
       }
     }
+  }
+
+  &__berth {
+    margin-bottom: $spacing-01;
   }
 
   &__boat-value {
