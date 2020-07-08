@@ -62,7 +62,7 @@ const getFormattedMessageId = (count: number, total: number): string => {
     if (count === total) {
       return 'page.berths.list.progress.message.max';
     }
-    return 'page.berths.list.progress.message.other';
+    return 'page.berths.list.progress.message';
   }
   return 'page.berths.list.progress.message.zero';
 };
@@ -230,7 +230,7 @@ class BerthPage extends Component<Props> {
               id={getFormattedMessageId(selectedBerthsIds.size, berthLimit)}
               values={{
                 total: berthLimit,
-                count: berthLimit - selectedBerthsIds.size
+                left: berthLimit - selectedBerthsIds.size
               }}
             />
           }
