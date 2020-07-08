@@ -67,7 +67,7 @@ const getFormattedMessageId = (count: number, total: number): string => {
     if (count === total) {
       return 'page.winter_storage.list.progress.message.max';
     }
-    return 'page.winter_storage.list.progress.message.other';
+    return 'page.winter_storage.list.progress.message';
   }
   return 'page.winter_storage.list.progress.message.zero';
 };
@@ -247,7 +247,7 @@ class WinterStoragePage extends Component<Props> {
               id={getFormattedMessageId(selectedAreasIds.size, areasLimit)}
               values={{
                 total: areasLimit,
-                count: areasLimit - selectedAreasIds.size
+                left: areasLimit - selectedAreasIds.size
               }}
             />
           }
