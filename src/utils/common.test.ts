@@ -1,4 +1,4 @@
-import { stripLeadingSlash } from './common';
+import { genValidSelector, stripLeadingSlash } from './common';
 
 describe('utils/common', () => {
   describe('stripLeadingSlash', () => {
@@ -12,6 +12,16 @@ describe('utils/common', () => {
       const path = 'berths';
       const actualValue = stripLeadingSlash(path);
       expect(actualValue).toBe(path);
+    });
+  });
+
+  describe('genValidSelector', () => {
+    test('should replace digits in the beginning of the supplied string', () => {
+      expect(genValidSelector('1ABC123')).toBe('xABC123');
+    });
+
+    test('should replace illegal characters', () => {
+      expect(genValidSelector('ABC=123/')).toBe('ABCx123x');
     });
   });
 });

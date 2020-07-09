@@ -3,17 +3,17 @@ import { Form } from 'react-final-form';
 import { FormattedMessage } from 'react-intl';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
-import SelectedBerths from '../../berths/selectedBerths/SelectedBerths';
-import Icon from '../../common/Icon';
+import Icon, { IconNames } from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
 import ExchangeApplication from '../../forms/fragments/exchangeApplication/ExchangeApplicationContainer';
 import NewApplication from '../../forms/fragments/newApplication/NewApplication';
 import Layout from '../../layout/Layout';
-import SelectedBerthsLegend from '../../legends/selectedBerthsLegend/SelectedBerthsLegend';
+import SelectionPageLegend from '../../legends/selectionPageLegend/SelectionPageLegend';
 
 import { ApplicationOptions } from '../../../types/applicationType';
-import { BerthFormValues } from '../../../types/berth';
+import { BerthFormValues, BerthType } from '../../../types/berth';
 import { Berths } from '../../berths/types';
+import SelectedResource from '../../common/areaCard/selectedResource/SelectedResource';
 import { StepType } from '../../steps/step/Step';
 
 import './selectedBerthPage.scss';
@@ -26,21 +26,21 @@ interface BoatInfoForBerths {
 
 export interface Props {
   selectedBerths: Berths;
-  moveToForm: () => {};
-  handlePrevious: () => {};
-  deselectBerth: Function;
   boatInfo: BoatInfoForBerths;
-  moveUp: Function;
-  moveDown: Function;
   berths?: Berths;
   berthsApplicationType?: string;
-  submitExchangeForm?: Function;
   values: BerthFormValues;
   initialValues?: BerthFormValues;
   legend: { title: string; legend: string };
   validSelection: boolean;
-  filter: Function;
   steps: StepType[];
+  moveToForm(): void;
+  handlePrevious(): void;
+  deselectBerth(id: string): void;
+  moveUp(id: string): void;
+  moveDown(id: string): void;
+  submitExchangeForm?(values: BerthFormValues): void;
+  filter(resource: BerthType): boolean;
 }
 
 class SelectedBerthPage extends Component<Props> {
@@ -79,8 +79,7 @@ class SelectedBerthPage extends Component<Props> {
         initialValues={initialValues}
         render={({ handleSubmit, invalid }) => (
           <Layout>
-            <SelectedBerthsLegend steps={steps} legend={legend} />
-
+            <SelectionPageLegend steps={steps} legend={legend} />
             <BTForm onSubmit={handleSubmit}>
               <Container className="vene-selected-berth-page__wrapper">
                 <Row>
@@ -141,13 +140,34 @@ class SelectedBerthPage extends Component<Props> {
                         <FormattedMessage tagName="h2" id="page.berth.selected.alert.paragraph" />
                       </Alert>
                     ) : (
-                      <SelectedBerths
-                        moveUp={moveUp}
-                        moveDown={moveDown}
-                        deselectBerth={deselectBerth}
-                        berthValidator={filter}
-                        resources={selectedBerths}
-                      />
+                      <div>
+                        {selectedBerths.map((resource, index) => {
+                          const services: Array<[IconNames, boolean]> = [
+                            ['plug', resource.electricity],
+                            ['waterTap', resource.water],
+                            ['trash', resource.wasteCollection],
+                            ['fence', resource.gate],
+                            ['streetLight', resource.lighting]
+                          ];
+
+                          return (
+                            <SelectedResource
+                              className="vene-selected-berth-page__berth"
+                              title={`${index + 1}. ${resource.name}`}
+                              id={resource.id}
+                              key={resource.id}
+                              services={services}
+                              moveUp={index !== 0 ? moveUp : undefined}
+                              moveDown={index !== selectedBerths.size - 1 ? moveDown : undefined}
+                              handleRemove={deselectBerth}
+                              availabilityLevel={resource.availabilityLevel}
+                              validationErrMsg={
+                                filter(resource) ? undefined : 'error.message.invalid_berth'
+                              }
+                            />
+                          );
+                        })}
+                      </div>
                     )}
                   </Col>
                 </Row>

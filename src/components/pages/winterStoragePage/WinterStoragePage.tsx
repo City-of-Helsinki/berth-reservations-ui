@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 
-import { getWinterStorageFilterByValues } from '../../../utils/berths';
-import Berths from '../../berths';
-import TabSelector from '../../berths/TabSelector';
+import {
+  convertCmToM,
+  getWinterStorageFilterByValues,
+  isResourceSelected
+} from '../../../utils/berths';
+import TabSelector from '../../berths/TabSelector/TabSelector';
+import CardsList from '../../common/cardsList/CardsList';
 import Hero from '../../common/hero/Hero';
 import { IconNames } from '../../common/Icon';
-import Map from '../../common/Map';
+import Map from '../../common/Map/Map';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
 import KoroSection from '../../layout/koroSection/KoroSection';
 import Layout from '../../layout/Layout';
@@ -21,6 +25,7 @@ import { SelectedIds, WinterAreas } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
+import WinterStorageCard from './WinterStorageCard';
 import WinterStorageNotice from './WinterStorageNotice';
 
 type Props = {
@@ -41,7 +46,7 @@ type Props = {
     value: WinterServices;
     icon: IconNames;
   }>;
-  berthLimit: number;
+  areasLimit: number;
   storageAreaFilter?: StorageAreaFilter;
 } & InjectedIntlProps;
 
@@ -54,6 +59,16 @@ const getHeroContentLink = (locale: string) => {
     default:
       return 'https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/venepaikan-hakeminen/';
   }
+};
+
+const getFormattedMessageId = (count: number, total: number): string => {
+  if (count) {
+    if (count === total) {
+      return 'page.winter_storage.list.progress.message.max';
+    }
+    return 'page.winter_storage.list.progress.message';
+  }
+  return 'page.winter_storage.list.progress.message.zero';
 };
 
 class WinterStoragePage extends Component<Props> {
@@ -89,7 +104,7 @@ class WinterStoragePage extends Component<Props> {
       boatTypes,
       steps,
       services,
-      berthLimit,
+      areasLimit,
       storageAreaFilter,
       intl
     } = this.props;
@@ -100,9 +115,24 @@ class WinterStoragePage extends Component<Props> {
     );
     const filtered = areas.filter(filter);
     const filteredNot = areas.filterNot(filter);
-    const validSelection = areas
+    const invalidSelection = !areas
       .filter(area => selectedAreasIds.find(selectedId => selectedId === area.id))
       .every(filter);
+
+    const renderAreaCard: (
+      isExcluded: boolean
+    ) => (selected: WinterStorageType) => React.ReactNode = isExcluded => area => {
+      return (
+        <WinterStorageCard
+          key={area.id}
+          area={area}
+          selected={isResourceSelected(selectedAreasIds, area.id)}
+          disabled={selectedAreasIds.size >= areasLimit}
+          isExcluded={isExcluded}
+          handleSelect={() => this.toggleBerthSelect(area)}
+        />
+      );
+    };
 
     return (
       <Layout>
@@ -149,24 +179,36 @@ class WinterStoragePage extends Component<Props> {
         <TabSelector
           progress={this.moveToForm}
           selectedCount={selectedAreasIds.size}
-          validSelection={validSelection}
-          berthLimit={berthLimit}
+          invalidSelection={invalidSelection ? 'error.message.invalid_area_selection' : undefined}
+          tabMessage={
+            <FormattedMessage
+              id={getFormattedMessageId(selectedAreasIds.size, areasLimit)}
+              values={{
+                total: areasLimit,
+                left: areasLimit - selectedAreasIds.size
+              }}
+            />
+          }
         >
           <Map
-            TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
+            TabHeader={() => <FormattedMessage tagName="span" id="site.common.map" />}
+            mapHeader={
+              <FormattedMessage
+                id="page.winter_storage.list.areas_count"
+                values={{ count: filtered.size }}
+              />
+            }
             filtered={filtered}
             filteredNot={filteredNot}
-            selected={selectedAreasIds}
-            onClick={this.toggleBerthSelect}
-            berthLimit={berthLimit}
+            selectedIds={selectedAreasIds}
+            renderSelected={renderAreaCard(false)}
           />
-          <Berths
-            TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
-            filtered={filtered}
-            filteredNot={filteredNot}
-            selected={selectedAreasIds}
-            onClick={this.toggleBerthSelect}
-            berthLimit={berthLimit}
+          <CardsList
+            TabHeader={() => <FormattedMessage tagName="span" id="site.common.list" />}
+            includedHeader="page.winter_storage.list.areas_count"
+            included={filtered.map(renderAreaCard(false)).toArray()}
+            excludedHeader="page.winter_storage.list.header.others"
+            excluded={filteredNot.map(renderAreaCard(true)).toArray()}
           />
         </TabSelector>
       </Layout>

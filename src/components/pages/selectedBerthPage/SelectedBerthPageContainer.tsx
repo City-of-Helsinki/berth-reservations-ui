@@ -21,14 +21,14 @@ import { StepType } from '../../steps/step/Step';
 interface Props {
   selectedBerths: SelectedIds;
   selectedServices: SelectedServices;
-  deselectBerth: Function;
-  moveUp: Function;
-  moveDown: Function;
   localePush: LocalePush;
   values: BerthFormValues;
   berthsApplicationType: string;
-  submitExchangeForm: Function;
   initialValues: BerthFormValues;
+  submitExchangeForm(values: BerthFormValues): void;
+  deselectBerth(id: string): void;
+  moveUp(id: string): void;
+  moveDown(id: string): void;
 }
 
 const steps: StepType[] = [

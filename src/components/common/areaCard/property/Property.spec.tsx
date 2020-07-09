@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallowWithIntl } from '../../../../utils/testUtils';
-import BerthDetails, { Props } from './index';
+import Property, { Props } from './Property';
 
-describe('components/berths/BerthDetails', () => {
+describe('components/berths/Property', () => {
   const defaultProps: Props = {
     available: false,
     value: 123,
@@ -10,8 +10,7 @@ describe('components/berths/BerthDetails', () => {
     titleId: 'test',
     iconName: 'check'
   };
-  const getWrapper = (props?: Props) =>
-    shallowWithIntl(<BerthDetails {...defaultProps} {...props} />);
+  const getWrapper = (props?: Props) => shallowWithIntl(<Property {...defaultProps} {...props} />);
 
   test('render normally', () => {
     const wrapper = getWrapper();

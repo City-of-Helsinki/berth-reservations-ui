@@ -3,26 +3,26 @@ import React, { Component } from 'react';
 import Transition from 'react-transition-group/Transition';
 import { Button, Col, Container, Row } from 'reactstrap';
 
-import { genValidSelector } from '../../../../utils/berths';
-import Icon, { IconNames } from '../../../common/Icon';
-import Modal from '../../../common/modal/Modal';
-import Popover from '../../../common/popover/Popover';
+import { genValidSelector } from '../../../../utils/common';
+import AvailabilityLevel from '../../../berths/availabilityLevel/AvailabilityLevel';
+import InvalidSelection from '../../../berths/InvalidSelection';
 import ScreenReaderLabel from '../../../forms/fields/ScreenReaderLabel';
-import AvailabilityLevel from '../../availabilityLevel/AvailabilityLevel';
-import InvalidSelection from '../../InvalidSelection';
+import Icon, { IconNames } from '../../Icon';
+import Modal from '../../modal/Modal';
+import Popover from '../../popover/Popover';
 
 import './selectedResource.scss';
 
 export interface Props {
   id: string;
   availabilityLevel?: { id: string; title: string | null; description: string | null } | null;
-  handleRemove: Function;
   title: React.ReactNode;
   validationErrMsg?: string;
   services: Array<[IconNames, boolean]>;
-  moveDown?: Function;
-  moveUp?: Function;
   className?: string;
+  handleRemove(id: string): void;
+  moveDown?(id: string): void;
+  moveUp?(id: string): void;
 }
 
 interface State {

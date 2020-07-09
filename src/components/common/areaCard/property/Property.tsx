@@ -2,9 +2,9 @@ import classNames from 'classnames';
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 
-import Icon, { IconNames } from '../../../common/Icon';
+import Icon, { IconNames } from '../../Icon';
 
-import './BerthDetails.scss';
+import './property.scss';
 
 export interface Props {
   iconName?: IconNames;
@@ -14,32 +14,32 @@ export interface Props {
   titleId: string;
 }
 
-const BerthDetails = ({ iconName, available, value, unit, titleId }: Props) => {
+const Property = ({ iconName, available, value, unit, titleId }: Props) => {
   return (
     <div
-      className={classNames('vene-berth__details', {
-        'vene-berth__details-not-available': !available
+      className={classNames('vene-property', {
+        'vene-property--not-available': !available
       })}
     >
       {value !== undefined && unit !== undefined && (
-        <div className="vene-berth__details__value">
+        <div className="vene-property__value">
           {value || '-'}
           {value && unit}
         </div>
       )}
 
       {value !== undefined && unit === undefined && (
-        <div className="vene-berth__details__value">{value || '-'}</div>
+        <div className="vene-property__value">{value || '-'}</div>
       )}
 
       {iconName && (
-        <div className="vene-berth__details__icon">
+        <div className="vene-property__icon">
           <Icon name={iconName} />
         </div>
       )}
 
       {titleId && (
-        <div className="vene-berth__details__title">
+        <div className="vene-property__title">
           <FormattedMessage tagName="p" id={titleId} />
         </div>
       )}
@@ -47,4 +47,4 @@ const BerthDetails = ({ iconName, available, value, unit, titleId }: Props) => {
   );
 };
 
-export default injectIntl(BerthDetails);
+export default injectIntl(Property);

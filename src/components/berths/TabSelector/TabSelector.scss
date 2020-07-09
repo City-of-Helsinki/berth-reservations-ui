@@ -2,7 +2,7 @@
 @import 'helsinki/fonts';
 @import 'styles/mixin';
 
-.vene-berth__tab-selector {
+.vene-tab-selector {
   &__header {
     display: flex;
     flex-direction: column-reverse;
@@ -60,7 +60,7 @@
     margin-bottom: 5em;
   }
 
-  &__application-promt {
+  &__application-prompt {
     position: sticky;
     position: -webkit-sticky;
     bottom: 0;

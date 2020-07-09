@@ -3,17 +3,7 @@
 
 $berthIconSize: 48px;
 
-.vene-berth__details {
-  &-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    height: 100%;
-    padding: 1em 0;
-    white-space: nowrap;
-  }
-
+.vene-property {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -23,7 +13,7 @@ $berthIconSize: 48px;
   opacity: 1;
   margin-bottom: 0.5em;
 
-  &-not-available {
+  &--not-available {
     opacity: 0.15;
   }
 

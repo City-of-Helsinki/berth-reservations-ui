@@ -1,5 +1,6 @@
 @import 'helsinki/colors';
 @import 'styles/mixin';
+@import 'styles/variables';
 @import 'helsinki/fonts';
 
 .vene-selected-area-page {
@@ -28,6 +29,10 @@
         flex-direction: column;
       }
     }
+  }
+
+  &__area {
+    margin-bottom: $spacing-01;
   }
 
   &__boat-value {

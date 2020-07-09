@@ -5,7 +5,6 @@ import { createBerthValues, createWinterValues } from '../__fixtures__/formValue
 import { createWinterArea, winterArea } from '../__fixtures__/winterStorageFixture';
 import {
   convertCmToM,
-  genValidSelector,
   getBerthFilterByValues,
   getSelectedResources,
   getWinterStorageFilterByValues,
@@ -237,16 +236,6 @@ describe('utils/berths', () => {
 
     test('should return false if the supplied berth is not in the selected list', () => {
       expect(isResourceSelected(selectedBerths, berthIdC)).toBe(false);
-    });
-  });
-
-  describe('genValidSelector', () => {
-    test('should replace digits in the beginning of the supplied string', () => {
-      expect(genValidSelector('1ABC123')).toBe('xABC123');
-    });
-
-    test('should replace illegal characters', () => {
-      expect(genValidSelector('ABC=123/')).toBe('ABCx123x');
     });
   });
 

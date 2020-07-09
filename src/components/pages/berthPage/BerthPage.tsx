@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 
-import { getBerthFilterByValues } from '../../../utils/berths';
-import Berths from '../../berths';
-import TabSelector from '../../berths/TabSelector';
+import { getBerthFilterByValues, isResourceSelected } from '../../../utils/berths';
+import TabSelector from '../../berths/TabSelector/TabSelector';
+import CardsList from '../../common/cardsList/CardsList';
 import Hero from '../../common/hero/Hero';
 import { IconNames } from '../../common/Icon';
-import Map from '../../common/Map';
+import Map from '../../common/Map/Map';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
 import KoroSection from '../../layout/koroSection/KoroSection';
 import Layout from '../../layout/Layout';
@@ -20,6 +20,7 @@ import { Berths as BerthsType, SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
+import BerthCard from './BerthCard';
 
 type Props = {
   initialValues: BerthFormValues;
@@ -55,6 +56,16 @@ const getHeroContentLink = (locale: string) => {
   }
 };
 
+const getFormattedMessageId = (count: number, total: number): string => {
+  if (count) {
+    if (count === total) {
+      return 'page.berths.list.progress.message.max';
+    }
+    return 'page.berths.list.progress.message';
+  }
+  return 'page.berths.list.progress.message.zero';
+};
+
 class BerthPage extends Component<Props> {
   constructor(props: Props) {
     super(props);
@@ -67,12 +78,12 @@ class BerthPage extends Component<Props> {
     await localePush('berths/selected');
   };
 
-  toggleBerthSelect = (berth: BerthType) => {
+  toggleBerthSelect = (selectedBerth: BerthType) => {
     const { selectedBerthsIds, selectBerth, deselectBerth } = this.props;
-    if (selectedBerthsIds.find(selectedId => selectedId === berth.id)) {
-      deselectBerth(berth.id);
+    if (selectedBerthsIds.find(selectedId => selectedId === selectedBerth.id)) {
+      deselectBerth(selectedBerth.id);
     } else {
-      selectBerth(berth.id);
+      selectBerth(selectedBerth.id);
     }
   };
 
@@ -94,9 +105,26 @@ class BerthPage extends Component<Props> {
     const filter = getBerthFilterByValues(initialValues, selectedServices);
     const filtered = berths.filter(filter);
     const filteredNot = berths.filterNot(filter);
-    const validSelection = berths
-      .filter(berth => selectedBerthsIds.find(selectedId => selectedId === berth.id))
+    const invalidSelection = !berths
+      .filter(selectedBerth =>
+        selectedBerthsIds.find(selectedId => selectedId === selectedBerth.id)
+      )
       .every(filter);
+
+    const renderHarborCard: (
+      isExcluded: boolean
+    ) => (berth: BerthType) => React.ReactNode = isExcluded => berth => {
+      return (
+        <BerthCard
+          key={berth.id}
+          berth={berth}
+          selected={isResourceSelected(selectedBerthsIds, berth.id)}
+          disabled={selectedBerthsIds.size >= berthLimit}
+          isExcluded={isExcluded}
+          handleSelect={() => this.toggleBerthSelect(berth)}
+        />
+      );
+    };
 
     return (
       <Layout>
@@ -140,24 +168,36 @@ class BerthPage extends Component<Props> {
         <TabSelector
           progress={this.moveToForm}
           selectedCount={selectedBerthsIds.size}
-          validSelection={validSelection}
-          berthLimit={berthLimit}
+          invalidSelection={invalidSelection ? 'error.message.invalid_berth_selection' : undefined}
+          tabMessage={
+            <FormattedMessage
+              id={getFormattedMessageId(selectedBerthsIds.size, berthLimit)}
+              values={{
+                total: berthLimit,
+                left: berthLimit - selectedBerthsIds.size
+              }}
+            />
+          }
         >
           <Map
-            TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
+            TabHeader={() => <FormattedMessage tagName="span" id="site.common.map" />}
+            mapHeader={
+              <FormattedMessage
+                id="page.berths.list.berth_count"
+                values={{ count: filtered.size }}
+              />
+            }
             filtered={filtered}
             filteredNot={filteredNot}
-            selected={selectedBerthsIds}
-            onClick={this.toggleBerthSelect}
-            berthLimit={berthLimit}
+            selectedIds={selectedBerthsIds}
+            renderSelected={renderHarborCard(false)}
           />
-          <Berths
-            TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
-            filtered={filtered}
-            filteredNot={filteredNot}
-            selected={selectedBerthsIds}
-            onClick={this.toggleBerthSelect}
-            berthLimit={berthLimit}
+          <CardsList
+            TabHeader={() => <FormattedMessage tagName="span" id="site.common.list" />}
+            includedHeader="page.berths.list.berth_count"
+            included={filtered.map(renderHarborCard(false)).toArray()}
+            excludedHeader="page.berths.list.header.others"
+            excluded={filteredNot.map(renderHarborCard(true)).toArray()}
           />
         </TabSelector>
       </Layout>
