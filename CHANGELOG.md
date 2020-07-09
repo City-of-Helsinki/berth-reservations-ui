@@ -8,7 +8,7 @@
 ...
 </details>
 
-# 0.5.5 (July 9, 2020)
+# 0.5.0 (July 9, 2020)
 
 **Added:**
 
@@ -26,7 +26,7 @@
 
 - Winter storage application: replace harbor-related texts. in ([#285](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/285))
 - Overview page: display company info. in ([#272](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/272))
-- Berth application: skip unfilled fields when submitting the application. in ([#VEN-160](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/271))
+- Berth application: skip unfilled fields when submitting the application. in ([#271](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/271))
 - Winter storage application: replace the content that is inherited from berth application in "Selected" and "Overview" pages. in ([#245](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/245))
 - Winter storage application: remove "Large vessel" additional information. in ([#244](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/244))
 - Summary page: add missing fields. in ([#244](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/244))
