@@ -1,4 +1,4 @@
-import { stripLeadingSlash, genValidSelector } from './common';
+import { genValidSelector, stripLeadingSlash } from './common';
 
 describe('utils/common', () => {
   describe('stripLeadingSlash', () => {

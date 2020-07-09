@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 
-import { convertCmToM, getBerthFilterByValues, isResourceSelected } from '../../../utils/berths';
+import { getBerthFilterByValues, isResourceSelected } from '../../../utils/berths';
 import TabSelector from '../../berths/TabSelector/TabSelector';
 import CardsList from '../../common/cardsList/CardsList';
 import Hero from '../../common/hero/Hero';
@@ -20,8 +20,7 @@ import { Berths as BerthsType, SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
-import AreaCard from '../../common/areaCard/AreaCard';
-import Property from '../../common/areaCard/property/Property';
+import BerthCard from './BerthCard';
 
 type Props = {
   initialValues: BerthFormValues;
@@ -114,70 +113,14 @@ class BerthPage extends Component<Props> {
 
     const renderHarborCard: (
       isExcluded: boolean
-    ) => (selected: BerthType) => React.ReactNode = isExcluded => selectedBerth => {
-      const maximumWidth = convertCmToM(selectedBerth.maximumWidth);
-      const address = `${selectedBerth.streetAddress}, ${selectedBerth.zipCode} ${
-        selectedBerth.municipality
-      }`;
-
+    ) => (harbor: BerthType) => React.ReactNode = isExcluded => harbor => {
       return (
-        <AreaCard
-          name={selectedBerth.name}
-          excluded={isExcluded ? 'error.message.invalid_berth' : undefined}
-          key={selectedBerth.id}
-          id={selectedBerth.id}
-          address={address}
-          imageFile={selectedBerth.imageFile}
-          servicemapId={selectedBerth.servicemapId}
-          availabilityLevel={selectedBerth.availabilityLevel}
-          handleSelect={() => this.toggleBerthSelect(selectedBerth)}
-          selected={isResourceSelected(selectedBerthsIds, selectedBerth.id)}
+        <BerthCard
+          harbor={harbor}
+          selected={isResourceSelected(selectedBerthsIds, harbor.id)}
           disabled={selectedBerthsIds.size >= berthLimit}
-          details={[
-            <Property
-              key="numberOfPlaces"
-              available
-              value={selectedBerth.numberOfPlaces}
-              titleId="page.berths.number_of_places"
-            />,
-            <Property
-              key="maximumWidth"
-              available
-              value={maximumWidth}
-              unit="m"
-              titleId="page.berths.maximum_width"
-            />,
-            <Property
-              key="wasteCollection"
-              available={selectedBerth.wasteCollection}
-              iconName="trash"
-              titleId="page.berths.waste_collection"
-            />,
-            <Property
-              key="electricity"
-              available={selectedBerth.electricity}
-              iconName="plug"
-              titleId="page.berths.electricity"
-            />,
-            <Property
-              key="gate"
-              available={selectedBerth.gate}
-              iconName="fence"
-              titleId="page.berths.fence"
-            />,
-            <Property
-              key="water"
-              available={selectedBerth.water}
-              iconName="waterTap"
-              titleId="page.berths.water_tap"
-            />,
-            <Property
-              key="lighting"
-              available={selectedBerth.lighting}
-              iconName="streetLight"
-              titleId="page.berths.lighting"
-            />
-          ]}
+          isExcluded={isExcluded}
+          handleSelect={() => this.toggleBerthSelect(harbor)}
         />
       );
     };

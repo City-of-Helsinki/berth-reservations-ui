@@ -25,8 +25,7 @@ import { SelectedIds, WinterAreas } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
 
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
-import AreaCard from '../../common/areaCard/AreaCard';
-import Property from '../../common/areaCard/property/Property';
+import WinterStorageCard from './WinterStorageCard';
 import WinterStorageNotice from './WinterStorageNotice';
 
 type Props = {
@@ -123,75 +122,13 @@ class WinterStoragePage extends Component<Props> {
     const renderAreaCard: (
       isExcluded: boolean
     ) => (selected: WinterStorageType) => React.ReactNode = isExcluded => area => {
-      const maximumWidth = convertCmToM(area.maximumWidth);
-      const maximumLength = convertCmToM(area.maximumLength);
-      const address = `${area.streetAddress}, ${area.zipCode} ${area.municipality}`;
-
       return (
-        <AreaCard
-          name={area.name}
-          excluded={isExcluded ? 'error.message.invalid_area' : undefined}
-          key={area.id}
-          id={area.id}
-          address={address}
-          imageFile={area.imageFile}
-          availabilityLevel={area.availabilityLevel}
-          servicemapId={area.servicemapId}
-          handleSelect={() => this.toggleBerthSelect(area)}
+        <WinterStorageCard
+          area={area}
           selected={isResourceSelected(selectedAreasIds, area.id)}
           disabled={selectedAreasIds.size >= areasLimit}
-          details={[
-            <Property
-              key="maximumWidth"
-              available
-              value={maximumWidth}
-              unit="m"
-              titleId="page.winter_storage.maximum_width"
-            />,
-            <Property
-              key="maximumLength"
-              available
-              value={maximumLength}
-              unit="m"
-              titleId="page.winter_storage.maximum_length"
-            />,
-            <Property
-              key="appointed"
-              available={!!area.numberOfMarkedPlaces}
-              iconName="divided"
-              titleId="page.winter_storage.appointed"
-            />,
-            <Property
-              key="gate"
-              available={area.gate}
-              iconName="fence"
-              titleId="page.winter_storage.fence"
-            />,
-            <Property
-              key="electricity"
-              available={area.electricity}
-              iconName="plug"
-              titleId="page.winter_storage.electricity"
-            />,
-            <Property
-              key="summerStorageForDockingEquipment"
-              available={area.summerStorageForDockingEquipment}
-              iconName="trestle"
-              titleId="page.winter_storage.storage_for_docking_equip"
-            />,
-            <Property
-              key="water"
-              available={area.water}
-              iconName="waterTap"
-              titleId="page.winter_storage.water_tap"
-            />,
-            <Property
-              key="summerStorageForTrailers"
-              available={area.summerStorageForTrailers}
-              iconName="dollyEmpty"
-              titleId="page.winter_storage.storage_for_trailers"
-            />
-          ]}
+          isExcluded={isExcluded}
+          handleSelect={() => this.toggleBerthSelect(area)}
         />
       );
     };

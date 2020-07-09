@@ -18,7 +18,7 @@ interface IAvailabilityLevel {
   description: string | null;
 }
 
-type Props = {
+export type AreaCardProps = {
   name: string | null;
   imageFile: string | null;
   address: string;
@@ -47,7 +47,7 @@ const AreaCard = ({
   className,
   intl,
   details
-}: Props) => {
+}: AreaCardProps) => {
   const tooltipId = genValidSelector(`availability_${id}`);
 
   return (
