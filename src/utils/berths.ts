@@ -177,13 +177,6 @@ export const isResourceSelected = (selectedBerths: SelectedIds, resourceId: stri
   !!selectedBerths.find(selectedBerth => selectedBerth === resourceId);
 
 /**
- * Generates a valid CSS selector from a string by replacing invalid characters.
- * @param selector A string to be checked.
- * @returns A valid CSS selector.
- */
-export const genValidSelector = (selector: string) => selector.replace(/^[^a-z]+|[^\w:.-]+/gi, 'x');
-
-/**
  * Convert number in string to floating number.
  *
  * @param {string | undefined} str
