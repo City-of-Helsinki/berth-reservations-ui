@@ -1,0 +1,11 @@
+@import 'styles/variables';
+
+.vene-label-value-pair {
+  &__label {
+    font-weight: 500;
+  }
+
+  &__value {
+    margin-left: $spacing-00-50;
+  }
+}

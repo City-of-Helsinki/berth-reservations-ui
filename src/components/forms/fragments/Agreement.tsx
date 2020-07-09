@@ -1,18 +1,23 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
+import { FormattedHTMLMessage } from 'react-intl';
 import { Checkbox } from '../Fields';
 
-const ContactByFragment = () => (
+interface Props {
+  label: string;
+}
+
+const Agreement = ({ label }: Props) => (
   <Row>
-    <Col sm={6}>
+    <Col sm={10}>
       <Checkbox
         name={`informationAccuracyConfirmed`}
-        label="form.overview.field.guarantee.label"
+        label={<FormattedHTMLMessage id={label} />}
         required
       />
     </Col>
   </Row>
 );
 
-export default ContactByFragment;
+export default Agreement;

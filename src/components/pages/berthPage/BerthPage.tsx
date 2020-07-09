@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 
-import { getBerthFilterByValues } from '../../../utils/berths';
-import Berths from '../../berths';
-import BerthsOnMap from '../../berths/BerthsOnMap';
-import TabSelector from '../../berths/TabSelector';
+import { getBerthFilterByValues, isResourceSelected } from '../../../utils/berths';
+import TabSelector from '../../berths/TabSelector/TabSelector';
+import CardsList from '../../common/cardsList/CardsList';
+import Hero from '../../common/hero/Hero';
 import { IconNames } from '../../common/Icon';
+import Map from '../../common/Map/Map';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
+import KoroSection from '../../layout/koroSection/KoroSection';
 import Layout from '../../layout/Layout';
 import BerthsLegend from '../../legends/berthLegend/BerthLegend';
-import WinterStorage2019Warning from './WinterStorage2019Warning';
 
-import { BerthType } from '../../../types/berth';
+import { BerthFormValues, BerthType } from '../../../types/berth';
 import { BoatTypes } from '../../../types/boatTypes';
-import { FormMode } from '../../../types/form';
-import { BerthsServices, SelectedServices, WinterServices } from '../../../types/services';
+import { BerthsServices, SelectedServices } from '../../../types/services';
 import { LocalePush } from '../../../utils/container';
 import { Berths as BerthsType, SelectedIds } from '../../berths/types';
+import { StepType } from '../../steps/step/Step';
 
 import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
-import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
+import BerthCard from './BerthCard';
 
-import { StorageAreaFilter } from '../../../redux/reducers/WinterAreaReducers';
-import Hero from '../../common/hero/Hero';
-import KoroSection from '../../layout/koroSection/KoroSection';
-import { StepType } from '../../steps/step/Step';
 type Props = {
-  initialValues: {};
+  initialValues: BerthFormValues;
   filtered: BerthsType;
   filteredNot: BerthsType;
   selectedBerthsIds: SelectedIds;
@@ -42,12 +39,10 @@ type Props = {
   steps: StepType[];
   services: Array<{
     label: string;
-    value: BerthsServices | WinterServices;
+    value: BerthsServices;
     icon: IconNames;
   }>;
-  formMode?: FormMode;
   berthLimit: number;
-  storageAreaFilter?: StorageAreaFilter;
 } & InjectedIntlProps;
 
 const getHeroContentLink = (locale: string) => {
@@ -61,6 +56,16 @@ const getHeroContentLink = (locale: string) => {
   }
 };
 
+const getFormattedMessageId = (count: number, total: number): string => {
+  if (count) {
+    if (count === total) {
+      return 'page.berths.list.progress.message.max';
+    }
+    return 'page.berths.list.progress.message';
+  }
+  return 'page.berths.list.progress.message.zero';
+};
+
 class BerthPage extends Component<Props> {
   constructor(props: Props) {
     super(props);
@@ -69,17 +74,16 @@ class BerthPage extends Component<Props> {
   }
 
   moveToForm = async () => {
-    const { formMode, localePush } = this.props;
-    const path = formMode === FormMode.Winter ? 'winter-storage/selected' : 'berths/selected';
-    await localePush(path);
+    const { localePush } = this.props;
+    await localePush('berths/selected');
   };
 
-  toggleBerthSelect = (berth: BerthType) => {
+  toggleBerthSelect = (selectedBerth: BerthType) => {
     const { selectedBerthsIds, selectBerth, deselectBerth } = this.props;
-    if (selectedBerthsIds.find(selectedId => selectedId === berth.id)) {
-      deselectBerth(berth.id);
+    if (selectedBerthsIds.find(selectedId => selectedId === selectedBerth.id)) {
+      deselectBerth(selectedBerth.id);
     } else {
-      selectBerth(berth.id);
+      selectBerth(selectedBerth.id);
     }
   };
 
@@ -93,51 +97,58 @@ class BerthPage extends Component<Props> {
       deselectService,
       onSubmit,
       boatTypes,
-      formMode,
       steps,
       services,
       berthLimit,
-      storageAreaFilter,
       intl
     } = this.props;
-    const filter = getBerthFilterByValues(initialValues, selectedServices, storageAreaFilter);
+    const filter = getBerthFilterByValues(initialValues, selectedServices);
     const filtered = berths.filter(filter);
     const filteredNot = berths.filterNot(filter);
-    const validSelection = berths
-      .filter(berth => selectedBerthsIds.find(selectedId => selectedId === berth.id))
+    const invalidSelection = !berths
+      .filter(selectedBerth =>
+        selectedBerthsIds.find(selectedId => selectedId === selectedBerth.id)
+      )
       .every(filter);
-    const isBerthForm = formMode === FormMode.Berth;
-    const heroImg = isBerthForm
-      ? { bgUrl: berthsHeroImg }
-      : { bgUrl: winterHeroImg, bgPosition: 'center' };
+
+    const renderHarborCard: (
+      isExcluded: boolean
+    ) => (berth: BerthType) => React.ReactNode = isExcluded => berth => {
+      return (
+        <BerthCard
+          key={berth.id}
+          berth={berth}
+          selected={isResourceSelected(selectedBerthsIds, berth.id)}
+          disabled={selectedBerthsIds.size >= berthLimit}
+          isExcluded={isExcluded}
+          handleSelect={() => this.toggleBerthSelect(berth)}
+        />
+      );
+    };
 
     return (
       <Layout>
-        <Hero title={`site.${formMode}.title`} {...heroImg} />
+        <Hero title={`site.berth.title`} bgUrl={berthsHeroImg} />
         <KoroSection
           top
-          title={`hero.${formMode}.title`}
+          title={`hero.berth.title`}
           description={[
-            { id: `hero.${formMode}.paragraph.first` },
+            { id: `hero.berth.paragraph.first` },
             {
-              id: `hero.${formMode}.paragraph.second`,
+              id: `hero.berth.paragraph.second`,
               values: { url: getHeroContentLink(intl.locale) }
             }
           ]}
-        >
-          {formMode === FormMode.Winter && <WinterStorage2019Warning />}
-        </KoroSection>
+        />
         <KoroSection color="fog" top className="vene-berth-filters-section">
           <BerthsLegend
-            legend={{ title: `legend.${formMode}.title`, legend: `legend.${formMode}.legend` }}
+            legend={{ title: `legend.berth.title`, legend: `legend.berth.legend` }}
             form={{
               onSubmit,
               initialValues,
               render: () => (
                 <UnRegisteredBoatDetails
-                  // @ts-ignore
-                  boatStoredOnTrailer={!!initialValues.boatStoredOnTrailer}
-                  showBoatStoredOnTrailer={!isBerthForm}
+                  showBoatStoredOnTrailer={false}
                   hideTitle
                   fieldsNotRequired
                   boatTypes={boatTypes}
@@ -149,33 +160,44 @@ class BerthPage extends Component<Props> {
               selectedServices,
               selectService,
               deselectService,
-              label: `form.services.field.${formMode}.services.label`,
+              label: `form.services.field.berth.services.label`,
               available: services
             }}
-            formMode={formMode}
           />
         </KoroSection>
         <TabSelector
           progress={this.moveToForm}
           selectedCount={selectedBerthsIds.size}
-          validSelection={validSelection}
-          berthLimit={berthLimit}
+          invalidSelection={invalidSelection ? 'error.message.invalid_berth_selection' : undefined}
+          tabMessage={
+            <FormattedMessage
+              id={getFormattedMessageId(selectedBerthsIds.size, berthLimit)}
+              values={{
+                total: berthLimit,
+                left: berthLimit - selectedBerthsIds.size
+              }}
+            />
+          }
         >
-          <BerthsOnMap
-            TabHeader={() => <FormattedMessage tagName="span" id="page.berths.map" />}
+          <Map
+            TabHeader={() => <FormattedMessage tagName="span" id="site.common.map" />}
+            mapHeader={
+              <FormattedMessage
+                id="page.berths.list.berth_count"
+                values={{ count: filtered.size }}
+              />
+            }
             filtered={filtered}
             filteredNot={filteredNot}
-            selected={selectedBerthsIds}
-            onClick={this.toggleBerthSelect}
-            berthLimit={berthLimit}
+            selectedIds={selectedBerthsIds}
+            renderSelected={renderHarborCard(false)}
           />
-          <Berths
-            TabHeader={() => <FormattedMessage tagName="span" id="page.berths.list" />}
-            filtered={filtered}
-            filteredNot={filteredNot}
-            selected={selectedBerthsIds}
-            onClick={this.toggleBerthSelect}
-            berthLimit={berthLimit}
+          <CardsList
+            TabHeader={() => <FormattedMessage tagName="span" id="site.common.list" />}
+            includedHeader="page.berths.list.berth_count"
+            included={filtered.map(renderHarborCard(false)).toArray()}
+            excludedHeader="page.berths.list.header.others"
+            excluded={filteredNot.map(renderHarborCard(true)).toArray()}
           />
         </TabSelector>
       </Layout>

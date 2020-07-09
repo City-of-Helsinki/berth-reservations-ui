@@ -28,13 +28,13 @@ strong {
 
 .btn-link.btn-link {
   color: $hel-black;
-  text-decoration: none !important;
+  text-decoration: none;
   &:active,
   &:hover {
-    color: $hel-black !important;
-    background-color: #fff !important;
-    outline: none !important;
-    box-shadow: none !important;
+    color: $hel-black;
+    background-color: #fff;
+    outline: none;
+    box-shadow: none;
   }
 }
 

@@ -1,0 +1,73 @@
+@import 'styles/mixin';
+@import 'helsinki/fonts';
+
+$berthIconSize: 48px;
+
+.vene-property {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 33%;
+  height: auto;
+  overflow: hidden;
+  opacity: 1;
+  margin-bottom: 0.5em;
+
+  &--not-available {
+    opacity: 0.15;
+  }
+
+  &__icon {
+    .vene-icon {
+      height: $berthIconSize;
+      width: $berthIconSize;
+      padding: 6px;
+      margin: 0 auto;
+    }
+
+    margin: 4px;
+    display: none;
+    text-align: center;
+
+    @include for-tablet {
+      display: block;
+    }
+  }
+
+  &__value {
+    margin-left: 0.5ch;
+    text-align: center;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    order: 2;
+
+    @include for-tablet {
+      margin: 4px 0;
+      line-height: $berthIconSize;
+      height: $berthIconSize;
+      font-size: $font-size-lg;
+      order: -1;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    width: 100%;
+
+    p {
+      margin: 0;
+      white-space: pre-wrap;
+      line-height: 1;
+      font-size: 12px;
+    }
+
+    @include for-desktop {
+      font-size: inherit;
+      width: 100%;
+    }
+  }
+
+  @include for-tablet {
+    width: 25%;
+  }
+}

@@ -1,0 +1,17 @@
+@import 'styles/variables';
+
+.vene-cardsList {
+  &__heading {
+    margin-bottom: $spacing-01;
+  }
+
+  &__list {
+    & > *:not(:last-child) {
+      margin-bottom: $spacing-01;
+    }
+
+    &--excluded {
+      opacity: 0.5;
+    }
+  }
+}

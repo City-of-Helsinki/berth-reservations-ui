@@ -3,48 +3,44 @@ import { Form } from 'react-final-form';
 import { FormattedMessage } from 'react-intl';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
-import SelectedBerths from '../../berths/selectedBerths/SelectedBerths';
-import Icon from '../../common/Icon';
+import Icon, { IconNames } from '../../common/Icon';
 import LocalizedLink from '../../common/LocalizedLink';
 import ExchangeApplication from '../../forms/fragments/exchangeApplication/ExchangeApplicationContainer';
 import NewApplication from '../../forms/fragments/newApplication/NewApplication';
 import Layout from '../../layout/Layout';
-import SelectedBerthsLegend from '../../legends/berthLegend/selectedBerthsLegend/SelectedBerthsLegend';
+import SelectionPageLegend from '../../legends/selectionPageLegend/SelectionPageLegend';
 
 import { ApplicationOptions } from '../../../types/applicationType';
-import { HarborOptions } from '../../../types/harborOptionsTypes';
+import { BerthFormValues, BerthType } from '../../../types/berth';
 import { Berths } from '../../berths/types';
+import SelectedResource from '../../common/areaCard/selectedResource/SelectedResource';
 import { StepType } from '../../steps/step/Step';
 
 import './selectedBerthPage.scss';
 
 interface BoatInfoForBerths {
-  boatType: string | null;
-  width: string;
-  length: string;
-}
-interface BoatInfoForWinter {
+  boatType?: string | null;
   width: string;
   length: string;
 }
 
 export interface Props {
   selectedBerths: Berths;
-  moveToForm: () => {};
-  handlePrevious: () => {};
-  deselectBerth: Function;
-  boatInfo: BoatInfoForBerths | BoatInfoForWinter;
-  moveUp: Function;
-  moveDown: Function;
-  harbors?: HarborOptions;
+  boatInfo: BoatInfoForBerths;
+  berths?: Berths;
   berthsApplicationType?: string;
-  submitExchangeForm?: Function;
-  values: {};
-  initialValues: {};
+  values: BerthFormValues;
+  initialValues?: BerthFormValues;
   legend: { title: string; legend: string };
   validSelection: boolean;
-  filter: Function;
   steps: StepType[];
+  moveToForm(): void;
+  handlePrevious(): void;
+  deselectBerth(id: string): void;
+  moveUp(id: string): void;
+  moveDown(id: string): void;
+  submitExchangeForm?(values: BerthFormValues): void;
+  filter(resource: BerthType): boolean;
 }
 
 class SelectedBerthPage extends Component<Props> {
@@ -54,7 +50,7 @@ class SelectedBerthPage extends Component<Props> {
     window.scrollTo(0, 0);
   }
 
-  handleSubmitApplication = (values: any) => {
+  handleSubmitApplication = (values: BerthFormValues) => {
     if (this.props.submitExchangeForm) {
       this.props.submitExchangeForm(values);
     }
@@ -75,26 +71,25 @@ class SelectedBerthPage extends Component<Props> {
       steps,
       legend,
       validSelection,
-      harbors
+      berths
     } = this.props;
     return (
       <Form
-        onSubmit={formValues => this.handleSubmitApplication(formValues)}
+        onSubmit={this.handleSubmitApplication}
         initialValues={initialValues}
         render={({ handleSubmit, invalid }) => (
           <Layout>
-            <SelectedBerthsLegend steps={steps} legend={legend} />
-
+            <SelectionPageLegend steps={steps} legend={legend} />
             <BTForm onSubmit={handleSubmit}>
-              <Container className="vene-berth-page-selected__wrapper">
+              <Container className="vene-selected-berth-page__wrapper">
                 <Row>
                   <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
                     {berthsApplicationType &&
-                      harbors &&
+                      berths &&
                       (berthsApplicationType === ApplicationOptions.NewApplication ? (
                         <NewApplication />
                       ) : (
-                        <ExchangeApplication harbors={harbors} />
+                        <ExchangeApplication berths={berths} />
                       ))}
 
                     <FormattedMessage tagName="h3" id="page.berth.selected.title" />
@@ -102,31 +97,28 @@ class SelectedBerthPage extends Component<Props> {
                     {Object.values(boatInfo).every(value => !!value) ? (
                       <Container>
                         <Row>
-                          {boatInfo.hasOwnProperty('boatType') && (
-                            <Col md="5">
-                              <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
-                              <span className="vene-berth-page-selected__boat-value">
-                                {(boatInfo as BoatInfoForBerths).boatType}
-                              </span>
-                            </Col>
-                          )}
+                          <Col md="5">
+                            <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
+                            <span className="vene-selected-berth-page__boat-value">
+                              {boatInfo.boatType}
+                            </span>
+                          </Col>
                           <Col md="3">
                             <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:
-                            <span className="vene-berth-page-selected__boat-value">
+                            <span className="vene-selected-berth-page__boat-value">
                               {boatInfo.width} m
                             </span>
                           </Col>
-
                           <Col md="3">
                             <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:
-                            <span className="vene-berth-page-selected__boat-value">
+                            <span className="vene-selected-berth-page__boat-value">
                               {boatInfo.length} m
                             </span>
                           </Col>
                         </Row>
                       </Container>
                     ) : (
-                      <div className="vene-berth-page-selected__notice">
+                      <div className="vene-selected-berth-page__notice">
                         <Icon name="exclamationCircle" />
                         <LocalizedLink to={steps[0].linkTo || ''}>
                           <FormattedMessage tagName="span" id="page.berth.selected.info_text" />
@@ -142,21 +134,49 @@ class SelectedBerthPage extends Component<Props> {
                         />
                       </Alert>
                     )}
-                    <SelectedBerths
-                      moveUp={moveUp}
-                      moveDown={moveDown}
-                      deselectBerth={deselectBerth}
-                      berthValidator={filter}
-                      berths={selectedBerths}
-                    />
+                    {selectedBerths.size === 0 ? (
+                      <Alert color="danger">
+                        <FormattedMessage tagName="strong" id="page.berth.selected.alert.strong" />
+                        <FormattedMessage tagName="h2" id="page.berth.selected.alert.paragraph" />
+                      </Alert>
+                    ) : (
+                      <div>
+                        {selectedBerths.map((resource, index) => {
+                          const services: Array<[IconNames, boolean]> = [
+                            ['plug', resource.electricity],
+                            ['waterTap', resource.water],
+                            ['trash', resource.wasteCollection],
+                            ['fence', resource.gate],
+                            ['streetLight', resource.lighting]
+                          ];
+
+                          return (
+                            <SelectedResource
+                              className="vene-selected-berth-page__berth"
+                              title={`${index + 1}. ${resource.name}`}
+                              id={resource.id}
+                              key={resource.id}
+                              services={services}
+                              moveUp={index !== 0 ? moveUp : undefined}
+                              moveDown={index !== selectedBerths.size - 1 ? moveDown : undefined}
+                              handleRemove={deselectBerth}
+                              availabilityLevel={resource.availabilityLevel}
+                              validationErrMsg={
+                                filter(resource) ? undefined : 'error.message.invalid_berth'
+                              }
+                            />
+                          );
+                        })}
+                      </div>
+                    )}
                   </Col>
                 </Row>
               </Container>
-              <div className="vene-berth-page-selected__button-wrapper">
+              <div className="vene-selected-berth-page__button-wrapper">
                 <Container>
                   <Row>
                     <Col xs={12}>
-                      <div className="vene-berth-page-selected__button-wrapper__button-groups">
+                      <div className="vene-selected-berth-page__button-wrapper__button-groups">
                         <Button color="link" type="button" onClick={handlePrevious}>
                           <FormattedMessage id="form.wizard.button.previous" />
                         </Button>

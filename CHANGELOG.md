@@ -5,8 +5,34 @@
     Changes that landed in develop and might be expected in the upcoming releases.
     Click to see more.
   </summary>
-  ...
+...
 </details>
+
+# 0.5.0 (July 9, 2020)
+
+**Added:**
+
+- Not found page, aka 404. in ([#280](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/280))
+- Footer: accessibility statement. in ([#278](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/278))
+
+**Changed:**
+
+- Finnish as a fallback language. in ([#282](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/282))
+- Technical: folder structure. in ([#281](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/281))
+- Accessibility improvements. in ([#273](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/273), [#274](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/274), [#275](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/275))
+- Invalid URL: redirect to the front page. in ([#244](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/244))
+
+**Fixed:**
+
+- Winter storage application: replace harbor-related texts. in ([#285](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/285))
+- Overview page: display company info. in ([#272](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/272))
+- Berth application: skip unfilled fields when submitting the application. in ([#271](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/271))
+- Winter storage application: replace the content that is inherited from berth application in "Selected" and "Overview" pages. in ([#245](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/245))
+- Winter storage application: remove "Large vessel" additional information. in ([#244](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/244))
+- Summary page: add missing fields. in ([#244](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/244))
+- Boat dimensions fields: add validation to prevent large numbers and floating point numbers with more than two decimals. in ([#246](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/246))
+- Technical: TS types for form values. in ([#245](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/245))
+- Switch reason: send an empty string when 'No special request' is selected. in ([#248](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/248))
 
 # 0.4.1 (April 29, 2020)
 

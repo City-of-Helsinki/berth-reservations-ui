@@ -7,16 +7,9 @@ import Icon, { IconNames } from '../../common/Icon';
 import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
 import ApplicationSelector from '../../forms/sections/applicationSelector/ApplicationSelector';
-import Steps from '../../steps/StepsContainer';
+import Steps from '../../steps/Steps';
 
-import { FormMode } from '../../../types/form';
-import {
-  BerthsServices,
-  SelectedServices,
-  SelectedWinterServices,
-  WinterServices
-} from '../../../types/services';
-import StorageAreas from '../../forms/fragments/StorageAreas';
+import { BerthsServices, SelectedServices } from '../../../types/services';
 import { StepType } from '../../steps/step/Step';
 
 import './berthLegend.scss';
@@ -31,30 +24,27 @@ interface Props {
     title: string;
     legend: string;
   };
-  formMode?: FormMode;
   steps?: StepType[];
   services?: {
     available: Array<{
       label: string;
-      value: BerthsServices | WinterServices;
+      value: BerthsServices;
       icon: IconNames;
     }>;
     deselectService: Function;
     label: string;
-    selectedServices: SelectedServices | SelectedWinterServices;
+    selectedServices: SelectedServices;
     selectService: Function;
   };
 }
 
-const BerthsLegend = ({ form, legend, steps, services, formMode }: Props) => {
-  const isBerthForm = formMode === FormMode.Berth;
-
+const BerthsLegend = ({ form, legend, steps, services }: Props) => {
   return (
     <div className="vene-berths-legend">
       <Container>
         <Row>
           <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-            {isBerthForm && <ApplicationSelector className="vene-berths-legend__app-selector" />}
+            <ApplicationSelector className="vene-berths-legend__app-selector" />
             {steps && <Steps steps={steps} />}
             {legend && (
               <div className="vene-berths-legend__header">
@@ -72,20 +62,21 @@ const BerthsLegend = ({ form, legend, steps, services, formMode }: Props) => {
                 )}
               </Form>
             )}
-            {!isBerthForm && <StorageAreas />}
             {services && (
               <>
-                <div className="vene-berths-legend__services__header">
+                <div className="vene-berths-legend__services__header" id="services-header">
                   <FormattedMessage tagName="span" id={services.label} />
                 </div>
                 <div className="vene-berths-legend__services">
                   {services.available.map((service, index) => {
-                    // @ts-ignore
                     const selected = services.selectedServices.get(service.value) || false;
                     return (
                       <button
                         className="vene-berths-legend__service"
                         key={index}
+                        role="switch"
+                        aria-checked={!!selected}
+                        aria-labelledby={`${service.value}-label`}
                         onClick={() =>
                           selected
                             ? services.deselectService(service.value)
@@ -93,13 +84,14 @@ const BerthsLegend = ({ form, legend, steps, services, formMode }: Props) => {
                         }
                       >
                         <div
+                          aria-hidden
                           className={classNames('vene-berths-legend__icon-wrapper', {
                             selected
                           })}
                         >
                           <Icon name={service.icon} />
                         </div>
-                        <div className="vene-berths-legend__label">
+                        <label id={`${service.value}-label`} className="vene-berths-legend__label">
                           <FormattedMessage id={service.label}>
                             {txt =>
                               typeof txt === 'string'
@@ -107,7 +99,7 @@ const BerthsLegend = ({ form, legend, steps, services, formMode }: Props) => {
                                 : txt
                             }
                           </FormattedMessage>
-                        </div>
+                        </label>
                       </button>
                     );
                   })}

@@ -1,4 +1,5 @@
 import '@babel/polyfill';
+import 'focus-visible';
 import 'react-app-polyfill/ie11';
 
 import * as Sentry from '@sentry/browser';
@@ -57,7 +58,7 @@ const Root = () => (
         <Router history={piwik.connectToHistory(history)}>
           <Switch>
             <Redirect exact path="/" to="/fi" />
-            <Route path="/:locale" component={App} />
+            <Route path="/:locale(fi|sv|en)?" component={App} />
           </Switch>
         </Router>
       </PersistGate>

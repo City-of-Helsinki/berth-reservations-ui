@@ -42,6 +42,14 @@ $berthLegendIconSize: 42px;
 
     &:focus {
       outline: none;
+
+      .vene-berths-legend__icon-wrapper {
+        border-color: #0072c6;
+      }
+
+      .vene-icon {
+        fill: #0072c6;
+      }
     }
 
     .vene-icon {

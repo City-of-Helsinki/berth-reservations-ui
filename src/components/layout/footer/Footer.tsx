@@ -46,6 +46,11 @@ const Footer = ({ intl: { formatMessage } }: Props) => (
                 <FormattedMessage tagName="span" id="site.footer.terms_of_service" />
               </a>
             </li>
+            <li>
+              <a href={formatMessage({ id: 'site.footer.url.accessibility_statement' })}>
+                <FormattedMessage tagName="span" id="site.footer.accessibility_statement" />
+              </a>
+            </li>
           </ul>
         </Col>
       </Row>

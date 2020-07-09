@@ -1,18 +1,20 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import withApplicationType from '../common/withApplicationType/withApplicationType';
+
 import Step, { StepType } from './step/Step';
 
 import './steps.scss';
 
 export interface Props {
-  title: string;
+  applicationType: string;
   steps: StepType[];
 }
 
-const Steps = ({ title, steps }: Props) => (
+const Steps = ({ applicationType, steps }: Props) => (
   <div className="vene-steps">
-    <FormattedMessage id={title}>
+    <FormattedMessage id={applicationType}>
       {txt => <h4 className="vene-steps__title">{txt}</h4>}
     </FormattedMessage>
     <div className="vene-steps__items">
@@ -30,4 +32,4 @@ const Steps = ({ title, steps }: Props) => (
   </div>
 );
 
-export default Steps;
+export default withApplicationType(Steps);
