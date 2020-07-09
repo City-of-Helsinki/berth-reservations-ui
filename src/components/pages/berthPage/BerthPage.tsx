@@ -113,14 +113,14 @@ class BerthPage extends Component<Props> {
 
     const renderHarborCard: (
       isExcluded: boolean
-    ) => (harbor: BerthType) => React.ReactNode = isExcluded => harbor => {
+    ) => (berth: BerthType) => React.ReactNode = isExcluded => berth => {
       return (
         <BerthCard
-          harbor={harbor}
-          selected={isResourceSelected(selectedBerthsIds, harbor.id)}
+          berth={berth}
+          selected={isResourceSelected(selectedBerthsIds, berth.id)}
           disabled={selectedBerthsIds.size >= berthLimit}
           isExcluded={isExcluded}
-          handleSelect={() => this.toggleBerthSelect(harbor)}
+          handleSelect={() => this.toggleBerthSelect(berth)}
         />
       );
     };
