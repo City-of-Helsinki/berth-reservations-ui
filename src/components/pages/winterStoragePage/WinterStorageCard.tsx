@@ -29,7 +29,6 @@ const WinterStorageCard = ({
     <AreaCard
       name={area.name}
       excluded={excluded}
-      key={area.id}
       id={area.id}
       address={address}
       imageFile={area.imageFile}

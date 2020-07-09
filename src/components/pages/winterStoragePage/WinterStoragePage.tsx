@@ -124,6 +124,7 @@ class WinterStoragePage extends Component<Props> {
     ) => (selected: WinterStorageType) => React.ReactNode = isExcluded => area => {
       return (
         <WinterStorageCard
+          key={area.id}
           area={area}
           selected={isResourceSelected(selectedAreasIds, area.id)}
           disabled={selectedAreasIds.size >= areasLimit}

@@ -22,7 +22,6 @@ const BerthCard = ({ isExcluded, berth, selected, disabled, handleSelect }: Bert
     <AreaCard
       name={berth.name}
       excluded={excluded}
-      key={berth.id}
       id={berth.id}
       address={address}
       imageFile={berth.imageFile}

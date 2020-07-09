@@ -116,6 +116,7 @@ class BerthPage extends Component<Props> {
     ) => (berth: BerthType) => React.ReactNode = isExcluded => berth => {
       return (
         <BerthCard
+          key={berth.id}
           berth={berth}
           selected={isResourceSelected(selectedBerthsIds, berth.id)}
           disabled={selectedBerthsIds.size >= berthLimit}
