@@ -3,7 +3,7 @@ import React from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 import { Alert, Button, Col, Row } from 'reactstrap';
 
-import { genValidSelector } from '../../../utils/berths';
+import { genValidSelector } from '../../../utils/common';
 import AvailabilityLevel from '../../berths/availabilityLevel/AvailabilityLevel';
 import Icon from '../Icon';
 import Image from '../Image';
@@ -28,7 +28,7 @@ type Props = {
   className?: string;
   selected: boolean;
   disabled?: boolean;
-  excluded?: boolean;
+  excluded?: string;
   details: React.ReactNodeArray;
   handleSelect: (e: React.SyntheticEvent<HTMLButtonElement>) => void;
 } & InjectedIntlProps;
@@ -40,7 +40,7 @@ const AreaCard = ({
   id,
   availabilityLevel,
   servicemapId,
-  excluded = false,
+  excluded,
   handleSelect,
   selected,
   disabled,
@@ -55,12 +55,9 @@ const AreaCard = ({
       <Row>
         <Col md={3}>
           <div className="vene-area-card__image">
-            <IntlComponent
-              Component={Alert}
-              color="danger"
-              id="error.message.invalid_berth"
-              isOpen={selected && excluded}
-            />
+            {excluded && (
+              <IntlComponent Component={Alert} color="danger" id={excluded} isOpen={selected} />
+            )}
             {/* TODO: add placeholder image */}
             {<Image src={imageFile || ''} alt={name || `berth's name`} />}
           </div>
@@ -101,7 +98,7 @@ const AreaCard = ({
                   rel="noopener noreferrer"
                   href={intl.formatMessage({ id: 'site.common.servicemapURL' }, { servicemapId })}
                 >
-                  <FormattedMessage tagName="span" id="page.berths.website" />
+                  <FormattedMessage tagName="span" id="page.common.website" />
                   <Icon name="arrowRight" />
                 </a>
               </div>

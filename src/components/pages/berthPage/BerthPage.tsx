@@ -106,15 +106,15 @@ class BerthPage extends Component<Props> {
     const filter = getBerthFilterByValues(initialValues, selectedServices);
     const filtered = berths.filter(filter);
     const filteredNot = berths.filterNot(filter);
-    const validSelection = berths
+    const invalidSelection = !berths
       .filter(selectedBerth =>
         selectedBerthsIds.find(selectedId => selectedId === selectedBerth.id)
       )
       .every(filter);
 
     const renderHarborCard: (
-      excluded: boolean
-    ) => (selected: BerthType) => React.ReactNode = excluded => selectedBerth => {
+      isExcluded: boolean
+    ) => (selected: BerthType) => React.ReactNode = isExcluded => selectedBerth => {
       const maximumWidth = convertCmToM(selectedBerth.maximumWidth);
       const address = `${selectedBerth.streetAddress}, ${selectedBerth.zipCode} ${
         selectedBerth.municipality
@@ -123,7 +123,7 @@ class BerthPage extends Component<Props> {
       return (
         <AreaCard
           name={selectedBerth.name}
-          excluded={excluded}
+          excluded={isExcluded ? 'error.message.invalid_berth' : undefined}
           key={selectedBerth.id}
           id={selectedBerth.id}
           address={address}
@@ -224,7 +224,7 @@ class BerthPage extends Component<Props> {
         <TabSelector
           progress={this.moveToForm}
           selectedCount={selectedBerthsIds.size}
-          validSelection={validSelection}
+          invalidSelection={invalidSelection ? 'error.message.invalid_berth_selection' : undefined}
           tabMessage={
             <FormattedMessage
               id={getFormattedMessageId(selectedBerthsIds.size, berthLimit)}

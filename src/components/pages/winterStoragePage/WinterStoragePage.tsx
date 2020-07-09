@@ -116,13 +116,13 @@ class WinterStoragePage extends Component<Props> {
     );
     const filtered = areas.filter(filter);
     const filteredNot = areas.filterNot(filter);
-    const validSelection = areas
+    const invalidSelection = !areas
       .filter(area => selectedAreasIds.find(selectedId => selectedId === area.id))
       .every(filter);
 
     const renderAreaCard: (
-      excluded: boolean
-    ) => (selected: WinterStorageType) => React.ReactNode = excluded => area => {
+      isExcluded: boolean
+    ) => (selected: WinterStorageType) => React.ReactNode = isExcluded => area => {
       const maximumWidth = convertCmToM(area.maximumWidth);
       const maximumLength = convertCmToM(area.maximumLength);
       const address = `${area.streetAddress}, ${area.zipCode} ${area.municipality}`;
@@ -130,7 +130,7 @@ class WinterStoragePage extends Component<Props> {
       return (
         <AreaCard
           name={area.name}
-          excluded={excluded}
+          excluded={isExcluded ? 'error.message.invalid_area' : undefined}
           key={area.id}
           id={area.id}
           address={address}
@@ -241,7 +241,7 @@ class WinterStoragePage extends Component<Props> {
         <TabSelector
           progress={this.moveToForm}
           selectedCount={selectedAreasIds.size}
-          validSelection={validSelection}
+          invalidSelection={invalidSelection ? 'error.message.invalid_area_selection' : undefined}
           tabMessage={
             <FormattedMessage
               id={getFormattedMessageId(selectedAreasIds.size, areasLimit)}

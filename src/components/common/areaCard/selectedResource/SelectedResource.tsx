@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Transition from 'react-transition-group/Transition';
 import { Button, Col, Container, Row } from 'reactstrap';
 
-import { genValidSelector } from '../../../../utils/berths';
+import { genValidSelector } from '../../../../utils/common';
 import AvailabilityLevel from '../../../berths/availabilityLevel/AvailabilityLevel';
 import InvalidSelection from '../../../berths/InvalidSelection';
 import ScreenReaderLabel from '../../../forms/fields/ScreenReaderLabel';

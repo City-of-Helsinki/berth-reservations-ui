@@ -149,7 +149,7 @@ class SelectedAreaPage extends Component<Props> {
                               handleRemove={deselectArea}
                               availabilityLevel={resource.availabilityLevel}
                               validationErrMsg={
-                                filter(resource) ? undefined : 'error.message.invalid_berth'
+                                filter(resource) ? undefined : 'error.message.invalid_area'
                               }
                             />
                           );
