@@ -1,5 +1,6 @@
 @import 'helsinki/colors';
 @import 'helsinki/fonts';
+@import 'styles/variables';
 @import 'styles/mixin';
 
 $navBrandWidth: 96px;
@@ -10,6 +11,7 @@ $navbarTitleColor: rgba(0, 0, 0, 0.9);
     background-color: $hel-white;
     border-bottom: 1px solid $hel-light;
     padding: 0.25em 0;
+
     .navbar {
       padding: 0;
     }
@@ -28,37 +30,46 @@ $navbarTitleColor: rgba(0, 0, 0, 0.9);
   }
 
   &__main-link {
-    @include underline($hel-black);
+    color: $hel-black;
+    transition: color 0.15s ease-in-out;
+
+    &:hover {
+      color: $hel-coat;
+      text-decoration: none;
+    }
   }
 
   &__icon {
-    width: $navBrandWidth;
     color: $hel-black;
-    margin-left: -0.5em;
+    margin-left: -$spacing-00-50;
+    width: $navBrandWidth;
   }
 
   &__title {
-    margin-left: 0.5em;
     font-weight: bold;
+    margin-left: $spacing-00-50;
+    text-decoration: none;
   }
 
   &__link {
-    margin-right: 1em;
-    padding: 1em 0.5em;
     box-sizing: border-box;
-    @include underline($hel-black);
+    color: $hel-black;
+    margin-right: $spacing-01;
+    padding: $spacing-01 $spacing-00-50;
+    transition: color 0.15s ease-in-out;
 
     span {
       font-weight: $display1-weight;
     }
 
     &:hover {
+      color: $hel-coat;
       text-decoration: none;
     }
 
     &--active {
-      padding-bottom: 0.7em;
-      border-bottom: 0.3em solid $hel-coat;
+      padding-bottom: $spacing-00-75;
+      border-bottom: $spacing-00-25 solid $hel-coat;
     }
   }
 }
