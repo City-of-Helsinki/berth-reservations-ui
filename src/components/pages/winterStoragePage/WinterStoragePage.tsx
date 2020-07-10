@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
 
-import {
-  convertCmToM,
-  getWinterStorageFilterByValues,
-  isResourceSelected
-} from '../../../utils/berths';
+import { getWinterStorageFilterByValues, isResourceSelected } from '../../../utils/berths';
 import TabSelector from '../../berths/TabSelector/TabSelector';
 import CardsList from '../../common/cardsList/CardsList';
 import Hero from '../../common/hero/Hero';

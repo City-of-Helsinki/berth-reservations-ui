@@ -92,7 +92,7 @@ const UnconnectedSelectedAreaPage = ({
         const filter = getWinterStorageFilterByValues(values, selectedServices);
         const areas = getResources(data ? data.winterStorageAreas : null);
         const selected = getSelectedResources(selectedAreas, areas);
-        const validSelection = areas.every(filter);
+        const validSelection = selected.every(filter);
 
         return (
           <SelectedAreaPage

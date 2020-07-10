@@ -8,6 +8,12 @@
 ...
 </details>
 
+# 0.5.1 (July 10, 2020)
+
+**Fixed:**
+
+- Selected winter storage areas page: false notification of invalid selection. in ([#288](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/288))
+
 # 0.5.0 (July 9, 2020)
 
 **Added:**
