@@ -4,7 +4,6 @@
   "error.message.invalid_berth": "Sannolikt finns det inte platser som lämpar sig för din båts storlek eller typ i den här hamnen.",
   "error.message.invalid_area_selection": "Obs: Du har valt områden som saknar lämpliga platser för din båts storlek.",
   "error.message.invalid_area": "Sannolikt finns det inte platser som lämpar sig för din båts storlek i det här området.",
-  "storybook.dummy.label": "dummy",
   "site.front.title": "Båtplatser",
   "site.berth.title": "Ansökan om båtplats",
   "site.winter.title": "Vinteruppläggningsplatser",

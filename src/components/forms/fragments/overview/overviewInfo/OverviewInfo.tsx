@@ -14,7 +14,7 @@ const OverviewInfo = ({ title, children }: Props) => (
     <Row>
       <Col>
         <FormattedMessage id={title}>
-          {txt => <h3 className="vene-overview-info__title">{txt}</h3>}
+          {(txt) => <h3 className="vene-overview-info__title">{txt}</h3>}
         </FormattedMessage>
       </Col>
     </Row>

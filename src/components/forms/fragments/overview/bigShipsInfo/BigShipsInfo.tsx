@@ -22,7 +22,7 @@ const BigShipsInfo = ({
   rentingPeriod,
   rentFrom,
   rentTill,
-  intl: { formatMessage }
+  intl: { formatMessage },
 }: Props) => {
   let rentingPeriodLabel;
 

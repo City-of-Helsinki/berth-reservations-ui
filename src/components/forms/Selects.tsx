@@ -31,7 +31,7 @@ export const BoatType = ({ boatTypes, required, className }: BoatTypeProps) => (
           <option key={type.id} value={type.id}>
             {type.name}
           </option>,
-          ...acc
+          ...acc,
         ];
       }, [])}
   </Select>
@@ -46,7 +46,7 @@ export const Propulsion = injectIntl(({ intl: { formatMessage } }) => (
     required
   >
     <option>-</option>
-    {propulsions.map(option => (
+    {propulsions.map((option) => (
       <option key={option} value={option}>
         {formatMessage({ id: `form.big_ship.field.propulsion.${option}` })}
       </option>
@@ -62,7 +62,7 @@ const hullMaterials = [
   'fibreglass',
   'wood',
   'steel',
-  'other'
+  'other',
 ];
 
 export const HullMaterial = injectIntl(({ intl: { formatMessage } }) => (
@@ -73,7 +73,7 @@ export const HullMaterial = injectIntl(({ intl: { formatMessage } }) => (
     required
   >
     <option>-</option>
-    {hullMaterials.map(option => (
+    {hullMaterials.map((option) => (
       <option key={option} value={option}>
         {formatMessage({ id: `form.big_ship.field.hull_material.${option}` })}
       </option>

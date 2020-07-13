@@ -5,5 +5,5 @@ import * as FormActions from './FormActions';
 export default {
   BerthActions,
   FormActions,
-  ApplicationActions
+  ApplicationActions,
 };

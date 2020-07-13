@@ -14,22 +14,19 @@ interface Props {
 }
 
 export default compose<Props, {}>(
-  connect(
-    () => ({}),
-    { resetValues, resetBerths, resetWinterAreas, resetApplication }
-  ),
+  connect(() => ({}), { resetValues, resetBerths, resetWinterAreas, resetApplication }),
   lifecycle<Props, {}>({
     componentDidMount() {
       const {
         resetValues: resetForm,
         resetBerths: resetBerthsState,
         resetWinterAreas: resetWinterStorageState,
-        resetApplication: resetApplicationState
+        resetApplication: resetApplicationState,
       } = this.props;
       resetForm();
       resetBerthsState();
       resetWinterStorageState();
       resetApplicationState();
-    }
+    },
   })
 )(ThankYouPage);

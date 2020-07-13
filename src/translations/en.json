@@ -4,7 +4,6 @@
   "error.message.invalid_berth": "This harbour most likely does not have berths suitable for the size and type of your boat.",
   "error.message.invalid_area_selection": "Please note! You have selected areas with no available places for the size of your boat.",
   "error.message.invalid_area": "This area most likely does not have places suitable for the size of your boat.",
-  "storybook.dummy.label": "dummy",
   "site.front.title": "Boat berths",
   "site.berth.title": "Boat berth search",
   "site.winter.title": "Winter storage places",

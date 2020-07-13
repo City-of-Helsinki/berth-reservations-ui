@@ -17,7 +17,7 @@ const Hero = ({ title, bgUrl, bgPosition }: Props) => (
   >
     <Container>
       <FormattedMessage id={title}>
-        {txt => <h1 className="vene-hero__title">{txt}</h1>}
+        {(txt) => <h1 className="vene-hero__title">{txt}</h1>}
       </FormattedMessage>
     </Container>
   </div>

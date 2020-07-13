@@ -6,24 +6,25 @@ import { compose } from 'recompose';
 import {
   deselectWinterArea,
   moveWinterAreaDown,
-  moveWinterAreaUp
+  moveWinterAreaUp,
 } from '../../../redux/actions/WinterAreaActions';
+import { WinterAreasQuery } from '../../../utils/__generated__/WinterAreasQuery';
 import {
   getResources,
   getSelectedResources,
-  getWinterStorageFilterByValues
+  getWinterStorageFilterByValues,
 } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import SelectedAreaPage from './SelectedAreaPage';
 
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
-import WinterAreasQuery from '../../query/WinterAreasQuery';
 
 import { Store } from '../../../redux/types';
 import { SelectedWinterServices } from '../../../types/services';
 import { WinterFormValues } from '../../../types/winterStorage';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
+import { Query } from 'react-apollo';
 
 interface Props {
   selectedAreas: SelectedIds;
@@ -40,32 +41,32 @@ const steps: StepType[] = [
     key: 'winter_areas',
     completed: true,
     current: false,
-    linkTo: `winter-storage`
+    linkTo: `winter-storage`,
   },
   {
     key: 'review_areas',
     completed: false,
     current: true,
-    linkTo: ''
+    linkTo: '',
   },
   {
     key: 'boat_information',
     completed: false,
     current: false,
-    linkTo: ''
+    linkTo: '',
   },
   {
     key: 'applicant',
     completed: false,
     current: false,
-    linkTo: ''
+    linkTo: '',
   },
   {
     key: 'send_application',
     completed: false,
     current: false,
-    linkTo: ''
-  }
+    linkTo: '',
+  },
 ];
 
 const UnconnectedSelectedAreaPage = ({
@@ -82,10 +83,10 @@ const UnconnectedSelectedAreaPage = ({
     await localePush('/winter-storage');
   };
   return (
-    <WinterAreasQuery query={WINTER_AREAS_QUERY}>
+    <Query<WinterAreasQuery> query={WINTER_AREAS_QUERY}>
       {({
         // error, TODO: handle errors
-        data
+        data,
       }) => {
         const width = get(values, 'boatWidth', '');
         const length = get(values, 'boatLength', '');
@@ -104,7 +105,7 @@ const UnconnectedSelectedAreaPage = ({
             steps={steps}
             legend={{
               title: 'legend.selected_areas.title',
-              legend: 'legend.selected_areas.legend'
+              legend: 'legend.selected_areas.legend',
             }}
             selectedAreas={selected}
             values={values}
@@ -112,7 +113,7 @@ const UnconnectedSelectedAreaPage = ({
           />
         );
       }}
-    </WinterAreasQuery>
+    </Query>
   );
 };
 
@@ -122,12 +123,12 @@ export default compose<Props, Props>(
     (state: Store) => ({
       selectedAreas: state.winterAreas.selectedWinterAreas,
       selectedServices: state.winterAreas.selectedWinterServices,
-      values: state.forms.winterValues
+      values: state.forms.winterValues,
     }),
     {
       deselectArea: deselectWinterArea,
       moveUp: moveWinterAreaUp,
-      moveDown: moveWinterAreaDown
+      moveDown: moveWinterAreaDown,
     }
   )
 )(UnconnectedSelectedAreaPage);

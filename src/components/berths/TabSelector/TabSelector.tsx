@@ -22,7 +22,7 @@ class TabSelector extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      tab: 0
+      tab: 0,
     };
   }
 
@@ -40,7 +40,7 @@ class TabSelector extends React.Component<Props, State> {
     const { tab } = this.state;
     const { tabMessage, children, progress, selectedCount, invalidSelection } = this.props;
 
-    const headers = React.Children.map(children, c => {
+    const headers = React.Children.map(children, (c) => {
       if (c && typeof c === 'object' && 'props' in c) {
         return c.props.TabHeader;
       }
@@ -50,18 +50,19 @@ class TabSelector extends React.Component<Props, State> {
       <div className="vene-tab-selector">
         <div className="vene-tab-selector__header">
           <Container>
-            {headers.map((TabComponent, i) => (
-              <Button
-                role="tab"
-                aria-selected={i === tab}
-                className="vene-tab-selector__tab-button"
-                key={i}
-                onClick={() => this.selectTab(i)}
-                active={i === tab}
-              >
-                <TabComponent />
-              </Button>
-            ))}
+            {headers &&
+              headers.map((TabComponent, i) => (
+                <Button
+                  role="tab"
+                  aria-selected={i === tab}
+                  className="vene-tab-selector__tab-button"
+                  key={i}
+                  onClick={() => this.selectTab(i)}
+                  active={i === tab}
+                >
+                  <TabComponent />
+                </Button>
+              ))}
           </Container>
         </div>
         <div className="vene-tab-selector__tabs">

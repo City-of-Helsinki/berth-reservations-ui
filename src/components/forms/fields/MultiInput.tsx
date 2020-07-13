@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Field, FieldProps } from 'react-final-form';
+import { Field, FieldRenderProps } from 'react-final-form';
 import { FormattedMessage, InjectedIntlProps } from 'react-intl';
 import { CustomInput, FormFeedback, FormGroup, FormText } from 'reactstrap';
 import validator, { mustBePresent } from '../../../utils/formValidation';
@@ -7,8 +7,8 @@ import validator, { mustBePresent } from '../../../utils/formValidation';
 import Label from './Label';
 
 type Props = {
-  items: Array<{ name: string; label: string; value: string }>;
-} & FieldProps<string, HTMLElement> &
+  items: { name: string; label: string; value: string }[];
+} & FieldRenderProps<string, HTMLElement> &
   InjectedIntlProps;
 
 type CustomInputType = 'select' | 'file' | 'radio' | 'checkbox' | 'switch';

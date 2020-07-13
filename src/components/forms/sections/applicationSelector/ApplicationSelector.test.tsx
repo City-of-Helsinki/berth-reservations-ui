@@ -13,7 +13,7 @@ describe('forms/sections/ApplicationSelector', () => {
     switchApplication: jest.fn(),
     setBerthLimit: jest.fn(),
     resetBerthLimit: jest.fn(),
-    berthLimit: 10
+    berthLimit: 10,
   };
   const getWrapper = (props?: object) =>
     mountWithIntl(<ApplicationSelector {...defaultProps} {...props} />);
@@ -62,8 +62,8 @@ describe('forms/sections/ApplicationSelector', () => {
       const instance = wrapper.children().instance() as any;
       instance.onToggleSwitch({
         currentTarget: {
-          value: 'exchange_application'
-        }
+          value: 'exchange_application',
+        },
       });
 
       wrapper.update();
@@ -79,8 +79,8 @@ describe('forms/sections/ApplicationSelector', () => {
       const instance = wrapper.children().instance() as any;
       instance.onToggleSwitch({
         currentTarget: {
-          value: 'new_application'
-        }
+          value: 'new_application',
+        },
       });
 
       wrapper.update();
@@ -102,8 +102,8 @@ describe('forms/sections/ApplicationSelector', () => {
       const instance = wrapper.children().instance() as any;
       instance.onToggleSwitch({
         currentTarget: {
-          value: 'exchange_application'
-        }
+          value: 'exchange_application',
+        },
       });
 
       wrapper.update();
@@ -122,8 +122,8 @@ describe('forms/sections/ApplicationSelector', () => {
         const instance = wrapper.children().instance() as any;
         instance.onToggleSwitch({
           currentTarget: {
-            value: 'new_application'
-          }
+            value: 'new_application',
+          },
         });
 
         expect(wrapper.find('.vene-alert').exists()).toEqual(false);

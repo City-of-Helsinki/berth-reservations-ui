@@ -15,10 +15,6 @@ describe('LabelValuePair', () => {
   test('should pass the label to FormattedMessage', () => {
     const label = 'Custom label';
 
-    expect(
-      getWrapper({ label })
-        .find(FormattedMessage)
-        .prop('id')
-    ).toBe(label);
+    expect(getWrapper({ label }).find(FormattedMessage).prop('id')).toBe(label);
   });
 });

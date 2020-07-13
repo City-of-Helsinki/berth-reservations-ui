@@ -37,11 +37,11 @@ type Props = {
   berths: BerthsType;
   boatTypes?: BoatTypes;
   steps: StepType[];
-  services: Array<{
+  services: {
     label: string;
     value: BerthsServices;
     icon: IconNames;
-  }>;
+  }[];
   berthLimit: number;
 } & InjectedIntlProps;
 
@@ -80,7 +80,7 @@ class BerthPage extends Component<Props> {
 
   toggleBerthSelect = (selectedBerth: BerthType) => {
     const { selectedBerthsIds, selectBerth, deselectBerth } = this.props;
-    if (selectedBerthsIds.find(selectedId => selectedId === selectedBerth.id)) {
+    if (selectedBerthsIds.find((selectedId) => selectedId === selectedBerth.id)) {
       deselectBerth(selectedBerth.id);
     } else {
       selectBerth(selectedBerth.id);
@@ -100,20 +100,20 @@ class BerthPage extends Component<Props> {
       steps,
       services,
       berthLimit,
-      intl
+      intl,
     } = this.props;
     const filter = getBerthFilterByValues(initialValues, selectedServices);
     const filtered = berths.filter(filter);
     const filteredNot = berths.filterNot(filter);
     const invalidSelection = !berths
-      .filter(selectedBerth =>
-        selectedBerthsIds.find(selectedId => selectedId === selectedBerth.id)
+      .filter((selectedBerth) =>
+        selectedBerthsIds.find((selectedId) => selectedId === selectedBerth.id)
       )
       .every(filter);
 
-    const renderHarborCard: (
-      isExcluded: boolean
-    ) => (berth: BerthType) => React.ReactNode = isExcluded => berth => {
+    const renderHarborCard: (isExcluded: boolean) => (berth: BerthType) => React.ReactNode = (
+      isExcluded
+    ) => (berth) => {
       return (
         <BerthCard
           key={berth.id}
@@ -136,8 +136,8 @@ class BerthPage extends Component<Props> {
             { id: `hero.berth.paragraph.first` },
             {
               id: `hero.berth.paragraph.second`,
-              values: { url: getHeroContentLink(intl.locale) }
-            }
+              values: { url: getHeroContentLink(intl.locale) },
+            },
           ]}
         />
         <KoroSection color="fog" top className="vene-berth-filters-section">
@@ -153,7 +153,7 @@ class BerthPage extends Component<Props> {
                   fieldsNotRequired
                   boatTypes={boatTypes}
                 />
-              )
+              ),
             }}
             steps={steps}
             services={{
@@ -161,7 +161,7 @@ class BerthPage extends Component<Props> {
               selectService,
               deselectService,
               label: `form.services.field.berth.services.label`,
-              available: services
+              available: services,
             }}
           />
         </KoroSection>
@@ -174,7 +174,7 @@ class BerthPage extends Component<Props> {
               id={getFormattedMessageId(selectedBerthsIds.size, berthLimit)}
               values={{
                 total: berthLimit,
-                left: berthLimit - selectedBerthsIds.size
+                left: berthLimit - selectedBerthsIds.size,
               }}
             />
           }

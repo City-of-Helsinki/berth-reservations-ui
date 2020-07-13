@@ -11,8 +11,8 @@ interface Props {
   append?: string;
 }
 
-const buildLabelString = (parts: Array<string | undefined>): string => {
-  return parts.filter(value => value !== undefined).join(', ');
+const buildLabelString = (parts: (string | undefined)[]): string => {
+  return parts.filter((value) => value !== undefined).join(', ');
 };
 
 const ScreenReaderLabel: React.FC<Props> = ({ intl, id, prepend, textKey, append }) => {
@@ -21,7 +21,7 @@ const ScreenReaderLabel: React.FC<Props> = ({ intl, id, prepend, textKey, append
       {buildLabelString([
         prepend,
         textKey ? intl.formatMessage({ id: textKey }) : undefined,
-        append
+        append,
       ])}
     </label>
   );

@@ -9,7 +9,7 @@ export default () => (
       <Row>
         <Col md="12">
           <FormattedMessage id="legend.thankyou.title">
-            {text => <h3 className="vene-thankyou-legend__title">{text}</h3>}
+            {(text) => <h3 className="vene-thankyou-legend__title">{text}</h3>}
           </FormattedMessage>
           <FormattedMessage tagName="p" id="legend.thankyou.legend.regards" />
           <FormattedHTMLMessage tagName="p" id="legend.thankyou.legend.contact_information" />

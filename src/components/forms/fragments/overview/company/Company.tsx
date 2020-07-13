@@ -24,7 +24,7 @@ const Company = ({
   phoneNumber,
   address,
   zipCode,
-  municipality
+  municipality,
 }: Props) => (
   <>
     <Row className="vene-company__contact-section">

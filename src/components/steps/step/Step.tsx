@@ -20,7 +20,7 @@ interface Props extends StepType {
 export default class Step extends React.Component<Props> {
   static defaultProps = {
     completed: false,
-    current: false
+    current: false,
   };
 
   render() {
@@ -29,7 +29,7 @@ export default class Step extends React.Component<Props> {
       <>
         <div className={classNames('vene-step__status', { completed, current })} />
         <FormattedMessage id={label}>
-          {txt => <div className="vene-step__label">{txt}</div>}
+          {(txt) => <div className="vene-step__label">{txt}</div>}
         </FormattedMessage>
       </>
     );

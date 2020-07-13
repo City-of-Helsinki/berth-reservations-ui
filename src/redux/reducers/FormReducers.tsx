@@ -24,7 +24,7 @@ const berthValues: BerthFormValues = {
   acceptLibraryNews: false,
   acceptOtherCultureNews: false,
   informationAccuracyConfirmed: false,
-  choices: []
+  choices: [],
 };
 
 const winterValues: WinterFormValues = {
@@ -46,12 +46,12 @@ const winterValues: WinterFormValues = {
   informationAccuracyConfirmed: false,
   storageMethod: WinterStorageMethod.ON_TRESTLES,
   chosenAreas: [],
-  boatStoredOnTrailer: false
+  boatStoredOnTrailer: false,
 };
 
 const defaultState: FormsFactory = Record({
   berthValues,
-  winterValues
+  winterValues,
 });
 
 export default (state: FormsState = defaultState(), action: Action): FormsState => {
