@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FormattedHTMLMessage, FormattedMessage } from 'react-intl';
 import { Button } from 'reactstrap';
 
@@ -20,7 +20,9 @@ const NoticeTemplate = ({
   secondMessageKey,
   success = false,
 }: NoticePageProps) => {
-  window.scrollTo(0, 0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Layout>
