@@ -56,18 +56,23 @@ const Footer = ({ intl: { formatMessage } }: Props) => (
       </Row>
 
       <Row>
-        <div className="vene-footer__link-wrapper">
-          <a href={formatMessage({ id: 'site.footer.url.feedback' })}>
-            <FormattedMessage tagName="li" id="site.footer.send_feedback" />
-          </a>
-          <a href={formatMessage({ id: 'site.footer.url.berthing' })}>
-            <FormattedMessage tagName="li" id="site.footer.contact_us" />
-          </a>
-          <FormattedMessage
-            tagName="li"
-            id="site.footer.copyright"
-            values={{ year: new Date().getFullYear() }}
-          />
+        <div className="vene-footer__bottom-link-wrapper">
+          <span className="vene-footer__bottom-link">
+            <a href={formatMessage({ id: 'site.footer.url.feedback' })}>
+              <FormattedMessage id="site.footer.send_feedback" />
+            </a>
+          </span>
+          <span className="vene-footer__bottom-link">
+            <a href={formatMessage({ id: 'site.footer.url.berthing' })}>
+              <FormattedMessage id="site.footer.contact_us" />
+            </a>
+          </span>
+          <span className="vene-footer__bottom-link">
+            <FormattedMessage
+              id="site.footer.copyright"
+              values={{ year: new Date().getFullYear() }}
+            />
+          </span>
         </div>
       </Row>
     </Container>
