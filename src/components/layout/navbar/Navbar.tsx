@@ -17,7 +17,7 @@ const Navbar = () => {
             <LocalizedLink className="vene-navbar__main-link" id="main-link" to="/">
               <Icon className="vene-navbar__icon" name="helsinkiLogo" />
               <FormattedMessage id="site.front.title">
-                {txt => <span className="vene-navbar__title">{txt}</span>}
+                {(txt) => <span className="vene-navbar__title">{txt}</span>}
               </FormattedMessage>
             </LocalizedLink>
             <Nav className="ml-auto" navbar>
