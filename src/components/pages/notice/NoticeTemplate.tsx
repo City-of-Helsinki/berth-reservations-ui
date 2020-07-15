@@ -18,7 +18,7 @@ const NoticeTemplate = ({
   titleKey,
   messageKey,
   secondMessageKey,
-  success = false
+  success = false,
 }: NoticePageProps) => {
   window.scrollTo(0, 0);
 
@@ -37,7 +37,7 @@ const NoticeTemplate = ({
         </div>
         <LocalizedLink to="/">
           <FormattedMessage id="site.buttons.to_front_page">
-            {txt => (
+            {(txt) => (
               <Button className="vene-notice-page__front-page-button" outline color="secondary">
                 {txt}
               </Button>
