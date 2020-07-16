@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
 import { StepType } from '../../steps/step/Step';
@@ -12,18 +12,21 @@ interface Props {
   steps: StepType[];
 }
 
-const SelectionPageLegend = ({ steps, legend }: Props) => (
-  <div className="vene-selection-page-legend">
-    <Container>
-      <Row>
-        <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-          <Steps steps={steps} />
-          <FormattedMessage tagName="h3" id={legend.title} />
-          <FormattedMessage tagName="p" id={legend.legend} />
-        </Col>
-      </Row>
-    </Container>
-  </div>
-);
+const SelectionPageLegend = ({ steps, legend }: Props) => {
+  const { t } = useTranslation();
+  return (
+    <div className="vene-selection-page-legend">
+      <Container>
+        <Row>
+          <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
+            <Steps steps={steps} />
+            <h3>{t(legend.title)}</h3>
+            <p>{t(legend.legend)}</p>
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
+};
 
 export default SelectionPageLegend;
