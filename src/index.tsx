@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 
+import './locales/i18n';
 import './assets/styles/main.scss';
 
 import { version } from '../package.json';
