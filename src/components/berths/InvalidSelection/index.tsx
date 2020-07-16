@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 
 import Icon from '../../common/Icon';
 import Popover from '../../common/popover/Popover';
@@ -12,10 +12,12 @@ interface Props {
 }
 
 const InvalidSelection = ({ id, msg }: Props) => {
+  const { t } = useTranslation();
+
   return (
     <Popover
       id={id}
-      body={<FormattedMessage id={msg} />}
+      body={<span>{t(msg)}</span>}
       placement="bottom"
       className="vene-invalid-selection"
     >
