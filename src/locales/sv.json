@@ -631,7 +631,7 @@
     },
     "buttons": {
       "add_to_selected": "Lägg till valda",
-      "to_frontpage": "Till förstasidan",
+      "to_front_page": "Till förstasidan",
       "cancel": "Avbryt",
       "next": "Nästa",
       "remove": "Ta bort",

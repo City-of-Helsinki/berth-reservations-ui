@@ -663,7 +663,7 @@
     },
     "buttons": {
       "add_to_selected": "Lisää valittuihin",
-      "to_frontpage": "Etusivulle",
+      "to_front_page": "Etusivulle",
       "cancel": "Peruuta",
       "next": "Seuraava",
       "remove": "Poista",

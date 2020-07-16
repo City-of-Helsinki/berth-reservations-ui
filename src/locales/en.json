@@ -631,7 +631,7 @@
     },
     "buttons": {
       "add_to_selected": "Add to selected",
-      "to_frontpage": "To front page",
+      "to_front_page": "To front page",
       "cancel": "Cancel",
       "next": "Next",
       "remove": "Remove",
