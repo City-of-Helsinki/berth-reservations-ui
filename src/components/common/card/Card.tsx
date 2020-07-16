@@ -1,7 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, Card as RSCard, CardBody, CardTitle } from 'reactstrap';
-
-import { InjectedIntlProps, injectIntl } from 'react-intl';
 
 import './card.scss';
 
@@ -10,20 +9,16 @@ type Props = {
   btnLabel: string;
   onClick: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   children: React.ReactNode;
-} & InjectedIntlProps;
+};
 
-const Card = ({
-  title,
-  onClick,
-  btnLabel,
-  children,
-  intl: { formatMessage, formatHTMLMessage },
-}: Props) => {
+const Card = ({ title, onClick, btnLabel, children }: Props) => {
+  const { t } = useTranslation();
+
   return (
     <RSCard className="vene-card">
       <CardBody className="vene-card__body">
         <CardTitle className="vene-card__title" tag="h3">
-          {formatMessage({ id: title })}
+          {t(title)}
         </CardTitle>
         <div className="vene-card__description">{children}</div>
         <Button
@@ -33,11 +28,11 @@ const Card = ({
           color="primary"
           outline
         >
-          {formatHTMLMessage({ id: btnLabel })}
+          {t(btnLabel)}
         </Button>
       </CardBody>
     </RSCard>
   );
 };
 
-export default injectIntl(Card);
+export default Card;

@@ -1,26 +1,21 @@
 import classNames from 'classnames';
 import React, { FC } from 'react';
-import { InjectedIntlProps, injectIntl } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Alert as BTAlert, AlertProps as BTAlertProps } from 'reactstrap';
 import './Alert.scss';
 
-export type AlertProps = BTAlertProps &
-  InjectedIntlProps & {
-    messageId: string;
-  };
+export type AlertProps = BTAlertProps & {
+  messageId: string;
+};
 
-const Alert: FC<AlertProps> = ({
-  color,
-  className,
-  intl: { formatMessage },
-  messageId,
-  ...rest
-}) => {
+const Alert: FC<AlertProps> = ({ color, className, messageId, ...rest }) => {
+  const { t } = useTranslation();
+
   return (
     <BTAlert className={classNames('vene-alert', className)} color={color} {...rest}>
-      {formatMessage({ id: messageId })}
+      {t(messageId)}
     </BTAlert>
   );
 };
 
-export default injectIntl(Alert);
+export default Alert;
