@@ -1,14 +1,20 @@
+import { mount } from 'enzyme';
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import { Dropdown } from 'reactstrap';
-
-import { mountWithIntl } from '../../../utils/testUtils';
-import LanguageDropdown from './LanguageDropdown';
+import i18n from '../../../locales/i18n';
 
 import { LocaleOpts } from '../../../types/intl';
 
+import LanguageDropdown from './LanguageDropdown';
+
 describe('LanguageDropdown', () => {
-  const getWrapper = (locale?: LocaleOpts) =>
-    mountWithIntl(<LanguageDropdown />, undefined, locale);
+  const getWrapper = (locale: LocaleOpts = LocaleOpts.EN) => {
+    act(() => {
+      i18n.changeLanguage(locale);
+    });
+    return mount(<LanguageDropdown />);
+  };
 
   test('should render Dropdown component', () => {
     const wrapper = getWrapper();

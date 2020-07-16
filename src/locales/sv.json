@@ -648,7 +648,7 @@
       "boating_info": "Information om båtliv",
       "browse_berths": "Bläddra bland båthamnar",
       "contact_us": "Ta kontakt",
-      "copyright": "{ year } Helsingfors stad",
+      "copyright": "{{year}} Helsingfors stad",
       "news": "Aktuellt",
       "send_feedback": "Ge respons",
       "terms_of_service": "Registerbeskrivning",
