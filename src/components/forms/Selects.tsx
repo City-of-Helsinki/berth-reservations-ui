@@ -1,5 +1,5 @@
 import React from 'react';
-import { injectIntl } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Select } from './Fields';
 
 import { BoatTypes } from '../../types/boatTypes';
@@ -38,21 +38,25 @@ export const BoatType = ({ boatTypes, required, className }: BoatTypeProps) => (
 );
 
 const propulsions = ['gasoline', 'diesel', 'fuel_oil', 'electricity', 'natural_gas', 'other'];
-export const Propulsion = injectIntl(({ intl: { formatMessage } }) => (
-  <Select
-    id="boatPropulsion"
-    name={`boatPropulsion`}
-    label="form.big_ship.field.propulsion.label"
-    required
-  >
-    <option value="">-</option>
-    {propulsions.map((option) => (
-      <option key={option} value={option}>
-        {formatMessage({ id: `form.big_ship.field.propulsion.${option}` })}
-      </option>
-    ))}
-  </Select>
-));
+export const Propulsion = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Select
+      id="boatPropulsion"
+      name={`boatPropulsion`}
+      label="form.big_ship.field.propulsion.label"
+      required
+    >
+      <option value="">-</option>
+      {propulsions.map((option) => (
+        <option key={option} value={option}>
+          {t(`form.big_ship.field.propulsion.${option}`)}
+        </option>
+      ))}
+    </Select>
+  );
+};
 
 const hullMaterials = [
   'aluminium',
@@ -65,18 +69,22 @@ const hullMaterials = [
   'other',
 ];
 
-export const HullMaterial = injectIntl(({ intl: { formatMessage } }) => (
-  <Select
-    id="boatHullMaterial"
-    name={`boatHullMaterial`}
-    label="form.big_ship.field.hull_material.label"
-    required
-  >
-    <option value="">-</option>
-    {hullMaterials.map((option) => (
-      <option key={option} value={option}>
-        {formatMessage({ id: `form.big_ship.field.hull_material.${option}` })}
-      </option>
-    ))}
-  </Select>
-));
+export const HullMaterial = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Select
+      id="boatHullMaterial"
+      name={`boatHullMaterial`}
+      label="form.big_ship.field.hull_material.label"
+      required
+    >
+      <option value="">-</option>
+      {hullMaterials.map((option) => (
+        <option key={option} value={option}>
+          {t(`form.big_ship.field.hull_material.${option}`)}
+        </option>
+      ))}
+    </Select>
+  );
+};

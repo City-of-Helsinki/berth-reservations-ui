@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Label } from 'reactstrap';
 import './Label.scss';
 
@@ -10,11 +10,14 @@ interface Props {
   text: string;
 }
 
-export default ({ htmlFor, required, text }: Props) => (
-  <Label
-    htmlFor={htmlFor}
-    className={classNames('vene-formfield__label', { 'is-required': required })}
-  >
-    <FormattedMessage id={text} />
-  </Label>
-);
+export default ({ htmlFor, required, text }: Props) => {
+  const { t } = useTranslation();
+  return (
+    <Label
+      htmlFor={htmlFor}
+      className={classNames('vene-formfield__label', { 'is-required': required })}
+    >
+      <span>{t(text)}</span>
+    </Label>
+  );
+};

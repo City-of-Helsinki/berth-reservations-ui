@@ -1,21 +1,16 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
-import { FormattedHTMLMessage } from 'react-intl';
 import { Checkbox } from '../Fields';
 
 interface Props {
-  label: string;
+  label: JSX.Element;
 }
 
 const Agreement = ({ label }: Props) => (
   <Row>
     <Col sm={10}>
-      <Checkbox
-        name={`informationAccuracyConfirmed`}
-        label={<FormattedHTMLMessage id={label} />}
-        required
-      />
+      <Checkbox name={`informationAccuracyConfirmed`} label={label} required />
     </Col>
   </Row>
 );

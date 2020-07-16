@@ -1,5 +1,5 @@
 import React, { SFC, useEffect, useState } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { Col, Row } from 'reactstrap';
 import { filterByStorageArea as filterByStorageAreaAction } from '../../../redux/actions/WinterAreaActions';
@@ -8,6 +8,7 @@ import Input from '../../common/Input';
 import './storageAreas.scss';
 
 const StorageAreas: SFC<{ filterByStorageArea: Function }> = ({ filterByStorageArea }) => {
+  const { t } = useTranslation();
   const [appointed, onAppointedCheck] = useState(false);
   const [free, onFreeCheck] = useState(false);
 
@@ -27,7 +28,7 @@ const StorageAreas: SFC<{ filterByStorageArea: Function }> = ({ filterByStorageA
   return (
     <div className="vene-storage-areas">
       <div className="vene-storage-areas__title">
-        <FormattedMessage id="page.winter_storage.storage_areas.type.title" tagName="p" />
+        <p>{t('page.winter_storage.storage_areas.type.title')}</p>
       </div>
       <Row>
         <Col sm={6}>
@@ -37,7 +38,7 @@ const StorageAreas: SFC<{ filterByStorageArea: Function }> = ({ filterByStorageA
             label="page.winter_storage.storage_areas.appointed_spaces.label"
             onChange={(e: { target: any }) => onAppointedCheck((e.target as any).checked)}
           />
-          <FormattedMessage id="page.winter_storage.storage_areas.appointed_spaces.text" />
+          <span>{t('page.winter_storage.storage_areas.appointed_spaces.text')}</span>
         </Col>
 
         <Col sm={6}>
@@ -47,7 +48,7 @@ const StorageAreas: SFC<{ filterByStorageArea: Function }> = ({ filterByStorageA
             label="page.winter_storage.storage_areas.free_spaces.label"
             onChange={(e: { target: any }) => onFreeCheck((e.target as any).checked)}
           />
-          <FormattedMessage id="page.winter_storage.storage_areas.free_spaces.text" />
+          <span>{t('page.winter_storage.storage_areas.free_spaces.text')}</span>
         </Col>
       </Row>
     </div>

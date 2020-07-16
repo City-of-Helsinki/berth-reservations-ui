@@ -1,8 +1,9 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 
-const AccessibilityFragment = () => (
-  <FormattedMessage id="form.accessibility.field.accessibility.label" />
-);
+const AccessibilityFragment = () => {
+  const { t } = useTranslation();
+  return <span>{t('form.accessibility.field.accessibility.label')}</span>;
+};
 
 export default AccessibilityFragment;
