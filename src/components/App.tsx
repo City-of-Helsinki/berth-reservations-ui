@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
-import { IntlProvider } from 'react-intl';
 import i18n from '../locales/i18n';
 import { Route, RouteComponentProps, Switch } from 'react-router';
-import messages from '../config/translations';
 
 import BerthPage from './pages/berthPage/BerthPageContainer';
 import BerthFormPage from './pages/formPage/BerthFormPageContainer';
@@ -39,45 +37,30 @@ const App = ({
   });
 
   return (
-    <IntlProvider
-      locale={locale}
-      key={locale}
-      messages={messages[locale]}
-      defaultLocale={LocaleOpts.FI}
-    >
-      <Switch>
-        <Route exact path={`/${localeParam}`} component={FrontPage} />
-        <Route exact path={`/${localeParam}/${berthParam}`} component={BerthPage} />
-        <Route
-          exact
-          path={`/${localeParam}/${berthParam}/selected`}
-          component={SelectedBerthPage}
-        />
-        <Route exact path={`/${localeParam}/${berthParam}/form`} component={BerthFormPage} />
-        <Route exact path={`/${localeParam}/${berthParam}/form/:tab`} component={BerthFormPage} />
-        <Route exact path={`/${localeParam}/${winterParam}`} component={WinterStoragePage} />
-        <Route
-          exact
-          path={`/${localeParam}/${winterParam}/selected`}
-          component={SelectedAreaPage}
-        />
-        <Route exact path={`/${localeParam}/${winterParam}/form`} component={WinterFormPage} />
-        <Route exact path={`/${localeParam}/${winterParam}/form/:tab`} component={WinterFormPage} />
+    <Switch>
+      <Route exact path={`/${localeParam}`} component={FrontPage} />
+      <Route exact path={`/${localeParam}/${berthParam}`} component={BerthPage} />
+      <Route exact path={`/${localeParam}/${berthParam}/selected`} component={SelectedBerthPage} />
+      <Route exact path={`/${localeParam}/${berthParam}/form`} component={BerthFormPage} />
+      <Route exact path={`/${localeParam}/${berthParam}/form/:tab`} component={BerthFormPage} />
+      <Route exact path={`/${localeParam}/${winterParam}`} component={WinterStoragePage} />
+      <Route exact path={`/${localeParam}/${winterParam}/selected`} component={SelectedAreaPage} />
+      <Route exact path={`/${localeParam}/${winterParam}/form`} component={WinterFormPage} />
+      <Route exact path={`/${localeParam}/${winterParam}/form/:tab`} component={WinterFormPage} />
 
-        <Route exact path={`/${localeParam}/thank-you`} component={ApplicationThankYouPage} />
-        <Route exact path={`/${localeParam}/notification-sent`} component={NotificationSentPage} />
-        <Route exact path={`/${localeParam}/payment-received`} component={PaymentReceivedPage} />
-        <Route exact path={`/${localeParam}/already-paid`} component={AlreadyPaidPage} />
-        <Route
-          exact
-          path={`/${localeParam}/customer-information-error`}
-          component={CustomerInformationErrorPage}
-        />
-        <Route exact path={`/${localeParam}/general-error`} component={GeneralErrorPage} />
-        <Route exact path={`/${localeParam}/past-due-date`} component={PastDueDatePage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </IntlProvider>
+      <Route exact path={`/${localeParam}/thank-you`} component={ApplicationThankYouPage} />
+      <Route exact path={`/${localeParam}/notification-sent`} component={NotificationSentPage} />
+      <Route exact path={`/${localeParam}/payment-received`} component={PaymentReceivedPage} />
+      <Route exact path={`/${localeParam}/already-paid`} component={AlreadyPaidPage} />
+      <Route
+        exact
+        path={`/${localeParam}/customer-information-error`}
+        component={CustomerInformationErrorPage}
+      />
+      <Route exact path={`/${localeParam}/general-error`} component={GeneralErrorPage} />
+      <Route exact path={`/${localeParam}/past-due-date`} component={PastDueDatePage} />
+      <Route component={NotFoundPage} />
+    </Switch>
   );
 };
 
