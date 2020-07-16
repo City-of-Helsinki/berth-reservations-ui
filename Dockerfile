@@ -1,18 +1,72 @@
-# Pull node image with locked node version
-FROM node:12.18.0
+# ===============================================
+FROM helsinkitest/node:12-slim as appbase
+# ===============================================
+# Offical image has npm log verbosity as info. More info - https://github.com/nodejs/docker-node#verbosity
+ENV NPM_CONFIG_LOGLEVEL warn
 
-# Make guest app dir
-RUN mkdir -p /usr/src/app
+# set our node environment, either development or production
+# defaults to production, compose overrides this to development on build and run
+ARG NODE_ENV=production
+ENV NODE_ENV $NODE_ENV
 
-# Set workdir
-WORKDIR /usr/src/app
+# Global npm deps in a non-root user directory
+ENV NPM_CONFIG_PREFIX=/app/.npm-global
+ENV PATH=$PATH:/app/.npm-global/bin
 
-COPY package.json package.json
+# Yarn
+ENV YARN_VERSION 1.19.1
+RUN yarn policies set-version $YARN_VERSION
 
-COPY yarn.lock yarn.lock
+# Use non-root user
+USER appuser
 
-COPY .env.example .env.development.local
+# Copy package.json and package-lock.json/yarn.lock files
+COPY package*.json *yarn* ./
 
-RUN yarn install
+# Install npm depepndencies
+ENV PATH /app/node_modules/.bin:$PATH
 
-CMD ["yarn", "start"]
+USER root
+RUN apt-install.sh build-essential
+
+# Install the actual app dependencies
+USER appuser
+RUN yarn install --silent && yarn cache clean --force
+
+USER root
+RUN apt-cleanup.sh build-essential
+
+# =============================
+FROM appbase as development
+# =============================
+
+# Set NODE_ENV to development in the development container
+ARG NODE_ENV=development
+ENV NODE_ENV $NODE_ENV
+
+# copy in our source code last, as it changes the most
+COPY --chown=appuser:appuser . .
+COPY .env.example .env
+
+CMD ["react-scripts", "start"]
+
+# ===================================
+FROM appbase as staticbuilder
+# ===================================
+
+ARG REACT_APP_API_URI
+ARG REACT_APP_ENVIRONMENT
+
+COPY . /app
+RUN yarn build
+
+# =============================
+FROM nginx:1.17 as production
+# =============================
+
+# Nginx runs with user "nginx" by default
+COPY --from=staticbuilder --chown=nginx:nginx /app/build /usr/share/nginx/html
+
+COPY .prod/nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80

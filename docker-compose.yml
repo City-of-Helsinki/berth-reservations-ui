@@ -1,16 +1,14 @@
-version: '3'
+version: '3.7'
 
 services:
-  web:
-    container_name: berth-frontend
+  app:
+    container_name: berth-reservations-ui
     build:
       context: .
+      target: ${DOCKER_TARGET:-development}
       dockerfile: Dockerfile
     volumes:
-      - '.:/usr/src/app'
-      - '/usr/src/app/node_modules'
+      - .:/app
+      - /app/node_modules
     ports:
-      - '3000:3000'
-      - '9000:9000'
-    environment:
-      - NODE_ENV='development'
+      - 3000:3000
