@@ -14,13 +14,13 @@
 
 ### Setup
 
-After cloning this repository, create a new `.env.local` file from the provided `.env.example` file:
+After cloning this repository, create a new `.env.development.local` file from the provided `.env` file:
 
 ```
-$ cp .env.example .env.development.local
+$ cp .env .env.development.local
 ```
 
-This default example configuration uses the test environment as backend.
+The default configuration uses the test environment as backend.
 
 ## Development
 

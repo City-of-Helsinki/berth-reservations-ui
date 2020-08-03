@@ -46,7 +46,6 @@ ENV NODE_ENV $NODE_ENV
 
 # copy in our source code last, as it changes the most
 COPY --chown=appuser:appuser . .
-COPY .env.example .env
 
 CMD ["react-scripts", "start"]
 
