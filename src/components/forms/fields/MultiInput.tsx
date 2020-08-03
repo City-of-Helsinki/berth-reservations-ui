@@ -23,6 +23,7 @@ const MultiInput = (type: CustomInputType) => ({
   text,
   validate,
   placeholder,
+  tReady, // Excluded from 'rest'
   ...rest
 }: Props) => {
   return (

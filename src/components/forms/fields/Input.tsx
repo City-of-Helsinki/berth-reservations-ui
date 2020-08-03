@@ -18,6 +18,7 @@ const TextInput = (type: InputProps['type']) => ({
   text,
   validate,
   placeholder,
+  tReady, // Excluded from 'rest'
   ...rest
 }: Props) => {
   return (

@@ -36,6 +36,7 @@ const InputGroup = (
   placeholder,
   parse,
   format,
+  tReady, // Excluded from 'rest'
   ...rest
 }: Props) => {
   return (

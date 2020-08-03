@@ -23,6 +23,7 @@ const CustomInput = (type: CustomInputType, inlineLabel: boolean) => ({
   text,
   validate,
   placeholder,
+  tReady, // Excluded from 'rest'
   ...rest
 }: Props) => {
   return (
