@@ -7,7 +7,7 @@ import InputGroup from './fields/InputGroup';
 import MultiInput from './fields/MultiInput';
 
 const mapNameAsId = withProps(({ id, name }: any) => ({
-  id: id || `form.${name}`
+  id: id || `form.${name}`,
 }));
 
 export const Text = mapNameAsId(injectIntl(Input('text')));
@@ -18,8 +18,8 @@ export const Number = mapNameAsId(
   injectIntl(
     InputGroup(
       'text',
-      locale => value => value.replace(',', '.'),
-      locale => value => (locale !== 'en' ? value.replace('.', ',') : value)
+      (locale) => (value) => value.replace(',', '.'),
+      (locale) => (value) => (locale !== 'en' ? value.replace('.', ',') : value)
     )
   )
 );

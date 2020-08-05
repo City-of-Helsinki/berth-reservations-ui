@@ -5,7 +5,7 @@ import { Col, Row } from 'reactstrap';
 import validator, {
   mustBeLessThan,
   mustBePositiveNumber,
-  mustNotExceedTwoDecimals
+  mustNotExceedTwoDecimals,
 } from '../../../utils/formValidation';
 import { Checkbox, Number } from '../Fields';
 import { BoatType } from '../Selects';
@@ -26,7 +26,7 @@ const UnRegisteredBoatDetailsFragment = ({
   boatTypes,
   hideTitle,
   showBoatStoredOnTrailer,
-  boatStoredOnTrailer
+  boatStoredOnTrailer,
 }: Props) => {
   return (
     <div className="vene-unregistered-boat-detail">

@@ -19,7 +19,7 @@ const CardsList = ({ includedHeader, included, excludedHeader, excluded }: Cards
       <Row>
         <Col xs={12}>
           <FormattedMessage id={includedHeader} values={{ count: included.length }}>
-            {txt => <h3 className="vene-cardsList__heading">{txt}</h3>}
+            {(txt) => <h3 className="vene-cardsList__heading">{txt}</h3>}
           </FormattedMessage>
         </Col>
       </Row>
@@ -29,7 +29,7 @@ const CardsList = ({ includedHeader, included, excludedHeader, excluded }: Cards
       <Row>
         <Col xs={12}>
           <FormattedMessage tagName="h3" id={excludedHeader}>
-            {txt => <h3 className="vene-cardsList__heading">{txt}</h3>}
+            {(txt) => <h3 className="vene-cardsList__heading">{txt}</h3>}
           </FormattedMessage>
         </Col>
       </Row>

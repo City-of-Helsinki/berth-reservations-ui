@@ -20,10 +20,10 @@ const ExchangeApplication: FC<ExchangeApplicationProps> = ({ berths, reasons }) 
       <Row>
         <Col>
           <FormattedMessage id="page.berth.exchange_application.current_berth.title">
-            {txt => <h3 className="vene-exchange-application__heading">{txt}</h3>}
+            {(txt) => <h3 className="vene-exchange-application__heading">{txt}</h3>}
           </FormattedMessage>
           <FormattedMessage id="page.berth.exchange_application.current_berth.info_text">
-            {txt => <p className="vene-exchange-application__description">{txt}</p>}
+            {(txt) => <p className="vene-exchange-application__description">{txt}</p>}
           </FormattedMessage>
         </Col>
       </Row>
@@ -37,7 +37,7 @@ const ExchangeApplication: FC<ExchangeApplicationProps> = ({ berths, reasons }) 
           >
             <option />
             {berths.size &&
-              berths.map(berth => (
+              berths.map((berth) => (
                 <option key={berth.id} value={berth.id}>
                   {berth.name}
                 </option>
@@ -68,10 +68,10 @@ const ExchangeApplication: FC<ExchangeApplicationProps> = ({ berths, reasons }) 
       <Row>
         <Col>
           <FormattedMessage id="page.berth.exchange_application.reason.title">
-            {txt => <h3 className="vene-exchange-application__heading">{txt}</h3>}
+            {(txt) => <h3 className="vene-exchange-application__heading">{txt}</h3>}
           </FormattedMessage>
           <FormattedMessage id="page.berth.exchange_application.reason.info_text">
-            {txt => <p className="vene-exchange-application__description">{txt}</p>}
+            {(txt) => <p className="vene-exchange-application__description">{txt}</p>}
           </FormattedMessage>
         </Col>
       </Row>
@@ -80,10 +80,10 @@ const ExchangeApplication: FC<ExchangeApplicationProps> = ({ berths, reasons }) 
         <Col>
           <Select name="reason">
             <FormattedMessage id="page.berth.exchange_application.reason.default">
-              {txt => <option value="">{txt}</option>}
+              {(txt) => <option value="">{txt}</option>}
             </FormattedMessage>
             {reasons &&
-              reasons.map(reason => (
+              reasons.map((reason) => (
                 <option key={reason.id} value={reason.id}>
                   {reason.title}
                 </option>

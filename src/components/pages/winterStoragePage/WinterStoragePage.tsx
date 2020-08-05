@@ -37,11 +37,11 @@ type Props = {
   areas: WinterAreas;
   boatTypes?: BoatTypes;
   steps: StepType[];
-  services: Array<{
+  services: {
     label: string;
     value: WinterServices;
     icon: IconNames;
-  }>;
+  }[];
   areasLimit: number;
   storageAreaFilter?: StorageAreaFilter;
 } & InjectedIntlProps;
@@ -81,7 +81,7 @@ class WinterStoragePage extends Component<Props> {
 
   toggleBerthSelect = (winterArea: WinterStorageType) => {
     const { selectedAreasIds, selectArea, deselectArea } = this.props;
-    if (selectedAreasIds.find(selectedId => selectedId === winterArea.id)) {
+    if (selectedAreasIds.find((selectedId) => selectedId === winterArea.id)) {
       deselectArea(winterArea.id);
     } else {
       selectArea(winterArea.id);
@@ -102,7 +102,7 @@ class WinterStoragePage extends Component<Props> {
       services,
       areasLimit,
       storageAreaFilter,
-      intl
+      intl,
     } = this.props;
     const filter = getWinterStorageFilterByValues(
       initialValues,
@@ -112,12 +112,12 @@ class WinterStoragePage extends Component<Props> {
     const filtered = areas.filter(filter);
     const filteredNot = areas.filterNot(filter);
     const invalidSelection = !areas
-      .filter(area => selectedAreasIds.find(selectedId => selectedId === area.id))
+      .filter((area) => selectedAreasIds.find((selectedId) => selectedId === area.id))
       .every(filter);
 
     const renderAreaCard: (
       isExcluded: boolean
-    ) => (selected: WinterStorageType) => React.ReactNode = isExcluded => area => {
+    ) => (selected: WinterStorageType) => React.ReactNode = (isExcluded) => (area) => {
       return (
         <WinterStorageCard
           key={area.id}
@@ -140,8 +140,8 @@ class WinterStoragePage extends Component<Props> {
             { id: `hero.winter.paragraph.first` },
             {
               id: `hero.winter.paragraph.second`,
-              values: { url: getHeroContentLink(intl.locale) }
-            }
+              values: { url: getHeroContentLink(intl.locale) },
+            },
           ]}
         >
           <WinterStorageNotice />
@@ -160,7 +160,7 @@ class WinterStoragePage extends Component<Props> {
                   fieldsNotRequired
                   boatTypes={boatTypes}
                 />
-              )
+              ),
             }}
             steps={steps}
             services={{
@@ -168,7 +168,7 @@ class WinterStoragePage extends Component<Props> {
               selectService,
               deselectService,
               label: `form.services.field.winter.services.label`,
-              available: services
+              available: services,
             }}
           />
         </KoroSection>
@@ -181,7 +181,7 @@ class WinterStoragePage extends Component<Props> {
               id={getFormattedMessageId(selectedAreasIds.size, areasLimit)}
               values={{
                 total: areasLimit,
-                left: areasLimit - selectedAreasIds.size
+                left: areasLimit - selectedAreasIds.size,
               }}
             />
           }

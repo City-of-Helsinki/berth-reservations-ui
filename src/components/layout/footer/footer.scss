@@ -6,10 +6,12 @@ $footerIconWidth: 140px;
 .vene-footer {
   color: $hel-white;
   min-height: 10em;
-  padding: 4em 0;
+  padding: 0;
+
   &__vene-link {
     text-align: center;
     margin-bottom: 0.5em;
+
     span {
       font-weight: $font-weight-bold;
       font-size: $font-size-lg;
@@ -19,29 +21,40 @@ $footerIconWidth: 140px;
   &__hel-logo {
     text-align: center;
     margin-bottom: 1em;
+    margin-top: -0.5em;
+
+    .vene-icon {
+      width: $footerIconWidth;
+      fill: $hel-white;
+    }
   }
 
   a {
     color: $hel-white;
   }
+
   ul {
     margin: 0;
     padding: 0;
   }
+
   li {
     list-style-type: none;
     text-align: center;
   }
 
-  &__link-wrapper {
-    margin-top: 3em;
-    display: inline-flex;
-    flex: 1;
-    justify-content: space-evenly;
+  &__bottom-link-wrapper {
+    margin: 3em auto 0 auto;
+    text-align: center;
   }
 
-  .vene-icon {
-    width: $footerIconWidth;
-    fill: $hel-white;
+  &__bottom-link {
+    display: inline-block;
+    padding: 0 1em;
+
+    &:not(:last-child) {
+      line-height: 1em;
+      border-right: 1px solid $hel-white;
+    }
   }
 }

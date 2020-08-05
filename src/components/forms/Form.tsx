@@ -12,7 +12,7 @@ interface Props {
 
 const form = ({ onSubmit, initialValues, children, intl }: Props) => (
   <FinalForm
-    onSubmit={formData => onSubmit(formData)}
+    onSubmit={(formData) => onSubmit(formData)}
     initialValues={{ ...initialValues, language: intl.locale }}
     render={({ handleSubmit, ...renderProps }) => (
       <BootstrapForm noValidate onSubmit={handleSubmit}>

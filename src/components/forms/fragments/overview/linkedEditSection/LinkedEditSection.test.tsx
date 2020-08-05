@@ -16,11 +16,7 @@ describe('LinkedEditSection', () => {
     );
 
   test('should be wrapped by Row component', () => {
-    expect(
-      getWrapper()
-        .first()
-        .is(Row)
-    ).toBe(true);
+    expect(getWrapper().first().is(Row)).toBe(true);
   });
 
   test('should render the children', () => {
@@ -29,20 +25,11 @@ describe('LinkedEditSection', () => {
 
   test('should pass "title" prop as an "id" to FormattedMessage component', () => {
     const title = 'foo bar';
-    expect(
-      getWrapper({ title })
-        .find(FormattedMessage)
-        .first()
-        .prop('id')
-    ).toBe(title);
+    expect(getWrapper({ title }).find(FormattedMessage).first().prop('id')).toBe(title);
   });
 
   test('should pass "link" prop as a "to" to LocalizedLink component', () => {
     const link = 'foo/bar/foo';
-    expect(
-      getWrapper({ link })
-        .find(LocalizedLink)
-        .prop('to')
-    ).toBe(link);
+    expect(getWrapper({ link }).find(LocalizedLink).prop('to')).toBe(link);
   });
 });

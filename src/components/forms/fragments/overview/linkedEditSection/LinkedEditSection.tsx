@@ -21,7 +21,7 @@ const LinkedEditSection = ({ title, link, children }: Props) => {
           <Col>
             <div className="vene-linked-edit-section__header">
               <FormattedMessage id={title}>
-                {txt => <h4 className="vene-linked-edit-section__title">{txt}</h4>}
+                {(txt) => <h4 className="vene-linked-edit-section__title">{txt}</h4>}
               </FormattedMessage>
               <LocalizedLink to={link} className="vene-linked-edit-section__link">
                 <FormattedMessage id="page.overview.info.edit" />

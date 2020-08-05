@@ -2,7 +2,7 @@ import { BerthApplicationInput } from '../__generated__/globalTypes';
 import {
   BoatTypesBerthsQuery_harbors_edges_node,
   BoatTypesBerthsQuery_harbors_edges_node_geometry,
-  BoatTypesBerthsQuery_harbors_edges_node_properties
+  BoatTypesBerthsQuery_harbors_edges_node_properties,
 } from '../utils/__generated__/BoatTypesBerthsQuery';
 
 export type BerthType = Pick<

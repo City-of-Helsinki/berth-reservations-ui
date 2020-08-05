@@ -68,7 +68,7 @@ const BerthCard = ({ isExcluded, berth, selected, disabled, handleSelect }: Bert
           available={berth.lighting}
           iconName="streetLight"
           titleId="page.berths.lighting"
-        />
+        />,
       ]}
     />
   );

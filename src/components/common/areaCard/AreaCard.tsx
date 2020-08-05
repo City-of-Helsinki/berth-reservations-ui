@@ -46,7 +46,7 @@ const AreaCard = ({
   disabled,
   className,
   intl,
-  details
+  details,
 }: AreaCardProps) => {
   const tooltipId = genValidSelector(`availability_${id}`);
 

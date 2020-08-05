@@ -53,7 +53,7 @@ const icons = {
   divided,
   trestle,
   tools,
-  dollyEmpty
+  dollyEmpty,
 };
 
 export type IconNames = keyof typeof icons;

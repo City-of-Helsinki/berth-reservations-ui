@@ -20,7 +20,7 @@ const Person = ({
   phoneNumber,
   address,
   zipCode,
-  municipality
+  municipality,
 }: Props) => (
   <>
     <Row className="vene-person__contact-section">

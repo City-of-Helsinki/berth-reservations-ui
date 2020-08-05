@@ -23,7 +23,7 @@ export const berthValues = {
   acceptLibraryNews: false,
   acceptOtherCultureNews: false,
   informationAccuracyConfirmed: false,
-  choices: []
+  choices: [],
 };
 
 export const winterValues = {
@@ -45,15 +45,15 @@ export const winterValues = {
   informationAccuracyConfirmed: false,
   storageMethod: WinterStorageMethod.ON_TRESTLES,
   chosenAreas: [],
-  boatStoredOnTrailer: false
+  boatStoredOnTrailer: false,
 };
 
 export const createBerthValues = (values: Partial<BerthFormValues>): BerthFormValues => ({
   ...berthValues,
-  ...values
+  ...values,
 });
 
 export const createWinterValues = (values: Partial<BerthFormValues>): WinterFormValues => ({
   ...winterValues,
-  ...values
+  ...values,
 });

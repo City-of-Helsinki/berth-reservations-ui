@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, FieldProps } from 'react-final-form';
+import { Field, FieldRenderProps } from 'react-final-form';
 import { FormattedMessage, InjectedIntlProps } from 'react-intl';
 import {
   FormFeedback,
@@ -8,7 +8,7 @@ import {
   Input,
   InputGroup,
   InputGroupAddon,
-  InputProps
+  InputProps,
 } from 'reactstrap';
 
 import validator, { mustBePresent } from '../../../utils/formValidation';
@@ -16,7 +16,7 @@ import ScreenReaderLabel from './ScreenReaderLabel';
 
 import Label from './Label';
 
-type Props = FieldProps<string, HTMLElement> & InjectedIntlProps;
+type Props = FieldRenderProps<string, HTMLElement> & InjectedIntlProps;
 
 const TextInput = (
   type: InputProps['type'],

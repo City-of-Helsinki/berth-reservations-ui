@@ -18,7 +18,7 @@ const Property = ({ iconName, available, value, unit, titleId }: Props) => {
   return (
     <div
       className={classNames('vene-property', {
-        'vene-property--not-available': !available
+        'vene-property--not-available': !available,
       })}
     >
       {value !== undefined && unit !== undefined && (

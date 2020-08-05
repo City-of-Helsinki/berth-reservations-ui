@@ -32,12 +32,6 @@ $ yarn start
 
 This will start [the application](http://localhost:3000) on port `3000`.
 
-To only start the storybook on port `9001`:
-
-```
-$ yarn storybook
-```
-
 ### Starting dockerized development environment
 
 1. Check if Docker and docker CLI installed, port `3000` and `9000` is free, not occupied by running server.
@@ -54,7 +48,7 @@ $ yarn storybook
 
 ## Testing
 
-End-to-end testing is created with Cypress.io framework. To run tests:
+To run tests:
 
 ```
 $ yarn test

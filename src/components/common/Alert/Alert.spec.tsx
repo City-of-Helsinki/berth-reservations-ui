@@ -10,7 +10,7 @@ describe('components/common/Input', () => {
   } = {
     color: 'danger',
     messageId: 'test.message',
-    className: 'vene-alert'
+    className: 'vene-alert',
   };
 
   const getWrapper = (props?: object) => mountWithIntl(<Alert {...defaultProps} {...props} />);

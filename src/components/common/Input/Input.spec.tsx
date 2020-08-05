@@ -7,7 +7,7 @@ import Input from './Input';
 describe('components/common/Input', () => {
   const defaultProps: CustomInputProps = {
     className: 'vene-input',
-    type: 'checkbox'
+    type: 'checkbox',
   };
 
   const getWrapper = (props?: object) => mountWithIntl(<Input {...defaultProps} {...props} />);

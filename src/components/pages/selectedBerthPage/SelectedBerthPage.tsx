@@ -71,7 +71,7 @@ class SelectedBerthPage extends Component<Props> {
       steps,
       legend,
       validSelection,
-      berths
+      berths,
     } = this.props;
     return (
       <Form
@@ -94,7 +94,7 @@ class SelectedBerthPage extends Component<Props> {
 
                     <FormattedMessage tagName="h3" id="page.berth.selected.title" />
                     <hr />
-                    {Object.values(boatInfo).every(value => !!value) ? (
+                    {Object.values(boatInfo).every((value) => !!value) ? (
                       <Container>
                         <Row>
                           <Col md="5">
@@ -142,12 +142,12 @@ class SelectedBerthPage extends Component<Props> {
                     ) : (
                       <div>
                         {selectedBerths.map((resource, index) => {
-                          const services: Array<[IconNames, boolean]> = [
+                          const services: [IconNames, boolean][] = [
                             ['plug', resource.electricity],
                             ['waterTap', resource.water],
                             ['trash', resource.wasteCollection],
                             ['fence', resource.gate],
-                            ['streetLight', resource.lighting]
+                            ['streetLight', resource.lighting],
                           ];
 
                           return (

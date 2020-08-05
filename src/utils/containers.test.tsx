@@ -24,26 +24,18 @@ describe('containers', () => {
       );
 
     test('should return a component with localePush handler', () => {
-      expect(
-        getWrapper('en')
-          .find(Component)
-          .prop('localePush')
-      ).toBeInstanceOf(Function);
+      expect(getWrapper('en').find(Component).prop('localePush')).toBeInstanceOf(Function);
     });
 
     test("localePush should push to the router's history the provided url prefixed with locale", () => {
-      const props = getWrapper('sv')
-        .find(Component)
-        .props();
+      const props = getWrapper('sv').find(Component).props();
       props.localePush('test');
 
       expect(props.history.location.pathname).toEqual(expect.stringMatching('/sv/test'));
     });
 
     test("localePush should push to the router's history the same provided url if locale params is undefined", () => {
-      const props = getWrapper()
-        .find(Component)
-        .props();
+      const props = getWrapper().find(Component).props();
       props.localePush('test');
 
       expect(props.history.location.pathname).toEqual(expect.stringMatching('/test'));

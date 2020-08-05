@@ -27,7 +27,7 @@ const BerthOverview = ({
   application,
   boatTab,
   boatTypes,
-  steps
+  steps,
 }: Props) => (
   <Container>
     <Row>

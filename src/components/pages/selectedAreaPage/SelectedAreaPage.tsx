@@ -62,7 +62,7 @@ class SelectedAreaPage extends Component<Props> {
       handlePrevious,
       steps,
       legend,
-      validSelection
+      validSelection,
     } = this.props;
     return (
       <Form
@@ -76,7 +76,7 @@ class SelectedAreaPage extends Component<Props> {
                 <Row>
                   <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
                     <FormattedMessage tagName="h3" id="page.winter_storage.selected.title" />
-                    {Object.values(boatInfo).every(value => !!value) ? (
+                    {Object.values(boatInfo).every((value) => !!value) ? (
                       <Container>
                         <Row>
                           <Col md="3">
@@ -128,13 +128,13 @@ class SelectedAreaPage extends Component<Props> {
                     ) : (
                       <div>
                         {selectedAreas.map((resource, index) => {
-                          const services: Array<[IconNames, boolean]> = [
+                          const services: [IconNames, boolean][] = [
                             ['waterTap', resource.water],
                             ['fence', resource.gate],
                             ['plug', resource.electricity],
                             ['dollyEmpty', resource.summerStorageForTrailers],
                             ['trestle', resource.summerStorageForDockingEquipment],
-                            ['tools', resource.repairArea]
+                            ['tools', resource.repairArea],
                           ];
 
                           return (

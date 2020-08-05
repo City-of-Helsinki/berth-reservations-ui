@@ -1,9 +1,8 @@
-import '@babel/polyfill';
 import 'focus-visible';
 import 'react-app-polyfill/ie11';
 
 import * as Sentry from '@sentry/browser';
-import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
 import PiwikReactRouter from 'piwik-react-router';
 import React from 'react';
 import { ApolloProvider } from 'react-apollo';
@@ -25,19 +24,19 @@ const {
   REACT_APP_PIWIK_URL,
   REACT_APP_PIWIK_ID,
   REACT_APP_SENTRY_DSN,
-  REACT_APP_SENTRY_ENVIRONMENT
+  REACT_APP_SENTRY_ENVIRONMENT,
 } = process.env;
 
-const history = createHistory();
+const history = createBrowserHistory();
 
 const piwik = PiwikReactRouter({
   url: REACT_APP_PIWIK_URL,
-  siteId: REACT_APP_PIWIK_ID
+  siteId: REACT_APP_PIWIK_ID,
 });
 
 Sentry.init({
   environment: REACT_APP_SENTRY_ENVIRONMENT,
-  dsn: REACT_APP_SENTRY_DSN
+  dsn: REACT_APP_SENTRY_DSN,
 });
 
 const client = initApolloClient();

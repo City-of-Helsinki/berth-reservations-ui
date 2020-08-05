@@ -23,13 +23,13 @@ const StorageMethod = ({ showTrailerRegNum }: Props) => {
               {
                 name: `storageMethod`,
                 label: 'form.winter_storage_method.field.storage_method.on_trestles',
-                value: WinterStorageMethod.ON_TRESTLES
+                value: WinterStorageMethod.ON_TRESTLES,
               },
               {
                 name: `storageMethod`,
                 label: 'form.winter_storage_method.field.storage_method.on_trailer',
-                value: WinterStorageMethod.ON_TRAILER
-              }
+                value: WinterStorageMethod.ON_TRAILER,
+              },
             ]}
             required
           />

@@ -26,11 +26,11 @@ interface Props {
   };
   steps?: StepType[];
   services?: {
-    available: Array<{
+    available: {
       label: string;
       value: WinterServices;
       icon: IconNames;
-    }>;
+    }[];
     deselectService: Function;
     label: string;
     selectedServices: SelectedWinterServices;
@@ -82,14 +82,14 @@ const WinterStorageLegend = ({ form, legend, steps, services }: Props) => {
                       >
                         <div
                           className={classNames('vene-berths-legend__icon-wrapper', {
-                            selected
+                            selected,
                           })}
                         >
                           <Icon name={service.icon} />
                         </div>
                         <div className="vene-berths-legend__label">
                           <FormattedMessage id={service.label}>
-                            {txt =>
+                            {(txt) =>
                               typeof txt === 'string'
                                 ? txt.toLowerCase() // Firefox doesn't hyphenate words with capital letters. https://helsinkisolutionoffice.atlassian.net/browse/VEN-520
                                 : txt

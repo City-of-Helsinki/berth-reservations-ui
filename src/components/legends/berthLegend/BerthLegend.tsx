@@ -26,11 +26,11 @@ interface Props {
   };
   steps?: StepType[];
   services?: {
-    available: Array<{
+    available: {
       label: string;
       value: BerthsServices;
       icon: IconNames;
-    }>;
+    }[];
     deselectService: Function;
     label: string;
     selectedServices: SelectedServices;
@@ -86,14 +86,14 @@ const BerthsLegend = ({ form, legend, steps, services }: Props) => {
                         <div
                           aria-hidden
                           className={classNames('vene-berths-legend__icon-wrapper', {
-                            selected
+                            selected,
                           })}
                         >
                           <Icon name={service.icon} />
                         </div>
                         <label id={`${service.value}-label`} className="vene-berths-legend__label">
                           <FormattedMessage id={service.label}>
-                            {txt =>
+                            {(txt) =>
                               typeof txt === 'string'
                                 ? txt.toLowerCase() // Firefox doesn't hyphenate words with capital letters. https://helsinkisolutionoffice.atlassian.net/browse/VEN-520
                                 : txt

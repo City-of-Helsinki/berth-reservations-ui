@@ -17,56 +17,56 @@ const IconMatchSelected = new L.Icon({
   iconUrl: HarborMatchSelected,
   iconRetinaUrl: HarborMatchSelected,
   iconSize: new L.Point(25, 25),
-  className: 'map-marker'
+  className: 'map-marker',
 });
 
 const IconMatchUnselected = new L.Icon({
   iconUrl: HarborMatchUnselected,
   iconRetinaUrl: HarborMatchUnselected,
   iconSize: new L.Point(25, 25),
-  className: 'map-marker'
+  className: 'map-marker',
 });
 
 const IconMatchActive = new L.Icon({
   iconUrl: HarborMatchActive,
   iconRetinaUrl: HarborMatchActive,
   iconSize: new L.Point(25, 25),
-  className: 'map-marker'
+  className: 'map-marker',
 });
 
 const IconMatchActiveAndSelected = new L.Icon({
   iconUrl: HarborMatchActiveAndSelected,
   iconRetinaUrl: HarborMatchActiveAndSelected,
   iconSize: new L.Point(25, 25),
-  className: 'map-marker'
+  className: 'map-marker',
 });
 
 const IconUnmatchUnselected = new L.Icon({
   iconUrl: HarborUnmatchUnselected,
   iconRetinaUrl: HarborUnmatchUnselected,
   iconSize: new L.Point(25, 25),
-  className: 'map-marker'
+  className: 'map-marker',
 });
 
 const IconUnmatchSelected = new L.Icon({
   iconUrl: HarborUnmatchSelected,
   iconRetinaUrl: HarborUnmatchSelected,
   iconSize: new L.Point(25, 25),
-  className: 'map-marker'
+  className: 'map-marker',
 });
 
 const IconUnmatchActive = new L.Icon({
   iconUrl: HarborUnmatchActive,
   iconRetinaUrl: HarborUnmatchActive,
   iconSize: new L.Point(25, 25),
-  className: 'map-marker'
+  className: 'map-marker',
 });
 
 const IconUnmatchActiveAndSelected = new L.Icon({
   iconUrl: HarborUnmatchActiveAndSelected,
   iconRetinaUrl: HarborUnmatchActiveAndSelected,
   iconSize: new L.Point(25, 25),
-  className: 'map-marker'
+  className: 'map-marker',
 });
 
 export default (isSelected?: boolean, isPreviewed?: boolean, isFilteredNot?: boolean) => {

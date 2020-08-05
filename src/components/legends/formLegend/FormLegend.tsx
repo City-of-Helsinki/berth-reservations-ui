@@ -5,16 +5,16 @@ import './formLegend.scss';
 const stepLegends = [
   {
     title: 'legend.boat.title',
-    legend: 'legend.boat.legend'
+    legend: 'legend.boat.legend',
   },
   {
     title: 'legend.person.title',
-    legend: 'legend.person.legend'
+    legend: 'legend.person.legend',
   },
   {
     title: 'legend.overview.title',
-    legend: 'legend.overview.legend'
-  }
+    legend: 'legend.overview.legend',
+  },
 ];
 
 interface Props {

@@ -24,7 +24,7 @@ class Wizard extends Component<Props, State> {
         onTrailer && !currentStorageMethod
           ? { ...props.initialValues, storageMethod: WinterStorageMethod.ON_TRAILER }
           : props.initialValues,
-      isSubmitting: false
+      isSubmitting: false,
     };
   }
 
