@@ -1,6 +1,6 @@
 {
   "name": "venepaikka",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "private": true,
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
