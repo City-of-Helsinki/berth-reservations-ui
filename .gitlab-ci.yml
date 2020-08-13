@@ -5,6 +5,8 @@ include:
 
 variables:
   SERVICE_PORT: 80
+  DOCKER_BUILD_ARG_REACT_APP_PIWIK_URL: 'https://analytics.hel.ninja'
+  DOCKER_BUILD_ARG_REACT_APP_PIWIK_ID: '18'
 
 build-review:
   extends: .build
