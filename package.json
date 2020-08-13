@@ -58,6 +58,7 @@
     "redux-persist": "^5.10.0",
     "redux-promise-middleware": "^5.1.1",
     "redux-thunk": "^2.3.0",
+    "redux-devtools-extension": "^2.13.8",
     "typescript": "^3.9.5"
   },
   "scripts": {
@@ -81,7 +82,6 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.9",
     "prettier": "^2.0.5",
-    "redux-devtools-extension": "^2.13.8",
     "tslint": "^6.1.2",
     "tslint-config-airbnb": "^5.11.2",
     "tslint-config-prettier": "^1.18.0",
