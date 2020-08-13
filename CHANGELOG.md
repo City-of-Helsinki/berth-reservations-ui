@@ -8,6 +8,16 @@
 ...
 </details>
 
+# 0.5.2 (July 29, 2020)
+
+**Fixed:**
+
+- Validate empty selections correctly. in ([#292](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/292))
+
+**Changed:**
+
+- Update contact information text on application confirmation page. in ([#292](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/292))
+
 # 0.5.1 (July 10, 2020)
 
 **Fixed:**

@@ -23,7 +23,7 @@ export const BoatType = ({ boatTypes, required, className }: BoatTypeProps) => (
     label="form.registered.field.type.label"
     required={required}
   >
-    <option>-</option>
+    <option value="">-</option>
     {boatTypes &&
       boatTypes.reduce<JSX.Element[]>((acc, type) => {
         if (!type) return acc;
@@ -45,7 +45,7 @@ export const Propulsion = injectIntl(({ intl: { formatMessage } }) => (
     label="form.big_ship.field.propulsion.label"
     required
   >
-    <option>-</option>
+    <option value="">-</option>
     {propulsions.map((option) => (
       <option key={option} value={option}>
         {formatMessage({ id: `form.big_ship.field.propulsion.${option}` })}
@@ -72,7 +72,7 @@ export const HullMaterial = injectIntl(({ intl: { formatMessage } }) => (
     label="form.big_ship.field.hull_material.label"
     required
   >
-    <option>-</option>
+    <option value="">-</option>
     {hullMaterials.map((option) => (
       <option key={option} value={option}>
         {formatMessage({ id: `form.big_ship.field.hull_material.${option}` })}
