@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
 import Icon, { IconNames } from '../../common/Icon';
@@ -39,6 +39,7 @@ interface Props {
 }
 
 const WinterStorageLegend = ({ form, legend, steps, services }: Props) => {
+  const { t } = useTranslation();
   return (
     <div className="vene-berths-legend">
       <Container>
@@ -47,8 +48,8 @@ const WinterStorageLegend = ({ form, legend, steps, services }: Props) => {
             {steps && <Steps steps={steps} />}
             {legend && (
               <div className="vene-berths-legend__header">
-                <FormattedMessage tagName="h3" id={legend.title} />
-                <FormattedMessage tagName="p" id={legend.legend} />
+                <h3>{t(legend.title)}</h3>
+                <p>{t(legend.legend)}</p>
               </div>
             )}
             {form && (
@@ -65,7 +66,7 @@ const WinterStorageLegend = ({ form, legend, steps, services }: Props) => {
             {services && (
               <>
                 <div className="vene-berths-legend__services__header">
-                  <FormattedMessage tagName="span" id={services.label} />
+                  <span>{t(services.label)}</span>
                 </div>
                 <div className="vene-berths-legend__services">
                   {services.available.map((service, index) => {
@@ -88,13 +89,7 @@ const WinterStorageLegend = ({ form, legend, steps, services }: Props) => {
                           <Icon name={service.icon} />
                         </div>
                         <div className="vene-berths-legend__label">
-                          <FormattedMessage id={service.label}>
-                            {(txt) =>
-                              typeof txt === 'string'
-                                ? txt.toLowerCase() // Firefox doesn't hyphenate words with capital letters. https://helsinkisolutionoffice.atlassian.net/browse/VEN-520
-                                : txt
-                            }
-                          </FormattedMessage>
+                          <span>{t(service.label).toLowerCase()}</span>
                         </div>
                       </button>
                     );

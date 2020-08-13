@@ -1,14 +1,22 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import NoticeTemplate from './NoticeTemplate';
 import resetStore from './resetStore';
 
-const PaymentReceivedPage = () => (
-  <NoticeTemplate
-    titleKey="page.payment_received.title"
-    messageKey="page.payment_received.message.paragraph1"
-    secondMessageKey="page.payment_received.message.paragraph2"
-    success
-  />
-);
+const PaymentReceivedPage = () => {
+  const { t } = useTranslation();
+  return (
+    <NoticeTemplate
+      titleText={t('page.payment_received.title')}
+      message={
+        <>
+          <p>{t('page.payment_received.message.paragraph1')}</p>
+          <p>{t('page.payment_received.message.paragraph2')}</p>
+        </>
+      }
+      success
+    />
+  );
+};
 
 export default resetStore(PaymentReceivedPage);

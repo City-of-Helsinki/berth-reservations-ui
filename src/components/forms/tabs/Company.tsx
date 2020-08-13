@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Container } from 'reactstrap';
 
 import CompanyDetails from '../fragments/CompanyDetails';
@@ -9,13 +9,16 @@ import PostalDetails from '../fragments/PostalDetails';
 
 import './Tabs.scss';
 
-export default () => (
-  <Container className="vene-form__styled-container">
-    <FormattedMessage tagName="h3" id="form.company.header.title" />
-    <CompanyDetails />
-    <PostalDetails />
-    <FormattedMessage tagName="h3" id="form.company.header.contact_person" />
-    <FullName />
-    <ContactDetails />
-  </Container>
-);
+export default () => {
+  const { t } = useTranslation();
+  return (
+    <Container className="vene-form__styled-container">
+      <h3>{t('form.company.header.title')}</h3>
+      <CompanyDetails />
+      <PostalDetails />
+      <h3>{t('form.company.header.contact_person')}</h3>
+      <FullName />
+      <ContactDetails />
+    </Container>
+  );
+};

@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router-dom';
 import { Col, Container, Row } from 'reactstrap';
 
@@ -18,6 +18,7 @@ type Props = {
 } & RouteComponentProps;
 
 const FrontPage = ({ localePush }: Props) => {
+  const { t } = useTranslation();
   useLayoutEffect(() => window.scrollTo(0, 0));
 
   return (
@@ -27,7 +28,7 @@ const FrontPage = ({ localePush }: Props) => {
         color="fog"
         top
         title="page.front.description.heading"
-        description={[{ id: 'page.front.description.body' }]}
+        description={<p>{t('page.front.description.body')}</p>}
         centered
       >
         <Container className="vene-front-page">
@@ -38,9 +39,9 @@ const FrontPage = ({ localePush }: Props) => {
                 btnLabel="page.front.card.berths.button_label"
                 title="page.front.card.berths.title"
               >
-                <FormattedMessage tagName="p" id="page.front.card.berths.description" />
+                <p>{t('page.front.card.berths.description')}</p>
                 <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/">
-                  <FormattedMessage tagName="p" id="page.front.card.instructions" />
+                  <p>{t('page.front.card.instructions')}</p>
                 </a>
               </Card>
             </Col>
@@ -50,9 +51,9 @@ const FrontPage = ({ localePush }: Props) => {
                 btnLabel="page.front.card.winter.button_label"
                 title="page.front.card.winter.title"
               >
-                <FormattedMessage tagName="p" id="page.front.card.winter.description" />
+                <p>{t('page.front.card.winter.description')}</p>
                 <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/veneiden-talvisailytys/">
-                  <FormattedMessage tagName="p" id="page.front.card.instructions" />
+                  <p>{t('page.front.card.instructions')}</p>
                 </a>
               </Card>
             </Col>

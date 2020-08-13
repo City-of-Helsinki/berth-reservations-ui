@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
 import { Select, Text } from '../../Fields';
@@ -15,16 +15,17 @@ export interface ExchangeApplicationProps {
 }
 
 const ExchangeApplication: FC<ExchangeApplicationProps> = ({ berths, reasons }) => {
+  const { t } = useTranslation();
   return (
     <Container className="vene-exchange-application">
       <Row>
         <Col>
-          <FormattedMessage id="page.berth.exchange_application.current_berth.title">
-            {(txt) => <h3 className="vene-exchange-application__heading">{txt}</h3>}
-          </FormattedMessage>
-          <FormattedMessage id="page.berth.exchange_application.current_berth.info_text">
-            {(txt) => <p className="vene-exchange-application__description">{txt}</p>}
-          </FormattedMessage>
+          <h3 className="vene-exchange-application__heading">
+            {t('page.berth.exchange_application.current_berth.title')}
+          </h3>
+          <p className="vene-exchange-application__description">
+            {t('page.berth.exchange_application.current_berth.info_text')}
+          </p>
         </Col>
       </Row>
 
@@ -67,21 +68,19 @@ const ExchangeApplication: FC<ExchangeApplicationProps> = ({ berths, reasons }) 
 
       <Row>
         <Col>
-          <FormattedMessage id="page.berth.exchange_application.reason.title">
-            {(txt) => <h3 className="vene-exchange-application__heading">{txt}</h3>}
-          </FormattedMessage>
-          <FormattedMessage id="page.berth.exchange_application.reason.info_text">
-            {(txt) => <p className="vene-exchange-application__description">{txt}</p>}
-          </FormattedMessage>
+          <h3 className="vene-exchange-application__heading">
+            {t('page.berth.exchange_application.reason.title')}
+          </h3>
+          <p className="vene-exchange-application__description">
+            {t('page.berth.exchange_application.reason.info_text')}
+          </p>
         </Col>
       </Row>
 
       <Row>
         <Col>
           <Select name="reason">
-            <FormattedMessage id="page.berth.exchange_application.reason.default">
-              {(txt) => <option value="">{txt}</option>}
-            </FormattedMessage>
+            <option value="">{t('page.berth.exchange_application.reason.default')}</option>
             {reasons &&
               reasons.map((reason) => (
                 <option key={reason.id} value={reason.id}>

@@ -1,5 +1,5 @@
 import React, { SFC } from 'react';
-import { InjectedIntlProps, injectIntl } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
@@ -9,13 +9,10 @@ import { WinterStorageMethod } from '../../../../__generated__/globalTypes';
 type Props = {
   storageMethod: WinterStorageMethod;
   registrationNumber?: string | null;
-} & InjectedIntlProps;
+};
 
-const OverviewStorageMethod: SFC<Props> = ({
-  storageMethod,
-  registrationNumber,
-  intl: { formatMessage },
-}) => {
+const OverviewStorageMethod: SFC<Props> = ({ storageMethod, registrationNumber }) => {
+  const { t } = useTranslation();
   const storageLabel =
     storageMethod === WinterStorageMethod.ON_TRESTLES
       ? 'form.winter_storage_method.field.storage_method.on_trestles'
@@ -27,7 +24,7 @@ const OverviewStorageMethod: SFC<Props> = ({
         <Col md={registrationNumber ? 6 : 12}>
           <LabelValuePair
             label="form.winter_storage_method.field.storage_method.label"
-            value={formatMessage({ id: storageLabel })}
+            value={t(storageLabel)}
           />
         </Col>
         {registrationNumber && (
@@ -43,4 +40,4 @@ const OverviewStorageMethod: SFC<Props> = ({
   );
 };
 
-export default injectIntl(OverviewStorageMethod);
+export default OverviewStorageMethod;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
 import validator, {
@@ -28,9 +28,10 @@ const UnRegisteredBoatDetailsFragment = ({
   showBoatStoredOnTrailer,
   boatStoredOnTrailer,
 }: Props) => {
+  const { t } = useTranslation();
   return (
     <div className="vene-unregistered-boat-detail">
-      {!hideTitle && <FormattedMessage tagName="h3" id="form.unregistered.header.title" />}
+      {!hideTitle && <h3>{t('form.unregistered.header.title')}</h3>}
       <Row>
         {boatTypes && (
           <Col sm={4}>
@@ -84,7 +85,7 @@ const UnRegisteredBoatDetailsFragment = ({
               inline={false}
             >
               {boatStoredOnTrailer && (
-                <FormattedMessage id="form.registered.field.winter_storage.storage_type.text" />
+                <span>{t('form.registered.field.winter_storage.storage_type.text')}</span>
               )}
             </Checkbox>
           </Col>

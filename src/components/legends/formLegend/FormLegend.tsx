@@ -1,6 +1,6 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import './formLegend.scss';
+import { useTranslation } from 'react-i18next';
 
 const stepLegends = [
   {
@@ -21,9 +21,12 @@ interface Props {
   step: number;
 }
 
-export default ({ step }: Props) => (
-  <div className="vene-form-legend">
-    <FormattedMessage tagName="h3" id={stepLegends[step].title} />
-    <FormattedMessage tagName="p" id={stepLegends[step].legend} />
-  </div>
-);
+export default ({ step }: Props) => {
+  const { t } = useTranslation();
+  return (
+    <div className="vene-form-legend">
+      <h3>{t(stepLegends[step].title)}</h3>
+      <p>{t(stepLegends[step].legend)}</p>
+    </div>
+  );
+};

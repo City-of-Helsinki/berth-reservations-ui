@@ -1,0 +1,710 @@
+{
+  "error": {
+    "message": {
+      "invalid_area": "This area most likely does not have places suitable for the size of your boat.",
+      "invalid_area_selection": "Please note! You have selected areas with no available places for the size of your boat.",
+      "invalid_berth": "This harbour most likely does not have berths suitable for the size and type of your boat.",
+      "invalid_berth_selection": "Please note! You have selected harbours with no available berths for the size and type of your boat."
+    }
+  },
+  "form": {
+    "accessibility": {
+      "field": {
+        "accessibility": {
+          "label": "Currently, there are no accessible berths in our harbors."
+        }
+      }
+    },
+    "big_ship": {
+      "field": {
+        "agreed": {
+          "label": "I have read the terms and conditions of the contract and agree to abide by them."
+        },
+        "hull_material": {
+          "aluminium": "Aluminium",
+          "concrete": "Concrete",
+          "fibreglass": "Reinforced plastic/fibreglass",
+          "label": "Hull material",
+          "other": "Other",
+          "placeholder": "Select boat hull material",
+          "rubber": "Rubber/PVC/PU",
+          "steel": "Steel",
+          "thermoplastic": "Thermoplastic",
+          "wood": "Wood"
+        },
+        "inspected": {
+          "label": "I confirm that the vessel has been inspected."
+        },
+        "insurance": {
+          "label": "I confirm that the vessel is insured, and that the insurance covers any costs arising from hoisting the vessel."
+        },
+        "propulsion": {
+          "diesel": "Diesel oil",
+          "electricity": "Electricity",
+          "fuel_oil": "Fuel oil",
+          "gasoline": "Petrol",
+          "label": "Propulsion",
+          "natural_gas": "LNG/LPG",
+          "other": "Other",
+          "placeholder": "Select boat propulsion"
+        },
+        "time_period": {
+          "fixed": "Temporary",
+          "for_now": "Until further notice",
+          "from": {
+            "placeholder": "Starts"
+          },
+          "label": "Rental period",
+          "to": {
+            "placeholder": "Ends"
+          }
+        },
+        "usage": {
+          "label": "Intended use",
+          "placeholder": "Intended use of the vessel"
+        }
+      },
+      "header": {
+        "details": "Additional information concerning larger vessels",
+        "inspection_and_insurance": "Inspection and insurance",
+        "title": "Spaces for larger vessels"
+      },
+      "text": {
+        "inspection_and_insurance": "The inspection certificate and an extract from the insurance policy must be provided prior to berth assignment. The inspection and insurance must remain valid with no interruptions. The lessor has the right to demand that the inspection certificate and the extract from the insurance policy are presented at any time.",
+        "summary": "Vessels weighing more than 20,000 kg are moored in designated berths. Berths for larger vessels are reserved either on a fixed-term basis or until further notice."
+      }
+    },
+    "boat_type_selector": {
+      "company": {
+        "label": "Company or community"
+      },
+      "no_boat": {
+        "label": "No boat"
+      },
+      "private_person": {
+        "label": "Private individual"
+      },
+      "registered_boat": {
+        "label": "Registered boat"
+      },
+      "unregistered_boat": {
+        "label": "Unregistered boat"
+      }
+    },
+    "company": {
+      "field": {
+        "email": {
+          "label": "E-mail",
+          "placeholder": "betty.boatman@hel.fi"
+        },
+        "first_name": {
+          "label": "First name",
+          "placeholder": "Betty"
+        },
+        "last_name": {
+          "label": "Last name",
+          "placeholder": "Boatman"
+        },
+        "mobile_phone": {
+          "label": "Mobile phone",
+          "placeholder": "+358 555 245 555"
+        }
+      },
+      "header": {
+        "contact_person": "Contact person",
+        "title": "Company or community information"
+      }
+    },
+    "company_details": {
+      "field": {
+        "business_id": {
+          "label": "Business ID",
+          "placeholder": "1234567-8"
+        },
+        "name": {
+          "label": "Company or community name",
+          "placeholder": "Boatman Oy"
+        }
+      }
+    },
+    "contact_details": {
+      "field": {
+        "email": {
+          "label": "E-mail",
+          "placeholder": "betty.boatman@hel.fi"
+        },
+        "mobile_phone": {
+          "label": "Mobile phone",
+          "placeholder": "+358 555 245 555"
+        }
+      }
+    },
+    "no_boat": {
+      "field": {
+        "accessibility": {
+          "label": "I need an accessible berth"
+        },
+        "brand": {
+          "label": "Name",
+          "placeholder": "Name"
+        },
+        "lenght": {
+          "label": "Hull length",
+          "placeholder": "0.0"
+        },
+        "length": {
+          "label": "Boat length",
+          "placeholder": "0.0"
+        },
+        "type": {
+          "label": "Type",
+          "placeholder": "Select boat type"
+        },
+        "width": {
+          "label": "Boat width",
+          "placeholder": "0.0"
+        }
+      },
+      "header": {
+        "accessibility": "Accessibility",
+        "additional_info": "Further information",
+        "title": "Information on the boat to be purchased"
+      }
+    },
+    "overview": {
+      "field": {
+        "application_code": {
+          "description": "If you have received a search code from customer services, please enter it here. Search codes are intended for customers who have already applied for a boat berth via a paper application form.",
+          "placeholder": "Code",
+          "title": "Search code"
+        },
+        "berth": {
+          "guarantee": {
+            "label": "I confirm that the information I have provided is correct."
+          }
+        },
+        "boating_info": {
+          "label": "The Veneily Helsingissä newsletter (in Finnish)"
+        },
+        "fitness_services": {
+          "label": "sports services"
+        },
+        "library_services": {
+          "label": "library services"
+        },
+        "other_cultural_services": {
+          "label": "other cultural services"
+        },
+        "winter": {
+          "guarantee": {
+            "label": "I have read the marina rules concerning winter storage at {{link}} (in Finnish) and I commit to them. I assure that the information I have provided is correct."
+          }
+        }
+      },
+      "header": {
+        "agreement": {
+          "title": "I confirm that the information I have provided is correct"
+        },
+        "also": {
+          "title": "and information on the following culture and leisure-time services offered by the City of Helsinki"
+        },
+        "receivable_items": {
+          "title": "I want to receive the following via e-mail"
+        }
+      }
+    },
+    "postal_details": {
+      "field": {
+        "munacipality": {
+          "label": "City",
+          "placeholder": "City"
+        },
+        "postal_code": {
+          "label": "Postal code",
+          "placeholder": "Postal code"
+        },
+        "street_address": {
+          "label": "Street address",
+          "placeholder": "Street address"
+        }
+      }
+    },
+    "private_person": {
+      "field": {
+        "first_name": {
+          "label": "First name",
+          "placeholder": "Betty"
+        },
+        "last_name": {
+          "label": "Last name",
+          "placeholder": "Boatman"
+        }
+      },
+      "header": {
+        "title": "Applicant’s personal information"
+      }
+    },
+    "registered": {
+      "field": {
+        "draught": {
+          "label": "Boat draught",
+          "placeholder": "0.0"
+        },
+        "length": {
+          "label": "Boat length",
+          "placeholder": "0.0"
+        },
+        "model": {
+          "label": "Make",
+          "placeholder": "Make of the boat"
+        },
+        "name": {
+          "label": "Name",
+          "placeholder": "Name of the boat"
+        },
+        "register_number": {
+          "label": "Register number",
+          "placeholder": "Boat register number"
+        },
+        "type": {
+          "label": "Boat type",
+          "placeholder": "Select boat type"
+        },
+        "weight": {
+          "label": "Boat weight",
+          "placeholder": "1,000"
+        },
+        "width": {
+          "label": "Boat width",
+          "placeholder": "0.0"
+        },
+        "winter_storage": {
+          "storage_type": {
+            "label": "The boat is stored on a trailer",
+            "text": "If stored on a trailer, one metre is added to the length of the boat."
+          }
+        }
+      },
+      "header": {
+        "additional_info": "Further information",
+        "measures": "Boat dimensions",
+        "title": "Information on a registered boat"
+      }
+    },
+    "services": {
+      "field": {
+        "appointed_spaces": {
+          "label": "Appointed spaces"
+        },
+        "berth": {
+          "services": {
+            "label": "Narrow down the list based on harbour services"
+          }
+        },
+        "electricity": {
+          "label": "Electricity"
+        },
+        "gate": {
+          "label": "Gate"
+        },
+        "lighting": {
+          "label": "Lighting"
+        },
+        "repair_area": {
+          "label": "Repair area"
+        },
+        "storage_for_docking_equip": {
+          "label": "Summer storage of docking equipment"
+        },
+        "storage_for_trailers": {
+          "label": "Summer storage of trailers"
+        },
+        "waste_collection": {
+          "label": "Waste management"
+        },
+        "water": {
+          "label": "Water"
+        },
+        "winter": {
+          "services": {
+            "label": "Narrow down the list based on services available at the location"
+          }
+        }
+      }
+    },
+    "unregistered": {
+      "field": {
+        "accessibility": {
+          "label": "I need an accessible berth"
+        },
+        "brand": {
+          "label": "Name",
+          "placeholder": "Name of the boat"
+        },
+        "lenght": {
+          "label": "Hull length"
+        },
+        "model": {
+          "label": "Make",
+          "placeholder": "Make of the boat"
+        },
+        "type": {
+          "label": "Type",
+          "placeholder": "Select boat type"
+        },
+        "width": {
+          "label": "Boat width"
+        }
+      },
+      "header": {
+        "accessibility": "Accessibility",
+        "additional_info": "Further information",
+        "title": "Information on an unregistered boat"
+      }
+    },
+    "winter_storage_method": {
+      "field": {
+        "storage_method": {
+          "label": "Storage method",
+          "on_trailer": "I will be storing the boat on a trailer",
+          "on_trestles": "I will be storing the boat on trestles"
+        },
+        "trailer_reg_num": {
+          "field": {
+            "label": "Trailer’s register number",
+            "placeholder": "ABC-123",
+            "text": "Only registered trailers are allowed on winter storage areas. If the trailer’s registration number is not yet known, report the registration number before bringing the boat in for winter storage. Storing on a trailer requires 1m extra storage space length."
+          }
+        }
+      }
+    },
+    "wizard": {
+      "button": {
+        "invalid": "Please complete the form to continue",
+        "next": "Next",
+        "previous": "Previous page",
+        "submit": "Send"
+      }
+    }
+  },
+  "hero": {
+    "berth": {
+      "paragraph": {
+        "first": "This service allows for you to browse through the boat harbours in Helsinki and submit new applications to the harbours of your choice.",
+        "second": "NOTE! Please read the instructions on selecting harbours as well as further details concerning the principles of assigning berths and the processing times for applications on the <1>hel.fi</1> website before completing your application."
+      },
+      "title": "Applying for a berth in the boat harbours of the City of Helsinki"
+    },
+    "winter": {
+      "paragraph": {
+        "first": "Here you can apply for a winter storage space for your boat in the City of Helsinki’s storage locations. Appointed spaces become available only rarely, so please also include locations with no designated spaces in your application.",
+        "second": "NOTE! Please read the instructions on selecting storage areas as well as further details concerning the principles of assigning storage spaces and the processing times for applications on the <1>hel.fi</1> website before completing your application. <3/> If you are interested in storing your boat in the water at your designated boat berth over the winter, please contact us."
+      },
+      "title": "Winter storage place search"
+    }
+  },
+  "legend": {
+    "berth": {
+      "legend": "Browse the harbours and berths offered by the City. Choose up to ten suitable harbours for your application.",
+      "title": "What type of berth are you looking for?"
+    },
+    "boat": {
+      "legend": "Boat berths are applied for boat-specifically. Please enter the boat information for the boat you are intending to keep in the berth here. You may also apply for a berth even if you do not have a boat as of yet.",
+      "title": "Boat information"
+    },
+    "overview": {
+      "legend": "Please check the accuracy of the information once more before submitting your application.",
+      "title": "Summary"
+    },
+    "person": {
+      "legend": "Berths can be applied for by private individuals, organisations and companies. Companies are charged an increased annual rent.",
+      "title": "Applicant information"
+    },
+    "selected_areas": {
+      "legend": "Review the winter storage areas you have chosen and their suitability for your boat. Order the areas you have chosen by preference.",
+      "title": "Your selection"
+    },
+    "selected_berths": {
+      "legend": "Review the harbours you have chosen and their suitability for your boat. Order the harbours you have chosen by preference.",
+      "title": "Your selection"
+    },
+    "winter": {
+      "legend": "Please enter the dimensions of the boat to be stored. You can see the locations with spaces suitable for the size of your boat in the location list. You can also sort the list based on the services available at the location.",
+      "title": "Browse and search for winter storage locations"
+    }
+  },
+  "page": {
+    "application_sent": {
+      "message": {
+        "paragraph1": "You will shortly receive a confirmation message to the e-mail address you provided on your application. If you wish to change or cancel your application or ask any questions regarding your application, please e-mail venepaikkavaraukset@hel.fi.",
+        "paragraph2": "Helsingin kaupungin venepaikkavaraukset (Berth reservations of the City of Helsinki)<br/>venepaikkavaraukset.hel.fi<br/>Advice over the telephone is available 9–12 Monday–Thursday by calling 09 310 87900.",
+        "title": "Thank you, your application has been sent successfully!"
+      }
+    },
+    "berth": {
+      "exchange_application": {
+        "current_berth": {
+          "info_text": "Please provide the details of your current berth for the exchange application. ",
+          "title": "Information on your current berth"
+        },
+        "exchange": {
+          "info_text": "Exchanging a berth at a City of Helsinki harbour",
+          "title": "Exchange application"
+        },
+        "form": {
+          "berth": {
+            "placeholder": "Berth ID",
+            "title": "Berth number"
+          },
+          "current_harbour_area": {
+            "label": "Current harbour"
+          },
+          "pier": {
+            "placeholder": "Pier ID",
+            "title": "Pier"
+          }
+        },
+        "new": {
+          "info_text": "The applicant does not yet have a berth provided by the City of Helsinki",
+          "title": "New application"
+        },
+        "reason": {
+          "default": "No special request",
+          "info_text": "You can select a special request concerning the type of the new berth from the list. Please note, however, that if you select a special request, you will only be offered a berth when a berth meeting your request becomes available.",
+          "title": "Special request for a new berth"
+        },
+        "warning": "You can select up to five harbours for your exchange application. Please remove excess selections and change the application type again."
+      },
+      "selected": {
+        "alert": {
+          "paragraph": "Select the desired harbours from the list of harbours",
+          "strong": "Please note! You have not yet selected any harbours"
+        },
+        "button": {
+          "down": "Move down",
+          "remove": "Remove",
+          "up": "Move up"
+        },
+        "confirmation_body": "Are you sure you want to remove the harbour from the selection list?",
+        "info_text": "Select the type and size of your boat to see if the selected harbours have any available berths",
+        "submit": "Continue",
+        "title": "Please order the places you have chosen by preference.",
+        "warning": {
+          "heading": "Please note! You have selected harbours with no available berths for the size and type of your boat."
+        }
+      }
+    },
+    "berths": {
+      "appointed": "Appointed spaces",
+      "electricity": "Electricity",
+      "fence": "Gate",
+      "lighting": "Lighting",
+      "link": {
+        "boat_information": "Boat information"
+      },
+      "list": {
+        "berth_count": "{{count}} harbour matches the search criteria",
+        "berth_count_plural": "{{count}} harbours match the search criteria",
+        "header": {
+          "hits": "Harbours matching the search criteria:",
+          "others": "Other harbours"
+        },
+        "progress": {
+          "max": "Maximum number of ({{total}}) harbours selected",
+          "remaining": "You can still select {{count}} harbour for your application",
+          "remaining_plural": "You can still select {{count}} harbours for your application",
+          "zero": "Choose a maximum of {{total}} harbours for your application"
+        }
+      },
+      "maximum_length": "Max. length",
+      "maximum_width": "Max. width",
+      "number_of_places": "Spaces",
+      "pole": "Fastening",
+      "selected_list": "Selected",
+      "storage_for_docking_equip": "Winter storage of accessories",
+      "title": "Harbour search",
+      "waste_collection": "Waste management",
+      "water_tap": "Water"
+    },
+    "common": {
+      "website": "Website"
+    },
+    "front": {
+      "card": {
+        "berths": {
+          "button_label": "Browse and search for boat berths →",
+          "description": "Browse the City of Helsinki’s boat harbours. You can submit a new boat berth application or apply to exchange your current boat berth for another one.",
+          "title": "Boat berth search"
+        },
+        "instructions": "Additional information and instructions (hel.fi)",
+        "winter": {
+          "button_label": "Browse and search for winter storage spaces →",
+          "description": "Browse the City of Helsinki’s winter storage spaces for boats. You can submit a new application for a winter storage space for your boat.",
+          "title": "Winter storage places"
+        }
+      },
+      "description": {
+        "body": "Browse the City of Helsinki’s boat harbours. You can submit a new boat berth application or apply to exchange your current boat berth for another one.",
+        "heading": "Boat berths and the winter storage of boats"
+      },
+      "title": "Boat berths"
+    },
+    "not_found": {
+      "message": "We are sorry, but the page you requested could not be found.",
+      "title": "404"
+    },
+    "overview": {
+      "info": {
+        "berths": "Selected harbours",
+        "boat_draught": "Draught",
+        "boat_info": "Boat information",
+        "boat_length": "Length",
+        "boat_model": "Model",
+        "boat_name": "Name",
+        "boat_register_number": "Register number",
+        "boat_type": "Type",
+        "boat_weight": "Weight",
+        "boat_width": "Width",
+        "edit": "Edit",
+        "person": "Applicant"
+      }
+    },
+    "winter_storage": {
+      "appointed": "Appointed spaces",
+      "electricity": "Electricity",
+      "fence": "Gate",
+      "list": {
+        "areas_count": "{{count}} winter storage matches the search criteria",
+        "areas_count_plural": "{{count}} winter storage match the search criteria",
+        "header": {
+          "others": "Other areas"
+        },
+        "progress": {
+          "remaining": "You can still select {{count}} winter storage area for your application",
+          "remaining_plural": "You can still select {{count}} winter storage areas for your application",
+          "max": "Maximum number of ({{total}}) winter storage areas selected",
+          "zero": "Choose a maximum of {{total}} winter storage areas for your application"
+        }
+      },
+      "maximum_length": "Max. length",
+      "maximum_width": "Max. width",
+      "notice": {
+        "paragraph1": "Applying for winter storage spaces in the 2020–2021 season is now current. Customers who have had a square space in the last season will be sent an invoice for the space. If you are a new applicant, you can apply for a square space by filling out the online application at <1>venepaikat.hel.fi/en</1>. Available squares will be assigned on a first-come, first-served basis in the autumn. We will send offers for these spaces by e-mail.",
+        "paragraph2": "Customers who have had a winter storage space in a hoisting order area will not be sent an invoice. Instead, they can pay their fee onto the berth reservation account after the boat has been brought to the hoisting order area. We will provide information about paying for hoisting order area spaces later online at <1>hel.fi/boating</1> and on the information boards of hoisting order areas. Customers who have paid for a winter storage space will be sent a winter storage sticker to be attached to their boats on a visible spot.",
+        "paragraph3": "Boaters can bring their boats to the hoisting order area of their choosing starting from 15 September 2020. Please note that boats must not be brought to hoisting order areas before the storage season starts on 15 September.",
+        "title": "Applying for winter storage spaces 2020–2021"
+      },
+      "selected": {
+        "alert": {
+          "paragraph": "Select the desired winter storage areas from the list of areas",
+          "strong": "Please note! You have not yet selected any winter storage areas"
+        },
+        "confirmation_body": "Are you sure you want to remove the area from the selection list?",
+        "info_text": "Select the type and size of your boat to see if the selected area have any available places",
+        "submit": "Continue",
+        "title": "Please order the places you have chosen by preference.",
+        "warning": {
+          "heading": "Please note! You have selected areas with no available places for the size and type of your boat."
+        }
+      },
+      "storage_areas": {
+        "appointed_spaces": {
+          "label": "Appointed spaces",
+          "text": "Boats have their own marked places. Appointed spaces become available rarely."
+        },
+        "free_spaces": {
+          "label": "Unmarked areas",
+          "text": "Unmarked storage locations are filled in the order that the boats are hoisted."
+        },
+        "type": {
+          "title": "Type of storage area"
+        }
+      },
+      "storage_for_docking_equip": "Winter storage of accessories",
+      "storage_for_trailers": "Summer storage of trailers",
+      "water_tap": "Water"
+    }
+  },
+  "site": {
+    "berth": {
+      "title": "Boat berth search"
+    },
+    "buttons": {
+      "add_to_selected": "Add to selected",
+      "to_front_page": "To front page",
+      "cancel": "Cancel",
+      "next": "Next",
+      "remove": "Remove",
+      "selected": "Selected"
+    },
+    "common": {
+      "list": "List",
+      "map": "On the map",
+      "servicemapURL": "https://servicemap.hel.fi/unit/{{servicemapId}}"
+    },
+    "footer": {
+      "accessibility_statement": "Accessibility statement",
+      "berth_search": "Boat berth search",
+      "boating_info": "Information on boating",
+      "browse_berths": "Browse harbours",
+      "contact_us": "Contact us",
+      "copyright": "{{year}} City of Helsinki",
+      "news": "News",
+      "send_feedback": "Send feedback",
+      "terms_of_service": "Description of the personal data file",
+      "url": {
+        "accessibility_statement": "/Accessibility_statement_Venepaikat.pdf",
+        "berthing": "https://www.hel.fi/helsinki/en/culture/recreation/boating",
+        "current_news": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/ajankohtaista/",
+        "feedback": "https://www.hel.fi/helsinki/en/administration/participate/feedback/",
+        "helsinki_berths": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/",
+        "terms_of_service": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri.pdf"
+      }
+    },
+    "front": {
+      "title": "Boat berths"
+    },
+    "language": {
+      "en": "In English",
+      "fi": "Suomeksi",
+      "select": "Choose language",
+      "sv": "På svenska"
+    },
+    "link": {
+      "front_page": "Front page"
+    },
+    "steps": {
+      "applicant": "Applicant information",
+      "berths": "Select harbours",
+      "boat_information": "Boat information",
+      "review_areas": "Your selection",
+      "selected_berths": "Your selection",
+      "send_application": "Summary",
+      "title": {
+        "berths": {
+          "exchange": "Exchange application",
+          "new": "New application"
+        },
+        "winter_storage": "Winter storage application"
+      },
+      "winter_areas": "Area selection"
+    },
+    "winter": {
+      "title": "Winter storage places"
+    }
+  },
+  "test": {
+    "message": "Test message"
+  },
+  "validation": {
+    "message": {
+      "invalid_value": "Invalid value",
+      "must_be_email": "The value must be an e-mail address",
+      "must_be_less": "Entered value is too high",
+      "must_be_number": "The value must be a number",
+      "must_be_phone_number": "The value must be a telephone number",
+      "must_be_positive_number": "The value must be greater than zero",
+      "required": "Mandatory field"
+    }
+  }
+}

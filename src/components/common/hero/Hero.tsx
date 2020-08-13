@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Container } from 'reactstrap';
 
 import './hero.scss';
@@ -10,17 +10,19 @@ interface Props {
   bgPosition?: string;
 }
 
-const Hero = ({ title, bgUrl, bgPosition }: Props) => (
-  <div
-    className="vene-hero"
-    style={{ backgroundImage: `url(${bgUrl})`, backgroundPosition: bgPosition }}
-  >
-    <Container>
-      <FormattedMessage id={title}>
-        {(txt) => <h1 className="vene-hero__title">{txt}</h1>}
-      </FormattedMessage>
-    </Container>
-  </div>
-);
+const Hero = ({ title, bgUrl, bgPosition }: Props) => {
+  const { t } = useTranslation();
+
+  return (
+    <div
+      className="vene-hero"
+      style={{ backgroundImage: `url(${bgUrl})`, backgroundPosition: bgPosition }}
+    >
+      <Container>
+        <h1 className="vene-hero__title">{t(title)}</h1>
+      </Container>
+    </div>
+  );
+};
 
 export default Hero;

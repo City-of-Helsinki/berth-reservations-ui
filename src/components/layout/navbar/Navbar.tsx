@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Container, Nav, Navbar as BSNavbar } from 'reactstrap';
 
 import Icon from '../../common/Icon';
@@ -9,6 +9,7 @@ import LanguageDropdown from '../languageDropdown/LanguageDropdown';
 import './navbar.scss';
 
 const Navbar = () => {
+  const { t } = useTranslation();
   return (
     <div className="vene-navbar">
       <div className="vene-navbar__top">
@@ -16,9 +17,7 @@ const Navbar = () => {
           <BSNavbar expand="md">
             <LocalizedLink className="vene-navbar__main-link" id="main-link" to="/">
               <Icon className="vene-navbar__icon" name="helsinkiLogo" />
-              <FormattedMessage id="site.front.title">
-                {(txt) => <span className="vene-navbar__title">{txt}</span>}
-              </FormattedMessage>
+              <span className="vene-navbar__title">{t('site.front.title')}</span>
             </LocalizedLink>
             <Nav className="ml-auto" navbar>
               <LanguageDropdown />
@@ -33,7 +32,7 @@ const Navbar = () => {
             className="vene-navbar__link"
             activeClassName="vene-navbar__link--active"
           >
-            <FormattedMessage id="site.berth.title" />
+            <span>{t('site.berth.title')}</span>
           </LocalizedLink>
 
           <LocalizedLink
@@ -41,7 +40,7 @@ const Navbar = () => {
             className="vene-navbar__link"
             activeClassName="vene-navbar__link--active"
           >
-            <FormattedMessage id="site.winter.title" />
+            <span>{t('site.winter.title')}</span>
           </LocalizedLink>
         </Nav>
       </Container>

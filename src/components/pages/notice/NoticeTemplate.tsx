@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { useEffect } from 'react';
-import { FormattedHTMLMessage, FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Button } from 'reactstrap';
 
 import LocalizedLink from '../../common/LocalizedLink';
@@ -8,21 +8,16 @@ import Layout from '../../layout/Layout';
 import './noticeTemplate.scss';
 
 export interface NoticePageProps {
-  titleKey: string;
-  messageKey: string;
-  secondMessageKey?: string;
+  titleText: string;
+  message: React.ReactNode;
   success?: boolean;
 }
 
-const NoticeTemplate = ({
-  titleKey,
-  messageKey,
-  secondMessageKey,
-  success = false,
-}: NoticePageProps) => {
+const NoticeTemplate = ({ titleText, message, success = false }: NoticePageProps) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const { t } = useTranslation();
 
   return (
     <Layout>
@@ -33,18 +28,13 @@ const NoticeTemplate = ({
             success && 'vene-notice-page--success'
           )}
         >
-          <FormattedMessage id={titleKey} tagName="h2" />
-          <FormattedHTMLMessage id={messageKey} tagName="p" />
-          {secondMessageKey && <FormattedHTMLMessage id={secondMessageKey} tagName="p" />}
+          <h2>{titleText}</h2>
+          {message}
         </div>
         <LocalizedLink to="/">
-          <FormattedMessage id="site.buttons.to_front_page">
-            {(txt) => (
-              <Button className="vene-notice-page__front-page-button" outline color="secondary">
-                {txt}
-              </Button>
-            )}
-          </FormattedMessage>
+          <Button className="vene-notice-page__front-page-button" outline color="secondary">
+            {t('site.buttons.to_front_page')}
+          </Button>
         </LocalizedLink>
       </div>
     </Layout>

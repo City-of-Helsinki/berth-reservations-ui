@@ -1,12 +1,12 @@
 import React from 'react';
 import { Field, FieldRenderProps } from 'react-final-form';
-import { FormattedMessage, InjectedIntlProps } from 'react-intl';
+import { WithTranslation } from 'react-i18next';
 import {
   FormFeedback,
   FormGroup,
   FormText,
   Input,
-  InputGroup,
+  InputGroup as BSInputGroup,
   InputGroupAddon,
   InputProps,
 } from 'reactstrap';
@@ -16,13 +16,15 @@ import ScreenReaderLabel from './ScreenReaderLabel';
 
 import Label from './Label';
 
-type Props = FieldRenderProps<string, HTMLElement> & InjectedIntlProps;
+type Props = WithTranslation & FieldRenderProps<string, HTMLElement>;
 
-const TextInput = (
+const InputGroup = (
   type: InputProps['type'],
   parser?: (locale: string) => (value: string, name: string) => any,
   formatter?: (locale: string) => (value: string, name: string) => any
 ) => ({
+  t,
+  i18n: { language },
   id,
   name,
   label,
@@ -34,53 +36,55 @@ const TextInput = (
   placeholder,
   parse,
   format,
-  intl: { formatMessage, locale },
+  tReady, // Excluded from 'rest'
   ...rest
-}: Props) => (
-  <Field
-    name={name}
-    type={type}
-    parse={parse ? parse : parser && parser(locale)}
-    format={format ? format : formatter && formatter(locale)}
-    required={required}
-    validate={validator(required ? mustBePresent : null, validate || null)}
-  >
-    {({ input, meta }) => (
-      <FormGroup>
-        {label && <Label htmlFor={id} required={required} text={label} />}
-        <ScreenReaderLabel
-          id={`${id}-description`}
-          prepend={prepend}
-          append={append}
-          textKey={label}
-        />
-        <InputGroup>
-          {prepend && <InputGroupAddon addonType="prepend">{prepend}</InputGroupAddon>}
-          <Input
-            id={id}
-            aria-labelledby={`${id}-description`}
-            required={required}
-            invalid={!!(meta.touched && meta.error)}
-            placeholder={placeholder ? formatMessage({ id: placeholder }) : ''}
-            {...input}
-            {...rest}
-            type={type}
+}: Props) => {
+  return (
+    <Field
+      name={name}
+      type={type}
+      parse={parse ? parse : parser && parser(language)}
+      format={format ? format : formatter && formatter(language)}
+      required={required}
+      validate={validator(required ? mustBePresent : null, validate || null)}
+    >
+      {({ input, meta }) => (
+        <FormGroup>
+          {label && <Label htmlFor={id} required={required} text={label} />}
+          <ScreenReaderLabel
+            id={`${id}-description`}
+            prepend={prepend}
+            append={append}
+            textKey={label}
           />
-          {append && <InputGroupAddon addonType="append">{append}</InputGroupAddon>}{' '}
-          {meta.error && (
-            <FormFeedback>
-              <FormattedMessage id={meta.error} />
-            </FormFeedback>
-          )}
-          {text && (
-            <FormText>
-              <FormattedMessage id={text} />
-            </FormText>
-          )}
-        </InputGroup>
-      </FormGroup>
-    )}
-  </Field>
-);
+          <BSInputGroup>
+            {prepend && <InputGroupAddon addonType="prepend">{prepend}</InputGroupAddon>}
+            <Input
+              id={id}
+              aria-labelledby={`${id}-description`}
+              required={required}
+              invalid={!!(meta.touched && meta.error)}
+              placeholder={placeholder ? t(placeholder) : ''}
+              {...input}
+              {...rest}
+              type={type}
+            />
+            {append && <InputGroupAddon addonType="append">{append}</InputGroupAddon>}{' '}
+            {meta.error && (
+              <FormFeedback>
+                <span>{t(meta.error)}</span>
+              </FormFeedback>
+            )}
+            {text && (
+              <FormText>
+                <span>{t(text)}</span>
+              </FormText>
+            )}
+          </BSInputGroup>
+        </FormGroup>
+      )}
+    </Field>
+  );
+};
 
-export default TextInput;
+export default InputGroup;

@@ -1,14 +1,14 @@
 import get from 'lodash/get';
 import React, { Component, Fragment } from 'react';
+import { WithTranslation, withTranslation } from 'react-i18next';
 import { WinterStorageMethod } from '../../__generated__/globalTypes';
 
-import { FormattedMessage } from 'react-intl';
 import { Button, Col, Container, Row } from 'reactstrap';
 import Form from './Form';
 import './Wizard.scss';
 
 type State = any;
-type Props = any;
+type Props = any & WithTranslation;
 
 class Wizard extends Component<Props, State> {
   constructor(props: Props) {
@@ -84,6 +84,7 @@ class Wizard extends Component<Props, State> {
   };
 
   render() {
+    const { t } = this.props;
     const { initialValues } = this.state;
     const activePage = this.getActiveStep();
 
@@ -98,7 +99,7 @@ class Wizard extends Component<Props, State> {
                 <Row>
                   <Col xs={12} className="vene-form__wizard-wrapper__button-group">
                     <Button color="link" type="button" onClick={() => this.handlePrevious(values)}>
-                      <FormattedMessage id="form.wizard.button.previous" />
+                      <span>{t('form.wizard.button.previous')}</span>
                     </Button>
                     <Button
                       type="submit"
@@ -106,7 +107,7 @@ class Wizard extends Component<Props, State> {
                       color="primary"
                       disabled={this.state.isSubmitting}
                     >
-                      <FormattedMessage id={this.getSubmitText(invalid)} />
+                      <span>{t(this.getSubmitText(invalid))}</span>
                     </Button>
                   </Col>
                 </Row>
@@ -119,4 +120,4 @@ class Wizard extends Component<Props, State> {
   }
 }
 
-export default Wizard;
+export default withTranslation()(Wizard);

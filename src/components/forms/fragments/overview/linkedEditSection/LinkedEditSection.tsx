@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
 import Icon from '../../../../common/Icon';
@@ -14,17 +14,16 @@ export interface Props {
 }
 
 const LinkedEditSection = ({ title, link, children }: Props) => {
+  const { t } = useTranslation();
   return (
     <Row className="vene-linked-edit-section">
       <Col>
         <Row>
           <Col>
             <div className="vene-linked-edit-section__header">
-              <FormattedMessage id={title}>
-                {(txt) => <h4 className="vene-linked-edit-section__title">{txt}</h4>}
-              </FormattedMessage>
+              <h4 className="vene-linked-edit-section__title">{t(title)}</h4>
               <LocalizedLink to={link} className="vene-linked-edit-section__link">
-                <FormattedMessage id="page.overview.info.edit" />
+                <span>{t('page.overview.info.edit')}</span>
                 <Icon name="pencil" className="vene-linked-edit-section__link-icon" />
               </LocalizedLink>
             </div>

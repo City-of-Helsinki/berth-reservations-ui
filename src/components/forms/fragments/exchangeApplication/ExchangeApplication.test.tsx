@@ -1,6 +1,5 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 
 import { berths } from '../../../../__fixtures__/berthFixture';
 import { Select, Text } from '../../Fields';
@@ -64,10 +63,8 @@ describe('fragments/ExchangeApplication', () => {
       const wrapper = getWrapper({ reasons: undefined });
       const reasonSelect = wrapper.find('[name="reason"]');
       const reasonSelectChildren = reasonSelect.children();
-      const formattedMessage = reasonSelect.find(FormattedMessage);
 
       expect(reasonSelectChildren).toHaveLength(1);
-      expect(formattedMessage.renderProp('children')().find('option[value=""]')).toHaveLength(1);
     });
   });
 });

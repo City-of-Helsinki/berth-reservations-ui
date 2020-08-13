@@ -1,8 +1,8 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { NavLink, RouteComponentProps, withRouter } from 'react-router-dom';
 import { Col, Container, Row } from 'reactstrap';
 
-import { FormattedMessage } from 'react-intl';
 import Icon, { IconNames } from '../../../common/Icon';
 
 import './SectionSelector.scss';
@@ -24,6 +24,7 @@ type Props = {
 } & RouteComponentProps<{ tab: string }>;
 
 const SectionSelector = ({ name, types, sizes, location, match }: Props) => {
+  const { t } = useTranslation();
   const url = location.pathname.replace(match.params.tab, '');
   return (
     <div className="vene-section-selector">
@@ -39,7 +40,7 @@ const SectionSelector = ({ name, types, sizes, location, match }: Props) => {
                     to={`${url}${tab}`}
                   >
                     <Icon name={icon} />
-                    <FormattedMessage id={label} />
+                    <span>{t(label)}</span>
                   </NavLink>
                 </Col>
               ))}

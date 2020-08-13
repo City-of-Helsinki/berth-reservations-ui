@@ -1,11 +1,15 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import NoticeTemplate from '../NoticeTemplate';
 
-const AlreadyPaidPage = () => (
-  <NoticeTemplate
-    titleKey="page.payment_error.already_paid.title"
-    messageKey="page.payment_error.already_paid.message"
-  />
-);
+const AlreadyPaidPage = () => {
+  const { t } = useTranslation();
+  return (
+    <NoticeTemplate
+      titleText={t('page.payment_error.already_paid.title')}
+      message={<p>{t('page.payment_error.already_paid.message')}</p>}
+    />
+  );
+};
 
 export default AlreadyPaidPage;

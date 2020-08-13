@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
 import LabelValuePair from '../../../../common/labelValuePair/LabelValuePair';
@@ -13,7 +13,7 @@ type Props = {
   rentingPeriod?: string | null;
   rentFrom?: string | null;
   rentTill?: string | null;
-} & InjectedIntlProps;
+};
 
 const BigShipsInfo = ({
   propulsion,
@@ -22,16 +22,16 @@ const BigShipsInfo = ({
   rentingPeriod,
   rentFrom,
   rentTill,
-  intl: { formatMessage },
 }: Props) => {
+  const { t } = useTranslation();
   let rentingPeriodLabel;
 
   switch (rentingPeriod) {
     case 'for_now':
-      rentingPeriodLabel = formatMessage({ id: 'form.big_ship.field.time_period.for_now' });
+      rentingPeriodLabel = t('form.big_ship.field.time_period.for_now');
       break;
     case 'fixed':
-      rentingPeriodLabel = formatMessage({ id: 'form.big_ship.field.time_period.fixed' });
+      rentingPeriodLabel = t('form.big_ship.field.time_period.fixed');
       break;
     default:
       rentingPeriodLabel = null;
@@ -46,7 +46,7 @@ const BigShipsInfo = ({
     <>
       <Row>
         <Col className="vene-big-ships-info__header">
-          <FormattedMessage tagName="strong" id="form.big_ship.header.details" />
+          <strong>{t('form.big_ship.header.details')}</strong>
         </Col>
       </Row>
       <Row>
@@ -74,4 +74,4 @@ const BigShipsInfo = ({
   );
 };
 
-export default injectIntl(BigShipsInfo);
+export default BigShipsInfo;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
 import { MultiRadio, Text } from '../../Fields';
@@ -13,9 +13,10 @@ interface Props {
 }
 
 const StorageMethod = ({ showTrailerRegNum }: Props) => {
+  const { t } = useTranslation();
   return (
     <Container className="vene-storage-method">
-      <FormattedMessage tagName="h3" id="form.winter_storage_method.field.storage_method.label" />
+      <h3>{t('form.winter_storage_method.field.storage_method.label')}</h3>
       <Row>
         <Col sm={5}>
           <MultiRadio

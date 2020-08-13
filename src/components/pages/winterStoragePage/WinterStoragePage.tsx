@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
+import { Trans, WithTranslation, withTranslation } from 'react-i18next';
 
 import { getWinterStorageFilterByValues, isResourceSelected } from '../../../utils/berths';
 import TabSelector from '../../berths/TabSelector/TabSelector';
@@ -44,7 +44,7 @@ type Props = {
   }[];
   areasLimit: number;
   storageAreaFilter?: StorageAreaFilter;
-} & InjectedIntlProps;
+} & WithTranslation;
 
 const getHeroContentLink = (locale: string) => {
   switch (locale) {
@@ -60,11 +60,11 @@ const getHeroContentLink = (locale: string) => {
 const getFormattedMessageId = (count: number, total: number): string => {
   if (count) {
     if (count === total) {
-      return 'page.winter_storage.list.progress.message.max';
+      return 'page.winter_storage.list.progress.max';
     }
-    return 'page.winter_storage.list.progress.message';
+    return 'page.winter_storage.list.progress.remaining';
   }
-  return 'page.winter_storage.list.progress.message.zero';
+  return 'page.winter_storage.list.progress.zero';
 };
 
 class WinterStoragePage extends Component<Props> {
@@ -90,19 +90,20 @@ class WinterStoragePage extends Component<Props> {
 
   render() {
     const {
-      initialValues,
-      selectedAreasIds,
       areas,
-      selectedServices,
-      selectService,
-      deselectService,
-      onSubmit,
-      boatTypes,
-      steps,
-      services,
       areasLimit,
+      boatTypes,
+      deselectService,
+      i18n: { language },
+      initialValues,
+      onSubmit,
+      selectService,
+      selectedAreasIds,
+      selectedServices,
+      services,
+      steps,
       storageAreaFilter,
-      intl,
+      t,
     } = this.props;
     const filter = getWinterStorageFilterByValues(
       initialValues,
@@ -136,13 +137,16 @@ class WinterStoragePage extends Component<Props> {
         <KoroSection
           top
           title={`hero.winter.title`}
-          description={[
-            { id: `hero.winter.paragraph.first` },
-            {
-              id: `hero.winter.paragraph.second`,
-              values: { url: getHeroContentLink(intl.locale) },
-            },
-          ]}
+          description={
+            <>
+              <p>{t('hero.winter.paragraph.first')}</p>
+              <p>
+                <Trans i18nKey={'hero.winter.paragraph.second'}>
+                  A <a href={getHeroContentLink(language)}>hel.fi</a> a. <br /> A
+                </Trans>
+              </p>
+            </>
+          }
         >
           <WinterStorageNotice />
         </KoroSection>
@@ -177,22 +181,18 @@ class WinterStoragePage extends Component<Props> {
           selectedCount={selectedAreasIds.size}
           invalidSelection={invalidSelection ? 'error.message.invalid_area_selection' : undefined}
           tabMessage={
-            <FormattedMessage
-              id={getFormattedMessageId(selectedAreasIds.size, areasLimit)}
-              values={{
+            <span>
+              {t(getFormattedMessageId(selectedAreasIds.size, areasLimit), {
                 total: areasLimit,
-                left: areasLimit - selectedAreasIds.size,
-              }}
-            />
+                count: areasLimit - selectedAreasIds.size, // left
+              })}
+            </span>
           }
         >
           <Map
-            TabHeader={() => <FormattedMessage tagName="span" id="site.common.map" />}
+            TabHeader={() => <span>{t('site.common.map')}</span>}
             mapHeader={
-              <FormattedMessage
-                id="page.winter_storage.list.areas_count"
-                values={{ count: filtered.size }}
-              />
+              <span>{t('page.winter_storage.list.areas_count', { count: filtered.size })}</span>
             }
             filtered={filtered}
             filteredNot={filteredNot}
@@ -200,7 +200,7 @@ class WinterStoragePage extends Component<Props> {
             renderSelected={renderAreaCard(false)}
           />
           <CardsList
-            TabHeader={() => <FormattedMessage tagName="span" id="site.common.list" />}
+            TabHeader={() => <span>{t('site.common.list')}</span>}
             includedHeader="page.winter_storage.list.areas_count"
             included={filtered.map(renderAreaCard(false)).toArray()}
             excludedHeader="page.winter_storage.list.header.others"
@@ -212,4 +212,4 @@ class WinterStoragePage extends Component<Props> {
   }
 }
 
-export default injectIntl(WinterStoragePage);
+export default withTranslation()(WinterStoragePage);

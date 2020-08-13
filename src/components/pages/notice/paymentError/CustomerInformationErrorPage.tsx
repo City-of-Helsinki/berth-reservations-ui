@@ -1,12 +1,16 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import NoticeTemplate from '../NoticeTemplate';
 
-const CustomerInformationErrorPage = () => (
-  <NoticeTemplate
-    titleKey="page.payment_error.customer_information_error.title"
-    messageKey="page.payment_error.customer_information_error.message"
-  />
-);
+const CustomerInformationErrorPage = () => {
+  const { t } = useTranslation();
+  return (
+    <NoticeTemplate
+      titleText={t('page.payment_error.customer_information_error.title')}
+      message={<p>{t('page.payment_error.customer_information_error.message')}</p>}
+    />
+  );
+};
 
 export default CustomerInformationErrorPage;

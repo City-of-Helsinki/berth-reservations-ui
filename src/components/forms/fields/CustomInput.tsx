@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, FieldRenderProps } from 'react-final-form';
-import { FormattedMessage } from 'react-intl';
+import { WithTranslation } from 'react-i18next';
 import { FormFeedback, FormGroup, FormText } from 'reactstrap';
 
 import validator, { mustBePresent } from '../../../utils/formValidation';
@@ -9,11 +9,13 @@ import Label from './Label';
 
 type Props = {
   items: { name: string; label: string; value: string }[];
-} & FieldRenderProps<string, HTMLInputElement>;
+} & WithTranslation &
+  FieldRenderProps<string, HTMLInputElement>;
 
 type CustomInputType = 'select' | 'file' | 'radio' | 'checkbox' | 'switch';
 
-const TextInput = (type: CustomInputType, inlineLabel: boolean) => ({
+const CustomInput = (type: CustomInputType, inlineLabel: boolean) => ({
+  t,
   id,
   name,
   label,
@@ -21,40 +23,43 @@ const TextInput = (type: CustomInputType, inlineLabel: boolean) => ({
   text,
   validate,
   placeholder,
+  tReady, // Excluded from 'rest'
   ...rest
-}: Props) => (
-  <Field
-    name={name}
-    type={type}
-    required={required}
-    validate={validator(required ? mustBePresent : null, validate || null)}
-  >
-    {({ input, meta }) => (
-      <FormGroup>
-        {!inlineLabel && label && <Label htmlFor={id} required={required} text={label} />}
-        <Input
-          id={id}
-          required={required}
-          placeholder={placeholder}
-          label={inlineLabel ? label : undefined}
-          invalid={!!(meta.touched && meta.error)}
-          {...input}
-          {...rest}
-          type={type}
-        />
-        {meta.error && (
-          <FormFeedback>
-            <FormattedMessage id={meta.error} />
-          </FormFeedback>
-        )}
-        {text && (
-          <FormText>
-            <FormattedMessage id={text} />
-          </FormText>
-        )}
-      </FormGroup>
-    )}
-  </Field>
-);
+}: Props) => {
+  return (
+    <Field
+      name={name}
+      type={type}
+      required={required}
+      validate={validator(required ? mustBePresent : null, validate || null)}
+    >
+      {({ input, meta }) => (
+        <FormGroup>
+          {!inlineLabel && label && <Label htmlFor={id} required={required} text={label} />}
+          <Input
+            id={id}
+            required={required}
+            placeholder={placeholder}
+            label={inlineLabel ? label : undefined}
+            invalid={!!(meta.touched && meta.error)}
+            {...input}
+            {...rest}
+            type={type}
+          />
+          {meta.error && (
+            <FormFeedback>
+              <span>{t(meta.error)}</span>
+            </FormFeedback>
+          )}
+          {text && (
+            <FormText>
+              <span>{t(text)}</span>
+            </FormText>
+          )}
+        </FormGroup>
+      )}
+    </Field>
+  );
+};
 
-export default TextInput;
+export default CustomInput;

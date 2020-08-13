@@ -1,6 +1,5 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import { Row } from 'reactstrap';
 import LocalizedLink from '../../../../common/LocalizedLink';
 
@@ -21,11 +20,6 @@ describe('LinkedEditSection', () => {
 
   test('should render the children', () => {
     expect(getWrapper().contains(child)).toBe(true);
-  });
-
-  test('should pass "title" prop as an "id" to FormattedMessage component', () => {
-    const title = 'foo bar';
-    expect(getWrapper({ title }).find(FormattedMessage).first().prop('id')).toBe(title);
   });
 
   test('should pass "link" prop as a "to" to LocalizedLink component', () => {

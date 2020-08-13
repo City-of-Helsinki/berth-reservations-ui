@@ -1,7 +1,6 @@
-import React from 'react';
-import { IntlProvider } from 'react-intl';
+import React, { useEffect } from 'react';
+import i18n from '../locales/i18n';
 import { Route, RouteComponentProps, Switch } from 'react-router';
-import messages from '../config/translations';
 
 import BerthPage from './pages/berthPage/BerthPageContainer';
 import BerthFormPage from './pages/formPage/BerthFormPageContainer';
@@ -32,13 +31,12 @@ const App = ({
   match: {
     params: { locale = LocaleOpts.FI },
   },
-}: Props) => (
-  <IntlProvider
-    locale={locale}
-    key={locale}
-    messages={messages[locale]}
-    defaultLocale={LocaleOpts.FI}
-  >
+}: Props) => {
+  useEffect(() => {
+    i18n.changeLanguage(locale);
+  });
+
+  return (
     <Switch>
       <Route exact path={`/${localeParam}`} component={FrontPage} />
       <Route exact path={`/${localeParam}/${berthParam}`} component={BerthPage} />
@@ -63,7 +61,7 @@ const App = ({
       <Route exact path={`/${localeParam}/past-due-date`} component={PastDueDatePage} />
       <Route component={NotFoundPage} />
     </Switch>
-  </IntlProvider>
-);
+  );
+};
 
 export default App;
