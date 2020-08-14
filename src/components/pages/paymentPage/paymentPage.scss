@@ -1,0 +1,59 @@
+@import 'styles/mixin';
+@import 'helsinki/colors';
+@import 'styles/variables';
+
+.vene-payment-page {
+  background-color: $hel-light;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  &__content-container {
+    display: flex;
+    padding: $spacing-04 0;
+
+    &:first-child {
+      background-color: $hel-fog;
+    }
+    @include for-desktop {
+      justify-content: center;
+    }
+  }
+
+  &__content {
+    margin: 0 $spacing-01;
+
+    @include for-desktop {
+      width: $spacing-40;
+    }
+    @include for-phone {
+      width: 100%;
+    }
+  }
+
+  &__accept-terms-content {
+    > * {
+      margin-bottom: $spacing-03;
+    }
+  }
+
+  &__link {
+    color: $hel-coat;
+  }
+
+  &__pay-button {
+    padding: $spacing-01 $spacing-01;
+
+    &:disabled {
+      background: $hel-gray;
+      border-color: $hel-gray;
+    }
+    @include for-phone {
+      width: 100%;
+    }
+  }
+
+  &__contact-info {
+    margin-bottom: 0;
+  }
+}

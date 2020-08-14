@@ -601,6 +601,14 @@
       },
       "title": "Kiitos!"
     },
+    "payment": {
+      "title": "Laskun maksaminen",
+      "terms_info": "Hyvä asiakkaamme, olemme päivittäneet venepaikan sopimusehtoja. Tutustu sopimusehtojen sisältöön alla. Voit jatkaa maksutapahtumaan sen jälkeen. Venepaikan saaminen edellyttää sopimusehtojen hyväksymistä.",
+      "questions": "Kysymykset ja lisätiedot: ",
+      "terms_pdf": "Venepaikan sopimusehdot (PDF)",
+      "accept_terms": "Olen lukenut venepaikan sopimusehdot ja hyväksyn ne",
+      "pay": "Jatka maksamaan"
+    },
     "winter_storage": {
       "appointed": "Merkityt ruutupaikat",
       "electricity": "Sähkö",
