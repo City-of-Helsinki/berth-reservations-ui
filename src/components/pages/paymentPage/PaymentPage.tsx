@@ -5,17 +5,17 @@ import { Button } from 'reactstrap';
 import './paymentPage.scss';
 import Input from '../../common/Input';
 
-const PaymentPage = () => {
+interface Props {
+  handlePay: () => void;
+}
+
+const PaymentPage = ({ handlePay }: Props) => {
   const { t } = useTranslation();
   const [termsAccepted, setTermsAccepted] = useState<boolean>(false);
 
   const handleAcceptTermsChange = (event: ChangeEvent<HTMLInputElement>) => {
     const target = event.target;
     setTermsAccepted(target.checked);
-  };
-
-  const handlePay = () => {
-    alert('payment');
   };
 
   return (

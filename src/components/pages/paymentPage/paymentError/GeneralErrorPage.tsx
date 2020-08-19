@@ -7,6 +7,7 @@ const GeneralErrorPage = () => {
   const { t } = useTranslation();
   return (
     <NoticeTemplate
+      className={'vene-payment-general-error-page'}
       titleText={t('page.payment_error.general_error.title')}
       message={<p>{t('page.payment_error.general_error.message')}</p>}
     />

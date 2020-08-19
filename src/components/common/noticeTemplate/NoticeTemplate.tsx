@@ -8,12 +8,13 @@ import Layout from '../../layout/Layout';
 import './noticeTemplate.scss';
 
 export interface NoticePageProps {
+  className?: string; // used in tests only
   titleText: string;
   message: React.ReactNode;
   success?: boolean;
 }
 
-const NoticeTemplate = ({ titleText, message, success = false }: NoticePageProps) => {
+const NoticeTemplate = ({ titleText, message, success = false, className }: NoticePageProps) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -21,7 +22,7 @@ const NoticeTemplate = ({ titleText, message, success = false }: NoticePageProps
 
   return (
     <Layout>
-      <div className="vene-notice-page">
+      <div className={classNames('vene-notice-page', className)}>
         <div
           className={classNames(
             'vene-notice-page__content',

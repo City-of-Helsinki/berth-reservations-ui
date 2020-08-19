@@ -16,7 +16,7 @@ import WinterStoragePage from './pages/winterStoragePage/WinterStoragePageContai
 
 import { ApplicationType } from '../types/applicationType';
 import { LocaleOpts } from '../types/intl';
-import PaymentPage from './pages/paymentPage/PaymentPage';
+import { PaymentPageContainer } from './pages/paymentPage/PaymentPageContainer';
 
 type Props = RouteComponentProps<{ locale: LocaleOpts }>;
 
@@ -45,7 +45,7 @@ const App = ({
       <Route exact path={`/${localeParam}/${winterParam}/form`} component={WinterFormPage} />
       <Route exact path={`/${localeParam}/${winterParam}/form/:tab`} component={WinterFormPage} />
 
-      <Route exact path={`/${localeParam}/payment`} component={PaymentPage} />
+      <Route exact path={`/${localeParam}/payment`} component={PaymentPageContainer} />
 
       <Route exact path={`/${localeParam}/thank-you`} component={ApplicationThankYouPage} />
       <Route exact path={`/${localeParam}/notification-sent`} component={NotificationSentPage} />
