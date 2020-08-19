@@ -1,8 +1,8 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, Card as RSCard, CardBody, CardTitle } from 'reactstrap';
 
 import './card.scss';
+import Icon from '../Icon';
 
 type Props = {
   title: string;
@@ -12,13 +12,11 @@ type Props = {
 };
 
 const Card = ({ title, onClick, btnLabel, children }: Props) => {
-  const { t } = useTranslation();
-
   return (
     <RSCard className="vene-card">
       <CardBody className="vene-card__body">
         <CardTitle className="vene-card__title" tag="h3">
-          {t(title)}
+          {title}
         </CardTitle>
         <div className="vene-card__description">{children}</div>
         <Button
@@ -28,7 +26,8 @@ const Card = ({ title, onClick, btnLabel, children }: Props) => {
           color="primary"
           outline
         >
-          {t(btnLabel)}
+          <span className="vene-card__button-label">{btnLabel}</span>
+          <Icon name="arrowRight" className="vene-card__arrow-icon" />
         </Button>
       </CardBody>
     </RSCard>

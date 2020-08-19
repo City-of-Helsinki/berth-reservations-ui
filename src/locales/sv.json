@@ -532,13 +532,13 @@
     "front": {
       "card": {
         "berths": {
-          "button_label": "Bläddra och sök båtplatser →",
+          "button_label": "Bläddra och sök båtplatser",
           "description": "Bläddra bland stadens båthamnar. Du kan göra en ny ansökan om båtplats eller ansöka om byte av nuvarande båtplats till en annan.",
           "title": "Ansökan om båtplats"
         },
         "instructions": "Mer information och anvisningar (hel.fi)",
         "winter": {
-          "button_label": "Bläddra och sök vinteruppläggningsplatser →",
+          "button_label": "Bläddra och sök\nvinteruppläggningsplatser",
           "description": "Bläddra bland Helsingfors stads vinteruppläggningsplatser. Du kan göra en ny ansökan om vinteruppläggningsplats för din båt.",
           "title": "Vinteruppläggningsplatser"
         }

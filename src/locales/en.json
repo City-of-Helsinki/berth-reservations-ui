@@ -532,13 +532,13 @@
     "front": {
       "card": {
         "berths": {
-          "button_label": "Browse and search for boat berths →",
+          "button_label": "Browse and search for boat berths",
           "description": "Browse the City of Helsinki’s boat harbours. You can submit a new boat berth application or apply to exchange your current boat berth for another one.",
           "title": "Boat berth search"
         },
         "instructions": "Additional information and instructions (hel.fi)",
         "winter": {
-          "button_label": "Browse and search for winter storage spaces →",
+          "button_label": "Browse and search\nfor winter storage spaces",
           "description": "Browse the City of Helsinki’s winter storage spaces for boats. You can submit a new application for a winter storage space for your boat.",
           "title": "Winter storage places"
         }
