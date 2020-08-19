@@ -64,6 +64,7 @@ $berthLegendIconSize: 42px;
     line-height: 1;
     margin-top: 0.5em;
     hyphens: auto;
+    overflow-wrap: break-word;
     font-size: $font-size-sm;
 
     &:first-letter {
