@@ -437,9 +437,9 @@
     "application_sent": {
       "message": {
         "paragraph1": "You will shortly receive a confirmation message to the e-mail address you provided on your application. If you wish to change or cancel your application or ask any questions regarding your application, please e-mail venepaikkavaraukset@hel.fi.",
-        "paragraph2": "Helsingin kaupungin venepaikkavaraukset (Berth reservations of the City of Helsinki)<br/>venepaikkavaraukset.hel.fi<br/>Advice over the telephone is available 9–12 Monday–Thursday by calling 09 310 87900.",
-        "title": "Thank you, your application has been sent successfully!"
-      }
+        "paragraph2": "Helsingin kaupungin venepaikkavaraukset (Berth reservations of the City of Helsinki)<br/>venepaikkavaraukset.hel.fi<br/>Advice over the telephone is available 9–12 Monday–Thursday by calling 09 310 87900."
+      },
+      "title": "Thank you, your application has been sent successfully!"
     },
     "berth": {
       "exchange_application": {

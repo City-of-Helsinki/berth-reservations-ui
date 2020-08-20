@@ -437,9 +437,9 @@
     "application_sent": {
       "message": {
         "paragraph1": "Saat pian vahvistusviestin hakemuksesta antamaasi sähköpostiosoitteeseen. Jos haluat muuttaa tai perua hakemuksesi tai tiedustella muuta hakemukseesi liittyvää asiaa, lähetä sähköpostia osoitteeseen: venepaikkavaraukset@hel.fi.",
-        "paragraph2": "Helsingin kaupungin venepaikkavaraukset<br/>venepaikkavaraukset.hel.fi<br/>Puhelinneuvonta ma-to klo 9-12 numerossa 09 310 87900.",
-        "title": "Kiitos, hakemuksesi on lähetetty!"
-      }
+        "paragraph2": "Helsingin kaupungin venepaikkavaraukset<br/>venepaikkavaraukset.hel.fi<br/>Puhelinneuvonta ma-to klo 9-12 numerossa 09 310 87900."
+      },
+      "title": "Kiitos, hakemuksesi on lähetetty!"
     },
     "berth": {
       "exchange_application": {
