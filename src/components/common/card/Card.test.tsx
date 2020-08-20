@@ -10,8 +10,8 @@ describe('Card', () => {
   const getWrapper = (children: JSX.Element = <div>card body</div>, props?: object) =>
     shallow(
       <Card
-        title="page.front.card.winter.title"
-        btnLabel="page.front.card.winter.button_label"
+        title="Talvisäilytyspaikat"
+        btnLabel="Selaa ja hae talvisäilytyspaikkoja"
         onClick={onClick}
         {...props}
       >

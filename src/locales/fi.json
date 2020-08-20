@@ -437,9 +437,9 @@
     "application_sent": {
       "message": {
         "paragraph1": "Saat pian vahvistusviestin hakemuksesta antamaasi sähköpostiosoitteeseen. Jos haluat muuttaa tai perua hakemuksesi tai tiedustella muuta hakemukseesi liittyvää asiaa, lähetä sähköpostia osoitteeseen: venepaikkavaraukset@hel.fi.",
-        "paragraph2": "Helsingin kaupungin venepaikkavaraukset<br/>venepaikkavaraukset.hel.fi<br/>Puhelinneuvonta ma-to klo 9-12 numerossa 09 310 87900.",
-        "title": "Kiitos, hakemuksesi on lähetetty!"
-      }
+        "paragraph2": "Helsingin kaupungin venepaikkavaraukset<br/>venepaikkavaraukset.hel.fi<br/>Puhelinneuvonta ma-to klo 9-12 numerossa 09 310 87900."
+      },
+      "title": "Kiitos, hakemuksesi on lähetetty!"
     },
     "berth": {
       "exchange_application": {
@@ -532,15 +532,21 @@
     "front": {
       "card": {
         "berths": {
-          "button_label": "Selaa ja hae venepaikkoja →",
+          "button_label": "Selaa ja hae venepaikkoja",
           "description": "Selaa Helsingin kaupungin venesatamia. Voit tehdä uuden venepaikkahakemuksen tai hakea käytössäsi olevan venepaikan vaihtoa toiseen.",
           "title": "Venepaikkahaku"
         },
         "instructions": "Lisätietoja ja ohjeita (hel.fi)",
+        "instructions_short": "Lisätietoja (hel.fi)",
         "winter": {
-          "button_label": "Selaa ja hae talvisäilytyspaikkoja →",
+          "button_label": "Selaa ja hae talvisäilytyspaikkoja",
           "description": "Selaa Helsingin kaupungin veneiden talvisäilytyspaikkoja. Voit tehdä uuden hakemuksen talvisäilytyspaikkaan veneellesi.",
           "title": "Talvisäilytyspaikat"
+        },
+        "unmarkedWinter": {
+          "button_label": "Ilmoita",
+          "description": "Ilmoita meille, kun olet vienyt veneesi nosto\u00ADjärjestysalueelle.",
+          "title": "Nostojärjestys\u00ADilmoitus"
         }
       },
       "description": {
