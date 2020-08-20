@@ -738,6 +738,9 @@
     },
     "winter": {
       "title": "Talvisäilytyspaikat"
+    },
+    "unmarkedWinterStorage": {
+      "title": "Nostojärjestysilmoitus"
     }
   },
   "test": {

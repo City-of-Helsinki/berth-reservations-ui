@@ -42,6 +42,14 @@ const Navbar = () => {
           >
             <span>{t('site.winter.title')}</span>
           </LocalizedLink>
+
+          <LocalizedLink
+            to="/unmarked-winter-storage"
+            className="vene-navbar__link"
+            activeClassName="vene-navbar__link--active"
+          >
+            <span>{t('site.unmarkedWinterStorage.title')}</span>
+          </LocalizedLink>
         </Nav>
       </Container>
     </div>
