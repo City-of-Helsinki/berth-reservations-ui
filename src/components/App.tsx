@@ -9,7 +9,6 @@ import FrontPage from './pages/frontPage/FrontPage';
 import ApplicationThankYouPage from './pages/notice/ApplicationSentPage';
 import NotFoundPage from './pages/notice/NotFoundPage';
 import NotificationSentPage from './pages/notice/NotificationSentPage';
-import PaymentReceivedPage from './pages/notice/PaymentReceivedPage';
 import SelectedAreaPage from './pages/selectedAreaPage/SelectedAreaPageContainer';
 import SelectedBerthPage from './pages/selectedBerthPage/SelectedBerthPageContainer';
 import WinterStoragePage from './pages/winterStoragePage/WinterStoragePageContainer';
@@ -17,6 +16,7 @@ import WinterStoragePage from './pages/winterStoragePage/WinterStoragePageContai
 import { ApplicationType } from '../types/applicationType';
 import { LocaleOpts } from '../types/intl';
 import { PaymentPageContainer } from './pages/paymentPage/PaymentPageContainer';
+import { PaymentResultContainer } from './pages/paymentResultPage/PaymentResultContainer';
 
 type Props = RouteComponentProps<{ locale: LocaleOpts }>;
 
@@ -46,10 +46,10 @@ const App = ({
       <Route exact path={`/${localeParam}/${winterParam}/form/:tab`} component={WinterFormPage} />
 
       <Route exact path={`/${localeParam}/payment`} component={PaymentPageContainer} />
+      <Route exact path={`/${localeParam}/payment-result`} component={PaymentResultContainer} />
 
       <Route exact path={`/${localeParam}/thank-you`} component={ApplicationThankYouPage} />
       <Route exact path={`/${localeParam}/notification-sent`} component={NotificationSentPage} />
-      <Route exact path={`/${localeParam}/payment-received`} component={PaymentReceivedPage} />
       <Route component={NotFoundPage} />
     </Switch>
   );

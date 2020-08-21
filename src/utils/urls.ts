@@ -9,3 +9,9 @@ export function getOrderNumber(searchString: string): string | null {
   }
   return orderNumber;
 }
+
+export function getPaymentSuccess(searchString: string): boolean {
+  const parsed = queryString.parse(searchString);
+  const paymentStatus = parsed.payment_status;
+  return paymentStatus === 'success';
+}

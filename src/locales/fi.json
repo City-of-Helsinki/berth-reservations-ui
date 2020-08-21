@@ -607,6 +607,10 @@
       },
       "title": "Kiitos!"
     },
+    "payment_failed": {
+      "message": "Pahoittelemme, mutta maksun käsittelyssä tapahtui virhe.",
+      "title": "Virhetilanne"
+    },
     "payment": {
       "title": "Laskun maksaminen",
       "terms_info": "Hyvä asiakkaamme, olemme päivittäneet venepaikan sopimusehtoja. Tutustu sopimusehtojen sisältöön alla. Voit jatkaa maksutapahtumaan sen jälkeen. Venepaikan saaminen edellyttää sopimusehtojen hyväksymistä.",

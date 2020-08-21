@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import NoticeTemplate from '../../common/noticeTemplate/NoticeTemplate';
-import resetStore from './resetStore';
+import NoticeTemplate from '../../../common/noticeTemplate/NoticeTemplate';
+import resetStore from '../../notice/resetStore';
 
 const PaymentReceivedPage = () => {
   const { t } = useTranslation();
