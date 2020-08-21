@@ -66,9 +66,7 @@ export const WINTER_AREAS_QUERY = gql`
             streetAddress
             zipCode
             imageFile
-            numberOfMarkedPlaces
-            maximumWidth: maxWidth
-            maximumLength: maxLength
+            maxLengthOfSectionSpaces
             numberOfSectionSpaces
             servicemapId
             maxLengthOfSectionSpaces
@@ -82,11 +80,6 @@ export const WINTER_AREAS_QUERY = gql`
             summerStorageForBoats
             municipality
             wwwUrl
-            availabilityLevel {
-              id
-              title
-              description
-            }
           }
         }
       }

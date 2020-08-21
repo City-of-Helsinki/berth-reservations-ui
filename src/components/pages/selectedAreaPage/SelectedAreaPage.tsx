@@ -118,12 +118,12 @@ class SelectedAreaPage extends Component<Props> {
                       <div>
                         {selectedAreas.map((resource, index) => {
                           const services: [IconNames, boolean][] = [
-                            ['waterTap', resource.water],
-                            ['fence', resource.gate],
-                            ['plug', resource.electricity],
-                            ['dollyEmpty', resource.summerStorageForTrailers],
-                            ['trestle', resource.summerStorageForDockingEquipment],
-                            ['tools', resource.repairArea],
+                            ['waterTap', !!resource.water],
+                            ['fence', !!resource.gate],
+                            ['plug', !!resource.electricity],
+                            ['dollyEmpty', !!resource.summerStorageForTrailers],
+                            ['trestle', !!resource.summerStorageForDockingEquipment],
+                            ['tools', !!resource.repairArea],
                           ];
 
                           return (
@@ -136,7 +136,6 @@ class SelectedAreaPage extends Component<Props> {
                               moveUp={index !== 0 ? moveUp : undefined}
                               moveDown={index !== selectedAreas.size - 1 ? moveDown : undefined}
                               handleRemove={deselectArea}
-                              availabilityLevel={resource.availabilityLevel}
                               validationErrMsg={
                                 filter(resource) ? undefined : 'error.message.invalid_area'
                               }

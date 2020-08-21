@@ -53,8 +53,8 @@ export const getBerthFilterByValues = (
       true
     );
     filterByBoatTypeIds =
-      boatType && b.suitableBoatTypes.length
-        ? !!b.suitableBoatTypes.find((type) => type.id === boatType)
+      boatType && b.suitableBoatTypes?.length
+        ? !!b.suitableBoatTypes.find((type) => type?.id === boatType)
         : true;
 
     return filterByService && filterByWidth && filterByLength && filterByBoatTypeIds;
@@ -73,8 +73,6 @@ export const getWinterStorageFilterByValues = (
   storageAreaFilter?: StorageAreaFilter
 ) => {
   const boatHasTrailer = get(values, 'boatStoredOnTrailer');
-
-  const width = (stringToFloat(get(values, 'boatWidth', '')) || 0) * 100;
   const userBoatLength = stringToFloat(get(values, 'boatLength', '')) || 0;
 
   const length = (boatHasTrailer ? userBoatLength + 1 : userBoatLength) * 100;
@@ -85,8 +83,9 @@ export const getWinterStorageFilterByValues = (
     .map(([type]) => type);
 
   return (b: WinterStorageType) => {
-    const filterByWidth = b.maximumWidth ? Number(b.maximumWidth) >= width : true;
-    const filterByLength = b.maximumLength ? Number(b.maximumLength) >= length : true;
+    const filterByLength = b.maxLengthOfSectionSpaces
+      ? Number(b.maxLengthOfSectionSpaces) >= length
+      : true;
     let filterByService = true;
     const filterByBoatTypeIds = true;
     const filterByStorageArea = filterStorageArea(b, storageAreaFilter);
@@ -96,13 +95,7 @@ export const getWinterStorageFilterByValues = (
       true
     );
 
-    return (
-      filterByService &&
-      filterByWidth &&
-      filterByLength &&
-      filterByBoatTypeIds &&
-      filterByStorageArea
-    );
+    return filterByService && filterByLength && filterByBoatTypeIds && filterByStorageArea;
   };
 };
 
@@ -114,10 +107,10 @@ export const getWinterStorageFilterByValues = (
  * @returns {boolean}
  */
 const filterStorageArea = (storage: WinterStorageType, filterType?: StorageAreaFilter) => {
-  if (filterType === StorageAreaFilter.SHOW_APPOINTED_AREA && !storage.numberOfMarkedPlaces) {
+  if (filterType === StorageAreaFilter.SHOW_APPOINTED_AREA && !storage.numberOfSectionSpaces) {
     return false;
   }
-  if (filterType === StorageAreaFilter.SHOW_FREE_AREA && storage.numberOfMarkedPlaces) {
+  if (filterType === StorageAreaFilter.SHOW_FREE_AREA && storage.numberOfSectionSpaces) {
     return false;
   }
 

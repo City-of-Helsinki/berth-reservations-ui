@@ -142,11 +142,11 @@ class SelectedBerthPage extends Component<Props> {
                       <div>
                         {selectedBerths.map((resource, index) => {
                           const services: [IconNames, boolean][] = [
-                            ['plug', resource.electricity],
-                            ['waterTap', resource.water],
-                            ['trash', resource.wasteCollection],
-                            ['fence', resource.gate],
-                            ['streetLight', resource.lighting],
+                            ['plug', !!resource.electricity],
+                            ['waterTap', !!resource.water],
+                            ['trash', !!resource.wasteCollection],
+                            ['fence', !!resource.gate],
+                            ['streetLight', !!resource.lighting],
                           ];
 
                           return (
