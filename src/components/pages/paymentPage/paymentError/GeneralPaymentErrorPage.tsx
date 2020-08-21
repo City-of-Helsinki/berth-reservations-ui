@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import NoticeTemplate from '../../../common/noticeTemplate/NoticeTemplate';
 
-const GeneralErrorPage = () => {
+const GeneralPaymentErrorPage = () => {
   const { t } = useTranslation();
   return (
     <NoticeTemplate
@@ -14,4 +14,4 @@ const GeneralErrorPage = () => {
   );
 };
 
-export default GeneralErrorPage;
+export default GeneralPaymentErrorPage;

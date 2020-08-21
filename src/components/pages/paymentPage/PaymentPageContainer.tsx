@@ -11,7 +11,7 @@ import {
   OrderDetailsQueryVariables,
   OrderStatus,
 } from '../../../utils/paymentMocks';
-import GeneralErrorPage from './paymentError/GeneralErrorPage';
+import GeneralPaymentErrorPage from './paymentError/GeneralPaymentErrorPage';
 import AlreadyPaidPage from './paymentError/AlreadyPaidPage';
 import PastDueDatePage from './paymentError/PastDueDatePage';
 
@@ -47,7 +47,7 @@ const PaymentPageContainer = () => {
     return <div>loading...</div>;
   }
   if (confirmError || orderDetailsError) {
-    return <GeneralErrorPage />;
+    return <GeneralPaymentErrorPage />;
   }
 
   return getPaymentPage(orderStatusData?.orderStatus.status, confirmPayment);
@@ -58,7 +58,7 @@ export const getPaymentPage = (
   confirmPayment: () => void
 ): JSX.Element => {
   if (!status) {
-    return <GeneralErrorPage />;
+    return <GeneralPaymentErrorPage />;
   }
 
   switch (status) {
@@ -69,7 +69,7 @@ export const getPaymentPage = (
     case OrderStatus.EXPIRED:
       return <PastDueDatePage />;
     default:
-      return <GeneralErrorPage />;
+      return <GeneralPaymentErrorPage />;
   }
 };
 
