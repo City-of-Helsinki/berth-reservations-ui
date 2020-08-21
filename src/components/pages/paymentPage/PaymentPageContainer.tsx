@@ -39,7 +39,7 @@ const PaymentPageContainer = () => {
       },
     },
     onCompleted: (confirmPaymentData: ConfirmPaymentResponse) => {
-      alert(confirmPaymentData.confirmPayment.url);
+      window.location.href = confirmPaymentData.confirmPayment.url;
     },
   });
 
