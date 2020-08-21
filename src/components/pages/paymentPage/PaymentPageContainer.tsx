@@ -18,17 +18,18 @@ import PastDueDatePage from './paymentError/PastDueDatePage';
 const PaymentPageContainer = () => {
   const orderNumber = getOrderNumber(window.location.search);
 
-  const { loading: loadingOrderDetails, data: orderStatusData } = useQuery<
-    OrderDetailsQuery,
-    OrderDetailsQueryVariables
-  >(GET_ORDER_DETAILS, {
+  const {
+    loading: loadingOrderDetails,
+    data: orderStatusData,
+    error: orderDetailsError,
+  } = useQuery<OrderDetailsQuery, OrderDetailsQueryVariables>(GET_ORDER_DETAILS, {
     variables: {
       orderNumber: orderNumber as string,
     },
     skip: !orderNumber,
   });
 
-  const [confirmPayment, { loading: loadingConfirmPayment }] = useMutation<
+  const [confirmPayment, { loading: loadingConfirmPayment, error: confirmError }] = useMutation<
     ConfirmPaymentResponse,
     ConfirmPaymentMutationInput
   >(CONFIRM_PAYMENT, {
@@ -44,6 +45,9 @@ const PaymentPageContainer = () => {
 
   if (loadingOrderDetails || loadingConfirmPayment) {
     return <div>loading...</div>;
+  }
+  if (confirmError || orderDetailsError) {
+    return <GeneralErrorPage />;
   }
 
   return getPaymentPage(orderStatusData?.orderStatus.status, confirmPayment);
