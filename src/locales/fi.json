@@ -609,10 +609,10 @@
     },
     "payment": {
       "title": "Laskun maksaminen",
-      "terms_info": "Hyvä asiakkaamme, olemme päivittäneet venepaikan sopimusehtoja. Tutustu sopimusehtojen sisältöön alla. Voit jatkaa maksutapahtumaan sen jälkeen. Venepaikan saaminen edellyttää sopimusehtojen hyväksymistä.",
+      "terms_info": "Hyvä asiakkaamme, olemme päivittäneet talvisäilytyspaikan sopimusehtoja. Tutustu sopimusehtojen sisältöön alla. Voit jatkaa maksutapahtumaan sen jälkeen. Talvisäilytyspaikan saaminen edellyttää sopimusehtojen hyväksymistä.",
       "questions": "Kysymykset ja lisätiedot: ",
-      "terms_pdf": "Venepaikan sopimusehdot (PDF)",
-      "accept_terms": "Olen lukenut venepaikan sopimusehdot ja hyväksyn ne",
+      "terms_pdf": "Talvisäilytyspaikan sopimusehdot (PDF)",
+      "accept_terms": "Olen lukenut talvisäilytyspaikan sopimusehdot ja hyväksyn ne",
       "pay": "Jatka maksamaan"
     },
     "winter_storage": {
