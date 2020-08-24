@@ -5,12 +5,14 @@ import { SelectedIds } from '../../components/berths/types';
 import { ApplicationOptions } from '../../types/applicationType';
 import { BerthFormValues } from '../../types/berth';
 import { SelectedServices, SelectedWinterServices } from '../../types/services';
+import { UnmarkedWinterFormValues } from '../../types/unmarkedWinterStorage';
 import { WinterFormValues } from '../../types/winterStorage';
 import { StorageAreaFilter } from '../reducers/WinterAreaReducers';
 
 interface FormProps {
   berthValues: BerthFormValues;
   winterValues: WinterFormValues;
+  unmarkedWinterValues: UnmarkedWinterFormValues;
 }
 
 interface BerthsProps {

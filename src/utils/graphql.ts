@@ -87,6 +87,22 @@ export const WINTER_AREAS_QUERY = gql`
   }
 `;
 
+export const UNMARKED_WINTER_AREAS_QUERY = gql`
+  query UnmarkedWinterAreasQuery {
+    winterStorageAreas {
+      edges {
+        node {
+          id
+          properties {
+            name
+            numberOfUnmarkedSpaces
+          }
+        }
+      }
+    }
+  }
+`;
+
 export const BERTH_SWITCH_REASONS_QUERY = gql`
   query BerthSwitchReasonsQuery {
     berthSwitchReasons {

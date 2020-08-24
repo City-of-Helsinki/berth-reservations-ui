@@ -1,8 +1,9 @@
+import { List } from 'immutable';
 import React, { useEffect } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { Button, Col, Container, Row } from 'reactstrap';
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
-import { UnmarkedWinterStorageFormValues } from '../../../types/unmarkedWinterStorage';
+import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../types/unmarkedWinterStorage';
 import Hero from '../../common/hero/Hero';
 import { Select } from '../../forms/Fields';
 import KoroSection from '../../layout/koroSection/KoroSection';
@@ -13,13 +14,10 @@ import { StepType } from '../../steps/step/Step';
 import './unmarkedWinterStoragePage.scss';
 
 export type UnmarkedWinterStoragePageProps = {
-  initialValues: UnmarkedWinterStorageFormValues;
+  initialValues: UnmarkedWinterFormValues;
   onSubmit: Function;
   steps: StepType[];
-  winterStorageAreas: {
-    name: string;
-    id: string;
-  }[];
+  winterStorageAreas: List<WinterStorageArea>;
 };
 
 const UnmarkedWinterStoragePage = ({
@@ -67,13 +65,13 @@ const UnmarkedWinterStoragePage = ({
             >
               <option value="">-</option>
               {winterStorageAreas &&
-                winterStorageAreas.reduce<JSX.Element[]>((acc, type) => {
-                  if (!type) return acc;
+                winterStorageAreas.reduce<JSX.Element[]>((acc, area) => {
+                  if (!area) return acc;
                   return [
-                    <option key={type.id} value={type.id}>
-                      {type.name}
-                    </option>,
                     ...acc,
+                    <option key={area.id} value={area.id}>
+                      {area.name}
+                    </option>,
                   ];
                 }, [])}
             </Select>

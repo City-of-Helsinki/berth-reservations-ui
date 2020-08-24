@@ -1,8 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
+import { Store } from '../../../redux/types';
+import { UnmarkedWinterFormValues } from '../../../types/unmarkedWinterStorage';
+import { UnmarkedWinterAreasQuery } from '../../../utils/__generated__/UnmarkedWinterAreasQuery';
+import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
+import { UNMARKED_WINTER_AREAS_QUERY } from '../../../utils/graphql';
+import { getWinterStorageAreas } from '../../../utils/unmarkedWinterStorage';
 import { StepType } from '../../steps/step/Step';
 import UnmarkedWinterStoragePage from './UnmarkedWinterStoragePage';
+import { Query } from 'react-apollo';
 
-const UnmarkedWinterStoragePageContainer = () => {
+interface WithLocalePush {
+  localePush: LocalePush;
+}
+
+interface PropsFromState {
+  initialValues: UnmarkedWinterFormValues;
+}
+
+type Props = WithLocalePush & PropsFromState;
+
+const UnmarkedWinterStoragePageContainer = (props: Props) => {
   const steps: StepType[] = [
     {
       completed: false,
@@ -29,23 +48,33 @@ const UnmarkedWinterStoragePageContainer = () => {
       linkTo: '',
     },
   ];
-  const winterStorageAreas = [
-    {
-      id: 'test',
-      name: 'Test',
-    },
-  ];
 
   return (
-    <UnmarkedWinterStoragePage
-      steps={steps}
-      winterStorageAreas={winterStorageAreas}
-      initialValues={{ area: 'test' }}
-      onSubmit={() => {
-        return;
+    <Query<UnmarkedWinterAreasQuery> query={UNMARKED_WINTER_AREAS_QUERY}>
+      {({
+        // error, TODO: handle errors
+        data,
+      }) => {
+        const winterStorageAreas = getWinterStorageAreas(data ? data.winterStorageAreas : null);
+
+        return (
+          <UnmarkedWinterStoragePage
+            {...props}
+            steps={steps}
+            winterStorageAreas={winterStorageAreas}
+            onSubmit={() => {
+              return; // TODO
+            }}
+          />
+        );
       }}
-    />
+    </Query>
   );
 };
 
-export default UnmarkedWinterStoragePageContainer;
+export default compose<Props, {}>(
+  withMatchParamsHandlers,
+  connect((state: Store) => ({
+    initialValues: state.forms.unmarkedWinterValues,
+  }))
+)(UnmarkedWinterStoragePageContainer);
