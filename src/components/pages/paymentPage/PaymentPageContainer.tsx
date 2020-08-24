@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 
 import PaymentPage from './PaymentPage';
@@ -14,9 +14,12 @@ import {
 import GeneralPaymentErrorPage from './paymentError/GeneralPaymentErrorPage';
 import AlreadyPaidPage from './paymentError/AlreadyPaidPage';
 import PastDueDatePage from './paymentError/PastDueDatePage';
+import { LoadingPage } from '../../common/loadingPage/LoadingPage';
 
 const PaymentPageContainer = () => {
   const orderNumber = getOrderNumber(window.location.search);
+
+  const [isRedirecting, setIsRedirecting] = useState(false);
 
   const {
     loading: loadingOrderDetails,
@@ -39,12 +42,13 @@ const PaymentPageContainer = () => {
       },
     },
     onCompleted: (confirmPaymentData: ConfirmPaymentResponse) => {
+      setIsRedirecting(true);
       window.location.href = confirmPaymentData.confirmPayment.url;
     },
   });
 
-  if (loadingOrderDetails || loadingConfirmPayment) {
-    return <div>loading...</div>;
+  if (loadingOrderDetails || loadingConfirmPayment || isRedirecting) {
+    return <LoadingPage />;
   }
   if (confirmError || orderDetailsError) {
     return <GeneralPaymentErrorPage />;
