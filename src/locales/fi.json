@@ -604,8 +604,9 @@
       "title": "Kiitos!"
     },
     "payment_failed": {
-      "message": "Pahoittelemme, mutta maksun käsittelyssä tapahtui virhe.",
-      "title": "Virhetilanne"
+      "title": "Virhetilanne",
+      "paragraph1": "Pahoittelemme, mutta maksun käsittelyssä tapahtui virhe.",
+      "paragraph2": "Voit yrittää maksua myöhemmin uudelleen, tarvittaessa ota yhteyttä asiakaspalveluun."
     },
     "payment": {
       "title": "Laskun maksaminen",

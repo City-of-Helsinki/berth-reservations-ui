@@ -9,7 +9,8 @@ const PaymentFailedPage = () => {
       titleText={t('page.payment_failed.title')}
       message={
         <>
-          <p>{t('page.payment_failed.message')}</p>
+          <p>{t('page.payment_failed.paragraph1')}</p>
+          <p>{t('page.payment_failed.paragraph2')}</p>
         </>
       }
     />
