@@ -587,10 +587,6 @@
         "message": "Maksu, jota yritit maksaa, on merkitty jo maksetuksi. Kiitos!",
         "title": "Maksu on jo maksettu"
       },
-      "customer_information_error": {
-        "message": "Asiakastietomme eivät vastaa antamiasi tietoja.",
-        "title": "Virhe asiakastiedoissa"
-      },
       "general_error": {
         "message": "Pahoittelemme, mutta maksua ei löydy. Se on voitu peruuttaa tai linkki voi olla virheellinen.",
         "title": "Virhetilanne"
