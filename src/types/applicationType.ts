@@ -6,4 +6,5 @@ export enum ApplicationOptions {
 export enum ApplicationType {
   BerthApp = 'berths',
   WinterStorageApp = 'winter-storage',
+  UnmarkedWinterStorageApp = 'unmarked-winter-storage',
 }

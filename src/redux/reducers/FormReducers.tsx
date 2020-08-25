@@ -2,6 +2,7 @@ import { Record } from 'immutable';
 
 import { WinterStorageMethod } from '../../__generated__/globalTypes';
 import { BerthFormValues } from '../../types/berth';
+import { UnmarkedWinterFormValues } from '../../types/unmarkedWinterStorage';
 import { WinterFormValues } from '../../types/winterStorage';
 import { Action, FormsFactory, FormsState } from '../types';
 
@@ -49,9 +50,14 @@ const winterValues: WinterFormValues = {
   boatStoredOnTrailer: false,
 };
 
+const unmarkedWinterValues: UnmarkedWinterFormValues = {
+  area: '',
+};
+
 const defaultState: FormsFactory = Record({
   berthValues,
   winterValues,
+  unmarkedWinterValues,
 });
 
 export default (state: FormsState = defaultState(), action: Action): FormsState => {

@@ -1,0 +1,12 @@
+.vene-unmarked-winter-storage-page {
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 2em;
+    padding-bottom: 6em;
+  }
+
+  &__button {
+    padding: 0.75em 6em;
+  }
+}

@@ -378,6 +378,13 @@
         }
       }
     },
+    "unmarked_winter_storage": {
+      "field": {
+        "winter_storage_area": {
+          "label": "Talvisäilytysalue"
+        }
+      }
+    },
     "wizard": {
       "button": {
         "invalid": "Täytä lomake jatkaaksesi",
@@ -401,6 +408,13 @@
         "second": "HUOM! Ennen kuin täytät hakemuksen, lue ohjeet alueiden valintaan sekä tietoa säilytyspaikkojen jakoperusteista ja hakemuskäsittelyn aikataulusta <1>hel.fi</1> -sivustolta. <3/> Jos olet kiinnostunut talvisäilyttämään veneesi vedessä omalla venepaikallasi ota meihin yhteyttä."
       },
       "title": "Talvisäilytyspaikkojen haku"
+    },
+    "unmarked_winter_storage": {
+      "paragraph": {
+        "first": "Tässä palvelussa voit ilmoittaa meille että olet vienyt veneesi nostojärjestysalueelle. Nostojärjestysalueiden luonteesta johtuen emme voi jakaa paikkoja niille etukäteen.",
+        "second": "Tarkempia tietoja talvisäilytyspaikkojen jakoperusteista, hinnoista ja hakemusten käsittelystä löydät <1>hel.fi-sivustolta</1>."
+      },
+      "title": "Ilmoita että veneesi on viety talvisäilytysalueelle"
     }
   },
   "legend": {
@@ -431,6 +445,10 @@
     "winter": {
       "legend": "Anna säilytettävän veneen mitat. Näet aluelistalla alueet joissa on veneesi koolle sopivia paikkoja. Voit suodattaa listaa myös alueella olevien palvelujen perusteella.",
       "title": "Selaa ja valitse talvisäilytysalueita"
+    },
+    "unmarked_winter": {
+      "title": "Valitse talvisäilytysalue",
+      "legend": "Valitse talvisäilytysalue, jonne olet vienyt veneesi."
     }
   },
   "page": {
@@ -734,10 +752,16 @@
         },
         "winter_storage": "Talvisäilytyspaikan hakemus"
       },
-      "winter_areas": "Alueiden valinta"
+      "winter_areas": "Alueiden valinta",
+      "unmarked_winter_storage_area": "Alueen valinta",
+      "owner": "Omistajan tiedot",
+      "send_notification": "Ilmoituksen lähettäminen"
     },
     "winter": {
       "title": "Talvisäilytyspaikat"
+    },
+    "unmarked_winter_storage": {
+      "title": "Nostojärjestysilmoitus"
     }
   },
   "test": {

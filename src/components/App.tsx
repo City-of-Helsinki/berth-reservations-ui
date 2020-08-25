@@ -12,6 +12,7 @@ import NotificationSentPage from './pages/notice/NotificationSentPage';
 import SelectedAreaPage from './pages/selectedAreaPage/SelectedAreaPageContainer';
 import SelectedBerthPage from './pages/selectedBerthPage/SelectedBerthPageContainer';
 import WinterStoragePage from './pages/winterStoragePage/WinterStoragePageContainer';
+import UnmarkedWinterStoragePage from './pages/unmarkedWinterStoragePage/UnmarkedWinterStoragePageContainer';
 
 import { ApplicationType } from '../types/applicationType';
 import { LocaleOpts } from '../types/intl';
@@ -23,6 +24,7 @@ type Props = RouteComponentProps<{ locale: LocaleOpts }>;
 const localeParam = ':locale(fi|en|sv)';
 const berthParam = `:app(${ApplicationType.BerthApp})`;
 const winterParam = `:app(${ApplicationType.WinterStorageApp})`;
+const unmarkedWsParam = `:app(${ApplicationType.UnmarkedWinterStorageApp})`;
 
 const App = ({
   match: {
@@ -44,6 +46,11 @@ const App = ({
       <Route exact path={`/${localeParam}/${winterParam}/selected`} component={SelectedAreaPage} />
       <Route exact path={`/${localeParam}/${winterParam}/form`} component={WinterFormPage} />
       <Route exact path={`/${localeParam}/${winterParam}/form/:tab`} component={WinterFormPage} />
+      <Route
+        exact
+        path={`/${localeParam}/${unmarkedWsParam}`}
+        component={UnmarkedWinterStoragePage}
+      />
 
       <Route exact path={`/${localeParam}/payment`} component={PaymentPageContainer} />
       <Route exact path={`/${localeParam}/payment-result`} component={PaymentResultContainer} />

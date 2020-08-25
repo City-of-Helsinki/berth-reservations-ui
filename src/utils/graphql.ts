@@ -66,12 +66,9 @@ export const WINTER_AREAS_QUERY = gql`
             streetAddress
             zipCode
             imageFile
-            numberOfMarkedPlaces
-            maximumWidth: maxWidth
-            maximumLength: maxLength
+            maxLengthOfSectionSpaces
             numberOfSectionSpaces
             servicemapId
-            maxLengthOfSectionSpaces
             numberOfUnmarkedSpaces
             electricity
             water
@@ -82,11 +79,22 @@ export const WINTER_AREAS_QUERY = gql`
             summerStorageForBoats
             municipality
             wwwUrl
-            availabilityLevel {
-              id
-              title
-              description
-            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const UNMARKED_WINTER_AREAS_QUERY = gql`
+  query UnmarkedWinterAreasQuery {
+    winterStorageAreas {
+      edges {
+        node {
+          id
+          properties {
+            name
+            numberOfUnmarkedSpaces
           }
         }
       }

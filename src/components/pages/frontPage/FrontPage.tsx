@@ -59,7 +59,7 @@ const FrontPage = ({ localePush }: Props) => {
             </div>
             <div className="vene-front-page__card-wrapper vene-front-page__card-wrapper--thin">
               <Card
-                onClick={() => localePush('/')}
+                onClick={() => localePush('/unmarked-winter-storage')}
                 btnLabel={t('page.front.card.unmarkedWinter.button_label')}
                 title={t('page.front.card.unmarkedWinter.title')}
               >

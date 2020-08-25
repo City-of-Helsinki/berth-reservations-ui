@@ -20,8 +20,7 @@ const WinterStorageCard = ({
   isExcluded,
   handleSelect,
 }: WinterStorageCardProps) => {
-  const maximumWidth = convertCmToM(area.maximumWidth);
-  const maximumLength = convertCmToM(area.maximumLength);
+  const maximumLength = convertCmToM(area.maxLengthOfSectionSpaces);
   const address = `${area.streetAddress}, ${area.zipCode} ${area.municipality}`;
   const excluded = isExcluded ? 'error.message.invalid_area' : undefined;
 
@@ -32,19 +31,11 @@ const WinterStorageCard = ({
       id={area.id}
       address={address}
       imageFile={area.imageFile}
-      availabilityLevel={area.availabilityLevel}
       servicemapId={area.servicemapId}
       handleSelect={handleSelect}
       selected={selected}
       disabled={disabled}
       details={[
-        <Property
-          key="maximumWidth"
-          available
-          value={maximumWidth}
-          unit="m"
-          titleId="page.winter_storage.maximum_width"
-        />,
         <Property
           key="maximumLength"
           available
@@ -54,37 +45,37 @@ const WinterStorageCard = ({
         />,
         <Property
           key="appointed"
-          available={!!area.numberOfMarkedPlaces}
+          available={!!area.numberOfSectionSpaces}
           iconName="divided"
           titleId="page.winter_storage.appointed"
         />,
         <Property
           key="gate"
-          available={area.gate}
+          available={!!area.gate}
           iconName="fence"
           titleId="page.winter_storage.fence"
         />,
         <Property
           key="electricity"
-          available={area.electricity}
+          available={!!area.electricity}
           iconName="plug"
           titleId="page.winter_storage.electricity"
         />,
         <Property
           key="summerStorageForDockingEquipment"
-          available={area.summerStorageForDockingEquipment}
+          available={!!area.summerStorageForDockingEquipment}
           iconName="trestle"
           titleId="page.winter_storage.storage_for_docking_equip"
         />,
         <Property
           key="water"
-          available={area.water}
+          available={!!area.water}
           iconName="waterTap"
           titleId="page.winter_storage.water_tap"
         />,
         <Property
           key="summerStorageForTrailers"
-          available={area.summerStorageForTrailers}
+          available={!!area.summerStorageForTrailers}
           iconName="dollyEmpty"
           titleId="page.winter_storage.storage_for_trailers"
         />,
