@@ -5,4 +5,4 @@ const Spinner = () => {
   return <div className="vene-spinner" />;
 };
 
-export { Spinner };
+export default Spinner;

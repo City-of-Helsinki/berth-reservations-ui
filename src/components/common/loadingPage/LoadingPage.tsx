@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../../layout/Layout';
-import { Spinner } from '../spinner/Spinner';
 import './loadingPage.scss';
+import Spinner from '../spinner/Spinner';
 
 const LoadingPage = () => {
   return (
@@ -13,4 +13,4 @@ const LoadingPage = () => {
   );
 };
 
-export { LoadingPage };
+export default LoadingPage;
