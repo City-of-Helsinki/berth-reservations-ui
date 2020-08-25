@@ -45,11 +45,6 @@ const UnmarkedWinterStoragePage = ({
     }
   };
 
-  const legend = {
-    title: 'Valitse talvisäilytysalue',
-    legend: 'Valitse talvisäilytysalue, jonne olet vienyt veneesi.',
-  };
-
   const getAreaOptions = (areas: List<WinterStorageArea>) => {
     areas.reduce<JSX.Element[]>((acc, area) => {
       if (!area) return acc;
@@ -106,7 +101,14 @@ const UnmarkedWinterStoragePage = ({
         }
       />
       <KoroSection color="fog" top>
-        <UnmarkedWinterStorageLegend form={form} legend={legend} steps={steps} />
+        <UnmarkedWinterStorageLegend
+          form={form}
+          legend={{
+            title: t('legend.unmarked_winter.title'),
+            legend: t('legend.unmarked_winter.legend'),
+          }}
+          steps={steps}
+        />
       </KoroSection>
       <Container>
         <Row>

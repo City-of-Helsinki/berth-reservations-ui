@@ -445,6 +445,10 @@
     "winter": {
       "legend": "Anna säilytettävän veneen mitat. Näet aluelistalla alueet joissa on veneesi koolle sopivia paikkoja. Voit suodattaa listaa myös alueella olevien palvelujen perusteella.",
       "title": "Selaa ja valitse talvisäilytysalueita"
+    },
+    "unmarked_winter": {
+      "title": "Valitse talvisäilytysalue",
+      "legend": "Valitse talvisäilytysalue, jonne olet vienyt veneesi."
     }
   },
   "page": {
