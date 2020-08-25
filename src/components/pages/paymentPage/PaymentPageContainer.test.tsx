@@ -9,21 +9,21 @@ describe('PaymentPageContainer', () => {
     const confirmPayment = jest.fn();
 
     let wrapper = shallow(getPaymentPage(null, confirmPayment));
-    expect(wrapper.find('.vene-payment-general-error-page').exists()).toBeTruthy();
+    expect(wrapper.find('#vene-payment-general-error-page').exists()).toBeTruthy();
 
     wrapper = shallow(getPaymentPage(undefined, confirmPayment));
-    expect(wrapper.find('.vene-payment-general-error-page').exists()).toBeTruthy();
+    expect(wrapper.find('#vene-payment-general-error-page').exists()).toBeTruthy();
 
     wrapper = shallow(getPaymentPage(OrderStatus.WAITING, confirmPayment));
-    expect(wrapper.find('.vene-payment-page').exists()).toBeTruthy();
+    expect(wrapper.find('#vene-payment-page').exists()).toBeTruthy();
 
     wrapper = shallow(getPaymentPage(OrderStatus.EXPIRED, confirmPayment));
-    expect(wrapper.find('.vene-payment-expired-page').exists()).toBeTruthy();
+    expect(wrapper.find('#vene-payment-expired-page').exists()).toBeTruthy();
 
     wrapper = shallow(getPaymentPage(OrderStatus.PAID, confirmPayment));
-    expect(wrapper.find('.vene-already-paid-page').exists()).toBeTruthy();
+    expect(wrapper.find('#vene-already-paid-page').exists()).toBeTruthy();
 
     wrapper = shallow(getPaymentPage(OrderStatus.REJECTED, confirmPayment));
-    expect(wrapper.find('.vene-payment-general-error-page').exists()).toBeTruthy();
+    expect(wrapper.find('#vene-payment-general-error-page').exists()).toBeTruthy();
   });
 });

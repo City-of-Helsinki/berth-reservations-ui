@@ -6,7 +6,7 @@ const AlreadyPaidPage = () => {
   const { t } = useTranslation();
   return (
     <NoticeTemplate
-      className={'vene-already-paid-page'}
+      id={'vene-already-paid-page'}
       titleText={t('page.payment_error.already_paid.title')}
       message={<p>{t('page.payment_error.already_paid.message')}</p>}
     />

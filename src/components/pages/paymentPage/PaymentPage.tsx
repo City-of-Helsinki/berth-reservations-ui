@@ -20,7 +20,7 @@ const PaymentPage = ({ handlePay }: Props) => {
 
   return (
     <Layout>
-      <div className="vene-payment-page">
+      <div id="vene-payment-page" className="vene-payment-page">
         <div className="vene-payment-page__content-container">
           <div className="vene-payment-page__content">
             <h2>{t('page.payment.title')}</h2>
