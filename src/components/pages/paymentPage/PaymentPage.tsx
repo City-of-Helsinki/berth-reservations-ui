@@ -5,7 +5,11 @@ import { Button } from 'reactstrap';
 import './paymentPage.scss';
 import Input from '../../common/Input';
 
-const PaymentPage = () => {
+interface Props {
+  handlePay: () => void;
+}
+
+const PaymentPage = ({ handlePay }: Props) => {
   const { t } = useTranslation();
   const [termsAccepted, setTermsAccepted] = useState<boolean>(false);
 
@@ -14,13 +18,9 @@ const PaymentPage = () => {
     setTermsAccepted(target.checked);
   };
 
-  const handlePay = () => {
-    alert('payment');
-  };
-
   return (
     <Layout>
-      <div className="vene-payment-page">
+      <div id="vene-payment-page" className="vene-payment-page">
         <div className="vene-payment-page__content-container">
           <div className="vene-payment-page__content">
             <h2>{t('page.payment.title')}</h2>

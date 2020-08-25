@@ -3,17 +3,18 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'reactstrap';
 
-import LocalizedLink from '../../common/LocalizedLink';
+import LocalizedLink from '../LocalizedLink';
 import Layout from '../../layout/Layout';
 import './noticeTemplate.scss';
 
 export interface NoticePageProps {
+  id?: string; // used in tests only
   titleText: string;
   message: React.ReactNode;
   success?: boolean;
 }
 
-const NoticeTemplate = ({ titleText, message, success = false }: NoticePageProps) => {
+const NoticeTemplate = ({ titleText, message, success = false, id }: NoticePageProps) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -21,7 +22,7 @@ const NoticeTemplate = ({ titleText, message, success = false }: NoticePageProps
 
   return (
     <Layout>
-      <div className="vene-notice-page">
+      <div id={id} className="vene-notice-page">
         <div
           className={classNames(
             'vene-notice-page__content',
