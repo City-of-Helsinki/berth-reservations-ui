@@ -50,6 +50,18 @@ const UnmarkedWinterStoragePage = ({
     legend: 'Valitse talvisäilytysalue, jonne olet vienyt veneesi.',
   };
 
+  const getAreaOptions = (areas: List<WinterStorageArea>) => {
+    areas.reduce<JSX.Element[]>((acc, area) => {
+      if (!area) return acc;
+      return [
+        ...acc,
+        <option key={area.id} value={area.id}>
+          {area.name}
+        </option>,
+      ];
+    }, []);
+  };
+
   const form = {
     initialValues,
     onSubmit,
@@ -64,16 +76,7 @@ const UnmarkedWinterStoragePage = ({
               required
             >
               <option value="">-</option>
-              {winterStorageAreas &&
-                winterStorageAreas.reduce<JSX.Element[]>((acc, area) => {
-                  if (!area) return acc;
-                  return [
-                    ...acc,
-                    <option key={area.id} value={area.id}>
-                      {area.name}
-                    </option>,
-                  ];
-                }, [])}
+              {winterStorageAreas && getAreaOptions(winterStorageAreas)}
             </Select>
           </Col>
         </Row>
