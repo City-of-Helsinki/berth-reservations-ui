@@ -9,7 +9,7 @@ import { UNMARKED_WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import { getWinterStorageAreas } from '../../../utils/unmarkedWinterStorage';
 import { StepType } from '../../steps/step/Step';
 import UnmarkedWinterStoragePage from './UnmarkedWinterStoragePage';
-import { Query } from 'react-apollo';
+import { useQuery } from 'react-apollo';
 
 interface WithLocalePush {
   localePush: LocalePush;
@@ -49,26 +49,20 @@ const UnmarkedWinterStoragePageContainer = (props: Props) => {
     },
   ];
 
-  return (
-    <Query<UnmarkedWinterAreasQuery> query={UNMARKED_WINTER_AREAS_QUERY}>
-      {({
-        // error, TODO: handle errors
-        data,
-      }) => {
-        const winterStorageAreas = getWinterStorageAreas(data ? data.winterStorageAreas : null);
+  const { loading, data } = useQuery<UnmarkedWinterAreasQuery>(UNMARKED_WINTER_AREAS_QUERY);
+  if (loading) return null;
 
-        return (
-          <UnmarkedWinterStoragePage
-            {...props}
-            steps={steps}
-            winterStorageAreas={winterStorageAreas}
-            onSubmit={() => {
-              return; // TODO
-            }}
-          />
-        );
+  const winterStorageAreas = getWinterStorageAreas(data ? data.winterStorageAreas : null);
+
+  return (
+    <UnmarkedWinterStoragePage
+      {...props}
+      steps={steps}
+      winterStorageAreas={winterStorageAreas}
+      onSubmit={() => {
+        return; // TODO
       }}
-    </Query>
+    />
   );
 };
 
