@@ -1,6 +1,5 @@
 /* tslint:disable */
 /* eslint-disable */
-// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -33,21 +32,24 @@ export interface BoatTypesBerthsQuery_harbors_edges_node_properties_availability
 export interface BoatTypesBerthsQuery_harbors_edges_node_properties {
   __typename: "HarborProperties";
   name: string | null;
+  /**
+   * ID in the Servicemap system
+   */
   servicemapId: string | null;
   streetAddress: string | null;
-  zipCode: string | null;
+  zipCode: string;
   municipality: string | null;
-  phone: string | null;
-  email: string | null;
-  wwwUrl: string | null;
+  phone: string;
+  email: string;
+  wwwUrl: string;
   imageFile: string | null;
-  mooring: boolean | null;
-  electricity: boolean | null;
-  water: boolean | null;
-  wasteCollection: boolean | null;
-  gate: boolean | null;
-  lighting: boolean | null;
-  suitableBoatTypes: (BoatTypesBerthsQuery_harbors_edges_node_properties_suitableBoatTypes | null)[] | null;
+  mooring: boolean;
+  electricity: boolean;
+  water: boolean;
+  wasteCollection: boolean;
+  gate: boolean;
+  lighting: boolean;
+  suitableBoatTypes: BoatTypesBerthsQuery_harbors_edges_node_properties_suitableBoatTypes[];
   availabilityLevel: BoatTypesBerthsQuery_harbors_edges_node_properties_availabilityLevel | null;
   numberOfPlaces: number | null;
   maximumWidth: number | null;

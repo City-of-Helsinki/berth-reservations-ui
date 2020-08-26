@@ -22,7 +22,7 @@ export type AreaCardProps = {
   imageFile: string | null;
   address: string;
   id: string;
-  availabilityLevel?: IAvailabilityLevel | null;
+  availabilityLevel: IAvailabilityLevel | null;
   servicemapId: string | null;
   className?: string;
   selected: boolean;
