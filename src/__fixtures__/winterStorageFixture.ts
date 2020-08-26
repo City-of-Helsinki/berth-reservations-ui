@@ -10,6 +10,9 @@ export const createWinterArea = (options?: Partial<WinterStorageType>): WinterSt
     streetAddress: 'Niittyranta 19',
     zipCode: '00930',
     imageFile: 'https://venepaikka-api.test.hel.ninja/media/winter_areas/9/marjaniemi.jpg',
+    numberOfMarkedPlaces: null,
+    maximumWidth: null,
+    maximumLength: null,
     numberOfSectionSpaces: null,
     maxLengthOfSectionSpaces: null,
     numberOfUnmarkedSpaces: 100,
@@ -23,6 +26,12 @@ export const createWinterArea = (options?: Partial<WinterStorageType>): WinterSt
     summerStorageForBoats: false,
     municipality: 'Helsinki',
     wwwUrl: '',
+    availabilityLevel: {
+      __typename: 'AvailabilityLevelType',
+      id: '1',
+      title: 'Short waiting periods.',
+      description: '',
+    },
     geometry: { coordinates: [60.18808000000039, 25.0665395178596] },
   };
 
