@@ -67,10 +67,10 @@ const FrontPage = ({ localePush }: Props) => {
               <div className="vene-front-page__card-wrapper vene-front-page__card-wrapper--thin">
                 <Card
                   onClick={() => localePush('/unmarked-winter-storage')}
-                  btnLabel={t('page.front.card.unmarkedWinter.button_label')}
-                  title={t('page.front.card.unmarkedWinter.title')}
+                  btnLabel={t('page.front.card.unmarked_winter.button_label')}
+                  title={t('page.front.card.unmarked_winter.title')}
                 >
-                  <p>{t('page.front.card.unmarkedWinter.description')}</p>
+                  <p>{t('page.front.card.unmarked_winter.description')}</p>
                   <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/veneiden-talvisailytys/nostojarjestyksessa/">
                     <p>{t('page.front.card.instructions_short')}</p>
                   </a>

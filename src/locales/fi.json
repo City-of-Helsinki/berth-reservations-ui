@@ -561,7 +561,7 @@
           "description": "Selaa Helsingin kaupungin veneiden talvisäilytyspaikkoja. Voit tehdä uuden hakemuksen talvisäilytyspaikkaan veneellesi.",
           "title": "Talvisäilytyspaikat"
         },
-        "unmarkedWinter": {
+        "unmarked_winter": {
           "button_label": "Ilmoita",
           "description": "Ilmoita meille, kun olet vienyt veneesi nosto\u00ADjärjestysalueelle.",
           "title": "Nostojärjestys\u00ADilmoitus"
