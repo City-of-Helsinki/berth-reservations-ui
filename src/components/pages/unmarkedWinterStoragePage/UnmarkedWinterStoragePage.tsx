@@ -4,6 +4,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import { Button, Col, Container, Row } from 'reactstrap';
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
 import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../types/unmarkedWinterStorage';
+import { LocalePush } from '../../../utils/container';
 import Hero from '../../common/hero/Hero';
 import { Select } from '../../forms/Fields';
 import KoroSection from '../../layout/koroSection/KoroSection';
@@ -15,6 +16,7 @@ import './unmarkedWinterStoragePage.scss';
 
 export type UnmarkedWinterStoragePageProps = {
   initialValues: UnmarkedWinterFormValues;
+  localePush: LocalePush;
   onSubmit: Function;
   steps: StepType[];
   winterStorageAreas: List<WinterStorageArea>;
@@ -22,6 +24,7 @@ export type UnmarkedWinterStoragePageProps = {
 
 const UnmarkedWinterStoragePage = ({
   initialValues,
+  localePush,
   onSubmit,
   steps,
   winterStorageAreas,
@@ -45,7 +48,7 @@ const UnmarkedWinterStoragePage = ({
     }
   };
 
-  const getAreaOptions = (areas: List<WinterStorageArea>) => {
+  const getAreaOptions = (areas: List<WinterStorageArea>) =>
     areas.reduce<JSX.Element[]>((acc, area) => {
       if (!area) return acc;
       return [
@@ -55,28 +58,29 @@ const UnmarkedWinterStoragePage = ({
         </option>,
       ];
     }, []);
+
+  const moveToForm = async () => {
+    await localePush('/unmarked-winter-storage/form/registered-boat');
   };
 
   const form = {
     initialValues,
     onSubmit,
-    render: () => {
-      return (
-        <Row>
-          <Col sm={6}>
-            <Select
-              id="area"
-              name="area"
-              label="form.unmarked_winter_storage.field.winter_storage_area.label"
-              required
-            >
-              <option value="">-</option>
-              {winterStorageAreas && getAreaOptions(winterStorageAreas)}
-            </Select>
-          </Col>
-        </Row>
-      );
-    },
+    render: () => (
+      <Row>
+        <Col sm={6}>
+          <Select
+            id="chosenAreas"
+            name="chosenAreas"
+            label="form.unmarked_winter_storage.field.winter_storage_area.label"
+            required
+          >
+            <option value="">-</option>
+            {winterStorageAreas && getAreaOptions(winterStorageAreas)}
+          </Select>
+        </Col>
+      </Row>
+    ),
   };
 
   return (
@@ -114,7 +118,13 @@ const UnmarkedWinterStoragePage = ({
         <Row>
           <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
             <div className="vene-unmarked-winter-storage-page__buttons">
-              <Button className="vene-unmarked-winter-storage-page__button">Jatka</Button>
+              <Button
+                className="vene-unmarked-winter-storage-page__button"
+                disabled={initialValues?.chosenAreas === undefined}
+                onClick={moveToForm}
+              >
+                Jatka
+              </Button>
             </div>
           </Col>
         </Row>

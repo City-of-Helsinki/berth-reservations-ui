@@ -1,5 +1,14 @@
 import { gql } from 'apollo-boost';
 
+export const BOAT_TYPES_QUERY = gql`
+  query BoatTypesQuery {
+    boatTypes {
+      id
+      name
+    }
+  }
+`;
+
 export const BOAT_TYPES_BERTHS_QUERY = gql`
   query BoatTypesBerthsQuery {
     boatTypes {

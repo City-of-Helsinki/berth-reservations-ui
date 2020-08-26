@@ -7,7 +7,7 @@ import Icon, { IconNames } from '../../../common/Icon';
 
 import './SectionSelector.scss';
 
-interface TypeProps {
+export interface TypeProps {
   label: string;
   tab: string;
   icon: IconNames;

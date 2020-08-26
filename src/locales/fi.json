@@ -199,6 +199,11 @@
           "guarantee": {
             "label": "Olen lukenut talvisäilytystä koskevat venesatamasäännöt <1>hel.fi</1> -sivustolta ja sitoudun niiden noudattamiseen. Vakuutan hakemuksessa antamani tiedot oikeiksi."
           }
+        },
+        "unmarked_winter": {
+          "guarantee": {
+            "label": "Vakuutan antamani tiedot oikeiksi."
+          }
         }
       },
       "header": {

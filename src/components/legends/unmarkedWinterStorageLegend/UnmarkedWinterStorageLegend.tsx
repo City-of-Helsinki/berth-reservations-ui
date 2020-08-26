@@ -9,7 +9,11 @@ import './unmarkedWinterStorageLegend.scss';
 
 export type UnmarkedWinterStorageLegendProps = {
   legend: any;
-  form: any;
+  form: {
+    initialValues: object;
+    onSubmit: Function;
+    render: () => JSX.Element;
+  };
   steps: StepType[];
 };
 
