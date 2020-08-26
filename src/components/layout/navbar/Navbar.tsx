@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Container, Nav, Navbar as BSNavbar } from 'reactstrap';
 
 import Icon from '../../common/Icon';
@@ -9,13 +9,15 @@ import LanguageDropdown from '../languageDropdown/LanguageDropdown';
 import './navbar.scss';
 
 const Navbar = () => {
+  const { t } = useTranslation();
   return (
     <div className="vene-navbar">
       <div className="vene-navbar__top">
         <Container>
           <BSNavbar expand="md">
-            <LocalizedLink id="main-link" to="/">
+            <LocalizedLink className="vene-navbar__main-link" id="main-link" to="/">
               <Icon className="vene-navbar__icon" name="helsinkiLogo" />
+              <span className="vene-navbar__title">{t('site.front.title')}</span>
             </LocalizedLink>
             <Nav className="ml-auto" navbar>
               <LanguageDropdown />
@@ -23,36 +25,33 @@ const Navbar = () => {
           </BSNavbar>
         </Container>
       </div>
-      <div className="vene-navbar__bottom">
-        <Container>
-          <Nav className="vene-navbar__links-wrapper">
-            <LocalizedLink
-              to="/"
-              className="vene-navbar__link vene-navbar__link--main"
-              activeClassName="vene-navbar__link--active"
-              exact
-            >
-              <FormattedMessage id="site.front.title" />
-            </LocalizedLink>
+      <Container>
+        <Nav className="vene-navbar__links-wrapper">
+          <LocalizedLink
+            to="/berths"
+            className="vene-navbar__link"
+            activeClassName="vene-navbar__link--active"
+          >
+            <span>{t('site.berth.title')}</span>
+          </LocalizedLink>
 
-            <LocalizedLink
-              to="/berths"
-              className="vene-navbar__link"
-              activeClassName="vene-navbar__link--active"
-            >
-              <FormattedMessage id="site.berth.title" />
-            </LocalizedLink>
+          <LocalizedLink
+            to="/winter-storage"
+            className="vene-navbar__link"
+            activeClassName="vene-navbar__link--active"
+          >
+            <span>{t('site.winter.title')}</span>
+          </LocalizedLink>
 
-            <LocalizedLink
-              to="/winter-storage"
-              className="vene-navbar__link"
-              activeClassName="vene-navbar__link--active"
-            >
-              <FormattedMessage id="site.winter.title" />
-            </LocalizedLink>
-          </Nav>
-        </Container>
-      </div>
+          <LocalizedLink
+            to="/unmarked-winter-storage"
+            className="vene-navbar__link"
+            activeClassName="vene-navbar__link--active"
+          >
+            <span>{t('site.unmarked_winter_storage.title')}</span>
+          </LocalizedLink>
+        </Nav>
+      </Container>
     </div>
   );
 };

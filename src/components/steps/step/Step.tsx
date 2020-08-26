@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 
 import LocalizedLink from '../../common/LocalizedLink';
 
@@ -12,38 +12,33 @@ export interface StepType {
   key: string;
   linkTo: string;
 }
+
 interface Props extends StepType {
   label: string;
   className?: string;
 }
 
-export default class Step extends React.Component<Props> {
-  static defaultProps = {
-    completed: false,
-    current: false
-  };
+const Step = ({ completed = false, current = false, label, linkTo, className }: Props) => {
+  const { t } = useTranslation();
 
-  render() {
-    const { completed, current, label, linkTo, className } = this.props;
-    const step = (
-      <>
-        <div className={classNames('vene-step__status', { completed, current })} />
-        <FormattedMessage id={label}>
-          {txt => <div className="vene-step__label">{txt}</div>}
-        </FormattedMessage>
-      </>
-    );
+  const step = (
+    <>
+      <div className={classNames('vene-step__status', { completed, current })} />
+      <div className="vene-step__label">{t(label)}</div>
+    </>
+  );
 
-    return (
-      <div className={classNames('vene-step', className)}>
-        {linkTo && completed ? (
-          <LocalizedLink className="vene-step__link" to={linkTo}>
-            {step}
-          </LocalizedLink>
-        ) : (
-          step
-        )}
-      </div>
-    );
-  }
-}
+  return (
+    <div className={classNames('vene-step', className)}>
+      {linkTo && completed ? (
+        <LocalizedLink className="vene-step__link" to={linkTo}>
+          {step}
+        </LocalizedLink>
+      ) : (
+        step
+      )}
+    </div>
+  );
+};
+
+export default Step;

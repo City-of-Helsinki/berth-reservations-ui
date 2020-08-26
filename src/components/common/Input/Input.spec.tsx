@@ -1,5 +1,4 @@
-import { mountWithIntl } from '../../../utils/testUtils';
-
+import { mount } from 'enzyme';
 import React from 'react';
 import { CustomInput, CustomInputProps } from 'reactstrap';
 import Input from './Input';
@@ -7,10 +6,10 @@ import Input from './Input';
 describe('components/common/Input', () => {
   const defaultProps: CustomInputProps = {
     className: 'vene-input',
-    type: 'checkbox'
+    type: 'checkbox',
   };
 
-  const getWrapper = (props?: object) => mountWithIntl(<Input {...defaultProps} {...props} />);
+  const getWrapper = (props?: object) => mount(<Input {...defaultProps} {...props} />);
 
   test('render Input element normally', () => {
     const input = getWrapper().find(CustomInput);
@@ -33,7 +32,7 @@ describe('components/common/Input', () => {
     const wrapper = getWrapper({ placeholder: 'test.message', label: 'test.message' });
     const input = wrapper.find(CustomInput);
 
-    expect(input.prop('placeholder')).toEqual('Test message');
-    expect(input.prop('label')).toEqual('Test message');
+    expect(input.prop('placeholder')).toEqual('Testiteksti');
+    expect(input.prop('label')).toEqual('Testiteksti');
   });
 });

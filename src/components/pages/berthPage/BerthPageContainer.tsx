@@ -6,14 +6,14 @@ import {
   deselectBerth,
   deselectService,
   selectBerth,
-  selectService
+  selectService,
 } from '../../../redux/actions/BerthActions';
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
+import { BoatTypesBerthsQuery } from '../../../utils/__generated__/BoatTypesBerthsQuery';
 import { getResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import { IconNames } from '../../common/Icon';
-import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 import BerthPage from './BerthPage';
 
 import { Store } from '../../../redux/types';
@@ -21,6 +21,7 @@ import { BerthFormValues } from '../../../types/berth';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType, SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
+import { Query } from 'react-apollo';
 
 interface Props {
   initialValues: BerthFormValues;
@@ -43,63 +44,63 @@ const BerthPageContainer = (props: Props) => {
       key: 'berths',
       completed: false,
       current: true,
-      linkTo: ''
+      linkTo: '',
     },
     {
       key: 'selected_berths',
       completed: false,
       current: false,
-      linkTo: ''
+      linkTo: '',
     },
     {
       key: 'boat_information',
       completed: false,
       current: false,
-      linkTo: ''
+      linkTo: '',
     },
     {
       key: 'applicant',
       completed: false,
       current: false,
-      linkTo: ''
+      linkTo: '',
     },
     {
       key: 'send_application',
       completed: false,
       current: false,
-      linkTo: ''
-    }
+      linkTo: '',
+    },
   ];
 
-  const services: Array<{
+  const services: {
     label: string;
     value: 'electricity' | 'water' | 'wasteCollection' | 'gate' | 'lighting';
     icon: IconNames;
-  }> = [
+  }[] = [
     {
       label: 'form.services.field.electricity.label',
       value: 'electricity',
-      icon: 'plug'
+      icon: 'plug',
     },
     { label: 'form.services.field.water.label', value: 'water', icon: 'waterTap' },
     {
       label: 'form.services.field.waste_collection.label',
       value: 'wasteCollection',
-      icon: 'trash'
+      icon: 'trash',
     },
     { label: 'form.services.field.gate.label', value: 'gate', icon: 'fence' },
     {
       label: 'form.services.field.lighting.label',
       value: 'lighting',
-      icon: 'streetLight'
-    }
+      icon: 'streetLight',
+    },
   ];
 
   return (
-    <BoatsBerthsQuery query={BOAT_TYPES_BERTHS_QUERY}>
+    <Query<BoatTypesBerthsQuery> query={BOAT_TYPES_BERTHS_QUERY}>
       {({
         // error, TODO: handle errors
-        data
+        data,
       }) => {
         const berths = getResources(data ? data.harbors : null);
         const boatTypes = data ? data.boatTypes : [];
@@ -114,7 +115,7 @@ const BerthPageContainer = (props: Props) => {
           />
         );
       }}
-    </BoatsBerthsQuery>
+    </Query>
   );
 };
 
@@ -125,14 +126,14 @@ export default compose<Props, Props>(
       initialValues: state.forms.berthValues,
       selectedBerthsIds: state.berths.selectedBerths,
       selectedServices: state.berths.selectedServices,
-      berthLimit: state.berths.berthLimit
+      berthLimit: state.berths.berthLimit,
     }),
     {
       selectBerth,
       deselectBerth,
       selectService,
       deselectService,
-      onSubmit: onSubmitBerthForm
+      onSubmit: onSubmitBerthForm,
     }
   )
 )(BerthPageContainer);

@@ -28,7 +28,7 @@ describe('withApplicationType', () => {
             params: { app: ApplicationType.BerthApp },
             isExact: true,
             url: '',
-            path: ''
+            path: '',
           }}
         />
       );
@@ -45,7 +45,7 @@ describe('withApplicationType', () => {
             params: { app: ApplicationType.BerthApp },
             isExact: true,
             url: '',
-            path: ''
+            path: '',
           }}
         />
       );
@@ -66,7 +66,7 @@ describe('withApplicationType', () => {
             params: { app: ApplicationType.WinterStorageApp },
             isExact: true,
             url: '',
-            path: ''
+            path: '',
           }}
         />
       );

@@ -1,0 +1,9 @@
+@import 'styles/variables';
+
+.vene-loading-page {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: $spacing-02;
+}

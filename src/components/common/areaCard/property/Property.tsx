@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 
 import Icon, { IconNames } from '../../Icon';
 
@@ -15,10 +15,12 @@ export interface Props {
 }
 
 const Property = ({ iconName, available, value, unit, titleId }: Props) => {
+  const { t } = useTranslation();
+
   return (
     <div
       className={classNames('vene-property', {
-        'vene-property--not-available': !available
+        'vene-property--not-available': !available,
       })}
     >
       {value !== undefined && unit !== undefined && (
@@ -40,11 +42,11 @@ const Property = ({ iconName, available, value, unit, titleId }: Props) => {
 
       {titleId && (
         <div className="vene-property__title">
-          <FormattedMessage tagName="p" id={titleId} />
+          <p>{t(titleId)}</p>
         </div>
       )}
     </div>
   );
 };
 
-export default injectIntl(Property);
+export default Property;

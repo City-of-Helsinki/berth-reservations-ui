@@ -1,13 +1,12 @@
 import classNames from 'classnames';
 import React from 'react';
-import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Alert, Button, Col, Row } from 'reactstrap';
 
 import { genValidSelector } from '../../../utils/common';
 import AvailabilityLevel from '../../berths/availabilityLevel/AvailabilityLevel';
 import Icon from '../Icon';
 import Image from '../Image';
-import IntlComponent from '../IntlComponent';
 import Popover from '../popover/Popover';
 
 import './areaCard.scss';
@@ -23,7 +22,7 @@ export type AreaCardProps = {
   imageFile: string | null;
   address: string;
   id: string;
-  availabilityLevel: IAvailabilityLevel | null;
+  availabilityLevel?: IAvailabilityLevel | null;
   servicemapId: string | null;
   className?: string;
   selected: boolean;
@@ -31,7 +30,7 @@ export type AreaCardProps = {
   excluded?: string;
   details: React.ReactNodeArray;
   handleSelect: (e: React.SyntheticEvent<HTMLButtonElement>) => void;
-} & InjectedIntlProps;
+};
 
 const AreaCard = ({
   name,
@@ -45,9 +44,9 @@ const AreaCard = ({
   selected,
   disabled,
   className,
-  intl,
-  details
+  details,
 }: AreaCardProps) => {
+  const { t } = useTranslation();
   const tooltipId = genValidSelector(`availability_${id}`);
 
   return (
@@ -56,7 +55,9 @@ const AreaCard = ({
         <Col md={3}>
           <div className="vene-area-card__image">
             {excluded && (
-              <IntlComponent Component={Alert} color="danger" id={excluded} isOpen={selected} />
+              <Alert color="danger" isOpen={selected}>
+                {t(excluded)}
+              </Alert>
             )}
             {/* TODO: add placeholder image */}
             {<Image src={imageFile || ''} alt={name || `berth's name`} />}
@@ -71,11 +72,11 @@ const AreaCard = ({
             {selected ? (
               <Button color={excluded ? 'danger' : 'secondary'} onClick={handleSelect}>
                 <Icon name="check" />
-                <FormattedMessage tagName="span" id="site.buttons.selected" />
+                <span>{t('site.buttons.selected')}</span>
               </Button>
             ) : (
               <Button outline primary="true" onClick={handleSelect} disabled={disabled}>
-                + <FormattedMessage tagName="span" id="site.buttons.add_to_selected" />
+                + <span>{t('site.buttons.add_to_selected')}</span>
               </Button>
             )}
 
@@ -96,9 +97,9 @@ const AreaCard = ({
                   className="vene-area-card__website-link"
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={intl.formatMessage({ id: 'site.common.servicemapURL' }, { servicemapId })}
+                  href={t('site.common.servicemapURL', { servicemapId })}
                 >
-                  <FormattedMessage tagName="span" id="page.common.website" />
+                  <span>{t('page.common.website')}</span>
                   <Icon name="arrowRight" />
                 </a>
               </div>
@@ -114,4 +115,4 @@ const AreaCard = ({
   );
 };
 
-export default injectIntl(AreaCard);
+export default AreaCard;

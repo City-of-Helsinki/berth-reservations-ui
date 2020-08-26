@@ -1,17 +1,17 @@
+import { shallow } from 'enzyme';
 import React from 'react';
 import { Button } from 'reactstrap';
 
-import { shallowWithIntl } from '../../../utils/testUtils';
 import Card from './Card';
 
 describe('Card', () => {
   const onClick = jest.fn();
 
   const getWrapper = (children: JSX.Element = <div>card body</div>, props?: object) =>
-    shallowWithIntl(
+    shallow(
       <Card
-        title="page.front.card.winter.title"
-        btnLabel="page.front.card.winter.button_label"
+        title="Talvisäilytyspaikat"
+        btnLabel="Selaa ja hae talvisäilytyspaikkoja"
         onClick={onClick}
         {...props}
       >

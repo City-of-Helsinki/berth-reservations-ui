@@ -2,11 +2,12 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 import { getMockRouterProps } from '../__fixtures__/routerFixture';
+import { LocaleOpts } from '../types/intl';
 import App from './App';
 
 describe('App', () => {
   const getWrapper = () => {
-    const props = getMockRouterProps({ locale: 'en' });
+    const props = getMockRouterProps({ locale: LocaleOpts.EN });
     return shallow(<App {...props} />);
   };
 

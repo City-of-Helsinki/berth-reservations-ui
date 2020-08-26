@@ -10,7 +10,7 @@ type Props = {
 } & WithBoatType;
 
 const BoatTypeAndModel = ({ boatTypeId, boatModel, boatTypes }: Props) => {
-  const boatType = boatTypes && boatTypes.find(type => !!type && type.id === boatTypeId);
+  const boatType = boatTypes && boatTypes.find((type) => !!type && type.id === boatTypeId);
 
   return (
     <Row>

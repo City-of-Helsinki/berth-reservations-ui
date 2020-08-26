@@ -16,6 +16,7 @@
   &__title {
     font-size: 3em;
     hyphens: auto;
+    overflow-wrap: break-word;
 
     @include for-phone {
       font-size: 2em;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from 'react-final-form';
-import { FormattedMessage } from 'react-intl';
+import { WithTranslation, withTranslation } from 'react-i18next';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
 import Icon, { IconNames } from '../../common/Icon';
@@ -24,7 +24,7 @@ interface BoatInfoForBerths {
   length: string;
 }
 
-export interface Props {
+export interface Props extends WithTranslation {
   selectedBerths: Berths;
   boatInfo: BoatInfoForBerths;
   berths?: Berths;
@@ -59,6 +59,7 @@ class SelectedBerthPage extends Component<Props> {
 
   render() {
     const {
+      t,
       berthsApplicationType,
       selectedBerths,
       deselectBerth,
@@ -71,8 +72,9 @@ class SelectedBerthPage extends Component<Props> {
       steps,
       legend,
       validSelection,
-      berths
+      berths,
     } = this.props;
+
     return (
       <Form
         onSubmit={this.handleSubmitApplication}
@@ -92,25 +94,25 @@ class SelectedBerthPage extends Component<Props> {
                         <ExchangeApplication berths={berths} />
                       ))}
 
-                    <FormattedMessage tagName="h3" id="page.berth.selected.title" />
+                    <h3>{t('page.berth.selected.title')}</h3>
                     <hr />
-                    {Object.values(boatInfo).every(value => !!value) ? (
+                    {Object.values(boatInfo).every((value) => !!value) ? (
                       <Container>
                         <Row>
                           <Col md="5">
-                            <FormattedMessage tagName="span" id="page.overview.info.boat_type" />:
+                            <span>{t('page.overview.info.boat_type')}</span>
                             <span className="vene-selected-berth-page__boat-value">
                               {boatInfo.boatType}
                             </span>
                           </Col>
                           <Col md="3">
-                            <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:
+                            <span>{t('page.overview.info.boat_width')}</span>
                             <span className="vene-selected-berth-page__boat-value">
                               {boatInfo.width} m
                             </span>
                           </Col>
                           <Col md="3">
-                            <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:
+                            <span>{t('page.overview.info.boat_length')}</span>
                             <span className="vene-selected-berth-page__boat-value">
                               {boatInfo.length} m
                             </span>
@@ -121,33 +123,30 @@ class SelectedBerthPage extends Component<Props> {
                       <div className="vene-selected-berth-page__notice">
                         <Icon name="exclamationCircle" />
                         <LocalizedLink to={steps[0].linkTo || ''}>
-                          <FormattedMessage tagName="span" id="page.berth.selected.info_text" />
+                          <span>{t('page.berth.selected.info_text')}</span>
                         </LocalizedLink>
                       </div>
                     )}
                     <hr />
                     {validSelection || (
                       <Alert color="warning">
-                        <FormattedMessage
-                          tagName="strong"
-                          id="page.berth.selected.warning.heading"
-                        />
+                        <strong>{t('page.berth.selected.warning.heading')}</strong>
                       </Alert>
                     )}
                     {selectedBerths.size === 0 ? (
                       <Alert color="danger">
-                        <FormattedMessage tagName="strong" id="page.berth.selected.alert.strong" />
-                        <FormattedMessage tagName="h2" id="page.berth.selected.alert.paragraph" />
+                        <strong>{t('page.berth.selected.alert.strong')}</strong>
+                        <h2>{t('page.berth.selected.alert.paragraph')}</h2>
                       </Alert>
                     ) : (
                       <div>
                         {selectedBerths.map((resource, index) => {
-                          const services: Array<[IconNames, boolean]> = [
-                            ['plug', resource.electricity],
-                            ['waterTap', resource.water],
-                            ['trash', resource.wasteCollection],
-                            ['fence', resource.gate],
-                            ['streetLight', resource.lighting]
+                          const services: [IconNames, boolean][] = [
+                            ['plug', !!resource.electricity],
+                            ['waterTap', !!resource.water],
+                            ['trash', !!resource.wasteCollection],
+                            ['fence', !!resource.gate],
+                            ['streetLight', !!resource.lighting],
                           ];
 
                           return (
@@ -178,7 +177,7 @@ class SelectedBerthPage extends Component<Props> {
                     <Col xs={12}>
                       <div className="vene-selected-berth-page__button-wrapper__button-groups">
                         <Button color="link" type="button" onClick={handlePrevious}>
-                          <FormattedMessage id="form.wizard.button.previous" />
+                          <span>{t('form.wizard.button.previous')}</span>
                         </Button>
                         <Button
                           type="submit"
@@ -187,7 +186,7 @@ class SelectedBerthPage extends Component<Props> {
                           size="lg"
                           disabled={selectedBerths.size === 0 || invalid}
                         >
-                          <FormattedMessage tagName="span" id="page.berth.selected.submit" />
+                          <span>{t('page.berth.selected.submit')}</span>
                         </Button>
                       </div>
                     </Col>
@@ -202,4 +201,4 @@ class SelectedBerthPage extends Component<Props> {
   }
 }
 
-export default SelectedBerthPage;
+export default withTranslation()(SelectedBerthPage);

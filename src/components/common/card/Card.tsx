@@ -1,29 +1,22 @@
 import React from 'react';
 import { Button, Card as RSCard, CardBody, CardTitle } from 'reactstrap';
 
-import { InjectedIntlProps, injectIntl } from 'react-intl';
-
 import './card.scss';
+import Icon from '../Icon';
 
 type Props = {
   title: string;
   btnLabel: string;
   onClick: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   children: React.ReactNode;
-} & InjectedIntlProps;
+};
 
-const Card = ({
-  title,
-  onClick,
-  btnLabel,
-  children,
-  intl: { formatMessage, formatHTMLMessage }
-}: Props) => {
+const Card = ({ title, onClick, btnLabel, children }: Props) => {
   return (
     <RSCard className="vene-card">
       <CardBody className="vene-card__body">
         <CardTitle className="vene-card__title" tag="h3">
-          {formatMessage({ id: title })}
+          {title}
         </CardTitle>
         <div className="vene-card__description">{children}</div>
         <Button
@@ -33,11 +26,12 @@ const Card = ({
           color="primary"
           outline
         >
-          {formatHTMLMessage({ id: btnLabel })}
+          <span className="vene-card__button-label">{btnLabel}</span>
+          <Icon name="arrowRight" className="vene-card__arrow-icon" />
         </Button>
       </CardBody>
     </RSCard>
   );
 };
 
-export default injectIntl(Card);
+export default Card;

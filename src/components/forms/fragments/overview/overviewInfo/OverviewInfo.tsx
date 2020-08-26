@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
 import './overviewInfo.scss';
@@ -9,17 +9,18 @@ export interface Props {
   children: React.ReactNode;
 }
 
-const OverviewInfo = ({ title, children }: Props) => (
-  <Container className="vene-overview-info">
-    <Row>
-      <Col>
-        <FormattedMessage id={title}>
-          {txt => <h3 className="vene-overview-info__title">{txt}</h3>}
-        </FormattedMessage>
-      </Col>
-    </Row>
-    {children}
-  </Container>
-);
+const OverviewInfo = ({ title, children }: Props) => {
+  const { t } = useTranslation();
+  return (
+    <Container className="vene-overview-info">
+      <Row>
+        <Col>
+          <h3 className="vene-overview-info__title">{t(title)}</h3>
+        </Col>
+      </Row>
+      {children}
+    </Container>
+  );
+};
 
 export default OverviewInfo;

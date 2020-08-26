@@ -26,7 +26,7 @@ const Map = <T extends { id: string; geometry: { coordinates: [number, number] }
   filteredNot,
   selectedIds,
   mapHeader,
-  renderSelected
+  renderSelected,
 }: MapProps<T>) => {
   const [selectedResource, setSelectedBerth] = useState<T | null>(null);
 
@@ -39,7 +39,7 @@ const Map = <T extends { id: string; geometry: { coordinates: [number, number] }
       <h3 className="vene-map__header">{mapHeader}</h3>
       <LeafletMap center={COORDINATES} zoom={ZOOM} className="vene-map__map">
         <TileLayer url="https://tiles.hel.ninja/styles/hel-osm-light/{z}/{x}/{y}@2x.png" />
-        {filtered.map(resource => {
+        {filtered.map((resource) => {
           const isSelected = isResourceSelected(selectedIds, resource.id);
           const isPreviewed = !!selectedResource && selectedResource.id === resource.id;
           return (
@@ -53,7 +53,7 @@ const Map = <T extends { id: string; geometry: { coordinates: [number, number] }
             />
           );
         })}
-        {filteredNot.map(resource => {
+        {filteredNot.map((resource) => {
           const isSelected = isResourceSelected(selectedIds, resource.id);
           const isPreviewed = !!selectedResource && selectedResource.id === resource.id;
           return (

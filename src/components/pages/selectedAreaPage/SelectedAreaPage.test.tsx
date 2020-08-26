@@ -20,7 +20,7 @@ describe('pages/BerthPage/SelectedAreaPage', () => {
     legend: { title: 'foo', legend: 'bar' },
     steps: [],
     validSelection: true,
-    filter: jest.fn()
+    filter: jest.fn(),
   };
 
   beforeEach(() => {

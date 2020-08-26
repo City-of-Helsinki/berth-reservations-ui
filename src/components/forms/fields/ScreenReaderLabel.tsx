@@ -1,30 +1,26 @@
 import classNames from 'classnames';
 import React from 'react';
-import { InjectedIntl, injectIntl } from 'react-intl';
 import './ScreenReaderLabel.scss';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
-  intl: InjectedIntl;
   id: string;
   prepend?: string;
   textKey?: string;
   append?: string;
 }
 
-const buildLabelString = (parts: Array<string | undefined>): string => {
-  return parts.filter(value => value !== undefined).join(', ');
+const buildLabelString = (parts: (string | undefined)[]): string => {
+  return parts.filter((value) => value !== undefined).join(', ');
 };
 
-const ScreenReaderLabel: React.FC<Props> = ({ intl, id, prepend, textKey, append }) => {
+const ScreenReaderLabel: React.FC<Props> = ({ id, prepend, textKey, append }) => {
+  const { t } = useTranslation();
   return (
     <label id={id} className={classNames('vene-formfield__screen-reader-label')}>
-      {buildLabelString([
-        prepend,
-        textKey ? intl.formatMessage({ id: textKey }) : undefined,
-        append
-      ])}
+      {buildLabelString([prepend, textKey ? t(textKey) : undefined, append])}
     </label>
   );
 };
 
-export default injectIntl(ScreenReaderLabel);
+export default ScreenReaderLabel;

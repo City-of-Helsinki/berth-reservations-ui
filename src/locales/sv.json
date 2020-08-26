@@ -1,0 +1,710 @@
+{
+  "error": {
+    "message": {
+      "invalid_area": "Sannolikt finns det inte platser som lämpar sig för din båts storlek i det här området.",
+      "invalid_area_selection": "Obs: Du har valt områden som saknar lämpliga platser för din båts storlek.",
+      "invalid_berth": "Sannolikt finns det inte platser som lämpar sig för din båts storlek eller typ i den här hamnen.",
+      "invalid_berth_selection": "Obs: Du har valt hamnar som saknar lämpliga platser för din båts storlek eller typ."
+    }
+  },
+  "form": {
+    "accessibility": {
+      "field": {
+        "accessibility": {
+          "label": "För närvarande finns det inga tillgängliga platser i våra hamnar."
+        }
+      }
+    },
+    "big_ship": {
+      "field": {
+        "agreed": {
+          "label": "Jag har läst igenom avtalsvillkoren och förbinder mig att iaktta dem."
+        },
+        "hull_material": {
+          "aluminium": "Aluminium",
+          "concrete": "Betong",
+          "fibreglass": "Armerad plast/Glasfiber",
+          "label": "Skrovmaterial",
+          "other": "Annat",
+          "placeholder": "Välj fartygets skrovmaterial",
+          "rubber": "Gummi/PVC/PU",
+          "steel": "Stål",
+          "thermoplastic": "Termoplast",
+          "wood": "Trä"
+        },
+        "inspected": {
+          "label": "Jag intygar att fartyget är besiktigat."
+        },
+        "insurance": {
+          "label": "Jag intygar att fartyget har en gällande försäkring som täcker kostnaderna för lyft av fartyget."
+        },
+        "propulsion": {
+          "diesel": "Dieselolja",
+          "electricity": "El",
+          "fuel_oil": "Brännolja",
+          "gasoline": "Bensin",
+          "label": "Drivkraft",
+          "natural_gas": "LNG/LPG",
+          "other": "Annat",
+          "placeholder": "Uppge fartygets drivkraft"
+        },
+        "time_period": {
+          "fixed": "Bestämd tid",
+          "for_now": "Tills vidare",
+          "from": {
+            "placeholder": "Börjar"
+          },
+          "label": "Hyrestid",
+          "to": {
+            "placeholder": "Upphör"
+          }
+        },
+        "usage": {
+          "label": "Användningsändamål",
+          "placeholder": "Fartygets användningsändamål"
+        }
+      },
+      "header": {
+        "details": "Tilläggsuppgifter om stora fartyg",
+        "inspection_and_insurance": "Besiktning och försäkringar",
+        "title": "Kajplatser för stora fartyg"
+      },
+      "text": {
+        "inspection_and_insurance": "Ett besiktningsintyg och ett utdrag ur försäkringsbrevet ska lämnas in innan en kajplats kan beviljas. Besiktningen och försäkringen ska vara i kraft utan avbrott. Uthyraren har när som helst rätt att kräva att besiktningsintyget och utdraget ur försäkringsbrevet visas upp.",
+        "summary": "Fartyg med en vikt på över 20 000 kg läggs upp vid kajplatser som reserverats för dem. Kajplatser för stora fartyg reserveras antingen för en viss tid eller tills vidare."
+      }
+    },
+    "boat_type_selector": {
+      "company": {
+        "label": "Företag eller sammanslutning"
+      },
+      "no_boat": {
+        "label": "Ingen båt"
+      },
+      "private_person": {
+        "label": "Privatperson"
+      },
+      "registered_boat": {
+        "label": "Registrerad båt"
+      },
+      "unregistered_boat": {
+        "label": "Icke-registrerad båt"
+      }
+    },
+    "company": {
+      "field": {
+        "email": {
+          "label": "E-postadress",
+          "placeholder": "ville.sjofarare@hel.fi"
+        },
+        "first_name": {
+          "label": "Förnamn",
+          "placeholder": "Ville"
+        },
+        "last_name": {
+          "label": "Efternamn",
+          "placeholder": "Sjöfarare"
+        },
+        "mobile_phone": {
+          "label": "Mobiltelefon",
+          "placeholder": "+358 555 245 555"
+        }
+      },
+      "header": {
+        "contact_person": "Kontaktperson",
+        "title": "Uppgifter om företaget eller sammanslutningen"
+      }
+    },
+    "company_details": {
+      "field": {
+        "business_id": {
+          "label": "FO-nummer",
+          "placeholder": "1234567-8"
+        },
+        "name": {
+          "label": "Företagets eller sammanslutningens namn",
+          "placeholder": "Vellamo Ab"
+        }
+      }
+    },
+    "contact_details": {
+      "field": {
+        "email": {
+          "label": "E-postadress",
+          "placeholder": "ville.sjofarare@hel.fi"
+        },
+        "mobile_phone": {
+          "label": "Mobiltelefon",
+          "placeholder": "+358 555 245 555"
+        }
+      }
+    },
+    "no_boat": {
+      "field": {
+        "accessibility": {
+          "label": "Jag behöver en tillgänglig båtplats"
+        },
+        "brand": {
+          "label": "Namn",
+          "placeholder": "Namn"
+        },
+        "lenght": {
+          "label": "Skrovlängd",
+          "placeholder": "0,0"
+        },
+        "length": {
+          "label": "Båtens längd",
+          "placeholder": "0,0"
+        },
+        "type": {
+          "label": "Typ",
+          "placeholder": "Uppge båttyp"
+        },
+        "width": {
+          "label": "Båtens bredd",
+          "placeholder": "0,0"
+        }
+      },
+      "header": {
+        "accessibility": "Tillgänglighet",
+        "additional_info": "Tilläggsuppgifter",
+        "title": "Uppgifter om båt som ska köpas"
+      }
+    },
+    "overview": {
+      "field": {
+        "application_code": {
+          "description": "Om kundtjänsten har gett dig en sökkod fyller du i den här. Sökkoden är avsedd för kunder som redan har ansökt om båtplats med en pappersblankett.",
+          "placeholder": "Kod",
+          "title": "Sökkod"
+        },
+        "berth": {
+          "guarantee": {
+            "label": "Jag intygar att de uppgifter som jag gett är korrekta."
+          }
+        },
+        "boating_info": {
+          "label": "Nyhetsbrevet Båt i Helsingfors"
+        },
+        "fitness_services": {
+          "label": "idrottstjänster"
+        },
+        "library_services": {
+          "label": "bibliotekstjänster"
+        },
+        "other_cultural_services": {
+          "label": "övriga kulturtjänster"
+        },
+        "winter": {
+          "guarantee": {
+            "label": "Jag har läst ordningsreglerna för vinteruppläggning i båthamnarna på {{link}} och förbinder mig att iaktta dem. Jag försäkrar att de uppgifter jag gett är riktiga."
+          }
+        }
+      },
+      "header": {
+        "agreement": {
+          "title": "Jag intygar att uppgifterna är korrekta."
+        },
+        "also": {
+          "title": "samt information om följande kultur- och fritidstjänster som Helsingfors stad erbjuder:"
+        },
+        "receivable_items": {
+          "title": "Jag vill få följande per e-post:"
+        }
+      }
+    },
+    "postal_details": {
+      "field": {
+        "munacipality": {
+          "label": "Postanstalt",
+          "placeholder": "Postanstalt"
+        },
+        "postal_code": {
+          "label": "Postnummer",
+          "placeholder": "Postnummer"
+        },
+        "street_address": {
+          "label": "Utdelningsadress",
+          "placeholder": "Utdelningsadress"
+        }
+      }
+    },
+    "private_person": {
+      "field": {
+        "first_name": {
+          "label": "Förnamn",
+          "placeholder": "Ville"
+        },
+        "last_name": {
+          "label": "Efternamn",
+          "placeholder": "Sjöfarare"
+        }
+      },
+      "header": {
+        "title": "Den sökandes personuppgifter"
+      }
+    },
+    "registered": {
+      "field": {
+        "draught": {
+          "label": "Båtens djup",
+          "placeholder": "0,0"
+        },
+        "length": {
+          "label": "Båtens längd",
+          "placeholder": "0,0"
+        },
+        "model": {
+          "label": "Modell",
+          "placeholder": "Båtens modell"
+        },
+        "name": {
+          "label": "Namn",
+          "placeholder": "Båtens namn"
+        },
+        "register_number": {
+          "label": "Registernummer",
+          "placeholder": "Båtens registernummer"
+        },
+        "type": {
+          "label": "Båttyp",
+          "placeholder": "Uppge båttyp"
+        },
+        "weight": {
+          "label": "Båtens vikt",
+          "placeholder": "1 000"
+        },
+        "width": {
+          "label": "Båtens bredd",
+          "placeholder": "0,0"
+        },
+        "winter_storage": {
+          "storage_type": {
+            "label": "Båten läggs upp på trailer",
+            "text": "För båtar som läggs upp på trailer läggs +1 meter till båtens längd."
+          }
+        }
+      },
+      "header": {
+        "additional_info": "Tilläggsuppgifter",
+        "measures": "Båtens dimensioner",
+        "title": "Uppgifter om registrerad båt"
+      }
+    },
+    "services": {
+      "field": {
+        "appointed_spaces": {
+          "label": "Markerade rutor"
+        },
+        "berth": {
+          "services": {
+            "label": "Begränsa listan efter tjänsterna i hamnen"
+          }
+        },
+        "electricity": {
+          "label": "El"
+        },
+        "gate": {
+          "label": "Port"
+        },
+        "lighting": {
+          "label": "Belysning"
+        },
+        "repair_area": {
+          "label": "Repara\u00ADtionsområ\u00ADde"
+        },
+        "storage_for_docking_equip": {
+          "label": "Sommar\u00ADförvaring av upplägg\u00ADningsutrust\u00ADning"
+        },
+        "storage_for_trailers": {
+          "label": "Sommar\u00ADförvaring av trailer"
+        },
+        "waste_collection": {
+          "label": "Avfalls\u00ADhantering"
+        },
+        "water": {
+          "label": "Vatten"
+        },
+        "winter": {
+          "services": {
+            "label": "Begränsa listan efter tjänsterna i området"
+          }
+        }
+      }
+    },
+    "unregistered": {
+      "field": {
+        "accessibility": {
+          "label": "Jag behöver en tillgänglig båtplats"
+        },
+        "brand": {
+          "label": "Namn",
+          "placeholder": "Båtens namn"
+        },
+        "lenght": {
+          "label": "Skrovlängd"
+        },
+        "model": {
+          "label": "Modell",
+          "placeholder": "Båtens modell"
+        },
+        "type": {
+          "label": "Typ",
+          "placeholder": "Uppge båttyp"
+        },
+        "width": {
+          "label": "Båtens bredd"
+        }
+      },
+      "header": {
+        "accessibility": "Tillgänglighet",
+        "additional_info": "Tilläggsuppgifter",
+        "title": "Uppgifter om icke-registrerad båt"
+      }
+    },
+    "winter_storage_method": {
+      "field": {
+        "storage_method": {
+          "label": "Uppläggningssätt",
+          "on_trailer": "Jag lägger upp båten på trailer",
+          "on_trestles": "Jag lägger upp båten på bockar"
+        },
+        "trailer_reg_num": {
+          "field": {
+            "label": "Trailerns registernummer",
+            "placeholder": "ABC-123",
+            "text": "Enbart registrerade trailrar får användas för uppläggning. Om trailerns registernummer har ännu inte uppgetts, meddela registernumret innan vinteruppläggningen inleds. Uppläggning på trailer kräver en meter utrymme utöver båtens längd."
+          }
+        }
+      }
+    },
+    "wizard": {
+      "button": {
+        "invalid": "Fyll i formuläret för att fortsätta",
+        "next": "Nästa",
+        "previous": "Föregående sida",
+        "submit": "Skicka"
+      }
+    }
+  },
+  "hero": {
+    "berth": {
+      "paragraph": {
+        "first": "I denna tjänst kan du bläddra bland Helsingfors stads båthamnar och göra en ny ansökan om båtplats i önskade hamnar.",
+        "second": "OBS! Läs igenom anvisningarna för val av hamnar samt informationen om såväl reglerna för utdelning av båtplatser som tidsschemat för handläggningen av ansökningar på <1>hel.fi</1> innan du fyller i ansökan."
+      },
+      "title": "Ansökan om båtplats i Helsingfors båthamnar"
+    },
+    "winter": {
+      "paragraph": {
+        "first": "Här kan du ansöka om vinteruppläggningsplats i något av Helsingfors stads förvaringsområden. Rutor blir sällan lediga så välj också områden utan markerade platser för din ansökan.",
+        "second": "OBS! Läs igenom anvisningarna för val av förvaringsområden samt information om såväl reglerna för utdelning av uppläggningsplatser som tidsschemat för handläggningen av ansökningar på <1>hel.fi</1> innan du fyller i ansökan. <3/> Kontakta oss om du är intresserad av att lägga upp din båt på din egen båtplats för vintern."
+      },
+      "title": "Ansökan om vinteruppläggningsplatser"
+    }
+  },
+  "legend": {
+    "berth": {
+      "legend": "Bläddra bland stadens hamnar och båtplatser. Välj högst tio lämpliga hamnar i din ansökan.",
+      "title": "Hurdan båtplats söker du?"
+    },
+    "boat": {
+      "legend": "Båtplats söks separat för varje båt. Ange här uppgifter om den båt för vilken du söker plats. Du kan också ansöka om båtplats även om du ännu inte har en båt.",
+      "title": "Uppgifter om båten"
+    },
+    "overview": {
+      "legend": "Kontrollera att uppgifterna stämmer innan du skickar in ansökan.",
+      "title": "Sammanfattning"
+    },
+    "person": {
+      "legend": "Privatpersoner, föreningar och företag kan ansöka om båtplats. Av sökande och företag utanför Helsingfors tas en förhöjd årshyra ut.",
+      "title": "Uppgifter om den sökande"
+    },
+    "selected_areas": {
+      "legend": "Kontrollera de vinteruppläggningsområden du har valt och att de lämpar sig för din båt. Ordna de valda hamnarna i prioritetsordning.",
+      "title": "Egna val"
+    },
+    "selected_berths": {
+      "legend": "Kontrollera de valda hamnarna och huruvida de lämpar sig för din båt. Ordna de valda hamnarna i prioritetsordning.",
+      "title": "Egna val"
+    },
+    "winter": {
+      "legend": "Uppge dimensionerna för den båt som ska läggas upp. På listan över områden ser du de områden där det finns platser i lämplig storlek. Du kan också filtrera listan utifrån de tjänster som erbjuds i områdena.",
+      "title": "Bläddra och välj vinteruppläggningsområden"
+    }
+  },
+  "page": {
+    "application_sent": {
+      "message": {
+        "paragraph1": "Du får snart ett bekräftelsemeddelande till den e-postadress du uppgett. Om du vill ändra eller annullera din ansökan eller undrar om något som gäller ansökan, skicka e-post till venepaikkavaraukset@hel.fi.",
+        "paragraph2": "Helsingfors stads båtplatsreservering<br/>venepaikkavaraukset.hel.fi<br/>Telefonrådgivning må–to kl. 9–12 på 09 310 87900."
+      },
+      "title": "Tack, din ansökan har skickats!"
+    },
+    "berth": {
+      "exchange_application": {
+        "current_berth": {
+          "info_text": "Fyll i uppgifterna om den nuvarande platsen i ansökan om byte. ",
+          "title": "Uppgifter om den nuvarande platsen"
+        },
+        "exchange": {
+          "info_text": "Byte av båtplats i någon av Helsingfors stads hamnar",
+          "title": "Ansökan om byte"
+        },
+        "form": {
+          "berth": {
+            "placeholder": "Nummer",
+            "title": "Platsnummer"
+          },
+          "current_harbour_area": {
+            "label": "Nuvarande hamn"
+          },
+          "pier": {
+            "placeholder": "Kajkod",
+            "title": "Kaj"
+          }
+        },
+        "new": {
+          "info_text": "Den sökande har inte ännu någon båtplats som Helsingfors stad erbjuder",
+          "title": "Ny ansökan"
+        },
+        "reason": {
+          "default": "Inga särskilda önskemål",
+          "info_text": "Du kan välja önskemål gällande den nya platsen i listan. Observera att om du har särskilda önskemål kommer du att erbjudas en plats först när en plats som motsvarar dina önskemål blir ledig.",
+          "title": "Särskilda önskemål för den nya platsen"
+        },
+        "warning": "I ansökan om byte kan högst fem hamnar väljas. Radera extravalen och byt ansökningstyp igen."
+      },
+      "selected": {
+        "alert": {
+          "paragraph": "Välj de hamnar i förteckningen där du vill ansöka om båtplats.",
+          "strong": "Obs: Du har inga valda hamnar ännu."
+        },
+        "button": {
+          "down": "Flytta ner",
+          "remove": "Ta bort",
+          "up": "Flytta upp"
+        },
+        "confirmation_body": "Är du säker på att du vill ta bort hamnen från listan?",
+        "info_text": "Uppge båtens typ och storlek för att se om det finns lämpliga platser i de valda hamnarna.",
+        "submit": "Fortsätt",
+        "title": "Ordna de valda platserna i prioritetsordning.",
+        "warning": {
+          "heading": "Obs: Du har valt hamnar som saknar lämpliga platser för din båts storlek eller typ."
+        }
+      }
+    },
+    "berths": {
+      "appointed": "Markerade rutor",
+      "electricity": "El",
+      "fence": "Port",
+      "lighting": "Belysning",
+      "link": {
+        "boat_information": "Uppgifter om båten"
+      },
+      "list": {
+        "berth_count": "{{count}} hamn motsvarar sökkriterierna",
+        "berth_count_plural": "{{count}} hamnar motsvarar sökkriterierna",
+        "header": {
+          "hits": "Hamnarna som motsvarar sökkriterierna:",
+          "others": "Övriga hamnar"
+        },
+        "progress": {
+          "max": "Maximiantalet hamnar ({{total}}) har valts",
+          "remaining": "Du kan ännu välja {{count}} hamn i din ansökan",
+          "remaining_plural": "Du kan ännu välja {{count}} hamnar i din ansökan",
+          "zero": "Välj högst {{total}} hamnar i din ansökan"
+        }
+      },
+      "maximum_length": "Max. längd",
+      "maximum_width": "Max. bredd",
+      "number_of_places": "Platser",
+      "pole": "Förtöjning",
+      "selected_list": "Valda",
+      "storage_for_docking_equip": "Sommar\u00ADförvaring för utrustning",
+      "title": "Hamnsökning",
+      "waste_collection": "Avfallshantering",
+      "water_tap": "Vatten"
+    },
+    "common": {
+      "website": "Webbplats"
+    },
+    "front": {
+      "card": {
+        "berths": {
+          "button_label": "Bläddra och sök båtplatser",
+          "description": "Bläddra bland stadens båthamnar. Du kan göra en ny ansökan om båtplats eller ansöka om byte av nuvarande båtplats till en annan.",
+          "title": "Ansökan om båtplats"
+        },
+        "instructions": "Mer information och anvisningar (hel.fi)",
+        "winter": {
+          "button_label": "Bläddra och sök\nvinteruppläggningsplatser",
+          "description": "Bläddra bland Helsingfors stads vinteruppläggningsplatser. Du kan göra en ny ansökan om vinteruppläggningsplats för din båt.",
+          "title": "Vinteruppläggningsplatser"
+        }
+      },
+      "description": {
+        "body": "Bläddra bland stadens båthamnar. Du kan göra en ny ansökan om båtplats eller ansöka om byte av nuvarande båtplats till en annan.",
+        "heading": "Båtplatser och vinteruppläggning"
+      },
+      "title": "Båtplatser"
+    },
+    "not_found": {
+      "message": "Sidan du sökte kunde tyvärr inte hittas.",
+      "title": "404"
+    },
+    "overview": {
+      "info": {
+        "berths": "Valda hamnar",
+        "boat_draught": "Djup",
+        "boat_info": "Uppgifter om båten",
+        "boat_length": "Längd",
+        "boat_model": "Modell",
+        "boat_name": "Namn",
+        "boat_register_number": "Registernummer",
+        "boat_type": "Typ",
+        "boat_weight": "Vikt",
+        "boat_width": "Bredd",
+        "edit": "Redigera",
+        "person": "Sökande"
+      }
+    },
+    "winter_storage": {
+      "appointed": "Markerade rutor",
+      "electricity": "El",
+      "fence": "Port",
+      "list": {
+        "areas_count": "{{count}} område motsvarar sökkriterierna",
+        "areas_count_plural": "{{count}} områden motsvarar sökkriterierna",
+        "header": {
+          "others": "Övriga områden"
+        },
+        "progress": {
+          "remaining": "Du kan ännu välja {{count}} område i din ansökan",
+          "remaining_plural": "Du kan ännu välja {{count}} områden i din ansökan",
+          "max": "Maximiantalet områden ({{total}}) har valts",
+          "zero": "Välj högst {{total}} områden i din ansökan"
+        }
+      },
+      "maximum_length": "Max. längd",
+      "maximum_width": "Max. bredd",
+      "notice": {
+        "paragraph1": "Ansökan om vinteruppläggningsplatser för säsongen 2020–2021 är nu aktuell. Vi skickar en faktura till de kunder som har haft rutplats förra säsongen. Om du är ny sökande, ansök om rutplats genom att göra en elektronisk ansökan på webben på <1>venepaikat.hel.fi/sv</1>. Lediga rutplatser delas ut på hösten i ansökningsordning. Vi skickar ut erbjudande om plats via e-post.",
+        "paragraph2": "Vi skickar inte någon faktura till de kunder som har haft vinteruppläggningsplats i upptagningsordningsområdet, utan betalning sker till båtplatsreserveringens konto efter att båten har tagits till upptagningsordningsområdet. Vi informerar senare på webben om betalning för plats i upptagningsordningsområdet på adressen <1>hel.fi/båtliv</1>, samt på upptagningsordningsområdets infotavlor. Till de kunder som har betalat för en vinteruppläggningsplats skickas en vinteruppläggningsdekal till hemadressen, Vi ber er klistra dekalen på en synlig plats på båten.",
+        "paragraph3": "Båtägarna kan ta sin båt till önskat upptagningsordningsområde från och med den 15 september 2020. Observera att man inte får ta båtar till upptagningsordningsområdena innan uppläggningstiden börjar den 15 september 2020.",
+        "title": "Ansökan om vinteruppläggningsplatser 2020–2021"
+      },
+      "selected": {
+        "alert": {
+          "paragraph": "Välj de områden i förteckningen där du vill ansöka om uppläggningsplats.",
+          "strong": "Obs: Du har inga valda områden ännu."
+        },
+        "confirmation_body": "Är du säker på att du vill ta bort området från listan?",
+        "info_text": "Uppge båtens typ och storlek för att se om det finns lämpliga platser i de valda områden.",
+        "submit": "Fortsätt",
+        "title": "Ordna de valda områden i prioritetsordning.",
+        "warning": {
+          "heading": "Obs: Du har valt områder som saknar lämpliga platser för din båts storlek eller typ."
+        }
+      },
+      "storage_areas": {
+        "appointed_spaces": {
+          "label": "Markerade platser",
+          "text": "Varje båt har en egen, markerad ruta. Rutor blir sällan lediga."
+        },
+        "free_spaces": {
+          "label": "Omarkerade platser",
+          "text": "Områdena med omarkerade uppläggningsplatser fylls i den ordning som båtarna läggs upp."
+        },
+        "type": {
+          "title": "Typ av uppläggningsplats"
+        }
+      },
+      "storage_for_docking_equip": "Sommarförvaring för utrustning",
+      "storage_for_trailers": "Sommarförvaring av trailer",
+      "water_tap": "Vatten"
+    }
+  },
+  "site": {
+    "berth": {
+      "title": "Ansökan om båtplats"
+    },
+    "buttons": {
+      "add_to_selected": "Lägg till valda",
+      "to_front_page": "Till förstasidan",
+      "cancel": "Avbryt",
+      "next": "Nästa",
+      "remove": "Ta bort",
+      "selected": "Vald"
+    },
+    "common": {
+      "list": "Förteckning",
+      "map": "På kartan",
+      "servicemapURL": "https://servicekarta.hel.fi/unit/{{servicemapId}}"
+    },
+    "footer": {
+      "accessibility_statement": "Tillgänglighetsutlåtande",
+      "berth_search": "Ansökan om båtplats",
+      "boating_info": "Information om båtliv",
+      "browse_berths": "Bläddra bland båthamnar",
+      "contact_us": "Ta kontakt",
+      "copyright": "{{year}} Helsingfors stad",
+      "news": "Aktuellt",
+      "send_feedback": "Ge respons",
+      "terms_of_service": "Registerbeskrivning",
+      "url": {
+        "accessibility_statement": "/Tillgänglighetsutlåtande_Venepaikat.pdf",
+        "berthing": "https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv/",
+        "current_news": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/ajankohtaista/",
+        "feedback": "https://www.hel.fi/helsinki/sv/stad-och-forvaltning/delta/feedback/",
+        "helsinki_berths": "https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv/batplatser/",
+        "terms_of_service": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri-SV.pdf"
+      }
+    },
+    "front": {
+      "title": "Båtplatser"
+    },
+    "language": {
+      "en": "In English",
+      "fi": "Suomeksi",
+      "select": "Välj språk",
+      "sv": "På svenska"
+    },
+    "link": {
+      "front_page": "Till förstasidan"
+    },
+    "steps": {
+      "applicant": "Uppgifter om den sökande",
+      "berths": "Val av hamnar",
+      "boat_information": "Uppgifter om båten",
+      "review_areas": "Egna val",
+      "selected_berths": "Egna val",
+      "send_application": "Sammanfattning",
+      "title": {
+        "berths": {
+          "exchange": "Ansökan om byte",
+          "new": "Ny ansökan"
+        },
+        "winter_storage": "Ansökan om vinteruppläggningsplats"
+      },
+      "winter_areas": "Val av områden"
+    },
+    "winter": {
+      "title": "Vinteruppläggningsplatser"
+    }
+  },
+  "test": {
+    "message": "Test"
+  },
+  "validation": {
+    "message": {
+      "invalid_value": "Ogiltig värde",
+      "must_be_email": "Värdet ska vara en e-postadress",
+      "must_be_less": "Det angivna värdet är för stort",
+      "must_be_number": "Värdet ska vara en siffra",
+      "must_be_phone_number": "Värdet ska vara ett telefonnummer",
+      "must_be_positive_number": "Värdet ska vara större än noll",
+      "required": "Obligatoriskt fält"
+    }
+  }
+}

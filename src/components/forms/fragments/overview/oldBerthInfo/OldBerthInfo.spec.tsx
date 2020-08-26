@@ -13,8 +13,8 @@ describe('fragments/ExchangeApplication', () => {
     berthsApplicationType: ApplicationOptions.NewApplication,
     berthSwitch: {
       harborId: '',
-      berthNumber: ''
-    }
+      berthNumber: '',
+    },
   };
   const defaultApplication: ApplicationFactory = Record(defaultData);
 

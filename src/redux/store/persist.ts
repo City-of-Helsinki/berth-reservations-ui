@@ -11,14 +11,14 @@ const BerthsTransform = createTransform(
     return {
       berthLimit,
       selectedServices: selectedServices.toObject(),
-      selectedBerths: selectedBerths.toArray()
+      selectedBerths: selectedBerths.toArray(),
     };
   },
-  outboundState => {
+  (outboundState) => {
     const berths = Record({
       selectedServices: Record(outboundState.selectedServices)(),
       selectedBerths: List(outboundState.selectedBerths),
-      berthLimit: outboundState.berthLimit
+      berthLimit: outboundState.berthLimit,
     });
     return berths();
   },
@@ -31,22 +31,22 @@ const WinterAreasTransform = createTransform(
       selectedWinterServices,
       selectedWinterAreas,
       areasLimit,
-      storageAreaFilter
+      storageAreaFilter,
     } = inboundState.toObject();
 
     return {
       areasLimit,
       storageAreaFilter,
       selectedWinterServices: selectedWinterServices.toObject(),
-      selectedWinterAreas: selectedWinterAreas.toArray()
+      selectedWinterAreas: selectedWinterAreas.toArray(),
     };
   },
-  outboundState => {
+  (outboundState) => {
     const berths = Record({
       storageAreaFilter: outboundState.storageAreaFilter,
       selectedWinterServices: Record(outboundState.selectedWinterServices)(),
       selectedWinterAreas: List(outboundState.selectedWinterAreas),
-      areasLimit: outboundState.areasLimit
+      areasLimit: outboundState.areasLimit,
     });
     return berths();
   },
@@ -59,7 +59,7 @@ const FormsTransform = createTransform(
 
     return forms;
   },
-  outboundState => {
+  (outboundState) => {
     const forms = Record(outboundState);
     return forms();
   },
@@ -72,7 +72,7 @@ const ApplicationTransform = createTransform(
 
     return application;
   },
-  outboundState => {
+  (outboundState) => {
     const application = Record(outboundState);
     return application();
   },
@@ -83,5 +83,5 @@ export default {
   storage,
   key: 'root',
   transforms: [BerthsTransform, WinterAreasTransform, FormsTransform, ApplicationTransform],
-  whitelist: ['berths', 'winterAreas', 'forms', 'application']
+  whitelist: ['berths', 'winterAreas', 'forms', 'application'],
 };

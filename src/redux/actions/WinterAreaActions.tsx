@@ -18,5 +18,5 @@ export {
   resetWinterAreas,
   selectService,
   deselectService,
-  filterByStorageArea
+  filterByStorageArea,
 };

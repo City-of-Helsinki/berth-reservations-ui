@@ -1,5 +1,4 @@
-import { mountWithIntl } from '../../../utils/testUtils';
-
+import { mount } from 'enzyme';
 import React from 'react';
 import { Alert as BTAlert, AlertProps as BTAlertProps } from 'reactstrap';
 import Alert from './Alert';
@@ -10,10 +9,10 @@ describe('components/common/Input', () => {
   } = {
     color: 'danger',
     messageId: 'test.message',
-    className: 'vene-alert'
+    className: 'vene-alert',
   };
 
-  const getWrapper = (props?: object) => mountWithIntl(<Alert {...defaultProps} {...props} />);
+  const getWrapper = (props?: object) => mount(<Alert {...defaultProps} {...props} />);
 
   test('render Input element normally', () => {
     const alert = getWrapper().find(BTAlert);
@@ -35,6 +34,6 @@ describe('components/common/Input', () => {
     const alert = getWrapper().find(BTAlert);
 
     expect(alert).toHaveLength(1);
-    expect(alert.prop('children')).toEqual('Test message');
+    expect(alert.prop('children')).toEqual('Testiteksti');
   });
 });

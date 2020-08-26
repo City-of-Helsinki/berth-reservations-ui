@@ -8,5 +8,5 @@ export default combineReducers({
   berths: BerthReducers,
   winterAreas: WinterAreaReducers,
   forms: FormReducers,
-  application: ApplicationReducers
+  application: ApplicationReducers,
 });

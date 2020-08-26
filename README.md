@@ -14,13 +14,13 @@
 
 ### Setup
 
-After cloning this repository, create a new `.env.local` file from the provided `.env.example` file:
+After cloning this repository, create a new `.env.development.local` file from the provided `.env` file:
 
 ```
-$ cp .env.example .env.development.local
+$ cp .env .env.development.local
 ```
 
-This default example configuration uses the test environment as backend.
+The default configuration uses the test environment as backend.
 
 ## Development
 
@@ -31,12 +31,6 @@ $ yarn start
 ```
 
 This will start [the application](http://localhost:3000) on port `3000`.
-
-To only start the storybook on port `9001`:
-
-```
-$ yarn storybook
-```
 
 ### Starting dockerized development environment
 
@@ -54,7 +48,7 @@ $ yarn storybook
 
 ## Testing
 
-End-to-end testing is created with Cypress.io framework. To run tests:
+To run tests:
 
 ```
 $ yarn test

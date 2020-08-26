@@ -24,24 +24,24 @@ const BoatDetails = ({ values, tab, boatTypes }: Props) => {
         sizes={{
           xs: 12,
           md: 4,
-          lg: 3
+          lg: 3,
         }}
         types={[
           {
             label: 'form.boat_type_selector.registered_boat.label',
             tab: 'registered-boat',
-            icon: 'registeredBoat'
+            icon: 'registeredBoat',
           },
           {
             label: 'form.boat_type_selector.unregistered_boat.label',
             tab: 'unregistered-boat',
-            icon: 'unregisteredBoat'
+            icon: 'unregisteredBoat',
           },
           {
             label: 'form.boat_type_selector.no_boat.label',
             tab: 'no-boat',
-            icon: 'noBoat'
-          }
+            icon: 'noBoat',
+          },
         ]}
       />
       <Container>

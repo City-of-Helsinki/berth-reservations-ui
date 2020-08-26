@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import { string } from 'prop-types';
 import './availabilityLevel.scss';
 
 export interface Props {
@@ -40,7 +39,7 @@ const AvailabilityLevel = ({ label, level }: Props) => {
   return (
     <span
       className={classNames('vene-availability-level', {
-        [`vene-availability-level--${color}`]: color
+        [`vene-availability-level--${color}`]: color,
       })}
     >
       {label}

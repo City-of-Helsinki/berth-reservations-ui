@@ -28,13 +28,13 @@ export const createBerth = (options?: Partial<BerthType>): BerthType => {
       id: 'test',
       title: 'Paljon jonoa',
       description:
-        'Satamat, joihin on paljon hakijoita ja yleensä useamman vuoden jonotusaika. Näistä satamista vapautuu paikkoja pääasiassa venepaikan vaihtajille.'
+        'Satamat, joihin on paljon hakijoita ja yleensä useamman vuoden jonotusaika. Näistä satamista vapautuu paikkoja pääasiassa venepaikan vaihtajille.',
     },
     numberOfPlaces: 5,
     maximumWidth: 200,
     maximumLength: 400,
     maximumDepth: 13,
-    geometry: { coordinates: [60.18808000000039, 25.0665395178596] }
+    geometry: { coordinates: [60.18808000000039, 25.0665395178596] },
   };
 
   return { ...newBerth, ...options };

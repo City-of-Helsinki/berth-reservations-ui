@@ -1,0 +1,32 @@
+@import 'helsinki/colors';
+@import 'styles/variables';
+
+.vene-notice-page {
+  background-color: $hel-light;
+  text-align: center;
+  flex-grow: 1;
+
+  &__content {
+    padding: $spacing-04 0;
+  }
+
+  h2 {
+    margin-bottom: $spacing-01;
+    font-weight: normal;
+  }
+
+  p {
+    max-width: $spacing-40;
+    margin: $spacing-01 auto;
+  }
+
+  &__front-page-button {
+    margin: 0 0 $spacing-04 0;
+    padding: $spacing-01 $spacing-08;
+  }
+
+  &--success {
+    background-color: $hel-fog;
+    margin-bottom: $spacing-02;
+  }
+}

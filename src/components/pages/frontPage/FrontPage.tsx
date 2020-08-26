@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router-dom';
-import { Col, Container, Row } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import Card from '../../common/card/Card';
@@ -18,6 +18,7 @@ type Props = {
 } & RouteComponentProps;
 
 const FrontPage = ({ localePush }: Props) => {
+  const { t } = useTranslation();
   useLayoutEffect(() => window.scrollTo(0, 0));
 
   return (
@@ -27,35 +28,47 @@ const FrontPage = ({ localePush }: Props) => {
         color="fog"
         top
         title="page.front.description.heading"
-        description={[{ id: 'page.front.description.body' }]}
+        description={<p>{t('page.front.description.body')}</p>}
         centered
       >
         <Container className="vene-front-page">
           <Row>
-            <Col md="6" xs="12" className="vene-front-page__card-wrapper">
+            <div className="vene-front-page__card-wrapper vene-front-page__card-wrapper--wide">
               <Card
                 onClick={() => localePush('/berths')}
-                btnLabel="page.front.card.berths.button_label"
-                title="page.front.card.berths.title"
+                btnLabel={t('page.front.card.berths.button_label')}
+                title={t('page.front.card.berths.title')}
               >
-                <FormattedMessage tagName="p" id="page.front.card.berths.description" />
+                <p>{t('page.front.card.berths.description')}</p>
                 <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/">
-                  <FormattedMessage tagName="p" id="page.front.card.instructions" />
+                  <p>{t('page.front.card.instructions')}</p>
                 </a>
               </Card>
-            </Col>
-            <Col md="6" xs="12" className="vene-front-page__card-wrapper">
+            </div>
+            <div className="vene-front-page__card-wrapper vene-front-page__card-wrapper--wide">
               <Card
                 onClick={() => localePush('/winter-storage')}
-                btnLabel="page.front.card.winter.button_label"
-                title="page.front.card.winter.title"
+                btnLabel={t('page.front.card.winter.button_label')}
+                title={t('page.front.card.winter.title')}
               >
-                <FormattedMessage tagName="p" id="page.front.card.winter.description" />
+                <p>{t('page.front.card.winter.description')}</p>
                 <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/veneiden-talvisailytys/">
-                  <FormattedMessage tagName="p" id="page.front.card.instructions" />
+                  <p>{t('page.front.card.instructions')}</p>
                 </a>
               </Card>
-            </Col>
+            </div>
+            <div className="vene-front-page__card-wrapper vene-front-page__card-wrapper--thin">
+              <Card
+                onClick={() => localePush('/unmarked-winter-storage')}
+                btnLabel={t('page.front.card.unmarkedWinter.button_label')}
+                title={t('page.front.card.unmarkedWinter.title')}
+              >
+                <p>{t('page.front.card.unmarkedWinter.description')}</p>
+                <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/veneiden-talvisailytys/nostojarjestyksessa/">
+                  <p>{t('page.front.card.instructions_short')}</p>
+                </a>
+              </Card>
+            </div>
           </Row>
         </Container>
       </KoroSection>

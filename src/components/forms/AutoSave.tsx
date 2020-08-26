@@ -18,7 +18,7 @@ class AutoSave extends Component<Props & FormSpyRenderProps> {
     this.promise = undefined;
   }
 
-  componentWillReceiveProps() {
+  componentDidUpdate() {
     if (this.timeout) {
       clearTimeout(this.timeout);
     }

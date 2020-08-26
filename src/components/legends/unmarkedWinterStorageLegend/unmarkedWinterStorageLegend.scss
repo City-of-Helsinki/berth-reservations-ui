@@ -1,0 +1,12 @@
+@import 'helsinki/colors';
+@import 'helsinki/fonts';
+
+.vene-unmarked-winter-storage-legend {
+  &__steps {
+    width: 80%;
+  }
+
+  &__header {
+    margin-bottom: 2em;
+  }
+}

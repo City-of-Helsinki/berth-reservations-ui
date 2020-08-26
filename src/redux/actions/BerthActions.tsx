@@ -20,5 +20,5 @@ export {
   selectService,
   deselectService,
   setBerthLimit,
-  resetBerthLimit
+  resetBerthLimit,
 };

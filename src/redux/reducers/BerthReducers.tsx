@@ -6,13 +6,13 @@ export const selectedServices = Record({
   water: false,
   wasteCollection: false,
   gate: false,
-  lighting: false
+  lighting: false,
 });
 
 const defaultState: BerthsFactory = Record({
   selectedBerths: List(),
   selectedServices: selectedServices(),
-  berthLimit: Number(process.env.REACT_APP_MAX_SELECTED_BERTHS) || 10
+  berthLimit: Number(process.env.REACT_APP_MAX_SELECTED_BERTHS) || 10,
 });
 
 export default (state: BerthsState = defaultState(), action: Action): BerthsState => {
@@ -23,38 +23,32 @@ export default (state: BerthsState = defaultState(), action: Action): BerthsStat
     case 'DESELECT_SERVICE':
       return state.setIn(['selectedServices', payload], false);
     case 'SELECT_BERTH':
-      return state.update('selectedBerths', selectedBerths => selectedBerths.push(payload));
+      return state.update('selectedBerths', (selectedBerths) => selectedBerths.push(payload));
     case 'DESELECT_BERTH':
-      return state.update('selectedBerths', selectedBerths =>
-        selectedBerths.filterNot(b => b === payload)
+      return state.update('selectedBerths', (selectedBerths) =>
+        selectedBerths.filterNot((b) => b === payload)
       );
     case 'MOVE_BERTH_UP':
-      return state.update('selectedBerths', selectedBerths => {
-        const index = selectedBerths.findIndex(k => k === payload);
+      return state.update('selectedBerths', (selectedBerths) => {
+        const index = selectedBerths.findIndex((k) => k === payload);
         const nextInOrder = index - 1;
         const swapWith = selectedBerths.get(nextInOrder);
         if (swapWith && nextInOrder >= 0) {
           const before = selectedBerths.slice(0, index - 1);
           const after = selectedBerths.slice(index + 1);
-          return List([])
-            .concat(before)
-            .concat([payload, swapWith])
-            .concat(after);
+          return List([]).concat(before).concat([payload, swapWith]).concat(after);
         }
         return selectedBerths;
       });
     case 'MOVE_BERTH_DOWN':
-      return state.update('selectedBerths', selectedBerths => {
-        const index = selectedBerths.findIndex(k => k === payload);
+      return state.update('selectedBerths', (selectedBerths) => {
+        const index = selectedBerths.findIndex((k) => k === payload);
         const previousInOrder = index + 1;
         const swapWith = selectedBerths.get(previousInOrder);
         if (swapWith && previousInOrder <= selectedBerths.size - 1) {
           const before = selectedBerths.slice(0, index);
           const after = selectedBerths.slice(index + 2);
-          return List([])
-            .concat(before)
-            .concat([swapWith, payload])
-            .concat(after);
+          return List([]).concat(before).concat([swapWith, payload]).concat(after);
         }
         return selectedBerths;
       });

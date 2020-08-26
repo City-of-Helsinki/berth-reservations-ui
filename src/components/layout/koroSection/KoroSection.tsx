@@ -1,16 +1,13 @@
 import classnames from 'classnames';
 import React from 'react';
-import { FormattedHTMLMessage, FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
 import './koroSection.scss';
 
 interface Props {
   title?: string;
-  description?: Array<{
-    id: string;
-    values?: { [key: string]: string };
-  }>;
+  description?: React.ReactNode;
   className?: string;
   children?: React.ReactNode;
   color?: 'fog' | 'blue' | 'white';
@@ -22,18 +19,19 @@ interface Props {
 const KoroSection = (props: Props) => {
   const {
     title,
-    description = [],
+    description,
     top = false,
     bottom = false,
     centered = false,
     children,
     className,
-    color = 'white'
+    color = 'white',
   } = props;
+  const { t } = useTranslation();
   const classes = classnames(className, `section-koro--${color}`, 'section-koro', {
     'section-koro--top': top,
     'section-koro--bottom': bottom,
-    'section-koro--centered': centered
+    'section-koro--centered': centered,
   });
 
   return (
@@ -41,19 +39,8 @@ const KoroSection = (props: Props) => {
       <Container className="vene-layout__desc">
         <Row>
           <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-            {title && (
-              <FormattedMessage id={title}>
-                {txt => <h2 className="section-koro__title">{txt}</h2>}
-              </FormattedMessage>
-            )}
-            {description.map(paragraph => (
-              <FormattedHTMLMessage
-                key={paragraph.id}
-                tagName="p"
-                id={paragraph.id}
-                values={paragraph.values}
-              />
-            ))}
+            {title && <h2 className="section-koro__title">{t(title)}</h2>}
+            {description}
           </Col>
         </Row>
       </Container>

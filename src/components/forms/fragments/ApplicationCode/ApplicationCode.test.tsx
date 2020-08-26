@@ -1,12 +1,12 @@
+import { shallow } from 'enzyme';
 import React from 'react';
 
-import { shallowWithIntl } from '../../../../utils/testUtils';
 import { Text } from '../../Fields';
 
 import ApplicationCode from './ApplicationCode';
 
 describe('src/components/forms/fragments/ApplicationCode', () => {
-  const wrapper = () => shallowWithIntl(<ApplicationCode />);
+  const wrapper = () => shallow(<ApplicationCode />);
 
   test('should be wrapped by a div with a className of vene-application-code', () => {
     expect(wrapper().find('div.vene-application-code')).toHaveLength(1);

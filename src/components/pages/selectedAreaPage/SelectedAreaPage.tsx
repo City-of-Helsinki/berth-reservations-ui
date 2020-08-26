@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from 'react-final-form';
-import { FormattedMessage } from 'react-intl';
+import { WithTranslation, withTranslation } from 'react-i18next';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
 import SelectedResource from '../../common/areaCard/selectedResource/SelectedResource';
@@ -19,7 +19,7 @@ interface BoatInfoForWinter {
   length: string;
 }
 
-export interface Props {
+export interface Props extends WithTranslation {
   selectedAreas: WinterAreas;
   boatInfo: BoatInfoForWinter;
   values: WinterFormValues;
@@ -52,6 +52,7 @@ class SelectedAreaPage extends Component<Props> {
 
   render() {
     const {
+      t,
       selectedAreas,
       deselectArea,
       moveUp,
@@ -62,7 +63,7 @@ class SelectedAreaPage extends Component<Props> {
       handlePrevious,
       steps,
       legend,
-      validSelection
+      validSelection,
     } = this.props;
     return (
       <Form
@@ -75,19 +76,19 @@ class SelectedAreaPage extends Component<Props> {
               <Container className="vene-selected-area-page__wrapper">
                 <Row>
                   <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-                    <FormattedMessage tagName="h3" id="page.winter_storage.selected.title" />
-                    {Object.values(boatInfo).every(value => !!value) ? (
+                    <h3>{t('page.winter_storage.selected.title')}</h3>
+                    {Object.values(boatInfo).every((value) => !!value) ? (
                       <Container>
                         <Row>
                           <Col md="3">
-                            <FormattedMessage tagName="span" id="page.overview.info.boat_width" />:
+                            <span>{t('page.overview.info.boat_width')}</span>
                             <span className="vene-selected-area-page__boat-value">
                               {boatInfo.width} m
                             </span>
                           </Col>
 
                           <Col md="3">
-                            <FormattedMessage tagName="span" id="page.overview.info.boat_length" />:
+                            <span>{t('page.overview.info.boat_length')}</span>
                             <span className="vene-selected-area-page__boat-value">
                               {boatInfo.length} m
                             </span>
@@ -98,43 +99,31 @@ class SelectedAreaPage extends Component<Props> {
                       <div className="vene-selected-area-page__notice">
                         <Icon name="exclamationCircle" />
                         <LocalizedLink to={steps[0].linkTo || ''}>
-                          <FormattedMessage
-                            tagName="span"
-                            id="page.winter_storage.selected.info_text"
-                          />
+                          <span>{t('page.winter_storage.selected.info_text')}</span>
                         </LocalizedLink>
                       </div>
                     )}
                     <hr />
                     {validSelection || (
                       <Alert color="warning">
-                        <FormattedMessage
-                          tagName="strong"
-                          id="page.winter_storage.selected.warning.heading"
-                        />
+                        <strong>{t('page.winter_storage.selected.warning.heading')}</strong>
                       </Alert>
                     )}
                     {selectedAreas.size === 0 ? (
                       <Alert color="danger">
-                        <FormattedMessage
-                          tagName="strong"
-                          id="page.winter_storage.selected.alert.strong"
-                        />
-                        <FormattedMessage
-                          tagName="h2"
-                          id="page.winter_storage.selected.alert.paragraph"
-                        />
+                        <strong>{t('page.winter_storage.selected.alert.strong')}</strong>
+                        <h2>{t('page.winter_storage.selected.alert.paragraph')}</h2>
                       </Alert>
                     ) : (
                       <div>
                         {selectedAreas.map((resource, index) => {
-                          const services: Array<[IconNames, boolean]> = [
-                            ['waterTap', resource.water],
-                            ['fence', resource.gate],
-                            ['plug', resource.electricity],
-                            ['dollyEmpty', resource.summerStorageForTrailers],
-                            ['trestle', resource.summerStorageForDockingEquipment],
-                            ['tools', resource.repairArea]
+                          const services: [IconNames, boolean][] = [
+                            ['waterTap', !!resource.water],
+                            ['fence', !!resource.gate],
+                            ['plug', !!resource.electricity],
+                            ['dollyEmpty', !!resource.summerStorageForTrailers],
+                            ['trestle', !!resource.summerStorageForDockingEquipment],
+                            ['tools', !!resource.repairArea],
                           ];
 
                           return (
@@ -147,7 +136,6 @@ class SelectedAreaPage extends Component<Props> {
                               moveUp={index !== 0 ? moveUp : undefined}
                               moveDown={index !== selectedAreas.size - 1 ? moveDown : undefined}
                               handleRemove={deselectArea}
-                              availabilityLevel={resource.availabilityLevel}
                               validationErrMsg={
                                 filter(resource) ? undefined : 'error.message.invalid_area'
                               }
@@ -165,7 +153,7 @@ class SelectedAreaPage extends Component<Props> {
                     <Col xs={12}>
                       <div className="vene-selected-area-page__button-wrapper__button-groups">
                         <Button color="link" type="button" onClick={handlePrevious}>
-                          <FormattedMessage id="form.wizard.button.previous" />
+                          <span>{t('form.wizard.button.previous')}</span>
                         </Button>
                         <Button
                           type="submit"
@@ -174,10 +162,7 @@ class SelectedAreaPage extends Component<Props> {
                           size="lg"
                           disabled={selectedAreas.size === 0 || invalid}
                         >
-                          <FormattedMessage
-                            tagName="span"
-                            id="page.winter_storage.selected.submit"
-                          />
+                          <span>{t('page.winter_storage.selected.submit')}</span>
                         </Button>
                       </div>
                     </Col>
@@ -192,4 +177,4 @@ class SelectedAreaPage extends Component<Props> {
   }
 }
 
-export default SelectedAreaPage;
+export default withTranslation()(SelectedAreaPage);

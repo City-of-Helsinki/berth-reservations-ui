@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { Component } from 'react';
-import { InjectedIntlProps, injectIntl } from 'react-intl';
+import { WithTranslation, withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { Col, Container, Row } from 'reactstrap';
 
@@ -8,7 +8,7 @@ import { EXCHANGE_APPLICATION_LIMIT } from '../../../../constants/BerthConstants
 import { switchApplication as switchApplicationAction } from '../../../../redux/actions/ApplicationActions';
 import {
   resetBerthLimit as resetBerthLimitAction,
-  setBerthLimit as setBirthLimitAction
+  setBerthLimit as setBirthLimitAction,
 } from '../../../../redux/actions/BerthActions';
 import Alert from '../../../common/Alert';
 import Input from '../../../common/Input';
@@ -18,7 +18,7 @@ import { ApplicationOptions } from '../../../../types/applicationType';
 
 import './applicationSelector.scss';
 
-export type ApplicationSelectorProps = InjectedIntlProps & {
+export type ApplicationSelectorProps = {
   className?: string;
   selectedBerthCount: number;
   berthsApplicationType: string;
@@ -26,7 +26,7 @@ export type ApplicationSelectorProps = InjectedIntlProps & {
   setBerthLimit: Function;
   resetBerthLimit: Function;
   berthLimit: number;
-};
+} & WithTranslation;
 
 export interface ApplicationSelectorState {
   alertVisibility: boolean;
@@ -49,12 +49,12 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
   toggleAlert = (value: boolean) => {
     if (!value) {
       this.setState({
-        alertVisibility: false
+        alertVisibility: false,
       });
     } else {
       this.setState(
         {
-          alertVisibility: true
+          alertVisibility: true,
         },
         () => {
           this.autoDismiss = setTimeout(() => {
@@ -82,11 +82,7 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
   };
 
   render() {
-    const {
-      className,
-      intl: { formatMessage },
-      berthsApplicationType
-    } = this.props;
+    const { className, berthsApplicationType, t } = this.props;
 
     return (
       <div className={classNames('vene-application-selector', className)}>
@@ -102,8 +98,8 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
                 name="application-selector-radio"
                 label={
                   <>
-                    <strong>{formatMessage({ id: 'page.berth.exchange_application.new' })}</strong>
-                    <p>{formatMessage({ id: 'page.berth.exchange_application.new.info_text' })}</p>
+                    <strong>{t('page.berth.exchange_application.new.title')}</strong>
+                    <p>{t('page.berth.exchange_application.new.info_text')}</p>
                   </>
                 }
               />
@@ -118,12 +114,8 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
                 name="application-selector-radio"
                 label={
                   <>
-                    <strong>
-                      {formatMessage({ id: 'page.berth.exchange_application.exchange' })}
-                    </strong>
-                    <p>
-                      {formatMessage({ id: 'page.berth.exchange_application.exchange.info_text' })}
-                    </p>
+                    <strong>{t('page.berth.exchange_application.exchange.title')}</strong>
+                    <p>{t('page.berth.exchange_application.exchange.info_text')}</p>
                   </>
                 }
               />
@@ -146,16 +138,13 @@ class ApplicationSelector extends Component<ApplicationSelectorProps, Applicatio
 const mapStateToProps = (state: Store) => ({
   selectedBerthCount: state.berths.selectedBerths.size,
   berthsApplicationType: state.application.berthsApplicationType,
-  berthLimit: state.berths.berthLimit
+  berthLimit: state.berths.berthLimit,
 });
 
-export const UnconnectedApplicationSelector = injectIntl(ApplicationSelector);
+export const UnconnectedApplicationSelector = withTranslation()(ApplicationSelector);
 
-export default connect(
-  mapStateToProps,
-  {
-    switchApplication: switchApplicationAction,
-    setBerthLimit: setBirthLimitAction,
-    resetBerthLimit: resetBerthLimitAction
-  }
-)(UnconnectedApplicationSelector);
+export default connect(mapStateToProps, {
+  switchApplication: switchApplicationAction,
+  setBerthLimit: setBirthLimitAction,
+  resetBerthLimit: resetBerthLimitAction,
+})(UnconnectedApplicationSelector);

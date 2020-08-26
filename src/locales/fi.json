@@ -1,0 +1,781 @@
+{
+  "error": {
+    "message": {
+      "invalid_area": "Tällä alueella ei todennäköisesti ole veneesi koolle sopivia paikkoja.",
+      "invalid_area_selection": "Huomio: Olet valinnut alueita joilla ei ole veneesi koolle sopivia paikkoja.",
+      "invalid_berth": "Tässä satamassa ei todennäköisesti ole veneesi koolle tai tyypille sopivia paikkoja.",
+      "invalid_berth_selection": "Huomio: Olet valinnut satamia joissa ei ole veneesi koolle tai tyypille sopivia paikkoja."
+    }
+  },
+  "form": {
+    "accessibility": {
+      "field": {
+        "accessibility": {
+          "label": "Venesatamissamme ei ole tällä hetkellä esteettömiä venepaikkoja."
+        }
+      }
+    },
+    "big_ship": {
+      "field": {
+        "agreed": {
+          "label": "Olen tutustunut sopimusehtoihin ja sitoudun noudattamaan niitä."
+        },
+        "hull_material": {
+          "aluminium": "Alumiini",
+          "concrete": "Betoni",
+          "fibreglass": "Lujitemuovi/Lasikuitu",
+          "label": "Runkomateriaali",
+          "other": "Muu",
+          "placeholder": "Valitse veneen runkomateriaali",
+          "rubber": "Kumi/PVC/PU",
+          "steel": "Teräs",
+          "thermoplastic": "Kestomuovi",
+          "wood": "Puu"
+        },
+        "inspected": {
+          "label": "Vakuutan että alus on katsastettu."
+        },
+        "insurance": {
+          "label": "Vakuutan että aluksella on voimassa oleva vakuutus, joka kattaa aluksen nostosta johtuvat kustannukset."
+        },
+        "propulsion": {
+          "diesel": "Dieselöljy",
+          "electricity": "Sähkö",
+          "fuel_oil": "Polttoöljy",
+          "gasoline": "Bensiini",
+          "label": "Käyttövoima",
+          "natural_gas": "LNG/LPG",
+          "other": "Muu",
+          "placeholder": "Valitse aluksen käyttövoima"
+        },
+        "time_period": {
+          "fixed": "Määräaikainen",
+          "for_now": "Toistaiseksi",
+          "from": {
+            "placeholder": "Alkaa"
+          },
+          "label": "Vuokra-aika",
+          "to": {
+            "placeholder": "Päättyy"
+          }
+        },
+        "usage": {
+          "label": "Käyttötarkoitus",
+          "placeholder": "Aluksen käyttötarkoitus"
+        }
+      },
+      "header": {
+        "details": "Suuria aluksia koskevat lisätiedot",
+        "inspection_and_insurance": "Katsastus ja vakuutukset",
+        "title": "Suurten alusten laituripaikat"
+      },
+      "text": {
+        "inspection_and_insurance": "Katsastustodistus ja ote vakuutuskirjasta on toimitettava ennen kuin laituripaikka voidaan myöntää. Katsastuksen ja vakuutuksen on jatkuttava katkeamatta. Vuokranantajalla on koska tahansa oikeus vaatia katsastustodistuksen ja vakuutuskirjaotteen esittämistä.",
+        "summary": "Yli 20 000 kg painavat alukset säilytetään niille varatuilla laituripaikoilla. Suurten alusten laituripaikat varataan joko määräaikaisena tai toistaiseksi."
+      }
+    },
+    "boat_type_selector": {
+      "company": {
+        "label": "Yritys tai yhteisö"
+      },
+      "no_boat": {
+        "label": "Ei venettä"
+      },
+      "private_person": {
+        "label": "Yksityishenkilö"
+      },
+      "registered_boat": {
+        "label": "Rekisteröity vene"
+      },
+      "unregistered_boat": {
+        "label": "Rekisteröimätön vene"
+      }
+    },
+    "company": {
+      "field": {
+        "email": {
+          "label": "Sähköpostiosoite",
+          "placeholder": "vellamo.merenkavija@hel.fi"
+        },
+        "first_name": {
+          "label": "Etunimi",
+          "placeholder": "Vellamo"
+        },
+        "last_name": {
+          "label": "Sukunimi",
+          "placeholder": "Merenkävijä"
+        },
+        "mobile_phone": {
+          "label": "Matkapuhelin",
+          "placeholder": "+358 555 245 555"
+        }
+      },
+      "header": {
+        "contact_person": "Yhteyshenkilö",
+        "title": "Yrityksen tai yhteisön tiedot"
+      }
+    },
+    "company_details": {
+      "field": {
+        "business_id": {
+          "label": "Y-tunnus",
+          "placeholder": "1234567-8"
+        },
+        "name": {
+          "label": "Yrityksen tai yhteisön nimi",
+          "placeholder": "Vellamo Oy"
+        }
+      }
+    },
+    "contact_details": {
+      "field": {
+        "email": {
+          "label": "Sähköpostiosoite",
+          "placeholder": "vellamo.merenkavija@hel.fi"
+        },
+        "mobile_phone": {
+          "label": "Matkapuhelin",
+          "placeholder": "+358 555 245 555"
+        }
+      }
+    },
+    "no_boat": {
+      "field": {
+        "accessibility": {
+          "label": "Tarvisen esteettömän venepaikan"
+        },
+        "brand": {
+          "label": "Nimi",
+          "placeholder": "Nimi"
+        },
+        "lenght": {
+          "label": "Rungon pituus",
+          "placeholder": "0,0"
+        },
+        "length": {
+          "label": "Veneen pituus",
+          "placeholder": "0,0"
+        },
+        "type": {
+          "label": "Tyyppi",
+          "placeholder": "Valitse veneen tyyppi"
+        },
+        "width": {
+          "label": "Veneen leveys",
+          "placeholder": "0,0"
+        }
+      },
+      "header": {
+        "accessibility": "Esteettömyys",
+        "additional_info": "Lisätiedot",
+        "title": "Hankittavan veneen tiedot"
+      }
+    },
+    "overview": {
+      "field": {
+        "application_code": {
+          "description": "Jos olet vastaanottanut asiakaspalvelusta hakukoodin, syötä se tähän. Hakukoodi on tarkoitettu asiakkaille, jotka ovat jo hakeneet venepaikkaa paperisella hakulomakkeella.",
+          "placeholder": "Koodi",
+          "title": "Hakukoodi"
+        },
+        "berth": {
+          "guarantee": {
+            "label": "Vakuutan antamani tiedot oikeiksi."
+          }
+        },
+        "boating_info": {
+          "label": "Vene Helsingissä -uutiskirjeen"
+        },
+        "fitness_services": {
+          "label": "liikuntapalvelut"
+        },
+        "library_services": {
+          "label": "kirjastopalvelut"
+        },
+        "other_cultural_services": {
+          "label": "muut kulttuuripalvelut"
+        },
+        "winter": {
+          "guarantee": {
+            "label": "Olen lukenut talvisäilytystä koskevat venesatamasäännöt <1>hel.fi</1> -sivustolta ja sitoudun niiden noudattamiseen. Vakuutan hakemuksessa antamani tiedot oikeiksi."
+          }
+        }
+      },
+      "header": {
+        "agreement": {
+          "title": "Vakuutan tietoni oikeiksi"
+        },
+        "also": {
+          "title": "sekä tietoa seuraavista Helsingin kaupungin kulttuurin ja vapaa-ajan palveluista"
+        },
+        "receivable_items": {
+          "title": "Haluan vastaanottaa sähköpostiini"
+        }
+      }
+    },
+    "postal_details": {
+      "field": {
+        "munacipality": {
+          "label": "Postitoimipaikka",
+          "placeholder": "Postitoimipaikka"
+        },
+        "postal_code": {
+          "label": "Postinumero",
+          "placeholder": "Postinumero"
+        },
+        "street_address": {
+          "label": "Jakeluosoite",
+          "placeholder": "Jakeluosoite"
+        }
+      }
+    },
+    "private_person": {
+      "field": {
+        "first_name": {
+          "label": "Etunimi",
+          "placeholder": "Vellamo"
+        },
+        "last_name": {
+          "label": "Sukunimi",
+          "placeholder": "Merenkävijä"
+        }
+      },
+      "header": {
+        "title": "Hakijan henkilötiedot"
+      }
+    },
+    "registered": {
+      "field": {
+        "draught": {
+          "label": "Veneen syväys",
+          "placeholder": "0,0"
+        },
+        "length": {
+          "label": "Veneen pituus",
+          "placeholder": "0,0"
+        },
+        "model": {
+          "label": "Merkki",
+          "placeholder": "Veneen merkki"
+        },
+        "name": {
+          "label": "Nimi",
+          "placeholder": "Veneen nimi"
+        },
+        "register_number": {
+          "label": "Rekisterinumero",
+          "placeholder": "Veneen rekisterinumero"
+        },
+        "type": {
+          "label": "Veneen tyyppi",
+          "placeholder": "Valitse veneen tyyppi"
+        },
+        "weight": {
+          "label": "Veneen paino",
+          "placeholder": "1000"
+        },
+        "width": {
+          "label": "Veneen leveys",
+          "placeholder": "0,0"
+        },
+        "winter_storage": {
+          "storage_type": {
+            "label": "Vene säilytetään trailerilla",
+            "text": "Trailerilla säilytettäessä veneen pituuteen lisätään +1m."
+          }
+        }
+      },
+      "header": {
+        "additional_info": "Lisätiedot",
+        "measures": "Veneen mitat",
+        "title": "Rekisteröidyn veneen tiedot"
+      }
+    },
+    "services": {
+      "field": {
+        "appointed_spaces": {
+          "label": "Merkityt ruutupaikat"
+        },
+        "berth": {
+          "services": {
+            "label": "Rajaa listaa sataman palveluiden perusteella"
+          }
+        },
+        "electricity": {
+          "label": "Sähkö"
+        },
+        "gate": {
+          "label": "Portti"
+        },
+        "lighting": {
+          "label": "Valaistus"
+        },
+        "repair_area": {
+          "label": "Korjausalue"
+        },
+        "storage_for_docking_equip": {
+          "label": "Telakointi\u00ADtarvikkeiden kesäsäilytys"
+        },
+        "storage_for_trailers": {
+          "label": "Trailerien kesäsäilytys"
+        },
+        "waste_collection": {
+          "label": "Jätehuolto"
+        },
+        "water": {
+          "label": "Vesi"
+        },
+        "winter": {
+          "services": {
+            "label": "Rajaa listaa alueen palveluiden perusteella"
+          }
+        }
+      }
+    },
+    "unregistered": {
+      "field": {
+        "accessibility": {
+          "label": "Tarvisen esteettömän venepaikan"
+        },
+        "brand": {
+          "label": "Nimi",
+          "placeholder": "Veneen nimi"
+        },
+        "lenght": {
+          "label": "Rungon pituus"
+        },
+        "model": {
+          "label": "Merkki",
+          "placeholder": "Veneen merkki"
+        },
+        "type": {
+          "label": "Tyyppi",
+          "placeholder": "Valitse veneen tyyppi"
+        },
+        "width": {
+          "label": "Veneen leveys"
+        }
+      },
+      "header": {
+        "accessibility": "Esteettömyys",
+        "additional_info": "Lisätiedot",
+        "title": "Rekisteröimättömän veneen tiedot"
+      }
+    },
+    "winter_storage_method": {
+      "field": {
+        "storage_method": {
+          "label": "Säilytystapa",
+          "on_trailer": "Säilytän veneen trailerilla",
+          "on_trestles": "Säilytän veneen pukeilla"
+        },
+        "trailer_reg_num": {
+          "field": {
+            "label": "Trailerin rekisterinumero",
+            "placeholder": "ABC-123",
+            "text": "Trailerilla säilytys vain rekisteröidylle trailereille. Jos trailerin rekisterinumero ei ole vielä tiedossa, ilmoita rekisterinumero ennen talvisäilytyksen aloittamista. Trailerilla säilyttäminen vaatii veneen pituuden lisäksi 1m lisätilaa."
+          }
+        }
+      }
+    },
+    "unmarked_winter_storage": {
+      "field": {
+        "winter_storage_area": {
+          "label": "Talvisäilytysalue"
+        }
+      }
+    },
+    "wizard": {
+      "button": {
+        "invalid": "Täytä lomake jatkaaksesi",
+        "next": "Seuraava",
+        "previous": "Edellinen sivu",
+        "submit": "Lähetä"
+      }
+    }
+  },
+  "hero": {
+    "berth": {
+      "paragraph": {
+        "first": "Tässä palvelussa voit selata Helsingin kaupungin venesatamia ja tehdä uuden venepaikkahakemuksen valitsemiisi satamiin.",
+        "second": "HUOM! Ennen kuin täytät hakemuksen, lue ohjeet satamien valintaan sekä tietoa venepaikkojen jakoperusteista ja hakemuskäsittelyn aikataulusta <1>hel.fi</1> -sivustolta."
+      },
+      "title": "Venepaikan hakeminen Helsingin venesatamista"
+    },
+    "winter": {
+      "paragraph": {
+        "first": "Tästä voit hakea veneen talvisäilytyspaikkaa Helsingin kaupungin säilytysalueilta. Ruutupaikkoja vapautuu harvoin joten valitsethan hakemukseesi myös alueita joissa ei ole merkittyjä paikkoja.",
+        "second": "HUOM! Ennen kuin täytät hakemuksen, lue ohjeet alueiden valintaan sekä tietoa säilytyspaikkojen jakoperusteista ja hakemuskäsittelyn aikataulusta <1>hel.fi</1> -sivustolta. <3/> Jos olet kiinnostunut talvisäilyttämään veneesi vedessä omalla venepaikallasi ota meihin yhteyttä."
+      },
+      "title": "Talvisäilytyspaikkojen haku"
+    },
+    "unmarked_winter_storage": {
+      "paragraph": {
+        "first": "Tässä palvelussa voit ilmoittaa meille että olet vienyt veneesi nostojärjestysalueelle. Nostojärjestysalueiden luonteesta johtuen emme voi jakaa paikkoja niille etukäteen.",
+        "second": "Tarkempia tietoja talvisäilytyspaikkojen jakoperusteista, hinnoista ja hakemusten käsittelystä löydät <1>hel.fi-sivustolta</1>."
+      },
+      "title": "Ilmoita että veneesi on viety talvisäilytysalueelle"
+    }
+  },
+  "legend": {
+    "berth": {
+      "legend": "Selaa kaupungin tarjoamia satamia ja venepaikkoja. Valitse enintään kymmenen sopivaa satamaa hakemukseesi.",
+      "title": "Millaista venepaikkaa olet hakemassa?"
+    },
+    "boat": {
+      "legend": "Venepaikkaa haetaan venekohtaisesti. Anna tässä haettavalla venepaikalla pidettävän veneen tiedot. Voit myös hakea venepaikkaa vaikka sinulla ei ole vielä venettä.",
+      "title": "Veneen tiedot"
+    },
+    "overview": {
+      "legend": "Tarkista vielä tietojen oikeellisuus ennen hakemuksen lähettämistä.",
+      "title": "Yhteenveto"
+    },
+    "person": {
+      "legend": "Venepaikkaa voivat hakea yksityishenkilöt, yhdistykset ja yritykset. Yrityksiltä peritään korotettua vuosivuokraa.",
+      "title": "Hakijan tiedot"
+    },
+    "selected_areas": {
+      "legend": "Tarkista valitsemasi talvisäilytysalueet ja niiden sopivuus veneellesi. Järjestä valitsemasi alueet toivejärjestykseen",
+      "title": "Omat valinnat"
+    },
+    "selected_berths": {
+      "legend": "Tarkista valitsemasi satamat ja niiden soveltuvuus veneellesi. Järjestä valitsemasi satamat toivejärjestykseen.",
+      "title": "Omat valinnat"
+    },
+    "winter": {
+      "legend": "Anna säilytettävän veneen mitat. Näet aluelistalla alueet joissa on veneesi koolle sopivia paikkoja. Voit suodattaa listaa myös alueella olevien palvelujen perusteella.",
+      "title": "Selaa ja valitse talvisäilytysalueita"
+    },
+    "unmarked_winter": {
+      "title": "Valitse talvisäilytysalue",
+      "legend": "Valitse talvisäilytysalue, jonne olet vienyt veneesi."
+    }
+  },
+  "page": {
+    "application_sent": {
+      "message": {
+        "paragraph1": "Saat pian vahvistusviestin hakemuksesta antamaasi sähköpostiosoitteeseen. Jos haluat muuttaa tai perua hakemuksesi tai tiedustella muuta hakemukseesi liittyvää asiaa, lähetä sähköpostia osoitteeseen: venepaikkavaraukset@hel.fi.",
+        "paragraph2": "Helsingin kaupungin venepaikkavaraukset<br/>venepaikkavaraukset.hel.fi<br/>Puhelinneuvonta ma-to klo 9-12 numerossa 09 310 87900."
+      },
+      "title": "Kiitos, hakemuksesi on lähetetty!"
+    },
+    "berth": {
+      "exchange_application": {
+        "current_berth": {
+          "info_text": "Vaihtohakemusta varten syötä nykyisen venepaikan tiedot. ",
+          "title": "Nykyisen paikan tiedot"
+        },
+        "exchange": {
+          "info_text": "Helsingin kaupungin satamassa olevan venepaikan vaihto",
+          "title": "Vaihtohakemus"
+        },
+        "form": {
+          "berth": {
+            "placeholder": "Numero",
+            "title": "Paikkanumero"
+          },
+          "current_harbour_area": {
+            "label": "Nykyinen satama"
+          },
+          "pier": {
+            "placeholder": "Laiturin tunnus",
+            "title": "Laituri"
+          }
+        },
+        "new": {
+          "info_text": "Hakijalla ei ole vielä Helsingin kaupungin tarjoamaa venepaikkaa",
+          "title": "Uusi hakemus"
+        },
+        "reason": {
+          "default": "Ei erityistoivetta",
+          "info_text": "Voit valita listalta toiveen uuden paikan tyypistä. Otathan huomioon että jos valitset erityistoiveen, sinulle tarjotaan paikkaa vasta kun toivettasi vastaava paikka vapautuu.",
+          "title": "Erityistoive uudelle paikalle"
+        },
+        "warning": "Vaihtohakemukseen voit valita enintään viisi satamaa. Poista ylimääräiset valinnat ja vaihda hakemuksen tyyppi uudelleen."
+      },
+      "selected": {
+        "alert": {
+          "paragraph": "Valitse satamalistasta satamat joista haluat hakea venepaikkaa",
+          "strong": "Huomio: Sinulla ei ole vielä valittuja satamia"
+        },
+        "button": {
+          "down": "Siirrä alas",
+          "remove": "Poista",
+          "up": "Siirrä ylös"
+        },
+        "confirmation_body": "Oletko varma että haluat poistaa sataman valintalistalta?",
+        "info_text": "Valitse sijoitettavan veneen tyyppi ja koko nähdäksesi onko valituissa satamissa sopivia paikkoja",
+        "submit": "Jatka",
+        "title": "Järjestä valitsemasi satamat toivejärjestykseen.",
+        "warning": {
+          "heading": "Huomio: Olet valinnut satamia joissa ei ole veneesi koolle tai tyypille sopivia paikkoja."
+        }
+      }
+    },
+    "berths": {
+      "appointed": "Merkityt ruutupaikat",
+      "electricity": "Sähkö",
+      "fence": "Portti",
+      "lighting": "Valaistus",
+      "link": {
+        "boat_information": "Veneen tiedot"
+      },
+      "list": {
+        "berth_count": "{{count}} hakuehdot täyttävä satama",
+        "berth_count_plural": "{{count}} hakuehdot täyttävää satamaa",
+        "header": {
+          "hits": "Hakukriteerit täyttävät satamat:",
+          "others": "Muut satamat"
+        },
+        "progress": {
+          "max": "Enimmäismäärä ({{total}}) satamia valittu",
+          "remaining": "Voit vielä valita {{count}} sataman hakemukseesi",
+          "remaining_plural": "Voit vielä valita {{count}} satamaa hakemukseesi",
+          "zero": "Valitse enintään {{total}} satamaa hakemukseesi"
+        }
+      },
+      "maximum_length": "Max. pituus",
+      "maximum_width": "Max. leveys",
+      "number_of_places": "Paikkoja",
+      "pole": "Kiinnitys",
+      "selected_list": "Valitut",
+      "storage_for_docking_equip": "Tarvikkeiden kesäsäilytys",
+      "title": "Satamahaku",
+      "waste_collection": "Jätehuolto",
+      "water_tap": "Vesi"
+    },
+    "common": {
+      "website": "Verkkosivu"
+    },
+    "front": {
+      "card": {
+        "berths": {
+          "button_label": "Selaa ja hae venepaikkoja",
+          "description": "Selaa Helsingin kaupungin venesatamia. Voit tehdä uuden venepaikkahakemuksen tai hakea käytössäsi olevan venepaikan vaihtoa toiseen.",
+          "title": "Venepaikkahaku"
+        },
+        "instructions": "Lisätietoja ja ohjeita (hel.fi)",
+        "instructions_short": "Lisätietoja (hel.fi)",
+        "winter": {
+          "button_label": "Selaa ja hae talvisäilytyspaikkoja",
+          "description": "Selaa Helsingin kaupungin veneiden talvisäilytyspaikkoja. Voit tehdä uuden hakemuksen talvisäilytyspaikkaan veneellesi.",
+          "title": "Talvisäilytyspaikat"
+        },
+        "unmarkedWinter": {
+          "button_label": "Ilmoita",
+          "description": "Ilmoita meille, kun olet vienyt veneesi nosto\u00ADjärjestysalueelle.",
+          "title": "Nostojärjestys\u00ADilmoitus"
+        }
+      },
+      "description": {
+        "body": "Selaa Helsingin kaupungin venesatamia. Voit tehdä uuden venepaikkahakemuksen tai hakea käytössäsi olevan venepaikan vaihtoa toiseen.",
+        "heading": "Venepaikat ja veneiden talvisäilytys"
+      },
+      "title": "Venepaikat"
+    },
+    "not_found": {
+      "message": "Pahoittelemme, mutta hakemaasi sivua ei löydy.",
+      "title": "404"
+    },
+    "notification_sent": {
+      "message": {
+        "paragraph1": "Nostojärjestysilmoituksesi on nyt lähetetty.",
+        "paragraph2": "Kiitos, että teit ilmoituksen! Se auttaa meitä palvelemaan veneilijöitä paremmin nyt ja tulevaisuudessa."
+      },
+      "title": "Kiitos ilmoituksesta"
+    },
+    "overview": {
+      "info": {
+        "berths": "Valitut satamat",
+        "boat_draught": "Syväys",
+        "boat_info": "Veneen tiedot",
+        "boat_length": "Pituus",
+        "boat_model": "Malli",
+        "boat_name": "Nimi",
+        "boat_register_number": "Rekisterinumero",
+        "boat_type": "Tyyppi",
+        "boat_weight": "Paino",
+        "boat_width": "Leveys",
+        "edit": "Muokkaa",
+        "person": "Hakija"
+      }
+    },
+    "payment_error": {
+      "already_paid": {
+        "message": "Maksu, jota yritit maksaa, on merkitty jo maksetuksi. Kiitos!",
+        "title": "Maksu on jo maksettu"
+      },
+      "general_error": {
+        "message": "Pahoittelemme, mutta maksua ei löydy. Se on voitu peruuttaa tai linkki voi olla virheellinen.",
+        "title": "Virhetilanne"
+      },
+      "past_due_date": {
+        "message": "Pahoittelemme, mutta maksua ei voi enää maksaa, koska eräpäivä on ylittynyt. Venepaikkamaksuja ei voi maksaa enää eräpäivän jälkeen.",
+        "title": "Eräpäivä on ylittynyt"
+      }
+    },
+    "payment_received": {
+      "message": {
+        "paragraph1": "Hyvä asiakkaamme, olemme vastaanottaneet maksusuorituksesi. Lähetämme sinulle vielä kuitin sähköpostilla.",
+        "paragraph2": "Toivotamme hienoja veneilyhetkiä!"
+      },
+      "title": "Kiitos!"
+    },
+    "payment_failed": {
+      "title": "Virhetilanne",
+      "paragraph1": "Pahoittelemme, mutta maksun käsittelyssä tapahtui virhe.",
+      "paragraph2": "Voit yrittää maksua myöhemmin uudelleen, tarvittaessa ota yhteyttä asiakaspalveluun."
+    },
+    "payment": {
+      "title": "Laskun maksaminen",
+      "terms_info": "Hyvä asiakkaamme, olemme päivittäneet talvisäilytyspaikan sopimusehtoja. Tutustu sopimusehtojen sisältöön alla. Voit jatkaa maksutapahtumaan sen jälkeen. Talvisäilytyspaikan saaminen edellyttää sopimusehtojen hyväksymistä.",
+      "questions": "Kysymykset ja lisätiedot: ",
+      "terms_pdf": "Talvisäilytyspaikan sopimusehdot (PDF)",
+      "accept_terms": "Olen lukenut talvisäilytyspaikan sopimusehdot ja hyväksyn ne",
+      "pay": "Jatka maksamaan"
+    },
+    "winter_storage": {
+      "appointed": "Merkityt ruutupaikat",
+      "electricity": "Sähkö",
+      "fence": "Portti",
+      "list": {
+        "areas_count": "{{count}} hakuehdot täyttävä alue",
+        "areas_count_plural": "{{count}} hakuehdot täyttävää aluetta",
+        "header": {
+          "others": "Muut alueet"
+        },
+        "progress": {
+          "remaining": "Voit vielä valita {{count}} alueen hakemukseesi",
+          "remaining_plural": "Voit vielä valita {{count}} aluetta hakemukseesi",
+          "max": "Enimmäismäärä ({{total}}) alueita valittu",
+          "zero": "Valitse enintään {{total}} aluetta hakemukseesi"
+        }
+      },
+      "maximum_length": "Max. pituus",
+      "maximum_width": "Max. leveys",
+      "notice": {
+        "paragraph1": "Talvisäilytyspaikkojen haku kaudelle 2020–2021 on nyt ajankohtainen. Niille asiakkaille, joilla on ollut ruutupaikka viime kaudella, lähetetään lasku paikasta. Mikäli olet uusi hakija, hae ruutupaikkaa tekemällä sähköinen hakemus verkossa osoitteessa <1>venepaikat.hel.fi</1>. Vapautuneet ruudut jaetaan hakujärjestyksessä syksyllä. Lähetämme paikasta tarjouksen sähköpostilla.",
+        "paragraph2": "Niille asiakkaille, joilla on ollut talvisäilytyspaikka nostojärjestysalueella, emme lähetä laskua vaan maksaminen tapahtuu venepaikkavarausten tilille sen jälkeen, kun vene on viety nostojärjestysalueelle. Tiedotamme nostojärjestysaluepaikan maksamisesta myöhemmin verkossa osoitteessa <1>hel.fi/veneily</1> sekä nostojärjestysalueiden infotauluissa. Talvisäilytyspaikan maksaneille asiakkaille lähetetään talvisäilytys-tarra, joka kiinnitetään näkyvälle paikalle veneeseen.",
+        "paragraph3": "Veneilijät voivat viedä veneensä haluamalleen nostojärjestysalueelle 15.9.2020 alkaen. Huomioithan, että nostojärjestysalueille ei tule viedä veneitä ennen 15.9. alkavaa säilytyskautta.",
+        "title": "Talvisäilytyspaikkojen 2020–2021 hakeminen"
+      },
+      "selected": {
+        "alert": {
+          "paragraph": "Valitse säilytysalueiden listasta alueet joista haluat hakea säilytyspaikkaa",
+          "strong": "Huomio: Sinulla ei ole vielä valittuja alueita"
+        },
+        "confirmation_body": "Oletko varma että haluat poistaa alueen valintalistalta?",
+        "info_text": "Valitse sijoitettavan veneen tyyppi ja koko nähdäksesi onko valituilla alueilla sopivia paikkoja",
+        "submit": "Jatka",
+        "title": "Järjestä valitsemasi paikat toivejärjestykseen.",
+        "warning": {
+          "heading": "Huomio: Olet valinnut alueita joissa ei ole veneesi koolle tai tyypille sopivia paikkoja."
+        }
+      },
+      "storage_areas": {
+        "appointed_spaces": {
+          "label": "Merkityt paikat",
+          "text": "Veneillä on omat merkityt paikkansa. Ruutupaikka-alueilta paikkoja vapautuu harvoin."
+        },
+        "free_spaces": {
+          "label": "Merkitsemättömät paikat",
+          "text": "Merkitsemättömien säilytyspaikkojen alueet täytetään veneiden nostojärjestyksessä."
+        },
+        "type": {
+          "title": "Säilytysalueen tyyppi"
+        }
+      },
+      "storage_for_docking_equip": "Tarvikkeiden kesäsäilytys",
+      "storage_for_trailers": "Trailerien kesäsäilytys",
+      "water_tap": "Vesi"
+    }
+  },
+  "site": {
+    "berth": {
+      "title": "Venepaikkahaku"
+    },
+    "buttons": {
+      "add_to_selected": "Lisää valittuihin",
+      "to_front_page": "Etusivulle",
+      "cancel": "Peruuta",
+      "next": "Seuraava",
+      "remove": "Poista",
+      "selected": "Valittu"
+    },
+    "common": {
+      "list": "Lista",
+      "map": "Kartalla",
+      "servicemapURL": "https://palvelukartta.hel.fi/unit/{{servicemapId}}"
+    },
+    "footer": {
+      "accessibility_statement": "Saavutettavuusseloste",
+      "berth_search": "Venepaikkahaku",
+      "boating_info": "Veneilytietoa",
+      "browse_berths": "Selaa venesatamia",
+      "contact_us": "Ota yhteyttä",
+      "copyright": "{{year}} Helsingin kaupunki",
+      "news": "Ajankohtaista",
+      "send_feedback": "Lähetä palautetta",
+      "terms_of_service": "Rekisteriseloste",
+      "url": {
+        "accessibility_statement": "/Saavutettavuusseloste_Venepaikat.pdf",
+        "berthing": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/",
+        "current_news": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/ajankohtaista/",
+        "feedback": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute/",
+        "helsinki_berths": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/",
+        "terms_of_service": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri.pdf"
+      }
+    },
+    "front": {
+      "title": "Venepaikat"
+    },
+    "language": {
+      "en": "In English",
+      "fi": "Suomeksi",
+      "select": "Valitse kieli",
+      "sv": "På svenska"
+    },
+    "link": {
+      "front_page": "Etusivulle"
+    },
+    "steps": {
+      "applicant": "Hakijan tiedot",
+      "berths": "Satamien valinta",
+      "boat_information": "Veneen tiedot",
+      "review_areas": "Omat valinnat",
+      "selected_berths": "Omat valinnat",
+      "send_application": "Yhteenveto",
+      "title": {
+        "berths": {
+          "exchange": "Vaihtohakemus",
+          "new": "Uusi hakemus"
+        },
+        "winter_storage": "Talvisäilytyspaikan hakemus"
+      },
+      "winter_areas": "Alueiden valinta",
+      "unmarked_winter_storage_area": "Alueen valinta",
+      "owner": "Omistajan tiedot",
+      "send_notification": "Ilmoituksen lähettäminen"
+    },
+    "winter": {
+      "title": "Talvisäilytyspaikat"
+    },
+    "unmarked_winter_storage": {
+      "title": "Nostojärjestysilmoitus"
+    }
+  },
+  "test": {
+    "message": "Testiteksti"
+  },
+  "validation": {
+    "message": {
+      "invalid_value": "Virheellinen arvo",
+      "must_be_email": "Arvon pitää olla sähköpostiosoite",
+      "must_be_less": "Syötetty arvo on liian suuri",
+      "must_be_number": "Arvon pitää olla numero",
+      "must_be_phone_number": "Arvon pitää olla puhelinnumero",
+      "must_be_positive_number": "Arvon pitää olla suurempi kuin nolla",
+      "required": "Pakollinen kenttä"
+    }
+  }
+}

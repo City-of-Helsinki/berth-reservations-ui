@@ -5,6 +5,7 @@ import { compose } from 'recompose';
 
 import { submitApplicationForm as submitExchangeForm } from '../../../redux/actions/ApplicationActions';
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
+import { BoatTypesBerthsQuery } from '../../../utils/__generated__/BoatTypesBerthsQuery';
 import { getBerthFilterByValues, getResources, getSelectedResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import SelectedBerthPage from './SelectedBerthPage';
@@ -15,8 +16,8 @@ import { SelectedIds } from '../../berths/types';
 
 import { BerthFormValues } from '../../../types/berth';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
-import BoatsBerthsQuery from '../../query/BoatsBerthsQuery';
 import { StepType } from '../../steps/step/Step';
+import { Query } from 'react-apollo';
 
 interface Props {
   selectedBerths: SelectedIds;
@@ -36,32 +37,32 @@ const steps: StepType[] = [
     key: 'berths',
     completed: true,
     current: false,
-    linkTo: `berths`
+    linkTo: `berths`,
   },
   {
     key: 'selected_berths',
     completed: false,
     current: true,
-    linkTo: ''
+    linkTo: '',
   },
   {
     key: 'boat_information',
     completed: false,
     current: false,
-    linkTo: ''
+    linkTo: '',
   },
   {
     key: 'applicant',
     completed: false,
     current: false,
-    linkTo: ''
+    linkTo: '',
   },
   {
     key: 'send_application',
     completed: false,
     current: false,
-    linkTo: ''
-  }
+    linkTo: '',
+  },
 ];
 
 const UnconnectedSelectedBerthPage = ({
@@ -79,11 +80,11 @@ const UnconnectedSelectedBerthPage = ({
   };
 
   return (
-    <BoatsBerthsQuery query={BOAT_TYPES_BERTHS_QUERY}>
+    <Query<BoatTypesBerthsQuery> query={BOAT_TYPES_BERTHS_QUERY}>
       {({
         loading,
         // error, TODO: handle errors
-        data
+        data,
       }) => {
         const berths = getResources(data ? data.harbors : null);
         const selected = getSelectedResources(selectedBerths, berths);
@@ -91,7 +92,7 @@ const UnconnectedSelectedBerthPage = ({
         const type = get(values, 'boatType');
         const width = get(values, 'boatWidth', '');
         const length = get(values, 'boatLength', '');
-        const boatType = boatTypes ? boatTypes.find(t => !!t && t.id === type) : undefined;
+        const boatType = boatTypes ? boatTypes.find((t) => !!t && t.id === type) : undefined;
         const boatTypeName = boatType && boatType.name;
         const filter = getBerthFilterByValues(values, selectedServices);
         const validSelection = selected.every(filter);
@@ -104,10 +105,9 @@ const UnconnectedSelectedBerthPage = ({
             filter={filter}
             validSelection={validSelection}
             steps={steps}
-            initialValues={{}}
             legend={{
               title: 'legend.selected_berths.title',
-              legend: 'legend.selected_berths.legend'
+              legend: 'legend.selected_berths.legend',
             }}
             selectedBerths={selected}
             values={values}
@@ -116,7 +116,7 @@ const UnconnectedSelectedBerthPage = ({
           />
         );
       }}
-    </BoatsBerthsQuery>
+    </Query>
   );
 };
 
@@ -128,13 +128,13 @@ export default compose<Props, Props>(
       selectedServices: state.berths.selectedServices,
       values: state.forms.berthValues,
       berthsApplicationType: state.application.berthsApplicationType,
-      initialValues: state.application.berthSwitch
+      initialValues: state.application.berthSwitch,
     }),
     {
       deselectBerth,
       moveUp,
       moveDown,
-      submitExchangeForm
+      submitExchangeForm,
     }
   )
 )(UnconnectedSelectedBerthPage);

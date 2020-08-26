@@ -1,18 +1,19 @@
-import React, { FC } from 'react';
-import { FormattedMessage } from 'react-intl';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
 import './newApplication.scss';
 
-const NewApplication: FC = () => {
+const NewApplication = () => {
+  const { t } = useTranslation();
   return (
     <Container className="vene-new-application">
       <Row>
         <Col sm={10}>
-          <FormattedMessage id={`page.berth.exchange_application.new`}>
-            {txt => <h3 className="vene-new-application__heading">{txt}</h3>}
-          </FormattedMessage>
-          <FormattedMessage id={`page.berth.exchange_application.new.info_text`} />
+          <h3 className="vene-new-application__heading">
+            {t('page.berth.exchange_application.new.title')}
+          </h3>
+          <span>{t('page.berth.exchange_application.new.info_text')}</span>
         </Col>
       </Row>
     </Container>

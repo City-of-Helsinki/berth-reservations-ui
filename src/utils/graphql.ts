@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+import { gql } from 'apollo-boost';
 
 export const BOAT_TYPES_BERTHS_QUERY = gql`
   query BoatTypesBerthsQuery {
@@ -66,12 +66,9 @@ export const WINTER_AREAS_QUERY = gql`
             streetAddress
             zipCode
             imageFile
-            numberOfMarkedPlaces
-            maximumWidth: maxWidth
-            maximumLength: maxLength
+            maxLengthOfSectionSpaces
             numberOfSectionSpaces
             servicemapId
-            maxLengthOfSectionSpaces
             numberOfUnmarkedSpaces
             electricity
             water
@@ -82,11 +79,22 @@ export const WINTER_AREAS_QUERY = gql`
             summerStorageForBoats
             municipality
             wwwUrl
-            availabilityLevel {
-              id
-              title
-              description
-            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const UNMARKED_WINTER_AREAS_QUERY = gql`
+  query UnmarkedWinterAreasQuery {
+    winterStorageAreas {
+      edges {
+        node {
+          id
+          properties {
+            name
+            numberOfUnmarkedSpaces
           }
         }
       }
@@ -125,6 +133,22 @@ export const GET_HARBOR_NAME = (harborId: string) => gql`
       properties {
         name
       }
+    }
+  }
+`;
+
+export const GET_ORDER_DETAILS = gql`
+  query OrderStatus($orderNumber: String!) {
+    orderStatus(orderNumber: $orderNumber) {
+      status
+    }
+  }
+`;
+
+export const CONFIRM_PAYMENT = gql`
+  mutation ConfirmPayment($confirmPaymentMutationInput: ConfirmPaymentMutationInput!) {
+    confirmPayment(input: $confirmPaymentMutationInput) {
+      url
     }
   }
 `;

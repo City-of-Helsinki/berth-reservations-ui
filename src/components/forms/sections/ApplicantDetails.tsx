@@ -15,19 +15,19 @@ const ApplicantDetails = ({ tab }: Props) => (
       sizes={{
         xs: 12,
         md: 4,
-        lg: 3
+        lg: 3,
       }}
       types={[
         {
           label: 'form.boat_type_selector.private_person.label',
           tab: 'private-person',
-          icon: 'individual'
+          icon: 'individual',
         },
         {
           label: 'form.boat_type_selector.company.label',
           tab: 'company',
-          icon: 'business'
-        }
+          icon: 'business',
+        },
       ]}
     />
     <Container>

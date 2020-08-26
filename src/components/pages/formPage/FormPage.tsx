@@ -29,7 +29,7 @@ const BoatPage = ({
   prevStep,
   step,
   steps,
-  children
+  children,
 }: Props) => {
   return (
     <Layout>

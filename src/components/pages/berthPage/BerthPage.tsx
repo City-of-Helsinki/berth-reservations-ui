@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormattedMessage, InjectedIntlProps, injectIntl } from 'react-intl';
+import { Trans, WithTranslation, withTranslation } from 'react-i18next';
 
 import { getBerthFilterByValues, isResourceSelected } from '../../../utils/berths';
 import TabSelector from '../../berths/TabSelector/TabSelector';
@@ -22,7 +22,7 @@ import { StepType } from '../../steps/step/Step';
 import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
 import BerthCard from './BerthCard';
 
-type Props = {
+export interface Props extends WithTranslation {
   initialValues: BerthFormValues;
   filtered: BerthsType;
   filteredNot: BerthsType;
@@ -37,13 +37,13 @@ type Props = {
   berths: BerthsType;
   boatTypes?: BoatTypes;
   steps: StepType[];
-  services: Array<{
+  services: {
     label: string;
     value: BerthsServices;
     icon: IconNames;
-  }>;
+  }[];
   berthLimit: number;
-} & InjectedIntlProps;
+}
 
 const getHeroContentLink = (locale: string) => {
   switch (locale) {
@@ -59,11 +59,11 @@ const getHeroContentLink = (locale: string) => {
 const getFormattedMessageId = (count: number, total: number): string => {
   if (count) {
     if (count === total) {
-      return 'page.berths.list.progress.message.max';
+      return 'page.berths.list.progress.max';
     }
-    return 'page.berths.list.progress.message';
+    return 'page.berths.list.progress.remaining';
   }
-  return 'page.berths.list.progress.message.zero';
+  return 'page.berths.list.progress.zero';
 };
 
 class BerthPage extends Component<Props> {
@@ -80,7 +80,7 @@ class BerthPage extends Component<Props> {
 
   toggleBerthSelect = (selectedBerth: BerthType) => {
     const { selectedBerthsIds, selectBerth, deselectBerth } = this.props;
-    if (selectedBerthsIds.find(selectedId => selectedId === selectedBerth.id)) {
+    if (selectedBerthsIds.find((selectedId) => selectedId === selectedBerth.id)) {
       deselectBerth(selectedBerth.id);
     } else {
       selectBerth(selectedBerth.id);
@@ -100,20 +100,21 @@ class BerthPage extends Component<Props> {
       steps,
       services,
       berthLimit,
-      intl
+      t,
+      i18n: { language },
     } = this.props;
     const filter = getBerthFilterByValues(initialValues, selectedServices);
     const filtered = berths.filter(filter);
     const filteredNot = berths.filterNot(filter);
     const invalidSelection = !berths
-      .filter(selectedBerth =>
-        selectedBerthsIds.find(selectedId => selectedId === selectedBerth.id)
+      .filter((selectedBerth) =>
+        selectedBerthsIds.find((selectedId) => selectedId === selectedBerth.id)
       )
       .every(filter);
 
-    const renderHarborCard: (
-      isExcluded: boolean
-    ) => (berth: BerthType) => React.ReactNode = isExcluded => berth => {
+    const renderHarborCard: (isExcluded: boolean) => (berth: BerthType) => React.ReactNode = (
+      isExcluded
+    ) => (berth) => {
       return (
         <BerthCard
           key={berth.id}
@@ -132,13 +133,16 @@ class BerthPage extends Component<Props> {
         <KoroSection
           top
           title={`hero.berth.title`}
-          description={[
-            { id: `hero.berth.paragraph.first` },
-            {
-              id: `hero.berth.paragraph.second`,
-              values: { url: getHeroContentLink(intl.locale) }
-            }
-          ]}
+          description={
+            <>
+              <p>{t('hero.berth.paragraph.first')}</p>
+              <p>
+                <Trans i18nKey={'hero.berth.paragraph.second'}>
+                  A <a href={getHeroContentLink(language)}>hel.fi</a> a.
+                </Trans>
+              </p>
+            </>
+          }
         />
         <KoroSection color="fog" top className="vene-berth-filters-section">
           <BerthsLegend
@@ -153,7 +157,7 @@ class BerthPage extends Component<Props> {
                   fieldsNotRequired
                   boatTypes={boatTypes}
                 />
-              )
+              ),
             }}
             steps={steps}
             services={{
@@ -161,7 +165,7 @@ class BerthPage extends Component<Props> {
               selectService,
               deselectService,
               label: `form.services.field.berth.services.label`,
-              available: services
+              available: services,
             }}
           />
         </KoroSection>
@@ -170,30 +174,24 @@ class BerthPage extends Component<Props> {
           selectedCount={selectedBerthsIds.size}
           invalidSelection={invalidSelection ? 'error.message.invalid_berth_selection' : undefined}
           tabMessage={
-            <FormattedMessage
-              id={getFormattedMessageId(selectedBerthsIds.size, berthLimit)}
-              values={{
+            <span>
+              {t(getFormattedMessageId(selectedBerthsIds.size, berthLimit), {
                 total: berthLimit,
-                left: berthLimit - selectedBerthsIds.size
-              }}
-            />
+                count: berthLimit - selectedBerthsIds.size, // left
+              })}
+            </span>
           }
         >
           <Map
-            TabHeader={() => <FormattedMessage tagName="span" id="site.common.map" />}
-            mapHeader={
-              <FormattedMessage
-                id="page.berths.list.berth_count"
-                values={{ count: filtered.size }}
-              />
-            }
+            TabHeader={() => <span>{t('site.common.map')}</span>}
+            mapHeader={<span>{t('page.berths.list.berth_count', { count: filtered.size })}</span>}
             filtered={filtered}
             filteredNot={filteredNot}
             selectedIds={selectedBerthsIds}
             renderSelected={renderHarborCard(false)}
           />
           <CardsList
-            TabHeader={() => <FormattedMessage tagName="span" id="site.common.list" />}
+            TabHeader={() => <span>{t('site.common.list')}</span>}
             includedHeader="page.berths.list.berth_count"
             included={filtered.map(renderHarborCard(false)).toArray()}
             excludedHeader="page.berths.list.header.others"
@@ -205,4 +203,4 @@ class BerthPage extends Component<Props> {
   }
 }
 
-export default injectIntl(BerthPage);
+export default withTranslation()(BerthPage);
