@@ -18,6 +18,7 @@ import { ApplicationType } from '../types/applicationType';
 import { LocaleOpts } from '../types/intl';
 import { PaymentPageContainer } from './pages/paymentPage/PaymentPageContainer';
 import { PaymentResultContainer } from './pages/paymentResultPage/PaymentResultContainer';
+import { isUnmarkedWinterStorageEnabled } from '../utils/featureFlags';
 
 type Props = RouteComponentProps<{ locale: LocaleOpts }>;
 
@@ -46,11 +47,13 @@ const App = ({
       <Route exact path={`/${localeParam}/${winterParam}/selected`} component={SelectedAreaPage} />
       <Route exact path={`/${localeParam}/${winterParam}/form`} component={WinterFormPage} />
       <Route exact path={`/${localeParam}/${winterParam}/form/:tab`} component={WinterFormPage} />
-      <Route
-        exact
-        path={`/${localeParam}/${unmarkedWsParam}`}
-        component={UnmarkedWinterStoragePage}
-      />
+      {isUnmarkedWinterStorageEnabled && (
+        <Route
+          exact
+          path={`/${localeParam}/${unmarkedWsParam}`}
+          component={UnmarkedWinterStoragePage}
+        />
+      )}
 
       <Route exact path={`/${localeParam}/payment`} component={PaymentPageContainer} />
       <Route exact path={`/${localeParam}/payment-result`} component={PaymentResultContainer} />
