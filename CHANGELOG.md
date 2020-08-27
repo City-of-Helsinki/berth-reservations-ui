@@ -8,6 +8,41 @@
 ...
 </details>
 
+# 0.6.1 (August 27, 2020) Note: created for new prod env, not yet published
+
+**Added:**
+
+- Put unmarked winter storage behind feature flag. in ([#304](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/304))
+
+**Fixed:**
+
+- Revert WS query and behavior changes. in ([#303](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/303))
+- Release fixes. in ([#305](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/305))
+
+# 0.6.0 (August 26, 2020) Note: created for new prod env, not yet published
+
+**Added:**
+
+- Implement payment page layout. in ([#296](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/296))
+- Add Nostojärjestys card to front page. in ([#298](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/298))
+- Payment flow. in ([#299](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/299))
+- Unmarked WS areas: implement choose area page. in ([#300](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/300))
+- Create notice template and add payment and confirmation pages. in ([#283](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/283))
+- Integrate project with gitlab infra. in ([#291](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/291))
+- KuVa prod infra. in ([#301](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/301))
+
+**Fixed:**
+
+- Update layout to match design in Abstract. in ([#284](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/284))
+- Kuva test env fixes. in ([#294](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/294))
+- Fix piwik url. in ([#295](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/295))
+- Fix problems with hyphens on Windows. in ([#297](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/297))
+
+**Changed:**
+
+- Upgrade outdated deps. in ([#277](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/277))
+- Switch react-intl to react-i18next. in ([#290](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/290))
+
 # 0.5.2 (July 29, 2020)
 
 **Fixed:**

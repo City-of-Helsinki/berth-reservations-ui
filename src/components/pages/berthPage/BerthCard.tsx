@@ -46,31 +46,26 @@ const BerthCard = ({ isExcluded, berth, selected, disabled, handleSelect }: Bert
         />,
         <Property
           key="wasteCollection"
-          available={!!berth.wasteCollection}
+          available={berth.wasteCollection}
           iconName="trash"
           titleId="page.berths.waste_collection"
         />,
         <Property
           key="electricity"
-          available={!!berth.electricity}
+          available={berth.electricity}
           iconName="plug"
           titleId="page.berths.electricity"
         />,
-        <Property
-          key="gate"
-          available={!!berth.gate}
-          iconName="fence"
-          titleId="page.berths.fence"
-        />,
+        <Property key="gate" available={berth.gate} iconName="fence" titleId="page.berths.fence" />,
         <Property
           key="water"
-          available={!!berth.water}
+          available={berth.water}
           iconName="waterTap"
           titleId="page.berths.water_tap"
         />,
         <Property
           key="lighting"
-          available={!!berth.lighting}
+          available={berth.lighting}
           iconName="streetLight"
           titleId="page.berths.lighting"
         />,

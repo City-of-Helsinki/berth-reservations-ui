@@ -7,6 +7,7 @@ import LocalizedLink from '../../common/LocalizedLink';
 import LanguageDropdown from '../languageDropdown/LanguageDropdown';
 
 import './navbar.scss';
+import { isUnmarkedWinterStorageEnabled } from '../../../utils/featureFlags';
 
 const Navbar = () => {
   const { t } = useTranslation();
@@ -43,13 +44,15 @@ const Navbar = () => {
             <span>{t('site.winter.title')}</span>
           </LocalizedLink>
 
-          <LocalizedLink
-            to="/unmarked-winter-storage"
-            className="vene-navbar__link"
-            activeClassName="vene-navbar__link--active"
-          >
-            <span>{t('site.unmarked_winter_storage.title')}</span>
-          </LocalizedLink>
+          {isUnmarkedWinterStorageEnabled && (
+            <LocalizedLink
+              to="/unmarked-winter-storage"
+              className="vene-navbar__link"
+              activeClassName="vene-navbar__link--active"
+            >
+              <span>{t('site.unmarked_winter_storage.title')}</span>
+            </LocalizedLink>
+          )}
         </Nav>
       </Container>
     </div>

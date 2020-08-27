@@ -1,6 +1,5 @@
 /* tslint:disable */
 /* eslint-disable */
-// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -18,25 +17,39 @@ export interface WinterAreasQuery_winterStorageAreas_edges_node_geometry {
   coordinates: any | null;
 }
 
+export interface WinterAreasQuery_winterStorageAreas_edges_node_properties_availabilityLevel {
+  __typename: "AvailabilityLevelType";
+  id: string;
+  title: string | null;
+  description: string | null;
+}
+
 export interface WinterAreasQuery_winterStorageAreas_edges_node_properties {
   __typename: "WinterStorageAreaProperties";
   name: string | null;
   streetAddress: string | null;
-  zipCode: string | null;
+  zipCode: string;
   imageFile: string | null;
-  maxLengthOfSectionSpaces: number | null;
+  numberOfMarkedPlaces: number | null;
+  maximumWidth: number | null;
+  maximumLength: number | null;
   numberOfSectionSpaces: number | null;
+  /**
+   * ID in the Servicemap system
+   */
   servicemapId: string | null;
+  maxLengthOfSectionSpaces: number | null;
   numberOfUnmarkedSpaces: number | null;
-  electricity: boolean | null;
-  water: boolean | null;
-  gate: boolean | null;
-  repairArea: boolean | null;
-  summerStorageForDockingEquipment: boolean | null;
-  summerStorageForTrailers: boolean | null;
-  summerStorageForBoats: boolean | null;
+  electricity: boolean;
+  water: boolean;
+  gate: boolean;
+  repairArea: boolean;
+  summerStorageForDockingEquipment: boolean;
+  summerStorageForTrailers: boolean;
+  summerStorageForBoats: boolean;
   municipality: string | null;
-  wwwUrl: string | null;
+  wwwUrl: string;
+  availabilityLevel: WinterAreasQuery_winterStorageAreas_edges_node_properties_availabilityLevel | null;
 }
 
 export interface WinterAreasQuery_winterStorageAreas_edges_node {

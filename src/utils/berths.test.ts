@@ -126,7 +126,8 @@ describe('utils/berths', () => {
     });
 
     const matchOptions = {
-      maxLengthOfSectionSpaces: 1100,
+      maximumLength: 1100,
+      maximumWidth: 500,
     };
 
     const createAreaOptions = (options?: {}) => ({
@@ -175,8 +176,18 @@ describe('utils/berths', () => {
       expect(value).toBe(false);
     });
 
+    test('should return false if the supplied width is larger than maximumWidth after converting to cm', () => {
+      const customOptions = createAreaOptions({ maximumWidth: 490 });
+      const value = getWinterStorageFilterByValues(
+        createWinterValues({ boatWidth: '5' }),
+        createWinterSelectedServices()
+      )(createWinterArea(customOptions));
+
+      expect(value).toBe(false);
+    });
+
     test('should return false if the supplied length is larger than maximumLength after converting to cm', () => {
-      const customOptions = createAreaOptions({ maxLengthOfSectionSpaces: 900 });
+      const customOptions = createAreaOptions({ maximumLength: 900 });
       const value = getWinterStorageFilterByValues(
         createWinterValues({ boatLength: '10' }),
         createWinterSelectedServices()
