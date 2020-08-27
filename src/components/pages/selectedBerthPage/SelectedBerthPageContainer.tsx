@@ -34,33 +34,33 @@ interface Props {
 
 const steps: StepType[] = [
   {
-    key: 'berths',
     completed: true,
     current: false,
+    label: 'site.steps.berths',
     linkTo: `berths`,
   },
   {
-    key: 'selected_berths',
     completed: false,
     current: true,
+    label: 'site.steps.selected_berths',
     linkTo: '',
   },
   {
-    key: 'boat_information',
     completed: false,
     current: false,
+    label: 'site.steps.boat_information',
     linkTo: '',
   },
   {
-    key: 'applicant',
     completed: false,
     current: false,
+    label: 'site.steps.applicant',
     linkTo: '',
   },
   {
-    key: 'send_application',
     completed: false,
     current: false,
+    label: 'site.steps.send_application',
     linkTo: '',
   },
 ];

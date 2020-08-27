@@ -18,15 +18,8 @@ const Steps = ({ applicationType, steps }: Props) => {
     <div className="vene-steps">
       <h4 className="vene-steps__title">{t(applicationType)}</h4>
       <div className="vene-steps__items">
-        {steps.map(({ key, completed, current, linkTo }) => (
-          <Step
-            key={key}
-            linkTo={linkTo}
-            completed={completed}
-            current={current}
-            label={`site.steps.${key}`}
-            className="vene-steps__item"
-          />
+        {steps.map((step, index) => (
+          <Step key={index} {...step} className="vene-steps__item" />
         ))}
       </div>
     </div>

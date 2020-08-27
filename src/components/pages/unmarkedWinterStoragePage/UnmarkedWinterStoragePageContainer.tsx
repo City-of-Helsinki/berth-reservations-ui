@@ -29,25 +29,25 @@ const UnmarkedWinterStoragePageContainer = ({ localePush, onSubmit, initialValue
     {
       completed: false,
       current: true,
-      key: 'unmarked_winter_storage_area',
+      label: 'site.steps.unmarked_winter_storage_area',
       linkTo: '',
     },
     {
       completed: false,
       current: false,
-      key: 'boat_information',
+      label: 'site.steps.boat_information',
       linkTo: '',
     },
     {
       completed: false,
       current: false,
-      key: 'applicant',
+      label: 'site.steps.applicant',
       linkTo: '',
     },
     {
       completed: false,
       current: false,
-      key: 'send_application',
+      label: 'site.steps.send_application',
       linkTo: '',
     },
   ];

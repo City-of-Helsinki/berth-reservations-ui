@@ -14,7 +14,6 @@ import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/WinterBoatDetails';
 import UnmarkedWinterOverview from '../../forms/sections/UnmarkedWinterOverview';
 import FormPage from './FormPage';
-
 import { Store } from '../../../redux/types';
 import {
   SubmitWinterStorage,
@@ -23,11 +22,10 @@ import {
 import { StepType } from '../../steps/step/Step';
 import { useQuery, useMutation } from 'react-apollo';
 
-const mapSteps = [
-  ['registered-boat', 'unregistered-boat'],
-  ['private-person', 'company'],
-  ['overview'],
-];
+const stepsBeforeForm = 1;
+const boatTabs = ['registered-boat', 'unregistered-boat'];
+const applicantTabs = ['private-person', 'company'];
+const formTabs = [boatTabs, applicantTabs, ['overview']];
 
 type Props = {
   initialValues: {};
@@ -43,20 +41,20 @@ const UnmarkedWinterFormPageContainer = ({
   onSubmit,
   ...rest
 }: Props) => {
-  const [step, setStep] = useState(0);
-  const [boatTab, setBoatTab] = useState(mapSteps[0][0]);
-  const [applicantTab, setApplicantTab] = useState(mapSteps[1][0]);
+  const [currentStep, setCurrentStep] = useState(stepsBeforeForm);
+  const [boatTab, setBoatTab] = useState(boatTabs[0]);
+  const [applicantTab, setApplicantTab] = useState(applicantTabs[0]);
 
   useEffect(() => {
     const currStep = Math.max(
-      0,
-      findIndex(mapSteps, (s) => s.includes(tab))
+      stepsBeforeForm,
+      findIndex(formTabs, (s) => s.includes(tab)) + stepsBeforeForm
     );
-    setStep(currStep);
-    if (currStep === 0) {
+    setCurrentStep(currStep);
+    if (currStep === 1) {
       setBoatTab(tab);
     }
-    if (currStep === 1) {
+    if (currStep === 2) {
       setApplicantTab(tab);
     }
   }, [tab]);
@@ -67,36 +65,63 @@ const UnmarkedWinterFormPageContainer = ({
     SubmitWinterStorageVariables
   >(CREATE_WINTER_STORAGE_APPLICATION);
 
+  const boatTypes = data ? data.boatTypes : [];
+
   const path = 'unmarked-winter-storage';
   const steps: StepType[] = [
     {
       completed: true,
       current: false,
-      key: 'unmarked_winter_storage_area',
+      label: 'site.steps.unmarked_winter_storage_area',
       linkTo: `${path}`,
     },
     {
-      completed: step > 0,
-      current: step === 0,
-      key: 'boat_information',
+      completed: currentStep > 1,
+      current: currentStep === 1,
+      label: 'site.steps.boat_information',
+      legend: {
+        title: 'legend.boat.title',
+        legend: 'legend.boat.legend',
+      },
       linkTo: `${path}/form/${boatTab}`,
     },
     {
-      completed: step > 1,
-      current: step === 1,
-      key: 'applicant',
+      completed: currentStep > 2,
+      current: currentStep === 2,
+      label: 'site.steps.applicant',
+      legend: {
+        title: 'legend.person.title',
+        legend: 'legend.person.legend',
+      },
       linkTo: `${path}/form/${applicantTab}`,
     },
     {
-      completed: step > 2,
-      current: step === 2,
-      key: 'send_notification',
-      linkTo: `${path}/form/${mapSteps[2][0]}`,
+      completed: currentStep > 3,
+      current: currentStep === 3,
+      label: 'site.steps.send_notification',
+      legend: {
+        title: 'legend.overview.title',
+        legend: 'legend.overview.legend',
+      },
+      linkTo: `${path}/form/overview`,
     },
   ];
 
-  const boatTypes = data ? data.boatTypes : [];
+  const goBackward = async (values: {}) => {
+    await onSubmit(values);
+    if (steps[currentStep - 1]) {
+      await localePush(steps[currentStep - 1].linkTo);
+    }
+  };
+
   const goForward = async (values: UnmarkedWinterFormValues) => {
+    await onSubmit(values);
+    if (steps[currentStep + 1]) {
+      await localePush(steps[currentStep + 1].linkTo);
+    }
+  };
+
+  const submit = async (values: UnmarkedWinterFormValues) => {
     await onSubmit(values);
 
     const normalizedValues = Object.assign({}, values, {
@@ -110,45 +135,52 @@ const UnmarkedWinterFormPageContainer = ({
       ],
     });
 
-    submitUnmarkedWinterStorage({
-      variables: {
-        application: {
-          ...normalizedValues,
-        },
+    const payload = {
+      application: {
+        ...normalizedValues,
       },
+    };
+
+    submitUnmarkedWinterStorage({
+      variables: payload,
     }).then(() => {
       localePush('/thank-you');
     });
   };
 
-  const goBackwards = async (values: {}) => {
-    await onSubmit(values);
-    await localePush(steps[1].linkTo);
-  };
-
-  const goToStep = (nextStep: number) => (values: {}) => {
-    onSubmit(values);
-    localePush(steps[nextStep + 2].linkTo);
+  const getStepComponent = () => {
+    switch (currentStep) {
+      case 1:
+        return (
+          <BoatDetails
+            tab={boatTab}
+            boatTypes={boatTypes}
+            requireBoat={true}
+            showStorageMethod={false}
+          />
+        );
+      case 2:
+        return <ApplicantDetails tab={applicantTab} />;
+      case 3:
+        return (
+          !loading && (
+            <UnmarkedWinterOverview boatTypes={boatTypes} boatTab={boatTab} steps={steps} />
+          )
+        );
+    }
   };
 
   return (
     <FormPage
+      currentStep={currentStep}
+      goBackward={goBackward}
       goForward={goForward}
-      goBackwards={goBackwards}
-      nextStep={goToStep(step + 1)}
-      prevStep={goToStep(step - 1)}
-      step={step}
       steps={steps}
+      stepsBeforeForm={stepsBeforeForm}
+      submit={submit}
       {...rest}
     >
-      <BoatDetails
-        tab={boatTab}
-        boatTypes={boatTypes}
-        requireBoat={true}
-        showStorageMethod={false}
-      />
-      <ApplicantDetails tab={applicantTab} />
-      {!loading && <UnmarkedWinterOverview boatTypes={boatTypes} boatTab={boatTab} steps={steps} />}
+      {getStepComponent()}
     </FormPage>
   );
 };
