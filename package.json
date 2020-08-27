@@ -1,6 +1,6 @@
 {
   "name": "venepaikka",
-  "version": "0.5.2",
+  "version": "0.6.1",
   "private": true,
   "dependencies": {
     "@sentry/browser": "^4.6.6",
