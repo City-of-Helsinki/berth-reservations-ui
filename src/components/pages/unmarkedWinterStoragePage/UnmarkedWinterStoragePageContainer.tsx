@@ -41,7 +41,7 @@ const UnmarkedWinterStoragePageContainer = ({ localePush, onSubmit, initialValue
     {
       completed: false,
       current: false,
-      label: 'site.steps.applicant',
+      label: 'site.steps.owner',
       linkTo: '',
     },
     {

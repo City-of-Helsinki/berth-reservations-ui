@@ -23,11 +23,7 @@ const UnmarkedWinterStorageLegend = ({ legend, form, steps }: UnmarkedWinterStor
       <Container>
         <Row>
           <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-            {steps && (
-              <div className="vene-unmarked-winter-storage-legend__steps">
-                <Steps steps={steps} />
-              </div>
-            )}
+            {steps && <Steps steps={steps} />}
             {legend && (
               <div className="vene-unmarked-winter-storage-legend__header">
                 <h3>{legend.title}</h3>

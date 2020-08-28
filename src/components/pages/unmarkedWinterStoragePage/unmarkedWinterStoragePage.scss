@@ -1,9 +1,11 @@
+@import 'helsinki/colors';
+
 .vene-unmarked-winter-storage-page {
   &__buttons {
+    background: $hel-light;
     display: flex;
     justify-content: flex-end;
-    padding-top: 2em;
-    padding-bottom: 6em;
+    padding: 2em 3em 6em 2em;
   }
 
   &__button {

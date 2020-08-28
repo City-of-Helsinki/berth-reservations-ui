@@ -1,7 +1,7 @@
 import { List } from 'immutable';
 import React, { useEffect } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { Button, Col, Container, Row } from 'reactstrap';
+import { Button, Col, Row } from 'reactstrap';
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
 import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../types/unmarkedWinterStorage';
 import { LocalePush } from '../../../utils/container';
@@ -114,21 +114,15 @@ const UnmarkedWinterStoragePage = ({
           steps={steps}
         />
       </KoroSection>
-      <Container>
-        <Row>
-          <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-            <div className="vene-unmarked-winter-storage-page__buttons">
-              <Button
-                className="vene-unmarked-winter-storage-page__button"
-                disabled={initialValues?.chosenAreas === undefined}
-                onClick={moveToForm}
-              >
-                Jatka
-              </Button>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <div className="vene-unmarked-winter-storage-page__buttons">
+        <Button
+          className="vene-unmarked-winter-storage-page__button"
+          disabled={initialValues?.chosenAreas === undefined}
+          onClick={moveToForm}
+        >
+          Jatka
+        </Button>
+      </div>
     </Layout>
   );
 };
