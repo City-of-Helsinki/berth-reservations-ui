@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Col, Row } from 'reactstrap';
 import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../types/unmarkedWinterStorage';
 import { StepType } from '../../steps/step/Step';
@@ -29,7 +29,7 @@ const UnmarkedWinterOverviewInfo = ({
     <OverviewInfo>
       <LinkedEditSection title="page.overview.info.boat_info" link={steps[1].linkTo}>
         {boatTab === 'registered-boat' && (
-          <Fragment>
+          <>
             <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
             <BoatTypeAndModel
               boatTypeId={values.boatType}
@@ -37,10 +37,10 @@ const UnmarkedWinterOverviewInfo = ({
               boatTypes={boatTypes}
             />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
-          </Fragment>
+          </>
         )}
         {boatTab === 'unregistered-boat' && (
-          <Fragment>
+          <>
             <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
             <BoatTypeAndModel
               boatTypeId={values.boatType}
@@ -48,7 +48,7 @@ const UnmarkedWinterOverviewInfo = ({
               boatTypes={boatTypes}
             />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
-          </Fragment>
+          </>
         )}
       </LinkedEditSection>
       <LinkedEditSection title="page.overview.info.berths" link={steps[0].linkTo}>

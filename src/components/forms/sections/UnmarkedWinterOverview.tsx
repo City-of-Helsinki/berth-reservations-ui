@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
-import { boatTypes } from '../../../__fixtures__/boatTypeFixture';
 import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../types/unmarkedWinterStorage';
 
 import Agreement from '../fragments/Agreement';
@@ -18,7 +17,7 @@ type Props = {
   steps: StepType[];
 } & WithBoatType;
 
-const UnmarkedWinterOverview = ({ values, selectedArea, boatTab, steps }: Props) => {
+const UnmarkedWinterOverview = ({ values, selectedArea, boatTab, boatTypes, steps }: Props) => {
   const { t } = useTranslation();
   return (
     <Container>
