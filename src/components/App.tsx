@@ -49,23 +49,25 @@ const App = ({
       <Route exact path={`/${localeParam}/${winterParam}/form`} component={WinterFormPage} />
       <Route exact path={`/${localeParam}/${winterParam}/form/:tab`} component={WinterFormPage} />
       {isUnmarkedWinterStorageEnabled && (
-        <>
-          <Route
-            exact
-            path={`/${localeParam}/${unmarkedWsParam}`}
-            component={UnmarkedWinterStoragePage}
-          />
-          <Route
-            exact
-            path={`/${localeParam}/${unmarkedWsParam}/form`}
-            component={UnmarkedWinterFormPage}
-          />
-          <Route
-            exact
-            path={`/${localeParam}/${unmarkedWsParam}/form/:tab`}
-            component={UnmarkedWinterFormPage}
-          />
-        </>
+        <Route
+          exact
+          path={`/${localeParam}/${unmarkedWsParam}`}
+          component={UnmarkedWinterStoragePage}
+        />
+      )}
+      {isUnmarkedWinterStorageEnabled && (
+        <Route
+          exact
+          path={`/${localeParam}/${unmarkedWsParam}/form`}
+          component={UnmarkedWinterFormPage}
+        />
+      )}
+      {isUnmarkedWinterStorageEnabled && (
+        <Route
+          exact
+          path={`/${localeParam}/${unmarkedWsParam}/form/:tab`}
+          component={UnmarkedWinterFormPage}
+        />
       )}
 
       <Route exact path={`/${localeParam}/payment`} component={PaymentPageContainer} />

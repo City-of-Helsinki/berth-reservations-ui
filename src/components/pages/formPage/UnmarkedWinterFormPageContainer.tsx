@@ -150,7 +150,7 @@ const UnmarkedWinterFormPageContainer = ({
     submitUnmarkedWinterStorage({
       variables: payload,
     }).then(() => {
-      localePush('/thank-you');
+      localePush('/notification-sent');
     });
   };
 
