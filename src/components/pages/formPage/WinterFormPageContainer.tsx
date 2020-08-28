@@ -87,8 +87,8 @@ const WinterFormPageContainer = ({
       linkTo: `winter-storage/selected`,
     },
     {
-      completed: currentStep > 0,
-      current: currentStep === 0,
+      completed: currentStep > 2,
+      current: currentStep === 2,
       label: 'site.steps.boat_information',
       legend: {
         title: 'legend.boat.title',
@@ -97,8 +97,8 @@ const WinterFormPageContainer = ({
       linkTo: `winter-storage/form/${boatTab}`,
     },
     {
-      completed: currentStep > 1,
-      current: currentStep === 1,
+      completed: currentStep > 3,
+      current: currentStep === 3,
       label: 'site.steps.applicant',
       legend: {
         title: 'legend.person.title',
@@ -107,8 +107,8 @@ const WinterFormPageContainer = ({
       linkTo: `winter-storage/form/${applicantTab}`,
     },
     {
-      completed: currentStep > 2,
-      current: currentStep === 2,
+      completed: currentStep > 4,
+      current: currentStep === 4,
       label: 'site.steps.send_application',
       legend: {
         title: 'legend.overview.title',
