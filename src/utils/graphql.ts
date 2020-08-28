@@ -1,14 +1,5 @@
 import { gql } from 'apollo-boost';
 
-export const BOAT_TYPES_QUERY = gql`
-  query BoatTypesQuery {
-    boatTypes {
-      id
-      name
-    }
-  }
-`;
-
 export const BOAT_TYPES_BERTHS_QUERY = gql`
   query BoatTypesBerthsQuery {
     boatTypes {
@@ -105,6 +96,10 @@ export const WINTER_AREAS_QUERY = gql`
 
 export const UNMARKED_WINTER_AREAS_QUERY = gql`
   query UnmarkedWinterAreasQuery {
+    boatTypes {
+      id
+      name
+    }
     winterStorageAreas {
       edges {
         node {

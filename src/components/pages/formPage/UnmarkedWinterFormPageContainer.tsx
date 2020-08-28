@@ -5,11 +5,15 @@ import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
 
 import { onSubmitUnmarkedWinterForm } from '../../../redux/actions/FormActions';
-import { UnmarkedWinterFormValues } from '../../../types/unmarkedWinterStorage';
-import { BoatTypesQuery } from '../../../utils/__generated__/BoatTypesQuery';
+import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../types/unmarkedWinterStorage';
+import { UnmarkedWinterAreasQuery } from '../../../utils/__generated__/UnmarkedWinterAreasQuery';
 import { stringToFloat } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
-import { BOAT_TYPES_QUERY, CREATE_WINTER_STORAGE_APPLICATION } from '../../../utils/graphql';
+import {
+  CREATE_WINTER_STORAGE_APPLICATION,
+  UNMARKED_WINTER_AREAS_QUERY,
+} from '../../../utils/graphql';
+import { getWinterStorageAreas } from '../../../utils/unmarkedWinterStorage';
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BoatDetails from '../../forms/sections/WinterBoatDetails';
 import UnmarkedWinterOverview from '../../forms/sections/UnmarkedWinterOverview';
@@ -28,7 +32,7 @@ const applicantTabs = ['private-person', 'company'];
 const formTabs = [boatTabs, applicantTabs, ['overview']];
 
 type Props = {
-  initialValues: {};
+  initialValues: UnmarkedWinterFormValues;
   onSubmit: Function;
   localePush: LocalePush;
 } & RouteComponentProps<{ tab: string }>;
@@ -39,6 +43,7 @@ const UnmarkedWinterFormPageContainer = ({
     params: { tab },
   },
   onSubmit,
+  initialValues,
   ...rest
 }: Props) => {
   const [currentStep, setCurrentStep] = useState(stepsBeforeForm);
@@ -59,13 +64,14 @@ const UnmarkedWinterFormPageContainer = ({
     }
   }, [tab]);
 
-  const { loading, data } = useQuery<BoatTypesQuery>(BOAT_TYPES_QUERY);
+  const { loading, data } = useQuery<UnmarkedWinterAreasQuery>(UNMARKED_WINTER_AREAS_QUERY);
   const [submitUnmarkedWinterStorage] = useMutation<
     SubmitWinterStorage,
     SubmitWinterStorageVariables
   >(CREATE_WINTER_STORAGE_APPLICATION);
 
   const boatTypes = data ? data.boatTypes : [];
+  const winterStorageAreas = getWinterStorageAreas(data ? data.winterStorageAreas : null);
 
   const path = 'unmarked-winter-storage';
   const steps: StepType[] = [
@@ -80,18 +86,18 @@ const UnmarkedWinterFormPageContainer = ({
       current: currentStep === 1,
       label: 'site.steps.boat_information',
       legend: {
-        title: 'legend.boat.title',
-        legend: 'legend.boat.legend',
+        title: 'legend.unmarked_winter_boat.title',
+        legend: 'legend.unmarked_winter_boat.legend',
       },
       linkTo: `${path}/form/${boatTab}`,
     },
     {
       completed: currentStep > 2,
       current: currentStep === 2,
-      label: 'site.steps.applicant',
+      label: 'site.steps.owner',
       legend: {
-        title: 'legend.person.title',
-        legend: 'legend.person.legend',
+        title: 'legend.unmarked_winter_owner.title',
+        legend: 'legend.unmarked_winter_owner.legend',
       },
       linkTo: `${path}/form/${applicantTab}`,
     },
@@ -100,8 +106,8 @@ const UnmarkedWinterFormPageContainer = ({
       current: currentStep === 3,
       label: 'site.steps.send_notification',
       legend: {
-        title: 'legend.overview.title',
-        legend: 'legend.overview.legend',
+        title: 'legend.unmarked_winter_overview.title',
+        legend: 'legend.unmarked_winter_overview.legend',
       },
       linkTo: `${path}/form/overview`,
     },
@@ -162,9 +168,17 @@ const UnmarkedWinterFormPageContainer = ({
       case 2:
         return <ApplicantDetails tab={applicantTab} />;
       case 3:
+        const selectedArea = winterStorageAreas.find(
+          (area) => area.id === initialValues.chosenAreas
+        );
         return (
           !loading && (
-            <UnmarkedWinterOverview boatTypes={boatTypes} boatTab={boatTab} steps={steps} />
+            <UnmarkedWinterOverview
+              boatTab={boatTab}
+              boatTypes={boatTypes}
+              selectedArea={selectedArea as WinterStorageArea}
+              steps={steps}
+            />
           )
         );
     }
@@ -178,6 +192,7 @@ const UnmarkedWinterFormPageContainer = ({
       steps={steps}
       stepsBeforeForm={stepsBeforeForm}
       submit={submit}
+      initialValues={initialValues}
       {...rest}
     >
       {getStepComponent()}

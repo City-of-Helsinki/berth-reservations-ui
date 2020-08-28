@@ -215,6 +215,10 @@
         },
         "receivable_items": {
           "title": "Haluan vastaanottaa sähköpostiini"
+        },
+        "unmarked_winter_overview": {
+          "legend": "Tarkista vielä tietojen oikeellisuus ennen ilmoituksen lähettämistä",
+          "title": "Yhteenveto"
         }
       }
     },
@@ -452,8 +456,20 @@
       "title": "Selaa ja valitse talvisäilytysalueita"
     },
     "unmarked_winter": {
-      "title": "Valitse talvisäilytysalue",
-      "legend": "Valitse talvisäilytysalue, jonne olet vienyt veneesi."
+      "legend": "Valitse talvisäilytysalue, jonne olet vienyt veneesi.",
+      "title": "Valitse talvisäilytysalue"
+    },
+    "unmarked_winter_boat": {
+      "legend": "Kun olet vienyt veneesi nostojärjestysalueelle, ilmoita siitä meille. Anna ensin alueelle viemäsi veneen tiedot.",
+      "title": "Veneen tiedot"
+    },
+    "unmarked_winter_owner": {
+      "legend": "Anna veneen omistajan tiedot. Yrityksiltä peritään korotettua maksua.",
+      "title": "Omistajan tiedot"
+    },
+    "unmarked_winter_overview": {
+      "legend": "Ilmoitus on valmis! Tarkistathan vielä että antamasi tiedot ovat oikein. Voit tarvittaessa palata takaisin muokkaamaan niitä.",
+      "title": "Tarkista ilmoitus"
     }
   },
   "page": {
