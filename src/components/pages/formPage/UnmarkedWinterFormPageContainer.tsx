@@ -15,7 +15,7 @@ import {
 } from '../../../utils/graphql';
 import { getWinterStorageAreas } from '../../../utils/unmarkedWinterStorage';
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
-import BoatDetails from '../../forms/sections/WinterBoatDetails';
+import WinterBoatDetails from '../../forms/sections/WinterBoatDetails';
 import UnmarkedWinterOverview from '../../forms/sections/UnmarkedWinterOverview';
 import FormPage from './FormPage';
 import { Store } from '../../../redux/types';
@@ -158,7 +158,7 @@ const UnmarkedWinterFormPageContainer = ({
     switch (currentStep) {
       case 1:
         return (
-          <BoatDetails
+          <WinterBoatDetails
             tab={boatTab}
             boatTypes={boatTypes}
             requireBoat={true}

@@ -11,7 +11,7 @@ import { getResources, getSelectedResources, stringToFloat } from '../../../util
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { CREATE_WINTER_STORAGE_APPLICATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
-import BoatDetails from '../../forms/sections/WinterBoatDetails';
+import WinterBoatDetails from '../../forms/sections/WinterBoatDetails';
 import WinterOverview from '../../forms/sections/WinterOverview';
 import FormPage from './FormPage';
 
@@ -163,7 +163,7 @@ const WinterFormPageContainer = ({
   const getStepComponent = () => {
     switch (currentStep) {
       case 2:
-        return <BoatDetails tab={boatTab} boatTypes={boatTypes} />;
+        return <WinterBoatDetails tab={boatTab} boatTypes={boatTypes} />;
       case 3:
         return <ApplicantDetails tab={applicantTab} />;
       case 4:

@@ -19,7 +19,13 @@ type Props = {
   showStorageMethod?: boolean;
 } & WithBoatType;
 
-const BoatDetails = ({ values, tab, requireBoat, boatTypes, showStorageMethod = true }: Props) => {
+const WinterBoatDetails = ({
+  values,
+  tab,
+  requireBoat,
+  boatTypes,
+  showStorageMethod = true,
+}: Props) => {
   const showTrailerRegNum = get(values, 'storageMethod') === WinterStorageMethod.ON_TRAILER;
   const getRegistrationTypes = () => {
     const registeredBoat: TypeProps = {
@@ -68,4 +74,4 @@ const BoatDetails = ({ values, tab, requireBoat, boatTypes, showStorageMethod = 
   );
 };
 
-export default BoatDetails;
+export default WinterBoatDetails;
