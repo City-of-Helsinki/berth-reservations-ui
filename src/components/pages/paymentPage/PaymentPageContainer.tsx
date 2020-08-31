@@ -4,17 +4,16 @@ import { useMutation, useQuery } from '@apollo/react-hooks';
 import PaymentPage from './PaymentPage';
 import { CONFIRM_PAYMENT, GET_ORDER_DETAILS } from '../../../utils/graphql';
 import { getOrderNumber } from '../../../utils/urls';
-import {
-  ConfirmPaymentMutationInput,
-  ConfirmPaymentResponse,
-  OrderDetailsQuery,
-  OrderDetailsQueryVariables,
-  OrderStatus,
-} from '../../../utils/paymentMocks';
 import GeneralPaymentErrorPage from './paymentError/GeneralPaymentErrorPage';
 import AlreadyPaidPage from './paymentError/AlreadyPaidPage';
 import PastDueDatePage from './paymentError/PastDueDatePage';
 import LoadingPage from '../../common/loadingPage/LoadingPage';
+import {
+  ConfirmPayment,
+  ConfirmPaymentVariables,
+} from '../../../utils/__generated__/ConfirmPayment';
+import { OrderDetails, OrderDetailsVariables } from '../../../utils/__generated__/OrderDetails';
+import { OrderStatus } from '../../../__generated__/globalTypes';
 
 const PaymentPageContainer = () => {
   const orderNumber = getOrderNumber(window.location.search);
@@ -23,9 +22,9 @@ const PaymentPageContainer = () => {
 
   const {
     loading: loadingOrderDetails,
-    data: orderStatusData,
+    data: orderDetailsData,
     error: orderDetailsError,
-  } = useQuery<OrderDetailsQuery, OrderDetailsQueryVariables>(GET_ORDER_DETAILS, {
+  } = useQuery<OrderDetails, OrderDetailsVariables>(GET_ORDER_DETAILS, {
     variables: {
       orderNumber: orderNumber as string,
     },
@@ -33,17 +32,17 @@ const PaymentPageContainer = () => {
   });
 
   const [confirmPayment, { loading: loadingConfirmPayment, error: confirmError }] = useMutation<
-    ConfirmPaymentResponse,
-    ConfirmPaymentMutationInput
+    ConfirmPayment,
+    ConfirmPaymentVariables
   >(CONFIRM_PAYMENT, {
     variables: {
       confirmPaymentMutationInput: {
         orderNumber: orderNumber as string,
       },
     },
-    onCompleted: (confirmPaymentData: ConfirmPaymentResponse) => {
+    onCompleted: (confirmPaymentData: ConfirmPayment) => {
       setIsRedirecting(true);
-      window.location.href = confirmPaymentData.confirmPayment.url;
+      window.location.href = confirmPaymentData?.confirmPayment?.url as string;
     },
   });
 
@@ -54,7 +53,7 @@ const PaymentPageContainer = () => {
     return <GeneralPaymentErrorPage />;
   }
 
-  return getPaymentPage(orderStatusData?.orderStatus.status, confirmPayment);
+  return getPaymentPage(orderDetailsData?.orderDetails?.status, confirmPayment);
 };
 
 export const getPaymentPage = (

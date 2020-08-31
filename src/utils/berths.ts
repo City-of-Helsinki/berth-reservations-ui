@@ -54,7 +54,7 @@ export const getBerthFilterByValues = (
     );
     filterByBoatTypeIds =
       boatType && b.suitableBoatTypes.length
-        ? !!b.suitableBoatTypes.find((type) => type.id === boatType)
+        ? !!b.suitableBoatTypes.find((type) => !!type && type.id === boatType)
         : true;
 
     return filterByService && filterByWidth && filterByLength && filterByBoatTypeIds;

@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 import { getPaymentPage } from './PaymentPageContainer';
-import { OrderStatus } from '../../../utils/paymentMocks';
+import { OrderStatus } from '../../../__generated__/globalTypes';
 
 describe('PaymentPageContainer', () => {
   it('should get correct page based on order status', () => {
