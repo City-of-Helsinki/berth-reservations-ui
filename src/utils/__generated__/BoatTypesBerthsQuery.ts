@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -32,9 +33,6 @@ export interface BoatTypesBerthsQuery_harbors_edges_node_properties_availability
 export interface BoatTypesBerthsQuery_harbors_edges_node_properties {
   __typename: "HarborProperties";
   name: string | null;
-  /**
-   * ID in the Servicemap system
-   */
   servicemapId: string | null;
   streetAddress: string | null;
   zipCode: string;
@@ -49,7 +47,7 @@ export interface BoatTypesBerthsQuery_harbors_edges_node_properties {
   wasteCollection: boolean;
   gate: boolean;
   lighting: boolean;
-  suitableBoatTypes: BoatTypesBerthsQuery_harbors_edges_node_properties_suitableBoatTypes[];
+  suitableBoatTypes: (BoatTypesBerthsQuery_harbors_edges_node_properties_suitableBoatTypes | null)[];
   availabilityLevel: BoatTypesBerthsQuery_harbors_edges_node_properties_availabilityLevel | null;
   numberOfPlaces: number | null;
   maximumWidth: number | null;
