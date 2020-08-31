@@ -51,7 +51,24 @@ const winterValues: WinterFormValues = {
 };
 
 const unmarkedWinterValues: UnmarkedWinterFormValues = {
-  area: '',
+  language: 'fi',
+  firstName: '',
+  lastName: '',
+  email: '',
+  phoneNumber: '',
+  address: '',
+  zipCode: '',
+  municipality: '',
+  boatType: '',
+  boatLength: '',
+  boatWidth: '',
+  acceptBoatingNewsletter: false,
+  acceptFitnessNews: false,
+  acceptLibraryNews: false,
+  acceptOtherCultureNews: false,
+  informationAccuracyConfirmed: false,
+  storageMethod: WinterStorageMethod.ON_TRESTLES,
+  chosenAreas: undefined,
 };
 
 const defaultState: FormsFactory = Record({
@@ -67,6 +84,8 @@ export default (state: FormsState = defaultState(), action: Action): FormsState 
       return state.set('berthValues', payload);
     case 'SUBMIT_WINTER_FORM':
       return state.set('winterValues', payload);
+    case 'SUBMIT_UNMARKED_WINTER_FORM':
+      return state.set('unmarkedWinterValues', payload);
     case 'RESET_FORM':
       return defaultState();
     default:

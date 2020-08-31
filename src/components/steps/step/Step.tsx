@@ -9,12 +9,15 @@ import './step.scss';
 export interface StepType {
   completed: boolean;
   current: boolean;
-  key: string;
+  label: string;
+  legend?: {
+    title: string;
+    legend: string;
+  };
   linkTo: string;
 }
 
 interface Props extends StepType {
-  label: string;
   className?: string;
 }
 

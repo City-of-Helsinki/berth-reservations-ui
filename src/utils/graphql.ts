@@ -96,6 +96,10 @@ export const WINTER_AREAS_QUERY = gql`
 
 export const UNMARKED_WINTER_AREAS_QUERY = gql`
   query UnmarkedWinterAreasQuery {
+    boatTypes {
+      id
+      name
+    }
     winterStorageAreas {
       edges {
         node {

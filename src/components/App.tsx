@@ -5,6 +5,7 @@ import { Route, RouteComponentProps, Switch } from 'react-router';
 import BerthPage from './pages/berthPage/BerthPageContainer';
 import BerthFormPage from './pages/formPage/BerthFormPageContainer';
 import WinterFormPage from './pages/formPage/WinterFormPageContainer';
+import UnmarkedWinterFormPage from './pages/formPage/UnmarkedWinterFormPageContainer';
 import FrontPage from './pages/frontPage/FrontPage';
 import ApplicationThankYouPage from './pages/notice/ApplicationSentPage';
 import NotFoundPage from './pages/notice/NotFoundPage';
@@ -52,6 +53,20 @@ const App = ({
           exact
           path={`/${localeParam}/${unmarkedWsParam}`}
           component={UnmarkedWinterStoragePage}
+        />
+      )}
+      {isUnmarkedWinterStorageEnabled && (
+        <Route
+          exact
+          path={`/${localeParam}/${unmarkedWsParam}/form`}
+          component={UnmarkedWinterFormPage}
+        />
+      )}
+      {isUnmarkedWinterStorageEnabled && (
+        <Route
+          exact
+          path={`/${localeParam}/${unmarkedWsParam}/form/:tab`}
+          component={UnmarkedWinterFormPage}
         />
       )}
 

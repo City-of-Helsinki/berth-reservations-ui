@@ -44,33 +44,33 @@ type Props = WithLocalePush & PropsFromState;
 const WinterStoragePageContainer = (props: Props) => {
   const steps: StepType[] = [
     {
-      key: 'winter_areas',
       completed: false,
       current: true,
+      label: 'site.steps.winter_areas',
       linkTo: '',
     },
     {
-      key: 'review_areas',
       completed: false,
       current: false,
+      label: 'site.steps.review_areas',
       linkTo: '',
     },
     {
-      key: 'boat_information',
       completed: false,
       current: false,
+      label: 'site.steps.boat_information',
       linkTo: '',
     },
     {
-      key: 'applicant',
       completed: false,
       current: false,
+      label: 'site.steps.applicant',
       linkTo: '',
     },
     {
-      key: 'send_application',
       completed: false,
       current: false,
+      label: 'site.steps.send_application',
       linkTo: '',
     },
   ];
