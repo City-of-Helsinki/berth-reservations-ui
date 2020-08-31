@@ -618,7 +618,9 @@
         "boat_weight": "Paino",
         "boat_width": "Leveys",
         "edit": "Muokkaa",
-        "person": "Hakija"
+        "person": "Hakija",
+        "winter_storage_area": "Talvisäilytysalue",
+        "owner_information": "Omistajan tiedot"
       }
     },
     "payment_error": {

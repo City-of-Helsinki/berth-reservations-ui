@@ -51,14 +51,14 @@ const UnmarkedWinterOverviewInfo = ({
           </>
         )}
       </LinkedEditSection>
-      <LinkedEditSection title="page.overview.info.berths" link={steps[0].linkTo}>
+      <LinkedEditSection title="page.overview.info.winter_storage_area" link={steps[0].linkTo}>
         <Row>
           <Col xs={12}>
             <div>{selectedArea.name}</div>
           </Col>
         </Row>
       </LinkedEditSection>
-      <LinkedEditSection title="page.overview.info.person" link={steps[2].linkTo}>
+      <LinkedEditSection title="page.overview.info.owner_information" link={steps[2].linkTo}>
         {values.companyName && values.businessId ? (
           <Company
             companyName={values.companyName}
