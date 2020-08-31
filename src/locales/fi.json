@@ -297,7 +297,8 @@
       "header": {
         "additional_info": "Lisätiedot",
         "measures": "Veneen mitat",
-        "title": "Rekisteröidyn veneen tiedot"
+        "title": "Rekisteröidyn veneen tiedot",
+        "legend": "Syötä tiedot veneen rekisteröintitodistuksesta. Rekisterinumero on ilmoitettava, jos veneen pituus on yli 5,5 m tai moottoriteho 15 kW tai enemmän."
       }
     },
     "services": {
