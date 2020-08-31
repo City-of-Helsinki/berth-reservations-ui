@@ -1,14 +1,20 @@
 @import 'helsinki/colors';
+@import 'styles/mixin';
 
 .vene-unmarked-winter-storage-page {
   &__buttons {
     background: $hel-light;
     display: flex;
     justify-content: flex-end;
-    padding: 2em 3em 6em 2em;
+    padding: 2em 2em 6em 2em;
   }
 
   &__button {
     padding: 0.75em 6em;
+    width: 100%;
+
+    @include for-tablet {
+      width: auto;
+    }
   }
 }
