@@ -7,7 +7,6 @@ import { BerthFormValues } from '../../types/berth';
 import { SelectedServices, SelectedWinterServices } from '../../types/services';
 import { UnmarkedWinterFormValues } from '../../types/unmarkedWinterStorage';
 import { WinterFormValues } from '../../types/winterStorage';
-import { StorageAreaFilter } from '../reducers/WinterAreaReducers';
 
 interface FormProps {
   berthValues: BerthFormValues;
@@ -27,7 +26,6 @@ export interface ApplicationProps {
 }
 
 export interface WinterAreasProps {
-  storageAreaFilter: StorageAreaFilter;
   selectedWinterAreas: SelectedIds;
   selectedWinterServices: SelectedWinterServices;
   areasLimit: number;

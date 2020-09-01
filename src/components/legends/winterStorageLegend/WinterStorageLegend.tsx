@@ -6,7 +6,6 @@ import { Col, Container, Row } from 'reactstrap';
 import Icon, { IconNames } from '../../common/Icon';
 import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
-import StorageAreas from '../../forms/fragments/StorageAreas';
 import Steps from '../../steps/Steps';
 
 import { SelectedWinterServices, WinterServices } from '../../../types/services';
@@ -62,7 +61,6 @@ const WinterStorageLegend = ({ form, legend, steps, services }: Props) => {
                 )}
               </Form>
             )}
-            <StorageAreas />
             {services && (
               <>
                 <div className="vene-berths-legend__services__header">

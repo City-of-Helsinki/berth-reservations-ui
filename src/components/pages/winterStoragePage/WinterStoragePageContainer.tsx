@@ -10,7 +10,7 @@ import {
   selectWinterArea,
 } from '../../../redux/actions/WinterAreaActions';
 import { WinterAreasQuery } from '../../../utils/__generated__/WinterAreasQuery';
-import { getResources } from '../../../utils/berths';
+import { filterAreasWithMarkedPlaces, getResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import { IconNames } from '../../common/Icon';
@@ -116,7 +116,9 @@ const WinterStoragePageContainer = (props: Props) => {
         // error, TODO: handle errors
         data,
       }) => {
-        const winterAreas = getResources(data ? data.winterStorageAreas : null);
+        const winterAreas = getResources(data ? data.winterStorageAreas : null).filter(
+          filterAreasWithMarkedPlaces
+        );
 
         return (
           <WinterStoragePage {...props} areas={winterAreas} steps={steps} services={services} />

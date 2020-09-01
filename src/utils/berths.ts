@@ -2,7 +2,6 @@ import { List } from 'immutable';
 import get from 'lodash/get';
 
 import { SelectedIds } from '../components/berths/types';
-import { StorageAreaFilter } from '../redux/reducers/WinterAreaReducers';
 import { BerthFormValues, BerthType } from '../types/berth';
 import {
   SelectedServices,
@@ -69,8 +68,7 @@ export const getBerthFilterByValues = (
  */
 export const getWinterStorageFilterByValues = (
   values: WinterFormValues,
-  selectedWinterServices: SelectedWinterServices,
-  storageAreaFilter?: StorageAreaFilter
+  selectedWinterServices: SelectedWinterServices
 ) => {
   const boatHasTrailer = get(values, 'boatStoredOnTrailer');
 
@@ -89,39 +87,24 @@ export const getWinterStorageFilterByValues = (
     const filterByLength = b.maximumLength ? Number(b.maximumLength) >= length : true;
     let filterByService = true;
     const filterByBoatTypeIds = true;
-    const filterByStorageArea = filterStorageArea(b, storageAreaFilter);
 
     filterByService = (services as (keyof SelectedWinterServicesProps)[]).reduce<boolean>(
       (acc, service) => acc && !!b[service],
       true
     );
 
-    return (
-      filterByService &&
-      filterByWidth &&
-      filterByLength &&
-      filterByBoatTypeIds &&
-      filterByStorageArea
-    );
+    return filterByService && filterByWidth && filterByLength && filterByBoatTypeIds;
   };
 };
 
 /**
- * Check if current storage is fit with current filter
+ * Filter just areas with marked places
  *
  * @param {WinterStorageType} storage
- * @param {StorageAreaFilter} [filterType]
  * @returns {boolean}
  */
-const filterStorageArea = (storage: WinterStorageType, filterType?: StorageAreaFilter) => {
-  if (filterType === StorageAreaFilter.SHOW_APPOINTED_AREA && !storage.numberOfMarkedPlaces) {
-    return false;
-  }
-  if (filterType === StorageAreaFilter.SHOW_FREE_AREA && storage.numberOfMarkedPlaces) {
-    return false;
-  }
-
-  return true;
+export const filterAreasWithMarkedPlaces = (storage: WinterStorageType) => {
+  return !!storage.numberOfMarkedPlaces;
 };
 
 export const getResources = <T, P, G extends { coordinates: [number, number] }>(
