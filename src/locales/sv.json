@@ -569,6 +569,40 @@
         "person": "Sökande"
       }
     },
+    "payment_error": {
+      "already_paid": {
+        "message": "Avgiften du försökte betala är redan markerad som betald. Tack!",
+        "title": "Avgiften är redan betald."
+      },
+      "general_error": {
+        "message": "Vi beklagar men betalningen hittas inte. Den kan ha annullerats eller så kan länken vara bristfällig.",
+        "title": "Felsituation"
+      },
+      "past_due_date": {
+        "message": "Vi beklagar att avgiften inte längre kan betalas, eftersom förfallodagen överskridits. Båtplatsavgifter kan inte längre betalas efter att förfallodagen överskridits.",
+        "title": "Förfallodagen har överskridits."
+      }
+    },
+    "payment_received": {
+      "message": {
+        "paragraph1": "Bästa kund, vi har mottagit din betalning. Vi skickar dig ännu kvittot per e-post.",
+        "paragraph2": "Vi önskar dig en trevlig båtsäsong!"
+      },
+      "title": "Tack!"
+    },
+    "payment_failed": {
+      "title": "Felsituation",
+      "paragraph1": "Vi beklagar men det skedde ett fel i betalningshanteringen.",
+      "paragraph2": "Du kan senare försöka utföra betalningen på nytt, vid behov kontakta kundtjänsten."
+    },
+    "payment": {
+      "title": "Betalning av faktura",
+      "terms_info": "Bästa kund, vi har uppdaterat kontraktsvillkoren för vinterförvaringsplatserna. Bekanta dig med innehållet för kontraktsvillkoren nedan. Efter det kan du fortsätta till betalningstransaktionen. Godkännande av kontraktsvillkoren förutsätts för att få en vinterförvaringsplats.",
+      "questions": "Frågor och ytterligare uppgifter: ",
+      "terms_pdf": "Kontraktsvillkor för vinterförvaringsplats (PDF)",
+      "accept_terms": "Jag har läst kontraktsvillkoren för vinterförvaringsplatsen och godkänner dem",
+      "pay": "Fortsätt till betalningen"
+    },
     "winter_storage": {
       "appointed": "Markerade rutor",
       "electricity": "El",
