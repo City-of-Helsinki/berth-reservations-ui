@@ -12,7 +12,6 @@ import KoroSection from '../../layout/koroSection/KoroSection';
 import Layout from '../../layout/Layout';
 import WinterStorageLegend from '../../legends/winterStorageLegend/WinterStorageLegend';
 
-import { StorageAreaFilter } from '../../../redux/reducers/WinterAreaReducers';
 import { BoatTypes } from '../../../types/boatTypes';
 import { SelectedWinterServices, WinterServices } from '../../../types/services';
 import { WinterFormValues, WinterStorageType } from '../../../types/winterStorage';
@@ -43,7 +42,6 @@ type Props = {
     icon: IconNames;
   }[];
   areasLimit: number;
-  storageAreaFilter?: StorageAreaFilter;
 } & WithTranslation;
 
 const getHeroContentLink = (locale: string) => {
@@ -102,14 +100,9 @@ class WinterStoragePage extends Component<Props> {
       selectedServices,
       services,
       steps,
-      storageAreaFilter,
       t,
     } = this.props;
-    const filter = getWinterStorageFilterByValues(
-      initialValues,
-      selectedServices,
-      storageAreaFilter
-    );
+    const filter = getWinterStorageFilterByValues(initialValues, selectedServices);
     const filtered = areas.filter(filter);
     const filteredNot = areas.filterNot(filter);
     const invalidSelection = !areas
