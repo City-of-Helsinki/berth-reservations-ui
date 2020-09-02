@@ -1,3 +1,4 @@
+@import 'styles/mixin';
 @import 'helsinki/colors';
 @import 'styles/variables';
 
@@ -7,7 +8,7 @@
   flex-grow: 1;
 
   &__content {
-    padding: $spacing-04 0;
+    padding: $spacing-04 $spacing-01;
   }
 
   h2 {
@@ -20,9 +21,18 @@
     margin: $spacing-01 auto;
   }
 
+  &__button-wrapper {
+    margin: 0 $spacing-01;
+  }
+
   &__front-page-button {
     margin: 0 0 $spacing-04 0;
     padding: $spacing-01 $spacing-08;
+
+    @include for-phone {
+      padding: $spacing-01 0;
+      width: 100%;
+    }
   }
 
   &--success {

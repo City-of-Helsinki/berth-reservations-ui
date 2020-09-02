@@ -569,6 +569,40 @@
         "person": "Applicant"
       }
     },
+    "payment_error": {
+      "already_paid": {
+        "message": "The payment you attempted to make has already been marked as received. Thank you!",
+        "title": "The payment has already been made"
+      },
+      "general_error": {
+        "message": "We are sorry, but the payment could not be found. It may have been cancelled or the link may be invalid.",
+        "title": "Failure"
+      },
+      "past_due_date": {
+        "message": "We are sorry, but the payment can no longer be made because its due date has passed. Boat berth payments cannot be made past the due date.",
+        "title": "The due date has passed"
+      }
+    },
+    "payment_received": {
+      "message": {
+        "paragraph1": "Dear customer, we have received your payment. We will send you a receipt by e-mail.",
+        "paragraph2": "Enjoy your boating!"
+      },
+      "title": "Thank you!"
+    },
+    "payment_failed": {
+      "title": "Failure",
+      "paragraph1": "We are sorry, but an error occurred when processing the payment.",
+      "paragraph2": "You can try making your payment later. If necessary, please contact our customer service."
+    },
+    "payment": {
+      "title": "Paying the invoice",
+      "terms_info": "Dear customer, we have updated the agreement terms for winter storage spaces. Please read the agreement terms below. You can continue to making your payment after that. Reserving a winter storage space requires that you accept the agreement terms.",
+      "questions": "Questions and further information: ",
+      "terms_pdf": "Winter storage space agreement terms (PDF)",
+      "accept_terms": "I have read and accept the winter storage space agreement terms",
+      "pay": "Continue to making your payment"
+    },
     "winter_storage": {
       "appointed": "Appointed spaces",
       "electricity": "Electricity",

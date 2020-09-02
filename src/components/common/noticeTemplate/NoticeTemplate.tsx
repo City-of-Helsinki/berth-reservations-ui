@@ -32,11 +32,13 @@ const NoticeTemplate = ({ titleText, message, success = false, id }: NoticePageP
           <h2>{titleText}</h2>
           {message}
         </div>
-        <LocalizedLink to="/">
-          <Button className="vene-notice-page__front-page-button" outline color="secondary">
-            {t('site.buttons.to_front_page')}
-          </Button>
-        </LocalizedLink>
+        <div className="vene-notice-page__button-wrapper">
+          <LocalizedLink to="/">
+            <Button className="vene-notice-page__front-page-button" outline color="secondary">
+              {t('site.buttons.to_front_page')}
+            </Button>
+          </LocalizedLink>
+        </div>
       </div>
     </Layout>
   );
