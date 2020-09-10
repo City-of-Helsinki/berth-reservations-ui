@@ -157,14 +157,7 @@ const UnmarkedWinterFormPageContainer = ({
   const getStepComponent = () => {
     switch (currentStep) {
       case 1:
-        return (
-          <WinterBoatDetails
-            tab={boatTab}
-            boatTypes={boatTypes}
-            requireBoat={true}
-            showStorageMethod={false}
-          />
-        );
+        return <WinterBoatDetails tab={boatTab} boatTypes={boatTypes} requireBoat={true} />;
       case 2:
         return <ApplicantDetails tab={applicantTab} />;
       case 3:
