@@ -10,6 +10,7 @@ import LinkedEditSection from '../fragments/overview/linkedEditSection/LinkedEdi
 import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
 import Person from '../fragments/overview/person/Person';
 import { WithBoatType } from '../Selects';
+import OverviewStorageMethod from '../fragments/overview/OverviewStorageMethod';
 
 export type UnmarkedWinterOverviewInfoProps = {
   values: UnmarkedWinterFormValues;
@@ -49,6 +50,12 @@ const UnmarkedWinterOverviewInfo = ({
             />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
           </>
+        )}
+        {values.storageMethod && (
+          <OverviewStorageMethod
+            registrationNumber={values.trailerRegistrationNumber}
+            storageMethod={values.storageMethod}
+          />
         )}
       </LinkedEditSection>
       <LinkedEditSection title="page.overview.info.winter_storage_area" link={steps[0].linkTo}>
