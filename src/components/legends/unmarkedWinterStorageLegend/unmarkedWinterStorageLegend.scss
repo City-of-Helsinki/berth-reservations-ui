@@ -2,10 +2,9 @@
 @import 'helsinki/fonts';
 
 .vene-unmarked-winter-storage-legend {
-  &__steps {
-    width: 80%;
+  .vene-steps {
+    margin-top: 0;
   }
-
   &__header {
     margin-bottom: 2em;
   }

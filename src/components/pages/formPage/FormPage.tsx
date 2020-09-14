@@ -11,26 +11,28 @@ import { StepType } from '../../steps/step/Step';
 import './formPage.scss';
 
 interface Props {
-  initialValues: {};
-  goForward: Function;
-  goBackwards: Function;
-  nextStep: Function;
-  prevStep: Function;
-  step: number;
-  steps: StepType[];
   children: React.ReactNode;
+  currentStep: number;
+  goBackward: Function;
+  goForward: Function;
+  initialValues: {};
+  steps: StepType[];
+  stepsBeforeForm?: number;
+  submit: Function;
 }
 
-const BoatPage = ({
-  initialValues,
-  goForward,
-  goBackwards,
-  nextStep,
-  prevStep,
-  step,
-  steps,
+const FormPage = ({
   children,
+  currentStep,
+  goBackward,
+  goForward,
+  initialValues,
+  steps,
+  stepsBeforeForm = 0,
+  submit,
 }: Props) => {
+  const { legend } = steps[currentStep];
+
   return (
     <Layout>
       <div className="vene-form-page">
@@ -38,22 +40,23 @@ const BoatPage = ({
           <Row>
             <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
               <Steps steps={steps} />
-              <FormLegend step={step} />
+              {legend !== undefined && <FormLegend legend={legend} />}
             </Col>
           </Row>
         </Container>
       </div>
       <Wizard
-        step={step}
-        initialValues={initialValues}
+        currentStep={currentStep}
+        goBackward={goBackward}
         goForward={goForward}
-        goBackwards={goBackwards}
-        nextStep={nextStep}
-        prevStep={prevStep}
+        initialValues={initialValues}
+        steps={steps}
+        stepsBeforeForm={stepsBeforeForm}
+        submit={submit}
       >
         {children}
       </Wizard>
     </Layout>
   );
 };
-export default BoatPage;
+export default FormPage;

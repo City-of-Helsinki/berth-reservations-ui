@@ -199,6 +199,11 @@
           "guarantee": {
             "label": "Olen lukenut talvisäilytystä koskevat venesatamasäännöt <1>hel.fi</1> -sivustolta ja sitoudun niiden noudattamiseen. Vakuutan hakemuksessa antamani tiedot oikeiksi."
           }
+        },
+        "unmarked_winter": {
+          "guarantee": {
+            "label": "Vakuutan antamani tiedot oikeiksi."
+          }
         }
       },
       "header": {
@@ -210,6 +215,10 @@
         },
         "receivable_items": {
           "title": "Haluan vastaanottaa sähköpostiini"
+        },
+        "unmarked_winter_overview": {
+          "legend": "Tarkista vielä tietojen oikeellisuus ennen ilmoituksen lähettämistä",
+          "title": "Yhteenveto"
         }
       }
     },
@@ -288,7 +297,8 @@
       "header": {
         "additional_info": "Lisätiedot",
         "measures": "Veneen mitat",
-        "title": "Rekisteröidyn veneen tiedot"
+        "title": "Rekisteröidyn veneen tiedot",
+        "legend": "Syötä tiedot veneen rekisteröintitodistuksesta. Rekisterinumero on ilmoitettava, jos veneen pituus on yli 5,5 m tai moottoriteho 15 kW tai enemmän."
       }
     },
     "services": {
@@ -447,8 +457,20 @@
       "title": "Selaa ja valitse talvisäilytysalueita"
     },
     "unmarked_winter": {
-      "title": "Valitse talvisäilytysalue",
-      "legend": "Valitse talvisäilytysalue, jonne olet vienyt veneesi."
+      "legend": "Valitse talvisäilytysalue, jonne olet vienyt veneesi.",
+      "title": "Valitse talvisäilytysalue"
+    },
+    "unmarked_winter_boat": {
+      "legend": "Kun olet vienyt veneesi nostojärjestysalueelle, ilmoita siitä meille. Anna ensin alueelle viemäsi veneen tiedot.",
+      "title": "Veneen tiedot"
+    },
+    "unmarked_winter_owner": {
+      "legend": "Anna veneen omistajan tiedot. Yrityksiltä peritään korotettua maksua.",
+      "title": "Omistajan tiedot"
+    },
+    "unmarked_winter_overview": {
+      "legend": "Ilmoitus on valmis! Tarkistathan vielä että antamasi tiedot ovat oikein. Voit tarvittaessa palata takaisin muokkaamaan niitä.",
+      "title": "Tarkista ilmoitus"
     }
   },
   "page": {
@@ -561,7 +583,7 @@
           "description": "Selaa Helsingin kaupungin veneiden talvisäilytyspaikkoja. Voit tehdä uuden hakemuksen talvisäilytyspaikkaan veneellesi.",
           "title": "Talvisäilytyspaikat"
         },
-        "unmarkedWinter": {
+        "unmarked_winter": {
           "button_label": "Ilmoita",
           "description": "Ilmoita meille, kun olet vienyt veneesi nosto\u00ADjärjestysalueelle.",
           "title": "Nostojärjestys\u00ADilmoitus"
@@ -577,7 +599,7 @@
       "message": "Pahoittelemme, mutta hakemaasi sivua ei löydy.",
       "title": "404"
     },
-    "notification_sent": {
+    "notice_sent": {
       "message": {
         "paragraph1": "Nostojärjestysilmoituksesi on nyt lähetetty.",
         "paragraph2": "Kiitos, että teit ilmoituksen! Se auttaa meitä palvelemaan veneilijöitä paremmin nyt ja tulevaisuudessa."
@@ -597,7 +619,9 @@
         "boat_weight": "Paino",
         "boat_width": "Leveys",
         "edit": "Muokkaa",
-        "person": "Hakija"
+        "person": "Hakija",
+        "winter_storage_area": "Talvisäilytysalue",
+        "owner_information": "Omistajan tiedot"
       }
     },
     "payment_error": {
@@ -755,7 +779,7 @@
       "winter_areas": "Alueiden valinta",
       "unmarked_winter_storage_area": "Alueen valinta",
       "owner": "Omistajan tiedot",
-      "send_notification": "Ilmoituksen lähettäminen"
+      "send_notice": "Ilmoituksen lähettäminen"
     },
     "winter": {
       "title": "Talvisäilytyspaikat"

@@ -10,6 +10,8 @@ const RegisteredBoatDetailsFragment = ({ boatTypes }: WithBoatType) => {
   return (
     <>
       <h3>{t('form.registered.header.title')}</h3>
+      <p>{t('form.registered.header.legend')}</p>
+      <br />
       <Row>
         <Col sm={6}>
           <Text

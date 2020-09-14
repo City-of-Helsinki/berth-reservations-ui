@@ -7,6 +7,12 @@
 // GraphQL query operation: UnmarkedWinterAreasQuery
 // ====================================================
 
+export interface UnmarkedWinterAreasQuery_boatTypes {
+  __typename: "BoatTypeType";
+  id: string;
+  name: string | null;
+}
+
 export interface UnmarkedWinterAreasQuery_winterStorageAreas_edges_node_properties {
   __typename: "WinterStorageAreaProperties";
   name: string | null;
@@ -39,5 +45,6 @@ export interface UnmarkedWinterAreasQuery_winterStorageAreas {
 }
 
 export interface UnmarkedWinterAreasQuery {
+  boatTypes: (UnmarkedWinterAreasQuery_boatTypes | null)[] | null;
   winterStorageAreas: UnmarkedWinterAreasQuery_winterStorageAreas | null;
 }

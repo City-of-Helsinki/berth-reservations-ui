@@ -5,10 +5,11 @@ import { Route, RouteComponentProps, Switch } from 'react-router';
 import BerthPage from './pages/berthPage/BerthPageContainer';
 import BerthFormPage from './pages/formPage/BerthFormPageContainer';
 import WinterFormPage from './pages/formPage/WinterFormPageContainer';
+import UnmarkedWinterFormPage from './pages/formPage/UnmarkedWinterFormPageContainer';
 import FrontPage from './pages/frontPage/FrontPage';
 import ApplicationThankYouPage from './pages/notice/ApplicationSentPage';
 import NotFoundPage from './pages/notice/NotFoundPage';
-import NotificationSentPage from './pages/notice/NotificationSentPage';
+import NoticeSentPage from './pages/notice/NoticeSentPage';
 import SelectedAreaPage from './pages/selectedAreaPage/SelectedAreaPageContainer';
 import SelectedBerthPage from './pages/selectedBerthPage/SelectedBerthPageContainer';
 import WinterStoragePage from './pages/winterStoragePage/WinterStoragePageContainer';
@@ -18,7 +19,6 @@ import { ApplicationType } from '../types/applicationType';
 import { LocaleOpts } from '../types/intl';
 import { PaymentPageContainer } from './pages/paymentPage/PaymentPageContainer';
 import { PaymentResultContainer } from './pages/paymentResultPage/PaymentResultContainer';
-import { isUnmarkedWinterStorageEnabled } from '../utils/featureFlags';
 
 type Props = RouteComponentProps<{ locale: LocaleOpts }>;
 
@@ -47,19 +47,27 @@ const App = ({
       <Route exact path={`/${localeParam}/${winterParam}/selected`} component={SelectedAreaPage} />
       <Route exact path={`/${localeParam}/${winterParam}/form`} component={WinterFormPage} />
       <Route exact path={`/${localeParam}/${winterParam}/form/:tab`} component={WinterFormPage} />
-      {isUnmarkedWinterStorageEnabled && (
-        <Route
-          exact
-          path={`/${localeParam}/${unmarkedWsParam}`}
-          component={UnmarkedWinterStoragePage}
-        />
-      )}
+      <Route
+        exact
+        path={`/${localeParam}/${unmarkedWsParam}`}
+        component={UnmarkedWinterStoragePage}
+      />
+      <Route
+        exact
+        path={`/${localeParam}/${unmarkedWsParam}/form`}
+        component={UnmarkedWinterFormPage}
+      />
+      <Route
+        exact
+        path={`/${localeParam}/${unmarkedWsParam}/form/:tab`}
+        component={UnmarkedWinterFormPage}
+      />
 
       <Route exact path={`/${localeParam}/payment`} component={PaymentPageContainer} />
       <Route exact path={`/${localeParam}/payment-result`} component={PaymentResultContainer} />
 
       <Route exact path={`/${localeParam}/thank-you`} component={ApplicationThankYouPage} />
-      <Route exact path={`/${localeParam}/notification-sent`} component={NotificationSentPage} />
+      <Route exact path={`/${localeParam}/notice-sent`} component={NoticeSentPage} />
       <Route component={NotFoundPage} />
     </Switch>
   );

@@ -1,28 +1,25 @@
-import findIndex from 'lodash/findIndex';
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import { RouteComponentProps } from 'react-router';
+import findIndex from 'lodash/findIndex';
 import { compose } from 'recompose';
-
-import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
-import { BoatTypesBerthsQuery } from '../../../utils/__generated__/BoatTypesBerthsQuery';
-import { getResources, getSelectedResources, stringToFloat } from '../../../utils/berths';
-import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
-import FormPage from './FormPage';
-
-import { BOAT_TYPES_BERTHS_QUERY, CREATE_APPLICATION } from '../../../utils/graphql';
+import { connect } from 'react-redux';
+import { useQuery, useMutation } from 'react-apollo';
+import { RouteComponentProps } from 'react-router';
 
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
-import BoatDetails from '../../forms/sections/BerthBoatDetails';
 import BerthOverview from '../../forms/sections/BerthOverview';
-
-import { ApplicationState, Store } from '../../../redux/types';
+import BoatDetails from '../../forms/sections/BerthBoatDetails';
+import FormPage from './FormPage';
 import { ApplicationOptions } from '../../../types/applicationType';
+import { ApplicationState, Store } from '../../../redux/types';
+import { BOAT_TYPES_BERTHS_QUERY, CREATE_APPLICATION } from '../../../utils/graphql';
 import { BerthFormValues } from '../../../types/berth';
-import { SubmitBerth, SubmitBerthVariables } from '../../../utils/__generated__/SubmitBerth';
+import { BoatTypesBerthsQuery } from '../../../utils/__generated__/BoatTypesBerthsQuery';
+import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
-import { Query } from 'react-apollo';
+import { SubmitBerth, SubmitBerthVariables } from '../../../utils/__generated__/SubmitBerth';
+import { getResources, getSelectedResources, stringToFloat } from '../../../utils/berths';
+import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
 
 type Props = {
   initialValues: {};
@@ -32,11 +29,10 @@ type Props = {
   application: ApplicationState;
 } & RouteComponentProps<{ tab: string }>;
 
-const mapSteps = [
-  ['registered-boat', 'unregistered-boat', 'no-boat'],
-  ['private-person', 'company'],
-  ['overview'],
-];
+const stepsBeforeForm = 2;
+const boatTabs = ['registered-boat', 'unregistered-boat', 'no-boat'];
+const applicantTabs = ['private-person', 'company'];
+const formTabs = [boatTabs, applicantTabs, ['overview']];
 
 const BerthFormPageContainer = ({
   selectedBerths,
@@ -48,142 +44,159 @@ const BerthFormPageContainer = ({
   onSubmit,
   ...rest
 }: Props) => {
-  const [step, setStep] = useState(0);
-  const [boatTab, setBoatTab] = useState(mapSteps[0][0]);
-  const [applicantTab, setApplicantTab] = useState(mapSteps[1][0]);
+  const [currentStep, setCurrentStep] = useState(stepsBeforeForm);
+  const [boatTab, setBoatTab] = useState(boatTabs[0]);
+  const [applicantTab, setApplicantTab] = useState(applicantTabs[0]);
 
   useEffect(() => {
     const currStep = Math.max(
-      0,
-      findIndex(mapSteps, (s) => s.includes(tab))
+      stepsBeforeForm,
+      findIndex(formTabs, (s) => s.includes(tab)) + stepsBeforeForm
     );
-    setStep(currStep);
-    if (currStep === 0) {
+    setCurrentStep(currStep);
+    if (currStep === 2) {
       setBoatTab(tab);
     }
-    if (currStep === 1) {
+    if (currStep === 3) {
       setApplicantTab(tab);
     }
   }, [tab]);
 
+  const { loading, data } = useQuery<BoatTypesBerthsQuery>(BOAT_TYPES_BERTHS_QUERY);
+  const [submitBerth] = useMutation<SubmitBerth, SubmitBerthVariables>(CREATE_APPLICATION);
+
+  const boatTypes = data ? data.boatTypes : [];
+  const berths = getResources(data ? data.harbors : null);
+  const selected = getSelectedResources(selectedBerths, berths);
+
   const steps: StepType[] = [
     {
-      key: 'berths',
       completed: true,
       current: false,
+      label: 'site.steps.berths',
       linkTo: `berths`,
     },
     {
-      key: 'selected_berths',
       completed: true,
       current: false,
+      label: 'site.steps.selected_berths',
       linkTo: `berths/selected`,
     },
     {
-      key: 'boat_information',
-      completed: step > 0,
-      current: step === 0,
+      completed: currentStep > 2,
+      current: currentStep === 2,
+      label: 'site.steps.boat_information',
+      legend: {
+        title: 'legend.boat.title',
+        legend: 'legend.boat.legend',
+      },
       linkTo: `berths/form/${boatTab}`,
     },
     {
-      key: 'applicant',
-      completed: step > 1,
-      current: step === 1,
+      completed: currentStep > 3,
+      current: currentStep === 3,
+      label: 'site.steps.applicant',
+      legend: {
+        title: 'legend.person.title',
+        legend: 'legend.person.legend',
+      },
       linkTo: `berths/form/${applicantTab}`,
     },
     {
-      key: 'send_application',
-      completed: step > 2,
-      current: step === 2,
-      linkTo: `berths/form/${mapSteps[2][0]}`,
+      completed: currentStep > 4,
+      current: currentStep === 4,
+      label: 'site.steps.send_application',
+      legend: {
+        title: 'legend.overview.title',
+        legend: 'legend.overview.legend',
+      },
+      linkTo: 'berths/form/overview',
     },
   ];
 
-  return (
-    <Query<BoatTypesBerthsQuery> query={BOAT_TYPES_BERTHS_QUERY}>
-      {({
-        loading,
-        // error, TODO: handle errors
-        data,
-        client,
-      }) => {
-        const boatTypes = data ? data.boatTypes : [];
-        const berths = getResources(data ? data.harbors : null);
-        const selected = getSelectedResources(selectedBerths, berths);
+  const goBackward = async (values: {}) => {
+    await onSubmit(values);
+    if (steps[currentStep - 1]) {
+      await localePush(steps[currentStep - 1].linkTo);
+    }
+  };
 
-        const goForward = async (values: BerthFormValues) => {
-          await onSubmit(values);
+  const goForward = async (values: BerthFormValues) => {
+    await onSubmit(values);
+    if (steps[currentStep + 1]) {
+      await localePush(steps[currentStep + 1].linkTo);
+    }
+  };
 
-          const choices = selectedBerths
-            .map((harborId, priority) => ({
-              harborId,
-              priority: priority + 1,
-            }))
-            .toArray();
+  const submit = async (values: BerthFormValues) => {
+    await onSubmit(values);
 
-          const normalizedValues = Object.assign({}, values, {
-            boatLength: stringToFloat(values.boatLength),
-            boatWidth: stringToFloat(values.boatWidth),
-            boatDraught: stringToFloat(values.boatDraught),
-            boatWeight: stringToFloat(values.boatWeight),
-          });
-          // Append berthSwitch property only when exchange application is selected.
-          const payload = Object.assign(
-            {},
-            {
-              application: {
-                ...normalizedValues,
-                choices,
-              },
-            },
-            ApplicationOptions.ExchangeApplication === application.berthsApplicationType && {
-              berthSwitch: application.berthSwitch,
-            }
-          );
+    const choices = selectedBerths
+      .map((harborId, priority) => ({
+        harborId,
+        priority: priority + 1,
+      }))
+      .toArray();
 
-          await client.mutate<SubmitBerth, SubmitBerthVariables>({
-            variables: payload,
-            mutation: CREATE_APPLICATION,
-          });
+    const normalizedValues = Object.assign({}, values, {
+      boatLength: stringToFloat(values.boatLength),
+      boatWidth: stringToFloat(values.boatWidth),
+      boatDraught: stringToFloat(values.boatDraught),
+      boatWeight: stringToFloat(values.boatWeight),
+    });
 
-          await localePush('/thank-you');
-        };
+    // Append berthSwitch property only when exchange application is selected.
+    const payload = Object.assign(
+      {},
+      {
+        application: {
+          ...normalizedValues,
+          choices,
+        },
+      },
+      ApplicationOptions.ExchangeApplication === application.berthsApplicationType && {
+        berthSwitch: application.berthSwitch,
+      }
+    );
 
-        const goBackwards = async (values: {}) => {
-          await onSubmit(values);
-          await localePush(steps[1].linkTo);
-        };
+    submitBerth({
+      variables: payload,
+    }).then(() => localePush('/thank-you'));
+  };
 
-        const goToStep = (nextStep: number) => (values: {}) => {
-          onSubmit(values);
-          localePush(steps[nextStep + 2].linkTo);
-        };
-
+  const getStepComponent = () => {
+    switch (currentStep) {
+      case 2:
+        return <BoatDetails tab={boatTab} boatTypes={boatTypes} />;
+      case 3:
+        return <ApplicantDetails tab={applicantTab} />;
+      case 4:
         return (
-          <FormPage
-            goForward={goForward}
-            goBackwards={goBackwards}
-            nextStep={goToStep(step + 1)}
-            prevStep={goToStep(step - 1)}
-            step={step}
-            steps={steps}
-            {...rest}
-          >
-            <BoatDetails tab={boatTab} boatTypes={boatTypes} />
-            <ApplicantDetails tab={applicantTab} />
-            {!loading && (
-              <BerthOverview
-                selectedBerths={selected}
-                boatTypes={boatTypes}
-                boatTab={boatTab}
-                steps={steps}
-                application={application}
-              />
-            )}
-          </FormPage>
+          !loading && (
+            <BerthOverview
+              selectedBerths={selected}
+              boatTypes={boatTypes}
+              boatTab={boatTab}
+              steps={steps}
+              application={application}
+            />
+          )
         );
-      }}
-    </Query>
+    }
+  };
+
+  return (
+    <FormPage
+      currentStep={currentStep}
+      goBackward={goBackward}
+      goForward={goForward}
+      steps={steps}
+      stepsBeforeForm={stepsBeforeForm}
+      submit={submit}
+      {...rest}
+    >
+      {getStepComponent()}
+    </FormPage>
   );
 };
 

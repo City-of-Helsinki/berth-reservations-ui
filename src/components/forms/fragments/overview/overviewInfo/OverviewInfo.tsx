@@ -5,7 +5,7 @@ import { Col, Container, Row } from 'reactstrap';
 import './overviewInfo.scss';
 
 export interface Props {
-  title: string;
+  title?: string;
   children: React.ReactNode;
 }
 
@@ -15,7 +15,7 @@ const OverviewInfo = ({ title, children }: Props) => {
     <Container className="vene-overview-info">
       <Row>
         <Col>
-          <h3 className="vene-overview-info__title">{t(title)}</h3>
+          <h3 className="vene-overview-info__title">{title && t(title)}</h3>
         </Col>
       </Row>
       {children}

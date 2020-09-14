@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
+import omit from 'lodash/omit';
+import { onSubmitUnmarkedWinterForm } from '../../../redux/actions/FormActions';
 import { Store } from '../../../redux/types';
 import { UnmarkedWinterFormValues } from '../../../types/unmarkedWinterStorage';
 import { UnmarkedWinterAreasQuery } from '../../../utils/__generated__/UnmarkedWinterAreasQuery';
@@ -17,34 +19,35 @@ interface WithLocalePush {
 
 interface PropsFromState {
   initialValues: UnmarkedWinterFormValues;
+  onSubmit: Function;
 }
 
 type Props = WithLocalePush & PropsFromState;
 
-const UnmarkedWinterStoragePageContainer = (props: Props) => {
+const UnmarkedWinterStoragePageContainer = ({ localePush, onSubmit, initialValues }: Props) => {
   const steps: StepType[] = [
     {
       completed: false,
       current: true,
-      key: 'unmarked_winter_storage_area',
+      label: 'site.steps.unmarked_winter_storage_area',
       linkTo: '',
     },
     {
       completed: false,
       current: false,
-      key: 'boat_information',
+      label: 'site.steps.boat_information',
       linkTo: '',
     },
     {
       completed: false,
       current: false,
-      key: 'owner',
+      label: 'site.steps.owner',
       linkTo: '',
     },
     {
       completed: false,
       current: false,
-      key: 'send_notification',
+      label: 'site.steps.send_application',
       linkTo: '',
     },
   ];
@@ -54,21 +57,33 @@ const UnmarkedWinterStoragePageContainer = (props: Props) => {
 
   const winterStorageAreas = getWinterStorageAreas(data ? data.winterStorageAreas : null);
 
+  const handleSubmit = (values: Partial<UnmarkedWinterFormValues>) => {
+    if (values.chosenAreas !== initialValues.chosenAreas) {
+      const otherValues = omit(initialValues, 'chosenAreas');
+      return onSubmit({
+        ...otherValues,
+        ...values,
+      });
+    }
+  };
+
   return (
     <UnmarkedWinterStoragePage
-      {...props}
+      localePush={localePush}
+      onSubmit={handleSubmit}
+      initialValues={initialValues}
       steps={steps}
       winterStorageAreas={winterStorageAreas}
-      onSubmit={() => {
-        return; // TODO
-      }}
     />
   );
 };
 
 export default compose<Props, {}>(
   withMatchParamsHandlers,
-  connect((state: Store) => ({
-    initialValues: state.forms.unmarkedWinterValues,
-  }))
+  connect(
+    (state: Store) => ({
+      initialValues: state.forms.unmarkedWinterValues,
+    }),
+    { onSubmit: onSubmitUnmarkedWinterForm }
+  )
 )(UnmarkedWinterStoragePageContainer);

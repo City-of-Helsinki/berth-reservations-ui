@@ -1,6 +1,6 @@
 {
   "name": "venepaikka",
-  "version": "0.6.1",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@sentry/browser": "^4.6.6",
@@ -73,7 +73,8 @@
     "test": "react-scripts test --no-watch",
     "test:watch": "react-scripts test",
     "test:coverage": "react-scripts test --coverage",
-    "graphql-types": "apollo client:codegen --target=typescript --globalTypesFile='src/__generated__/globalTypes.ts'"
+    "types:generate": "apollo client:codegen --target=typescript --globalTypesFile='src/__generated__/globalTypes.ts'",
+    "pre-push": "yarn types:generate && yarn lint"
   },
   "devDependencies": {
     "apollo": "^2.28.3",

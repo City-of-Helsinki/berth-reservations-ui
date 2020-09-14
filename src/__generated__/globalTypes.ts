@@ -1,10 +1,22 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
+
+/**
+ * An enumeration.
+ */
+export enum OrderStatus {
+  CANCELLED = "CANCELLED",
+  EXPIRED = "EXPIRED",
+  PAID = "PAID",
+  REJECTED = "REJECTED",
+  WAITING = "WAITING",
+}
 
 /**
  * An enumeration.
@@ -58,6 +70,11 @@ export interface BerthSwitchInput {
   pier?: string | null;
   berthNumber: string;
   reason?: string | null;
+}
+
+export interface ConfirmPaymentMutationInput {
+  orderNumber: string;
+  clientMutationId?: string | null;
 }
 
 export interface HarborChoiceInput {

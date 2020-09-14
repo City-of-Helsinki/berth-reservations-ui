@@ -11,7 +11,7 @@ import { getResources, getSelectedResources, stringToFloat } from '../../../util
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { CREATE_WINTER_STORAGE_APPLICATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
-import BoatDetails from '../../forms/sections/WinterBoatDetails';
+import WinterBoatDetails from '../../forms/sections/WinterBoatDetails';
 import WinterOverview from '../../forms/sections/WinterOverview';
 import FormPage from './FormPage';
 
@@ -23,7 +23,7 @@ import {
 } from '../../../utils/__generated__/SubmitWinterStorage';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../steps/step/Step';
-import { Query } from 'react-apollo';
+import { useMutation, useQuery } from 'react-apollo';
 
 type Props = {
   initialValues: {};
@@ -32,11 +32,10 @@ type Props = {
   localePush: LocalePush;
 } & RouteComponentProps<{ tab: string }>;
 
-const mapSteps = [
-  ['registered-boat', 'unregistered-boat', 'no-boat'],
-  ['private-person', 'company'],
-  ['overview'],
-];
+const stepsBeforeForm = 2;
+const boatTabs = ['registered-boat', 'unregistered-boat', 'no-boat'];
+const applicantTabs = ['private-person', 'company'];
+const formTabs = [boatTabs, applicantTabs, ['overview']];
 
 const WinterFormPageContainer = ({
   selectedAreas,
@@ -47,133 +46,152 @@ const WinterFormPageContainer = ({
   onSubmit,
   ...rest
 }: Props) => {
-  const [step, setStep] = useState(0);
-  const [boatTab, setBoatTab] = useState(mapSteps[0][0]);
-  const [applicantTab, setApplicantTab] = useState(mapSteps[1][0]);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [boatTab, setBoatTab] = useState(boatTabs[0]);
+  const [applicantTab, setApplicantTab] = useState(applicantTabs[0]);
 
   useEffect(() => {
     const currStep = Math.max(
-      0,
-      findIndex(mapSteps, (s) => s.includes(tab))
+      stepsBeforeForm,
+      findIndex(formTabs, (s) => s.includes(tab)) + stepsBeforeForm
     );
-    setStep(currStep);
-    if (currStep === 0) {
+    setCurrentStep(currStep);
+    if (currStep === 2) {
       setBoatTab(tab);
     }
-    if (currStep === 1) {
+    if (currStep === 3) {
       setApplicantTab(tab);
     }
   }, [tab]);
 
+  const { loading, data } = useQuery<WinterAreasQuery>(WINTER_AREAS_QUERY);
+  const [submitWinterStorage] = useMutation<SubmitWinterStorage, SubmitWinterStorageVariables>(
+    CREATE_WINTER_STORAGE_APPLICATION
+  );
+
+  const boatTypes = data ? data.boatTypes : [];
+  const areas = getResources(data ? data.winterStorageAreas : null);
+  const selected = getSelectedResources(selectedAreas, areas);
+
   const steps: StepType[] = [
     {
-      key: 'winter_areas',
       completed: true,
       current: false,
+      label: 'site.steps.winter_areas',
       linkTo: `winter-storage`,
     },
     {
-      key: 'review_areas',
       completed: true,
       current: false,
+      label: 'site.steps.review_areas',
       linkTo: `winter-storage/selected`,
     },
     {
-      key: 'boat_information',
-      completed: step > 0,
-      current: step === 0,
+      completed: currentStep > 2,
+      current: currentStep === 2,
+      label: 'site.steps.boat_information',
+      legend: {
+        title: 'legend.boat.title',
+        legend: 'legend.boat.legend',
+      },
       linkTo: `winter-storage/form/${boatTab}`,
     },
     {
-      key: 'applicant',
-      completed: step > 1,
-      current: step === 1,
+      completed: currentStep > 3,
+      current: currentStep === 3,
+      label: 'site.steps.applicant',
+      legend: {
+        title: 'legend.person.title',
+        legend: 'legend.person.legend',
+      },
       linkTo: `winter-storage/form/${applicantTab}`,
     },
     {
-      key: 'send_application',
-      completed: step > 2,
-      current: step === 2,
-      linkTo: `winter-storage/form/${mapSteps[2][0]}`,
+      completed: currentStep > 4,
+      current: currentStep === 4,
+      label: 'site.steps.send_application',
+      legend: {
+        title: 'legend.overview.title',
+        legend: 'legend.overview.legend',
+      },
+      linkTo: 'winter-storage/form/overview',
     },
   ];
 
-  return (
-    <Query<WinterAreasQuery> query={WINTER_AREAS_QUERY}>
-      {({
-        loading,
-        // error, TODO: handle errors
-        data,
-        client,
-      }) => {
-        const boatTypes = data ? data.boatTypes : [];
-        const areas = getResources(data ? data.winterStorageAreas : null);
-        const goForward = async (values: WinterFormValues) => {
-          await onSubmit(values);
+  const goBackward = async (values: {}) => {
+    await onSubmit(values);
+    if (steps[currentStep - 1]) {
+      await localePush(steps[currentStep - 1].linkTo);
+    }
+  };
 
-          const chosenAreas = selectedAreas
-            .map((winterAreaId, priority) => ({
-              winterAreaId,
-              priority: priority + 1,
-            }))
-            .toArray();
+  const goForward = async (values: WinterFormValues) => {
+    await onSubmit(values);
+    if (steps[currentStep + 1]) {
+      await localePush(steps[currentStep + 1].linkTo);
+    }
+  };
 
-          const normalizedValues = Object.assign({}, values, {
-            boatWidth: stringToFloat(values.boatWidth),
-            boatLength: stringToFloat(values.boatLength),
-          });
+  const submit = async (values: WinterFormValues) => {
+    await onSubmit(values);
 
-          const allowedFormValues = omit(normalizedValues, 'boatStoredOnTrailer');
+    const chosenAreas = selectedAreas
+      .map((winterAreaId, priority) => ({
+        winterAreaId,
+        priority: priority + 1,
+      }))
+      .toArray();
 
-          await client.mutate<SubmitWinterStorage, SubmitWinterStorageVariables>({
-            variables: {
-              application: {
-                ...allowedFormValues,
-                chosenAreas,
-              },
-            },
-            mutation: CREATE_WINTER_STORAGE_APPLICATION,
-          });
+    const normalizedValues = Object.assign({}, values, {
+      boatWidth: stringToFloat(values.boatWidth),
+      boatLength: stringToFloat(values.boatLength),
+    });
+    const allowedFormValues = omit(normalizedValues, 'boatStoredOnTrailer');
 
-          await localePush('/thank-you');
-        };
+    const payload = {
+      application: {
+        ...allowedFormValues,
+        chosenAreas,
+      },
+    };
 
-        const goBackwards = async (values: {}) => {
-          await onSubmit(values);
-          await localePush(steps[1].linkTo);
-        };
+    submitWinterStorage({
+      variables: payload,
+    }).then(() => localePush('/thank-you'));
+  };
 
-        const goToStep = (nextStep: number) => (values: {}) => {
-          onSubmit(values);
-          localePush(steps[nextStep + 2].linkTo);
-        };
-
-        const selected = getSelectedResources(selectedAreas, areas);
-
+  const getStepComponent = () => {
+    switch (currentStep) {
+      case 2:
+        return <WinterBoatDetails tab={boatTab} boatTypes={boatTypes} />;
+      case 3:
+        return <ApplicantDetails tab={applicantTab} />;
+      case 4:
         return (
-          <FormPage
-            goForward={goForward}
-            goBackwards={goBackwards}
-            nextStep={goToStep(step + 1)}
-            prevStep={goToStep(step - 1)}
-            step={step}
-            steps={steps}
-            {...rest}
-          >
-            <BoatDetails tab={boatTab} boatTypes={boatTypes} />
-            <ApplicantDetails tab={applicantTab} />
-            {!loading && (
-              <WinterOverview
-                selectedAreas={selected}
-                boatTypes={boatTypes}
-                boatTab={boatTab}
-                steps={steps}
-              />
-            )}
-          </FormPage>
+          !loading && (
+            <WinterOverview
+              selectedAreas={selected}
+              boatTypes={boatTypes}
+              boatTab={boatTab}
+              steps={steps}
+            />
+          )
         );
-      }}
-    </Query>
+    }
+  };
+
+  return (
+    <FormPage
+      currentStep={currentStep}
+      goBackward={goBackward}
+      goForward={goForward}
+      steps={steps}
+      stepsBeforeForm={stepsBeforeForm}
+      submit={submit}
+      {...rest}
+    >
+      {getStepComponent()}
+    </FormPage>
   );
 };
 
