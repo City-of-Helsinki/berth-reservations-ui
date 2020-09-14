@@ -67,7 +67,8 @@
       "header": {
         "details": "Tilläggsuppgifter om stora fartyg",
         "inspection_and_insurance": "Besiktning och försäkringar",
-        "title": "Kajplatser för stora fartyg"
+        "title": "Kajplatser för stora fartyg",
+        "legend": "Ange uppgifterna från båtens registreringsintyg. Registreringsnumret måste anges om båten är längre än 5,5 m eller har en motoreffekt på 15 kW eller mer."
       },
       "text": {
         "inspection_and_insurance": "Ett besiktningsintyg och ett utdrag ur försäkringsbrevet ska lämnas in innan en kajplats kan beviljas. Besiktningen och försäkringen ska vara i kraft utan avbrott. Uthyraren har när som helst rätt att kräva att besiktningsintyget och utdraget ur försäkringsbrevet visas upp.",
@@ -199,6 +200,11 @@
           "guarantee": {
             "label": "Jag har läst ordningsreglerna för vinteruppläggning i båthamnarna på {{link}} och förbinder mig att iaktta dem. Jag försäkrar att de uppgifter jag gett är riktiga."
           }
+        },
+        "unmarked_winter": {
+          "guarantee": {
+            "label": "Jag försäkrar att uppgifterna jag gett är korrekta."
+          }
         }
       },
       "header": {
@@ -210,6 +216,10 @@
         },
         "receivable_items": {
           "title": "Jag vill få följande per e-post:"
+        },
+        "unmarked_winter_overview": {
+          "legend": "Kontrollera att uppgifterna stämmer innan du skickar in anmälan",
+          "title": "Sammanfattning"
         }
       }
     },
@@ -378,6 +388,13 @@
         }
       }
     },
+    "unmarked_winter_storage": {
+      "field": {
+        "winter_storage_area": {
+          "label": "Upplagsområde"
+        }
+      }
+    },
     "wizard": {
       "button": {
         "invalid": "Fyll i formuläret för att fortsätta",
@@ -401,6 +418,13 @@
         "second": "OBS! Läs igenom anvisningarna för val av förvaringsområden samt information om såväl reglerna för utdelning av uppläggningsplatser som tidsschemat för handläggningen av ansökningar på <1>hel.fi</1> innan du fyller i ansökan. <3/> Kontakta oss om du är intresserad av att lägga upp din båt på din egen båtplats för vintern."
       },
       "title": "Ansökan om vinteruppläggningsplatser"
+    },
+    "unmarked_winter_storage": {
+      "paragraph": {
+        "first": "I den här tjänsten kan du meddela oss att du fört din båt till ett område för vinteruppläggning som fylls i upptagningsordning. På grund av dessa områdens \nkaraktär kan vi inte dela ut platser på dem i förväg.",
+        "second": "Närmare information om grunderna för utdelning av vinteruppläggningsplatser, priserna och handläggningen av ansökningar finns på webbplatsen <1>hel.fi</1>."
+      },
+      "title": "Anmäl att din båt har förts till ett upplagsområde"
     }
   },
   "legend": {
@@ -431,6 +455,22 @@
     "winter": {
       "legend": "Uppge dimensionerna för den båt som ska läggas upp. På listan över områden ser du de områden där det finns platser i lämplig storlek. Du kan också filtrera listan utifrån de tjänster som erbjuds i områdena.",
       "title": "Bläddra och välj vinteruppläggningsområden"
+    },
+    "unmarked_winter": {
+      "legend": "Välj det upplagsområde dit du fört din båt.",
+      "title": "Välj upplagsområde"
+    },
+    "unmarked_winter_boat": {
+      "legend": "När du har fört din båt till ett område för vinteruppläggning som fylls i upptagningsordning ska du meddela oss om det. Ange först uppgifter om båten som du fört till området.",
+      "title": "Uppgifter om båten"
+    },
+    "unmarked_winter_owner": {
+      "legend": "Ange uppgifter om båtens ägare. Av företag debiteras en förhöjd avgift.",
+      "title": "Ägarens uppgifter"
+    },
+    "unmarked_winter_overview": {
+      "legend": "Anmälan är klar! Kontrollera ännu att uppgifterna som du uppgett är korrekta. Vid behov kan du gå tillbaka för att redigera dem.",
+      "title": "Kontrollera anmälan"
     }
   },
   "page": {
@@ -537,10 +577,16 @@
           "title": "Ansökan om båtplats"
         },
         "instructions": "Mer information och anvisningar (hel.fi)",
+        "instructions_short": "Mer information (hel.fi)",
         "winter": {
           "button_label": "Bläddra och sök\nvinteruppläggningsplatser",
           "description": "Bläddra bland Helsingfors stads vinteruppläggningsplatser. Du kan göra en ny ansökan om vinteruppläggningsplats för din båt.",
           "title": "Vinteruppläggningsplatser"
+        },
+        "unmarked_winter": {
+          "button_label": "Anmäl",
+          "description": "Skicka en anmälan till oss när du har fört din båt till ett område för vinteruppläggning som fylls i upptagningsordning.",
+          "title": "Anmälan för upplagsområde som fylls i upptagningsordning"
         }
       },
       "description": {
@@ -552,6 +598,13 @@
     "not_found": {
       "message": "Sidan du sökte kunde tyvärr inte hittas.",
       "title": "404"
+    },
+    "notification_sent": {
+      "message": {
+        "paragraph1": "Din anmälan har mottagits.",
+        "paragraph2": "Tack för din anmälan! Den hjälper oss att bättre betjäna båtägare nu och i framtiden."
+      },
+      "title": "Tack för din anmälan"
     },
     "overview": {
       "info": {
@@ -566,41 +619,43 @@
         "boat_weight": "Vikt",
         "boat_width": "Bredd",
         "edit": "Redigera",
-        "person": "Sökande"
+        "person": "Sökande",
+        "winter_storage_area": "Vinteruppläggningsområde",
+        "owner_information": "Ägarens uppgifter"
       }
     },
     "payment_error": {
       "already_paid": {
-        "message": "Avgiften du försökte betala är redan markerad som betald. Tack!",
-        "title": "Avgiften är redan betald."
+        "message": "Den avgift du försöker betala är redan markerad som betald. Tack!",
+        "title": "Avgiften är redan betald"
       },
       "general_error": {
-        "message": "Vi beklagar men betalningen hittas inte. Den kan ha annullerats eller så kan länken vara bristfällig.",
-        "title": "Felsituation"
+        "message": "Vi kunde tyvärr inte hitta betalningen. Den kan ha annullerats, eller så kan länken vara felaktig.",
+        "title": "Fel"
       },
       "past_due_date": {
-        "message": "Vi beklagar att avgiften inte längre kan betalas, eftersom förfallodagen överskridits. Båtplatsavgifter kan inte längre betalas efter att förfallodagen överskridits.",
-        "title": "Förfallodagen har överskridits."
+        "message": "Avgiften kan tyvärr inte längre betalas, eftersom förfallodatumet har överskridits. Båtplatsavgifter kan inte betalas efter förfallodatumet.",
+        "title": "Förfallodatumet har överskridits"
       }
     },
     "payment_received": {
       "message": {
-        "paragraph1": "Bästa kund, vi har mottagit din betalning. Vi skickar dig ännu kvittot per e-post.",
-        "paragraph2": "Vi önskar dig en trevlig båtsäsong!"
+        "paragraph1": "Bästa kund, vi har tagit emot din betalning. Vi skickar ett kvitto per e-post.",
+        "paragraph2": "Vi önskar dig trevliga båtturer!"
       },
       "title": "Tack!"
     },
     "payment_failed": {
-      "title": "Felsituation",
-      "paragraph1": "Vi beklagar men det skedde ett fel i betalningshanteringen.",
-      "paragraph2": "Du kan senare försöka utföra betalningen på nytt, vid behov kontakta kundtjänsten."
+      "title": "Fel",
+      "paragraph1": "Det uppstod tyvärr ett fel i behandlingen av betalningen.",
+      "paragraph2": "Du kan försöka igen senare eller vid behov kontakta kundtjänsten."
     },
     "payment": {
       "title": "Betalning av faktura",
-      "terms_info": "Bästa kund, vi har uppdaterat kontraktsvillkoren för vinterförvaringsplatserna. Bekanta dig med innehållet för kontraktsvillkoren nedan. Efter det kan du fortsätta till betalningstransaktionen. Godkännande av kontraktsvillkoren förutsätts för att få en vinterförvaringsplats.",
-      "questions": "Frågor och ytterligare uppgifter: ",
-      "terms_pdf": "Kontraktsvillkor för vinterförvaringsplats (PDF)",
-      "accept_terms": "Jag har läst kontraktsvillkoren för vinterförvaringsplatsen och godkänner dem",
+      "terms_info": "Bästa kund, vi har uppdaterat avtalsvillkoren för vinteruppläggningsplatser. Läs avtalsvillkoren nedan. Därefter kan du fortsätta med betalningen. För att få en vinteruppläggningsplats måste du godkänna avtalsvillkoren.",
+      "questions": "Frågor och mer information: ",
+      "terms_pdf": "Avtalsvillkor för vinteruppläggningsplatser (PDF)",
+      "accept_terms": "Jag har läst avtalsvillkoren för vinteruppläggningsplatser och godkänner dem",
       "pay": "Fortsätt till betalningen"
     },
     "winter_storage": {
@@ -721,10 +776,16 @@
         },
         "winter_storage": "Ansökan om vinteruppläggningsplats"
       },
-      "winter_areas": "Val av områden"
+      "winter_areas": "Val av områden",
+      "unmarked_winter_storage_area": "Val av område",
+      "owner": "Ägarens uppgifter",
+      "send_notification": "Skicka anmälan"
     },
     "winter": {
       "title": "Vinteruppläggningsplatser"
+    },
+    "unmarked_winter_storage": {
+      "title": "Anmälan för upplagsområde som fylls i upptagningsordning"
     }
   },
   "test": {
