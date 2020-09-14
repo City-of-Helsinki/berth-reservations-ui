@@ -599,7 +599,7 @@
       "message": "We are sorry, but the page you requested could not be found.",
       "title": "404"
     },
-    "notification_sent": {
+    "notice_sent": {
       "message": {
         "paragraph1": "Your hoisting order notice has now been sent.",
         "paragraph2": "Thank you for submitting the notice! This will help us serve boaters better, both now and in the future."
@@ -779,7 +779,7 @@
       "winter_areas": "Area selection",
       "unmarked_winter_storage_area": "Area selection",
       "owner": "Owner information",
-      "send_notification": "Submitting the notice"
+      "send_notice": "Submitting the notice"
     },
     "winter": {
       "title": "Winter storage places"

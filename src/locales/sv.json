@@ -599,7 +599,7 @@
       "message": "Sidan du sökte kunde tyvärr inte hittas.",
       "title": "404"
     },
-    "notification_sent": {
+    "notice_sent": {
       "message": {
         "paragraph1": "Din anmälan har mottagits.",
         "paragraph2": "Tack för din anmälan! Den hjälper oss att bättre betjäna båtägare nu och i framtiden."
@@ -779,7 +779,7 @@
       "winter_areas": "Val av områden",
       "unmarked_winter_storage_area": "Val av område",
       "owner": "Ägarens uppgifter",
-      "send_notification": "Skicka anmälan"
+      "send_notice": "Skicka anmälan"
     },
     "winter": {
       "title": "Vinteruppläggningsplatser"

@@ -104,7 +104,7 @@ const UnmarkedWinterFormPageContainer = ({
     {
       completed: currentStep > 3,
       current: currentStep === 3,
-      label: 'site.steps.send_notification',
+      label: 'site.steps.send_notice',
       legend: {
         title: 'legend.unmarked_winter_overview.title',
         legend: 'legend.unmarked_winter_overview.legend',
@@ -150,7 +150,7 @@ const UnmarkedWinterFormPageContainer = ({
     submitUnmarkedWinterStorage({
       variables: payload,
     }).then(() => {
-      localePush('/notification-sent');
+      localePush('/notice-sent');
     });
   };
 

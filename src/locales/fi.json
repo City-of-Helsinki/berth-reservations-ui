@@ -599,7 +599,7 @@
       "message": "Pahoittelemme, mutta hakemaasi sivua ei löydy.",
       "title": "404"
     },
-    "notification_sent": {
+    "notice_sent": {
       "message": {
         "paragraph1": "Nostojärjestysilmoituksesi on nyt lähetetty.",
         "paragraph2": "Kiitos, että teit ilmoituksen! Se auttaa meitä palvelemaan veneilijöitä paremmin nyt ja tulevaisuudessa."
@@ -779,7 +779,7 @@
       "winter_areas": "Alueiden valinta",
       "unmarked_winter_storage_area": "Alueen valinta",
       "owner": "Omistajan tiedot",
-      "send_notification": "Ilmoituksen lähettäminen"
+      "send_notice": "Ilmoituksen lähettäminen"
     },
     "winter": {
       "title": "Talvisäilytyspaikat"
