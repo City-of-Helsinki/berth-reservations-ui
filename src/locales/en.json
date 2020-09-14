@@ -421,7 +421,7 @@
     },
     "unmarked_winter_storage": {
       "paragraph": {
-        "first": "Using this service, you can notify us that you have taken your boat to a hoisting order area. Due to the nature of the hoisting order areas, we cannot assign places in them in advance.",
+        "first": "Using this service, you can notify us that you have taken your boat to a unmarked winter storage area. Due to the nature of the unmarked winter storage areas, we cannot assign places in them in advance.",
         "second": "You can find further details concerning the principles of assigning winter storage spaces, the prices and the processing of applications on the <1>hel.fi website</1>."
       },
       "title": "Submit a notice that your boat has been taken to a winter storage area"
@@ -461,7 +461,7 @@
       "title": "Select the winter storage area"
     },
     "unmarked_winter_boat": {
-      "legend": "When you have taken your boat to a hoisting order area, please notify us. First, provide the information of the boat you have taken to the area.",
+      "legend": "When you have taken your boat to a unmarked winter storage area, please notify us. First, provide the information of the boat you have taken to the area.",
       "title": "Boat information"
     },
     "unmarked_winter_owner": {
@@ -585,8 +585,8 @@
         },
         "unmarked_winter": {
           "button_label": "Notify",
-          "description": "Notify us when you have taken your boat to a hoisting order area.",
-          "title": "Hoisting order notice"
+          "description": "Notify us when you have taken your boat to a unmarked winter storage area.",
+          "title": "Unmarked winter storage notice"
         }
       },
       "description": {
@@ -601,7 +601,7 @@
     },
     "notice_sent": {
       "message": {
-        "paragraph1": "Your hoisting order notice has now been sent.",
+        "paragraph1": "Your unmarked winter storage notice has now been sent.",
         "paragraph2": "Thank you for submitting the notice! This will help us serve boaters better, both now and in the future."
       },
       "title": "Thank you for your notice"
@@ -679,8 +679,8 @@
       "maximum_width": "Max. width",
       "notice": {
         "paragraph1": "Applying for winter storage spaces in the 2020–2021 season is now current. Customers who have had a square space in the last season will be sent an invoice for the space. If you are a new applicant, you can apply for a square space by filling out the online application at <1>venepaikat.hel.fi/en</1>. Available squares will be assigned on a first-come, first-served basis in the autumn. We will send offers for these spaces by e-mail.",
-        "paragraph2": "Customers who have had a winter storage space in a hoisting order area will not be sent an invoice. Instead, they can pay their fee onto the berth reservation account after the boat has been brought to the hoisting order area. We will provide information about paying for hoisting order area spaces later online at <1>hel.fi/boating</1> and on the information boards of hoisting order areas. Customers who have paid for a winter storage space will be sent a winter storage sticker to be attached to their boats on a visible spot.",
-        "paragraph3": "Boaters can bring their boats to the hoisting order area of their choosing starting from 15 September 2020. Please note that boats must not be brought to hoisting order areas before the storage season starts on 15 September.",
+        "paragraph2": "Customers who have had a winter storage space in a unmarked winter storage area will not be sent an invoice. Instead, they can pay their fee onto the berth reservation account after the boat has been brought to the unmarked winter storage area. We will provide information about paying for unmarked winter storage area spaces later online at <1>hel.fi/boating</1> and on the information boards of unmarked winter storage areas. Customers who have paid for a winter storage space will be sent a winter storage sticker to be attached to their boats on a visible spot.",
+        "paragraph3": "Boaters can bring their boats to the unmarked winter storage area of their choosing starting from 15 September 2020. Please note that boats must not be brought to unmarked winter storage areas before the storage season starts on 15 September.",
         "title": "Applying for winter storage spaces 2020–2021"
       },
       "selected": {
@@ -785,7 +785,7 @@
       "title": "Winter storage places"
     },
     "unmarked_winter_storage": {
-      "title": "Hoisting order notice"
+      "title": "Unmarked winter storage notice"
     }
   },
   "test": {
