@@ -9,7 +9,7 @@ import UnmarkedWinterFormPage from './pages/formPage/UnmarkedWinterFormPageConta
 import FrontPage from './pages/frontPage/FrontPage';
 import ApplicationThankYouPage from './pages/notice/ApplicationSentPage';
 import NotFoundPage from './pages/notice/NotFoundPage';
-import NotificationSentPage from './pages/notice/NotificationSentPage';
+import NoticeSentPage from './pages/notice/NoticeSentPage';
 import SelectedAreaPage from './pages/selectedAreaPage/SelectedAreaPageContainer';
 import SelectedBerthPage from './pages/selectedBerthPage/SelectedBerthPageContainer';
 import WinterStoragePage from './pages/winterStoragePage/WinterStoragePageContainer';
@@ -67,7 +67,7 @@ const App = ({
       <Route exact path={`/${localeParam}/payment-result`} component={PaymentResultContainer} />
 
       <Route exact path={`/${localeParam}/thank-you`} component={ApplicationThankYouPage} />
-      <Route exact path={`/${localeParam}/notification-sent`} component={NotificationSentPage} />
+      <Route exact path={`/${localeParam}/notice-sent`} component={NoticeSentPage} />
       <Route component={NotFoundPage} />
     </Switch>
   );

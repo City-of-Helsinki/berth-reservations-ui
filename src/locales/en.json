@@ -199,6 +199,11 @@
           "guarantee": {
             "label": "I have read the marina rules concerning winter storage at {{link}} (in Finnish) and I commit to them. I assure that the information I have provided is correct."
           }
+        },
+        "unmarked_winter": {
+          "guarantee": {
+            "label": "I confirm that the information I have provided is correct."
+          }
         }
       },
       "header": {
@@ -210,6 +215,10 @@
         },
         "receivable_items": {
           "title": "I want to receive the following via e-mail"
+        },
+        "unmarked_winter_overview": {
+          "legend": "Please check the accuracy of the information once more before submitting your notice.",
+          "title": "Summary"
         }
       }
     },
@@ -288,7 +297,8 @@
       "header": {
         "additional_info": "Further information",
         "measures": "Boat dimensions",
-        "title": "Information on a registered boat"
+        "title": "Information on a registered boat",
+        "legend": "Enter the information from the boat's registration certificate. The registration number must be provided if the boat is longer than 5.5 m or has an engine power of 15 kW or more."
       }
     },
     "services": {
@@ -378,6 +388,13 @@
         }
       }
     },
+    "unmarked_winter_storage": {
+      "field": {
+        "winter_storage_area": {
+          "label": "Winter storage area"
+        }
+      }
+    },
     "wizard": {
       "button": {
         "invalid": "Please complete the form to continue",
@@ -401,6 +418,13 @@
         "second": "NOTE! Please read the instructions on selecting storage areas as well as further details concerning the principles of assigning storage spaces and the processing times for applications on the <1>hel.fi</1> website before completing your application. <3/> If you are interested in storing your boat in the water at your designated boat berth over the winter, please contact us."
       },
       "title": "Winter storage place search"
+    },
+    "unmarked_winter_storage": {
+      "paragraph": {
+        "first": "Using this service, you can notify us that you have taken your boat to a unmarked winter storage area. Due to the nature of the unmarked winter storage areas, we cannot assign places in them in advance.",
+        "second": "You can find further details concerning the principles of assigning winter storage spaces, the prices and the processing of applications on the <1>hel.fi website</1>."
+      },
+      "title": "Submit a notice that your boat has been taken to a winter storage area"
     }
   },
   "legend": {
@@ -431,6 +455,22 @@
     "winter": {
       "legend": "Please enter the dimensions of the boat to be stored. You can see the locations with spaces suitable for the size of your boat in the location list. You can also sort the list based on the services available at the location.",
       "title": "Browse and search for winter storage locations"
+    },
+    "unmarked_winter": {
+      "legend": "Select the winter storage area to which you have taken your boat.",
+      "title": "Select the winter storage area"
+    },
+    "unmarked_winter_boat": {
+      "legend": "When you have taken your boat to a unmarked winter storage area, please notify us. First, provide the information of the boat you have taken to the area.",
+      "title": "Boat information"
+    },
+    "unmarked_winter_owner": {
+      "legend": "Provide the boat owner’s information. Companies are charged an increased fee.",
+      "title": "The owner’s information"
+    },
+    "unmarked_winter_overview": {
+      "legend": "The notice is complete! Please check that the information you have provided is correct. If necessary, you can go back and edit the information.",
+      "title": "Check the notice"
     }
   },
   "page": {
@@ -537,10 +577,16 @@
           "title": "Boat berth search"
         },
         "instructions": "Additional information and instructions (hel.fi)",
+        "instructions_short": "Additional information (hel.fi)",
         "winter": {
           "button_label": "Browse and search\nfor winter storage spaces",
           "description": "Browse the City of Helsinki’s winter storage spaces for boats. You can submit a new application for a winter storage space for your boat.",
           "title": "Winter storage places"
+        },
+        "unmarked_winter": {
+          "button_label": "Notify",
+          "description": "Notify us when you have taken your boat to a unmarked winter storage area.",
+          "title": "Unmarked winter storage notice"
         }
       },
       "description": {
@@ -552,6 +598,13 @@
     "not_found": {
       "message": "We are sorry, but the page you requested could not be found.",
       "title": "404"
+    },
+    "notice_sent": {
+      "message": {
+        "paragraph1": "Your unmarked winter storage notice has now been sent.",
+        "paragraph2": "Thank you for submitting the notice! This will help us serve boaters better, both now and in the future."
+      },
+      "title": "Thank you for your notice"
     },
     "overview": {
       "info": {
@@ -566,7 +619,9 @@
         "boat_weight": "Weight",
         "boat_width": "Width",
         "edit": "Edit",
-        "person": "Applicant"
+        "person": "Applicant",
+        "winter_storage_area": "Winter storage area",
+        "owner_information": "Owner information"
       }
     },
     "payment_error": {
@@ -624,8 +679,8 @@
       "maximum_width": "Max. width",
       "notice": {
         "paragraph1": "Applying for winter storage spaces in the 2020–2021 season is now current. Customers who have had a square space in the last season will be sent an invoice for the space. If you are a new applicant, you can apply for a square space by filling out the online application at <1>venepaikat.hel.fi/en</1>. Available squares will be assigned on a first-come, first-served basis in the autumn. We will send offers for these spaces by e-mail.",
-        "paragraph2": "Customers who have had a winter storage space in a hoisting order area will not be sent an invoice. Instead, they can pay their fee onto the berth reservation account after the boat has been brought to the hoisting order area. We will provide information about paying for hoisting order area spaces later online at <1>hel.fi/boating</1> and on the information boards of hoisting order areas. Customers who have paid for a winter storage space will be sent a winter storage sticker to be attached to their boats on a visible spot.",
-        "paragraph3": "Boaters can bring their boats to the hoisting order area of their choosing starting from 15 September 2020. Please note that boats must not be brought to hoisting order areas before the storage season starts on 15 September.",
+        "paragraph2": "Customers who have had a winter storage space in a unmarked winter storage area will not be sent an invoice. Instead, they can pay their fee onto the berth reservation account after the boat has been brought to the unmarked winter storage area. We will provide information about paying for unmarked winter storage area spaces later online at <1>hel.fi/boating</1> and on the information boards of unmarked winter storage areas. Customers who have paid for a winter storage space will be sent a winter storage sticker to be attached to their boats on a visible spot.",
+        "paragraph3": "Boaters can bring their boats to the unmarked winter storage area of their choosing starting from 15 September 2020. Please note that boats must not be brought to unmarked winter storage areas before the storage season starts on 15 September.",
         "title": "Applying for winter storage spaces 2020–2021"
       },
       "selected": {
@@ -721,10 +776,16 @@
         },
         "winter_storage": "Winter storage application"
       },
-      "winter_areas": "Area selection"
+      "winter_areas": "Area selection",
+      "unmarked_winter_storage_area": "Area selection",
+      "owner": "Owner information",
+      "send_notice": "Submitting the notice"
     },
     "winter": {
       "title": "Winter storage places"
+    },
+    "unmarked_winter_storage": {
+      "title": "Unmarked winter storage notice"
     }
   },
   "test": {

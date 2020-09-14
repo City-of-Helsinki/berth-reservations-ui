@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next';
 import NoticeTemplate from '../../common/noticeTemplate/NoticeTemplate';
 import resetStore from './resetStore';
 
-const NotificationSentPage = () => {
+const NoticeSentPage = () => {
   const { t } = useTranslation();
   return (
     <NoticeTemplate
-      titleText={t('page.notification_sent.title')}
+      titleText={t('page.notice_sent.title')}
       message={
         <>
-          <p>{t('page.notification_sent.message.paragraph1')}</p>
-          <p>{t('page.notification_sent.message.paragraph2')}</p>
+          <p>{t('page.notice_sent.message.paragraph1')}</p>
+          <p>{t('page.notice_sent.message.paragraph2')}</p>
         </>
       }
       success
@@ -19,4 +19,4 @@ const NotificationSentPage = () => {
   );
 };
 
-export default resetStore(NotificationSentPage);
+export default resetStore(NoticeSentPage);
