@@ -8,6 +8,18 @@
 ...
 </details>
 
+# 1.0.0 (September 15, 2020)
+
+**Added:**
+
+- Update graphql schema. in ([#308](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/308))
+- Unmarked winter storage form. in ([#307](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/307))
+- Update payment translations. in ([#310](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/310))
+- Remove selection for unmarked WS from winter storage application form. in ([#309](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/309))
+- Add trailer information to the unmarked WS application. in ([#311](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/311))
+- Remove feature flag from unmarked winter storage. in ([#312](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/312))
+- Add Swedish and English translations. in ([#758](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/758))
+
 # 0.6.1 (August 27, 2020) Note: created for new prod env, not yet published
 
 **Added:**
