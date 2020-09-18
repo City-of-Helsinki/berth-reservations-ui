@@ -36,7 +36,10 @@ const PaymentPage = ({ handlePay }: Props) => {
         <div className="vene-payment-page__content-container">
           <div className="vene-payment-page__content vene-payment-page__accept-terms-content">
             <div>
-              <a href="/" className="vene-payment-page__link">
+              <a
+                href="/Helsingin_talvisäilytyspaikan_vuokrasopimusehdot.pdf"
+                className="vene-payment-page__link"
+              >
                 {t('page.payment.terms_pdf')}
               </a>
             </div>
