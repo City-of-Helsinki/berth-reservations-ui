@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`formValidation mustBeEmail should return an error message if the email is invalid 1`] = `"validation.message.must_be_email"`;
+
 exports[`formValidation mustNotExceedTwoDecimals should return an error message if the value has more than two decimals 1`] = `"validation.message.invalid_value"`;
 
 exports[`formValidation mustNotExceedTwoDecimals should return an error message if the value has no digits after the decimal point 1`] = `"validation.message.invalid_value"`;

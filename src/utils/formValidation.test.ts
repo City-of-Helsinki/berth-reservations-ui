@@ -1,4 +1,4 @@
-import validator, { mustNotExceedTwoDecimals } from './formValidation';
+import validator, { mustBeEmail, mustNotExceedTwoDecimals } from './formValidation';
 
 describe('formValidation', () => {
   describe('mustNotExceedTwoDecimals', () => {
@@ -12,6 +12,16 @@ describe('formValidation', () => {
 
     test('should return an error message if the value has no digits after the decimal point', () => {
       expect(mustNotExceedTwoDecimals('1000.')).toMatchSnapshot();
+    });
+  });
+
+  describe('mustBeEmail', () => {
+    test('should return undefined if the email is valid', () => {
+      expect(mustBeEmail('test@example.com')).toBeUndefined();
+    });
+
+    test('should return an error message if the email is invalid', () => {
+      expect(mustBeEmail('test@.com')).toMatchSnapshot();
     });
   });
 
