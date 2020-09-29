@@ -1,6 +1,6 @@
 import queryString from 'query-string';
 
-export function getOrderNumber(searchString: string): string | null {
+export const getOrderNumber = (searchString: string): string | null => {
   const parsed = queryString.parse(searchString);
   const orderNumber = parsed.order_number;
 
@@ -8,10 +8,10 @@ export function getOrderNumber(searchString: string): string | null {
     return null;
   }
   return orderNumber;
-}
+};
 
-export function getPaymentSuccess(searchString: string): boolean {
+export const getPaymentSuccess = (searchString: string): boolean => {
   const parsed = queryString.parse(searchString);
   const paymentStatus = parsed.payment_status;
   return paymentStatus === 'success';
-}
+};
