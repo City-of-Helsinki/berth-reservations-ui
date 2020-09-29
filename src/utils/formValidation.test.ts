@@ -7,11 +7,11 @@ describe('formValidation', () => {
     });
 
     test('should return an error message if the value has more than two decimals', () => {
-      expect(mustNotExceedTwoDecimals('1000.000')).toMatchSnapshot();
+      expect(mustNotExceedTwoDecimals('1000.000')).toEqual('validation.message.invalid_value');
     });
 
     test('should return an error message if the value has no digits after the decimal point', () => {
-      expect(mustNotExceedTwoDecimals('1000.')).toMatchSnapshot();
+      expect(mustNotExceedTwoDecimals('1000.')).toEqual('validation.message.invalid_value');
     });
   });
 
@@ -21,7 +21,7 @@ describe('formValidation', () => {
     });
 
     test('should return an error message if the email is invalid', () => {
-      expect(mustBeEmail('test@.com')).toMatchSnapshot();
+      expect(mustBeEmail('test@.com')).toEqual('validation.message.must_be_email');
     });
   });
 
