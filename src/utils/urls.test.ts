@@ -1,4 +1,4 @@
-import { getOrderNumber, getPaymentSuccess } from './urls';
+import { getOrderNumber, getPaymentSuccess, getTermsDocumentUrl } from './urls';
 
 describe('utils/urls', () => {
   describe('getOrderNumber', () => {
@@ -16,6 +16,12 @@ describe('utils/urls', () => {
       expect(getPaymentSuccess('?payment_status=failure')).toBeFalsy();
       expect(getPaymentSuccess('?payment_status=')).toBeFalsy();
       expect(getPaymentSuccess('?foo=bar')).toBeFalsy();
+    });
+
+    it('should get terms document URL', () => {
+      expect(getTermsDocumentUrl('fi')).toEqual(
+        '/Helsingin_talvisäilytyspaikan_vuokrasopimusehdot-fi.pdf'
+      );
     });
   });
 });

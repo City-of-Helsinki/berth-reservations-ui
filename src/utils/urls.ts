@@ -15,3 +15,7 @@ export const getPaymentSuccess = (searchString: string): boolean => {
   const paymentStatus = parsed.payment_status;
   return paymentStatus === 'success';
 };
+
+export const getTermsDocumentUrl = (language: string): string => {
+  return `/Helsingin_talvisäilytyspaikan_vuokrasopimusehdot-${language}.pdf`;
+};
