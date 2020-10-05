@@ -729,7 +729,8 @@
     "common": {
       "list": "List",
       "map": "On the map",
-      "servicemapURL": "https://servicemap.hel.fi/unit/{{servicemapId}}"
+      "servicemapURL": "https://servicemap.hel.fi/unit/{{servicemapId}}",
+      "loading": "Loading"
     },
     "footer": {
       "accessibility_statement": "Accessibility statement",

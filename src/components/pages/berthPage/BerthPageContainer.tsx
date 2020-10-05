@@ -101,6 +101,7 @@ const BerthPageContainer = (props: Props) => {
       {({
         // error, TODO: handle errors
         data,
+        loading,
       }) => {
         const berths = getResources(data ? data.harbors : null);
         const boatTypes = data ? data.boatTypes : [];
@@ -112,6 +113,7 @@ const BerthPageContainer = (props: Props) => {
             boatTypes={boatTypes}
             steps={steps}
             services={services}
+            loading={loading}
           />
         );
       }}
