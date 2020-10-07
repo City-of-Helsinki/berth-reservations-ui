@@ -397,6 +397,7 @@
     },
     "wizard": {
       "button": {
+        "continue": "Fortsätt",
         "invalid": "Fyll i formuläret för att fortsätta",
         "next": "Nästa",
         "previous": "Föregående sida",

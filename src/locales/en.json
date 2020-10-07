@@ -397,6 +397,7 @@
     },
     "wizard": {
       "button": {
+        "continue": "Continue",
         "invalid": "Please complete the form to continue",
         "next": "Next",
         "previous": "Previous page",
