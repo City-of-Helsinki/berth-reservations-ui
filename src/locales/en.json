@@ -224,7 +224,7 @@
     },
     "postal_details": {
       "field": {
-        "munacipality": {
+        "municipality": {
           "label": "City",
           "placeholder": "City"
         },
@@ -397,6 +397,7 @@
     },
     "wizard": {
       "button": {
+        "continue": "Continue",
         "invalid": "Please complete the form to continue",
         "next": "Next",
         "previous": "Previous page",
@@ -647,8 +648,8 @@
     },
     "payment_failed": {
       "title": "Failure",
-      "paragraph1": "We are sorry, but an error occurred when processing the payment.",
-      "paragraph2": "You can try making your payment later. If necessary, please contact our customer service."
+      "paragraph1": "We are sorry, but the payment failed or was cancelled.",
+      "paragraph2": "Please try again later, or contact the customer service."
     },
     "payment": {
       "title": "Paying the invoice",
