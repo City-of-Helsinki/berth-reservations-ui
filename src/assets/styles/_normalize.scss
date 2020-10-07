@@ -24,6 +24,19 @@ strong {
 
 .custom-select {
   background-color: transparent;
+  padding: 0;
+
+  &:invalid {
+    color: $input-placeholder-color;
+  }
+
+  [disabled] {
+    color: $input-placeholder-color;
+  }
+
+  option {
+    color: $input-color;
+  }
 }
 
 .btn-link.btn-link {

@@ -224,7 +224,7 @@
     },
     "postal_details": {
       "field": {
-        "munacipality": {
+        "municipality": {
           "label": "Postitoimipaikka",
           "placeholder": "Postitoimipaikka"
         },

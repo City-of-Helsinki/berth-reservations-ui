@@ -225,7 +225,7 @@
     },
     "postal_details": {
       "field": {
-        "munacipality": {
+        "municipality": {
           "label": "Postanstalt",
           "placeholder": "Postanstalt"
         },
