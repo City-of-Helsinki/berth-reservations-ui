@@ -647,8 +647,8 @@
     },
     "payment_failed": {
       "title": "Fel",
-      "paragraph1": "Det uppstod tyvärr ett fel i behandlingen av betalningen.",
-      "paragraph2": "Du kan försöka igen senare eller vid behov kontakta kundtjänsten."
+      "paragraph1": "Vi beklagar, men betalningen misslyckades eller avbröts.",
+      "paragraph2": "Försök igen senare eller kontakta kundtjänsten."
     },
     "payment": {
       "title": "Betalning av faktura",

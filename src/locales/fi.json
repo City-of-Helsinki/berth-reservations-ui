@@ -647,8 +647,8 @@
     },
     "payment_failed": {
       "title": "Virhetilanne",
-      "paragraph1": "Pahoittelemme, mutta maksun käsittelyssä tapahtui virhe.",
-      "paragraph2": "Voit yrittää maksua myöhemmin uudelleen, tarvittaessa ota yhteyttä asiakaspalveluun."
+      "paragraph1": "Pahoittelut. Maksu epäonnistui tai peruutettiin.",
+      "paragraph2": "Yritä myöhemmin uudelleen tai ota yhteyttä asiakaspalveluun."
     },
     "payment": {
       "title": "Laskun maksaminen",
