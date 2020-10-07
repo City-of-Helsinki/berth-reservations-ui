@@ -6,7 +6,7 @@ import { MUNICIPALITIES } from '../../../constants/Municipalities';
 import { useTranslation } from 'react-i18next';
 
 const PostalDetailsFragment = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <Row>
       <Col sm={4}>
@@ -28,10 +28,12 @@ const PostalDetailsFragment = () => {
       <Col sm={4}>
         <Select
           name={`municipality`}
-          label={`form.postal_details.field.munacipality.label`}
+          label={`form.postal_details.field.municipality.label`}
           required
         >
-          <option />
+          <option value="" disabled selected hidden>
+            {t('form.postal_details.field.municipality.placeholder')}
+          </option>
           {MUNICIPALITIES.map(
             (municipality: { id: string; translations: Record<string, string> }) => {
               const translated =
