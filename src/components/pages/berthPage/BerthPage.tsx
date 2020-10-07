@@ -43,6 +43,7 @@ export interface Props extends WithTranslation {
     icon: IconNames;
   }[];
   berthLimit: number;
+  loading: boolean;
 }
 
 const getHeroContentLink = (locale: string) => {
@@ -101,6 +102,7 @@ class BerthPage extends Component<Props> {
       services,
       berthLimit,
       t,
+      loading,
       i18n: { language },
     } = this.props;
     const filter = getBerthFilterByValues(initialValues, selectedServices);
@@ -189,6 +191,7 @@ class BerthPage extends Component<Props> {
             filteredNot={filteredNot}
             selectedIds={selectedBerthsIds}
             renderSelected={renderHarborCard(false)}
+            loading={loading}
           />
           <CardsList
             TabHeader={() => <span>{t('site.common.list')}</span>}
@@ -196,6 +199,7 @@ class BerthPage extends Component<Props> {
             included={filtered.map(renderHarborCard(false)).toArray()}
             excludedHeader="page.berths.list.header.others"
             excluded={filteredNot.map(renderHarborCard(true)).toArray()}
+            loading={loading}
           />
         </TabSelector>
       </Layout>

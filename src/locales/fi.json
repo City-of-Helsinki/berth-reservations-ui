@@ -730,7 +730,8 @@
     "common": {
       "list": "Lista",
       "map": "Kartalla",
-      "servicemapURL": "https://palvelukartta.hel.fi/unit/{{servicemapId}}"
+      "servicemapURL": "https://palvelukartta.hel.fi/unit/{{servicemapId}}",
+      "loading": "Ladataan"
     },
     "footer": {
       "accessibility_statement": "Saavutettavuusseloste",

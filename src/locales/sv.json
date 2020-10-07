@@ -730,7 +730,8 @@
     "common": {
       "list": "Förteckning",
       "map": "På kartan",
-      "servicemapURL": "https://servicekarta.hel.fi/unit/{{servicemapId}}"
+      "servicemapURL": "https://servicekarta.hel.fi/unit/{{servicemapId}}",
+      "loading": "Laddar"
     },
     "footer": {
       "accessibility_statement": "Tillgänglighetsutlåtande",

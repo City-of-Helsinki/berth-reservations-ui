@@ -1,12 +1,24 @@
 @import 'helsinki/colors';
+@import 'styles/variables';
 
 .vene-spinner {
-  border: 2px solid $hel-light;
-  border-top: 2px solid $hel-black;
-  border-radius: 50%;
-  width: 72px;
-  height: 72px;
-  animation: spin 1s linear infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $spacing-01;
+
+  &__spinner {
+    border: 2px solid $hel-light;
+    border-top: 2px solid $hel-black;
+    border-radius: 50%;
+    width: 72px;
+    height: 72px;
+    animation: spin 1s linear infinite;
+  }
+
+  &__text {
+    margin-top: $spacing-00-50;
+  }
 }
 
 @keyframes spin {
