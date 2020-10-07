@@ -397,6 +397,7 @@
     },
     "wizard": {
       "button": {
+        "continue": "Jatka",
         "invalid": "Täytä lomake jatkaaksesi",
         "next": "Seuraava",
         "previous": "Edellinen sivu",

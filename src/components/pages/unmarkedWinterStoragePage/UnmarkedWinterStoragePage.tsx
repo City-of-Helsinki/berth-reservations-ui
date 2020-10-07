@@ -120,7 +120,7 @@ const UnmarkedWinterStoragePage = ({
           disabled={initialValues?.chosenAreas === undefined}
           onClick={moveToForm}
         >
-          Jatka
+          {t('form.wizard.button.continue')}
         </Button>
       </div>
     </Layout>
