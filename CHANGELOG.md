@@ -14,7 +14,7 @@
 
 - Add winter storage contract PDF. in ([#316](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/316), [#318](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/318))
 - Add loading spinners to Berth Page and Winter Storage Page contents. in ([#320](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/320))
-- Use a predefined list of finnish municipalities. in ([#322](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/322))
+- Use a predefined list of finnish municipalities. in ([#322](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/322), [#328](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/328))
 
 **Fixed:**
 
