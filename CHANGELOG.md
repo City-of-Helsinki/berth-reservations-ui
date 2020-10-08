@@ -8,6 +8,20 @@
 ...
 </details>
 
+# 1.0.1 (October 08, 2020)
+
+**Added:**
+
+- Add winter storage contract PDF. in ([#316](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/316), [#318](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/318))
+- Add loading spinners to Berth Page and Winter Storage Page contents. in ([#320](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/320))
+- Use a predefined list of finnish municipalities. in ([#322](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/322))
+
+**Fixed:**
+
+- Improve email validation. in ([#317](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/317))
+- Change the payment error page into more generic. in ([#321](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/321))
+- Add harbor and winter storage areas images. in ([#319](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/319))
+
 # 1.0.0 (September 15, 2020)
 
 **Added:**
