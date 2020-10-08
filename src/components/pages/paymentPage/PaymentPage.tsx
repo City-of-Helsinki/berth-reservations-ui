@@ -4,19 +4,25 @@ import Layout from '../../layout/Layout';
 import { Button } from 'reactstrap';
 import './paymentPage.scss';
 import Input from '../../common/Input';
+import { getTermsDocumentUrl } from '../../../utils/urls';
 
 interface Props {
   handlePay: () => void;
 }
 
 const PaymentPage = ({ handlePay }: Props) => {
-  const { t } = useTranslation();
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
   const [termsAccepted, setTermsAccepted] = useState<boolean>(false);
 
   const handleAcceptTermsChange = (event: ChangeEvent<HTMLInputElement>) => {
     const target = event.target;
     setTermsAccepted(target.checked);
   };
+
+  const termsDocumentUrl = getTermsDocumentUrl(language);
 
   return (
     <Layout>
@@ -36,7 +42,7 @@ const PaymentPage = ({ handlePay }: Props) => {
         <div className="vene-payment-page__content-container">
           <div className="vene-payment-page__content vene-payment-page__accept-terms-content">
             <div>
-              <a href="/" className="vene-payment-page__link">
+              <a href={termsDocumentUrl} className="vene-payment-page__link">
                 {t('page.payment.terms_pdf')}
               </a>
             </div>

@@ -42,6 +42,7 @@ type Props = {
     icon: IconNames;
   }[];
   areasLimit: number;
+  loading: boolean;
 } & WithTranslation;
 
 const getHeroContentLink = (locale: string) => {
@@ -101,6 +102,7 @@ class WinterStoragePage extends Component<Props> {
       services,
       steps,
       t,
+      loading,
     } = this.props;
     const filter = getWinterStorageFilterByValues(initialValues, selectedServices);
     const filtered = areas.filter(filter);
@@ -191,6 +193,7 @@ class WinterStoragePage extends Component<Props> {
             filteredNot={filteredNot}
             selectedIds={selectedAreasIds}
             renderSelected={renderAreaCard(false)}
+            loading={loading}
           />
           <CardsList
             TabHeader={() => <span>{t('site.common.list')}</span>}
@@ -198,6 +201,7 @@ class WinterStoragePage extends Component<Props> {
             included={filtered.map(renderAreaCard(false)).toArray()}
             excludedHeader="page.winter_storage.list.header.others"
             excluded={filteredNot.map(renderAreaCard(true)).toArray()}
+            loading={loading}
           />
         </TabSelector>
       </Layout>

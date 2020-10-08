@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
 import './cardsList.scss';
+import Spinner from '../spinner/Spinner';
 
 interface CardsListProps {
   TabHeader?: React.FC;
@@ -11,10 +12,21 @@ interface CardsListProps {
   included: React.ReactNodeArray;
   excludedHeader: string;
   excluded: React.ReactNodeArray;
+  loading: boolean;
 }
 
-const CardsList = ({ includedHeader, included, excludedHeader, excluded }: CardsListProps) => {
+const CardsList = ({
+  includedHeader,
+  included,
+  excludedHeader,
+  excluded,
+  loading,
+}: CardsListProps) => {
   const { t } = useTranslation();
+
+  if (loading) {
+    return <Spinner withText={true} />;
+  }
 
   return (
     <Container className="vene-cardsList">

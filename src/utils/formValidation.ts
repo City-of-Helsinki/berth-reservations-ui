@@ -39,8 +39,8 @@ export const mustBePhoneNumber = (value: string): string | undefined => {
 };
 
 export const mustBeEmail = (value: any): any => {
-  const emailRe = /^.*@.*\..*$/im;
-  if (emailRe.test(value)) {
+  const emailRe = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  if (typeof value === 'string' && emailRe.test(value.toLowerCase())) {
     return undefined;
   }
   return 'validation.message.must_be_email';

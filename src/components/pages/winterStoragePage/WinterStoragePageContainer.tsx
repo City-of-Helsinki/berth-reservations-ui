@@ -115,13 +115,20 @@ const WinterStoragePageContainer = (props: Props) => {
       {({
         // error, TODO: handle errors
         data,
+        loading,
       }) => {
         const winterAreas = getResources(data ? data.winterStorageAreas : null).filter(
           filterAreasWithMarkedPlaces
         );
 
         return (
-          <WinterStoragePage {...props} areas={winterAreas} steps={steps} services={services} />
+          <WinterStoragePage
+            {...props}
+            areas={winterAreas}
+            steps={steps}
+            services={services}
+            loading={loading}
+          />
         );
       }}
     </Query>

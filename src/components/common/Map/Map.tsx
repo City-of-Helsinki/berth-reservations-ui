@@ -8,6 +8,7 @@ import MapMarker from './MapMarker';
 import { isResourceSelected } from '../../../utils/berths';
 
 import './Map.scss';
+import Spinner from '../spinner/Spinner';
 
 interface MapProps<T extends { id: string; geometry: { coordinates: [number, number] } }> {
   TabHeader?: React.FC; // required for TabSelector component
@@ -15,6 +16,7 @@ interface MapProps<T extends { id: string; geometry: { coordinates: [number, num
   filteredNot: List<T>;
   selectedIds: List<string>;
   mapHeader: React.ReactNode;
+  loading: boolean;
   renderSelected(selected: T): React.ReactNode;
 }
 
@@ -27,12 +29,17 @@ const Map = <T extends { id: string; geometry: { coordinates: [number, number] }
   selectedIds,
   mapHeader,
   renderSelected,
+  loading,
 }: MapProps<T>) => {
   const [selectedResource, setSelectedBerth] = useState<T | null>(null);
 
   const toggleBerthSelect = (berth: T) => {
     setSelectedBerth(selectedResource && selectedResource.id === berth.id ? null : berth);
   };
+
+  if (loading) {
+    return <Spinner withText={true} />;
+  }
 
   return (
     <div className="vene-map">
