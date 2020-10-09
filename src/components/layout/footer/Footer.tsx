@@ -27,27 +27,43 @@ const Footer = () => {
           <Col md="4">
             <ul>
               <li>
-                <a href={t('site.footer.url.helsinki_berths')}>
+                <a
+                  href={t('site.footer.url.helsinki_berths')}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <span>{t('site.footer.browse_berths')}</span>
                 </a>
               </li>
               <li>
-                <a href={t('site.footer.url.berthing')}>
+                <a href={t('site.footer.url.berthing')} rel="noopener noreferrer" target="_blank">
                   <span>{t('site.footer.boating_info')}</span>
                 </a>
               </li>
               <li>
-                <a href={t('site.footer.url.current_news')}>
+                <a
+                  href={t('site.footer.url.current_news')}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <span>{t('site.footer.news')}</span>
                 </a>
               </li>
               <li>
-                <a href={t('site.footer.url.terms_of_service')}>
+                <a
+                  href={t('site.footer.url.terms_of_service')}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <span>{t('site.footer.terms_of_service')}</span>
                 </a>
               </li>
               <li>
-                <a href={t('site.footer.url.accessibility_statement')}>
+                <a
+                  href={t('site.footer.url.accessibility_statement')}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <span>{t('site.footer.accessibility_statement')}</span>
                 </a>
               </li>
@@ -58,10 +74,14 @@ const Footer = () => {
         <Row>
           <div className="vene-footer__bottom-link-wrapper">
             <span className="vene-footer__bottom-link">
-              <a href={t('site.footer.url.feedback')}>{t('site.footer.send_feedback')}</a>
+              <a href={t('site.footer.url.feedback')} rel="noopener noreferrer" target="_blank">
+                {t('site.footer.send_feedback')}
+              </a>
             </span>
             <span className="vene-footer__bottom-link">
-              <a href={t('site.footer.url.berthing')}>{t('site.footer.contact_us')}</a>
+              <a href={t('site.footer.url.berthing')} rel="noopener noreferrer" target="_blank">
+                {t('site.footer.contact_us')}
+              </a>
             </span>
             <span className="vene-footer__bottom-link">
               {t('site.footer.copyright', { year: new Date().getFullYear() })}
