@@ -35,9 +35,17 @@ const WinterStorageNotice = () => {
         <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
           <h3>{t('page.winter_storage.notice.title')}</h3>
           <p>
-            <Trans i18nKey={'page.winter_storage.notice.paragraph1'}>
-              A <a href={getBerthReservationsLink(language)}>venepaikat.hel.fi</a> a.
-            </Trans>
+            <Trans
+              i18nKey={'page.winter_storage.notice.paragraph1'}
+              components={[
+                <a
+                  key={'wsNoticeParagraph1Link'}
+                  href={getBerthReservationsLink(language)}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                />,
+              ]}
+            />
             {/*{t('page.winter_storage.notice.paragraph1', {
               link: (
                 <a href={t('page.winter_storage.notice.paragraph1.link_url')}>
@@ -47,9 +55,17 @@ const WinterStorageNotice = () => {
             })}*/}
           </p>
           <p>
-            <Trans i18nKey={'page.winter_storage.notice.paragraph2'}>
-              A <a href={getBoatingInfoLink(language)}>hel.fi/veneily</a> a.
-            </Trans>
+            <Trans
+              i18nKey={'page.winter_storage.notice.paragraph2'}
+              components={[
+                <a
+                  key={'wsNoticeParagraph2Link'}
+                  href={getBoatingInfoLink(language)}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                />,
+              ]}
+            />
           </p>
           <p>{t('page.winter_storage.notice.paragraph3')}</p>
         </Col>

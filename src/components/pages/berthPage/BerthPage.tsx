@@ -139,9 +139,17 @@ class BerthPage extends Component<Props> {
             <>
               <p>{t('hero.berth.paragraph.first')}</p>
               <p>
-                <Trans i18nKey={'hero.berth.paragraph.second'}>
-                  A <a href={getHeroContentLink(language)}>hel.fi</a> a.
-                </Trans>
+                <Trans
+                  i18nKey={'hero.berth.paragraph.second'}
+                  components={[
+                    <a
+                      key={'berthHeroContentLink'}
+                      href={getHeroContentLink(language)}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    />,
+                  ]}
+                />
               </p>
             </>
           }
