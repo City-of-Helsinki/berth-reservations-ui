@@ -43,7 +43,9 @@ const WinterStorageNotice = () => {
                   href={getBerthReservationsLink(language)}
                   rel="noopener noreferrer"
                   target="_blank"
-                />,
+                >
+                  content
+                </a>,
               ]}
             />
             {/*{t('page.winter_storage.notice.paragraph1', {
@@ -63,7 +65,9 @@ const WinterStorageNotice = () => {
                   href={getBoatingInfoLink(language)}
                   rel="noopener noreferrer"
                   target="_blank"
-                />,
+                >
+                  content
+                </a>,
               ]}
             />
           </p>

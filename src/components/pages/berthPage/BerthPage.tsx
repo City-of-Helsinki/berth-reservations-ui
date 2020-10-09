@@ -147,7 +147,9 @@ class BerthPage extends Component<Props> {
                       href={getHeroContentLink(language)}
                       rel="noopener noreferrer"
                       target="_blank"
-                    />,
+                    >
+                      content
+                    </a>,
                   ]}
                 />
               </p>

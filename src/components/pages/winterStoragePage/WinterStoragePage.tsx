@@ -144,7 +144,9 @@ class WinterStoragePage extends Component<Props> {
                       href={getHeroContentLink(language)}
                       rel="noopener noreferrer"
                       target="_blank"
-                    />,
+                    >
+                      content
+                    </a>,
                   ]}
                 />
               </p>
