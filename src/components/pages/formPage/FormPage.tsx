@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
 import Wizard from '../../forms/Wizard';
-import Layout from '../../layout/Layout';
+import Layout from '../../../common/layout/Layout';
 import FormLegend from '../../legends/formLegend/FormLegend';
 import Steps from '../../../common/steps/Steps';
 

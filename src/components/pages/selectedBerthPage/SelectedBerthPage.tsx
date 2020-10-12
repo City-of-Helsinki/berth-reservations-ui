@@ -7,7 +7,7 @@ import Icon, { IconNames } from '../../../common/Icon';
 import LocalizedLink from '../../../common/LocalizedLink';
 import ExchangeApplication from '../../forms/fragments/exchangeApplication/ExchangeApplicationContainer';
 import NewApplication from '../../forms/fragments/newApplication/NewApplication';
-import Layout from '../../layout/Layout';
+import Layout from '../../../common/layout/Layout';
 import SelectionPageLegend from '../../legends/selectionPageLegend/SelectionPageLegend';
 
 import { ApplicationOptions } from '../../../types/applicationType';

@@ -6,7 +6,7 @@ import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 import SelectedResource from '../../../common/areaCard/selectedResource/SelectedResource';
 import Icon, { IconNames } from '../../../common/Icon';
 import LocalizedLink from '../../../common/LocalizedLink';
-import Layout from '../../layout/Layout';
+import Layout from '../../../common/layout/Layout';
 import SelectionPageLegend from '../../legends/selectionPageLegend/SelectionPageLegend';
 
 import { WinterFormValues, WinterStorageType } from '../../../types/winterStorage';

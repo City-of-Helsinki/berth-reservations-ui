@@ -7,8 +7,8 @@ import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../types/unma
 import { LocalePush } from '../../../utils/container';
 import Hero from '../../../common/hero/Hero';
 import { Select } from '../../forms/Fields';
-import KoroSection from '../../layout/koroSection/KoroSection';
-import Layout from '../../layout/Layout';
+import KoroSection from '../../../common/layout/koroSection/KoroSection';
+import Layout from '../../../common/layout/Layout';
 import UnmarkedWinterStorageLegend from '../../legends/unmarkedWinterStorageLegend/UnmarkedWinterStorageLegend';
 import { StepType } from '../../../common/steps/step/Step';
 

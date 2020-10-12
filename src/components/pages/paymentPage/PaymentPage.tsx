@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Layout from '../../layout/Layout';
+import Layout from '../../../common/layout/Layout';
 import { Button } from 'reactstrap';
 import './paymentPage.scss';
 import Input from '../../../common/Input';

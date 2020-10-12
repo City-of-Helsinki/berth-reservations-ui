@@ -6,8 +6,8 @@ import { Container, Row } from 'reactstrap';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import Card from '../../../common/card/Card';
 import Hero from '../../../common/hero/Hero';
-import KoroSection from '../../layout/koroSection/KoroSection';
-import Layout from '../../layout/Layout';
+import KoroSection from '../../../common/layout/koroSection/KoroSection';
+import Layout from '../../../common/layout/Layout';
 
 import frontHeroImg from '../../../assets/images/hero_image_front.jpg';
 

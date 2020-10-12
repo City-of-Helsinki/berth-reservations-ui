@@ -2,8 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Container, Nav, Navbar as BSNavbar } from 'reactstrap';
 
-import Icon from '../../../common/Icon';
-import LocalizedLink from '../../../common/LocalizedLink';
+import Icon from '../../Icon';
+import LocalizedLink from '../../LocalizedLink';
 import LanguageDropdown from '../languageDropdown/LanguageDropdown';
 
 import './navbar.scss';
