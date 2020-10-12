@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import NoticeTemplate from '../../common/noticeTemplate/NoticeTemplate';
+import NoticeTemplate from '../../../common/noticeTemplate/NoticeTemplate';
 import resetStore from './resetStore';
 
 const ApplicationSentPage = () => {

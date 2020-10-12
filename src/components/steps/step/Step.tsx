@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import LocalizedLink from '../../common/LocalizedLink';
+import LocalizedLink from '../../../common/LocalizedLink';
 
 import './step.scss';
 

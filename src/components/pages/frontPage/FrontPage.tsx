@@ -4,8 +4,8 @@ import { RouteComponentProps } from 'react-router-dom';
 import { Container, Row } from 'reactstrap';
 
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
-import Card from '../../common/card/Card';
-import Hero from '../../common/hero/Hero';
+import Card from '../../../common/card/Card';
+import Hero from '../../../common/hero/Hero';
 import KoroSection from '../../layout/koroSection/KoroSection';
 import Layout from '../../layout/Layout';
 

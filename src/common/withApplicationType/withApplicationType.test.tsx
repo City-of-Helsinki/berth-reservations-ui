@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import { ApplicationOptions, ApplicationType } from '../../../types/applicationType';
+import { ApplicationOptions, ApplicationType } from '../../types/applicationType';
 import { withApplicationType } from './withApplicationType';
 
 describe('withApplicationType', () => {

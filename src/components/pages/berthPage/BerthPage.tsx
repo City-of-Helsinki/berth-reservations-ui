@@ -3,10 +3,10 @@ import { Trans, WithTranslation, withTranslation } from 'react-i18next';
 
 import { getBerthFilterByValues, isResourceSelected } from '../../../utils/berths';
 import TabSelector from '../../berths/TabSelector/TabSelector';
-import CardsList from '../../common/cardsList/CardsList';
-import Hero from '../../common/hero/Hero';
-import { IconNames } from '../../common/Icon';
-import Map from '../../common/Map/Map';
+import CardsList from '../../../common/cardsList/CardsList';
+import Hero from '../../../common/hero/Hero';
+import { IconNames } from '../../../common/Icon';
+import Map from '../../../common/Map/Map';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
 import KoroSection from '../../layout/koroSection/KoroSection';
 import Layout from '../../layout/Layout';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
-import withApplicationType from '../../common/withApplicationType/withApplicationType';
+import withApplicationType from '../../../common/withApplicationType/withApplicationType';
 import BoatInfo from '../fragments/overview/BoatInfo';
 import BoatMeasures from '../fragments/overview/BoatMeasures';
 import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';

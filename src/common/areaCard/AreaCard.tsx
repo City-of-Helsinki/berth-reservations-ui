@@ -3,8 +3,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, Button, Col, Row } from 'reactstrap';
 
-import { genValidSelector } from '../../../utils/common';
-import AvailabilityLevel from '../../berths/availabilityLevel/AvailabilityLevel';
+import { genValidSelector } from '../../utils/common';
+import AvailabilityLevel from '../../components/berths/availabilityLevel/AvailabilityLevel';
 import Icon from '../Icon';
 import Image from '../Image';
 import Popover from '../popover/Popover';

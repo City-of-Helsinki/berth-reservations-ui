@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Layout from '../../layout/Layout';
 import { Button } from 'reactstrap';
 import './paymentPage.scss';
-import Input from '../../common/Input';
+import Input from '../../../common/Input';
 import { getTermsDocumentUrl } from '../../../utils/urls';
 
 interface Props {

@@ -7,7 +7,7 @@ import { getOrderNumber } from '../../../utils/urls';
 import GeneralPaymentErrorPage from './paymentError/GeneralPaymentErrorPage';
 import AlreadyPaidPage from './paymentError/AlreadyPaidPage';
 import PastDueDatePage from './paymentError/PastDueDatePage';
-import LoadingPage from '../../common/loadingPage/LoadingPage';
+import LoadingPage from '../../../common/loadingPage/LoadingPage';
 import {
   ConfirmPayment,
   ConfirmPaymentVariables,

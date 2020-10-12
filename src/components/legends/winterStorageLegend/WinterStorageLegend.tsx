@@ -3,7 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
-import Icon, { IconNames } from '../../common/Icon';
+import Icon, { IconNames } from '../../../common/Icon';
 import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
 import Steps from '../../steps/Steps';

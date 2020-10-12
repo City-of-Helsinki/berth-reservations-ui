@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import NoticeTemplate from '../../../common/noticeTemplate/NoticeTemplate';
+import NoticeTemplate from '../../../../common/noticeTemplate/NoticeTemplate';
 
 const AlreadyPaidPage = () => {
   const { t } = useTranslation();

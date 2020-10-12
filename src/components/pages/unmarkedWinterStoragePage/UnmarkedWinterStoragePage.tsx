@@ -5,7 +5,7 @@ import { Button, Col, Row } from 'reactstrap';
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
 import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../types/unmarkedWinterStorage';
 import { LocalePush } from '../../../utils/container';
-import Hero from '../../common/hero/Hero';
+import Hero from '../../../common/hero/Hero';
 import { Select } from '../../forms/Fields';
 import KoroSection from '../../layout/koroSection/KoroSection';
 import Layout from '../../layout/Layout';

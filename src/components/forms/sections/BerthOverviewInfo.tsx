@@ -2,7 +2,7 @@ import get from 'lodash/get';
 import React, { Fragment } from 'react';
 import { Col, Row } from 'reactstrap';
 
-import withApplicationType from '../../common/withApplicationType/withApplicationType';
+import withApplicationType from '../../../common/withApplicationType/withApplicationType';
 import BigShipsInfo from '../fragments/overview/bigShipsInfo/BigShipsInfo';
 import BoatDraughtAndWeight from '../fragments/overview/BoatDraughtAndWeight';
 import BoatInfo from '../fragments/overview/BoatInfo';
