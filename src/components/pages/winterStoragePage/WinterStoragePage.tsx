@@ -136,9 +136,19 @@ class WinterStoragePage extends Component<Props> {
             <>
               <p>{t('hero.winter.paragraph.first')}</p>
               <p>
-                <Trans i18nKey={'hero.winter.paragraph.second'}>
-                  A <a href={getHeroContentLink(language)}>hel.fi</a> a. <br /> A
-                </Trans>
+                <Trans
+                  i18nKey={'hero.winter.paragraph.second'}
+                  components={[
+                    <a
+                      key={'winterHeroContentLink'}
+                      href={getHeroContentLink(language)}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      content
+                    </a>,
+                  ]}
+                />
               </p>
             </>
           }

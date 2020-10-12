@@ -409,21 +409,21 @@
     "berth": {
       "paragraph": {
         "first": "I denna tjänst kan du bläddra bland Helsingfors stads båthamnar och göra en ny ansökan om båtplats i önskade hamnar.",
-        "second": "OBS! Läs igenom anvisningarna för val av hamnar samt informationen om såväl reglerna för utdelning av båtplatser som tidsschemat för handläggningen av ansökningar på <1>hel.fi</1> innan du fyller i ansökan."
+        "second": "OBS! Läs igenom anvisningarna för val av hamnar samt informationen om såväl reglerna för utdelning av båtplatser som tidsschemat för handläggningen av ansökningar på <0>hel.fi</0> innan du fyller i ansökan."
       },
       "title": "Ansökan om båtplats i Helsingfors båthamnar"
     },
     "winter": {
       "paragraph": {
         "first": "Här kan du ansöka om vinteruppläggningsplats i något av Helsingfors stads förvaringsområden. Rutor blir sällan lediga så välj också områden utan markerade platser för din ansökan.",
-        "second": "OBS! Läs igenom anvisningarna för val av förvaringsområden samt information om såväl reglerna för utdelning av uppläggningsplatser som tidsschemat för handläggningen av ansökningar på <1>hel.fi</1> innan du fyller i ansökan. <3/> Kontakta oss om du är intresserad av att lägga upp din båt på din egen båtplats för vintern."
+        "second": "OBS! Läs igenom anvisningarna för val av förvaringsområden samt information om såväl reglerna för utdelning av uppläggningsplatser som tidsschemat för handläggningen av ansökningar på <0>hel.fi</0> innan du fyller i ansökan. <3/> Kontakta oss om du är intresserad av att lägga upp din båt på din egen båtplats för vintern."
       },
       "title": "Ansökan om vinteruppläggningsplatser"
     },
     "unmarked_winter_storage": {
       "paragraph": {
         "first": "I den här tjänsten kan du meddela oss att du fört din båt till ett område för vinteruppläggning som fylls i upptagningsordning. På grund av dessa områdens \nkaraktär kan vi inte dela ut platser på dem i förväg.",
-        "second": "Närmare information om grunderna för utdelning av vinteruppläggningsplatser, priserna och handläggningen av ansökningar finns på webbplatsen <1>hel.fi</1>."
+        "second": "Närmare information om grunderna för utdelning av vinteruppläggningsplatser, priserna och handläggningen av ansökningar finns på webbplatsen <0>hel.fi</0>."
       },
       "title": "Anmäl att din båt har förts till ett upplagsområde"
     }
@@ -679,8 +679,8 @@
       "maximum_length": "Max. längd",
       "maximum_width": "Max. bredd",
       "notice": {
-        "paragraph1": "Ansökan om vinteruppläggningsplatser för säsongen 2020–2021 är nu aktuell. Vi skickar en faktura till de kunder som har haft rutplats förra säsongen. Om du är ny sökande, ansök om rutplats genom att göra en elektronisk ansökan på webben på <1>venepaikat.hel.fi/sv</1>. Lediga rutplatser delas ut på hösten i ansökningsordning. Vi skickar ut erbjudande om plats via e-post.",
-        "paragraph2": "Vi skickar inte någon faktura till de kunder som har haft vinteruppläggningsplats i upptagningsordningsområdet, utan betalning sker till båtplatsreserveringens konto efter att båten har tagits till upptagningsordningsområdet. Vi informerar senare på webben om betalning för plats i upptagningsordningsområdet på adressen <1>hel.fi/båtliv</1>, samt på upptagningsordningsområdets infotavlor. Till de kunder som har betalat för en vinteruppläggningsplats skickas en vinteruppläggningsdekal till hemadressen, Vi ber er klistra dekalen på en synlig plats på båten.",
+        "paragraph1": "Ansökan om vinteruppläggningsplatser för säsongen 2020–2021 är nu aktuell. Vi skickar en faktura till de kunder som har haft rutplats förra säsongen. Om du är ny sökande, ansök om rutplats genom att göra en elektronisk ansökan på webben på <0>venepaikat.hel.fi/sv</0>. Lediga rutplatser delas ut på hösten i ansökningsordning. Vi skickar ut erbjudande om plats via e-post.",
+        "paragraph2": "Vi skickar inte någon faktura till de kunder som har haft vinteruppläggningsplats i upptagningsordningsområdet, utan betalning sker till båtplatsreserveringens konto efter att båten har tagits till upptagningsordningsområdet. Vi informerar senare på webben om betalning för plats i upptagningsordningsområdet på adressen <0>hel.fi/båtliv</0>, samt på upptagningsordningsområdets infotavlor. Till de kunder som har betalat för en vinteruppläggningsplats skickas en vinteruppläggningsdekal till hemadressen, Vi ber er klistra dekalen på en synlig plats på båten.",
         "paragraph3": "Båtägarna kan ta sin båt till önskat upptagningsordningsområde från och med den 15 september 2020. Observera att man inte får ta båtar till upptagningsordningsområdena innan uppläggningstiden börjar den 15 september 2020.",
         "title": "Ansökan om vinteruppläggningsplatser 2020–2021"
       },

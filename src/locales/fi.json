@@ -409,21 +409,21 @@
     "berth": {
       "paragraph": {
         "first": "Tässä palvelussa voit selata Helsingin kaupungin venesatamia ja tehdä uuden venepaikkahakemuksen valitsemiisi satamiin.",
-        "second": "HUOM! Ennen kuin täytät hakemuksen, lue ohjeet satamien valintaan sekä tietoa venepaikkojen jakoperusteista ja hakemuskäsittelyn aikataulusta <1>hel.fi</1> -sivustolta."
+        "second": "HUOM! Ennen kuin täytät hakemuksen, lue ohjeet satamien valintaan sekä tietoa venepaikkojen jakoperusteista ja hakemuskäsittelyn aikataulusta <0>hel.fi</0> -sivustolta."
       },
       "title": "Venepaikan hakeminen Helsingin venesatamista"
     },
     "winter": {
       "paragraph": {
         "first": "Tästä voit hakea veneen talvisäilytyspaikkaa Helsingin kaupungin säilytysalueilta. Ruutupaikkoja vapautuu harvoin joten valitsethan hakemukseesi myös alueita joissa ei ole merkittyjä paikkoja.",
-        "second": "HUOM! Ennen kuin täytät hakemuksen, lue ohjeet alueiden valintaan sekä tietoa säilytyspaikkojen jakoperusteista ja hakemuskäsittelyn aikataulusta <1>hel.fi</1> -sivustolta. <3/> Jos olet kiinnostunut talvisäilyttämään veneesi vedessä omalla venepaikallasi ota meihin yhteyttä."
+        "second": "HUOM! Ennen kuin täytät hakemuksen, lue ohjeet alueiden valintaan sekä tietoa säilytyspaikkojen jakoperusteista ja hakemuskäsittelyn aikataulusta <0>hel.fi</0> -sivustolta. <3/> Jos olet kiinnostunut talvisäilyttämään veneesi vedessä omalla venepaikallasi ota meihin yhteyttä."
       },
       "title": "Talvisäilytyspaikkojen haku"
     },
     "unmarked_winter_storage": {
       "paragraph": {
         "first": "Tässä palvelussa voit ilmoittaa meille että olet vienyt veneesi nostojärjestysalueelle. Nostojärjestysalueiden luonteesta johtuen emme voi jakaa paikkoja niille etukäteen.",
-        "second": "Tarkempia tietoja talvisäilytyspaikkojen jakoperusteista, hinnoista ja hakemusten käsittelystä löydät <1>hel.fi-sivustolta</1>."
+        "second": "Tarkempia tietoja talvisäilytyspaikkojen jakoperusteista, hinnoista ja hakemusten käsittelystä löydät <0>hel.fi-sivustolta</0>."
       },
       "title": "Ilmoita että veneesi on viety talvisäilytysalueelle"
     }
@@ -679,8 +679,8 @@
       "maximum_length": "Max. pituus",
       "maximum_width": "Max. leveys",
       "notice": {
-        "paragraph1": "Talvisäilytyspaikkojen haku kaudelle 2020–2021 on nyt ajankohtainen. Niille asiakkaille, joilla on ollut ruutupaikka viime kaudella, lähetetään lasku paikasta. Mikäli olet uusi hakija, hae ruutupaikkaa tekemällä sähköinen hakemus verkossa osoitteessa <1>venepaikat.hel.fi</1>. Vapautuneet ruudut jaetaan hakujärjestyksessä syksyllä. Lähetämme paikasta tarjouksen sähköpostilla.",
-        "paragraph2": "Niille asiakkaille, joilla on ollut talvisäilytyspaikka nostojärjestysalueella, emme lähetä laskua vaan maksaminen tapahtuu venepaikkavarausten tilille sen jälkeen, kun vene on viety nostojärjestysalueelle. Tiedotamme nostojärjestysaluepaikan maksamisesta myöhemmin verkossa osoitteessa <1>hel.fi/veneily</1> sekä nostojärjestysalueiden infotauluissa. Talvisäilytyspaikan maksaneille asiakkaille lähetetään talvisäilytys-tarra, joka kiinnitetään näkyvälle paikalle veneeseen.",
+        "paragraph1": "Talvisäilytyspaikkojen haku kaudelle 2020–2021 on nyt ajankohtainen. Niille asiakkaille, joilla on ollut ruutupaikka viime kaudella, lähetetään lasku paikasta. Mikäli olet uusi hakija, hae ruutupaikkaa tekemällä sähköinen hakemus verkossa osoitteessa <0>venepaikat.hel.fi</0>. Vapautuneet ruudut jaetaan hakujärjestyksessä syksyllä. Lähetämme paikasta tarjouksen sähköpostilla.",
+        "paragraph2": "Niille asiakkaille, joilla on ollut talvisäilytyspaikka nostojärjestysalueella, emme lähetä laskua vaan maksaminen tapahtuu venepaikkavarausten tilille sen jälkeen, kun vene on viety nostojärjestysalueelle. Tiedotamme nostojärjestysaluepaikan maksamisesta myöhemmin verkossa osoitteessa <0>hel.fi/veneily</0> sekä nostojärjestysalueiden infotauluissa. Talvisäilytyspaikan maksaneille asiakkaille lähetetään talvisäilytys-tarra, joka kiinnitetään näkyvälle paikalle veneeseen.",
         "paragraph3": "Veneilijät voivat viedä veneensä haluamalleen nostojärjestysalueelle 15.9.2020 alkaen. Huomioithan, että nostojärjestysalueille ei tule viedä veneitä ennen 15.9. alkavaa säilytyskautta.",
         "title": "Talvisäilytyspaikkojen 2020–2021 hakeminen"
       },

@@ -97,9 +97,19 @@ const UnmarkedWinterStoragePage = ({
           <>
             <p>{t('hero.unmarked_winter_storage.paragraph.first')}</p>
             <p>
-              <Trans i18nKey={'hero.unmarked_winter_storage.paragraph.second'}>
-                A <a href={getHeroContentLink(language)}>hel.fi</a> a. <br /> A
-              </Trans>
+              <Trans
+                i18nKey={'hero.unmarked_winter_storage.paragraph.second'}
+                components={[
+                  <a
+                    key={'unmarkedWsHeroContentLink'}
+                    href={getHeroContentLink(language)}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    content
+                  </a>,
+                ]}
+              />
             </p>
           </>
         }
