@@ -4,9 +4,9 @@ import { Col, Container, Row } from 'reactstrap';
 import Wizard from '../../forms/Wizard';
 import Layout from '../../layout/Layout';
 import FormLegend from '../../legends/formLegend/FormLegend';
-import Steps from '../../steps/Steps';
+import Steps from '../../../common/steps/Steps';
 
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 
 import './formPage.scss';
 

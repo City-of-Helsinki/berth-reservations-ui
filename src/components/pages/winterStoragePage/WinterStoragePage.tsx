@@ -17,7 +17,7 @@ import { SelectedWinterServices, WinterServices } from '../../../types/services'
 import { WinterFormValues, WinterStorageType } from '../../../types/winterStorage';
 import { LocalePush } from '../../../utils/container';
 import { SelectedIds, WinterAreas } from '../../berths/types';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
 import WinterStorageCard from './WinterStorageCard';

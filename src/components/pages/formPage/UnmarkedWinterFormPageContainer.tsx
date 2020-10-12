@@ -23,7 +23,7 @@ import {
   SubmitWinterStorage,
   SubmitWinterStorageVariables,
 } from '../../../utils/__generated__/SubmitWinterStorage';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 import { useQuery, useMutation } from 'react-apollo';
 
 const stepsBeforeForm = 1;

@@ -18,7 +18,7 @@ import { ApplicationState } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
 import { BerthFormValues } from '../../../types/berth';
 import { Berths } from '../../berths/types';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 import { BigBoatTypeValue, WithBoatType } from '../Selects';
 
 type Props = {

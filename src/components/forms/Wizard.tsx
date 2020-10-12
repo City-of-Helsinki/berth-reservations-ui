@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import Form from './Form';
 import { Button, Col, Container, Row } from 'reactstrap';
-import { StepType } from '../steps/step/Step';
+import { StepType } from '../../common/steps/step/Step';
 import { WinterStorageMethod } from '../../__generated__/globalTypes';
 import './Wizard.scss';
 

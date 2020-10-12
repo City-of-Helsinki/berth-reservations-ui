@@ -10,7 +10,7 @@ import BerthOverviewInfo from './BerthOverviewInfo';
 import { ApplicationState } from '../../../redux/types';
 import { BerthFormValues } from '../../../types/berth';
 import { Berths } from '../../berths/types';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 import { WithBoatType } from '../Selects';
 
 type Props = {

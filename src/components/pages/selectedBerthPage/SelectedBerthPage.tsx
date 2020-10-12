@@ -14,7 +14,7 @@ import { ApplicationOptions } from '../../../types/applicationType';
 import { BerthFormValues, BerthType } from '../../../types/berth';
 import { Berths } from '../../berths/types';
 import SelectedResource from '../../../common/areaCard/selectedResource/SelectedResource';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 
 import './selectedBerthPage.scss';
 

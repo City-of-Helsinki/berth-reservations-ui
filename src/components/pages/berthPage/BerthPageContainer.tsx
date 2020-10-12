@@ -20,7 +20,7 @@ import { Store } from '../../../redux/types';
 import { BerthFormValues } from '../../../types/berth';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType, SelectedIds } from '../../berths/types';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 import { Query } from 'react-apollo';
 
 interface Props {

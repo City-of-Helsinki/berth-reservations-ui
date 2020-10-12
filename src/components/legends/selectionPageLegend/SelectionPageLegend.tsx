@@ -2,8 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
-import { StepType } from '../../steps/step/Step';
-import Steps from '../../steps/Steps';
+import { StepType } from '../../../common/steps/step/Step';
+import Steps from '../../../common/steps/Steps';
 
 import './selectionPageLegend.scss';
 

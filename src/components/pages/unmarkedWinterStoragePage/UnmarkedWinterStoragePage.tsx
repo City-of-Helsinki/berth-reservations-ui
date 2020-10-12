@@ -10,7 +10,7 @@ import { Select } from '../../forms/Fields';
 import KoroSection from '../../layout/koroSection/KoroSection';
 import Layout from '../../layout/Layout';
 import UnmarkedWinterStorageLegend from '../../legends/unmarkedWinterStorageLegend/UnmarkedWinterStorageLegend';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 
 import './unmarkedWinterStoragePage.scss';
 

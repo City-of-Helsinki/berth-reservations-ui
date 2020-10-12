@@ -17,7 +17,7 @@ import { BoatTypes } from '../../../types/boatTypes';
 import { BerthsServices, SelectedServices } from '../../../types/services';
 import { LocalePush } from '../../../utils/container';
 import { Berths as BerthsType, SelectedIds } from '../../berths/types';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 
 import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
 import BerthCard from './BerthCard';

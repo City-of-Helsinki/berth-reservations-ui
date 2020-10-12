@@ -11,7 +11,7 @@ import SelectionPageLegend from '../../legends/selectionPageLegend/SelectionPage
 
 import { WinterFormValues, WinterStorageType } from '../../../types/winterStorage';
 import { WinterAreas } from '../../berths/types';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 import './selectedAreaPage.scss';
 
 interface BoatInfoForWinter {

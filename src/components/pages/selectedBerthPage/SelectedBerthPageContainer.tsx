@@ -16,7 +16,7 @@ import { SelectedIds } from '../../berths/types';
 
 import { BerthFormValues } from '../../../types/berth';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 import { Query } from 'react-apollo';
 
 interface Props {

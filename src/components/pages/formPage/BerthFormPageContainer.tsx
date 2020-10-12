@@ -16,7 +16,7 @@ import { BerthFormValues } from '../../../types/berth';
 import { BoatTypesBerthsQuery } from '../../../utils/__generated__/BoatTypesBerthsQuery';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { SelectedIds } from '../../berths/types';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 import { SubmitBerth, SubmitBerthVariables } from '../../../utils/__generated__/SubmitBerth';
 import { getResources, getSelectedResources, stringToFloat } from '../../../utils/berths';
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';

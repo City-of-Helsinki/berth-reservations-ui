@@ -7,7 +7,7 @@ import Agreement from '../fragments/Agreement';
 import Newsletter from '../fragments/Newsletter';
 import UnmarkedWinterOverviewInfo from './UnmarkedWinterOverviewInfo';
 
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 import { WithBoatType } from '../Selects';
 
 type Props = {
