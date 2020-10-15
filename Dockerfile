@@ -60,7 +60,6 @@ ARG REACT_APP_PIWIK_ID
 ARG REACT_APP_SENTRY_DSN
 ARG REACT_APP_SENTRY_ENVIRONMENT
 ARG SASS_PATH="src/assets:node_modules/open-city-design/src/scss"
-ENV SASS_PATH $SASS_PATH
 
 COPY . /app
 RUN yarn build
