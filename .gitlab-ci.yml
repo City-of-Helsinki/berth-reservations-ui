@@ -8,6 +8,7 @@ variables:
   DOCKER_BUILD_ARG_REACT_APP_PIWIK_URL: 'https://analytics.hel.ninja'
   DOCKER_BUILD_ARG_REACT_APP_PIWIK_ID: '18'
   DOCKER_BUILD_ARG_REACT_APP_SENTRY_DSN: '$GL_SENTRY_DSN'
+  DOCKER_BUILD_SASS_PATH: 'src/assets:node_modules/open-city-design/src/scss'
 
 build-review:
   extends: .build
