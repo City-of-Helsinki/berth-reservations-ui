@@ -5,7 +5,7 @@ import { Col, Row } from 'reactstrap';
 import { BoatTypesBerthsQuery_harbors_edges_node as Harbor } from '../../../../../utils/__generated__/BoatTypesBerthsQuery';
 
 import { BERTH_SWITCH_REASONS_QUERY, GET_HARBOR_NAME } from '../../../../../utils/graphql';
-import LabelValuePair from '../../../../common/labelValuePair/LabelValuePair';
+import LabelValuePair from '../../../../../common/labelValuePair/LabelValuePair';
 
 import { ApplicationState } from '../../../../../redux/types';
 import {

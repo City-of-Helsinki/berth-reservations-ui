@@ -22,7 +22,7 @@ import {
   SubmitWinterStorageVariables,
 } from '../../../utils/__generated__/SubmitWinterStorage';
 import { SelectedIds } from '../../berths/types';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 import { useMutation, useQuery } from 'react-apollo';
 
 type Props = {

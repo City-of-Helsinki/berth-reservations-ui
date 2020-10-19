@@ -3,18 +3,18 @@ import { Form } from 'react-final-form';
 import { WithTranslation, withTranslation } from 'react-i18next';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
-import Icon, { IconNames } from '../../common/Icon';
-import LocalizedLink from '../../common/LocalizedLink';
+import Icon, { IconNames } from '../../../common/Icon';
+import LocalizedLink from '../../../common/LocalizedLink';
 import ExchangeApplication from '../../forms/fragments/exchangeApplication/ExchangeApplicationContainer';
 import NewApplication from '../../forms/fragments/newApplication/NewApplication';
-import Layout from '../../layout/Layout';
+import Layout from '../../../common/layout/Layout';
 import SelectionPageLegend from '../../legends/selectionPageLegend/SelectionPageLegend';
 
 import { ApplicationOptions } from '../../../types/applicationType';
 import { BerthFormValues, BerthType } from '../../../types/berth';
 import { Berths } from '../../berths/types';
-import SelectedResource from '../../common/areaCard/selectedResource/SelectedResource';
-import { StepType } from '../../steps/step/Step';
+import SelectedResource from '../../../common/areaCard/selectedResource/SelectedResource';
+import { StepType } from '../../../common/steps/step/Step';
 
 import './selectedBerthPage.scss';
 

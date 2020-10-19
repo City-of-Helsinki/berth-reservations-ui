@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from 'reactstrap';
 
 import LocalizedLink from '../LocalizedLink';
-import Layout from '../../layout/Layout';
+import Layout from '../layout/Layout';
 import './noticeTemplate.scss';
 
 export interface NoticePageProps {

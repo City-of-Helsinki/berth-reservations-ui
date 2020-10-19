@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
-import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
+import LabelValuePair from '../../../../common/labelValuePair/LabelValuePair';
 
 import { WinterStorageMethod } from '../../../../__generated__/globalTypes';
 

@@ -3,13 +3,13 @@ import { Trans, WithTranslation, withTranslation } from 'react-i18next';
 
 import { getWinterStorageFilterByValues, isResourceSelected } from '../../../utils/berths';
 import TabSelector from '../../berths/TabSelector/TabSelector';
-import CardsList from '../../common/cardsList/CardsList';
-import Hero from '../../common/hero/Hero';
-import { IconNames } from '../../common/Icon';
-import Map from '../../common/Map/Map';
+import CardsList from '../../../common/cardsList/CardsList';
+import Hero from '../../../common/hero/Hero';
+import { IconNames } from '../../../common/Icon';
+import Map from '../../../common/Map/Map';
 import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
-import KoroSection from '../../layout/koroSection/KoroSection';
-import Layout from '../../layout/Layout';
+import KoroSection from '../../../common/layout/koroSection/KoroSection';
+import Layout from '../../../common/layout/Layout';
 import WinterStorageLegend from '../../legends/winterStorageLegend/WinterStorageLegend';
 
 import { BoatTypes } from '../../../types/boatTypes';
@@ -17,7 +17,7 @@ import { SelectedWinterServices, WinterServices } from '../../../types/services'
 import { WinterFormValues, WinterStorageType } from '../../../types/winterStorage';
 import { LocalePush } from '../../../utils/container';
 import { SelectedIds, WinterAreas } from '../../berths/types';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
 import WinterStorageCard from './WinterStorageCard';

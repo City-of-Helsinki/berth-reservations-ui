@@ -10,7 +10,7 @@ import WinterOverviewInfo from './WinterOverviewInfo';
 import { ApplicationState } from '../../../redux/types';
 import { WinterFormValues } from '../../../types/winterStorage';
 import { WinterAreas } from '../../berths/types';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 import { WithBoatType } from '../Selects';
 
 type Props = {

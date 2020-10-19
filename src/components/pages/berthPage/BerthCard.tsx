@@ -2,8 +2,8 @@ import React from 'react';
 
 import { BerthType } from '../../../types/berth';
 import { convertCmToM } from '../../../utils/berths';
-import AreaCard, { AreaCardProps } from '../../common/areaCard/AreaCard';
-import Property from '../../common/areaCard/property/Property';
+import AreaCard, { AreaCardProps } from '../../../common/areaCard/AreaCard';
+import Property from '../../../common/areaCard/property/Property';
 
 export interface BerthCardProps {
   berth: BerthType;
