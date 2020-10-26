@@ -14,7 +14,7 @@ build-review:
   extends: .build
   variables:
     DOCKER_IMAGE_NAME: '$CI_PROJECT_NAME-review'
-    DOCKER_BUILD_ARG_REACT_APP_API_URL: 'https://venepaikka-api.test.hel.ninja/graphql/'
+    DOCKER_BUILD_ARG_REACT_APP_API_URL: 'https://venepaikka-api.test.kuva.hel.ninja/graphql/'
     DOCKER_BUILD_ARG_REACT_APP_ENVIRONMENT: 'development'
     DOCKER_BUILD_ARG_REACT_APP_SENTRY_ENVIRONMENT: 'review'
   only:
@@ -25,7 +25,7 @@ build-staging:
   extends: .build
   variables:
     DOCKER_IMAGE_NAME: '$CI_PROJECT_NAME-staging'
-    DOCKER_BUILD_ARG_REACT_APP_API_URL: 'https://venepaikka-api.test.hel.ninja/graphql/'
+    DOCKER_BUILD_ARG_REACT_APP_API_URL: 'https://venepaikka-api.test.kuva.hel.ninja/graphql/'
     DOCKER_BUILD_ARG_REACT_APP_ENVIRONMENT: 'development'
     DOCKER_BUILD_ARG_REACT_APP_SENTRY_ENVIRONMENT: 'staging'
   only:
