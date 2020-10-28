@@ -2,7 +2,7 @@ import get from 'lodash/get';
 import React, { Fragment } from 'react';
 import { Col, Row } from 'reactstrap';
 
-import withApplicationType from '../../common/withApplicationType/withApplicationType';
+import withApplicationType from '../../../common/withApplicationType/withApplicationType';
 import BigShipsInfo from '../fragments/overview/bigShipsInfo/BigShipsInfo';
 import BoatDraughtAndWeight from '../fragments/overview/BoatDraughtAndWeight';
 import BoatInfo from '../fragments/overview/BoatInfo';
@@ -18,7 +18,7 @@ import { ApplicationState } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
 import { BerthFormValues } from '../../../types/berth';
 import { Berths } from '../../berths/types';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 import { BigBoatTypeValue, WithBoatType } from '../Selects';
 
 type Props = {

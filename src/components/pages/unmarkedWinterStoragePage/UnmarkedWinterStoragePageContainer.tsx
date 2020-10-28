@@ -9,7 +9,7 @@ import { UnmarkedWinterAreasQuery } from '../../../utils/__generated__/UnmarkedW
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { UNMARKED_WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import { getWinterStorageAreas } from '../../../utils/unmarkedWinterStorage';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 import UnmarkedWinterStoragePage from './UnmarkedWinterStoragePage';
 import { useQuery } from 'react-apollo';
 

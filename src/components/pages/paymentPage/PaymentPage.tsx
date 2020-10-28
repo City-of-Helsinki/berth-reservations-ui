@@ -1,9 +1,9 @@
 import React, { ChangeEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Layout from '../../layout/Layout';
+import Layout from '../../../common/layout/Layout';
 import { Button } from 'reactstrap';
 import './paymentPage.scss';
-import Input from '../../common/Input';
+import Input from '../../../common/Input';
 import { getTermsDocumentUrl } from '../../../utils/urls';
 
 interface Props {
@@ -42,7 +42,12 @@ const PaymentPage = ({ handlePay }: Props) => {
         <div className="vene-payment-page__content-container">
           <div className="vene-payment-page__content vene-payment-page__accept-terms-content">
             <div>
-              <a href={termsDocumentUrl} className="vene-payment-page__link">
+              <a
+                href={termsDocumentUrl}
+                className="vene-payment-page__link"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 {t('page.payment.terms_pdf')}
               </a>
             </div>

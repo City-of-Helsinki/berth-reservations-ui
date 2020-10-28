@@ -3,15 +3,15 @@ import { Form } from 'react-final-form';
 import { WithTranslation, withTranslation } from 'react-i18next';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
-import SelectedResource from '../../common/areaCard/selectedResource/SelectedResource';
-import Icon, { IconNames } from '../../common/Icon';
-import LocalizedLink from '../../common/LocalizedLink';
-import Layout from '../../layout/Layout';
+import SelectedResource from '../../../common/areaCard/selectedResource/SelectedResource';
+import Icon, { IconNames } from '../../../common/Icon';
+import LocalizedLink from '../../../common/LocalizedLink';
+import Layout from '../../../common/layout/Layout';
 import SelectionPageLegend from '../../legends/selectionPageLegend/SelectionPageLegend';
 
 import { WinterFormValues, WinterStorageType } from '../../../types/winterStorage';
 import { WinterAreas } from '../../berths/types';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 import './selectedAreaPage.scss';
 
 interface BoatInfoForWinter {

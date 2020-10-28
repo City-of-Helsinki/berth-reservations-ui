@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
-import withApplicationType from '../../common/withApplicationType/withApplicationType';
+import withApplicationType from '../../../common/withApplicationType/withApplicationType';
 import BoatInfo from '../fragments/overview/BoatInfo';
 import BoatMeasures from '../fragments/overview/BoatMeasures';
 import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
@@ -14,7 +14,7 @@ import Person from '../fragments/overview/person/Person';
 import { ApplicationState } from '../../../redux/types';
 import { WinterFormValues } from '../../../types/winterStorage';
 import { WinterAreas } from '../../berths/types';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 import { WithBoatType } from '../Selects';
 
 type Props = {

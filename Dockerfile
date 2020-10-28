@@ -23,7 +23,7 @@ USER appuser
 # Copy package.json and package-lock.json/yarn.lock files
 COPY package*.json *yarn* ./
 
-# Install npm depepndencies
+# Install npm dependencies
 ENV PATH /app/node_modules/.bin:$PATH
 
 USER root
@@ -59,6 +59,7 @@ ARG REACT_APP_PIWIK_URL
 ARG REACT_APP_PIWIK_ID
 ARG REACT_APP_SENTRY_DSN
 ARG REACT_APP_SENTRY_ENVIRONMENT
+ARG SASS_PATH="src/assets:node_modules/open-city-design/src/scss"
 
 COPY . /app
 RUN yarn build

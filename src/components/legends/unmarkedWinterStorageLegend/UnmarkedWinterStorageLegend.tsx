@@ -2,8 +2,8 @@ import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
-import { StepType } from '../../steps/step/Step';
-import Steps from '../../steps/Steps';
+import { StepType } from '../../../common/steps/step/Step';
+import Steps from '../../../common/steps/Steps';
 
 import './unmarkedWinterStorageLegend.scss';
 

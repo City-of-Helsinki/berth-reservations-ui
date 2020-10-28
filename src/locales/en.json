@@ -409,21 +409,21 @@
     "berth": {
       "paragraph": {
         "first": "This service allows for you to browse through the boat harbours in Helsinki and submit new applications to the harbours of your choice.",
-        "second": "NOTE! Please read the instructions on selecting harbours as well as further details concerning the principles of assigning berths and the processing times for applications on the <1>hel.fi</1> website before completing your application."
+        "second": "NOTE! Please read the instructions on selecting harbours as well as further details concerning the principles of assigning berths and the processing times for applications on the <0>hel.fi</0> website before completing your application."
       },
       "title": "Applying for a berth in the boat harbours of the City of Helsinki"
     },
     "winter": {
       "paragraph": {
         "first": "Here you can apply for a winter storage space for your boat in the City of Helsinki’s storage locations. Appointed spaces become available only rarely, so please also include locations with no designated spaces in your application.",
-        "second": "NOTE! Please read the instructions on selecting storage areas as well as further details concerning the principles of assigning storage spaces and the processing times for applications on the <1>hel.fi</1> website before completing your application. <3/> If you are interested in storing your boat in the water at your designated boat berth over the winter, please contact us."
+        "second": "NOTE! Please read the instructions on selecting storage areas as well as further details concerning the principles of assigning storage spaces and the processing times for applications on the <0>hel.fi</0> website before completing your application. <3/> If you are interested in storing your boat in the water at your designated boat berth over the winter, please contact us."
       },
       "title": "Winter storage place search"
     },
     "unmarked_winter_storage": {
       "paragraph": {
         "first": "Using this service, you can notify us that you have taken your boat to a unmarked winter storage area. Due to the nature of the unmarked winter storage areas, we cannot assign places in them in advance.",
-        "second": "You can find further details concerning the principles of assigning winter storage spaces, the prices and the processing of applications on the <1>hel.fi website</1>."
+        "second": "You can find further details concerning the principles of assigning winter storage spaces, the prices and the processing of applications on the <0>hel.fi website</0>."
       },
       "title": "Submit a notice that your boat has been taken to a winter storage area"
     }
@@ -679,8 +679,8 @@
       "maximum_length": "Max. length",
       "maximum_width": "Max. width",
       "notice": {
-        "paragraph1": "Applying for winter storage spaces in the 2020–2021 season is now current. Customers who have had a square space in the last season will be sent an invoice for the space. If you are a new applicant, you can apply for a square space by filling out the online application at <1>venepaikat.hel.fi/en</1>. Available squares will be assigned on a first-come, first-served basis in the autumn. We will send offers for these spaces by e-mail.",
-        "paragraph2": "Customers who have had a winter storage space in a unmarked winter storage area will not be sent an invoice. Instead, they can pay their fee onto the berth reservation account after the boat has been brought to the unmarked winter storage area. We will provide information about paying for unmarked winter storage area spaces later online at <1>hel.fi/boating</1> and on the information boards of unmarked winter storage areas. Customers who have paid for a winter storage space will be sent a winter storage sticker to be attached to their boats on a visible spot.",
+        "paragraph1": "Applying for winter storage spaces in the 2020–2021 season is now current. Customers who have had a square space in the last season will be sent an invoice for the space. If you are a new applicant, you can apply for a square space by filling out the online application at <0>venepaikat.hel.fi/en</0>. Available squares will be assigned on a first-come, first-served basis in the autumn. We will send offers for these spaces by e-mail.",
+        "paragraph2": "Customers who have had a winter storage space in a unmarked winter storage area will not be sent an invoice. Instead, they can pay their fee onto the berth reservation account after the boat has been brought to the unmarked winter storage area. We will provide information about paying for unmarked winter storage area spaces later online at <0>hel.fi/boating</0> and on the information boards of unmarked winter storage areas. Customers who have paid for a winter storage space will be sent a winter storage sticker to be attached to their boats on a visible spot.",
         "paragraph3": "Boaters can bring their boats to the unmarked winter storage area of their choosing starting from 15 September 2020. Please note that boats must not be brought to unmarked winter storage areas before the storage season starts on 15 September.",
         "title": "Applying for winter storage spaces 2020–2021"
       },

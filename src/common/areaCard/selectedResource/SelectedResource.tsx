@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import Transition from 'react-transition-group/Transition';
 import { Button, Col, Container, Row } from 'reactstrap';
 
-import { genValidSelector } from '../../../../utils/common';
-import AvailabilityLevel from '../../../berths/availabilityLevel/AvailabilityLevel';
-import InvalidSelection from '../../../berths/InvalidSelection';
-import ScreenReaderLabel from '../../../forms/fields/ScreenReaderLabel';
+import { genValidSelector } from '../../../utils/common';
+import AvailabilityLevel from '../../../components/berths/availabilityLevel/AvailabilityLevel';
+import InvalidSelection from '../../../components/berths/InvalidSelection';
+import ScreenReaderLabel from '../../../components/forms/fields/ScreenReaderLabel';
 import Icon, { IconNames } from '../../Icon';
 import Modal from '../../modal/Modal';
 import Popover from '../../popover/Popover';

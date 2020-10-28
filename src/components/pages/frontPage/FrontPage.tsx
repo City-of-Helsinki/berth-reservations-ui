@@ -4,10 +4,10 @@ import { RouteComponentProps } from 'react-router-dom';
 import { Container, Row } from 'reactstrap';
 
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
-import Card from '../../common/card/Card';
-import Hero from '../../common/hero/Hero';
-import KoroSection from '../../layout/koroSection/KoroSection';
-import Layout from '../../layout/Layout';
+import Card from '../../../common/card/Card';
+import Hero from '../../../common/hero/Hero';
+import KoroSection from '../../../common/layout/koroSection/KoroSection';
+import Layout from '../../../common/layout/Layout';
 
 import frontHeroImg from '../../../assets/images/hero_image_front.jpg';
 
@@ -40,7 +40,11 @@ const FrontPage = ({ localePush }: Props) => {
                 title={t('page.front.card.berths.title')}
               >
                 <p>{t('page.front.card.berths.description')}</p>
-                <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/">
+                <a
+                  href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <p>{t('page.front.card.instructions')}</p>
                 </a>
               </Card>
@@ -52,7 +56,11 @@ const FrontPage = ({ localePush }: Props) => {
                 title={t('page.front.card.winter.title')}
               >
                 <p>{t('page.front.card.winter.description')}</p>
-                <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/veneiden-talvisailytys/">
+                <a
+                  href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/veneiden-talvisailytys/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <p>{t('page.front.card.instructions')}</p>
                 </a>
               </Card>
@@ -64,7 +72,11 @@ const FrontPage = ({ localePush }: Props) => {
                 title={t('page.front.card.unmarked_winter.title')}
               >
                 <p>{t('page.front.card.unmarked_winter.description')}</p>
-                <a href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/veneiden-talvisailytys/nostojarjestyksessa/">
+                <a
+                  href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/veneiden-talvisailytys/nostojarjestyksessa/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <p>{t('page.front.card.instructions_short')}</p>
                 </a>
               </Card>

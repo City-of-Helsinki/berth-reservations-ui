@@ -13,14 +13,14 @@ import { WinterAreasQuery } from '../../../utils/__generated__/WinterAreasQuery'
 import { filterAreasWithMarkedPlaces, getResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
-import { IconNames } from '../../common/Icon';
+import { IconNames } from '../../../common/Icon';
 import WinterStoragePage from './WinterStoragePage';
 
 import { Store } from '../../../redux/types';
 import { SelectedWinterServices } from '../../../types/services';
 import { WinterFormValues } from '../../../types/winterStorage';
 import { SelectedIds } from '../../berths/types';
-import { StepType } from '../../steps/step/Step';
+import { StepType } from '../../../common/steps/step/Step';
 import { Query } from 'react-apollo';
 
 interface WithLocalePush {

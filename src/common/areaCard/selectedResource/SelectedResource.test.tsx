@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import { Container } from 'reactstrap';
 
-import { berth } from '../../../../__fixtures__/berthFixture';
+import { berth } from '../../../__fixtures__/berthFixture';
 import Modal from '../../modal/Modal';
 import SelectedResource, { Props } from './SelectedResource';
 

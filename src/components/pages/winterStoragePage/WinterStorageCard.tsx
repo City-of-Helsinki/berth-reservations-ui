@@ -2,8 +2,8 @@ import React from 'react';
 
 import { WinterStorageType } from '../../../types/winterStorage';
 import { convertCmToM } from '../../../utils/berths';
-import AreaCard, { AreaCardProps } from '../../common/areaCard/AreaCard';
-import Property from '../../common/areaCard/property/Property';
+import AreaCard, { AreaCardProps } from '../../../common/areaCard/AreaCard';
+import Property from '../../../common/areaCard/property/Property';
 
 export interface WinterStorageCardProps {
   area: WinterStorageType;
