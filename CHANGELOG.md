@@ -8,6 +8,16 @@
 ...
 </details>
 
+# 1.0.2 (October 28, 2020)
+
+**Added:**
+
+- Separate prioritized municipalities in PostalDetails ([#332](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/332))
+- Change review and staging urls to point to new backend ([#333](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/333))
+- Reorganize some components ([#325](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/325))
+- Adjust GitLab pipeline configuration ([#331](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/331))
+- Open external links in new tab ([#330](https://github.com/City-of-Helsinki/berth-reservations-ui/pull/330))
+
 # 1.0.1 (October 08, 2020)
 
 **Added:**
