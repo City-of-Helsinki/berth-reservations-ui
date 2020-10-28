@@ -2,11 +2,24 @@ import React from 'react';
 import { Col, Row } from 'reactstrap';
 
 import { Select, Text } from '../Fields';
-import { MUNICIPALITIES } from '../../../constants/Municipalities';
+import { MUNICIPALITIES, PRIORITIZED_MUNICIPALITIES } from '../../../constants/Municipalities';
 import { useTranslation } from 'react-i18next';
 
 const PostalDetailsFragment = () => {
   const { t, i18n } = useTranslation();
+
+  const renderMunicipalityOption = (municipality: {
+    id: string;
+    translations: Record<string, string>;
+  }) => {
+    const translated = municipality.translations[i18n.language] ?? municipality.translations.fi;
+    return (
+      <option key={municipality.id} value={municipality.translations.fi}>
+        {translated}
+      </option>
+    );
+  };
+
   return (
     <Row>
       <Col sm={4}>
@@ -31,20 +44,14 @@ const PostalDetailsFragment = () => {
           label={`form.postal_details.field.municipality.label`}
           required
         >
-          <option value="" disabled selected hidden>
+          <option value="" disabled hidden>
             {t('form.postal_details.field.municipality.placeholder')}
           </option>
-          {MUNICIPALITIES.map(
-            (municipality: { id: string; translations: Record<string, string> }) => {
-              const translated =
-                municipality.translations[i18n.language] ?? municipality.translations.fi;
-              return (
-                <option key={municipality.id} value={municipality.translations.fi}>
-                  {translated}
-                </option>
-              );
-            }
-          )}
+          {PRIORITIZED_MUNICIPALITIES.map(renderMunicipalityOption)}
+          <option value="" disabled>
+            -
+          </option>
+          {MUNICIPALITIES.map(renderMunicipalityOption)}
         </Select>
       </Col>
     </Row>

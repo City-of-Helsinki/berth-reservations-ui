@@ -1,8 +1,11 @@
-export const MUNICIPALITIES = [
+export const PRIORITIZED_MUNICIPALITIES = [
   { id: 'helsinki', translations: { sv: 'Helsingfors', fi: 'Helsinki' } },
   { id: 'espoo', translations: { sv: 'Esbo', fi: 'Espoo' } },
   { id: 'vantaa', translations: { sv: 'Vanda', fi: 'Vantaa' } },
   { id: 'kauniainen', translations: { sv: 'Grankulla', fi: 'Kauniainen' } },
+];
+
+export const MUNICIPALITIES = [
   { id: 'akaa', translations: { sv: 'Akaa', fi: 'Akaa' } },
   { id: 'alajärvi', translations: { sv: 'Alajärvi', fi: 'Alajärvi' } },
   { id: 'alavieska', translations: { sv: 'Alavieska', fi: 'Alavieska' } },
@@ -14,6 +17,7 @@ export const MUNICIPALITIES = [
   { id: 'eckerö', translations: { sv: 'Eckerö', fi: 'Eckerö' } },
   { id: 'enonkoski', translations: { sv: 'Enonkoski', fi: 'Enonkoski' } },
   { id: 'enontekiö', translations: { sv: 'Enontekis', fi: 'Enontekiö' } },
+  { id: 'espoo', translations: { sv: 'Esbo', fi: 'Espoo' } },
   { id: 'eura', translations: { sv: 'Eura', fi: 'Eura' } },
   { id: 'eurajoki', translations: { sv: 'Euraåminne', fi: 'Eurajoki' } },
   { id: 'evijärvi', translations: { sv: 'Evijärvi', fi: 'Evijärvi' } },
@@ -35,6 +39,7 @@ export const MUNICIPALITIES = [
   { id: 'hausjärvi', translations: { sv: 'Hausjärvi', fi: 'Hausjärvi' } },
   { id: 'heinola', translations: { sv: 'Heinola', fi: 'Heinola' } },
   { id: 'heinävesi', translations: { sv: 'Heinävesi', fi: 'Heinävesi' } },
+  { id: 'helsinki', translations: { sv: 'Helsingfors', fi: 'Helsinki' } },
   { id: 'hirvensalmi', translations: { sv: 'Hirvensalmi', fi: 'Hirvensalmi' } },
   { id: 'hollola', translations: { sv: 'Hollola', fi: 'Hollola' } },
   { id: 'honkajoki', translations: { sv: 'Honkajoki', fi: 'Honkajoki' } },
@@ -85,6 +90,7 @@ export const MUNICIPALITIES = [
   { id: 'kaskinen', translations: { sv: 'Kaskö', fi: 'Kaskinen' } },
   { id: 'kauhajoki', translations: { sv: 'Kauhajoki', fi: 'Kauhajoki' } },
   { id: 'kauhava', translations: { sv: 'Kauhava', fi: 'Kauhava' } },
+  { id: 'kauniainen', translations: { sv: 'Grankulla', fi: 'Kauniainen' } },
   { id: 'kaustinen', translations: { sv: 'Kaustby', fi: 'Kaustinen' } },
   { id: 'keitele', translations: { sv: 'Keitele', fi: 'Keitele' } },
   { id: 'kemi', translations: { sv: 'Kemi', fi: 'Kemi' } },
@@ -293,6 +299,7 @@ export const MUNICIPALITIES = [
   { id: 'vaasa', translations: { sv: 'Vasa', fi: 'Vaasa' } },
   { id: 'valkeakoski', translations: { sv: 'Valkeakoski', fi: 'Valkeakoski' } },
   { id: 'valtimo', translations: { sv: 'Valtimo', fi: 'Valtimo' } },
+  { id: 'vantaa', translations: { sv: 'Vanda', fi: 'Vantaa' } },
   { id: 'varkaus', translations: { sv: 'Varkaus', fi: 'Varkaus' } },
   { id: 'vehmaa', translations: { sv: 'Vehmaa', fi: 'Vehmaa' } },
   { id: 'vesanto', translations: { sv: 'Vesanto', fi: 'Vesanto' } },
