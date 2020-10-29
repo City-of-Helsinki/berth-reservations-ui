@@ -36,7 +36,7 @@ build-production:
   extends: .build
   variables:
     DOCKER_IMAGE_NAME: '$CI_PROJECT_NAME-production'
-    DOCKER_BUILD_ARG_REACT_APP_API_URL: 'https://api.hel.fi/berths/graphql/'
+    DOCKER_BUILD_ARG_REACT_APP_API_URL: 'https://venepaikka-api.prod.kuva.hel.ninja/graphql/'
     DOCKER_BUILD_ARG_REACT_APP_ENVIRONMENT: 'production'
     DOCKER_BUILD_ARG_REACT_APP_SENTRY_ENVIRONMENT: 'production'
   only:
