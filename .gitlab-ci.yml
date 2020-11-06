@@ -28,6 +28,9 @@ build-staging:
     DOCKER_BUILD_ARG_REACT_APP_API_URL: 'https://venepaikka-api.test.kuva.hel.ninja/graphql/'
     DOCKER_BUILD_ARG_REACT_APP_ENVIRONMENT: 'development'
     DOCKER_BUILD_ARG_REACT_APP_SENTRY_ENVIRONMENT: 'staging'
+  only:
+    refs:
+      - master
 
 build-production:
   extends: .build
@@ -36,6 +39,9 @@ build-production:
     DOCKER_BUILD_ARG_REACT_APP_API_URL: 'https://api.hel.fi/berths/graphql/'
     DOCKER_BUILD_ARG_REACT_APP_ENVIRONMENT: 'production'
     DOCKER_BUILD_ARG_REACT_APP_SENTRY_ENVIRONMENT: 'production'
+  only:
+    refs:
+      - /^release-.*$/
 
 review:
   variables:
