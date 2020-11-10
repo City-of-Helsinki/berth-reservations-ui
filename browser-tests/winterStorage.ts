@@ -2,11 +2,12 @@ import { navbar } from './selectors/navbar';
 import { winterStorage } from './selectors/winterStorage';
 import { isWinterStoragePage } from './utils/page';
 import { envUrl } from './utils/settings';
+import { applicantInformation, overview, yourSelection } from './utils/sharedTests';
 
 const testData = {
   address: 'Testiosoite 1',
-  area1: 'Laivalahti',
-  area2: 'Porslahti',
+  choice1: 'Laivalahti',
+  choice2: 'Porslahti',
   boatLength: '4.4',
   boatModel: 'Terhi 440',
   boatName: 'Testivene',
@@ -30,10 +31,21 @@ test('Winter storage application, registered boat on trailer, private customer',
   await isWinterStoragePage();
 
   await selectAreas(t);
-  await yourSelection(t);
+  await yourSelection(t, testData);
   await boatInformation(t);
-  await applicantInformation(t);
-  await overview(t);
+  await applicantInformation(t, testData);
+
+  const expectedBoatInfo = [
+    `Nimi: ${testData.boatName}`,
+    `Rekisterinumero: ${testData.boatRegistrationNumber}`,
+    `Tyyppi: ${testData.boatType}`,
+    `Malli: ${testData.boatModel}`,
+    `Leveys: ${testData.boatWidth}m`,
+    `Pituus: ${testData.boatLength}m`,
+    `Säilytystapa: Säilytän veneen trailerilla`,
+    `Trailerin rekisterinumero: ${testData.trailerRegistrationNumber}`,
+  ].join('\n');
+  await overview(t, testData, expectedBoatInfo);
 });
 
 const selectAreas = async (t: TestController) => {
@@ -55,29 +67,8 @@ const selectAreas = async (t: TestController) => {
 
   await t
     .click(harborListTab)
-    .click(getSelectButtonForArea(testData.area1))
-    .click(getSelectButtonForArea(testData.area2));
-
-  await t.click(nextButton);
-};
-
-const yourSelection = async (t: TestController) => {
-  const {
-    heading,
-    getHarborHeading,
-    getUpButtonForHeading,
-    nextButton,
-  } = winterStorage.yourSelection;
-
-  await t.expect(heading.exists).ok();
-
-  await t.click(getUpButtonForHeading(getHarborHeading(`2. ${testData.area2}`))).wait(500);
-
-  await t
-    .expect(getHarborHeading(`1. ${testData.area2}`).exists)
-    .ok()
-    .expect(getHarborHeading(`2. ${testData.area1}`).exists)
-    .ok();
+    .click(getSelectButtonForArea(testData.choice1))
+    .click(getSelectButtonForArea(testData.choice2));
 
   await t.click(nextButton);
 };
@@ -108,74 +99,4 @@ const boatInformation = async (t: TestController) => {
     .typeText(boatModel, testData.boatModel);
 
   await t.click(nextButton);
-};
-
-const applicantInformation = async (t: TestController) => {
-  const {
-    heading,
-    firstName,
-    lastName,
-    address,
-    postalCode,
-    municipalitySelect,
-    phoneNumber,
-    emailAddress,
-    nextButton,
-  } = winterStorage.applicantInformation;
-
-  await t.expect(heading.exists).ok();
-
-  await t
-    .typeText(firstName, testData.firstName)
-    .typeText(lastName, testData.lastName)
-    .typeText(address, testData.address)
-    .typeText(postalCode, testData.postalCode)
-    .click(municipalitySelect)
-    .click(municipalitySelect.find('option').withText(testData.municipality))
-    .typeText(phoneNumber, testData.phoneNumber)
-    .typeText(emailAddress, testData.emailAddress);
-
-  await t.click(nextButton);
-};
-
-const overview = async (t: TestController) => {
-  const { heading, textInOverview, getLabelValuePairs } = winterStorage.overview;
-
-  await t.expect(heading.exists).ok();
-
-  // Boat information
-  const labelValuePairs = await getLabelValuePairs();
-  const expectedContent = [
-    `Nimi: ${testData.boatName}`,
-    `Rekisterinumero: ${testData.boatRegistrationNumber}`,
-    `Tyyppi: ${testData.boatType}`,
-    `Malli: ${testData.boatModel}`,
-    `Leveys: ${testData.boatWidth}m`,
-    `Pituus: ${testData.boatLength}m`,
-  ].join('\n');
-  await t.expect(labelValuePairs).eql(expectedContent);
-
-  // Chosen harbors
-  await t
-    .expect(textInOverview(`1. ${testData.area2}`).exists)
-    .ok()
-    .expect(textInOverview(`2. ${testData.area1}`).exists)
-    .ok();
-
-  // Applicant
-  await t
-    .expect(textInOverview(testData.firstName).exists)
-    .ok()
-    .expect(textInOverview(testData.lastName).exists)
-    .ok()
-    .expect(textInOverview(testData.emailAddress).exists)
-    .ok()
-    .expect(textInOverview(testData.phoneNumber).exists)
-    .ok()
-    .expect(textInOverview(testData.address).exists)
-    .ok()
-    .expect(textInOverview(testData.postalCode).exists)
-    .ok()
-    .expect(textInOverview(testData.municipality).exists)
-    .ok();
 };
