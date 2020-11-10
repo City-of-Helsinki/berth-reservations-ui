@@ -39,7 +39,7 @@ const FrontPage = ({ localePush }: Props) => {
                 btnLabel={t('page.front.card.berths.button_label')}
                 title={t('page.front.card.berths.title')}
               >
-                <p>{t('page.front.card.berths.description')}</p>
+                <p className="test-deploy">{t('page.front.card.berths.description')}</p>
                 <a
                   href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/"
                   rel="noopener noreferrer"
