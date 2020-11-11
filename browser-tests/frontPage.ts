@@ -1,6 +1,6 @@
-import { footer } from './selectors/footer';
-import { frontPage } from './selectors/frontPage';
-import { navbar } from './selectors/navbar';
+import footer from './selectors/footer';
+import frontPage from './selectors/frontPage';
+import navbar from './selectors/navbar';
 import { navigateToFrontPage } from './utils/navigation';
 import { envUrl } from './utils/settings';
 import { switchToEnglish, switchToFinnish, switchToSwedish } from './utils/switchLanguage';

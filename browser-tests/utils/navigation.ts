@@ -1,5 +1,5 @@
 import { t, ClientFunction } from 'testcafe';
-import { navbar } from '../selectors/navbar';
+import navbar from '../selectors/navbar';
 
 export const navigateToFrontPage = async () => {
   await t.click(navbar.mainLink);

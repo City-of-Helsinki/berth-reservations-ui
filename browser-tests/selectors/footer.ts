@@ -3,7 +3,7 @@ import { Selector } from 'testcafe';
 
 const element = Selector('div[class="vene-footer"]');
 
-export const footer = {
+const footer = {
   serviceLink: within(element).getByText('Venepaikat'),
   browseBerths: within(element).getByText('Selaa venesatamia'),
   boatingInformation: within(element).getByText('Veneilytietoa'),
@@ -13,3 +13,4 @@ export const footer = {
   sendFeedback: within(element).getByText('Lähetä palautetta'),
   contact: within(element).getByText('Ota yhteyttä'),
 };
+export default footer;

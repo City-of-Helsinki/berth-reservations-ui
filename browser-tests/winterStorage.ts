@@ -1,8 +1,13 @@
-import { navbar } from './selectors/navbar';
-import { winterStorage } from './selectors/winterStorage';
+import navbar from './selectors/navbar';
+import winterStorage from './selectors/winterStorage';
 import { isWinterStoragePage } from './utils/page';
 import { envUrl } from './utils/settings';
-import { applicantInformation, overview, yourSelection } from './utils/sharedTests';
+import {
+  applicantInformation,
+  overview,
+  wsBoatInformation,
+  yourSelection,
+} from './utils/sharedTests';
 
 const testData = {
   address: 'Testiosoite 1',
@@ -32,7 +37,7 @@ test('Winter storage application, registered boat on trailer, private customer',
 
   await selectAreas(t);
   await yourSelection(t, testData);
-  await boatInformation(t);
+  await wsBoatInformation(t, testData);
   await applicantInformation(t, testData);
 
   const expectedBoatInfo = [
@@ -69,34 +74,6 @@ const selectAreas = async (t: TestController) => {
     .click(harborListTab)
     .click(getSelectButtonForArea(testData.choice1))
     .click(getSelectButtonForArea(testData.choice2));
-
-  await t.click(nextButton);
-};
-
-const boatInformation = async (t: TestController) => {
-  const {
-    boatModel,
-    boatName,
-    boatRegistrationNumber,
-    boatStoredOnTrailer,
-    boatTypeSelect,
-    heading,
-    nextButton,
-    trailerRegistrationNumber,
-  } = winterStorage.boatInformation;
-
-  await t.expect(heading.exists).ok();
-
-  await t
-    .click(boatStoredOnTrailer)
-    .typeText(trailerRegistrationNumber, testData.trailerRegistrationNumber)
-    .typeText(boatRegistrationNumber, testData.boatRegistrationNumber)
-    .click(boatTypeSelect)
-    .click(boatTypeSelect.find('option').withText(testData.boatType))
-    .expect(boatTypeSelect.value)
-    .eql(testData.boatTypeIndex)
-    .typeText(boatName, testData.boatName)
-    .typeText(boatModel, testData.boatModel);
 
   await t.click(nextButton);
 };

@@ -17,23 +17,8 @@ const selectAreas = {
   },
 };
 
-const boatInformation = {
-  boatLength: screen.getByRole('textbox', { name: /veneen pituus, m/i }),
-  boatModel: screen.getByRole('textbox', { name: /merkki/i }),
-  boatName: screen.getByRole('textbox', { name: /nimi/i }),
-  boatRegistrationNumber: screen.getByRole('textbox', { name: 'Rekisterinumero' }),
-  boatStoredOnTrailer: screen.getByRole('radio', { name: /säilytän veneen trailerilla/i }),
-  boatTypeSelect: screen.getByRole('combobox', { name: /veneen tyyppi/i }),
-  boatWidth: screen.getByRole('textbox', { name: /veneen leveys, m/i }),
-  heading: within(Selector('div[class="vene-form-legend"]')).getByRole('heading', {
-    name: /veneen tiedot/i,
-  }),
-  nextButton: screen.getByRole('button', { name: /seuraava/i }),
-  trailerRegistrationNumber: screen.getByRole('textbox', { name: /trailerin rekisterinumero/i }),
-};
-
-export const winterStorage = {
+const winterStorage = {
   selectAreas,
-  boatInformation,
   title: Selector('h1[class="vene-hero__title"]'),
 };
+export default winterStorage;

@@ -1,4 +1,4 @@
-import { navbar } from '../selectors/navbar';
+import navbar from '../selectors/navbar';
 
 export const switchToFinnish = async (t: TestController) => {
   await t

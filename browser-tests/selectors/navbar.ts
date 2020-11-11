@@ -4,7 +4,7 @@ import { Selector } from 'testcafe';
 const element = Selector('div[class="vene-navbar"]');
 const languageSelect = element.find('div[class^="vene-language-dropdown"]');
 
-export const navbar = {
+const navbar = {
   mainLink: within(element).getByText('Venepaikat'),
   berths: within(element).getByText('Venepaikkahaku'),
   winterStorage: within(element).getByText('Talvisäilytyspaikat'),
@@ -16,3 +16,4 @@ export const navbar = {
     English: within(element).getByText('In English'),
   },
 };
+export default navbar;

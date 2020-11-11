@@ -2,7 +2,7 @@ import { screen, within } from '@testing-library/testcafe';
 import { escapeRegExp } from 'lodash';
 import { Selector } from 'testcafe';
 
-export const yourSelection = {
+const yourSelection = {
   heading: screen.getByRole('heading', {
     name: /omat valinnat/i,
   }),
@@ -17,7 +17,7 @@ export const yourSelection = {
   },
 };
 
-export const applicantInformation = {
+const applicantInformation = {
   heading: within(Selector('div[class="vene-form-legend"]')).getByRole('heading', {
     name: /hakijan tiedot/i,
   }),
@@ -31,7 +31,7 @@ export const applicantInformation = {
   nextButton: screen.getByRole('button', { name: /seuraava/i }),
 };
 
-export const overview = {
+const overview = {
   heading: within(Selector('div[class="vene-form-legend"]')).getByRole('heading', {
     name: /yhteenveto/i,
   }),
@@ -53,3 +53,29 @@ export const overview = {
     return within(overview.overviewInfo).getByText(new RegExp(escapeRegExp(text)));
   },
 };
+
+const boatInformation = {
+  boatDraught: screen.getByRole('textbox', { name: /veneen syväys, m/i }),
+  boatLength: screen.getByRole('textbox', { name: /veneen pituus, m/i }),
+  boatModel: screen.getByRole('textbox', { name: /merkki/i }),
+  boatName: screen.getByRole('textbox', { name: /nimi/i }),
+  boatRegistrationNumber: screen.getByRole('textbox', { name: 'Rekisterinumero' }),
+  boatStoredOnTrailer: screen.getByRole('radio', { name: /säilytän veneen trailerilla/i }),
+  boatTypeSelect: screen.getByRole('combobox', { name: /veneen tyyppi/i }),
+  boatWeight: screen.getByRole('textbox', { name: /veneen paino, kg/i }),
+  boatWidth: screen.getByRole('textbox', { name: /veneen leveys, m/i }),
+  heading: within(Selector('div[class="vene-form-legend"]')).getByRole('heading', {
+    name: /veneen tiedot/i,
+  }),
+  nextButton: screen.getByRole('button', { name: /seuraava/i }),
+  registeredBoat: screen.getByText(/rekisteröity vene/i),
+  trailerRegistrationNumber: screen.getByRole('textbox', { name: /trailerin rekisterinumero/i }),
+};
+
+const shared = {
+  yourSelection,
+  applicantInformation,
+  overview,
+  boatInformation,
+};
+export default shared;

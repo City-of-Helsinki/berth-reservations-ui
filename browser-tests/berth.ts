@@ -1,5 +1,6 @@
-import { berth } from './selectors/berth';
-import { navbar } from './selectors/navbar';
+import berth from './selectors/berth';
+import navbar from './selectors/navbar';
+import shared from './selectors/shared';
 import { isBerthsPage } from './utils/page';
 import { envUrl } from './utils/settings';
 import { applicantInformation, overview, yourSelection } from './utils/sharedTests';
@@ -88,7 +89,7 @@ const boatInformation = async (t: TestController) => {
     boatName,
     boatModel,
     nextButton,
-  } = berth.boatInformation;
+  } = shared.boatInformation;
 
   await t.expect(heading.exists).ok();
 

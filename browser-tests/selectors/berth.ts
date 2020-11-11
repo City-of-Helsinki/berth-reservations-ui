@@ -20,25 +20,9 @@ const selectHarbors = {
   },
 };
 
-const boatInformation = {
-  heading: within(Selector('div[class="vene-form-legend"]')).getByRole('heading', {
-    name: /veneen tiedot/i,
-  }),
-  registeredBoat: screen.getByText(/rekisteröity vene/i),
-  boatRegistrationNumber: screen.getByRole('textbox', { name: /rekisterinumero/i }),
-  boatTypeSelect: screen.getByRole('combobox', { name: /veneen tyyppi/i }),
-  boatWidth: screen.getByRole('textbox', { name: /veneen leveys, m/i }),
-  boatLength: screen.getByRole('textbox', { name: /veneen pituus, m/i }),
-  boatDraught: screen.getByRole('textbox', { name: /veneen syväys, m/i }),
-  boatWeight: screen.getByRole('textbox', { name: /veneen paino, kg/i }),
-  boatName: screen.getByRole('textbox', { name: /nimi/i }),
-  boatModel: screen.getByRole('textbox', { name: /merkki/i }),
-  nextButton: screen.getByRole('button', { name: /seuraava/i }),
-};
-
-export const berth = {
+const berth = {
   selectHarbors,
-  boatInformation,
   title: Selector('h1[class="vene-hero__title"]'),
   legend: Selector('div[class="vene-berths-legend"]'),
 };
+export default berth;
