@@ -63,21 +63,21 @@
     "typescript": "^3.9.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "browser-test": "testcafe \"chrome --window-size='1920,1080'\" browser-tests/",
+    "browser-test:ci": "testcafe \"chrome:headless --disable-gpu --window-size='1920,1080'\" browser-tests/ -s takeOnFails=true",
+    "browser-test:local": "TEST_ENV=local testcafe \"chrome --window-size='1920,1080'\" browser-tests/",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "prettier": "prettier",
     "lint": "tslint 'src/**/*.ts?(x)'",
     "lint:fix": "tslint 'src/**/*.ts?(x)' --fix",
-    "test:ci": "CI=true && yarn test:coverage",
-    "test": "react-scripts test --no-watch",
-    "test:watch": "react-scripts test",
-    "test:coverage": "react-scripts test --coverage",
-    "types:generate": "apollo client:codegen --target=typescript --globalTypesFile='src/__generated__/globalTypes.ts'",
     "pre-push": "yarn types:generate && yarn lint",
-    "browser-test": "testcafe \"chrome --window-size='1920,1080'\" browser-tests/",
-    "browser-test:local": "TEST_ENV=local testcafe \"chrome --window-size='1920,1080'\" browser-tests/",
-    "browser-test:ci": "testcafe \"chrome:headless --disable-gpu --window-size='1920,1080'\" browser-tests/ -s takeOnFails=true"
+    "prettier": "prettier",
+    "start": "react-scripts start",
+    "test": "react-scripts test --no-watch",
+    "test:ci": "CI=true && yarn test:coverage",
+    "test:coverage": "react-scripts test --coverage",
+    "test:watch": "react-scripts test",
+    "types:generate": "apollo client:codegen --target=typescript --globalTypesFile='src/__generated__/globalTypes.ts'"
   },
   "devDependencies": {
     "@testing-library/testcafe": "^4.2.3",

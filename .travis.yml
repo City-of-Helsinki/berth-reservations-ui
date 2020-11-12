@@ -11,10 +11,19 @@ before_install:
   - export PATH="$HOME/.yarn/bin:$PATH"
 install:
   - yarn
-script:
-  - yarn lint
-  - yarn build
-  - yarn test:ci
+jobs:
+  include:
+    - stage: 'Test'
+      name: 'Run code linting and test'
+      script: yarn lint && yarn test:ci
+    - stage: 'Build'
+      name: 'Run (test) build'
+      if: branch IN (master)
+      script: yarn build
+    - stage: 'Browser test'
+      name: 'Run browser tests'
+      if: type = cron
+      script: yarn browser-test:ci
 
 after_success:
   - codecov < coverage/lcov.info

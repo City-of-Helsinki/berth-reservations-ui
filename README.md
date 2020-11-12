@@ -54,6 +54,20 @@ To run tests:
 $ yarn test
 ```
 
+## Browser tests
+
+Browser tests are written in TypeScript with [TestCafe](https://devexpress.github.io/testcafe/) framework and they are run against [test environment](https://venepaikka.test.kuva.hel.ninja) in CI as Travis Cron Job (daily) with Chrome (headless mode).
+
+### How to run locally
+
+Running against test environment
+
+- `yarn browser-test`
+
+Running against local environment
+
+- `yarn browser-test:local`
+
 ## Useful docker command
 
 - To rebuild the docker images:
