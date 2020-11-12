@@ -4,6 +4,11 @@ import {
   areaSelectionSelectors,
   unmarkedWinterStorageSelectors,
 } from './selectors/unmarkedWinterStorage';
+import {
+  ApplicantInformation,
+  UnmarkedWinterStorageChoice,
+  WsBoatInformation,
+} from './types/types';
 import { isUnmarkedWinterStoragePage } from './utils/page';
 import { envUrl } from './utils/settings';
 import {
@@ -12,7 +17,7 @@ import {
   fillWsBoatInformation,
 } from './sharedTests/sharedTests';
 
-const testData = {
+const testData: UnmarkedWinterStorageChoice & WsBoatInformation & ApplicantInformation = {
   address: 'Testiosoite 1',
   boatLength: '4.4',
   boatModel: 'Terhi 440',

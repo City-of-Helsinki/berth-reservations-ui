@@ -1,6 +1,7 @@
 import { selectHarborsSelectors } from './selectors/berth';
 import { navbarSelectors } from './selectors/navbar';
 import { boatInformationSelectors } from './selectors/shared';
+import { ApplicantInformation, BerthBoatInformation, Choices } from './types/types';
 import { isBerthsPage } from './utils/page';
 import { envUrl } from './utils/settings';
 import {
@@ -9,7 +10,7 @@ import {
   swapSelections,
 } from './sharedTests/sharedTests';
 
-const testData = {
+const testData: Choices & BerthBoatInformation & ApplicantInformation = {
   address: 'Testiosoite 1',
   boatDraught: '0.21',
   boatLength: '4.4',

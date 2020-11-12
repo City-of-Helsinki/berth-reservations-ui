@@ -4,11 +4,9 @@ import {
   overviewSelectors,
   yourSelectionSelectors,
 } from '../selectors/shared';
+import { ApplicantInformation, Choices, WsBoatInformation } from '../types/types';
 
-export const swapSelections = async (
-  t: TestController,
-  testData: { choice2: string; choice1: string }
-) => {
+export const swapSelections = async (t: TestController, testData: Choices) => {
   const { heading, getHarborHeading, getUpButtonForHeading, nextButton } = yourSelectionSelectors;
 
   await t.expect(heading.exists).ok();
@@ -24,19 +22,7 @@ export const swapSelections = async (
   await t.click(nextButton);
 };
 
-export const fillWsBoatInformation = async (
-  t: TestController,
-  testData: {
-    boatLength: string;
-    boatModel: string;
-    boatName: string;
-    boatRegistrationNumber: string;
-    boatType: string;
-    boatTypeIndex: string | undefined;
-    boatWidth: string;
-    trailerRegistrationNumber: string;
-  }
-) => {
+export const fillWsBoatInformation = async (t: TestController, testData: WsBoatInformation) => {
   const {
     boatLength,
     boatModel,
@@ -74,15 +60,7 @@ export const fillWsBoatInformation = async (
 
 export const fillApplicantInformation = async (
   t: TestController,
-  testData: {
-    firstName: string;
-    lastName: string;
-    address: string;
-    postalCode: string;
-    municipality: string;
-    phoneNumber: string;
-    emailAddress: string;
-  },
+  testData: ApplicantInformation,
   skipHeadingCheck = false
 ) => {
   const {
@@ -116,17 +94,7 @@ export const fillApplicantInformation = async (
 
 export const assertOverview = async (
   t: TestController,
-  testData: {
-    address: string;
-    choice1: any;
-    choice2: any;
-    emailAddress: string;
-    firstName: string;
-    lastName: string;
-    municipality: string;
-    phoneNumber: string;
-    postalCode: string;
-  },
+  testData: Choices & ApplicantInformation,
   expectedBoatInfo: string
 ) => {
   const { heading, textInOverview, getLabelValuePairs } = overviewSelectors;

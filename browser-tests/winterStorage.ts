@@ -1,5 +1,6 @@
 import { navbarSelectors } from './selectors/navbar';
 import { selectAreasSelectors } from './selectors/winterStorage';
+import { ApplicantInformation, Choices, WsBoatInformation } from './types/types';
 import { isWinterStoragePage } from './utils/page';
 import { envUrl } from './utils/settings';
 import {
@@ -9,7 +10,7 @@ import {
   swapSelections,
 } from './sharedTests/sharedTests';
 
-const testData = {
+const testData: Choices & WsBoatInformation & ApplicantInformation = {
   address: 'Testiosoite 1',
   choice1: 'Laivalahti',
   choice2: 'Porslahti',
