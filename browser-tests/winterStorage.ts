@@ -1,5 +1,5 @@
-import navbar from './selectors/navbar';
-import winterStorage from './selectors/winterStorage';
+import { navbarSelectors } from './selectors/navbar';
+import { selectAreasSelectors } from './selectors/winterStorage';
 import { isWinterStoragePage } from './utils/page';
 import { envUrl } from './utils/settings';
 import {
@@ -32,7 +32,7 @@ const testData = {
 fixture('Winter storage').page(envUrl());
 
 test('Winter storage application, registered boat on trailer, private customer', async (t) => {
-  await t.click(navbar.winterStorage);
+  await t.click(navbarSelectors.winterStorage);
   await isWinterStoragePage();
 
   await selectAreas(t);
@@ -62,7 +62,7 @@ const selectAreas = async (t: TestController) => {
     harborListTab,
     nextButton,
     getSelectButtonForArea,
-  } = winterStorage.selectAreas;
+  } = selectAreasSelectors;
 
   await t
     .typeText(boatWidth, testData.boatWidth)

@@ -1,6 +1,9 @@
-import navbar from './selectors/navbar';
-import shared from './selectors/shared';
-import unmarkedWinterStorage from './selectors/unmarkedWinterStorage';
+import { navbarSelectors } from './selectors/navbar';
+import { overviewSelectors } from './selectors/shared';
+import {
+  areaSelectionSelectors,
+  unmarkedWinterStorageSelectors,
+} from './selectors/unmarkedWinterStorage';
 import { isUnmarkedWinterStoragePage } from './utils/page';
 import { envUrl } from './utils/settings';
 import { applicantInformation, applicantOverview, wsBoatInformation } from './utils/sharedTests';
@@ -28,13 +31,13 @@ const testData = {
 fixture('Unmarked winter storage').page(envUrl());
 
 test('Unmarked winter storage notice, registered boat on trailer, private customer', async (t) => {
-  await t.click(navbar.unmarkedWinterStorage);
+  await t.click(navbarSelectors.unmarkedWinterStorage);
   await isUnmarkedWinterStoragePage();
 
   await areaSelection(t);
   await wsBoatInformation(t, testData);
 
-  await t.expect(unmarkedWinterStorage.ownerInformationHeading.exists).ok();
+  await t.expect(unmarkedWinterStorageSelectors.ownerInformationHeading.exists).ok();
   await applicantInformation(t, testData, true);
 
   const expectedBoatInfo = [
@@ -51,7 +54,7 @@ test('Unmarked winter storage notice, registered boat on trailer, private custom
 });
 
 const areaSelection = async (t: TestController) => {
-  const { winterStorageAreaSelect, continueButton } = unmarkedWinterStorage.areaSelection;
+  const { winterStorageAreaSelect, continueButton } = areaSelectionSelectors;
 
   await t
     .click(winterStorageAreaSelect)
@@ -61,9 +64,9 @@ const areaSelection = async (t: TestController) => {
 };
 
 const confirmation = async (t: TestController, expectedBoatInfo: string) => {
-  const { textInOverview, getLabelValuePairs } = shared.overview;
+  const { textInOverview, getLabelValuePairs } = overviewSelectors;
 
-  await t.expect(unmarkedWinterStorage.confirmationHeading.exists).ok();
+  await t.expect(unmarkedWinterStorageSelectors.confirmationHeading.exists).ok();
 
   // Boat information
   const labelValuePairs = await getLabelValuePairs();

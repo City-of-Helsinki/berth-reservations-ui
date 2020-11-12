@@ -1,21 +1,21 @@
 import { t } from 'testcafe';
-import berth from '../selectors/berth';
-import frontPage from '../selectors/frontPage';
-import unmarkedWinterStorage from '../selectors/unmarkedWinterStorage';
-import winterStorage from '../selectors/winterStorage';
+import { berthSelectors } from '../selectors/berth';
+import { frontPageSelectors } from '../selectors/frontPage';
+import { unmarkedWinterStorageSelectors } from '../selectors/unmarkedWinterStorage';
+import { winterStorageSelectors } from '../selectors/winterStorage';
 
 export const isFrontPage = async () => {
-  await t.expect(frontPage.title.innerText).eql('Venepaikat');
+  await t.expect(frontPageSelectors.title.innerText).eql('Venepaikat');
 };
 
 export const isBerthsPage = async () => {
-  await t.expect(berth.title.innerText).eql('Venepaikkahaku');
+  await t.expect(berthSelectors.title.innerText).eql('Venepaikkahaku');
 };
 
 export const isWinterStoragePage = async () => {
-  await t.expect(winterStorage.title.innerText).eql('Talvisäilytyspaikat');
+  await t.expect(winterStorageSelectors.title.innerText).eql('Talvisäilytyspaikat');
 };
 
 export const isUnmarkedWinterStoragePage = async () => {
-  await t.expect(unmarkedWinterStorage.title.innerText).eql('Nostojärjestysilmoitus');
+  await t.expect(unmarkedWinterStorageSelectors.title.innerText).eql('Nostojärjestysilmoitus');
 };

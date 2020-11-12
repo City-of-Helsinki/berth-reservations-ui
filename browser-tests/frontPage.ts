@@ -1,6 +1,6 @@
-import footer from './selectors/footer';
-import frontPage from './selectors/frontPage';
-import navbar from './selectors/navbar';
+import { footerSelectors } from './selectors/footer';
+import { frontPageSelectors } from './selectors/frontPage';
+import { navbarSelectors } from './selectors/navbar';
 import { navigateToFrontPage } from './utils/navigation';
 import { envUrl } from './utils/settings';
 import { switchToEnglish, switchToFinnish, switchToSwedish } from './utils/switchLanguage';
@@ -14,74 +14,92 @@ import {
 fixture('Front page').page(envUrl());
 
 test('Navigation', async (t) => {
+  const { mainLink, berths, winterStorage, unmarkedWinterStorage } = navbarSelectors;
+
   // Main link
-  await t.click(navbar.mainLink);
+  await t.click(mainLink);
   await isFrontPage();
 
   // Berths
-  await t.click(navbar.berths);
+  await t.click(berths);
   await isBerthsPage();
 
   // Winter storage
-  await t.click(navbar.winterStorage);
+  await t.click(winterStorage);
   await isWinterStoragePage();
 
   // Unmarked winter storage
-  await t.click(navbar.unmarkedWinterStorage);
+  await t.click(unmarkedWinterStorage);
   await isUnmarkedWinterStoragePage();
 });
 
 test('Switching language', async (t) => {
+  const { languageSelect } = navbarSelectors;
+  const { title } = frontPageSelectors;
+
   // Switch to Swedish
-  await t.expect(navbar.languageSelect.Swedish.visible).notOk();
+  await t.expect(languageSelect.Swedish.visible).notOk();
   await switchToSwedish(t);
-  await t.expect(frontPage.title.innerText).eql('Båtplatser');
+  await t.expect(title.innerText).eql('Båtplatser');
 
   // Switch to English
-  await t.expect(navbar.languageSelect.English.visible).notOk();
+  await t.expect(languageSelect.English.visible).notOk();
   await switchToEnglish(t);
-  await t.expect(frontPage.title.innerText).eql('Boat berths');
+  await t.expect(title.innerText).eql('Boat berths');
 
   // Switch to Finnish
-  await t.expect(navbar.languageSelect.Finnish.visible).notOk();
+  await t.expect(languageSelect.Finnish.visible).notOk();
   await switchToFinnish(t);
-  await t.expect(frontPage.title.innerText).eql('Venepaikat');
+  await t.expect(title.innerText).eql('Venepaikat');
 });
 
 test('Front page links', async (t) => {
+  const { berths, winterStorage, unmarkedWinterStorage } = frontPageSelectors;
+
   // Berths
-  await t.click(frontPage.berths);
+  await t.click(berths);
   await isBerthsPage();
   await navigateToFrontPage();
 
   // Winter storage
-  await t.click(frontPage.winterStorage);
+  await t.click(winterStorage);
   await isWinterStoragePage();
   await navigateToFrontPage();
 
   // Unmarked winter storage
-  await t.click(frontPage.unmarkedWinterStorage);
+  await t.click(unmarkedWinterStorage);
   await isUnmarkedWinterStoragePage();
   await navigateToFrontPage();
 });
 
 test('Footer', async (t) => {
+  const {
+    serviceLink,
+    browseBerths,
+    boatingInformation,
+    recent,
+    privacyPolicy,
+    accessibilityPolicy,
+    sendFeedback,
+    contact,
+  } = footerSelectors;
+
   // 'Venepaikat' Link
-  await t.expect(footer.serviceLink.visible).ok();
+  await t.expect(serviceLink.visible).ok();
 
   // Link list
   await t
-    .expect(footer.browseBerths.visible)
+    .expect(browseBerths.visible)
     .ok()
-    .expect(footer.boatingInformation.visible)
+    .expect(boatingInformation.visible)
     .ok()
-    .expect(footer.recent.visible)
+    .expect(recent.visible)
     .ok()
-    .expect(footer.privacyPolicy.visible)
+    .expect(privacyPolicy.visible)
     .ok()
-    .expect(footer.accessibilityPolicy.visible)
+    .expect(accessibilityPolicy.visible)
     .ok();
 
   // Bottom links
-  await t.expect(footer.sendFeedback.visible).ok().expect(footer.contact.visible).ok();
+  await t.expect(sendFeedback.visible).ok().expect(contact.visible).ok();
 });

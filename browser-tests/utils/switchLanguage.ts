@@ -1,34 +1,36 @@
-import navbar from '../selectors/navbar';
+import { navbarSelectors } from '../selectors/navbar';
+
+const { languageSelect } = navbarSelectors;
 
 export const switchToFinnish = async (t: TestController) => {
   await t
-    .click(navbar.languageSelect.button)
-    .expect(navbar.languageSelect.Finnish.visible)
+    .click(languageSelect.button)
+    .expect(languageSelect.Finnish.visible)
     .ok()
 
-    .click(navbar.languageSelect.Finnish)
-    .expect(navbar.languageSelect.button.innerText)
+    .click(languageSelect.Finnish)
+    .expect(languageSelect.button.innerText)
     .eql('FI');
 };
 
 export const switchToSwedish = async (t: TestController) => {
   await t
-    .click(navbar.languageSelect.button)
-    .expect(navbar.languageSelect.Swedish.visible)
+    .click(languageSelect.button)
+    .expect(languageSelect.Swedish.visible)
     .ok()
 
-    .click(navbar.languageSelect.Swedish)
-    .expect(navbar.languageSelect.button.innerText)
+    .click(languageSelect.Swedish)
+    .expect(languageSelect.button.innerText)
     .eql('SV');
 };
 
 export const switchToEnglish = async (t: TestController) => {
   await t
-    .click(navbar.languageSelect.button)
-    .expect(navbar.languageSelect.English.visible)
+    .click(languageSelect.button)
+    .expect(languageSelect.English.visible)
     .ok()
 
-    .click(navbar.languageSelect.English)
-    .expect(navbar.languageSelect.button.innerText)
+    .click(languageSelect.English)
+    .expect(languageSelect.button.innerText)
     .eql('EN');
 };

@@ -2,7 +2,7 @@ import { screen, within } from '@testing-library/testcafe';
 import { escapeRegExp } from 'lodash';
 import { Selector } from 'testcafe';
 
-const yourSelection = {
+export const yourSelectionSelectors = {
   heading: screen.getByRole('heading', {
     name: /omat valinnat/i,
   }),
@@ -17,7 +17,7 @@ const yourSelection = {
   },
 };
 
-const applicantInformation = {
+export const applicantInformationSelectors = {
   heading: within(Selector('div[class="vene-form-legend"]')).getByRole('heading', {
     name: /hakijan tiedot/i,
   }),
@@ -31,13 +31,15 @@ const applicantInformation = {
   nextButton: screen.getByRole('button', { name: /seuraava/i }),
 };
 
-const overview = {
+export const overviewSelectors = {
   heading: within(Selector('div[class="vene-form-legend"]')).getByRole('heading', {
     name: /yhteenveto/i,
   }),
   overviewInfo: Selector('div[class="vene-overview-info container"]'),
   getLabelValuePairs: async () => {
-    const labelValuePairs = overview.overviewInfo.find('div[class="vene-label-value-pair"]');
+    const labelValuePairs = overviewSelectors.overviewInfo.find(
+      'div[class="vene-label-value-pair"]'
+    );
     const labelValuePairCount = await labelValuePairs.count;
 
     const pairs: string[] = [];
@@ -50,11 +52,11 @@ const overview = {
     return pairs.join('\n');
   },
   textInOverview: (text: string) => {
-    return within(overview.overviewInfo).getByText(new RegExp(escapeRegExp(text)));
+    return within(overviewSelectors.overviewInfo).getByText(new RegExp(escapeRegExp(text)));
   },
 };
 
-const boatInformation = {
+export const boatInformationSelectors = {
   boatDraught: screen.getByRole('textbox', { name: /veneen syväys, m/i }),
   boatLength: screen.getByRole('textbox', { name: /veneen pituus, m/i }),
   boatModel: screen.getByRole('textbox', { name: /merkki/i }),
@@ -71,11 +73,3 @@ const boatInformation = {
   registeredBoat: screen.getByText(/rekisteröity vene/i),
   trailerRegistrationNumber: screen.getByRole('textbox', { name: /trailerin rekisterinumero/i }),
 };
-
-const shared = {
-  yourSelection,
-  applicantInformation,
-  overview,
-  boatInformation,
-};
-export default shared;

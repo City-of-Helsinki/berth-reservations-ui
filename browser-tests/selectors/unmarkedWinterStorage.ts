@@ -1,12 +1,12 @@
 import { screen, within } from '@testing-library/testcafe';
 import { Selector } from 'testcafe';
 
-const areaSelection = {
+export const areaSelectionSelectors = {
   winterStorageAreaSelect: screen.getByRole('combobox', { name: /talvisäilytysalue/i }),
   continueButton: screen.getByRole('button', { name: /jatka/i }),
 };
 
-const boatInformation = {
+export const boatInformationSelectors = {
   boatLength: screen.getByRole('textbox', { name: /veneen pituus, m/i }),
   boatModel: screen.getByRole('textbox', { name: /merkki/i }),
   boatName: screen.getByRole('textbox', { name: /nimi/i }),
@@ -21,9 +21,7 @@ const boatInformation = {
   trailerRegistrationNumber: screen.getByRole('textbox', { name: /trailerin rekisterinumero/i }),
 };
 
-const unmarkedWinterStorage = {
-  areaSelection,
-  boatInformation,
+export const unmarkedWinterStorageSelectors = {
   ownerInformationHeading: within(Selector('div[class="vene-form-legend"]')).getByRole('heading', {
     name: /omistajan tiedot/i,
   }),
@@ -32,4 +30,3 @@ const unmarkedWinterStorage = {
   }),
   title: Selector('h1[class="vene-hero__title"]'),
 };
-export default unmarkedWinterStorage;

@@ -1,10 +1,15 @@
-import shared from '../selectors/shared';
+import {
+  applicantInformationSelectors,
+  boatInformationSelectors,
+  overviewSelectors,
+  yourSelectionSelectors,
+} from '../selectors/shared';
 
 export const yourSelection = async (
   t: TestController,
   testData: { choice2: string; choice1: string }
 ) => {
-  const { heading, getHarborHeading, getUpButtonForHeading, nextButton } = shared.yourSelection;
+  const { heading, getHarborHeading, getUpButtonForHeading, nextButton } = yourSelectionSelectors;
 
   await t.expect(heading.exists).ok();
 
@@ -43,7 +48,7 @@ export const wsBoatInformation = async (
     heading,
     nextButton,
     trailerRegistrationNumber,
-  } = shared.boatInformation;
+  } = boatInformationSelectors;
 
   await t.expect(heading.exists).ok();
 
@@ -90,7 +95,7 @@ export const applicantInformation = async (
     phoneNumber,
     emailAddress,
     nextButton,
-  } = shared.applicantInformation;
+  } = applicantInformationSelectors;
 
   if (!skipHeadingCheck) {
     await t.expect(heading.exists).ok();
@@ -124,7 +129,7 @@ export const overview = async (
   },
   expectedBoatInfo: string
 ) => {
-  const { heading, textInOverview, getLabelValuePairs } = shared.overview;
+  const { heading, textInOverview, getLabelValuePairs } = overviewSelectors;
 
   await t.expect(heading.exists).ok();
 
@@ -155,7 +160,7 @@ export const applicantOverview = (
     municipality: string;
   }
 ) => {
-  const { textInOverview } = shared.overview;
+  const { textInOverview } = overviewSelectors;
 
   return t
     .expect(textInOverview(testData.firstName).exists)

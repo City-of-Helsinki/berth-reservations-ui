@@ -1,7 +1,7 @@
 import { screen, within } from '@testing-library/testcafe';
 import { Selector } from 'testcafe';
 
-const selectAreas = {
+export const selectAreasSelectors = {
   boatWidth: screen.getByRole('textbox', { name: /veneen leveys, m/i }),
   boatLength: screen.getByRole('textbox', { name: /veneen pituus, m/i }),
   boatStoredOnTrailer: screen.getByRole('checkbox', { name: /vene säilytetään trailerilla/i }),
@@ -17,8 +17,6 @@ const selectAreas = {
   },
 };
 
-const winterStorage = {
-  selectAreas,
+export const winterStorageSelectors = {
   title: Selector('h1[class="vene-hero__title"]'),
 };
-export default winterStorage;

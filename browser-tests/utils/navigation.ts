@@ -1,8 +1,8 @@
 import { t, ClientFunction } from 'testcafe';
-import navbar from '../selectors/navbar';
+import { navbarSelectors } from '../selectors/navbar';
 
 export const navigateToFrontPage = async () => {
-  await t.click(navbar.mainLink);
+  await t.click(navbarSelectors.mainLink);
 };
 
 export const navigateBack = ClientFunction(() => window.history.back());

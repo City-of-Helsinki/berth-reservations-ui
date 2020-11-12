@@ -1,7 +1,7 @@
 import { screen, within } from '@testing-library/testcafe';
 import { Selector } from 'testcafe';
 
-const selectHarbors = {
+export const selectHarborsSelectors = {
   newApplicationRadio: screen.getByRole('radio', {
     name: /uusi hakemus hakijalla ei ole vielä helsingin kaupungin tarjoamaa venepaikkaa/i,
   }),
@@ -20,9 +20,7 @@ const selectHarbors = {
   },
 };
 
-const berth = {
-  selectHarbors,
+export const berthSelectors = {
   title: Selector('h1[class="vene-hero__title"]'),
   legend: Selector('div[class="vene-berths-legend"]'),
 };
-export default berth;

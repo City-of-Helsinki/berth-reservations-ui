@@ -1,6 +1,6 @@
-import berth from './selectors/berth';
-import navbar from './selectors/navbar';
-import shared from './selectors/shared';
+import { selectHarborsSelectors } from './selectors/berth';
+import { navbarSelectors } from './selectors/navbar';
+import { boatInformationSelectors } from './selectors/shared';
 import { isBerthsPage } from './utils/page';
 import { envUrl } from './utils/settings';
 import { applicantInformation, overview, yourSelection } from './utils/sharedTests';
@@ -29,7 +29,7 @@ const testData = {
 fixture('Berth').page(envUrl());
 
 test('New berth application, registered boat, private customer', async (t) => {
-  await t.click(navbar.berths);
+  await t.click(navbarSelectors.berths);
   await isBerthsPage();
 
   await selectHarbors(t);
@@ -59,7 +59,7 @@ const selectHarbors = async (t: TestController) => {
     harborListTab,
     nextButton,
     getSelectButtonForHarbor,
-  } = berth.selectHarbors;
+  } = selectHarborsSelectors;
 
   await t
     .click(boatTypeSelect)
@@ -89,7 +89,7 @@ const boatInformation = async (t: TestController) => {
     boatName,
     boatModel,
     nextButton,
-  } = shared.boatInformation;
+  } = boatInformationSelectors;
 
   await t.expect(heading.exists).ok();
 
