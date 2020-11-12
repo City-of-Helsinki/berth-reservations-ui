@@ -3,7 +3,11 @@ import { navbarSelectors } from './selectors/navbar';
 import { boatInformationSelectors } from './selectors/shared';
 import { isBerthsPage } from './utils/page';
 import { envUrl } from './utils/settings';
-import { applicantInformation, overview, yourSelection } from './utils/sharedTests';
+import {
+  fillApplicantInformation,
+  assertOverview,
+  swapSelections,
+} from './sharedTests/sharedTests';
 
 const testData = {
   address: 'Testiosoite 1',
@@ -33,9 +37,9 @@ test('New berth application, registered boat, private customer', async (t) => {
   await isBerthsPage();
 
   await selectHarbors(t);
-  await yourSelection(t, testData);
-  await boatInformation(t);
-  await applicantInformation(t, testData);
+  await swapSelections(t, testData);
+  await fillBoatInformation(t);
+  await fillApplicantInformation(t, testData);
 
   const expectedBoatInfo = [
     `Nimi: ${testData.boatName}`,
@@ -47,7 +51,7 @@ test('New berth application, registered boat, private customer', async (t) => {
     `Syväys: ${testData.boatDraught}m`,
     `Paino: ${testData.boatWeight}`,
   ].join('\n');
-  await overview(t, testData, expectedBoatInfo);
+  await assertOverview(t, testData, expectedBoatInfo);
 });
 
 const selectHarbors = async (t: TestController) => {
@@ -80,7 +84,7 @@ const selectHarbors = async (t: TestController) => {
   await t.click(nextButton);
 };
 
-const boatInformation = async (t: TestController) => {
+const fillBoatInformation = async (t: TestController) => {
   const {
     heading,
     boatRegistrationNumber,

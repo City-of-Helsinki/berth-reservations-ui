@@ -5,7 +5,7 @@ import {
   yourSelectionSelectors,
 } from '../selectors/shared';
 
-export const yourSelection = async (
+export const swapSelections = async (
   t: TestController,
   testData: { choice2: string; choice1: string }
 ) => {
@@ -24,7 +24,7 @@ export const yourSelection = async (
   await t.click(nextButton);
 };
 
-export const wsBoatInformation = async (
+export const fillWsBoatInformation = async (
   t: TestController,
   testData: {
     boatLength: string;
@@ -72,7 +72,7 @@ export const wsBoatInformation = async (
   await t.click(nextButton);
 };
 
-export const applicantInformation = async (
+export const fillApplicantInformation = async (
   t: TestController,
   testData: {
     firstName: string;
@@ -114,7 +114,7 @@ export const applicantInformation = async (
   await t.click(nextButton);
 };
 
-export const overview = async (
+export const assertOverview = async (
   t: TestController,
   testData: {
     address: string;
@@ -145,10 +145,10 @@ export const overview = async (
     .ok();
 
   // Applicant
-  await applicantOverview(t, testData);
+  await fillApplicantOverview(t, testData);
 };
 
-export const applicantOverview = (
+export const fillApplicantOverview = (
   t: TestController,
   testData: {
     firstName: string;

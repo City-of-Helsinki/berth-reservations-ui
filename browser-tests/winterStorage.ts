@@ -3,11 +3,11 @@ import { selectAreasSelectors } from './selectors/winterStorage';
 import { isWinterStoragePage } from './utils/page';
 import { envUrl } from './utils/settings';
 import {
-  applicantInformation,
-  overview,
-  wsBoatInformation,
-  yourSelection,
-} from './utils/sharedTests';
+  fillApplicantInformation,
+  assertOverview,
+  fillWsBoatInformation,
+  swapSelections,
+} from './sharedTests/sharedTests';
 
 const testData = {
   address: 'Testiosoite 1',
@@ -36,9 +36,9 @@ test('Winter storage application, registered boat on trailer, private customer',
   await isWinterStoragePage();
 
   await selectAreas(t);
-  await yourSelection(t, testData);
-  await wsBoatInformation(t, testData);
-  await applicantInformation(t, testData);
+  await swapSelections(t, testData);
+  await fillWsBoatInformation(t, testData);
+  await fillApplicantInformation(t, testData);
 
   const expectedBoatInfo = [
     `Nimi: ${testData.boatName}`,
@@ -50,7 +50,7 @@ test('Winter storage application, registered boat on trailer, private customer',
     `Säilytystapa: Säilytän veneen trailerilla`,
     `Trailerin rekisterinumero: ${testData.trailerRegistrationNumber}`,
   ].join('\n');
-  await overview(t, testData, expectedBoatInfo);
+  await assertOverview(t, testData, expectedBoatInfo);
 });
 
 const selectAreas = async (t: TestController) => {

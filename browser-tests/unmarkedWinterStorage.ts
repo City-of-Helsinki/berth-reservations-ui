@@ -6,7 +6,11 @@ import {
 } from './selectors/unmarkedWinterStorage';
 import { isUnmarkedWinterStoragePage } from './utils/page';
 import { envUrl } from './utils/settings';
-import { applicantInformation, applicantOverview, wsBoatInformation } from './utils/sharedTests';
+import {
+  fillApplicantInformation,
+  fillApplicantOverview,
+  fillWsBoatInformation,
+} from './sharedTests/sharedTests';
 
 const testData = {
   address: 'Testiosoite 1',
@@ -34,11 +38,11 @@ test('Unmarked winter storage notice, registered boat on trailer, private custom
   await t.click(navbarSelectors.unmarkedWinterStorage);
   await isUnmarkedWinterStoragePage();
 
-  await areaSelection(t);
-  await wsBoatInformation(t, testData);
+  await selectArea(t);
+  await fillWsBoatInformation(t, testData);
 
   await t.expect(unmarkedWinterStorageSelectors.ownerInformationHeading.exists).ok();
-  await applicantInformation(t, testData, true);
+  await fillApplicantInformation(t, testData, true);
 
   const expectedBoatInfo = [
     `Nimi: ${testData.boatName}`,
@@ -50,10 +54,10 @@ test('Unmarked winter storage notice, registered boat on trailer, private custom
     `Säilytystapa: Säilytän veneen trailerilla`,
     `Trailerin rekisterinumero: ${testData.trailerRegistrationNumber}`,
   ].join('\n');
-  await confirmation(t, expectedBoatInfo);
+  await assertConfirmation(t, expectedBoatInfo);
 });
 
-const areaSelection = async (t: TestController) => {
+const selectArea = async (t: TestController) => {
   const { winterStorageAreaSelect, continueButton } = areaSelectionSelectors;
 
   await t
@@ -63,7 +67,7 @@ const areaSelection = async (t: TestController) => {
   await t.wait(500).click(continueButton);
 };
 
-const confirmation = async (t: TestController, expectedBoatInfo: string) => {
+const assertConfirmation = async (t: TestController, expectedBoatInfo: string) => {
   const { textInOverview, getLabelValuePairs } = overviewSelectors;
 
   await t.expect(unmarkedWinterStorageSelectors.confirmationHeading.exists).ok();
@@ -76,5 +80,5 @@ const confirmation = async (t: TestController, expectedBoatInfo: string) => {
   await t.expect(textInOverview(`${testData.winterStorageArea}`).exists).ok();
 
   // Applicant
-  await applicantOverview(t, testData);
+  await fillApplicantOverview(t, testData);
 };
