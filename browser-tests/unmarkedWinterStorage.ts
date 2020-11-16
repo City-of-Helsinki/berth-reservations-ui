@@ -33,7 +33,7 @@ const testData: UnmarkedWinterStorageChoice & WsBoatInformation & ApplicantInfor
   phoneNumber: '+358 50 123 4567',
   postalCode: '02100',
   trailerRegistrationNumber: 'DEF-123',
-  winterStorageArea: 'Lähteelä',
+  winterStorageArea: 'Puotila',
   winterStorageAreaIndex: 2,
 };
 
