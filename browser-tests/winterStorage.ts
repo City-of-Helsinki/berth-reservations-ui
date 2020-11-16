@@ -71,8 +71,9 @@ const selectAreas = async (t: TestController) => {
     .click(boatStoredOnTrailer)
     .click(electricity);
 
+  await t.click(harborListTab);
+
   await t
-    .click(harborListTab)
     .click(getSelectButtonForArea(testData.choice1))
     .click(getSelectButtonForArea(testData.choice2));
 

@@ -77,8 +77,9 @@ const selectHarbors = async (t: TestController) => {
     .typeText(boatLength, testData.boatLength)
     .click(wasteCollection);
 
+  await t.click(harborListTab);
+
   await t
-    .click(harborListTab)
     .click(getSelectButtonForHarbor(testData.choice1))
     .click(getSelectButtonForHarbor(testData.choice2));
 
