@@ -651,14 +651,20 @@
       "paragraph1": "We are sorry, but the payment failed or was cancelled.",
       "paragraph2": "Please try again later, or contact the customer service."
     },
+    "contract": {
+      "title": "Signing the contract and paying the invoice",
+      "info": "Dear customer, we have created for you a contract that is to be signed electronically. See the contract below. You can continue to identify and pay after accepting the terms of the contract. Obtaining a berth or winter storage place requires acceptance of the terms of a contract.",
+      "questions": "Questions and further information: ",
+      "terms_pdf": "Open contract (PDF)",
+      "terms_checkbox": "I have read and accept the contract terms",
+      "terms_form_submit": "Continue to authentication",
+      "select_signing_provider": "Sign the contract by choosing an authentication method"
+    },
     "payment": {
       "title": "Paying the invoice",
-      "terms_info": "Dear customer, we have updated the agreement terms for winter storage spaces. Please read the agreement terms below. You can continue to making your payment after that. Reserving a winter storage space requires that you accept the agreement terms.",
-      "additional_services_terms_info": "Dear customer, here you can pay your additional service bill.",
+      "info": "You can proceed to pay your invoice.",
       "questions": "Questions and further information: ",
-      "terms_pdf": "Winter storage space agreement terms (PDF)",
-      "accept_terms": "I have read and accept the winter storage space agreement terms",
-      "pay": "Continue to making your payment"
+      "pay": "Continue to payment"
     },
     "winter_storage": {
       "appointed": "Appointed spaces",
@@ -802,6 +808,7 @@
       "must_be_number": "The value must be a number",
       "must_be_phone_number": "The value must be a telephone number",
       "must_be_positive_number": "The value must be greater than zero",
+      "must_be_ssn": "Entered value is not a valid SSN",
       "required": "Mandatory field"
     }
   }

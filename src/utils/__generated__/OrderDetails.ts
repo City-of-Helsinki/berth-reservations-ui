@@ -15,8 +15,22 @@ export interface OrderDetails_orderDetails {
   status: OrderStatus;
 }
 
+export interface OrderDetails_contractSigned {
+  __typename: "ContractSignedType";
+  isSigned: boolean | null;
+}
+
+export interface OrderDetails_contractAuthMethods {
+  __typename: "AuthMethod";
+  identifier: string;
+  name: string;
+  image: string;
+}
+
 export interface OrderDetails {
   orderDetails: OrderDetails_orderDetails | null;
+  contractSigned: OrderDetails_contractSigned | null;
+  contractAuthMethods: OrderDetails_contractAuthMethods[];
 }
 
 export interface OrderDetailsVariables {

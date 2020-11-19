@@ -1,14 +1,13 @@
-import { getOrderNumber, getPaymentSuccess, getTermsDocumentUrl } from './urls';
+import { getOrderNumber, getPaymentSuccess } from './urls';
 
 describe('utils/urls', () => {
   describe('getOrderNumber', () => {
     it('should get order number', () => {
       expect(getOrderNumber('?order_number=123')).toEqual('123');
-
-      expect(getOrderNumber('?order_number=')).toEqual(null);
-      expect(getOrderNumber('?order_number=123&order_number=123')).toEqual(null);
-      expect(getOrderNumber('?foo=123')).toEqual(null);
-      expect(getOrderNumber('')).toEqual(null);
+      expect(getOrderNumber('?order_number=')).toEqual('');
+      expect(getOrderNumber('?order_number=123&order_number=123')).toEqual('');
+      expect(getOrderNumber('?foo=123')).toEqual('');
+      expect(getOrderNumber('')).toEqual('');
     });
 
     it('should get payment success', () => {
@@ -16,12 +15,6 @@ describe('utils/urls', () => {
       expect(getPaymentSuccess('?payment_status=failure')).toBeFalsy();
       expect(getPaymentSuccess('?payment_status=')).toBeFalsy();
       expect(getPaymentSuccess('?foo=bar')).toBeFalsy();
-    });
-
-    it('should get terms document URL', () => {
-      expect(getTermsDocumentUrl('fi')).toEqual(
-        '/Helsingin_talvisäilytyspaikan_vuokrasopimusehdot-fi.pdf'
-      );
     });
   });
 });

@@ -59,4 +59,10 @@
   &__contact-info {
     margin-bottom: 0;
   }
+
+  &__signing-providers {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-row-gap: $spacing-01;
+  }
 }

@@ -1,0 +1,10 @@
+.vene-payment-page {
+  &__auth-button {
+    &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-self: start;
+    }
+  }
+}
