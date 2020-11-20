@@ -7,15 +7,17 @@ import Input from '../../../common/Input';
 import { getTermsDocumentUrl } from '../../../utils/urls';
 
 interface Props {
+  termsInfo: string;
+  needsConfirmation?: boolean;
   handlePay: () => void;
 }
 
-const PaymentPage = ({ handlePay }: Props) => {
+const PaymentPage = ({ termsInfo, needsConfirmation = true, handlePay }: Props) => {
   const {
     t,
     i18n: { language },
   } = useTranslation();
-  const [termsAccepted, setTermsAccepted] = useState<boolean>(false);
+  const [termsAccepted, setTermsAccepted] = useState<boolean>(needsConfirmation ? false : true);
 
   const handleAcceptTermsChange = (event: ChangeEvent<HTMLInputElement>) => {
     const target = event.target;
@@ -30,7 +32,7 @@ const PaymentPage = ({ handlePay }: Props) => {
         <div className="vene-payment-page__content-container">
           <div className="vene-payment-page__content">
             <h2>{t('page.payment.title')}</h2>
-            <p>{t('page.payment.terms_info')}</p>
+            <p>{termsInfo}</p>
             <p className="vene-payment-page__contact-info">
               {t('page.payment.questions')}&nbsp;
               <a href="mailto:venepaikat@hel.fi" className="vene-payment-page__link">
@@ -41,24 +43,28 @@ const PaymentPage = ({ handlePay }: Props) => {
         </div>
         <div className="vene-payment-page__content-container">
           <div className="vene-payment-page__content vene-payment-page__accept-terms-content">
-            <div>
-              <a
-                href={termsDocumentUrl}
-                className="vene-payment-page__link"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                {t('page.payment.terms_pdf')}
-              </a>
-            </div>
-            <div>
-              <Input
-                type="checkbox"
-                id="acceptTerms"
-                label="page.payment.accept_terms"
-                onChange={handleAcceptTermsChange}
-              />
-            </div>
+            {needsConfirmation && (
+              <>
+                <div>
+                  <a
+                    href={termsDocumentUrl}
+                    className="vene-payment-page__link"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    {t('page.payment.terms_pdf')}
+                  </a>
+                </div>
+                <div>
+                  <Input
+                    type="checkbox"
+                    id="acceptTerms"
+                    label="page.payment.accept_terms"
+                    onChange={handleAcceptTermsChange}
+                  />
+                </div>
+              </>
+            )}
             <Button
               className="vene-payment-page__pay-button"
               color="secondary"
