@@ -152,6 +152,7 @@ export const GET_HARBOR_NAME = (harborId: string) => gql`
 export const GET_ORDER_DETAILS = gql`
   query OrderDetails($orderNumber: String!) {
     orderDetails(orderNumber: $orderNumber) {
+      orderType
       status
     }
   }
