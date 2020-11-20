@@ -654,6 +654,7 @@
     "payment": {
       "title": "Betalning av faktura",
       "terms_info": "Bästa kund, vi har uppdaterat avtalsvillkoren för vinteruppläggningsplatser. Läs avtalsvillkoren nedan. Därefter kan du fortsätta med betalningen. För att få en vinteruppläggningsplats måste du godkänna avtalsvillkoren.",
+      "additional_services_terms_info": "Bästa kund, här får du betala din faktura för ytterligare service.",
       "questions": "Frågor och mer information: ",
       "terms_pdf": "Avtalsvillkor för vinteruppläggningsplatser (PDF)",
       "accept_terms": "Jag har läst avtalsvillkoren för vinteruppläggningsplatser och godkänner dem",

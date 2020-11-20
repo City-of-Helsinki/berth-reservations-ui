@@ -654,6 +654,7 @@
     "payment": {
       "title": "Laskun maksaminen",
       "terms_info": "Hyvä asiakkaamme, olemme päivittäneet talvisäilytyspaikan sopimusehtoja. Tutustu sopimusehtojen sisältöön alla. Voit jatkaa maksutapahtumaan sen jälkeen. Talvisäilytyspaikan saaminen edellyttää sopimusehtojen hyväksymistä.",
+      "additional_services_terms_info": "Hyvä asiakkaamme, tästä pääset maksamaan lisäpalvelulaskusi.",
       "questions": "Kysymykset ja lisätiedot: ",
       "terms_pdf": "Talvisäilytyspaikan sopimusehdot (PDF)",
       "accept_terms": "Olen lukenut talvisäilytyspaikan sopimusehdot ja hyväksyn ne",
