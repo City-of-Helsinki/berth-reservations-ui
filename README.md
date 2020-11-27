@@ -1,7 +1,7 @@
 # Berth Reservation UI
 
-![CI status](https://github.com/City-of-Helsinki/berth-reservations-ui/workflows/CI/badge.svg)
-![Browser Tests status](https://github.com/City-of-Helsinki/berth-reservations-ui/workflows/Browser%20Tests/badge.svg)
+[![CI status](https://github.com/City-of-Helsinki/berth-reservations-ui/workflows/CI/badge.svg)](https://github.com/City-of-Helsinki/berth-reservations-ui/actions?query=workflow%3ACI)
+[![Browser Tests status](https://github.com/City-of-Helsinki/berth-reservations-ui/workflows/Browser%20Tests/badge.svg)](https://github.com/City-of-Helsinki/berth-reservations-ui/actions?query=workflow%3A%22Browser+Tests%22)
 
 ## Prerequisites
 
