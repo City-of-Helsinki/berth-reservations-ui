@@ -12,6 +12,7 @@
  */
 export enum OrderStatus {
   CANCELLED = "CANCELLED",
+  ERROR = "ERROR",
   EXPIRED = "EXPIRED",
   PAID = "PAID",
   REJECTED = "REJECTED",
