@@ -1,6 +1,7 @@
 # Berth Reservation UI
 
-[![Build Status](https://travis-ci.com/City-of-Helsinki/berth-reservations-ui.svg?branch=master)](https://travis-ci.com/City-of-Helsinki/berth-reservations-ui)
+[![CI status](https://github.com/City-of-Helsinki/berth-reservations-ui/workflows/CI/badge.svg)](https://github.com/City-of-Helsinki/berth-reservations-ui/actions?query=workflow%3ACI)
+[![Browser Tests status](https://github.com/City-of-Helsinki/berth-reservations-ui/workflows/Browser%20Tests/badge.svg)](https://github.com/City-of-Helsinki/berth-reservations-ui/actions?query=workflow%3A%22Browser+Tests%22)
 
 ## Prerequisites
 
@@ -56,7 +57,7 @@ $ yarn test
 
 ## Browser tests
 
-Browser tests are written in TypeScript with [TestCafe](https://devexpress.github.io/testcafe/) framework and they are run against [test environment](https://venepaikka.test.kuva.hel.ninja) in CI as Travis Cron Job (daily) with Chrome (headless mode).
+Browser tests are written in TypeScript with [TestCafe](https://devexpress.github.io/testcafe/) framework and they are run against [test environment](https://venepaikka.test.kuva.hel.ninja) in CI as GitHub Cron Job (daily) with Chrome (headless mode).
 
 ### How to run locally
 
