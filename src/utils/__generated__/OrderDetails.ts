@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { OrderStatus } from "./../../__generated__/globalTypes";
+import { OrderTypeEnum, OrderStatus } from "./../../__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: OrderDetails
@@ -11,6 +11,7 @@ import { OrderStatus } from "./../../__generated__/globalTypes";
 
 export interface OrderDetails_orderDetails {
   __typename: "OrderDetailsType";
+  orderType: OrderTypeEnum;
   status: OrderStatus;
 }
 

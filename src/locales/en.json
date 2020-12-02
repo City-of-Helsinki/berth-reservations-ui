@@ -654,6 +654,7 @@
     "payment": {
       "title": "Paying the invoice",
       "terms_info": "Dear customer, we have updated the agreement terms for winter storage spaces. Please read the agreement terms below. You can continue to making your payment after that. Reserving a winter storage space requires that you accept the agreement terms.",
+      "additional_services_terms_info": "Dear customer, here you can pay your additional service bill.",
       "questions": "Questions and further information: ",
       "terms_pdf": "Winter storage space agreement terms (PDF)",
       "accept_terms": "I have read and accept the winter storage space agreement terms",

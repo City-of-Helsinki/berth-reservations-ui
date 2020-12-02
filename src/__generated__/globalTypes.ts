@@ -22,6 +22,16 @@ export enum OrderStatus {
 /**
  * An enumeration.
  */
+export enum OrderTypeEnum {
+  ADDITIONAL_PRODUCT = "ADDITIONAL_PRODUCT",
+  BERTH = "BERTH",
+  UNKNOWN = "UNKNOWN",
+  WINTER_STORAGE = "WINTER_STORAGE",
+}
+
+/**
+ * An enumeration.
+ */
 export enum WinterStorageMethod {
   ON_TRAILER = "ON_TRAILER",
   ON_TRESTLES = "ON_TRESTLES",
