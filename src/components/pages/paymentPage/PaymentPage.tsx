@@ -35,8 +35,8 @@ const PaymentPage = ({ termsInfo, needsConfirmation = true, handlePay }: Props) 
             <p>{termsInfo}</p>
             <p className="vene-payment-page__contact-info">
               {t('page.payment.questions')}&nbsp;
-              <a href="mailto:venepaikat@hel.fi" className="vene-payment-page__link">
-                venepaikat@hel.fi
+              <a href="mailto:venepaikkavaraukset@hel.fi" className="vene-payment-page__link">
+                venepaikkavaraukset@hel.fi
               </a>
             </p>
           </div>
