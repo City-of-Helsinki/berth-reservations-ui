@@ -651,14 +651,20 @@
       "paragraph1": "Vi beklagar, men betalningen misslyckades eller avbröts.",
       "paragraph2": "Försök igen senare eller kontakta kundtjänsten."
     },
+    "contract": {
+      "title": "Signing the contract and paying the invoice",
+      "info": "Dear customer, we have created for you a contract that is to be signed electronically. See the contract below. You can continue to identify and pay after accepting the terms of the contract. Obtaining a berth or winter storage place requires acceptance of the terms of a contract.",
+      "questions": "Questions and further information: ",
+      "terms_pdf": "Open contract (PDF)",
+      "terms_checkbox": "I have read and accept the contract terms",
+      "terms_form_submit": "Continue to authentication",
+      "select_signing_provider": "Sign the contract by choosing an authentication method"
+    },
     "payment": {
-      "title": "Betalning av faktura",
-      "terms_info": "Bästa kund, vi har uppdaterat avtalsvillkoren för vinteruppläggningsplatser. Läs avtalsvillkoren nedan. Därefter kan du fortsätta med betalningen. För att få en vinteruppläggningsplats måste du godkänna avtalsvillkoren.",
-      "additional_services_terms_info": "Bästa kund, här får du betala din faktura för ytterligare service.",
-      "questions": "Frågor och mer information: ",
-      "terms_pdf": "Avtalsvillkor för vinteruppläggningsplatser (PDF)",
-      "accept_terms": "Jag har läst avtalsvillkoren för vinteruppläggningsplatser och godkänner dem",
-      "pay": "Fortsätt till betalningen"
+      "title": "Paying the invoice",
+      "info": "You can proceed to pay your invoice.",
+      "questions": "Questions and further information: ",
+      "pay": "Continue to payment"
     },
     "winter_storage": {
       "appointed": "Markerade rutor",
@@ -802,6 +808,7 @@
       "must_be_number": "Värdet ska vara en siffra",
       "must_be_phone_number": "Värdet ska vara ett telefonnummer",
       "must_be_positive_number": "Värdet ska vara större än noll",
+      "must_be_ssn": "Det angivna värdet är inte ett giltigt personnummer",
       "required": "Obligatoriskt fält"
     }
   }

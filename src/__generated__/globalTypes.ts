@@ -88,6 +88,13 @@ export interface ConfirmPaymentMutationInput {
   clientMutationId?: string | null;
 }
 
+export interface FulfillContractMutationInput {
+  orderNumber: string;
+  returnUrl: string;
+  authService: string;
+  clientMutationId?: string | null;
+}
+
 export interface HarborChoiceInput {
   harborId: string;
   priority: number;

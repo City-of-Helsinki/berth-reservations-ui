@@ -1,4 +1,4 @@
-import validator, { mustBeEmail, mustNotExceedTwoDecimals } from './formValidation';
+import validator, { mustBeEmail, mustBeSsn, mustNotExceedTwoDecimals } from './formValidation';
 
 describe('formValidation', () => {
   describe('mustNotExceedTwoDecimals', () => {
@@ -58,6 +58,30 @@ describe('formValidation', () => {
       const withErrFn2 = jest.fn().mockReturnValue(err2);
 
       expect(validator(withErrFn1, withErrFn2)('foo')).toBe(err1);
+    });
+  });
+
+  describe('mustBeSsn', () => {
+    test('should return true for valid ssn', () => {
+      expect(mustBeSsn('020175-033H')).toBeUndefined();
+    });
+
+    test('should return false if verification character is incorrect', () => {
+      expect(mustBeSsn('020175-033A')).toEqual('validation.message.must_be_ssn');
+    });
+
+    test('should return false for malformed ssn', () => {
+      [
+        '020175033H',
+        '02017-033H',
+        '020175-03H',
+        '020175K033H',
+        '',
+        '020175',
+        '-033A',
+        'A',
+      ].forEach((value) => expect(mustBeSsn(value)).toEqual('validation.message.must_be_ssn'));
+      expect.assertions(8);
     });
   });
 });

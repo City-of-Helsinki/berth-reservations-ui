@@ -59,3 +59,58 @@ export default <T>(...fns: (((...args: any[]) => T | undefined) | null)[]) => (
 
   return validated;
 };
+
+const ssnValidationTable = [
+  '0',
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  'A',
+  'B',
+  'C',
+  'D',
+  'E',
+  'F',
+  'H',
+  'J',
+  'K',
+  'L',
+  'M',
+  'N',
+  'P',
+  'R',
+  'S',
+  'T',
+  'U',
+  'V',
+  'W',
+  'X',
+  'Y',
+];
+
+const validateSsn = (number: number, checkCharacter: string) => {
+  return checkCharacter === ssnValidationTable[number % 31];
+};
+
+export const mustBeSsn = (value: string) => {
+  const ssnRe = /^([0-9]{6})([\\+\-A])([0-9]{3})([0-9A-FHJ-NPR-Y])$/;
+  if (!ssnRe.test(value)) {
+    return 'validation.message.must_be_ssn';
+  }
+
+  const groups = value.match(ssnRe) ?? [];
+  const number = parseInt(`${groups[1]}${groups[3]}`, 10);
+  const checkCharacter = groups[4];
+
+  if (!validateSsn(number, checkCharacter)) {
+    return 'validation.message.must_be_ssn';
+  }
+
+  return undefined;
+};

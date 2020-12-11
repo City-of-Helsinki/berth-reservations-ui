@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/react-hooks';
-import { useTranslation } from 'react-i18next';
-import { TFunction } from 'i18next';
 
 import PaymentPage from './PaymentPage';
-import { CONFIRM_PAYMENT, GET_ORDER_DETAILS } from '../../../utils/graphql';
+import ContractPage from './ContractPage';
+import { CONFIRM_PAYMENT, FULFILL_CONTRACT, GET_ORDER_DETAILS } from '../../../utils/graphql';
 import { getOrderNumber } from '../../../utils/urls';
 import GeneralPaymentErrorPage from './paymentError/GeneralPaymentErrorPage';
 import AlreadyPaidPage from './paymentError/AlreadyPaidPage';
@@ -14,12 +13,19 @@ import {
   ConfirmPayment,
   ConfirmPaymentVariables,
 } from '../../../utils/__generated__/ConfirmPayment';
-import { OrderDetails, OrderDetailsVariables } from '../../../utils/__generated__/OrderDetails';
 import { OrderTypeEnum, OrderStatus } from '../../../__generated__/globalTypes';
+import {
+  OrderDetails,
+  OrderDetailsVariables,
+  OrderDetails_contractAuthMethods as ContractAuthMethods,
+} from '../../../utils/__generated__/OrderDetails';
+import {
+  FulfillContract,
+  FulfillContractVariables,
+} from '../../../utils/__generated__/FulfillContract';
 
 const PaymentPageContainer = () => {
   const orderNumber = getOrderNumber(window.location.search);
-  const { t } = useTranslation();
 
   const [isRedirecting, setIsRedirecting] = useState(false);
 
@@ -49,7 +55,31 @@ const PaymentPageContainer = () => {
     },
   });
 
-  if (loadingOrderDetails || loadingConfirmPayment || isRedirecting) {
+  const [fulfillContract] = useMutation<FulfillContract, FulfillContractVariables>(
+    FULFILL_CONTRACT
+  );
+
+  const handleSignContract = (authMethod: string) => {
+    fulfillContract({
+      variables: {
+        fulfillContractMutationInput: {
+          orderNumber: orderNumber as string,
+          returnUrl: window.location.href,
+          authService: authMethod,
+        },
+      },
+    }).then((res) => {
+      setIsRedirecting(true);
+      window.location.href = res.data?.fulfillContract?.signingUrl as string;
+    });
+  };
+
+  if (
+    loadingOrderDetails ||
+    loadingConfirmPayment ||
+    isRedirecting ||
+    !orderDetailsData?.contractSigned
+  ) {
     return <LoadingPage />;
   }
   if (confirmError || orderDetailsError) {
@@ -58,35 +88,37 @@ const PaymentPageContainer = () => {
 
   return getPaymentPage(
     orderDetailsData?.orderDetails?.orderType,
+    orderNumber,
+    orderDetailsData.contractSigned.isSigned,
     orderDetailsData?.orderDetails?.status,
+    orderDetailsData?.contractAuthMethods ?? [],
     confirmPayment,
-    t
+    handleSignContract
   );
 };
 
 export const getPaymentPage = (
   orderType: OrderTypeEnum | undefined,
+  orderNumber: string,
+  contractSigned: boolean | null,
   status: OrderStatus | undefined | null,
+  contractAuthMethods: ContractAuthMethods[],
   confirmPayment: () => void,
-  t: TFunction
+  signContract: (authMethod: string) => void
 ): JSX.Element => {
   if (!status) {
     return <GeneralPaymentErrorPage />;
   }
 
-  const isAdditionalService = orderType === OrderTypeEnum.ADDITIONAL_PRODUCT;
-
   switch (status) {
     case OrderStatus.WAITING:
-      return (
-        <PaymentPage
-          termsInfo={
-            isAdditionalService
-              ? t('page.payment.additional_services_terms_info')
-              : t('page.payment.terms_info')
-          }
-          handlePay={confirmPayment}
-          needsConfirmation={!isAdditionalService}
+      return contractSigned || contractSigned === null ? (
+        <PaymentPage handlePay={confirmPayment} />
+      ) : (
+        <ContractPage
+          orderNumber={orderNumber}
+          handleSign={signContract}
+          contractAuthMethods={contractAuthMethods}
         />
       );
     case OrderStatus.PAID:

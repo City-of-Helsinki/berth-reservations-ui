@@ -149,19 +149,35 @@ export const GET_HARBOR_NAME = (harborId: string) => gql`
   }
 `;
 
+export const CONFIRM_PAYMENT = gql`
+  mutation ConfirmPayment($confirmPaymentMutationInput: ConfirmPaymentMutationInput!) {
+    confirmPayment(input: $confirmPaymentMutationInput) {
+      url
+    }
+  }
+`;
+
+export const FULFILL_CONTRACT = gql`
+  mutation FulfillContract($fulfillContractMutationInput: FulfillContractMutationInput!) {
+    fulfillContract(input: $fulfillContractMutationInput) {
+      signingUrl
+    }
+  }
+`;
+
 export const GET_ORDER_DETAILS = gql`
   query OrderDetails($orderNumber: String!) {
     orderDetails(orderNumber: $orderNumber) {
       orderType
       status
     }
-  }
-`;
-
-export const CONFIRM_PAYMENT = gql`
-  mutation ConfirmPayment($confirmPaymentMutationInput: ConfirmPaymentMutationInput!) {
-    confirmPayment(input: $confirmPaymentMutationInput) {
-      url
+    contractSigned(orderNumber: $orderNumber) {
+      isSigned
+    }
+    contractAuthMethods {
+      identifier
+      name
+      image
     }
   }
 `;
