@@ -54,6 +54,7 @@ FROM appbase as staticbuilder
 # ===================================
 
 ARG REACT_APP_API_URL
+ARG REACT_APP_API_URL_ROOT
 ARG REACT_APP_ENVIRONMENT
 ARG REACT_APP_PIWIK_URL
 ARG REACT_APP_PIWIK_ID
