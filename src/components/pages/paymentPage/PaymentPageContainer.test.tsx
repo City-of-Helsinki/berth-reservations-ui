@@ -27,5 +27,6 @@ describe('PaymentPageContainer', () => {
       );
       expect(wrapper.find(testItem[1] as string).exists()).toBeTruthy();
     });
+    expect.assertions(6);
   });
 });

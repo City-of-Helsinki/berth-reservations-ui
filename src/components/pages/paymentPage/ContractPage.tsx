@@ -50,9 +50,9 @@ const PaymentPage = ({ contractAuthMethods, orderNumber, handleSign }: Props) =>
 
             <Form
               onSubmit={(values: { accepted: boolean }) => setTermsAccepted(values.accepted)}
-              initialValues={{}}
+              initialValues={{ accepted: false }}
             >
-              {({ values }: { values: { accepted: boolean } }) => (
+              {({ values }) => (
                 <div>
                   <Checkbox
                     name={`accepted`}

@@ -11,7 +11,7 @@ interface AuthButtonProps {
 const AuthButton = ({ name, identifier, image, onClick }: AuthButtonProps) => {
   return (
     <div className="vene-payment-page__auth-button__container">
-      <b>{name}</b>
+      <strong>{name}</strong>
       <button onClick={onClick} className="vene-payment-page__auth-button__button">
         <img src={image} alt={identifier} />
       </button>

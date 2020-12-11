@@ -81,6 +81,7 @@ describe('formValidation', () => {
         '-033A',
         'A',
       ].forEach((value) => expect(mustBeSsn(value)).toEqual('validation.message.must_be_ssn'));
+      expect.assertions(8);
     });
   });
 });
