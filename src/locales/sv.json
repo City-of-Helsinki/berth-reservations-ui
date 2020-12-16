@@ -652,19 +652,19 @@
       "paragraph2": "Försök igen senare eller kontakta kundtjänsten."
     },
     "contract": {
-      "title": "Signing the contract and paying the invoice",
-      "info": "Dear customer, we have created for you a contract that is to be signed electronically. See the contract below. You can continue to identify and pay after accepting the terms of the contract. Obtaining a berth or winter storage place requires acceptance of the terms of a contract.",
-      "questions": "Questions and further information: ",
-      "terms_pdf": "Open contract (PDF)",
-      "terms_checkbox": "I have read and accept the contract terms",
-      "terms_form_submit": "Continue to authentication",
-      "select_signing_provider": "Sign the contract by choosing an authentication method"
+      "title": "Signering av avtal och betalning av faktura",
+      "info": "Bästa kund, vi har lagt upp ett avtal för dig som ska signeras elektroniskt. Läs avtalet nedan. Då du godkänt avtalsvillkoren, kan du fortsätta till identifikationen och betalningen. För att få en båtplats måste du godkänna avtalsvillkoren.",
+      "questions": "Frågor och mer information: ",
+      "terms_pdf": "Öppna avtalsvillkoren (PDF)",
+      "terms_checkbox": "Jag har läst avtalsvillkoren och godkänner dem",
+      "terms_form_submit": "Fortsätt till identifikationen",
+      "select_signing_provider": "Signera avtalet genom att välja identifikationssätt"
     },
     "payment": {
-      "title": "Paying the invoice",
-      "info": "You can proceed to pay your invoice.",
-      "questions": "Questions and further information: ",
-      "pay": "Continue to payment"
+      "title": "Betalning av fakturan",
+      "info": "Du kan gå till att betala din faktura.",
+      "questions": "Frågor och mer information: ",
+      "pay": "Fortsätt till betalningent"
     },
     "winter_storage": {
       "appointed": "Markerade rutor",
