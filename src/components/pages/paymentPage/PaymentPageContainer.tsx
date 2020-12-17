@@ -110,17 +110,19 @@ export const getPaymentPage = (
     return <GeneralPaymentErrorPage />;
   }
 
+  if (contractSigned !== null && !contractSigned) {
+    return (
+      <ContractPage
+        orderNumber={orderNumber}
+        handleSign={signContract}
+        contractAuthMethods={contractAuthMethods}
+      />
+    );
+  }
+
   switch (status) {
     case OrderStatus.WAITING:
-      return contractSigned || contractSigned === null ? (
-        <PaymentPage handlePay={confirmPayment} />
-      ) : (
-        <ContractPage
-          orderNumber={orderNumber}
-          handleSign={signContract}
-          contractAuthMethods={contractAuthMethods}
-        />
-      );
+      return <PaymentPage handlePay={confirmPayment} />;
     case OrderStatus.PAID:
       return <AlreadyPaidPage />;
     case OrderStatus.EXPIRED:
