@@ -19,6 +19,7 @@ import { ApplicationType } from '../types/applicationType';
 import { LocaleOpts } from '../types/intl';
 import { PaymentPageContainer } from '../components/pages/paymentPage/PaymentPageContainer';
 import { PaymentResultContainer } from '../components/pages/paymentResultPage/PaymentResultContainer';
+import CancelOrderPageContainer from '../components/pages/cancelOrderPage/CancelOrderPageContainer';
 
 type Props = RouteComponentProps<{ locale: LocaleOpts }>;
 
@@ -65,6 +66,7 @@ const App = ({
 
       <Route exact path={`/${localeParam}/payment`} component={PaymentPageContainer} />
       <Route exact path={`/${localeParam}/payment-result`} component={PaymentResultContainer} />
+      <Route exact path={`/${localeParam}/cancel-order`} component={CancelOrderPageContainer} />
 
       <Route exact path={`/${localeParam}/thank-you`} component={ApplicationThankYouPage} />
       <Route exact path={`/${localeParam}/notice-sent`} component={NoticeSentPage} />
