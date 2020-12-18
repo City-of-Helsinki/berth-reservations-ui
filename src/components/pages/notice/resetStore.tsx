@@ -13,7 +13,7 @@ interface Props {
   resetApplication: Function;
 }
 
-export default (component: React.ComponentType<any>) =>
+export default (component: React.ComponentType<Props>) =>
   compose<Props, {}>(
     connect(() => ({}), { resetValues, resetBerths, resetWinterAreas, resetApplication }),
     lifecycle<Props, {}>({

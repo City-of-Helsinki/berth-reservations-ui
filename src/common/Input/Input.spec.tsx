@@ -7,6 +7,7 @@ describe('components/common/Input', () => {
   const defaultProps: CustomInputProps = {
     className: 'vene-input',
     type: 'checkbox',
+    id: 'test',
   };
 
   const getWrapper = (props?: object) => mount(<Input {...defaultProps} {...props} />);
