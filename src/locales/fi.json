@@ -567,6 +567,16 @@
       "waste_collection": "Jätehuolto",
       "water_tap": "Vesi"
     },
+    "cancel_order": {
+      "title": "Tarjouksen/laskun peruuttaminen",
+      "message": {
+        "paragraph1": "Oletko varma että haluat peruuttaa tarjouksen/laskun?",
+        "paragraph2": "HUOM! Tämä toiminto peruuttaa seuraavat kyseiseen paikkaan liitetyt asiakirjat:<br/>vuokrasopimus ja lasku",
+        "paragraph3": "Mikäli et halua peruuttaa, voit sulkea tämän sivun.<br/>Kysymykset ja lisätiedot: venepaikkavaraukset@hel.fi"
+      },
+      "confirmation": "Haluan peruuttaa tarjouksen/laskun",
+      "submit_button": "OK"
+    },
     "common": {
       "website": "Verkkosivu"
     },
