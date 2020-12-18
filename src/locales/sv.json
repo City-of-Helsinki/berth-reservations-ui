@@ -627,8 +627,9 @@
     },
     "payment_error": {
       "already_paid": {
-        "message": "Den avgift du försöker betala är redan markerad som betald. Tack!",
-        "title": "Avgiften är redan betald"
+        "title": "Färdig!",
+        "paid_message": "Fakturan har betalats framgångsrikt. Tack!",
+        "paid_and_signed_message": "Kontraktet har undertecknats och fakturan har betalats. Tack!"
       },
       "general_error": {
         "message": "Vi kunde tyvärr inte hitta betalningen. Den kan ha annullerats, eller så kan länken vara felaktig.",

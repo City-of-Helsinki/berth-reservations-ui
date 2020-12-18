@@ -13,11 +13,11 @@ import {
   ConfirmPayment,
   ConfirmPaymentVariables,
 } from '../../../utils/__generated__/ConfirmPayment';
-import { OrderTypeEnum, OrderStatus } from '../../../__generated__/globalTypes';
+import { OrderStatus, OrderTypeEnum } from '../../../__generated__/globalTypes';
 import {
   OrderDetails,
-  OrderDetailsVariables,
   OrderDetails_contractAuthMethods as ContractAuthMethods,
+  OrderDetailsVariables,
 } from '../../../utils/__generated__/OrderDetails';
 import {
   FulfillContract,
@@ -124,7 +124,9 @@ export const getPaymentPage = (
     case OrderStatus.WAITING:
       return <PaymentPage handlePay={confirmPayment} />;
     case OrderStatus.PAID:
-      return <AlreadyPaidPage />;
+      return (
+        <AlreadyPaidPage isAdditionalProduct={orderType === OrderTypeEnum.ADDITIONAL_PRODUCT} />
+      );
     case OrderStatus.EXPIRED:
       return <PastDueDatePage />;
     default:
