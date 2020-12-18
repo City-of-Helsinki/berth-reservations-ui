@@ -1,4 +1,4 @@
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import React from 'react';
 import { MemoryRouter, Route, RouteComponentProps } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ describe('containers', () => {
       <div>{props.text}</div>
     );
     const CompWithHandlers = withMatchParamsHandlers(Component);
-    const getWrapper = (locale: string = '') =>
+    const getWrapper = (locale: string = 'fi') =>
       mount(
         <MemoryRouter initialEntries={[`/${locale}`]}>
           <Route path="/:locale/">
