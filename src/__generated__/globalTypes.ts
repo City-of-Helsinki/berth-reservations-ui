@@ -83,6 +83,11 @@ export interface BerthSwitchInput {
   reason?: string | null;
 }
 
+export interface CancelOrderMutationInput {
+  orderNumber: string;
+  clientMutationId?: string | null;
+}
+
 export interface ConfirmPaymentMutationInput {
   orderNumber: string;
   clientMutationId?: string | null;
