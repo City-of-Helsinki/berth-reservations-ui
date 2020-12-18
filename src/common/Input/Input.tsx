@@ -12,7 +12,6 @@ export const Input: FC<InputProps> = ({ className, type, placeholder, label, ...
 
   return (
     <BTInput
-      id="vene-custom-input-field"
       className={classNames('vene-input', className)}
       type={type}
       label={typeof label === 'string' ? t(label) : label}
