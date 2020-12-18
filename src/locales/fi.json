@@ -627,8 +627,9 @@
     },
     "payment_error": {
       "already_paid": {
-        "message": "Maksu, jota yritit maksaa, on merkitty jo maksetuksi. Kiitos!",
-        "title": "Maksu on jo maksettu"
+        "title": "Valmis!",
+        "paid_message": "Lasku on onnistuneesti maksettu. Kiitos!",
+        "paid_and_signed_message": "Sopimus on allekirjoitettu ja lasku on maksettu. Kiitos!"
       },
       "general_error": {
         "message": "Pahoittelemme, mutta maksua ei löydy. Se on voitu peruuttaa tai linkki voi olla virheellinen.",

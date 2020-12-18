@@ -627,8 +627,9 @@
     },
     "payment_error": {
       "already_paid": {
-        "message": "The payment you attempted to make has already been marked as received. Thank you!",
-        "title": "The payment has already been made"
+        "title": "All done!",
+        "paid_message": "The invoice has been paid successfully. Thank you!",
+        "paid_and_signed_message": "Your contract has been signed and the invoice has been paid successfully. Thank you!"
       },
       "general_error": {
         "message": "We are sorry, but the payment could not be found. It may have been cancelled or the link may be invalid.",
