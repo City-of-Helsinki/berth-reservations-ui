@@ -1,4 +1,6 @@
 import validator, {
+  mustBeBusinessId,
+  mustBeCompanyName,
   mustBeEmail,
   mustBeNames,
   mustBeSsn,
@@ -28,6 +30,18 @@ describe('formValidation', () => {
       expect(mustBeNames(2)('Ville%')).toEqual('validation.message.invalid_value');
       expect(mustBeNames(2)('😀')).toEqual('validation.message.invalid_value');
       expect(mustBeNames(2)('寅泰')).toEqual('validation.message.invalid_value');
+    });
+  });
+
+  describe('mustBeCompanyName', () => {
+    test('should return undefined if name is valid', () => {
+      expect(mustBeCompanyName('Abc Oy')).toBeUndefined();
+      expect(mustBeCompanyName('Abc')).toBeUndefined();
+    });
+    test('should return an error message if the name has invalid characters', () => {
+      expect(mustBeCompanyName('Abc% Oy')).toEqual('validation.message.invalid_value');
+      expect(mustBeCompanyName('😀 Oy')).toEqual('validation.message.invalid_value');
+      expect(mustBeCompanyName('寅泰')).toEqual('validation.message.invalid_value');
     });
   });
 
@@ -112,6 +126,17 @@ describe('formValidation', () => {
         'A',
       ].forEach((value) => expect(mustBeSsn(value)).toEqual('validation.message.must_be_ssn'));
       expect.assertions(8);
+    });
+  });
+
+  describe('mustBeBusinessId', () => {
+    test('should return undefined if businessId is valid', () => {
+      expect(mustBeBusinessId('1234567-8')).toBeUndefined();
+    });
+    test('should return an error message if businessId is invalid', () => {
+      expect(mustBeBusinessId('12345678')).toEqual('validation.message.invalid_value');
+      expect(mustBeBusinessId('12345678-')).toEqual('validation.message.invalid_value');
+      expect(mustBeBusinessId('Abc')).toEqual('validation.message.invalid_value');
     });
   });
 });

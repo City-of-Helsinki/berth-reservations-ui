@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Col, Row } from 'reactstrap';
+import { mustBeBusinessId, mustBeCompanyName } from '../../../utils/formValidation';
 
 import { Text } from '../Fields';
 
@@ -12,6 +13,7 @@ const CompanyDetailsFragment = () => (
           label="form.company_details.field.name.label"
           placeholder="form.company_details.field.name.placeholder"
           required
+          validate={mustBeCompanyName}
         />
       </Col>
     </Row>
@@ -22,6 +24,7 @@ const CompanyDetailsFragment = () => (
           label="form.company_details.field.business_id.label"
           placeholder="form.company_details.field.business_id.placeholder"
           required
+          validate={mustBeBusinessId}
         />
       </Col>
     </Row>
