@@ -1,6 +1,16 @@
 export const mustBePresent = (value: any): string | undefined =>
   value ? undefined : 'validation.message.required';
 
+export const mustBeNames = (maxNames: number) => (value: any): string | undefined => {
+  const regexString = `^(?! )([\\p{Script_Extensions=Latin}-]+\\s*){1,${maxNames}}(?<! )$`;
+  const regex = RegExp(regexString, 'u');
+
+  if (regex.test(value)) {
+    return undefined;
+  }
+  return 'validation.message.invalid_value';
+};
+
 export const mustBeNumber = (value: any): string | undefined =>
   isNaN(value) ? 'validation.message.must_be_number' : undefined;
 

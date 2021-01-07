@@ -1,6 +1,36 @@
-import validator, { mustBeEmail, mustBeSsn, mustNotExceedTwoDecimals } from './formValidation';
+import validator, {
+  mustBeEmail,
+  mustBeNames,
+  mustBeSsn,
+  mustNotExceedTwoDecimals,
+} from './formValidation';
 
 describe('formValidation', () => {
+  describe('mustBeNames', () => {
+    test('should return undefined if name count is ok and names are valid', () => {
+      expect(mustBeNames(1)('Aki')).toBeUndefined();
+      expect(mustBeNames(3)('Aki')).toBeUndefined();
+      expect(mustBeNames(3)('Jukka-Pekka Matti Antero')).toBeUndefined();
+      expect(mustBeNames(3)('Øyvind Pär Ánton')).toBeUndefined();
+    });
+    test('should return an error message if there is no name', () => {
+      expect(mustBeNames(1)('')).toEqual('validation.message.invalid_value');
+      expect(mustBeNames(1)(' ')).toEqual('validation.message.invalid_value');
+    });
+    test('should return an error message if name count is over maxNames', () => {
+      expect(mustBeNames(2)('Jukka Pekka Antero')).toEqual('validation.message.invalid_value');
+    });
+    test('should return an error message if there is extra whitespace', () => {
+      expect(mustBeNames(2)(' Jukka Pekka')).toEqual('validation.message.invalid_value');
+      expect(mustBeNames(2)('Jukka Pekka ')).toEqual('validation.message.invalid_value');
+    });
+    test('should return an error message if the names are invalid', () => {
+      expect(mustBeNames(2)('Ville%')).toEqual('validation.message.invalid_value');
+      expect(mustBeNames(2)('😀')).toEqual('validation.message.invalid_value');
+      expect(mustBeNames(2)('寅泰')).toEqual('validation.message.invalid_value');
+    });
+  });
+
   describe('mustNotExceedTwoDecimals', () => {
     test('should return undefined if the value has no more than two decimals', () => {
       expect(mustNotExceedTwoDecimals('1000.00')).toBeUndefined();
