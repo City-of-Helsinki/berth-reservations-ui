@@ -1,5 +1,6 @@
 import validator, {
   mustBeAddress,
+  mustBeBoatRegistrationNumber,
   mustBeBusinessId,
   mustBeCompanyName,
   mustBeEmail,
@@ -161,6 +162,19 @@ describe('formValidation', () => {
       expect(mustBeBusinessId('12345678')).toEqual('validation.message.invalid_value');
       expect(mustBeBusinessId('12345678-')).toEqual('validation.message.invalid_value');
       expect(mustBeBusinessId('Abc')).toEqual('validation.message.invalid_value');
+    });
+  });
+
+  describe('mustBeBoatRegistrationNumber', () => {
+    test('should return undefined if number is valid', () => {
+      expect(mustBeBoatRegistrationNumber('A1')).toBeUndefined();
+      expect(mustBeBoatRegistrationNumber('Z1234567')).toBeUndefined();
+      expect(mustBeBoatRegistrationNumber('P12345')).toBeUndefined();
+    });
+    test('should return an error message if number is invalid', () => {
+      expect(mustBeBoatRegistrationNumber('P1')).toEqual('validation.message.invalid_value');
+      expect(mustBeBoatRegistrationNumber('A12345678')).toEqual('validation.message.invalid_value');
+      expect(mustBeBoatRegistrationNumber('A-1')).toEqual('validation.message.invalid_value');
     });
   });
 });

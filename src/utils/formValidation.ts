@@ -156,3 +156,11 @@ export const mustBeBusinessId = (value: any): string | undefined => {
   }
   return 'validation.message.invalid_value';
 };
+
+export const mustBeBoatRegistrationNumber = (value: any): string | undefined => {
+  const regex = /^([PEL][0-9]{5,10})|([A-DF-KOQ-Z][0-9]{1,7})$/;
+  if (regex.test(value)) {
+    return undefined;
+  }
+  return 'validation.message.invalid_value';
+};
