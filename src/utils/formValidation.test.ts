@@ -1,8 +1,10 @@
 import validator, {
+  mustBeAddress,
   mustBeBusinessId,
   mustBeCompanyName,
   mustBeEmail,
   mustBeNames,
+  mustBePostalCode,
   mustBeSsn,
   mustNotExceedTwoDecimals,
 } from './formValidation';
@@ -42,6 +44,28 @@ describe('formValidation', () => {
       expect(mustBeCompanyName('Abc% Oy')).toEqual('validation.message.invalid_value');
       expect(mustBeCompanyName('😀 Oy')).toEqual('validation.message.invalid_value');
       expect(mustBeCompanyName('寅泰')).toEqual('validation.message.invalid_value');
+    });
+  });
+
+  describe('mustBeAddress', () => {
+    test('should return undefined if address is valid', () => {
+      expect(mustBeAddress('Testikatu 1')).toBeUndefined();
+      expect(mustBeAddress('Testitie 1 as. 1, c/o Matti Meikäläinen (lisätieto)')).toBeUndefined();
+    });
+    test('should return an error message if address has invalid characters', () => {
+      expect(mustBeAddress('Testikatu #1')).toEqual('validation.message.invalid_value');
+      expect(mustBeAddress('Testikatu 1😀')).toEqual('validation.message.invalid_value');
+    });
+  });
+
+  describe('mustBePostalCode', () => {
+    test('should return undefined if postal code is valid', () => {
+      expect(mustBePostalCode('00100')).toBeUndefined();
+    });
+    test('should return an error message if postal code has invalid characters or length', () => {
+      expect(mustBePostalCode('A00100')).toEqual('validation.message.invalid_value');
+      expect(mustBePostalCode('0100')).toEqual('validation.message.invalid_value');
+      expect(mustBePostalCode('000100')).toEqual('validation.message.invalid_value');
     });
   });
 

@@ -19,6 +19,22 @@ export const mustBeCompanyName = (value: any): string | undefined => {
   return 'validation.message.invalid_value';
 };
 
+export const mustBeAddress = (value: any): string | undefined => {
+  const regex = /^(?! )([a-zA-ZåäöÅÄÖ0-9-/.,() ]+)(?<! )$/;
+  if (regex.test(value)) {
+    return undefined;
+  }
+  return 'validation.message.invalid_value';
+};
+
+export const mustBePostalCode = (value: any): string | undefined => {
+  const regex = /^([0-9]{5})$/;
+  if (regex.test(value)) {
+    return undefined;
+  }
+  return 'validation.message.invalid_value';
+};
+
 export const mustBeNumber = (value: any): string | undefined =>
   isNaN(value) ? 'validation.message.must_be_number' : undefined;
 
