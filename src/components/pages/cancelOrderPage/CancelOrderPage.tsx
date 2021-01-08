@@ -30,9 +30,9 @@ const CancelOrderPage = ({ handleCancel }: CancelOrderPageProps) => {
               <Trans
                 i18nKey="page.cancel_order.message.paragraph3"
                 components={[
-                  <br />,
+                  <br key="newLine" />,
                   <a
-                    key={'berthHeroContentLink'}
+                    key={'emailLink'}
                     href="mailto:venepaikkavaraukset@hel.fi"
                     rel="noopener noreferrer"
                     target="_blank"
