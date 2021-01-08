@@ -74,6 +74,9 @@ const PaymentPageContainer = () => {
     });
   };
 
+  if (confirmError || orderDetailsError) {
+    return <GeneralPaymentErrorPage />;
+  }
   if (
     loadingOrderDetails ||
     loadingConfirmPayment ||
@@ -81,9 +84,6 @@ const PaymentPageContainer = () => {
     !orderDetailsData?.contractSigned
   ) {
     return <LoadingPage />;
-  }
-  if (confirmError || orderDetailsError) {
-    return <GeneralPaymentErrorPage />;
   }
 
   return getPaymentPage(
