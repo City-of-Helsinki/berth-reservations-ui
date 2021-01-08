@@ -31,7 +31,10 @@ const CancelOrderPageContainer = ({ localePush }: CancelOrderPageContainer) => {
     return <LoadingPage />;
   }
 
-  const handleCancel = () => cancelOrder().then(() => localePush('/'));
+  const handleCancel = () =>
+    cancelOrder()
+      .then(() => localePush('/'))
+      .catch((err) => console.error(err));
 
   return <CancelOrderPage handleCancel={handleCancel} />;
 };
