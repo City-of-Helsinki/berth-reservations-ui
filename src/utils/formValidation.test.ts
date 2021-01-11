@@ -6,6 +6,7 @@ import validator, {
   mustBeEmail,
   mustBeNames,
   mustBePostalCode,
+  mustBePresent,
   mustBeSsn,
   mustNotExceedTwoDecimals,
   stringHasNoExtraWhitespace,
@@ -21,6 +22,18 @@ describe('formValidation', () => {
     });
     test('should return false on string with trailing whitespace', () => {
       expect(stringHasNoExtraWhitespace('Test ')).toBe(false);
+    });
+  });
+
+  describe('mustBePresent', () => {
+    test('should return undefined if value exists', () => {
+      expect(mustBePresent('Test')).toBeUndefined();
+    });
+    test('should return an error message if value is undefined', () => {
+      expect(mustBePresent(undefined)).toEqual('validation.message.required');
+    });
+    test('should return an error message if value is only spaces', () => {
+      expect(mustBePresent(' ')).toEqual('validation.message.required');
     });
   });
 

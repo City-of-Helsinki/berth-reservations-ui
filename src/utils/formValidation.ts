@@ -1,8 +1,10 @@
 export const stringHasNoExtraWhitespace = (value: string) =>
   value.charAt(0) !== ' ' && value.charAt(value.length - 1) !== ' ';
 
-export const mustBePresent = (value: any): string | undefined =>
-  value ? undefined : 'validation.message.required';
+export const mustBePresent = (value: any): string | undefined => {
+  if (value && value.trim().length > 0) return undefined;
+  return 'validation.message.required';
+};
 
 export const mustBeNames = (maxNames: number) => (value: any): string | undefined => {
   const regexString = `^([\\p{Script_Extensions=Latin}-]+\\s*){1,${maxNames}}$`;
