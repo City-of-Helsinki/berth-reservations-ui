@@ -1,27 +1,30 @@
+export const stringHasNoExtraWhitespace = (value: string) =>
+  value.charAt(0) !== ' ' && value.charAt(value.length - 1) !== ' ';
+
 export const mustBePresent = (value: any): string | undefined =>
   value ? undefined : 'validation.message.required';
 
 export const mustBeNames = (maxNames: number) => (value: any): string | undefined => {
-  const regexString = `^(?! )([\\p{Script_Extensions=Latin}-]+\\s*){1,${maxNames}}(?<! )$`;
+  const regexString = `^([\\p{Script_Extensions=Latin}-]+\\s*){1,${maxNames}}$`;
   const regex = RegExp(regexString, 'u');
 
-  if (regex.test(value)) {
+  if (regex.test(value) && stringHasNoExtraWhitespace(value)) {
     return undefined;
   }
   return 'validation.message.invalid_value';
 };
 
 export const mustBeCompanyName = (value: any): string | undefined => {
-  const regex = /^(?! )([a-zA-ZåäöÅÄÖ0-9- ]+)(?<! )$/;
-  if (regex.test(value)) {
+  const regex = /^([a-zA-ZåäöÅÄÖ0-9- ]+)$/;
+  if (regex.test(value) && stringHasNoExtraWhitespace(value)) {
     return undefined;
   }
   return 'validation.message.invalid_value';
 };
 
 export const mustBeAddress = (value: any): string | undefined => {
-  const regex = /^(?! )([a-zA-ZåäöÅÄÖ0-9-/.,() ]+)(?<! )$/;
-  if (regex.test(value)) {
+  const regex = /^([a-zA-ZåäöÅÄÖ0-9-/.,() ]+)$/;
+  if (regex.test(value) && stringHasNoExtraWhitespace(value)) {
     return undefined;
   }
   return 'validation.message.invalid_value';

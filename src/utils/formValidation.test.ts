@@ -8,9 +8,22 @@ import validator, {
   mustBePostalCode,
   mustBeSsn,
   mustNotExceedTwoDecimals,
+  stringHasNoExtraWhitespace,
 } from './formValidation';
 
 describe('formValidation', () => {
+  describe('stringHasNoExtraWhitespace', () => {
+    test('should return true on string without leading or trailing whitespace', () => {
+      expect(stringHasNoExtraWhitespace('Test')).toBe(true);
+    });
+    test('should return false on string with leading whitespace', () => {
+      expect(stringHasNoExtraWhitespace(' Test')).toBe(false);
+    });
+    test('should return false on string with trailing whitespace', () => {
+      expect(stringHasNoExtraWhitespace('Test ')).toBe(false);
+    });
+  });
+
   describe('mustBeNames', () => {
     test('should return undefined if name count is ok and names are valid', () => {
       expect(mustBeNames(1)('Aki')).toBeUndefined();
