@@ -20,6 +20,8 @@
     "types:generate": "apollo client:codegen --target=typescript --globalTypesFile='src/__generated__/globalTypes.ts'"
   },
   "dependencies": {
+    "@babel/helper-builder-react-jsx": "^7.10.4",
+    "@babel/helper-builder-react-jsx-experimental": "^7.12.11",
     "@sentry/browser": "^4.6.6",
     "@types/classnames": "^2.2.10",
     "@types/enzyme": "^3.10.5",
