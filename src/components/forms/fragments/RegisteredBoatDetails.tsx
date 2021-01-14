@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
+import { mustBeBoatRegistrationNumber } from '../../../utils/formValidation';
 
 import { Text } from '../Fields';
 import { BoatType, WithBoatType } from '../Selects';
@@ -19,6 +20,7 @@ const RegisteredBoatDetailsFragment = ({ boatTypes }: WithBoatType) => {
             label="form.registered.field.register_number.label"
             placeholder="form.registered.field.register_number.placeholder"
             required
+            validate={mustBeBoatRegistrationNumber}
           />
         </Col>
         <Col sm={6}>

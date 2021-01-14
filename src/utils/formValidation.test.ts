@@ -1,6 +1,101 @@
-import validator, { mustBeEmail, mustBeSsn, mustNotExceedTwoDecimals } from './formValidation';
+import validator, {
+  mustBeAddress,
+  mustBeBoatRegistrationNumber,
+  mustBeBusinessId,
+  mustBeCompanyName,
+  mustBeEmail,
+  mustBeNames,
+  mustBePostalCode,
+  mustBePresent,
+  mustBeSsn,
+  mustNotExceedTwoDecimals,
+  stringHasNoExtraWhitespace,
+} from './formValidation';
 
 describe('formValidation', () => {
+  describe('stringHasNoExtraWhitespace', () => {
+    test('should return true on string without leading or trailing whitespace', () => {
+      expect(stringHasNoExtraWhitespace('Test')).toBe(true);
+    });
+    test('should return false on string with leading whitespace', () => {
+      expect(stringHasNoExtraWhitespace(' Test')).toBe(false);
+    });
+    test('should return false on string with trailing whitespace', () => {
+      expect(stringHasNoExtraWhitespace('Test ')).toBe(false);
+    });
+  });
+
+  describe('mustBePresent', () => {
+    test('should return undefined if value exists', () => {
+      expect(mustBePresent('Test')).toBeUndefined();
+    });
+    test('should return an error message if value is undefined', () => {
+      expect(mustBePresent(undefined)).toEqual('validation.message.required');
+    });
+    test('should return an error message if value is only spaces', () => {
+      expect(mustBePresent(' ')).toEqual('validation.message.required');
+    });
+  });
+
+  describe('mustBeNames', () => {
+    test('should return undefined if name count is ok and names are valid', () => {
+      expect(mustBeNames(1)('Aki')).toBeUndefined();
+      expect(mustBeNames(3)('Aki')).toBeUndefined();
+      expect(mustBeNames(3)('Jukka-Pekka Matti Antero')).toBeUndefined();
+      expect(mustBeNames(3)('Øyvind Pär Ánton')).toBeUndefined();
+    });
+    test('should return an error message if there is no name', () => {
+      expect(mustBeNames(1)('')).toEqual('validation.message.invalid_value');
+      expect(mustBeNames(1)(' ')).toEqual('validation.message.invalid_value');
+    });
+    test('should return an error message if name count is over maxNames', () => {
+      expect(mustBeNames(2)('Jukka Pekka Antero')).toEqual('validation.message.invalid_value');
+    });
+    test('should return an error message if there is extra whitespace', () => {
+      expect(mustBeNames(2)(' Jukka Pekka')).toEqual('validation.message.invalid_value');
+      expect(mustBeNames(2)('Jukka Pekka ')).toEqual('validation.message.invalid_value');
+    });
+    test('should return an error message if the names are invalid', () => {
+      expect(mustBeNames(2)('Ville%')).toEqual('validation.message.invalid_value');
+      expect(mustBeNames(2)('😀')).toEqual('validation.message.invalid_value');
+      expect(mustBeNames(2)('寅泰')).toEqual('validation.message.invalid_value');
+    });
+  });
+
+  describe('mustBeCompanyName', () => {
+    test('should return undefined if name is valid', () => {
+      expect(mustBeCompanyName('Abc Oy')).toBeUndefined();
+      expect(mustBeCompanyName('Abc')).toBeUndefined();
+    });
+    test('should return an error message if the name has invalid characters', () => {
+      expect(mustBeCompanyName('Abc% Oy')).toEqual('validation.message.invalid_value');
+      expect(mustBeCompanyName('😀 Oy')).toEqual('validation.message.invalid_value');
+      expect(mustBeCompanyName('寅泰')).toEqual('validation.message.invalid_value');
+    });
+  });
+
+  describe('mustBeAddress', () => {
+    test('should return undefined if address is valid', () => {
+      expect(mustBeAddress('Testikatu 1')).toBeUndefined();
+      expect(mustBeAddress('Testitie 1 as. 1, c/o Matti Meikäläinen (lisätieto)')).toBeUndefined();
+    });
+    test('should return an error message if address has invalid characters', () => {
+      expect(mustBeAddress('Testikatu #1')).toEqual('validation.message.invalid_value');
+      expect(mustBeAddress('Testikatu 1😀')).toEqual('validation.message.invalid_value');
+    });
+  });
+
+  describe('mustBePostalCode', () => {
+    test('should return undefined if postal code is valid', () => {
+      expect(mustBePostalCode('00100')).toBeUndefined();
+    });
+    test('should return an error message if postal code has invalid characters or length', () => {
+      expect(mustBePostalCode('A00100')).toEqual('validation.message.invalid_value');
+      expect(mustBePostalCode('0100')).toEqual('validation.message.invalid_value');
+      expect(mustBePostalCode('000100')).toEqual('validation.message.invalid_value');
+    });
+  });
+
   describe('mustNotExceedTwoDecimals', () => {
     test('should return undefined if the value has no more than two decimals', () => {
       expect(mustNotExceedTwoDecimals('1000.00')).toBeUndefined();
@@ -82,6 +177,30 @@ describe('formValidation', () => {
         'A',
       ].forEach((value) => expect(mustBeSsn(value)).toEqual('validation.message.must_be_ssn'));
       expect.assertions(8);
+    });
+  });
+
+  describe('mustBeBusinessId', () => {
+    test('should return undefined if businessId is valid', () => {
+      expect(mustBeBusinessId('1234567-8')).toBeUndefined();
+    });
+    test('should return an error message if businessId is invalid', () => {
+      expect(mustBeBusinessId('12345678')).toEqual('validation.message.invalid_value');
+      expect(mustBeBusinessId('12345678-')).toEqual('validation.message.invalid_value');
+      expect(mustBeBusinessId('Abc')).toEqual('validation.message.invalid_value');
+    });
+  });
+
+  describe('mustBeBoatRegistrationNumber', () => {
+    test('should return undefined if number is valid', () => {
+      expect(mustBeBoatRegistrationNumber('A1')).toBeUndefined();
+      expect(mustBeBoatRegistrationNumber('Z1234567')).toBeUndefined();
+      expect(mustBeBoatRegistrationNumber('P12345')).toBeUndefined();
+    });
+    test('should return an error message if number is invalid', () => {
+      expect(mustBeBoatRegistrationNumber('P1')).toEqual('validation.message.invalid_value');
+      expect(mustBeBoatRegistrationNumber('A12345678')).toEqual('validation.message.invalid_value');
+      expect(mustBeBoatRegistrationNumber('A-1')).toEqual('validation.message.invalid_value');
     });
   });
 });
