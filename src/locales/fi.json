@@ -383,7 +383,7 @@
           "field": {
             "label": "Trailerin rekisterinumero",
             "placeholder": "ABC-123",
-            "text": "Trailerilla säilytys vain rekisteröidylle trailereille. Jos trailerin rekisterinumero ei ole vielä tiedossa, ilmoita rekisterinumero ennen talvisäilytyksen aloittamista. Trailerilla säilyttäminen vaatii veneen pituuden lisäksi 1m lisätilaa."
+            "text": "Trailerilla säilytys vain rekisteröidyille trailereille. Jos trailerin rekisterinumero ei ole vielä tiedossa, ilmoita rekisterinumero ennen talvisäilytyksen aloittamista. Trailerilla säilyttäminen vaatii veneen pituuden lisäksi 1m lisätilaa."
           }
         }
       }

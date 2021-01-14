@@ -1,14 +1,53 @@
-export const mustBePresent = (value: any): string | undefined =>
-  value ? undefined : 'validation.message.required';
+export const stringHasNoExtraWhitespace = (value: string): boolean =>
+  value.charAt(0) !== ' ' && value.charAt(value.length - 1) !== ' ';
 
-export const mustBeNumber = (value: any): string | undefined =>
-  isNaN(value) ? 'validation.message.must_be_number' : undefined;
+export const mustBePresent = (value: any): string | undefined => {
+  if (value && value.trim().length > 0) return undefined;
+  return 'validation.message.required';
+};
 
-export const mustBePositiveNumber = (value: number): string | undefined => {
-  if (isNaN(value)) {
+export const mustBeNames = (maxNames: number) => (value: any): string | undefined => {
+  const regexString = `^([\\p{Script_Extensions=Latin}-]+\\s*){1,${maxNames}}$`;
+  const regex = RegExp(regexString, 'u');
+
+  if (regex.test(value) && stringHasNoExtraWhitespace(value)) {
+    return undefined;
+  }
+  return 'validation.message.invalid_value';
+};
+
+export const mustBeCompanyName = (value: string): string | undefined => {
+  const regex = /^([a-zA-ZåäöÅÄÖ0-9- ]+)$/;
+  if (regex.test(value) && stringHasNoExtraWhitespace(value)) {
+    return undefined;
+  }
+  return 'validation.message.invalid_value';
+};
+
+export const mustBeAddress = (value: string): string | undefined => {
+  const regex = /^([a-zA-ZåäöÅÄÖ0-9-/.,() ]+)$/;
+  if (regex.test(value) && stringHasNoExtraWhitespace(value)) {
+    return undefined;
+  }
+  return 'validation.message.invalid_value';
+};
+
+export const mustBePostalCode = (value: string): string | undefined => {
+  const regex = /^([0-9]{5})$/;
+  if (regex.test(value)) {
+    return undefined;
+  }
+  return 'validation.message.invalid_value';
+};
+
+export const mustBeNumber = (value: string): string | undefined =>
+  isNaN(parseFloat(value)) ? 'validation.message.must_be_number' : undefined;
+
+export const mustBePositiveNumber = (value: string): string | undefined => {
+  if (isNaN(parseFloat(value))) {
     return 'validation.message.must_be_number';
   }
-  if (value < 0) {
+  if (parseFloat(value) < 0) {
     return 'validation.message.must_be_positive_number';
   }
 
@@ -24,7 +63,7 @@ export const mustNotExceedTwoDecimals = (value: string): string | undefined => {
 };
 
 export const mustBeLessThan = (limit: number) => (value: string): string | undefined => {
-  if (Number(value) >= limit) {
+  if (parseFloat(value) >= limit) {
     return 'validation.message.must_be_less';
   }
   return undefined;
@@ -38,15 +77,15 @@ export const mustBePhoneNumber = (value: string): string | undefined => {
   return 'validation.message.must_be_phone_number';
 };
 
-export const mustBeEmail = (value: any): any => {
+export const mustBeEmail = (value: string): string | undefined => {
   const emailRe = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  if (typeof value === 'string' && emailRe.test(value.toLowerCase())) {
+  if (emailRe.test(value.toLowerCase())) {
     return undefined;
   }
   return 'validation.message.must_be_email';
 };
 
-export default <T>(...fns: (((...args: any[]) => T | undefined) | null)[]) => (
+export default <T>(...fns: (((...args: string[]) => T | undefined) | null)[]) => (
   value: string
 ): T | undefined => {
   let validated: T | undefined;
@@ -94,11 +133,11 @@ const ssnValidationTable = [
   'Y',
 ];
 
-const validateSsn = (number: number, checkCharacter: string) => {
+const validateSsn = (number: number, checkCharacter: string): boolean => {
   return checkCharacter === ssnValidationTable[number % 31];
 };
 
-export const mustBeSsn = (value: string) => {
+export const mustBeSsn = (value: string): string | undefined => {
   const ssnRe = /^([0-9]{6})([\\+\-A])([0-9]{3})([0-9A-FHJ-NPR-Y])$/;
   if (!ssnRe.test(value)) {
     return 'validation.message.must_be_ssn';
@@ -113,4 +152,20 @@ export const mustBeSsn = (value: string) => {
   }
 
   return undefined;
+};
+
+export const mustBeBusinessId = (value: string): string | undefined => {
+  const regex = /^[0-9]{7}-[0-9]$/;
+  if (regex.test(value)) {
+    return undefined;
+  }
+  return 'validation.message.invalid_value';
+};
+
+export const mustBeBoatRegistrationNumber = (value: string): string | undefined => {
+  const regex = /^([PEL][0-9]{5,10})|([A-DF-KOQ-Z][0-9]{1,7})$/;
+  if (regex.test(value)) {
+    return undefined;
+  }
+  return 'validation.message.invalid_value';
 };

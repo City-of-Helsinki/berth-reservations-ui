@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
+import { mustBeAddress, mustBePostalCode } from '../../../utils/formValidation';
 
 import { Select, Text } from '../Fields';
 import { MUNICIPALITIES, PRIORITIZED_MUNICIPALITIES } from '../../../constants/Municipalities';
@@ -28,6 +29,7 @@ const PostalDetailsFragment = () => {
           label={`form.postal_details.field.street_address.label`}
           placeholder={`form.postal_details.field.street_address.placeholder`}
           required
+          validate={mustBeAddress}
         />
       </Col>
       <Col sm={4}>
@@ -36,6 +38,7 @@ const PostalDetailsFragment = () => {
           label={`form.postal_details.field.postal_code.label`}
           placeholder={`form.postal_details.field.postal_code.placeholder`}
           required
+          validate={mustBePostalCode}
         />
       </Col>
       <Col sm={4}>
