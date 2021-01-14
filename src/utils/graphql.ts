@@ -181,3 +181,11 @@ export const GET_ORDER_DETAILS = gql`
     }
   }
 `;
+
+export const CANCEL_ORDER = gql`
+  mutation CancelOrder($cancelOrderMutationInput: CancelOrderMutationInput!) {
+    cancelOrder(input: $cancelOrderMutationInput) {
+      __typename
+    }
+  }
+`;

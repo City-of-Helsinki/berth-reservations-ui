@@ -567,6 +567,16 @@
       "waste_collection": "Waste management",
       "water_tap": "Water"
     },
+    "cancel_order": {
+      "title": "Offer/invoice cancellation",
+      "message": {
+        "paragraph1": "Are you sure you want to cancel the offer/invoice?",
+        "paragraph2": "NOTE! This function will cancel the following documents connected to the berth in question:<br/>lease agreement and invoice",
+        "paragraph3": "If you do not want to cancel, you can close this page.<0/>Questions and further information: <1>venepaikkavaraukset@hel.fi</1>"
+      },
+      "confirmation": "I want to cancel the offer/invoice",
+      "submit_button": "OK"
+    },
     "common": {
       "website": "Website"
     },

@@ -567,6 +567,16 @@
       "waste_collection": "Avfallshantering",
       "water_tap": "Vatten"
     },
+    "cancel_order": {
+      "title": "Annullering av erbjudande/faktura",
+      "message": {
+        "paragraph1": "Är du säker på att du vill annullera erbjudandet/fakturan?",
+        "paragraph2": "OBS! Denna funktion annullerar följande dokument som bifogats till respektive plats:<br/>hyresavtal och faktura",
+        "paragraph3": "Du kan stänga denna sida om du inte vill utföra en annullering.<0/>Frågor och mer information: <1>venepaikkavaraukset@hel.fi</1>"
+      },
+      "confirmation": "Jag vill annullera erbjudandet/fakturan",
+      "submit_button": "OK"
+    },
     "common": {
       "website": "Webbplats"
     },

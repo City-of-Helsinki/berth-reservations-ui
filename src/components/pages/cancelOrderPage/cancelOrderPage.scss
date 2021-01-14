@@ -1,0 +1,35 @@
+@import 'helsinki/colors';
+@import 'styles/variables';
+
+.vene-cancel-order-page {
+  background-color: $hel-light;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+
+  &__content {
+    background-color: $hel-fog;
+    padding: $spacing-04 $spacing-01;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__buttons {
+    padding: $spacing-04 $spacing-01;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__btn {
+    margin-top: $spacing-03;
+    padding: $spacing-01 $spacing-03;
+  }
+
+  &__max-width {
+    max-width: $spacing-48;
+    width: 100%;
+  }
+}
