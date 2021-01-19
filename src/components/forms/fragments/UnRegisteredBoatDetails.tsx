@@ -9,7 +9,6 @@ import validator, {
 } from '../../../utils/formValidation';
 import { Checkbox, Number } from '../Fields';
 import { BoatType } from '../Selects';
-
 import { BoatTypes } from '../../../types/boatTypes';
 import './unregisteredBoatDetails.scss';
 
@@ -35,20 +34,12 @@ const UnRegisteredBoatDetailsFragment = ({
       <Row>
         {boatTypes && (
           <Col sm={4}>
-            <BoatType
-              boatTypes={boatTypes}
-              required={!fieldsNotRequired}
-              className="vene-unregistered-boat__input"
-            />
+            <BoatType boatTypes={boatTypes} required={!fieldsNotRequired} className="vene-unregistered-boat__input" />
           </Col>
         )}
         <Col sm={4}>
           <Number
-            validate={validator(
-              mustBeLessThan(1000),
-              mustBePositiveNumber,
-              mustNotExceedTwoDecimals
-            )}
+            validate={validator(mustBeLessThan(1000), mustBePositiveNumber, mustNotExceedTwoDecimals)}
             id="boatWidth"
             name={`boatWidth`}
             label="form.no_boat.field.width.label"
@@ -61,11 +52,7 @@ const UnRegisteredBoatDetailsFragment = ({
         </Col>
         <Col sm={4}>
           <Number
-            validate={validator(
-              mustBeLessThan(1000),
-              mustBePositiveNumber,
-              mustNotExceedTwoDecimals
-            )}
+            validate={validator(mustBeLessThan(1000), mustBePositiveNumber, mustNotExceedTwoDecimals)}
             id="boatLength"
             name={`boatLength`}
             label="form.no_boat.field.length.label"
@@ -84,9 +71,7 @@ const UnRegisteredBoatDetailsFragment = ({
               label="form.registered.field.winter_storage.storage_type.label"
               inline={false}
             >
-              {boatStoredOnTrailer && (
-                <span>{t('form.registered.field.winter_storage.storage_type.text')}</span>
-              )}
+              {boatStoredOnTrailer && <span>{t('form.registered.field.winter_storage.storage_type.text')}</span>}
             </Checkbox>
           </Col>
         )}

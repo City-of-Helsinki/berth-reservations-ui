@@ -6,7 +6,6 @@ import StorageMethod from '../fragments/StorageMethod';
 import WinterNoBoat from '../tabs/WinterNoBoat';
 import WinterRegisteredBoat from '../tabs/WinterRegisteredBoat';
 import WinterUnRegisteredBoat from '../tabs/WinterUnRegisteredBoat';
-
 import { WinterStorageMethod } from '../../../__generated__/globalTypes';
 import { WinterFormValues } from '../../../types/winterStorage';
 import { WithBoatType } from '../Selects';
@@ -19,13 +18,7 @@ type Props = {
   showStorageMethod?: boolean;
 } & WithBoatType;
 
-const WinterBoatDetails = ({
-  values,
-  tab,
-  requireBoat,
-  boatTypes,
-  showStorageMethod = true,
-}: Props) => {
+const WinterBoatDetails = ({ values, tab, requireBoat, boatTypes, showStorageMethod = true }: Props) => {
   const showTrailerRegNum = get(values, 'storageMethod') === WinterStorageMethod.ON_TRAILER;
   const getRegistrationTypes = () => {
     const registeredBoat: TypeProps = {
@@ -44,9 +37,7 @@ const WinterBoatDetails = ({
       icon: 'noBoat',
     };
 
-    return requireBoat
-      ? [registeredBoat, unregisteredBoat]
-      : [registeredBoat, unregisteredBoat, noBoat];
+    return requireBoat ? [registeredBoat, unregisteredBoat] : [registeredBoat, unregisteredBoat, noBoat];
   };
 
   return (

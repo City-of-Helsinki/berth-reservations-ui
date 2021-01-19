@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
+
 import { ReactComponent as angleDown } from './icons/angle-down.svg';
 import { ReactComponent as angleUp } from './icons/angle-up.svg';
 import { ReactComponent as arrowRight } from './icons/arrow-right.svg';

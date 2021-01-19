@@ -166,16 +166,9 @@ describe('formValidation', () => {
     });
 
     test('should return false for malformed ssn', () => {
-      [
-        '020175033H',
-        '02017-033H',
-        '020175-03H',
-        '020175K033H',
-        '',
-        '020175',
-        '-033A',
-        'A',
-      ].forEach((value) => expect(mustBeSsn(value)).toEqual('validation.message.must_be_ssn'));
+      ['020175033H', '02017-033H', '020175-03H', '020175K033H', '', '020175', '-033A', 'A'].forEach((value) =>
+        expect(mustBeSsn(value)).toEqual('validation.message.must_be_ssn')
+      );
       expect.assertions(8);
     });
   });

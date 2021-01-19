@@ -1,7 +1,8 @@
 import { List } from 'immutable';
+import _ from 'lodash';
+
 import { WinterStorageArea } from '../types/unmarkedWinterStorage';
 import { UnmarkedWinterAreasQuery_winterStorageAreas as WINTER_STORAGE_AREAS } from './__generated__/UnmarkedWinterAreasQuery';
-import _ from 'lodash';
 
 export const getWinterStorageAreas = (data: WINTER_STORAGE_AREAS | null) => {
   if (!data || !data.edges) return List([]);

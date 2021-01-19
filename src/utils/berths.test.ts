@@ -11,7 +11,6 @@ import {
   isResourceSelected,
   stringToFloat,
 } from './berths';
-
 import { SelectedServicesProps, SelectedWinterServicesProps } from '../types/services';
 
 describe('utils/berths', () => {
@@ -66,10 +65,7 @@ describe('utils/berths', () => {
     });
 
     test('should return true if all filter conditions are met', () => {
-      const value = getBerthFilterByValues(
-        defaultValues,
-        createSelectedServices()
-      )(createBerth(matchOptions));
+      const value = getBerthFilterByValues(defaultValues, createSelectedServices())(createBerth(matchOptions));
 
       expect(value).toBe(true);
     });
@@ -109,10 +105,7 @@ describe('utils/berths', () => {
         suitableBoatTypes: [{ __typename: 'BoatTypeType', id: '19' }],
       });
       const newBerth = createBerth(berthOptions);
-      const value = getBerthFilterByValues(
-        createBerthValues({ boatType: '10' }),
-        createSelectedServices()
-      )(newBerth);
+      const value = getBerthFilterByValues(createBerthValues({ boatType: '10' }), createSelectedServices())(newBerth);
 
       expect(value).toBe(false);
     });
@@ -147,10 +140,7 @@ describe('utils/berths', () => {
       })();
 
     test('should return a function that returns a boolean', () => {
-      const returnValue = getWinterStorageFilterByValues(
-        defaultValues,
-        createWinterSelectedServices()
-      );
+      const returnValue = getWinterStorageFilterByValues(defaultValues, createWinterSelectedServices());
 
       expect(typeof returnValue).toBe('function');
       expect(typeof returnValue(createWinterArea())).toBe('boolean');

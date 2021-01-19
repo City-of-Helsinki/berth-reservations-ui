@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { Container } from 'reactstrap';
+
 import ContactDetails from '../fragments/ContactDetails';
 import FullName from '../fragments/FullName';
 import PostalDetails from '../fragments/PostalDetails';

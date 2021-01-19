@@ -1,6 +1,7 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import { Alert as BTAlert, AlertProps as BTAlertProps } from 'reactstrap';
+
 import Alert from './Alert';
 
 describe('components/common/Input', () => {

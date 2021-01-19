@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Layout from '../../../common/layout/Layout';
 import { Button } from 'reactstrap';
+
+import Layout from '../../../common/layout/Layout';
 import './paymentPage.scss';
 import { Checkbox } from '../../forms/Fields';
 import { ContractAuthMethods_contractAuthMethods as ContractAuthMethods } from '../../../utils/__generated__/ContractAuthMethods';

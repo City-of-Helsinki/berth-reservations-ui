@@ -4,12 +4,12 @@ import HarborMatchActive from '../../Icon/icons/harbor-match-active.svg';
 import HarborMatchActiveAndSelected from '../../Icon/icons/harbor-match-chosen-active.svg';
 import HarborMatchSelected from '../../Icon/icons/harbor-match-chosen.svg';
 import HarborMatchUnselected from '../../Icon/icons/harbor-match.svg';
-
 import HarborUnmatchActive from '../../Icon/icons/harbor-unmatch-active.svg';
 import HarborUnmatchActiveAndSelected from '../../Icon/icons/harbor-unmatch-chosen-active.svg';
 import HarborUnmatchSelected from '../../Icon/icons/harbor-unmatch-chosen.svg';
 import HarborUnmatchUnselected from '../../Icon/icons/harbor-unmatch.svg';
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 delete L.Icon.Default.prototype._getIconUrl;
 

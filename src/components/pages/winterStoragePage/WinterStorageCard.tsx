@@ -13,13 +13,7 @@ export interface WinterStorageCardProps {
   handleSelect: AreaCardProps['handleSelect'];
 }
 
-const WinterStorageCard = ({
-  area,
-  selected,
-  disabled,
-  isExcluded,
-  handleSelect,
-}: WinterStorageCardProps) => {
+const WinterStorageCard = ({ area, selected, disabled, isExcluded, handleSelect }: WinterStorageCardProps) => {
   const maximumWidth = convertCmToM(area.maximumWidth);
   const maximumLength = convertCmToM(area.maximumLength);
   const address = `${area.streetAddress}, ${area.zipCode} ${area.municipality}`;
@@ -58,12 +52,7 @@ const WinterStorageCard = ({
           iconName="divided"
           titleId="page.winter_storage.appointed"
         />,
-        <Property
-          key="gate"
-          available={area.gate}
-          iconName="fence"
-          titleId="page.winter_storage.fence"
-        />,
+        <Property key="gate" available={area.gate} iconName="fence" titleId="page.winter_storage.fence" />,
         <Property
           key="electricity"
           available={area.electricity}
@@ -76,12 +65,7 @@ const WinterStorageCard = ({
           iconName="trestle"
           titleId="page.winter_storage.storage_for_docking_equip"
         />,
-        <Property
-          key="water"
-          available={area.water}
-          iconName="waterTap"
-          titleId="page.winter_storage.water_tap"
-        />,
+        <Property key="water" available={area.water} iconName="waterTap" titleId="page.winter_storage.water_tap" />,
         <Property
           key="summerStorageForTrailers"
           available={area.summerStorageForTrailers}

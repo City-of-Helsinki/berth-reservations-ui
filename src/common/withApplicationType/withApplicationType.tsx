@@ -4,16 +4,17 @@ import { RouteComponentProps, withRouter } from 'react-router';
 import { compose } from 'recompose';
 
 import { Store } from '../../redux/types';
-
 import { ApplicationOptions, ApplicationType } from '../../types/applicationType';
 
 type Props = {
   appType: string;
 } & Pick<RouteComponentProps<{ app: ApplicationType }>, 'match'>;
 
-export const withApplicationType = (
-  Component: React.ComponentType<{ applicationType: string }>
-) => ({ match, appType, ...props }: Props) => {
+export const withApplicationType = (Component: React.ComponentType<{ applicationType: string }>) => ({
+  match,
+  appType,
+  ...props
+}: Props) => {
   let applicationType = '';
 
   if (match.params.app === ApplicationType.WinterStorageApp) {

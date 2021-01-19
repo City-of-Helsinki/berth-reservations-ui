@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
+
 import { resetApplication } from '../../../redux/actions/ApplicationActions';
 import { resetBerths } from '../../../redux/actions/BerthActions';
 import { resetValues } from '../../../redux/actions/FormActions';

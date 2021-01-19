@@ -42,6 +42,7 @@ class AutoSave extends Component<Props & FormSpyRenderProps> {
 }
 
 export default (props: Props) => (
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   <FormSpy {...props} subscription={{ values: true }} component={AutoSave} />
 );

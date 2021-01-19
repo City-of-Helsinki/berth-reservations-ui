@@ -13,15 +13,7 @@ interface Props {
   municipality: string;
 }
 
-const Person = ({
-  firstName,
-  lastName,
-  email,
-  phoneNumber,
-  address,
-  zipCode,
-  municipality,
-}: Props) => (
+const Person = ({ firstName, lastName, email, phoneNumber, address, zipCode, municipality }: Props) => (
   <>
     <Row className="vene-person__contact-section">
       <Col md={12}>

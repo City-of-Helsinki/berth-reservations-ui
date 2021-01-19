@@ -2,7 +2,6 @@ import React from 'react';
 import { Container } from 'reactstrap';
 
 import UnRegisteredBoatDetails from '../fragments/UnRegisteredBoatDetails';
-
 import { WithBoatType } from '../Selects';
 
 import './Tabs.scss';

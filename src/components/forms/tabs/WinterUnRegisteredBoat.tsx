@@ -3,7 +3,6 @@ import { Container } from 'reactstrap';
 
 import BoatInfo from '../fragments/BoatInfo';
 import UnRegisteredBoatDetails from '../fragments/UnRegisteredBoatDetails';
-
 import { WithBoatType } from '../Selects';
 
 import './Tabs.scss';

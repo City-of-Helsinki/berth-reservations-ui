@@ -49,17 +49,11 @@ const BigShipsFragment = () => {
         <Col sm={6}>
           <Row>
             <Col sm={5}>
-              <Text
-                name={`rentFrom`}
-                placeholder="form.big_ship.field.time_period.from.placeholder"
-              />
+              <Text name={`rentFrom`} placeholder="form.big_ship.field.time_period.from.placeholder" />
             </Col>
             <Col sm={1}>-</Col>
             <Col sm={5}>
-              <Text
-                name={`rentTill`}
-                placeholder="form.big_ship.field.time_period.to.placeholder"
-              />
+              <Text name={`rentTill`} placeholder="form.big_ship.field.time_period.to.placeholder" />
             </Col>
           </Row>
         </Col>
@@ -70,24 +64,9 @@ const BigShipsFragment = () => {
             <span>{t('form.big_ship.header.inspection_and_insurance')}</span>
           </h3>
 
-          <Checkbox
-            required
-            name="boatIsInspected"
-            label="form.big_ship.field.inspected.label"
-            value="inspected"
-          />
-          <Checkbox
-            required
-            name="boatIsInsured"
-            label="form.big_ship.field.insurance.label"
-            value="insurance"
-          />
-          <Checkbox
-            required
-            name="agreeToTerms"
-            label="form.big_ship.field.agreed.label"
-            value="agreed"
-          />
+          <Checkbox required name="boatIsInspected" label="form.big_ship.field.inspected.label" value="inspected" />
+          <Checkbox required name="boatIsInsured" label="form.big_ship.field.insurance.label" value="insurance" />
+          <Checkbox required name="agreeToTerms" label="form.big_ship.field.agreed.label" value="agreed" />
         </Col>
       </Row>
     </Fragment>

@@ -1,6 +1,7 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import { CustomInput, CustomInputProps } from 'reactstrap';
+
 import Input from './Input';
 
 describe('components/common/Input', () => {

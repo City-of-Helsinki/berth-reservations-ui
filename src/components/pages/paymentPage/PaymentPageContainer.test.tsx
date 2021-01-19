@@ -15,15 +15,7 @@ describe('PaymentPageContainer', () => {
       [OrderStatus.REJECTED, '#vene-payment-general-error-page'],
     ].forEach((testItem) => {
       const wrapper = shallow(
-        getPaymentPage(
-          OrderTypeEnum.BERTH,
-          '',
-          true,
-          testItem[0] as OrderStatus,
-          [],
-          jest.fn(),
-          jest.fn()
-        )
+        getPaymentPage(OrderTypeEnum.BERTH, '', true, testItem[0] as OrderStatus, [], jest.fn(), jest.fn())
       );
       expect(wrapper.find(testItem[1] as string).exists()).toBeTruthy();
     });

@@ -74,16 +74,7 @@ class SelectedResource extends Component<Props, State> {
   };
 
   render() {
-    const {
-      id,
-      availabilityLevel,
-      title,
-      services,
-      validationErrMsg,
-      moveDown,
-      moveUp,
-      className,
-    } = this.props;
+    const { id, availabilityLevel, title, services, validationErrMsg, moveDown, moveUp, className } = this.props;
     const { changed, isModalOpen } = this.state;
     const validDomId = genValidSelector(`popover_${id}`);
 
@@ -95,10 +86,7 @@ class SelectedResource extends Component<Props, State> {
               <Row>
                 <Col
                   xs="10"
-                  className={classNames(
-                    'vene-selected-berth__info',
-                    `vene-selected-berth__info--moving-${state}`
-                  )}
+                  className={classNames('vene-selected-berth__info', `vene-selected-berth__info--moving-${state}`)}
                 >
                   <Row
                     className={classNames('vene-selected-berth__title-bar', {
@@ -107,9 +95,7 @@ class SelectedResource extends Component<Props, State> {
                   >
                     <Col xs="10" className="vene-selected-berth__title">
                       {title}
-                      {validationErrMsg && (
-                        <InvalidSelection id={validDomId} msg={validationErrMsg} />
-                      )}
+                      {validationErrMsg && <InvalidSelection id={validDomId} msg={validationErrMsg} />}
                     </Col>
                     <Col xs="2" className="vene-selected-berth__close">
                       <Button
@@ -120,10 +106,7 @@ class SelectedResource extends Component<Props, State> {
                       >
                         <Icon name="times" />
                       </Button>
-                      <ScreenReaderLabel
-                        id="vene-selected-berth__remove"
-                        textKey="page.berth.selected.button.remove"
-                      />
+                      <ScreenReaderLabel id="vene-selected-berth__remove" textKey="page.berth.selected.button.remove" />
                     </Col>
                   </Row>
                   <Row className="vene-selected-berth__services-bar">
@@ -133,10 +116,7 @@ class SelectedResource extends Component<Props, State> {
                           id={`availability-level-${validDomId}`}
                           body={availabilityLevel.description || availabilityLevel.title}
                         >
-                          <AvailabilityLevel
-                            label={availabilityLevel.title}
-                            level={availabilityLevel.id}
-                          />
+                          <AvailabilityLevel label={availabilityLevel.title} level={availabilityLevel.id} />
                         </Popover>
                       )}
                     </Col>
@@ -174,14 +154,8 @@ class SelectedResource extends Component<Props, State> {
                   >
                     <Icon name="angleDown" className="vene-selected-berth__arrow-icon" />
                   </Button>
-                  <ScreenReaderLabel
-                    id="vene-selected-berth__up"
-                    textKey="page.berth.selected.button.up"
-                  />
-                  <ScreenReaderLabel
-                    id="vene-selected-berth__down"
-                    textKey="page.berth.selected.button.down"
-                  />
+                  <ScreenReaderLabel id="vene-selected-berth__up" textKey="page.berth.selected.button.up" />
+                  <ScreenReaderLabel id="vene-selected-berth__down" textKey="page.berth.selected.button.down" />
                 </Col>
               </Row>
             </Container>

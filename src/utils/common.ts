@@ -1,5 +1,4 @@
-export const stripLeadingSlash = (value: string) =>
-  value.charAt(0) === '/' ? value.substr(1) : value;
+export const stripLeadingSlash = (value: string) => (value.charAt(0) === '/' ? value.substr(1) : value);
 
 /**
  * Generates a valid CSS selector from a string by replacing invalid characters.

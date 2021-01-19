@@ -23,12 +23,7 @@ const NoticeTemplate = ({ titleText, message, success = false, id }: NoticePageP
   return (
     <Layout>
       <div id={id} className="vene-notice-page">
-        <div
-          className={classNames(
-            'vene-notice-page__content',
-            success && 'vene-notice-page--success'
-          )}
-        >
+        <div className={classNames('vene-notice-page__content', success && 'vene-notice-page--success')}>
           <h2>{titleText}</h2>
           {message}
         </div>

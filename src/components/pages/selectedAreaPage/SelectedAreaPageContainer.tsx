@@ -2,29 +2,19 @@ import get from 'lodash/get';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
+import { Query } from 'react-apollo';
 
-import {
-  deselectWinterArea,
-  moveWinterAreaDown,
-  moveWinterAreaUp,
-} from '../../../redux/actions/WinterAreaActions';
+import { deselectWinterArea, moveWinterAreaDown, moveWinterAreaUp } from '../../../redux/actions/WinterAreaActions';
 import { WinterAreasQuery } from '../../../utils/__generated__/WinterAreasQuery';
-import {
-  getResources,
-  getSelectedResources,
-  getWinterStorageFilterByValues,
-} from '../../../utils/berths';
+import { getResources, getSelectedResources, getWinterStorageFilterByValues } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import SelectedAreaPage from './SelectedAreaPage';
-
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
-
 import { Store } from '../../../redux/types';
 import { SelectedWinterServices } from '../../../types/services';
 import { WinterFormValues } from '../../../types/winterStorage';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../../common/steps/step/Step';
-import { Query } from 'react-apollo';
 
 interface Props {
   selectedAreas: SelectedIds;
@@ -69,13 +59,7 @@ const steps: StepType[] = [
   },
 ];
 
-const UnconnectedSelectedAreaPage = ({
-  localePush,
-  values,
-  selectedAreas,
-  selectedServices,
-  ...rest
-}: Props) => {
+const UnconnectedSelectedAreaPage = ({ localePush, values, selectedAreas, selectedServices, ...rest }: Props) => {
   const moveToForm = async () => {
     await localePush('/winter-storage/form/registered-boat');
   };

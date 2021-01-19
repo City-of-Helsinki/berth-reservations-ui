@@ -11,14 +11,12 @@ import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetai
 import KoroSection from '../../../common/layout/koroSection/KoroSection';
 import Layout from '../../../common/layout/Layout';
 import BerthsLegend from '../../legends/berthLegend/BerthLegend';
-
 import { BerthFormValues, BerthType } from '../../../types/berth';
 import { BoatTypes } from '../../../types/boatTypes';
 import { BerthsServices, SelectedServices } from '../../../types/services';
 import { LocalePush } from '../../../utils/container';
 import { Berths as BerthsType, SelectedIds } from '../../berths/types';
 import { StepType } from '../../../common/steps/step/Step';
-
 import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
 import BerthCard from './BerthCard';
 
@@ -109,14 +107,12 @@ class BerthPage extends Component<Props> {
     const filtered = berths.filter(filter);
     const filteredNot = berths.filterNot(filter);
     const invalidSelection = !berths
-      .filter((selectedBerth) =>
-        selectedBerthsIds.find((selectedId) => selectedId === selectedBerth.id)
-      )
+      .filter((selectedBerth) => selectedBerthsIds.find((selectedId) => selectedId === selectedBerth.id))
       .every(filter);
 
-    const renderHarborCard: (isExcluded: boolean) => (berth: BerthType) => React.ReactNode = (
-      isExcluded
-    ) => (berth) => {
+    const renderHarborCard: (isExcluded: boolean) => (berth: BerthType) => React.ReactNode = (isExcluded) => (
+      berth
+    ) => {
       return (
         <BerthCard
           key={berth.id}

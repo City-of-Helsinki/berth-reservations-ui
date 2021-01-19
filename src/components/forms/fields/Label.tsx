@@ -13,10 +13,7 @@ interface Props {
 export default ({ htmlFor, required, text }: Props) => {
   const { t } = useTranslation();
   return (
-    <Label
-      htmlFor={htmlFor}
-      className={classNames('vene-formfield__label', { 'is-required': required })}
-    >
+    <Label htmlFor={htmlFor} className={classNames('vene-formfield__label', { 'is-required': required })}>
       <span>{t(text)}</span>
     </Label>
   );

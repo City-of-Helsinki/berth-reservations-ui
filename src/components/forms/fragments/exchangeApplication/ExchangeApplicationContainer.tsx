@@ -17,8 +17,7 @@ const ExchangeApplicationContainer = (props: Props) => {
   return (
     <Query<BerthSwitchReasonsQuery> query={BERTH_SWITCH_REASONS_QUERY}>
       {({ data }) => {
-        const reasons =
-          data && data.berthSwitchReasons ? data.berthSwitchReasons.filter(isReason) : [];
+        const reasons = data && data.berthSwitchReasons ? data.berthSwitchReasons.filter(isReason) : [];
 
         return <ExchangeApplication reasons={reasons} {...props} />;
       }}

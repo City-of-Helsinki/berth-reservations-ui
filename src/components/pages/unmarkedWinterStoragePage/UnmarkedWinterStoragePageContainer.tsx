@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import omit from 'lodash/omit';
+import { useQuery } from 'react-apollo';
+
 import { onSubmitUnmarkedWinterForm } from '../../../redux/actions/FormActions';
 import { Store } from '../../../redux/types';
 import { UnmarkedWinterFormValues } from '../../../types/unmarkedWinterStorage';
@@ -11,7 +13,6 @@ import { UNMARKED_WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import { getWinterStorageAreas } from '../../../utils/unmarkedWinterStorage';
 import { StepType } from '../../../common/steps/step/Step';
 import UnmarkedWinterStoragePage from './UnmarkedWinterStoragePage';
-import { useQuery } from 'react-apollo';
 
 interface WithLocalePush {
   localePush: LocalePush;

@@ -10,11 +10,9 @@ describe('containers', () => {
   });
 
   describe('withMatchParamsHandlers', () => {
-    const Component = (props: { text: string; localePush: Function } & RouteComponentProps) => (
-      <div>{props.text}</div>
-    );
+    const Component = (props: { text: string; localePush: Function } & RouteComponentProps) => <div>{props.text}</div>;
     const CompWithHandlers = withMatchParamsHandlers(Component);
-    const getWrapper = (locale: string = 'fi') =>
+    const getWrapper = (locale = 'fi') =>
       mount(
         <MemoryRouter initialEntries={[`/${locale}`]}>
           <Route path="/:locale/">

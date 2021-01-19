@@ -13,10 +13,7 @@ const ApplicationCode = () => {
       <h5>{t('form.overview.field.application_code.title')}</h5>
       <Row>
         <Col sm={6}>
-          <Text
-            name={`applicationCode`}
-            placeholder={`form.overview.field.application_code.placeholder`}
-          />
+          <Text name={`applicationCode`} placeholder={`form.overview.field.application_code.placeholder`} />
         </Col>
       </Row>
       <Row>

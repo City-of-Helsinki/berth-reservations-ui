@@ -2,11 +2,10 @@ import get from 'lodash/get';
 import React, { SFC } from 'react';
 import { Query } from 'react-apollo';
 import { Col, Row } from 'reactstrap';
-import { BoatTypesBerthsQuery_harbors_edges_node as Harbor } from '../../../../../utils/__generated__/BoatTypesBerthsQuery';
 
+import { BoatTypesBerthsQuery_harbors_edges_node as Harbor } from '../../../../../utils/__generated__/BoatTypesBerthsQuery';
 import { BERTH_SWITCH_REASONS_QUERY, GET_HARBOR_NAME } from '../../../../../utils/graphql';
 import LabelValuePair from '../../../../../common/labelValuePair/LabelValuePair';
-
 import { ApplicationState } from '../../../../../redux/types';
 import {
   BerthSwitchReasonsQuery,
@@ -38,10 +37,7 @@ const OldBerthInfo: SFC<{ application: ApplicationState }> = ({ application }) =
           )}
         </Query>
 
-        <LabelValuePair
-          label="page.berth.exchange_application.form.pier.title"
-          value={application.berthSwitch.pier}
-        />
+        <LabelValuePair label="page.berth.exchange_application.form.pier.title" value={application.berthSwitch.pier} />
 
         <LabelValuePair
           label="page.berth.exchange_application.form.berth.title"
@@ -50,11 +46,8 @@ const OldBerthInfo: SFC<{ application: ApplicationState }> = ({ application }) =
 
         <Query<BerthSwitchReasonsQuery> query={BERTH_SWITCH_REASONS_QUERY}>
           {({ data }) => {
-            const reasons =
-              data && data.berthSwitchReasons ? data.berthSwitchReasons.filter(isReason) : [];
-            const selectedReason = reasons.find(
-              (reason) => reason.id === application.berthSwitch.reason
-            );
+            const reasons = data && data.berthSwitchReasons ? data.berthSwitchReasons.filter(isReason) : [];
+            const selectedReason = reasons.find((reason) => reason.id === application.berthSwitch.reason);
 
             return (
               <LabelValuePair

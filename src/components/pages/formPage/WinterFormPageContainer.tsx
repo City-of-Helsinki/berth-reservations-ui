@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
+import { useMutation, useQuery } from 'react-apollo';
 
 import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
 import { WinterAreasQuery } from '../../../utils/__generated__/WinterAreasQuery';
@@ -14,16 +15,11 @@ import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import WinterBoatDetails from '../../forms/sections/WinterBoatDetails';
 import WinterOverview from '../../forms/sections/WinterOverview';
 import FormPage from './FormPage';
-
 import { Store } from '../../../redux/types';
 import { WinterFormValues } from '../../../types/winterStorage';
-import {
-  SubmitWinterStorage,
-  SubmitWinterStorageVariables,
-} from '../../../utils/__generated__/SubmitWinterStorage';
+import { SubmitWinterStorage, SubmitWinterStorageVariables } from '../../../utils/__generated__/SubmitWinterStorage';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../../common/steps/step/Step';
-import { useMutation, useQuery } from 'react-apollo';
 
 type Props = {
   initialValues: {};
@@ -51,10 +47,7 @@ const WinterFormPageContainer = ({
   const [applicantTab, setApplicantTab] = useState(applicantTabs[0]);
 
   useEffect(() => {
-    const currStep = Math.max(
-      stepsBeforeForm,
-      findIndex(formTabs, (s) => s.includes(tab)) + stepsBeforeForm
-    );
+    const currStep = Math.max(stepsBeforeForm, findIndex(formTabs, (s) => s.includes(tab)) + stepsBeforeForm);
     setCurrentStep(currStep);
     if (currStep === 2) {
       setBoatTab(tab);
@@ -168,14 +161,7 @@ const WinterFormPageContainer = ({
         return <ApplicantDetails tab={applicantTab} />;
       case 4:
         return (
-          !loading && (
-            <WinterOverview
-              selectedAreas={selected}
-              boatTypes={boatTypes}
-              boatTab={boatTab}
-              steps={steps}
-            />
-          )
+          !loading && <WinterOverview selectedAreas={selected} boatTypes={boatTypes} boatTab={boatTab} steps={steps} />
         );
     }
   };

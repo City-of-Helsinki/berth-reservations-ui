@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from './Fields';
 
+import { Select } from './Fields';
 import { BoatTypes } from '../../types/boatTypes';
 
 export interface WithBoatType {
@@ -42,12 +42,7 @@ export const Propulsion = () => {
   const { t } = useTranslation();
 
   return (
-    <Select
-      id="boatPropulsion"
-      name={`boatPropulsion`}
-      label="form.big_ship.field.propulsion.label"
-      required
-    >
+    <Select id="boatPropulsion" name={`boatPropulsion`} label="form.big_ship.field.propulsion.label" required>
       <option value="">-</option>
       {propulsions.map((option) => (
         <option key={option} value={option}>
@@ -58,27 +53,13 @@ export const Propulsion = () => {
   );
 };
 
-const hullMaterials = [
-  'aluminium',
-  'concrete',
-  'thermoplastic',
-  'rubber',
-  'fibreglass',
-  'wood',
-  'steel',
-  'other',
-];
+const hullMaterials = ['aluminium', 'concrete', 'thermoplastic', 'rubber', 'fibreglass', 'wood', 'steel', 'other'];
 
 export const HullMaterial = () => {
   const { t } = useTranslation();
 
   return (
-    <Select
-      id="boatHullMaterial"
-      name={`boatHullMaterial`}
-      label="form.big_ship.field.hull_material.label"
-      required
-    >
+    <Select id="boatHullMaterial" name={`boatHullMaterial`} label="form.big_ship.field.hull_material.label" required>
       <option value="">-</option>
       {hullMaterials.map((option) => (
         <option key={option} value={option}>

@@ -1,4 +1,5 @@
 import { List } from 'immutable';
+
 import { WinterAreas } from '../components/berths/types';
 import { WinterStorageType } from '../types/winterStorage';
 

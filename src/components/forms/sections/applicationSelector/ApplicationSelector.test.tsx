@@ -15,8 +15,7 @@ describe('forms/sections/ApplicationSelector', () => {
     resetBerthLimit: jest.fn(),
     berthLimit: 10,
   };
-  const getWrapper = (props?: object) =>
-    mount(<ApplicationSelector {...defaultProps} {...props} />);
+  const getWrapper = (props?: object) => mount(<ApplicationSelector {...defaultProps} {...props} />);
 
   test('render normally', () => {
     const wrapper = getWrapper();

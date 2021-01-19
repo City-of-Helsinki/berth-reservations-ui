@@ -6,7 +6,6 @@ import BerthNoBoat from '../tabs/BerthNoBoat';
 import BerthRegisteredBoat from '../tabs/BerthRegisteredBoat';
 import BerthUnRegisteredBoat from '../tabs/BerthUnRegisteredBoat';
 import SectionSelector from './SectionSelector';
-
 import { BerthFormValues } from '../../../types/berth';
 import { BigBoatTypeValue, WithBoatType } from '../Selects';
 

@@ -1,5 +1,4 @@
-// @ts-ignore
-// tslint:disable-next-line:no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-var-requires,@typescript-eslint/no-require-imports
 require('dotenv').config({ path: '.env.development.local' });
 
 const TEST_ENV_URL = 'https://venepaikka.test.kuva.hel.ninja';

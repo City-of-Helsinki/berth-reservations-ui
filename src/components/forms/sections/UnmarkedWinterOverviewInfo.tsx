@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
+
 import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../types/unmarkedWinterStorage';
 import { StepType } from '../../../common/steps/step/Step';
 import BoatInfo from '../fragments/overview/BoatInfo';
@@ -32,22 +33,14 @@ const UnmarkedWinterOverviewInfo = ({
         {boatTab === 'registered-boat' && (
           <>
             <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
-            <BoatTypeAndModel
-              boatTypeId={values.boatType}
-              boatModel={values.boatModel}
-              boatTypes={boatTypes}
-            />
+            <BoatTypeAndModel boatTypeId={values.boatType} boatModel={values.boatModel} boatTypes={boatTypes} />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
           </>
         )}
         {boatTab === 'unregistered-boat' && (
           <>
             <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
-            <BoatTypeAndModel
-              boatTypeId={values.boatType}
-              boatModel={values.boatModel}
-              boatTypes={boatTypes}
-            />
+            <BoatTypeAndModel boatTypeId={values.boatType} boatModel={values.boatModel} boatTypes={boatTypes} />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
           </>
         )}

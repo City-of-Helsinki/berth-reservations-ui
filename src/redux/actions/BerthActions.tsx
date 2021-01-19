@@ -1,4 +1,5 @@
 import { createAction } from 'redux-actions';
+
 import { BerthType } from '../../types/berth';
 
 const selectBerth = createAction('SELECT_BERTH', (berth: BerthType) => berth);

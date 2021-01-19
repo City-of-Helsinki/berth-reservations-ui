@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
 import { Select, Text } from '../../Fields';
-
 import { BerthSwitchReasonsQuery_berthSwitchReasons } from '../../../../utils/__generated__/BerthSwitchReasonsQuery';
 import { Berths } from '../../../berths/types';
 
@@ -31,11 +30,7 @@ const ExchangeApplication: FC<ExchangeApplicationProps> = ({ berths, reasons }) 
 
       <Row>
         <Col>
-          <Select
-            name="harborId"
-            label="page.berth.exchange_application.form.current_harbour_area.label"
-            required
-          >
+          <Select name="harborId" label="page.berth.exchange_application.form.current_harbour_area.label" required>
             <option />
             {berths.size &&
               berths.map((berth) => (
@@ -68,9 +63,7 @@ const ExchangeApplication: FC<ExchangeApplicationProps> = ({ berths, reasons }) 
 
       <Row>
         <Col>
-          <h3 className="vene-exchange-application__heading">
-            {t('page.berth.exchange_application.reason.title')}
-          </h3>
+          <h3 className="vene-exchange-application__heading">{t('page.berth.exchange_application.reason.title')}</h3>
           <p className="vene-exchange-application__description">
             {t('page.berth.exchange_application.reason.info_text')}
           </p>

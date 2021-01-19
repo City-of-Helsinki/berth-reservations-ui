@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
 import LabelValuePair from '../../../../common/labelValuePair/LabelValuePair';
-
 import { WinterStorageMethod } from '../../../../__generated__/globalTypes';
 
 type Props = {
@@ -22,10 +21,7 @@ const OverviewStorageMethod: SFC<Props> = ({ storageMethod, registrationNumber }
     <div className="vene-overview__storage-method">
       <Row>
         <Col md={registrationNumber ? 6 : 12}>
-          <LabelValuePair
-            label="form.winter_storage_method.field.storage_method.label"
-            value={t(storageLabel)}
-          />
+          <LabelValuePair label="form.winter_storage_method.field.storage_method.label" value={t(storageLabel)} />
         </Col>
         {registrationNumber && (
           <Col md={6}>

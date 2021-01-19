@@ -1,7 +1,7 @@
 import { List, Record } from 'immutable';
-
 import { createTransform } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
 import { ApplicationState, BerthsState, FormsState, WinterAreasState } from '../types';
 
 const BerthsTransform = createTransform(

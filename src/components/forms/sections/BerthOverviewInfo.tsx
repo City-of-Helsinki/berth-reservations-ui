@@ -13,7 +13,6 @@ import LinkedEditSection from '../fragments/overview/linkedEditSection/LinkedEdi
 import OldBerthInfo from '../fragments/overview/oldBerthInfo/OldBerthInfo';
 import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
 import Person from '../fragments/overview/person/Person';
-
 import { ApplicationState } from '../../../redux/types';
 import { ApplicationOptions } from '../../../types/applicationType';
 import { BerthFormValues } from '../../../types/berth';
@@ -44,10 +43,7 @@ const BerthOverviewInfo = ({
   return (
     <OverviewInfo title={applicationType}>
       {application && application.berthsApplicationType === ApplicationOptions.ExchangeApplication && (
-        <LinkedEditSection
-          title="page.berth.exchange_application.current_berth.title"
-          link="berths/selected"
-        >
+        <LinkedEditSection title="page.berth.exchange_application.current_berth.title" link="berths/selected">
           <OldBerthInfo application={application} />
         </LinkedEditSection>
       )}
@@ -55,11 +51,7 @@ const BerthOverviewInfo = ({
         {boatTab === 'registered-boat' && (
           <Fragment>
             <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
-            <BoatTypeAndModel
-              boatTypeId={values.boatType}
-              boatModel={values.boatModel}
-              boatTypes={boatTypes}
-            />
+            <BoatTypeAndModel boatTypeId={values.boatType} boatModel={values.boatModel} boatTypes={boatTypes} />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
             <BoatDraughtAndWeight draught={values.boatDraught} weight={values.boatWeight} />
             {showBigShipsForm && (
@@ -77,21 +69,13 @@ const BerthOverviewInfo = ({
         {boatTab === 'unregistered-boat' && (
           <Fragment>
             <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
-            <BoatTypeAndModel
-              boatTypeId={values.boatType}
-              boatModel={values.boatModel}
-              boatTypes={boatTypes}
-            />
+            <BoatTypeAndModel boatTypeId={values.boatType} boatModel={values.boatModel} boatTypes={boatTypes} />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
           </Fragment>
         )}
         {boatTab === 'no-boat' && (
           <Fragment>
-            <BoatTypeAndModel
-              boatTypeId={values.boatType}
-              boatModel={values.boatModel}
-              boatTypes={boatTypes}
-            />
+            <BoatTypeAndModel boatTypeId={values.boatType} boatModel={values.boatModel} boatTypes={boatTypes} />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
           </Fragment>
         )}

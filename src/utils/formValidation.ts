@@ -89,9 +89,7 @@ export const mustBeEmail = (value: string): string | undefined => {
   return 'validation.message.must_be_email';
 };
 
-export default <T>(...fns: (((...args: string[]) => T | undefined) | null)[]) => (
-  value: string
-): T | undefined => {
+export default <T>(...fns: (((...args: string[]) => T | undefined) | null)[]) => (value: string): T | undefined => {
   let validated: T | undefined;
 
   fns.forEach((fn) => {

@@ -2,10 +2,9 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { Dropdown } from 'reactstrap';
+
 import i18n from '../../../locales/i18n';
-
 import { LocaleOpts } from '../../../types/intl';
-
 import LanguageDropdown from './LanguageDropdown';
 
 describe('LanguageDropdown', () => {

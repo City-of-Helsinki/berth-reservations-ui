@@ -8,7 +8,6 @@ import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
 import ApplicationSelector from '../../forms/sections/applicationSelector/ApplicationSelector';
 import Steps from '../../../common/steps/Steps';
-
 import { BerthsServices, SelectedServices } from '../../../types/services';
 import { StepType } from '../../../common/steps/step/Step';
 
@@ -79,9 +78,7 @@ const BerthsLegend = ({ form, legend, steps, services }: Props) => {
                         aria-checked={!!selected}
                         aria-labelledby={`${service.value}-label`}
                         onClick={() =>
-                          selected
-                            ? services.deselectService(service.value)
-                            : services.selectService(service.value)
+                          selected ? services.deselectService(service.value) : services.selectService(service.value)
                         }
                       >
                         <div

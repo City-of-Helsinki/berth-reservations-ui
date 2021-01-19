@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme';
 import React from 'react';
+
 import { ApplicationOptions, ApplicationType } from '../../types/applicationType';
 import { withApplicationType } from './withApplicationType';
 
@@ -50,9 +51,7 @@ describe('withApplicationType', () => {
         />
       );
 
-      expect(wrapper.find(Component).prop('applicationType')).toBe(
-        'site.steps.title.berths.exchange'
-      );
+      expect(wrapper.find(Component).prop('applicationType')).toBe('site.steps.title.berths.exchange');
     });
   });
 
@@ -71,9 +70,7 @@ describe('withApplicationType', () => {
         />
       );
 
-      expect(wrapper.find(Component).prop('applicationType')).toBe(
-        'site.steps.title.winter_storage'
-      );
+      expect(wrapper.find(Component).prop('applicationType')).toBe('site.steps.title.winter_storage');
     });
   });
 });

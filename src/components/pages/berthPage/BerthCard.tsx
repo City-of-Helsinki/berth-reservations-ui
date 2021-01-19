@@ -31,44 +31,18 @@ const BerthCard = ({ isExcluded, berth, selected, disabled, handleSelect }: Bert
       selected={selected}
       disabled={disabled}
       details={[
-        <Property
-          key="numberOfPlaces"
-          available
-          value={berth.numberOfPlaces}
-          titleId="page.berths.number_of_places"
-        />,
-        <Property
-          key="maximumWidth"
-          available
-          value={maximumWidth}
-          unit="m"
-          titleId="page.berths.maximum_width"
-        />,
+        <Property key="numberOfPlaces" available value={berth.numberOfPlaces} titleId="page.berths.number_of_places" />,
+        <Property key="maximumWidth" available value={maximumWidth} unit="m" titleId="page.berths.maximum_width" />,
         <Property
           key="wasteCollection"
           available={berth.wasteCollection}
           iconName="trash"
           titleId="page.berths.waste_collection"
         />,
-        <Property
-          key="electricity"
-          available={berth.electricity}
-          iconName="plug"
-          titleId="page.berths.electricity"
-        />,
+        <Property key="electricity" available={berth.electricity} iconName="plug" titleId="page.berths.electricity" />,
         <Property key="gate" available={berth.gate} iconName="fence" titleId="page.berths.fence" />,
-        <Property
-          key="water"
-          available={berth.water}
-          iconName="waterTap"
-          titleId="page.berths.water_tap"
-        />,
-        <Property
-          key="lighting"
-          available={berth.lighting}
-          iconName="streetLight"
-          titleId="page.berths.lighting"
-        />,
+        <Property key="water" available={berth.water} iconName="waterTap" titleId="page.berths.water_tap" />,
+        <Property key="lighting" available={berth.lighting} iconName="streetLight" titleId="page.berths.lighting" />,
       ]}
     />
   );

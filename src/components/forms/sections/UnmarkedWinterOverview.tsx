@@ -1,12 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
-import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../types/unmarkedWinterStorage';
 
+import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../types/unmarkedWinterStorage';
 import Agreement from '../fragments/Agreement';
 import Newsletter from '../fragments/Newsletter';
 import UnmarkedWinterOverviewInfo from './UnmarkedWinterOverviewInfo';
-
 import { StepType } from '../../../common/steps/step/Step';
 import { WithBoatType } from '../Selects';
 
@@ -38,9 +37,7 @@ const UnmarkedWinterOverview = ({ values, selectedArea, boatTab, boatTypes, step
             <h5>{t('form.overview.header.receivable_items.title')}</h5>
             <Newsletter />
             <h3>{t('form.overview.header.agreement.title')}</h3>
-            <Agreement
-              label={<span>{t('form.overview.field.unmarked_winter.guarantee.label')}</span>}
-            />
+            <Agreement label={<span>{t('form.overview.field.unmarked_winter.guarantee.label')}</span>} />
           </div>
         </Col>
       </Row>

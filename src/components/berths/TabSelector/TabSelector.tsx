@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, Container } from 'reactstrap';
+
 import InvalidSelection from '../InvalidSelection';
 
 import './TabSelector.scss';
@@ -13,13 +14,7 @@ interface Props {
   tabMessage: React.ReactNode;
 }
 
-const TabSelector = ({
-  tabMessage,
-  children,
-  progress,
-  selectedCount,
-  invalidSelection,
-}: Props) => {
+const TabSelector = ({ tabMessage, children, progress, selectedCount, invalidSelection }: Props) => {
   const [tab, selectTab] = useState(0);
 
   const getActiveTab = () => {

@@ -27,19 +27,11 @@ const Navbar = () => {
       </div>
       <Container>
         <Nav className="vene-navbar__links-wrapper">
-          <LocalizedLink
-            to="/berths"
-            className="vene-navbar__link"
-            activeClassName="vene-navbar__link--active"
-          >
+          <LocalizedLink to="/berths" className="vene-navbar__link" activeClassName="vene-navbar__link--active">
             <span>{t('site.berth.title')}</span>
           </LocalizedLink>
 
-          <LocalizedLink
-            to="/winter-storage"
-            className="vene-navbar__link"
-            activeClassName="vene-navbar__link--active"
-          >
+          <LocalizedLink to="/winter-storage" className="vene-navbar__link" activeClassName="vene-navbar__link--active">
             <span>{t('site.winter.title')}</span>
           </LocalizedLink>
 

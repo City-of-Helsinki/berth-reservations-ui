@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme';
 import React from 'react';
+
 import Icon, { IconProps } from './index';
 
 describe('common/Icon', () => {

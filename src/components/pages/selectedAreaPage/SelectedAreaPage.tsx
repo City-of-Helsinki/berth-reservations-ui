@@ -8,7 +8,6 @@ import Icon, { IconNames } from '../../../common/Icon';
 import LocalizedLink from '../../../common/LocalizedLink';
 import Layout from '../../../common/layout/Layout';
 import SelectionPageLegend from '../../legends/selectionPageLegend/SelectionPageLegend';
-
 import { WinterFormValues, WinterStorageType } from '../../../types/winterStorage';
 import { WinterAreas } from '../../berths/types';
 import { StepType } from '../../../common/steps/step/Step';
@@ -82,16 +81,12 @@ class SelectedAreaPage extends Component<Props> {
                         <Row>
                           <Col md="3">
                             <span>{t('page.overview.info.boat_width')}</span>
-                            <span className="vene-selected-area-page__boat-value">
-                              {boatInfo.width} m
-                            </span>
+                            <span className="vene-selected-area-page__boat-value">{boatInfo.width} m</span>
                           </Col>
 
                           <Col md="3">
                             <span>{t('page.overview.info.boat_length')}</span>
-                            <span className="vene-selected-area-page__boat-value">
-                              {boatInfo.length} m
-                            </span>
+                            <span className="vene-selected-area-page__boat-value">{boatInfo.length} m</span>
                           </Col>
                         </Row>
                       </Container>
@@ -137,9 +132,7 @@ class SelectedAreaPage extends Component<Props> {
                               moveDown={index !== selectedAreas.size - 1 ? moveDown : undefined}
                               handleRemove={deselectArea}
                               availabilityLevel={resource.availabilityLevel}
-                              validationErrMsg={
-                                filter(resource) ? undefined : 'error.message.invalid_area'
-                              }
+                              validationErrMsg={filter(resource) ? undefined : 'error.message.invalid_area'}
                             />
                           );
                         })}

@@ -15,13 +15,7 @@ interface CardsListProps {
   loading: boolean;
 }
 
-const CardsList = ({
-  includedHeader,
-  included,
-  excludedHeader,
-  excluded,
-  loading,
-}: CardsListProps) => {
+const CardsList = ({ includedHeader, included, excludedHeader, excluded, loading }: CardsListProps) => {
   const { t } = useTranslation();
 
   if (loading) {
@@ -33,9 +27,7 @@ const CardsList = ({
       {included.length > 0 && (
         <Row>
           <Col xs={12}>
-            <h3 className="vene-cardsList__heading">
-              {t(includedHeader, { count: included.length })}
-            </h3>
+            <h3 className="vene-cardsList__heading">{t(includedHeader, { count: included.length })}</h3>
           </Col>
         </Row>
       )}
@@ -47,9 +39,7 @@ const CardsList = ({
           </Col>
         </Row>
       )}
-      <div className={classNames('vene-cardsList__list', 'vene-cardsList__list--excluded')}>
-        {excluded}
-      </div>
+      <div className={classNames('vene-cardsList__list', 'vene-cardsList__list--excluded')}>{excluded}</div>
     </Container>
   );
 };

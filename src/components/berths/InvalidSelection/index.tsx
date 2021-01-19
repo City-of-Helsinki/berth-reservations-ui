@@ -15,12 +15,7 @@ const InvalidSelection = ({ id, msg }: Props) => {
   const { t } = useTranslation();
 
   return (
-    <Popover
-      id={id}
-      body={<span>{t(msg)}</span>}
-      placement="bottom"
-      className="vene-invalid-selection"
-    >
+    <Popover id={id} body={<span>{t(msg)}</span>} placement="bottom" className="vene-invalid-selection">
       <Icon name="exclamationCircle" className="vene-invalid-selection__icn" />
     </Popover>
   );

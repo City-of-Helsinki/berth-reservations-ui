@@ -10,7 +10,6 @@ import LinkedEditSection from '../fragments/overview/linkedEditSection/LinkedEdi
 import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
 import OverviewStorageMethod from '../fragments/overview/OverviewStorageMethod';
 import Person from '../fragments/overview/person/Person';
-
 import { ApplicationState } from '../../../redux/types';
 import { WinterFormValues } from '../../../types/winterStorage';
 import { WinterAreas } from '../../berths/types';
@@ -26,45 +25,26 @@ type Props = {
   applicationType: string;
 } & WithBoatType;
 
-const WinterOverviewInfo = ({
-  values,
-  selectedAreas,
-  boatTypes,
-  steps,
-  boatTab,
-  applicationType,
-}: Props) => (
+const WinterOverviewInfo = ({ values, selectedAreas, boatTypes, steps, boatTab, applicationType }: Props) => (
   <OverviewInfo title={applicationType}>
     <LinkedEditSection title="page.overview.info.boat_info" link={steps[2].linkTo}>
       {boatTab === 'registered-boat' && (
         <>
           <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
-          <BoatTypeAndModel
-            boatTypeId={values.boatType}
-            boatModel={values.boatModel}
-            boatTypes={boatTypes}
-          />
+          <BoatTypeAndModel boatTypeId={values.boatType} boatModel={values.boatModel} boatTypes={boatTypes} />
           <BoatMeasures width={values.boatWidth} length={values.boatLength} />
         </>
       )}
       {boatTab === 'unregistered-boat' && (
         <>
           <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
-          <BoatTypeAndModel
-            boatTypeId={values.boatType}
-            boatModel={values.boatModel}
-            boatTypes={boatTypes}
-          />
+          <BoatTypeAndModel boatTypeId={values.boatType} boatModel={values.boatModel} boatTypes={boatTypes} />
           <BoatMeasures width={values.boatWidth} length={values.boatLength} />
         </>
       )}
       {boatTab === 'no-boat' && (
         <>
-          <BoatTypeAndModel
-            boatTypeId={values.boatType}
-            boatModel={values.boatModel}
-            boatTypes={boatTypes}
-          />
+          <BoatTypeAndModel boatTypeId={values.boatType} boatModel={values.boatModel} boatTypes={boatTypes} />
           <BoatMeasures width={values.boatWidth} length={values.boatLength} />
         </>
       )}

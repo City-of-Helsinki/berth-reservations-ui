@@ -82,10 +82,7 @@ const AreaCard = ({
 
             {availabilityLevel && (
               <div className="vene-area-card__availability-level">
-                <Popover
-                  id={tooltipId}
-                  body={availabilityLevel.description || availabilityLevel.title}
-                >
+                <Popover id={tooltipId} body={availabilityLevel.description || availabilityLevel.title}>
                   <AvailabilityLevel label={availabilityLevel.title} level={availabilityLevel.id} />
                 </Popover>
               </div>

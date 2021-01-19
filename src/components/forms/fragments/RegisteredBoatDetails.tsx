@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
-import { mustBeBoatRegistrationNumber } from '../../../utils/formValidation';
 
+import { mustBeBoatRegistrationNumber } from '../../../utils/formValidation';
 import { Text } from '../Fields';
 import { BoatType, WithBoatType } from '../Selects';
 

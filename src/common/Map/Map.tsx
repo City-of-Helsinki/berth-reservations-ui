@@ -4,9 +4,7 @@ import { Map as LeafletMap, TileLayer } from 'react-leaflet';
 
 import mapIcon from './MapIcon';
 import MapMarker from './MapMarker';
-
 import { isResourceSelected } from '../../utils/berths';
-
 import './Map.scss';
 import Spinner from '../spinner/Spinner';
 

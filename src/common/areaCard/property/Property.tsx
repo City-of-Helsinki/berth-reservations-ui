@@ -30,9 +30,7 @@ const Property = ({ iconName, available, value, unit, titleId }: Props) => {
         </div>
       )}
 
-      {value !== undefined && unit === undefined && (
-        <div className="vene-property__value">{value || '-'}</div>
-      )}
+      {value !== undefined && unit === undefined && <div className="vene-property__value">{value || '-'}</div>}
 
       {iconName && (
         <div className="vene-property__icon">

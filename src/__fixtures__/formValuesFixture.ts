@@ -80,9 +80,7 @@ export const createWinterValues = (values: Partial<BerthFormValues>): WinterForm
   ...values,
 });
 
-export const createUnmarkedWinterValues = (
-  values: Partial<UnmarkedWinterFormValues>
-): UnmarkedWinterFormValues => ({
+export const createUnmarkedWinterValues = (values: Partial<UnmarkedWinterFormValues>): UnmarkedWinterFormValues => ({
   ...unmarkedWinterValues,
   ...values,
 });

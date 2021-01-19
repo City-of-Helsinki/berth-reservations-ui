@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
+
 import Icon from '../../Icon';
 import LocalizedLink from '../../LocalizedLink';
 
@@ -27,11 +28,7 @@ const Footer = () => {
           <Col md="4">
             <ul>
               <li>
-                <a
-                  href={t('site.footer.url.helsinki_berths')}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
+                <a href={t('site.footer.url.helsinki_berths')} rel="noopener noreferrer" target="_blank">
                   <span>{t('site.footer.browse_berths')}</span>
                 </a>
               </li>
@@ -41,29 +38,17 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a
-                  href={t('site.footer.url.current_news')}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
+                <a href={t('site.footer.url.current_news')} rel="noopener noreferrer" target="_blank">
                   <span>{t('site.footer.news')}</span>
                 </a>
               </li>
               <li>
-                <a
-                  href={t('site.footer.url.terms_of_service')}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
+                <a href={t('site.footer.url.terms_of_service')} rel="noopener noreferrer" target="_blank">
                   <span>{t('site.footer.terms_of_service')}</span>
                 </a>
               </li>
               <li>
-                <a
-                  href={t('site.footer.url.accessibility_statement')}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
+                <a href={t('site.footer.url.accessibility_statement')} rel="noopener noreferrer" target="_blank">
                   <span>{t('site.footer.accessibility_statement')}</span>
                 </a>
               </li>

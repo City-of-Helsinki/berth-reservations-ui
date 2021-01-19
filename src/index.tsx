@@ -17,15 +17,9 @@ import './assets/styles/main.scss';
 import { version } from '../package.json';
 import initApolloClient from './config/initApolloClient';
 import configureStore from './redux/store/configureStore';
-
 import App from './app/App';
 
-const {
-  REACT_APP_PIWIK_URL,
-  REACT_APP_PIWIK_ID,
-  REACT_APP_SENTRY_DSN,
-  REACT_APP_SENTRY_ENVIRONMENT,
-} = process.env;
+const { REACT_APP_PIWIK_URL, REACT_APP_PIWIK_ID, REACT_APP_SENTRY_DSN, REACT_APP_SENTRY_ENVIRONMENT } = process.env;
 
 const history = createBrowserHistory();
 

@@ -3,6 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import { persistReducer, persistStore } from 'redux-persist';
 import promiseMiddleware from 'redux-promise-middleware';
 import thunk from 'redux-thunk';
+
 import rootReducer from '../reducers';
 import persistConfig from './persist';
 

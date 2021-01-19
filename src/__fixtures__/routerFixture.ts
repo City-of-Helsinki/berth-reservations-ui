@@ -1,6 +1,6 @@
 import { RouteComponentProps } from 'react-router-dom';
 
-// tslint:disable-next-line
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 const dummyFunction = () => {};
 
 export const getMockRouterProps = <Params>(data: Params) => {

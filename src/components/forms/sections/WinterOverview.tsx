@@ -6,7 +6,6 @@ import Agreement from '../fragments/Agreement';
 import ApplicationCode from '../fragments/ApplicationCode';
 import Newsletter from '../fragments/Newsletter';
 import WinterOverviewInfo from './WinterOverviewInfo';
-
 import { ApplicationState } from '../../../redux/types';
 import { WinterFormValues } from '../../../types/winterStorage';
 import { WinterAreas } from '../../berths/types';
@@ -61,11 +60,7 @@ const Submit = ({ values, selectedAreas, application, boatTab, boatTypes, steps 
                 <span>
                   <Trans i18nKey={'form.overview.field.winter.guarantee.label'}>
                     A
-                    <a
-                      href={getWinterStorageRulesLink(language)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <a href={getWinterStorageRulesLink(language)} target="_blank" rel="noopener noreferrer">
                       hel.fi
                     </a>
                     a.
