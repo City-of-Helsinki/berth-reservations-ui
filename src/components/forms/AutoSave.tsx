@@ -41,6 +41,8 @@ class AutoSave extends Component<Props & FormSpyRenderProps> {
   }
 }
 
+// FIXME: Turn into function component
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (props: Props) => (
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore

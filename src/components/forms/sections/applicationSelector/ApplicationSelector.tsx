@@ -32,6 +32,8 @@ export interface ApplicationSelectorState {
 }
 
 class ApplicationSelector extends Component<ApplicationSelectorProps, ApplicationSelectorState> {
+  // FIXME: Turn into function component
+  // eslint-disable-next-line no-undef
   private autoDismiss: NodeJS.Timeout | null = null;
 
   constructor(props: ApplicationSelectorProps) {

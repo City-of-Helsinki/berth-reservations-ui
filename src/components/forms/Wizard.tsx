@@ -87,6 +87,8 @@ const Wizard = ({
 
   const formContentComponent = React.Children.toArray(children)[0];
 
+  // FIXME
+  /* eslint-disable react/no-unused-prop-types */
   return (
     <Form initialValues={initialValues} onSubmit={handleSubmit}>
       {({ invalid, values }: { invalid: boolean; values: {} }) => (

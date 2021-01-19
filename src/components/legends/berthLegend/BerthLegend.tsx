@@ -37,8 +37,11 @@ interface Props {
   };
 }
 
-const BerthsLegend = ({ form, legend, steps, services }: Props) => {
+const BerthLegend = ({ form, legend, steps, services }: Props) => {
   const { t } = useTranslation();
+
+  // FIXME
+  /* eslint-disable react/no-unused-prop-types */
   return (
     <div className="vene-berths-legend">
       <Container>
@@ -105,4 +108,4 @@ const BerthsLegend = ({ form, legend, steps, services }: Props) => {
   );
 };
 
-export default BerthsLegend;
+export default BerthLegend;

@@ -89,18 +89,6 @@ export const mustBeEmail = (value: string): string | undefined => {
   return 'validation.message.must_be_email';
 };
 
-export default <T>(...fns: (((...args: string[]) => T | undefined) | null)[]) => (value: string): T | undefined => {
-  let validated: T | undefined;
-
-  fns.forEach((fn) => {
-    if (!validated && fn) {
-      validated = fn(value);
-    }
-  });
-
-  return validated;
-};
-
 const ssnValidationTable = [
   '0',
   '1',
@@ -171,3 +159,19 @@ export const mustBeBoatRegistrationNumber = (value: string): string | undefined 
   }
   return 'validation.message.invalid_value';
 };
+
+const formValidation = <T>(...fns: (((...args: string[]) => T | undefined) | null)[]) => (
+  value: string
+): T | undefined => {
+  let validated: T | undefined;
+
+  fns.forEach((fn) => {
+    if (!validated && fn) {
+      validated = fn(value);
+    }
+  });
+
+  return validated;
+};
+
+export default formValidation;

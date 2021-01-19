@@ -10,6 +10,7 @@ describe('containers', () => {
   });
 
   describe('withMatchParamsHandlers', () => {
+    // eslint-disable-next-line react/no-unused-prop-types
     const Component = (props: { text: string; localePush: Function } & RouteComponentProps) => <div>{props.text}</div>;
     const CompWithHandlers = withMatchParamsHandlers(Component);
     const getWrapper = (locale = 'fi') =>

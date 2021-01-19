@@ -34,6 +34,7 @@ const CancelOrderPageContainer = ({ localePush }: Props) => {
   const handleCancel = () =>
     cancelOrder()
       .then(() => localePush('/'))
+      // eslint-disable-next-line no-console
       .catch((err) => console.error(err));
 
   return <CancelOrderPage handleCancel={handleCancel} />;

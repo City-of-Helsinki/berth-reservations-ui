@@ -10,7 +10,7 @@ import Map from '../../../common/map/Map';
 import UnregisteredBoatDetails from '../../forms/fragments/unregisteredBoatDetails/UnregisteredBoatDetails';
 import KoroSection from '../../../common/layout/koroSection/KoroSection';
 import Layout from '../../../common/layout/Layout';
-import BerthsLegend from '../../legends/berthLegend/BerthLegend';
+import BerthLegend from '../../legends/berthLegend/BerthLegend';
 import { BerthFormValues, BerthType } from '../../../types/berth';
 import { BoatTypes } from '../../../types/boatTypes';
 import { BerthsServices, SelectedServices } from '../../../types/services';
@@ -153,7 +153,7 @@ class BerthPage extends Component<Props> {
           }
         />
         <KoroSection color="fog" top className="vene-berth-filters-section">
-          <BerthsLegend
+          <BerthLegend
             legend={{ title: `legend.berth.title`, legend: `legend.berth.legend` }}
             form={{
               onSubmit,

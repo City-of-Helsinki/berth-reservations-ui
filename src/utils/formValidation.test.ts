@@ -30,6 +30,8 @@ describe('formValidation', () => {
       expect(mustBePresent('Test')).toBeUndefined();
     });
     test('should return an error message if value is undefined', () => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       expect(mustBePresent(undefined)).toEqual('validation.message.required');
     });
     test('should return an error message if value is only spaces', () => {
