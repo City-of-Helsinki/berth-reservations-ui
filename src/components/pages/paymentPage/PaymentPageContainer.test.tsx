@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme';
-import React from 'react';
 
 import { getPaymentPage } from './PaymentPageContainer';
 import { OrderStatus, OrderTypeEnum } from '../../../__generated__/globalTypes';

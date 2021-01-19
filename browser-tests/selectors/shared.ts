@@ -37,9 +37,7 @@ export const overviewSelectors = {
   }),
   overviewInfo: Selector('div[class="vene-overview-info container"]'),
   getLabelValuePairs: async () => {
-    const labelValuePairs = overviewSelectors.overviewInfo.find(
-      'div[class="vene-label-value-pair"]'
-    );
+    const labelValuePairs = overviewSelectors.overviewInfo.find('div[class="vene-label-value-pair"]');
     const labelValuePairCount = await labelValuePairs.count;
 
     const pairs: string[] = [];

@@ -4,8 +4,8 @@ import { Col, Container, Row } from 'reactstrap';
 
 import BerthNoBoat from '../tabs/BerthNoBoat';
 import BerthRegisteredBoat from '../tabs/BerthRegisteredBoat';
-import BerthUnRegisteredBoat from '../tabs/BerthUnRegisteredBoat';
-import SectionSelector from './SectionSelector';
+import BerthUnregisteredBoat from '../tabs/BerthUnregisteredBoat';
+import SectionSelector from './sectionSelector/SectionSelector';
 import { BerthFormValues } from '../../../types/berth';
 import { BigBoatTypeValue, WithBoatType } from '../Selects';
 
@@ -49,7 +49,7 @@ const BoatDetails = ({ values, tab, boatTypes }: Props) => {
             {tab === 'registered-boat' && (
               <BerthRegisteredBoat showBigShipsForm={showBigShipsForm} boatTypes={boatTypes} />
             )}
-            {tab === 'unregistered-boat' && <BerthUnRegisteredBoat boatTypes={boatTypes} />}
+            {tab === 'unregistered-boat' && <BerthUnregisteredBoat boatTypes={boatTypes} />}
             {tab === 'no-boat' && <BerthNoBoat boatTypes={boatTypes} />}
           </Col>
         </Row>

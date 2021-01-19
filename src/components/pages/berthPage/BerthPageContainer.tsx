@@ -9,7 +9,7 @@ import { BoatTypesBerthsQuery } from '../../../utils/__generated__/BoatTypesBert
 import { getResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
-import { IconNames } from '../../../common/Icon';
+import { IconNames } from '../../../common/icon/Icon';
 import BerthPage from './BerthPage';
 import { Store } from '../../../redux/types';
 import { BerthFormValues } from '../../../types/berth';

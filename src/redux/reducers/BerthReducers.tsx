@@ -16,7 +16,7 @@ const defaultState: BerthsFactory = Record({
   berthLimit: Number(process.env.REACT_APP_MAX_SELECTED_BERTHS) || 10,
 });
 
-export default (state: BerthsState = defaultState(), action: Action): BerthsState => {
+const BerthReducers = (state: BerthsState = defaultState(), action: Action): BerthsState => {
   const { type, payload } = action;
   switch (type) {
     case 'SELECT_SERVICE':
@@ -61,3 +61,5 @@ export default (state: BerthsState = defaultState(), action: Action): BerthsStat
       return state;
   }
 };
+
+export default BerthReducers;

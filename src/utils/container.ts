@@ -1,3 +1,4 @@
+import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { compose, withHandlers } from 'recompose';
 

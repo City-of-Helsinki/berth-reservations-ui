@@ -63,8 +63,8 @@
       {
         "code": 120,
         "ignorePattern":
-        "d=\"([\\s\\S]*?)\"|^import\\W.*"
-
+        "d=\"([\\s\\S]*?)\"|^import\\W.*",
+        "ignoreStrings": true
       }
     ],
     "no-console": "warn",

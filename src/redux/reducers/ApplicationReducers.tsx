@@ -13,7 +13,7 @@ const initState: ApplicationProps = {
 };
 const defaultState: ApplicationFactory = Record(initState);
 
-export default (state: ApplicationState = defaultState(), action: Action): ApplicationState => {
+const ApplicationReducers = (state: ApplicationState = defaultState(), action: Action): ApplicationState => {
   const { type, payload } = action;
 
   switch (type) {
@@ -27,3 +27,5 @@ export default (state: ApplicationState = defaultState(), action: Action): Appli
       return state;
   }
 };
+
+export default ApplicationReducers;

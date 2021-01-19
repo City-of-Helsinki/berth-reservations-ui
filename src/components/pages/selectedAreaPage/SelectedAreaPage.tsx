@@ -4,7 +4,7 @@ import { WithTranslation, withTranslation } from 'react-i18next';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
 import SelectedResource from '../../../common/areaCard/selectedResource/SelectedResource';
-import Icon, { IconNames } from '../../../common/Icon';
+import Icon, { IconNames } from '../../../common/icon/Icon';
 import LocalizedLink from '../../../common/LocalizedLink';
 import Layout from '../../../common/layout/Layout';
 import SelectionPageLegend from '../../legends/selectionPageLegend/SelectionPageLegend';

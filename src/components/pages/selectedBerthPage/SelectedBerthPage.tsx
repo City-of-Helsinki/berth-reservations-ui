@@ -3,7 +3,7 @@ import { Form } from 'react-final-form';
 import { WithTranslation, withTranslation } from 'react-i18next';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
-import Icon, { IconNames } from '../../../common/Icon';
+import Icon, { IconNames } from '../../../common/icon/Icon';
 import LocalizedLink from '../../../common/LocalizedLink';
 import ExchangeApplication from '../../forms/fragments/exchangeApplication/ExchangeApplicationContainer';
 import NewApplication from '../../forms/fragments/newApplication/NewApplication';

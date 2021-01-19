@@ -14,7 +14,7 @@ import { WinterAreasQuery } from '../../../utils/__generated__/WinterAreasQuery'
 import { filterAreasWithMarkedPlaces, getResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
-import { IconNames } from '../../../common/Icon';
+import { IconNames } from '../../../common/icon/Icon';
 import WinterStoragePage from './WinterStoragePage';
 import { Store } from '../../../redux/types';
 import { SelectedWinterServices } from '../../../types/services';

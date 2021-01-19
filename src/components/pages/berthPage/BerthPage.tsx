@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Trans, WithTranslation, withTranslation } from 'react-i18next';
 
 import { getBerthFilterByValues, isResourceSelected } from '../../../utils/berths';
-import TabSelector from '../../berths/TabSelector/TabSelector';
+import TabSelector from '../../berths/tabSelector/TabSelector';
 import CardsList from '../../../common/cardsList/CardsList';
 import Hero from '../../../common/hero/Hero';
-import { IconNames } from '../../../common/Icon';
-import Map from '../../../common/Map/Map';
-import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
+import { IconNames } from '../../../common/icon/Icon';
+import Map from '../../../common/map/Map';
+import UnregisteredBoatDetails from '../../forms/fragments/unregisteredBoatDetails/UnregisteredBoatDetails';
 import KoroSection from '../../../common/layout/koroSection/KoroSection';
 import Layout from '../../../common/layout/Layout';
 import BerthsLegend from '../../legends/berthLegend/BerthLegend';
@@ -159,7 +159,7 @@ class BerthPage extends Component<Props> {
               onSubmit,
               initialValues,
               render: () => (
-                <UnRegisteredBoatDetails
+                <UnregisteredBoatDetails
                   showBoatStoredOnTrailer={false}
                   hideTitle
                   fieldsNotRequired

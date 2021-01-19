@@ -3,7 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
-import Icon, { IconNames } from '../../../common/Icon';
+import Icon, { IconNames } from '../../../common/icon/Icon';
 import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
 import ApplicationSelector from '../../forms/sections/applicationSelector/ApplicationSelector';
@@ -75,7 +75,7 @@ const BerthsLegend = ({ form, legend, steps, services }: Props) => {
                         className="vene-berths-legend__service"
                         key={index}
                         role="switch"
-                        aria-checked={!!selected}
+                        aria-checked={selected}
                         aria-labelledby={`${service.value}-label`}
                         onClick={() =>
                           selected ? services.deselectService(service.value) : services.selectService(service.value)

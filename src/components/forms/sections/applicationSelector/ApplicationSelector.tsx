@@ -10,8 +10,8 @@ import {
   resetBerthLimit as resetBerthLimitAction,
   setBerthLimit as setBirthLimitAction,
 } from '../../../../redux/actions/BerthActions';
-import Alert from '../../../../common/Alert';
-import Input from '../../../../common/Input';
+import Alert from '../../../../common/alert/Alert';
+import Input from '../../../../common/input/Input';
 import { Store } from '../../../../redux/types';
 import { ApplicationOptions } from '../../../../types/applicationType';
 

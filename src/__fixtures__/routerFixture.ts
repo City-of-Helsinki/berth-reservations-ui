@@ -1,9 +1,10 @@
 import { RouteComponentProps } from 'react-router-dom';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const dummyFunction = () => {};
+const dummyFunction = () => {
+  // do nothing
+};
 
-export const getMockRouterProps = <Params>(data: Params) => {
+export const getMockRouterProps = <Params>(data: Params): RouteComponentProps<Params> => {
   const location = {
     hash: '',
     key: '',
@@ -12,7 +13,7 @@ export const getMockRouterProps = <Params>(data: Params) => {
     state: {},
   };
 
-  const props: RouteComponentProps<Params> = {
+  return {
     location,
     match: {
       isExact: true,
@@ -35,6 +36,4 @@ export const getMockRouterProps = <Params>(data: Params) => {
     },
     staticContext: {},
   };
-
-  return props;
 };

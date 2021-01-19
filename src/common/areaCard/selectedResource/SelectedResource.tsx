@@ -5,9 +5,9 @@ import { Button, Col, Container, Row } from 'reactstrap';
 
 import { genValidSelector } from '../../../utils/common';
 import AvailabilityLevel from '../../../components/berths/availabilityLevel/AvailabilityLevel';
-import InvalidSelection from '../../../components/berths/InvalidSelection';
+import InvalidSelection from '../../../components/berths/invalidSelection/InvalidSelection';
 import ScreenReaderLabel from '../../../components/forms/fields/ScreenReaderLabel';
-import Icon, { IconNames } from '../../Icon';
+import Icon, { IconNames } from '../../icon/Icon';
 import Modal from '../../modal/Modal';
 import Popover from '../../popover/Popover';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
-import Icon from '../../Icon';
+import Icon from '../../icon/Icon';
 import LocalizedLink from '../../LocalizedLink';
 
 import './footer.scss';

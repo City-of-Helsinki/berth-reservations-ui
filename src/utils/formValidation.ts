@@ -10,7 +10,7 @@ export const mustBePresent = (value: unknown): string | undefined => {
   return errorMsg;
 };
 
-export const mustBeNames = (maxNames: number) => (value: any): string | undefined => {
+export const mustBeNames = (maxNames: number) => (value: string): string | undefined => {
   const regexString = `^([\\p{Script_Extensions=Latin}-]+\\s*){1,${maxNames}}$`;
   const regex = RegExp(regexString, 'u');
 

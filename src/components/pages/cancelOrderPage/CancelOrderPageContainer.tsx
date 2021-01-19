@@ -9,11 +9,11 @@ import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { CancelOrder, CancelOrderVariables } from '../../../utils/__generated__/CancelOrder';
 import LoadingPage from '../../../common/loadingPage/LoadingPage';
 
-export interface CancelOrderPageContainer {
+type Props = {
   localePush: LocalePush;
-}
+};
 
-const CancelOrderPageContainer = ({ localePush }: CancelOrderPageContainer) => {
+const CancelOrderPageContainer = ({ localePush }: Props) => {
   const orderNumber = getOrderNumber(window.location.search);
 
   const [cancelOrder, { loading }] = useMutation<CancelOrder, CancelOrderVariables>(CANCEL_ORDER, {
@@ -39,6 +39,4 @@ const CancelOrderPageContainer = ({ localePush }: CancelOrderPageContainer) => {
   return <CancelOrderPage handleCancel={handleCancel} />;
 };
 
-export default compose<CancelOrderPageContainer, CancelOrderPageContainer>(withMatchParamsHandlers)(
-  CancelOrderPageContainer
-);
+export default compose<Props, Props>(withMatchParamsHandlers)(CancelOrderPageContainer);

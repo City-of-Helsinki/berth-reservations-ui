@@ -2,8 +2,8 @@ import { mount } from 'enzyme';
 import React from 'react';
 
 import { ApplicationOptions } from '../../../../types/applicationType';
-import Alert from '../../../../common/Alert';
-import Input from '../../../../common/Input';
+import Alert from '../../../../common/alert/Alert';
+import Input from '../../../../common/input/Input';
 import { UnconnectedApplicationSelector as ApplicationSelector } from './ApplicationSelector';
 
 describe('forms/sections/ApplicationSelector', () => {

@@ -73,9 +73,7 @@ const selectAreas = async (t: TestController) => {
 
   await t.click(harborListTab);
 
-  await t
-    .click(getSelectButtonForArea(testData.choice1))
-    .click(getSelectButtonForArea(testData.choice2));
+  await t.click(getSelectButtonForArea(testData.choice1)).click(getSelectButtonForArea(testData.choice2));
 
   await t.click(nextButton);
 };

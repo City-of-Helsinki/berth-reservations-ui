@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Container, Nav, Navbar as BSNavbar } from 'reactstrap';
 
-import Icon from '../../Icon';
+import Icon from '../../icon/Icon';
 import LocalizedLink from '../../LocalizedLink';
 import LanguageDropdown from '../languageDropdown/LanguageDropdown';
 

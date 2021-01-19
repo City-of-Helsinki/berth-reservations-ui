@@ -3,7 +3,7 @@ import { useTranslation, Trans } from 'react-i18next';
 import { Button } from 'reactstrap';
 
 import Layout from '../../../common/layout/Layout';
-import Input from '../../../common/Input';
+import Input from '../../../common/input/Input';
 
 import './cancelOrderPage.scss';
 

@@ -5,7 +5,7 @@ import { Button, Col, Container, Row } from 'reactstrap';
 import Form from './Form';
 import { StepType } from '../../common/steps/step/Step';
 import { WinterStorageMethod } from '../../__generated__/globalTypes';
-import './Wizard.scss';
+import './wizard.scss';
 
 type Props = {
   children: React.ReactNode;
@@ -13,9 +13,9 @@ type Props = {
   goBackward: Function;
   goForward: Function;
   initialValues: {
+    [key: string]: unknown;
     boatStoredOnTrailer?: boolean;
     storageMethod?: unknown;
-    [key: string]: unknown;
   };
   steps: StepType[];
   stepsBeforeForm: number;

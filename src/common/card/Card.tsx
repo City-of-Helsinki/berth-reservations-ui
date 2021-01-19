@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Card as RSCard, CardBody, CardTitle } from 'reactstrap';
 
 import './card.scss';
-import Icon from '../Icon';
+import Icon from '../icon/Icon';
 
 type Props = {
   title: string;

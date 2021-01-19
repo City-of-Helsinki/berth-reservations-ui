@@ -2,13 +2,13 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 import { ApplicationOptions, ApplicationType } from '../../types/applicationType';
-import { withApplicationType } from './withApplicationType';
+import { getApplicationType } from './withApplicationType';
 
 describe('withApplicationType', () => {
   const Component = (props: { applicationType: string }) => <h1>{props.applicationType}</h1>;
 
   test('should pass "applicationType" to the component in question', () => {
-    const WrappedComponent = withApplicationType(Component);
+    const WrappedComponent = getApplicationType(Component);
     const wrapper = shallow(
       <WrappedComponent
         appType={ApplicationOptions.NewApplication}
@@ -21,7 +21,7 @@ describe('withApplicationType', () => {
 
   describe('Berth application', () => {
     test('New application: the value of "applicationType" should be "site.steps.title.berths.new"', () => {
-      const WrappedComponent = withApplicationType(Component);
+      const WrappedComponent = getApplicationType(Component);
       const wrapper = shallow(
         <WrappedComponent
           appType={ApplicationOptions.NewApplication}
@@ -38,7 +38,7 @@ describe('withApplicationType', () => {
     });
 
     test('Exchange application: the value of "applicationType" should be "site.steps.title.berths.exchange"', () => {
-      const WrappedComponent = withApplicationType(Component);
+      const WrappedComponent = getApplicationType(Component);
       const wrapper = shallow(
         <WrappedComponent
           appType={ApplicationOptions.ExchangeApplication}
@@ -57,7 +57,7 @@ describe('withApplicationType', () => {
 
   describe('Winter-Storage application', () => {
     test('the value of "applicationType" should be "site.steps.title.winter_storage"', () => {
-      const WrappedComponent = withApplicationType(Component);
+      const WrappedComponent = getApplicationType(Component);
       const wrapper = shallow(
         <WrappedComponent
           appType="foo"

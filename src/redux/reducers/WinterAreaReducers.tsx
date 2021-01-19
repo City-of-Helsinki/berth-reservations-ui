@@ -19,7 +19,7 @@ const init: WinterAreasProps = {
 
 const defaultState: WinterAreasFactory = Record(init);
 
-export default (state: WinterAreasState = defaultState(), action: Action): WinterAreasState => {
+const WinterAreaReducers = (state: WinterAreasState = defaultState(), action: Action): WinterAreasState => {
   const { type, payload } = action;
   switch (type) {
     case 'SELECT_WINTER_SERVICE':
@@ -60,3 +60,5 @@ export default (state: WinterAreasState = defaultState(), action: Action): Winte
       return state;
   }
 };
+
+export default WinterAreaReducers;

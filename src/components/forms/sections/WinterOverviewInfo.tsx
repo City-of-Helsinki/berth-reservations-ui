@@ -10,7 +10,6 @@ import LinkedEditSection from '../fragments/overview/linkedEditSection/LinkedEdi
 import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
 import OverviewStorageMethod from '../fragments/overview/OverviewStorageMethod';
 import Person from '../fragments/overview/person/Person';
-import { ApplicationState } from '../../../redux/types';
 import { WinterFormValues } from '../../../types/winterStorage';
 import { WinterAreas } from '../../berths/types';
 import { StepType } from '../../../common/steps/step/Step';
@@ -19,7 +18,6 @@ import { WithBoatType } from '../Selects';
 type Props = {
   values: WinterFormValues;
   selectedAreas: WinterAreas;
-  application?: ApplicationState;
   steps: StepType[];
   boatTab: string;
   applicationType: string;

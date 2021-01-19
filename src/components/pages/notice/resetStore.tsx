@@ -14,7 +14,7 @@ interface Props {
   resetApplication: Function;
 }
 
-export default (component: React.ComponentType<Props>) =>
+const resetStore = (component: React.ComponentType<Props>) =>
   compose<Props, {}>(
     connect(() => ({}), { resetValues, resetBerths, resetWinterAreas, resetApplication }),
     lifecycle<Props, {}>({
@@ -32,3 +32,5 @@ export default (component: React.ComponentType<Props>) =>
       },
     })
   )(component);
+
+export default resetStore;

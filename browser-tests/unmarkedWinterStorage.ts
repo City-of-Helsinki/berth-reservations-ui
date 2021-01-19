@@ -1,21 +1,10 @@
 import { navbarSelectors } from './selectors/navbar';
 import { overviewSelectors } from './selectors/shared';
-import {
-  areaSelectionSelectors,
-  unmarkedWinterStorageSelectors,
-} from './selectors/unmarkedWinterStorage';
-import {
-  ApplicantInformation,
-  UnmarkedWinterStorageChoice,
-  WsBoatInformation,
-} from './types/types';
+import { areaSelectionSelectors, unmarkedWinterStorageSelectors } from './selectors/unmarkedWinterStorage';
+import { ApplicantInformation, UnmarkedWinterStorageChoice, WsBoatInformation } from './types/types';
 import { isUnmarkedWinterStoragePage } from './utils/page';
 import { envUrl } from './utils/settings';
-import {
-  fillApplicantInformation,
-  fillApplicantOverview,
-  fillWsBoatInformation,
-} from './sharedTests/sharedTests';
+import { fillApplicantInformation, fillApplicantOverview, fillWsBoatInformation } from './sharedTests/sharedTests';
 
 const testData: UnmarkedWinterStorageChoice & WsBoatInformation & ApplicantInformation = {
   address: 'Testiosoite 1',

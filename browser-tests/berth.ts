@@ -4,12 +4,7 @@ import { boatInformationSelectors } from './selectors/shared';
 import { ApplicantInformation, BerthBoatInformation, Choices } from './types/types';
 import { isBerthsPage } from './utils/page';
 import { envUrl } from './utils/settings';
-import {
-  fillApplicantInformation,
-  assertOverview,
-  swapSelections,
-} from './sharedTests/sharedTests';
-import { Selector } from 'testcafe';
+import { fillApplicantInformation, assertOverview, swapSelections } from './sharedTests/sharedTests';
 
 const testData: Choices & BerthBoatInformation & ApplicantInformation = {
   address: 'Testiosoite 1',
@@ -76,16 +71,11 @@ const selectHarbors = async (t: TestController) => {
     .expect(boatTypeSelect.value)
     .eql(testData.boatTypeIndex);
 
-  await t
-    .typeText(boatWidth, testData.boatWidth)
-    .typeText(boatLength, testData.boatLength)
-    .click(wasteCollection);
+  await t.typeText(boatWidth, testData.boatWidth).typeText(boatLength, testData.boatLength).click(wasteCollection);
 
   await t.click(harborListTab);
 
-  await t
-    .click(getSelectButtonForHarbor(testData.choice1))
-    .click(getSelectButtonForHarbor(testData.choice2));
+  await t.click(getSelectButtonForHarbor(testData.choice1)).click(getSelectButtonForHarbor(testData.choice2));
 
   await t.click(nextButton);
 };
