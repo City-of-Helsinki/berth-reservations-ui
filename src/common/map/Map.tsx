@@ -1,8 +1,8 @@
 import { List } from 'immutable';
 import React, { useState } from 'react';
-import { Map as LeafletMap, TileLayer } from 'react-leaflet';
+import { MapContainer as LeafletMap, TileLayer } from 'react-leaflet';
 
-import MapIcon from './mapIcon';
+import mapIcon from './mapIcon';
 import MapMarker from './MapMarker';
 import { isResourceSelected } from '../../utils/berths';
 import './map.scss';
@@ -51,7 +51,7 @@ const Map = <T extends { id: string; geometry: { coordinates: [number, number] }
           return (
             <MapMarker
               id={resource.id}
-              markerIcon={MapIcon(isSelected, isPreviewed, false)}
+              markerIcon={mapIcon(isSelected, isPreviewed, false)}
               key={resource.id}
               position={resource.geometry.coordinates}
               onClick={() => toggleBerthSelect(resource)}
@@ -64,7 +64,7 @@ const Map = <T extends { id: string; geometry: { coordinates: [number, number] }
           return (
             <MapMarker
               id={resource.id}
-              markerIcon={MapIcon(isSelected, isPreviewed, true)}
+              markerIcon={mapIcon(isSelected, isPreviewed, true)}
               key={resource.id}
               position={resource.geometry.coordinates}
               onClick={() => toggleBerthSelect(resource)}

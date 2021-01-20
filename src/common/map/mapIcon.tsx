@@ -9,10 +9,6 @@ import HarborUnmatchActiveAndSelected from '../icon/icons/harbor-unmatch-chosen-
 import HarborUnmatchSelected from '../icon/icons/harbor-unmatch-chosen.svg';
 import HarborUnmatchUnselected from '../icon/icons/harbor-unmatch.svg';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-delete L.Icon.Default.prototype._getIconUrl;
-
 const IconMatchSelected = new L.Icon({
   iconUrl: HarborMatchSelected,
   iconRetinaUrl: HarborMatchSelected,
@@ -69,7 +65,7 @@ const IconUnmatchActiveAndSelected = new L.Icon({
   className: 'map-marker',
 });
 
-const MapIcon = (isSelected?: boolean, isPreviewed?: boolean, isFilteredNot?: boolean) => {
+const mapIcon = (isSelected?: boolean, isPreviewed?: boolean, isFilteredNot?: boolean) => {
   if (isFilteredNot) {
     if (isPreviewed && isSelected) {
       return IconUnmatchActiveAndSelected;
@@ -94,4 +90,4 @@ const MapIcon = (isSelected?: boolean, isPreviewed?: boolean, isFilteredNot?: bo
   return IconMatchUnselected;
 };
 
-export default MapIcon;
+export default mapIcon;

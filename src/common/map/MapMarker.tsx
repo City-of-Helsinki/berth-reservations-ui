@@ -10,7 +10,16 @@ interface Props {
 }
 
 const MapMarker = ({ id, onClick, markerIcon, position }: Props) => {
-  return <Marker onClick={onClick} icon={markerIcon} key={id} position={position} />;
+  return (
+    <Marker
+      eventHandlers={{
+        click: () => onClick(),
+      }}
+      icon={markerIcon}
+      key={id}
+      position={position}
+    />
+  );
 };
 
 export default MapMarker;
