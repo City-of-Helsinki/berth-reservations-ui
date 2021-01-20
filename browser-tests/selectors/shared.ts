@@ -71,3 +71,5 @@ export const boatInformationSelectors = {
   registeredBoat: screen.getByText(/rekisteröity vene/i),
   trailerRegistrationNumber: screen.getByRole('textbox', { name: /trailerin rekisterinumero/i }),
 };
+
+export const loadingSpinner = Selector('div[class="vene-spinner"]');

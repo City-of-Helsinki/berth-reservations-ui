@@ -4,7 +4,7 @@ import { areaSelectionSelectors, unmarkedWinterStorageSelectors } from './select
 import { ApplicantInformation, UnmarkedWinterStorageChoice, WsBoatInformation } from './types/types';
 import { isUnmarkedWinterStoragePage } from './utils/page';
 import { envUrl } from './utils/settings';
-import { fillApplicantInformation, fillApplicantOverview, fillWsBoatInformation } from './sharedTests/sharedTests';
+import { fillApplicantInformation, assertApplicantOverview, fillWsBoatInformation } from './sharedTests/sharedTests';
 
 const testData: UnmarkedWinterStorageChoice & WsBoatInformation & ApplicantInformation = {
   address: 'Testiosoite 1',
@@ -74,5 +74,5 @@ const assertConfirmation = async (t: TestController, expectedBoatInfo: string) =
   await t.expect(textInOverview(`${testData.winterStorageArea}`).exists).ok();
 
   // Applicant
-  await fillApplicantOverview(t, testData);
+  await assertApplicantOverview(t, testData);
 };
