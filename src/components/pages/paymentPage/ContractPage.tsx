@@ -38,6 +38,7 @@ const PaymentPage = ({ contractAuthMethods, orderNumber, handleSign, handleTermi
         <div className="vene-payment-page__content-container">
           <div className="vene-payment-page__content vene-payment-page__accept-terms-content">
             <div>
+              <p className="vene-payment-page__notice">{t('page.contract.terms_notice')}</p>
               <a
                 href={`${process.env.REACT_APP_API_URL_ROOT}contract_document/${orderNumber}`}
                 className="vene-payment-page__link"

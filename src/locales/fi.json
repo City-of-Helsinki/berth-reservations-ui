@@ -667,6 +667,7 @@
       "info": "Hyvä asiakkaamme, olemme luoneet teille sopimuksen joka allekirjoitetaan sähköisesti. Tutustu sopimukseen alla. Voit jatkaa tunnistautumiseen ja maksamiseen hyväksyttyäsi sopimusehdot. Vene- tai talvisäilytyspaikan saaminen edellyttää sopimusehtojen hyväksymistä.",
       "questions": "Kysymykset ja lisätiedot: ",
       "terms_pdf": "Avaa sopimusehdot (PDF)",
+      "terms_notice": "Huom. Sopimusehdot täytyy avata ja lukea ennen kuin ne voi hyväksyä.",
       "terms_checkbox": "Olen lukenut sopimusehdot ja hyväksyn ne",
       "terms_form_submit": "Jatka tunnistautumiseen",
       "select_signing_provider": "Allekirjoita sopimus valitsemalla tunnistautumistapa",
