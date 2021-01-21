@@ -1,8 +1,9 @@
 export const stringHasNoExtraWhitespace = (value: string): boolean =>
   value.charAt(0) !== ' ' && value.charAt(value.length - 1) !== ' ';
 
-export const mustBePresent = (value: any): string | undefined => {
-  if (value && value.trim().length > 0) return undefined;
+export const mustBePresent = (value: unknown): string | undefined => {
+  if (typeof value === 'string' && value.trim().length > 0) return undefined;
+  if (value) return undefined;
   return 'validation.message.required';
 };
 
