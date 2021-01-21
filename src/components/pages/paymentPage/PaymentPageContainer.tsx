@@ -5,7 +5,7 @@ import { compose } from 'recompose';
 import PaymentPage from './PaymentPage';
 import ContractPage from './ContractPage';
 import { CONFIRM_PAYMENT, FULFILL_CONTRACT, GET_ORDER_DETAILS } from '../../../utils/graphql';
-import { getOrderNumber } from '../../../utils/urls';
+import { getOrderNumber, setOrderNumber } from '../../../utils/urls';
 import GeneralPaymentErrorPage from './paymentError/GeneralPaymentErrorPage';
 import AlreadyPaidPage from './paymentError/AlreadyPaidPage';
 import PastDueDatePage from './paymentError/PastDueDatePage';
@@ -81,7 +81,7 @@ const PaymentPageContainer = ({ localePush }: Props) => {
   };
 
   const handleTerminate = () => {
-    localePush('cancel-order');
+    localePush(setOrderNumber('cancel-order', orderNumber));
   };
 
   if (confirmError || orderDetailsError) {

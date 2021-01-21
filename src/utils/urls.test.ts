@@ -1,4 +1,4 @@
-import { getOrderNumber, getPaymentSuccess } from './urls';
+import { getOrderNumber, getPaymentSuccess, setOrderNumber } from './urls';
 
 describe('utils/urls', () => {
   describe('getOrderNumber', () => {
@@ -15,6 +15,12 @@ describe('utils/urls', () => {
       expect(getPaymentSuccess('?payment_status=failure')).toBeFalsy();
       expect(getPaymentSuccess('?payment_status=')).toBeFalsy();
       expect(getPaymentSuccess('?foo=bar')).toBeFalsy();
+    });
+  });
+
+  describe('setOrderNumber', () => {
+    it('should return the provided url and the order_number query', () => {
+      expect(setOrderNumber('foo', '123')).toEqual('foo?order_number=123');
     });
   });
 });
