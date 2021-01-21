@@ -2,9 +2,12 @@ export const stringHasNoExtraWhitespace = (value: string): boolean =>
   value.charAt(0) !== ' ' && value.charAt(value.length - 1) !== ' ';
 
 export const mustBePresent = (value: unknown): string | undefined => {
-  if (typeof value === 'string' && value.trim().length > 0) return undefined;
+  const errorMsg = 'validation.message.required';
+
+  if (typeof value === 'string') return value.trim().length ? undefined : errorMsg;
   if (value) return undefined;
-  return 'validation.message.required';
+
+  return errorMsg;
 };
 
 export const mustBeNames = (maxNames: number) => (value: any): string | undefined => {
