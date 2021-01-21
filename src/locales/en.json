@@ -669,7 +669,9 @@
       "terms_pdf": "Open contract (PDF)",
       "terms_checkbox": "I have read and accept the contract terms",
       "terms_form_submit": "Continue to authentication",
-      "select_signing_provider": "Sign the contract by choosing an authentication method"
+      "select_signing_provider": "Sign the contract by choosing an authentication method",
+      "termination_note": "I want to give up my berth and I don’t want to pay for it anymore.",
+      "terminate": "Terminate the berth"
     },
     "payment": {
       "title": "Paying the invoice",

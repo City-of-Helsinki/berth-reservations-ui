@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/react-hooks';
+import { compose } from 'recompose';
 
 import PaymentPage from './PaymentPage';
 import ContractPage from './ContractPage';
@@ -9,6 +10,7 @@ import GeneralPaymentErrorPage from './paymentError/GeneralPaymentErrorPage';
 import AlreadyPaidPage from './paymentError/AlreadyPaidPage';
 import PastDueDatePage from './paymentError/PastDueDatePage';
 import LoadingPage from '../../../common/loadingPage/LoadingPage';
+import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import {
   ConfirmPayment,
   ConfirmPaymentVariables,
@@ -24,7 +26,11 @@ import {
   FulfillContractVariables,
 } from '../../../utils/__generated__/FulfillContract';
 
-const PaymentPageContainer = () => {
+interface Props {
+  localePush: LocalePush;
+}
+
+const PaymentPageContainer = ({ localePush }: Props) => {
   const orderNumber = getOrderNumber(window.location.search);
 
   const [isRedirecting, setIsRedirecting] = useState(false);
@@ -74,6 +80,10 @@ const PaymentPageContainer = () => {
     });
   };
 
+  const handleTerminate = () => {
+    localePush('cancel-order');
+  };
+
   if (confirmError || orderDetailsError) {
     return <GeneralPaymentErrorPage />;
   }
@@ -93,7 +103,8 @@ const PaymentPageContainer = () => {
     orderDetailsData?.orderDetails?.status,
     orderDetailsData?.contractAuthMethods ?? [],
     confirmPayment,
-    handleSignContract
+    handleSignContract,
+    handleTerminate
   );
 };
 
@@ -104,7 +115,8 @@ export const getPaymentPage = (
   status: OrderStatus | undefined | null,
   contractAuthMethods: ContractAuthMethods[],
   confirmPayment: () => void,
-  signContract: (authMethod: string) => void
+  signContract: (authMethod: string) => void,
+  handleTerminate: () => void
 ): JSX.Element => {
   if (!status) {
     return <GeneralPaymentErrorPage />;
@@ -115,6 +127,7 @@ export const getPaymentPage = (
       <ContractPage
         orderNumber={orderNumber}
         handleSign={signContract}
+        handleTerminate={handleTerminate}
         contractAuthMethods={contractAuthMethods}
       />
     );
@@ -134,4 +147,4 @@ export const getPaymentPage = (
   }
 };
 
-export { PaymentPageContainer };
+export default compose<Props, Props>(withMatchParamsHandlers)(PaymentPageContainer);

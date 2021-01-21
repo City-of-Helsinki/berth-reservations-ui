@@ -17,7 +17,7 @@ import UnmarkedWinterStoragePage from '../components/pages/unmarkedWinterStorage
 
 import { ApplicationType } from '../types/applicationType';
 import { LocaleOpts } from '../types/intl';
-import { PaymentPageContainer } from '../components/pages/paymentPage/PaymentPageContainer';
+import PaymentPageContainer from '../components/pages/paymentPage/PaymentPageContainer';
 import { PaymentResultContainer } from '../components/pages/paymentResultPage/PaymentResultContainer';
 import CancelOrderPageContainer from '../components/pages/cancelOrderPage/CancelOrderPageContainer';
 
