@@ -9,6 +9,7 @@ import {
   assertOverview,
   swapSelections,
 } from './sharedTests/sharedTests';
+import { Selector } from 'testcafe';
 
 const testData: Choices & BerthBoatInformation & ApplicantInformation = {
   address: 'Testiosoite 1',
@@ -66,9 +67,13 @@ const selectHarbors = async (t: TestController) => {
     getSelectButtonForHarbor,
   } = selectHarborsSelectors;
 
+  const boatTypeOption = Selector(boatTypeSelect.find('option').withText(testData.boatType), {
+    timeout: 30000,
+  });
+
   await t
     .click(boatTypeSelect)
-    .click(boatTypeSelect.find('option').withText(testData.boatType))
+    .click(boatTypeOption)
     .expect(boatTypeSelect.value)
     .eql(testData.boatTypeIndex);
 
