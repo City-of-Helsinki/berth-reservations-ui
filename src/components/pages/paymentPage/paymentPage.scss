@@ -1,5 +1,6 @@
 @import 'styles/mixin';
 @import 'helsinki/colors';
+@import 'helsinki/fonts';
 @import 'styles/variables';
 
 .vene-payment-page {
@@ -38,6 +39,10 @@
     > * {
       margin-bottom: $spacing-03;
     }
+  }
+
+  &__notice {
+    font-size: $font-size-sm;
   }
 
   &__link {

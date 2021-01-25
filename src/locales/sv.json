@@ -667,6 +667,7 @@
       "info": "Bästa kund, vi har lagt upp ett avtal för dig som ska signeras elektroniskt. Läs avtalet nedan. Då du godkänt avtalsvillkoren, kan du fortsätta till identifikationen och betalningen. För att få en båtplats måste du godkänna avtalsvillkoren.",
       "questions": "Frågor och mer information: ",
       "terms_pdf": "Öppna avtalsvillkoren (PDF)",
+      "terms_notice": "Notera. Villkoren i avtalet måste öppnas och läsas innan de kan accepteras.",
       "terms_checkbox": "Jag har läst avtalsvillkoren och godkänner dem",
       "terms_form_submit": "Fortsätt till identifikationen",
       "select_signing_provider": "Signera avtalet genom att välja identifikationssätt",

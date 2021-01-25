@@ -667,6 +667,7 @@
       "info": "Dear customer, we have created for you a contract that is to be signed electronically. See the contract below. You can continue to identify and pay after accepting the terms of the contract. Obtaining a berth or winter storage place requires acceptance of the terms of a contract.",
       "questions": "Questions and further information: ",
       "terms_pdf": "Open contract (PDF)",
+      "terms_notice": "Note. The terms of the agreement must be opened and read before they can be accepted.",
       "terms_checkbox": "I have read and accept the contract terms",
       "terms_form_submit": "Continue to authentication",
       "select_signing_provider": "Sign the contract by choosing an authentication method",
