@@ -1,4 +1,4 @@
-import { selectHarborsSelectors } from './selectors/berth';
+import { selectHarborsSelectors, berthSelectors } from './selectors/berth';
 import { navbarSelectors } from './selectors/navbar';
 import { boatInformationSelectors } from './selectors/shared';
 import { ApplicantInformation, BerthBoatInformation, Choices } from './types/types';
@@ -9,6 +9,7 @@ import {
   assertOverview,
   swapSelections,
 } from './sharedTests/sharedTests';
+import { Selector } from 'testcafe';
 
 const testData: Choices & BerthBoatInformation & ApplicantInformation = {
   address: 'Testiosoite 1',
@@ -65,6 +66,9 @@ const selectHarbors = async (t: TestController) => {
     nextButton,
     getSelectButtonForHarbor,
   } = selectHarborsSelectors;
+
+  // Wait for the data to be loaded
+  await t.click(berthSelectors.map);
 
   await t
     .click(boatTypeSelect)

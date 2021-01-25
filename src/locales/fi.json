@@ -669,7 +669,9 @@
       "terms_pdf": "Avaa sopimusehdot (PDF)",
       "terms_checkbox": "Olen lukenut sopimusehdot ja hyväksyn ne",
       "terms_form_submit": "Jatka tunnistautumiseen",
-      "select_signing_provider": "Allekirjoita sopimus valitsemalla tunnistautumistapa"
+      "select_signing_provider": "Allekirjoita sopimus valitsemalla tunnistautumistapa",
+      "termination_note": "Haluan luopua venepaikastani enkä halua enää maksaa sitä.",
+      "terminate": "Irtisano venepaikka"
     },
     "payment": {
       "title": "Laskun maksaminen",

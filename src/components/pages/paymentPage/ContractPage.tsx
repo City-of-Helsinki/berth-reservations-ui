@@ -12,9 +12,10 @@ interface Props {
   orderNumber: string;
   contractAuthMethods: ContractAuthMethods[];
   handleSign: (authMethod: string) => void;
+  handleTerminate: () => void;
 }
 
-const PaymentPage = ({ contractAuthMethods, orderNumber, handleSign }: Props) => {
+const PaymentPage = ({ contractAuthMethods, orderNumber, handleSign, handleTerminate }: Props) => {
   const { t } = useTranslation();
   const [termsOpened, setTermsOpened] = useState<boolean>(false);
   const [termsAccepted, setTermsAccepted] = useState<boolean>(false);
@@ -69,6 +70,13 @@ const PaymentPage = ({ contractAuthMethods, orderNumber, handleSign }: Props) =>
                 </div>
               )}
             </Form>
+
+            <div>
+              <p>{t('page.contract.termination_note')}</p>
+              <Button color="danger" onClick={handleTerminate} outline>
+                {t('page.contract.terminate')}
+              </Button>
+            </div>
 
             {termsAccepted && (
               <div>

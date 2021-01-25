@@ -669,7 +669,9 @@
       "terms_pdf": "Öppna avtalsvillkoren (PDF)",
       "terms_checkbox": "Jag har läst avtalsvillkoren och godkänner dem",
       "terms_form_submit": "Fortsätt till identifikationen",
-      "select_signing_provider": "Signera avtalet genom att välja identifikationssätt"
+      "select_signing_provider": "Signera avtalet genom att välja identifikationssätt",
+      "termination_note": "Jag vill ge upp min kaj och vill inte betala för den längre.",
+      "terminate": "Avsluta båtplatsen"
     },
     "payment": {
       "title": "Betalning av fakturan",
