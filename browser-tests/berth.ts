@@ -1,4 +1,4 @@
-import { selectHarborsSelectors } from './selectors/berth';
+import { selectHarborsSelectors, berthSelectors } from './selectors/berth';
 import { navbarSelectors } from './selectors/navbar';
 import { boatInformationSelectors } from './selectors/shared';
 import { ApplicantInformation, BerthBoatInformation, Choices } from './types/types';
@@ -67,13 +67,12 @@ const selectHarbors = async (t: TestController) => {
     getSelectButtonForHarbor,
   } = selectHarborsSelectors;
 
-  const boatTypeOption = Selector(boatTypeSelect.find('option').withText(testData.boatType), {
-    timeout: 30000,
-  });
+  // Wait for the data to be loaded
+  await t.click(berthSelectors.map);
 
   await t
     .click(boatTypeSelect)
-    .click(boatTypeOption)
+    .click(boatTypeSelect.find('option').withText(testData.boatType))
     .expect(boatTypeSelect.value)
     .eql(testData.boatTypeIndex);
 

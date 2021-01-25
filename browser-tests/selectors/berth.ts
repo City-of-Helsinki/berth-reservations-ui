@@ -23,4 +23,5 @@ export const selectHarborsSelectors = {
 export const berthSelectors = {
   title: Selector('h1[class="vene-hero__title"]'),
   legend: Selector('div[class="vene-berths-legend"]'),
+  map: Selector('div[class="vene-map"]'),
 };
