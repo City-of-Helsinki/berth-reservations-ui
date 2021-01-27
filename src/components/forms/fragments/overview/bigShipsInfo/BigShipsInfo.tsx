@@ -31,7 +31,7 @@ const BigShipsInfo = ({ propulsion, hullMaterial, intendedUse, rentingPeriod, re
       break;
   }
 
-  const rentingPeriodWDates = `${rentingPeriodLabel} ${rentFrom ? rentFrom : ''}-${rentTill ? rentTill : ''}`;
+  const rentingPeriodWDates = `${rentingPeriodLabel} ${rentFrom || ''}-${rentTill || ''}`;
 
   return (
     <>
