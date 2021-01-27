@@ -1,7 +1,8 @@
 import { List } from 'immutable';
+import orderBy from 'lodash/orderBy';
+
 import { WinterStorageArea } from '../types/unmarkedWinterStorage';
 import { UnmarkedWinterAreasQuery_winterStorageAreas as WINTER_STORAGE_AREAS } from './__generated__/UnmarkedWinterAreasQuery';
-import _ from 'lodash';
 
 export const getWinterStorageAreas = (data: WINTER_STORAGE_AREAS | null) => {
   if (!data || !data.edges) return List([]);
@@ -17,7 +18,7 @@ export const getWinterStorageAreas = (data: WINTER_STORAGE_AREAS | null) => {
       },
     ];
   }, []);
-  const sorted = _.orderBy(areas, ['name'], ['asc']);
+  const sorted = orderBy(areas, ['name'], ['asc']);
 
   return List(sorted);
 };

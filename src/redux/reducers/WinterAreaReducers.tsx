@@ -1,4 +1,5 @@
 import { List, Record } from 'immutable';
+
 import { Action, WinterAreasFactory, WinterAreasProps, WinterAreasState } from '../types';
 
 const selectedWinterServices = Record({
@@ -18,7 +19,7 @@ const init: WinterAreasProps = {
 
 const defaultState: WinterAreasFactory = Record(init);
 
-export default (state: WinterAreasState = defaultState(), action: Action): WinterAreasState => {
+const WinterAreaReducers = (state: WinterAreasState = defaultState(), action: Action): WinterAreasState => {
   const { type, payload } = action;
   switch (type) {
     case 'SELECT_WINTER_SERVICE':
@@ -28,9 +29,7 @@ export default (state: WinterAreasState = defaultState(), action: Action): Winte
     case 'SELECT_WINTER_AREA':
       return state.update('selectedWinterAreas', (selectedAreas) => selectedAreas.push(payload));
     case 'DESELECT_WINTER_AREA':
-      return state.update('selectedWinterAreas', (selectedAreas) =>
-        selectedAreas.filterNot((b) => b === payload)
-      );
+      return state.update('selectedWinterAreas', (selectedAreas) => selectedAreas.filterNot((b) => b === payload));
     case 'MOVE_WINTER_AREA_UP':
       return state.update('selectedWinterAreas', (selectedAreas) => {
         const index = selectedAreas.findIndex((k) => k === payload);
@@ -61,3 +60,5 @@ export default (state: WinterAreasState = defaultState(), action: Action): Winte
       return state;
   }
 };
+
+export default WinterAreaReducers;

@@ -3,12 +3,11 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
-import Icon, { IconNames } from '../../../common/Icon';
+import Icon, { IconNames } from '../../../common/icon/Icon';
 import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
 import ApplicationSelector from '../../forms/sections/applicationSelector/ApplicationSelector';
 import Steps from '../../../common/steps/Steps';
-
 import { BerthsServices, SelectedServices } from '../../../types/services';
 import { StepType } from '../../../common/steps/step/Step';
 
@@ -38,8 +37,11 @@ interface Props {
   };
 }
 
-const BerthsLegend = ({ form, legend, steps, services }: Props) => {
+const BerthLegend = ({ form, legend, steps, services }: Props) => {
   const { t } = useTranslation();
+
+  // FIXME
+  /* eslint-disable react/no-unused-prop-types */
   return (
     <div className="vene-berths-legend">
       <Container>
@@ -76,12 +78,10 @@ const BerthsLegend = ({ form, legend, steps, services }: Props) => {
                         className="vene-berths-legend__service"
                         key={index}
                         role="switch"
-                        aria-checked={!!selected}
+                        aria-checked={selected}
                         aria-labelledby={`${service.value}-label`}
                         onClick={() =>
-                          selected
-                            ? services.deselectService(service.value)
-                            : services.selectService(service.value)
+                          selected ? services.deselectService(service.value) : services.selectService(service.value)
                         }
                       >
                         <div
@@ -108,4 +108,4 @@ const BerthsLegend = ({ form, legend, steps, services }: Props) => {
   );
 };
 
-export default BerthsLegend;
+export default BerthLegend;

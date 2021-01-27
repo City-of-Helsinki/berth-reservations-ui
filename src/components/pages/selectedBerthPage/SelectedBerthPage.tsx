@@ -3,13 +3,12 @@ import { Form } from 'react-final-form';
 import { WithTranslation, withTranslation } from 'react-i18next';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
-import Icon, { IconNames } from '../../../common/Icon';
+import Icon, { IconNames } from '../../../common/icon/Icon';
 import LocalizedLink from '../../../common/LocalizedLink';
 import ExchangeApplication from '../../forms/fragments/exchangeApplication/ExchangeApplicationContainer';
 import NewApplication from '../../forms/fragments/newApplication/NewApplication';
 import Layout from '../../../common/layout/Layout';
 import SelectionPageLegend from '../../legends/selectionPageLegend/SelectionPageLegend';
-
 import { ApplicationOptions } from '../../../types/applicationType';
 import { BerthFormValues, BerthType } from '../../../types/berth';
 import { Berths } from '../../berths/types';
@@ -101,21 +100,15 @@ class SelectedBerthPage extends Component<Props> {
                         <Row>
                           <Col md="5">
                             <span>{t('page.overview.info.boat_type')}</span>
-                            <span className="vene-selected-berth-page__boat-value">
-                              {boatInfo.boatType}
-                            </span>
+                            <span className="vene-selected-berth-page__boat-value">{boatInfo.boatType}</span>
                           </Col>
                           <Col md="3">
                             <span>{t('page.overview.info.boat_width')}</span>
-                            <span className="vene-selected-berth-page__boat-value">
-                              {boatInfo.width} m
-                            </span>
+                            <span className="vene-selected-berth-page__boat-value">{boatInfo.width} m</span>
                           </Col>
                           <Col md="3">
                             <span>{t('page.overview.info.boat_length')}</span>
-                            <span className="vene-selected-berth-page__boat-value">
-                              {boatInfo.length} m
-                            </span>
+                            <span className="vene-selected-berth-page__boat-value">{boatInfo.length} m</span>
                           </Col>
                         </Row>
                       </Container>
@@ -160,9 +153,7 @@ class SelectedBerthPage extends Component<Props> {
                               moveDown={index !== selectedBerths.size - 1 ? moveDown : undefined}
                               handleRemove={deselectBerth}
                               availabilityLevel={resource.availabilityLevel}
-                              validationErrMsg={
-                                filter(resource) ? undefined : 'error.message.invalid_berth'
-                              }
+                              validationErrMsg={filter(resource) ? undefined : 'error.message.invalid_berth'}
                             />
                           );
                         })}

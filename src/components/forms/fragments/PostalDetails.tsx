@@ -1,18 +1,15 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
-import { mustBeAddress, mustBePostalCode } from '../../../utils/formValidation';
+import { useTranslation } from 'react-i18next';
 
+import { mustBeAddress, mustBePostalCode } from '../../../utils/formValidation';
 import { Select, Text } from '../Fields';
 import { MUNICIPALITIES, PRIORITIZED_MUNICIPALITIES } from '../../../constants/Municipalities';
-import { useTranslation } from 'react-i18next';
 
 const PostalDetailsFragment = () => {
   const { t, i18n } = useTranslation();
 
-  const renderMunicipalityOption = (municipality: {
-    id: string;
-    translations: Record<string, string>;
-  }) => {
+  const renderMunicipalityOption = (municipality: { id: string; translations: Record<string, string> }) => {
     const translated = municipality.translations[i18n.language] ?? municipality.translations.fi;
     return (
       <option key={municipality.id} value={municipality.translations.fi}>
@@ -42,11 +39,7 @@ const PostalDetailsFragment = () => {
         />
       </Col>
       <Col sm={4}>
-        <Select
-          name={`municipality`}
-          label={`form.postal_details.field.municipality.label`}
-          required
-        >
+        <Select name={`municipality`} label={`form.postal_details.field.municipality.label`} required>
           <option value="" disabled hidden>
             {t('form.postal_details.field.municipality.placeholder')}
           </option>

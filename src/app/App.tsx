@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import i18n from '../locales/i18n';
 import { Route, RouteComponentProps, Switch } from 'react-router';
 
+import i18n from '../locales/i18n';
 import BerthPage from '../components/pages/berthPage/BerthPageContainer';
 import BerthFormPage from '../components/pages/formPage/BerthFormPageContainer';
 import WinterFormPage from '../components/pages/formPage/WinterFormPageContainer';
@@ -14,7 +14,6 @@ import SelectedAreaPage from '../components/pages/selectedAreaPage/SelectedAreaP
 import SelectedBerthPage from '../components/pages/selectedBerthPage/SelectedBerthPageContainer';
 import WinterStoragePage from '../components/pages/winterStoragePage/WinterStoragePageContainer';
 import UnmarkedWinterStoragePage from '../components/pages/unmarkedWinterStoragePage/UnmarkedWinterStoragePageContainer';
-
 import { ApplicationType } from '../types/applicationType';
 import { LocaleOpts } from '../types/intl';
 import PaymentPageContainer from '../components/pages/paymentPage/PaymentPageContainer';
@@ -48,21 +47,9 @@ const App = ({
       <Route exact path={`/${localeParam}/${winterParam}/selected`} component={SelectedAreaPage} />
       <Route exact path={`/${localeParam}/${winterParam}/form`} component={WinterFormPage} />
       <Route exact path={`/${localeParam}/${winterParam}/form/:tab`} component={WinterFormPage} />
-      <Route
-        exact
-        path={`/${localeParam}/${unmarkedWsParam}`}
-        component={UnmarkedWinterStoragePage}
-      />
-      <Route
-        exact
-        path={`/${localeParam}/${unmarkedWsParam}/form`}
-        component={UnmarkedWinterFormPage}
-      />
-      <Route
-        exact
-        path={`/${localeParam}/${unmarkedWsParam}/form/:tab`}
-        component={UnmarkedWinterFormPage}
-      />
+      <Route exact path={`/${localeParam}/${unmarkedWsParam}`} component={UnmarkedWinterStoragePage} />
+      <Route exact path={`/${localeParam}/${unmarkedWsParam}/form`} component={UnmarkedWinterFormPage} />
+      <Route exact path={`/${localeParam}/${unmarkedWsParam}/form/:tab`} component={UnmarkedWinterFormPage} />
 
       <Route exact path={`/${localeParam}/payment`} component={PaymentPageContainer} />
       <Route exact path={`/${localeParam}/payment-result`} component={PaymentResultContainer} />

@@ -15,14 +15,7 @@ type Props = {
   rentTill?: string | null;
 };
 
-const BigShipsInfo = ({
-  propulsion,
-  hullMaterial,
-  intendedUse,
-  rentingPeriod,
-  rentFrom,
-  rentTill,
-}: Props) => {
+const BigShipsInfo = ({ propulsion, hullMaterial, intendedUse, rentingPeriod, rentFrom, rentTill }: Props) => {
   const { t } = useTranslation();
   let rentingPeriodLabel;
 
@@ -38,9 +31,7 @@ const BigShipsInfo = ({
       break;
   }
 
-  const rentingPeriodWDates = `${rentingPeriodLabel} ${rentFrom ? rentFrom : ''}-${
-    rentTill ? rentTill : ''
-  }`;
+  const rentingPeriodWDates = `${rentingPeriodLabel} ${rentFrom || ''}-${rentTill || ''}`;
 
   return (
     <>
@@ -64,10 +55,7 @@ const BigShipsInfo = ({
       </Row>
       <Row>
         <Col>
-          <LabelValuePair
-            label="form.big_ship.field.time_period.label"
-            value={rentingPeriodWDates}
-          />
+          <LabelValuePair label="form.big_ship.field.time_period.label" value={rentingPeriodWDates} />
         </Col>
       </Row>
     </>

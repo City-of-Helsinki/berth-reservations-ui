@@ -24,10 +24,7 @@ export const convertCmToM = (length?: number | null) => length && length / 100;
  * @param selectedServices An immutable record of the selected services.
  * @returns A boolean of true value when the supplied berth meets the filter conditions, otherwise false.
  */
-export const getBerthFilterByValues = (
-  values: BerthFormValues,
-  selectedServices: SelectedServices
-) => {
+export const getBerthFilterByValues = (values: BerthFormValues, selectedServices: SelectedServices) => {
   const boatHasTrailer = get(values, 'boatStoredOnTrailer');
 
   const width = (stringToFloat(get(values, 'boatWidth', '')) || 0) * 100;
@@ -145,10 +142,7 @@ export const getResources = <T, P, G extends { coordinates: [number, number] }>(
   );
 };
 
-export const getSelectedResources = <T extends { id: string }>(
-  selectedIds: SelectedIds,
-  resources: List<T>
-) =>
+export const getSelectedResources = <T extends { id: string }>(selectedIds: SelectedIds, resources: List<T>) =>
   selectedIds.reduce<List<T>>((acc, id) => {
     const matched = resources.find((resource) => resource.id === id);
     return matched ? acc.push(matched) : acc;

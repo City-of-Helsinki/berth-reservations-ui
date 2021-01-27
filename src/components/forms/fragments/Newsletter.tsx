@@ -10,28 +10,16 @@ const NewsletterFragment = () => {
     <Fragment>
       <Row>
         <Col sm={6}>
-          <Checkbox
-            name={`acceptBoatingNewsletter`}
-            label="form.overview.field.boating_info.label"
-            inline={false}
-          />
+          <Checkbox name={`acceptBoatingNewsletter`} label="form.overview.field.boating_info.label" inline={false} />
         </Col>
       </Row>
       <h6>{t('form.overview.header.also.title')}</h6>
       <Row>
         <Col sm={3}>
-          <Checkbox
-            name={`acceptFitnessNews`}
-            label="form.overview.field.fitness_services.label"
-            inline={false}
-          />
+          <Checkbox name={`acceptFitnessNews`} label="form.overview.field.fitness_services.label" inline={false} />
         </Col>
         <Col sm={3}>
-          <Checkbox
-            name={`acceptLibraryNews`}
-            label="form.overview.field.library_services.label"
-            inline={false}
-          />
+          <Checkbox name={`acceptLibraryNews`} label="form.overview.field.library_services.label" inline={false} />
         </Col>
         <Col sm={3}>
           <Checkbox

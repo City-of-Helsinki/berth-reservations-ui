@@ -1,4 +1,5 @@
 import { createAction } from 'redux-actions';
+
 import { WinterStorageType } from '../../types/winterStorage';
 
 const filterByStorageArea = createAction('FILTER_BY_STORAGE_AREA');

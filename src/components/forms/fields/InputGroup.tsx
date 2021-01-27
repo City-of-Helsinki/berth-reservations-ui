@@ -13,7 +13,6 @@ import {
 
 import validator, { mustBePresent } from '../../../utils/formValidation';
 import ScreenReaderLabel from './ScreenReaderLabel';
-
 import Label from './Label';
 
 type Props = WithTranslation & FieldRenderProps<string, HTMLElement>;
@@ -51,12 +50,7 @@ const InputGroup = (
       {({ input, meta }) => (
         <FormGroup>
           {label && <Label htmlFor={id} required={required} text={label} />}
-          <ScreenReaderLabel
-            id={`${id}-description`}
-            prepend={prepend}
-            append={append}
-            textKey={label}
-          />
+          <ScreenReaderLabel id={`${id}-description`} prepend={prepend} append={append} textKey={label} />
           <BSInputGroup>
             {prepend && <InputGroupAddon addonType="prepend">{prepend}</InputGroupAddon>}
             <Input

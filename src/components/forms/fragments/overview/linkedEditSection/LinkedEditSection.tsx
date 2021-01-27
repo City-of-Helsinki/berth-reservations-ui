@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
-import Icon from '../../../../../common/Icon';
+import Icon from '../../../../../common/icon/Icon';
 import LocalizedLink from '../../../../../common/LocalizedLink';
 
 import './linkedEditSection.scss';

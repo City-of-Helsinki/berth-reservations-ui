@@ -3,10 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
 import Agreement from '../fragments/Agreement';
-import ApplicationCode from '../fragments/ApplicationCode';
+import ApplicationCode from '../fragments/applicationCode/ApplicationCode';
 import Newsletter from '../fragments/Newsletter';
 import BerthOverviewInfo from './BerthOverviewInfo';
-
 import { ApplicationState } from '../../../redux/types';
 import { BerthFormValues } from '../../../types/berth';
 import { Berths } from '../../berths/types';
@@ -21,14 +20,7 @@ type Props = {
   steps: StepType[];
 } & WithBoatType;
 
-const BerthOverview = ({
-  values,
-  selectedBerths,
-  application,
-  boatTab,
-  boatTypes,
-  steps,
-}: Props) => {
+const BerthOverview = ({ values, selectedBerths, application, boatTab, boatTypes, steps }: Props) => {
   const { t } = useTranslation();
   return (
     <Container>

@@ -5,7 +5,6 @@ import Wizard from '../../forms/Wizard';
 import Layout from '../../../common/layout/Layout';
 import FormLegend from '../../legends/formLegend/FormLegend';
 import Steps from '../../../common/steps/Steps';
-
 import { StepType } from '../../../common/steps/step/Step';
 
 import './formPage.scss';

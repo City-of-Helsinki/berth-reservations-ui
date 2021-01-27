@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
+import { Query } from 'react-apollo';
 
 import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
 import {
@@ -13,15 +14,13 @@ import { WinterAreasQuery } from '../../../utils/__generated__/WinterAreasQuery'
 import { filterAreasWithMarkedPlaces, getResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
-import { IconNames } from '../../../common/Icon';
+import { IconNames } from '../../../common/icon/Icon';
 import WinterStoragePage from './WinterStoragePage';
-
 import { Store } from '../../../redux/types';
 import { SelectedWinterServices } from '../../../types/services';
 import { WinterFormValues } from '../../../types/winterStorage';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../../common/steps/step/Step';
-import { Query } from 'react-apollo';
 
 interface WithLocalePush {
   localePush: LocalePush;
@@ -117,19 +116,9 @@ const WinterStoragePageContainer = (props: Props) => {
         data,
         loading,
       }) => {
-        const winterAreas = getResources(data ? data.winterStorageAreas : null).filter(
-          filterAreasWithMarkedPlaces
-        );
+        const winterAreas = getResources(data ? data.winterStorageAreas : null).filter(filterAreasWithMarkedPlaces);
 
-        return (
-          <WinterStoragePage
-            {...props}
-            areas={winterAreas}
-            steps={steps}
-            services={services}
-            loading={loading}
-          />
-        );
+        return <WinterStoragePage {...props} areas={winterAreas} steps={steps} services={services} loading={loading} />;
       }}
     </Query>
   );

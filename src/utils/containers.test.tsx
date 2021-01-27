@@ -1,4 +1,4 @@
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import React from 'react';
 import { MemoryRouter, Route, RouteComponentProps } from 'react-router-dom';
 
@@ -10,11 +10,10 @@ describe('containers', () => {
   });
 
   describe('withMatchParamsHandlers', () => {
-    const Component = (props: { text: string; localePush: Function } & RouteComponentProps) => (
-      <div>{props.text}</div>
-    );
+    // eslint-disable-next-line react/no-unused-prop-types
+    const Component = (props: { text: string; localePush: Function } & RouteComponentProps) => <div>{props.text}</div>;
     const CompWithHandlers = withMatchParamsHandlers(Component);
-    const getWrapper = (locale: string = '') =>
+    const getWrapper = (locale = 'fi') =>
       mount(
         <MemoryRouter initialEntries={[`/${locale}`]}>
           <Route path="/:locale/">

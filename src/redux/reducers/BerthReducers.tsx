@@ -1,4 +1,5 @@
 import { List, Record } from 'immutable';
+
 import { Action, BerthsFactory, BerthsState } from '../types';
 
 export const selectedServices = Record({
@@ -15,7 +16,7 @@ const defaultState: BerthsFactory = Record({
   berthLimit: Number(process.env.REACT_APP_MAX_SELECTED_BERTHS) || 10,
 });
 
-export default (state: BerthsState = defaultState(), action: Action): BerthsState => {
+const BerthReducers = (state: BerthsState = defaultState(), action: Action): BerthsState => {
   const { type, payload } = action;
   switch (type) {
     case 'SELECT_SERVICE':
@@ -25,9 +26,7 @@ export default (state: BerthsState = defaultState(), action: Action): BerthsStat
     case 'SELECT_BERTH':
       return state.update('selectedBerths', (selectedBerths) => selectedBerths.push(payload));
     case 'DESELECT_BERTH':
-      return state.update('selectedBerths', (selectedBerths) =>
-        selectedBerths.filterNot((b) => b === payload)
-      );
+      return state.update('selectedBerths', (selectedBerths) => selectedBerths.filterNot((b) => b === payload));
     case 'MOVE_BERTH_UP':
       return state.update('selectedBerths', (selectedBerths) => {
         const index = selectedBerths.findIndex((k) => k === payload);
@@ -62,3 +61,5 @@ export default (state: BerthsState = defaultState(), action: Action): BerthsStat
       return state;
   }
 };
+
+export default BerthReducers;

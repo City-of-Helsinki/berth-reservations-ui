@@ -2,7 +2,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import withApplicationType from '../withApplicationType/withApplicationType';
-
 import Step, { StepType } from './step/Step';
 
 import './steps.scss';

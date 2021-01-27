@@ -8,8 +8,7 @@ import {
 import { BERTH_SWITCH_REASONS_QUERY } from '../../../../utils/graphql';
 import ExchangeApplication, { ExchangeApplicationProps } from './ExchangeApplication';
 
-// TODO: replace "Pick, Exclude" operation with Omit when upgrading to TS@3.5 http://bit.ly/2KWbmVS
-type Props = Pick<ExchangeApplicationProps, Exclude<keyof ExchangeApplicationProps, 'reasons'>>;
+type Props = Omit<ExchangeApplicationProps, 'reasons'>;
 
 const isReason = (reason: Reason | null): reason is Reason => reason !== null;
 
@@ -17,8 +16,7 @@ const ExchangeApplicationContainer = (props: Props) => {
   return (
     <Query<BerthSwitchReasonsQuery> query={BERTH_SWITCH_REASONS_QUERY}>
       {({ data }) => {
-        const reasons =
-          data && data.berthSwitchReasons ? data.berthSwitchReasons.filter(isReason) : [];
+        const reasons = data?.berthSwitchReasons ? data.berthSwitchReasons.filter(isReason) : [];
 
         return <ExchangeApplication reasons={reasons} {...props} />;
       }}

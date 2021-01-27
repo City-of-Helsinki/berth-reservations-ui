@@ -14,10 +14,7 @@ const Hero = ({ title, bgUrl, bgPosition }: Props) => {
   const { t } = useTranslation();
 
   return (
-    <div
-      className="vene-hero"
-      style={{ backgroundImage: `url(${bgUrl})`, backgroundPosition: bgPosition }}
-    >
+    <div className="vene-hero" style={{ backgroundImage: `url(${bgUrl})`, backgroundPosition: bgPosition }}>
       <Container>
         <h1 className="vene-hero__title">{t(title)}</h1>
       </Container>

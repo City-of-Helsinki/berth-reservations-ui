@@ -2,6 +2,7 @@ import { List } from 'immutable';
 import React, { useEffect } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { Button, Col, Row } from 'reactstrap';
+
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
 import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../types/unmarkedWinterStorage';
 import { LocalePush } from '../../../utils/container';
@@ -85,11 +86,7 @@ const UnmarkedWinterStoragePage = ({
 
   return (
     <Layout>
-      <Hero
-        title={`site.unmarked_winter_storage.title`}
-        bgUrl={winterHeroImg}
-        bgPosition="center"
-      />
+      <Hero title={`site.unmarked_winter_storage.title`} bgUrl={winterHeroImg} bgPosition="center" />
       <KoroSection
         top
         title={`hero.unmarked_winter_storage.title`}

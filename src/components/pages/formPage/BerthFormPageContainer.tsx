@@ -49,10 +49,7 @@ const BerthFormPageContainer = ({
   const [applicantTab, setApplicantTab] = useState(applicantTabs[0]);
 
   useEffect(() => {
-    const currStep = Math.max(
-      stepsBeforeForm,
-      findIndex(formTabs, (s) => s.includes(tab)) + stepsBeforeForm
-    );
+    const currStep = Math.max(stepsBeforeForm, findIndex(formTabs, (s) => s.includes(tab)) + stepsBeforeForm);
     setCurrentStep(currStep);
     if (currStep === 2) {
       setBoatTab(tab);

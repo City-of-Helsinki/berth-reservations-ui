@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Card as RSCard, CardBody, CardTitle } from 'reactstrap';
 
 import './card.scss';
-import Icon from '../Icon';
+import Icon from '../icon/Icon';
 
 type Props = {
   title: string;
@@ -19,13 +19,7 @@ const Card = ({ title, onClick, btnLabel, children }: Props) => {
           {title}
         </CardTitle>
         <div className="vene-card__description">{children}</div>
-        <Button
-          onClick={onClick}
-          className="vene-card__button"
-          type="button"
-          color="primary"
-          outline
-        >
+        <Button onClick={onClick} className="vene-card__button" type="button" color="primary" outline>
           <span className="vene-card__button-label">{btnLabel}</span>
           <Icon name="arrowRight" className="vene-card__arrow-icon" />
         </Button>

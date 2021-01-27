@@ -3,11 +3,10 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
-import Icon, { IconNames } from '../../../common/Icon';
+import Icon, { IconNames } from '../../../common/icon/Icon';
 import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
 import Steps from '../../../common/steps/Steps';
-
 import { SelectedWinterServices, WinterServices } from '../../../types/services';
 import { StepType } from '../../../common/steps/step/Step';
 
@@ -74,9 +73,7 @@ const WinterStorageLegend = ({ form, legend, steps, services }: Props) => {
                         className="vene-berths-legend__service"
                         key={index}
                         onClick={() =>
-                          selected
-                            ? services.deselectService(service.value)
-                            : services.selectService(service.value)
+                          selected ? services.deselectService(service.value) : services.selectService(service.value)
                         }
                       >
                         <div

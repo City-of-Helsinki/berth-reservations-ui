@@ -2,23 +2,21 @@ import React, { Component } from 'react';
 import { Trans, WithTranslation, withTranslation } from 'react-i18next';
 
 import { getWinterStorageFilterByValues, isResourceSelected } from '../../../utils/berths';
-import TabSelector from '../../berths/TabSelector/TabSelector';
+import TabSelector from '../../berths/tabSelector/TabSelector';
 import CardsList from '../../../common/cardsList/CardsList';
 import Hero from '../../../common/hero/Hero';
-import { IconNames } from '../../../common/Icon';
-import Map from '../../../common/Map/Map';
-import UnRegisteredBoatDetails from '../../forms/fragments/UnRegisteredBoatDetails';
+import { IconNames } from '../../../common/icon/Icon';
+import Map from '../../../common/map/Map';
+import UnregisteredBoatDetails from '../../forms/fragments/unregisteredBoatDetails/UnregisteredBoatDetails';
 import KoroSection from '../../../common/layout/koroSection/KoroSection';
 import Layout from '../../../common/layout/Layout';
 import WinterStorageLegend from '../../legends/winterStorageLegend/WinterStorageLegend';
-
 import { BoatTypes } from '../../../types/boatTypes';
 import { SelectedWinterServices, WinterServices } from '../../../types/services';
 import { WinterFormValues, WinterStorageType } from '../../../types/winterStorage';
 import { LocalePush } from '../../../utils/container';
 import { SelectedIds, WinterAreas } from '../../berths/types';
 import { StepType } from '../../../common/steps/step/Step';
-
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
 import WinterStorageCard from './WinterStorageCard';
 import WinterStorageNotice from './WinterStorageNotice';
@@ -111,9 +109,9 @@ class WinterStoragePage extends Component<Props> {
       .filter((area) => selectedAreasIds.find((selectedId) => selectedId === area.id))
       .every(filter);
 
-    const renderAreaCard: (
-      isExcluded: boolean
-    ) => (selected: WinterStorageType) => React.ReactNode = (isExcluded) => (area) => {
+    const renderAreaCard: (isExcluded: boolean) => (selected: WinterStorageType) => React.ReactNode = (isExcluded) => (
+      area
+    ) => {
       return (
         <WinterStorageCard
           key={area.id}
@@ -162,7 +160,7 @@ class WinterStoragePage extends Component<Props> {
               onSubmit,
               initialValues,
               render: () => (
-                <UnRegisteredBoatDetails
+                <UnregisteredBoatDetails
                   boatStoredOnTrailer={!!initialValues.boatStoredOnTrailer}
                   showBoatStoredOnTrailer
                   hideTitle
@@ -196,9 +194,7 @@ class WinterStoragePage extends Component<Props> {
         >
           <Map
             TabHeader={() => <span>{t('site.common.map')}</span>}
-            mapHeader={
-              <span>{t('page.winter_storage.list.areas_count', { count: filtered.size })}</span>
-            }
+            mapHeader={<span>{t('page.winter_storage.list.areas_count', { count: filtered.size })}</span>}
             filtered={filtered}
             filteredNot={filteredNot}
             selectedIds={selectedAreasIds}

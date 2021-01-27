@@ -1,4 +1,4 @@
-import queryString from 'query-string';
+import * as queryString from 'query-string';
 
 export const getOrderNumber = (searchString: string): string => {
   const parsed = queryString.parse(searchString);

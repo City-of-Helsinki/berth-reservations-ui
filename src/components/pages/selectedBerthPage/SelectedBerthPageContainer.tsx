@@ -2,6 +2,7 @@ import get from 'lodash/get';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
+import { Query } from 'react-apollo';
 
 import { submitApplicationForm as submitExchangeForm } from '../../../redux/actions/ApplicationActions';
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
@@ -9,15 +10,12 @@ import { BoatTypesBerthsQuery } from '../../../utils/__generated__/BoatTypesBert
 import { getBerthFilterByValues, getResources, getSelectedResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import SelectedBerthPage from './SelectedBerthPage';
-
 import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../types/services';
 import { SelectedIds } from '../../berths/types';
-
 import { BerthFormValues } from '../../../types/berth';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import { StepType } from '../../../common/steps/step/Step';
-import { Query } from 'react-apollo';
 
 interface Props {
   selectedBerths: SelectedIds;
@@ -65,13 +63,7 @@ const steps: StepType[] = [
   },
 ];
 
-const UnconnectedSelectedBerthPage = ({
-  localePush,
-  values,
-  selectedServices,
-  selectedBerths,
-  ...rest
-}: Props) => {
+const UnconnectedSelectedBerthPage = ({ localePush, values, selectedServices, selectedBerths, ...rest }: Props) => {
   const moveToForm = async () => {
     await localePush('/berths/form/registered-boat');
   };

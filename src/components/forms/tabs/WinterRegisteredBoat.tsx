@@ -4,10 +4,9 @@ import { Container } from 'reactstrap';
 import BoatInfo from '../fragments/BoatInfo';
 import BoatMeasures from '../fragments/BoatMeasures';
 import RegisteredBoatDetails from '../fragments/RegisteredBoatDetails';
-
 import { WithBoatType } from '../Selects';
 
-import './Tabs.scss';
+import './tabs.scss';
 
 type Props = WithBoatType;
 

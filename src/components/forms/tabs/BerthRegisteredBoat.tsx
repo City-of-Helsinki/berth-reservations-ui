@@ -7,10 +7,9 @@ import BigShips from '../fragments/BigShips';
 import BoatInfo from '../fragments/BoatInfo';
 import BoatMeasures from '../fragments/BoatMeasures';
 import RegisteredBoatDetails from '../fragments/RegisteredBoatDetails';
-
 import { WithBoatType } from '../Selects';
 
-import './Tabs.scss';
+import './tabs.scss';
 
 type Props = {
   showBigShipsForm: boolean;

@@ -5,8 +5,8 @@ import { Alert, Button, Col, Row } from 'reactstrap';
 
 import { genValidSelector } from '../../utils/common';
 import AvailabilityLevel from '../../components/berths/availabilityLevel/AvailabilityLevel';
-import Icon from '../Icon';
-import Image from '../Image';
+import Icon from '../icon/Icon';
+import Image from '../image/Image';
 import Popover from '../popover/Popover';
 
 import './areaCard.scss';
@@ -82,10 +82,7 @@ const AreaCard = ({
 
             {availabilityLevel && (
               <div className="vene-area-card__availability-level">
-                <Popover
-                  id={tooltipId}
-                  body={availabilityLevel.description || availabilityLevel.title}
-                >
+                <Popover id={tooltipId} body={availabilityLevel.description || availabilityLevel.title}>
                   <AvailabilityLevel label={availabilityLevel.title} level={availabilityLevel.id} />
                 </Popover>
               </div>

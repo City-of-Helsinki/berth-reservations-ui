@@ -4,7 +4,6 @@ import { WithTranslation } from 'react-i18next';
 import { FormFeedback, FormGroup, FormText, Input, InputProps } from 'reactstrap';
 
 import validator, { mustBePresent } from '../../../utils/formValidation';
-
 import Label from './Label';
 
 type Props = WithTranslation & FieldRenderProps<string, HTMLElement>;

@@ -3,28 +3,22 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
+import { useQuery, useMutation } from 'react-apollo';
 
 import { onSubmitUnmarkedWinterForm } from '../../../redux/actions/FormActions';
 import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../types/unmarkedWinterStorage';
 import { UnmarkedWinterAreasQuery } from '../../../utils/__generated__/UnmarkedWinterAreasQuery';
 import { stringToFloat } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
-import {
-  CREATE_WINTER_STORAGE_APPLICATION,
-  UNMARKED_WINTER_AREAS_QUERY,
-} from '../../../utils/graphql';
+import { CREATE_WINTER_STORAGE_APPLICATION, UNMARKED_WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import { getWinterStorageAreas } from '../../../utils/unmarkedWinterStorage';
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import WinterBoatDetails from '../../forms/sections/WinterBoatDetails';
 import UnmarkedWinterOverview from '../../forms/sections/UnmarkedWinterOverview';
 import FormPage from './FormPage';
 import { Store } from '../../../redux/types';
-import {
-  SubmitWinterStorage,
-  SubmitWinterStorageVariables,
-} from '../../../utils/__generated__/SubmitWinterStorage';
+import { SubmitWinterStorage, SubmitWinterStorageVariables } from '../../../utils/__generated__/SubmitWinterStorage';
 import { StepType } from '../../../common/steps/step/Step';
-import { useQuery, useMutation } from 'react-apollo';
 
 const stepsBeforeForm = 1;
 const boatTabs = ['registered-boat', 'unregistered-boat'];
@@ -51,10 +45,7 @@ const UnmarkedWinterFormPageContainer = ({
   const [applicantTab, setApplicantTab] = useState(applicantTabs[0]);
 
   useEffect(() => {
-    const currStep = Math.max(
-      stepsBeforeForm,
-      findIndex(formTabs, (s) => s.includes(tab)) + stepsBeforeForm
-    );
+    const currStep = Math.max(stepsBeforeForm, findIndex(formTabs, (s) => s.includes(tab)) + stepsBeforeForm);
     setCurrentStep(currStep);
     if (currStep === 1) {
       setBoatTab(tab);
@@ -65,10 +56,9 @@ const UnmarkedWinterFormPageContainer = ({
   }, [tab]);
 
   const { loading, data } = useQuery<UnmarkedWinterAreasQuery>(UNMARKED_WINTER_AREAS_QUERY);
-  const [submitUnmarkedWinterStorage] = useMutation<
-    SubmitWinterStorage,
-    SubmitWinterStorageVariables
-  >(CREATE_WINTER_STORAGE_APPLICATION);
+  const [submitUnmarkedWinterStorage] = useMutation<SubmitWinterStorage, SubmitWinterStorageVariables>(
+    CREATE_WINTER_STORAGE_APPLICATION
+  );
 
   const boatTypes = data ? data.boatTypes : [];
   const winterStorageAreas = getWinterStorageAreas(data ? data.winterStorageAreas : null);
@@ -161,9 +151,7 @@ const UnmarkedWinterFormPageContainer = ({
       case 2:
         return <ApplicantDetails tab={applicantTab} />;
       case 3:
-        const selectedArea = winterStorageAreas.find(
-          (area) => area.id === initialValues.chosenAreas
-        );
+        const selectedArea = winterStorageAreas.find((area) => area.id === initialValues.chosenAreas);
         return (
           !loading && (
             <UnmarkedWinterOverview

@@ -2,8 +2,8 @@ import React, { Fragment } from 'react';
 import { Field, FieldRenderProps } from 'react-final-form';
 import { WithTranslation } from 'react-i18next';
 import { CustomInput, FormFeedback, FormGroup, FormText } from 'reactstrap';
-import validator, { mustBePresent } from '../../../utils/formValidation';
 
+import validator, { mustBePresent } from '../../../utils/formValidation';
 import Label from './Label';
 
 type Props = {

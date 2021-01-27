@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Col, Row } from 'reactstrap';
-import { mustBeBusinessId, mustBeCompanyName } from '../../../utils/formValidation';
 
+import { mustBeBusinessId, mustBeCompanyName } from '../../../utils/formValidation';
 import { Text } from '../Fields';
 
 const CompanyDetailsFragment = () => (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
+
 import { resetApplication } from '../../../redux/actions/ApplicationActions';
 import { resetBerths } from '../../../redux/actions/BerthActions';
 import { resetValues } from '../../../redux/actions/FormActions';
@@ -13,7 +14,7 @@ interface Props {
   resetApplication: Function;
 }
 
-export default (component: React.ComponentType<any>) =>
+const resetStore = (component: React.ComponentType<Props>) =>
   compose<Props, {}>(
     connect(() => ({}), { resetValues, resetBerths, resetWinterAreas, resetApplication }),
     lifecycle<Props, {}>({
@@ -31,3 +32,5 @@ export default (component: React.ComponentType<any>) =>
       },
     })
   )(component);
+
+export default resetStore;

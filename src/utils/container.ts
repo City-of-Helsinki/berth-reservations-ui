@@ -1,5 +1,7 @@
+import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { compose, withHandlers } from 'recompose';
+
 import { LocaleOpts } from '../types/intl';
 
 export type LocalePush = (uri: string) => void;

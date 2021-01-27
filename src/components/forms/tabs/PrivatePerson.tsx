@@ -1,13 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { Container } from 'reactstrap';
+
 import ContactDetails from '../fragments/ContactDetails';
 import FullName from '../fragments/FullName';
 import PostalDetails from '../fragments/PostalDetails';
-import './Tabs.scss';
+import './tabs.scss';
 
-export default () => {
+const PrivatePerson = () => {
   const { t } = useTranslation();
   return (
     <Container className="vene-form__styled-container">
@@ -18,3 +18,5 @@ export default () => {
     </Container>
   );
 };
+
+export default PrivatePerson;

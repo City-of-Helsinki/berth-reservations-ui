@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Button, Col, Container, Row } from 'reactstrap';
 
 import Form from './Form';
-import { Button, Col, Container, Row } from 'reactstrap';
 import { StepType } from '../../common/steps/step/Step';
 import { WinterStorageMethod } from '../../__generated__/globalTypes';
-import './Wizard.scss';
+import './wizard.scss';
 
 type Props = {
   children: React.ReactNode;
@@ -13,9 +13,9 @@ type Props = {
   goBackward: Function;
   goForward: Function;
   initialValues: {
+    [key: string]: unknown;
     boatStoredOnTrailer?: boolean;
     storageMethod?: unknown;
-    [key: string]: unknown;
   };
   steps: StepType[];
   stepsBeforeForm: number;
@@ -87,6 +87,8 @@ const Wizard = ({
 
   const formContentComponent = React.Children.toArray(children)[0];
 
+  // FIXME
+  /* eslint-disable react/no-unused-prop-types */
   return (
     <Form initialValues={initialValues} onSubmit={handleSubmit}>
       {({ invalid, values }: { invalid: boolean; values: {} }) => (
@@ -100,12 +102,7 @@ const Wizard = ({
                   <Button color="link" type="button" onClick={() => handlePrevious(values)}>
                     <span>{t('form.wizard.button.previous')}</span>
                   </Button>
-                  <Button
-                    type="submit"
-                    outline={!isLastFormStep(currentStep)}
-                    color="primary"
-                    disabled={isSubmitting}
-                  >
+                  <Button type="submit" outline={!isLastFormStep(currentStep)} color="primary" disabled={isSubmitting}>
                     <span>{t(getSubmitText(invalid))}</span>
                   </Button>
                 </Col>

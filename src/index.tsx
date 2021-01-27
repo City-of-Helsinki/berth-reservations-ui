@@ -17,16 +17,9 @@ import './assets/styles/main.scss';
 import { version } from '../package.json';
 import initApolloClient from './config/initApolloClient';
 import configureStore from './redux/store/configureStore';
-import * as serviceWorker from './serviceWorker';
-
 import App from './app/App';
 
-const {
-  REACT_APP_PIWIK_URL,
-  REACT_APP_PIWIK_ID,
-  REACT_APP_SENTRY_DSN,
-  REACT_APP_SENTRY_ENVIRONMENT,
-} = process.env;
+const { REACT_APP_PIWIK_URL, REACT_APP_PIWIK_ID, REACT_APP_SENTRY_DSN, REACT_APP_SENTRY_ENVIRONMENT } = process.env;
 
 const history = createBrowserHistory();
 
@@ -70,8 +63,3 @@ const rootElement = document.getElementById('root');
 if (rootElement) {
   ReactDOM.render(<Root />, rootElement);
 }
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();

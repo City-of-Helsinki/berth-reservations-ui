@@ -113,10 +113,10 @@ export const assertOverview = async (
     .ok();
 
   // Applicant
-  await fillApplicantOverview(t, testData);
+  await assertApplicantOverview(t, testData);
 };
 
-export const fillApplicantOverview = (
+export const assertApplicantOverview = (
   t: TestController,
   testData: {
     firstName: string;

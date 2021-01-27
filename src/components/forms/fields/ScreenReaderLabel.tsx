@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import './ScreenReaderLabel.scss';
+import './screenReaderLabel.scss';
 import { useTranslation } from 'react-i18next';
 
 interface Props {

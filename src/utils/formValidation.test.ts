@@ -30,6 +30,8 @@ describe('formValidation', () => {
       expect(mustBePresent('Test')).toBeUndefined();
     });
     test('should return an error message if value is undefined', () => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       expect(mustBePresent(undefined)).toEqual('validation.message.required');
     });
     test('should return an error message if value is only spaces', () => {
@@ -166,16 +168,9 @@ describe('formValidation', () => {
     });
 
     test('should return false for malformed ssn', () => {
-      [
-        '020175033H',
-        '02017-033H',
-        '020175-03H',
-        '020175K033H',
-        '',
-        '020175',
-        '-033A',
-        'A',
-      ].forEach((value) => expect(mustBeSsn(value)).toEqual('validation.message.must_be_ssn'));
+      ['020175033H', '02017-033H', '020175-03H', '020175K033H', '', '020175', '-033A', 'A'].forEach((value) =>
+        expect(mustBeSsn(value)).toEqual('validation.message.must_be_ssn')
+      );
       expect.assertions(8);
     });
   });

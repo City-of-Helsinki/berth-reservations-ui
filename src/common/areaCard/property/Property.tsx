@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Icon, { IconNames } from '../../Icon';
+import Icon, { IconNames } from '../../icon/Icon';
 
 import './property.scss';
 
@@ -30,9 +30,7 @@ const Property = ({ iconName, available, value, unit, titleId }: Props) => {
         </div>
       )}
 
-      {value !== undefined && unit === undefined && (
-        <div className="vene-property__value">{value || '-'}</div>
-      )}
+      {value !== undefined && unit === undefined && <div className="vene-property__value">{value || '-'}</div>}
 
       {iconName && (
         <div className="vene-property__icon">

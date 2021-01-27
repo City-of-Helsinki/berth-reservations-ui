@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import Layout from '../../../common/layout/Layout';
 import { Button } from 'reactstrap';
+
+import Layout from '../../../common/layout/Layout';
 import './paymentPage.scss';
 
 interface Props {

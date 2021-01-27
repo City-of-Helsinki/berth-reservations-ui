@@ -1,27 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
+import { Query } from 'react-apollo';
 
-import {
-  deselectBerth,
-  deselectService,
-  selectBerth,
-  selectService,
-} from '../../../redux/actions/BerthActions';
+import { deselectBerth, deselectService, selectBerth, selectService } from '../../../redux/actions/BerthActions';
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
 import { BoatTypesBerthsQuery } from '../../../utils/__generated__/BoatTypesBerthsQuery';
 import { getResources } from '../../../utils/berths';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
-import { IconNames } from '../../../common/Icon';
+import { IconNames } from '../../../common/icon/Icon';
 import BerthPage from './BerthPage';
-
 import { Store } from '../../../redux/types';
 import { BerthFormValues } from '../../../types/berth';
 import { SelectedServices } from '../../../types/services';
 import { Berths as BerthsType, SelectedIds } from '../../berths/types';
 import { StepType } from '../../../common/steps/step/Step';
-import { Query } from 'react-apollo';
 
 interface Props {
   initialValues: BerthFormValues;

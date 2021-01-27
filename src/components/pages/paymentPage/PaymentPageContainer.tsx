@@ -11,20 +11,14 @@ import AlreadyPaidPage from './paymentError/AlreadyPaidPage';
 import PastDueDatePage from './paymentError/PastDueDatePage';
 import LoadingPage from '../../../common/loadingPage/LoadingPage';
 import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
-import {
-  ConfirmPayment,
-  ConfirmPaymentVariables,
-} from '../../../utils/__generated__/ConfirmPayment';
+import { ConfirmPayment, ConfirmPaymentVariables } from '../../../utils/__generated__/ConfirmPayment';
 import { OrderStatus, OrderTypeEnum } from '../../../__generated__/globalTypes';
 import {
   OrderDetails,
   OrderDetails_contractAuthMethods as ContractAuthMethods,
   OrderDetailsVariables,
 } from '../../../utils/__generated__/OrderDetails';
-import {
-  FulfillContract,
-  FulfillContractVariables,
-} from '../../../utils/__generated__/FulfillContract';
+import { FulfillContract, FulfillContractVariables } from '../../../utils/__generated__/FulfillContract';
 
 interface Props {
   localePush: LocalePush;
@@ -35,11 +29,10 @@ const PaymentPageContainer = ({ localePush }: Props) => {
 
   const [isRedirecting, setIsRedirecting] = useState(false);
 
-  const {
-    loading: loadingOrderDetails,
-    data: orderDetailsData,
-    error: orderDetailsError,
-  } = useQuery<OrderDetails, OrderDetailsVariables>(GET_ORDER_DETAILS, {
+  const { loading: loadingOrderDetails, data: orderDetailsData, error: orderDetailsError } = useQuery<
+    OrderDetails,
+    OrderDetailsVariables
+  >(GET_ORDER_DETAILS, {
     variables: {
       orderNumber: orderNumber as string,
     },
@@ -61,9 +54,7 @@ const PaymentPageContainer = ({ localePush }: Props) => {
     },
   });
 
-  const [fulfillContract] = useMutation<FulfillContract, FulfillContractVariables>(
-    FULFILL_CONTRACT
-  );
+  const [fulfillContract] = useMutation<FulfillContract, FulfillContractVariables>(FULFILL_CONTRACT);
 
   const handleSignContract = (authMethod: string) => {
     fulfillContract({
@@ -87,12 +78,7 @@ const PaymentPageContainer = ({ localePush }: Props) => {
   if (confirmError || orderDetailsError) {
     return <GeneralPaymentErrorPage />;
   }
-  if (
-    loadingOrderDetails ||
-    loadingConfirmPayment ||
-    isRedirecting ||
-    !orderDetailsData?.contractSigned
-  ) {
+  if (loadingOrderDetails || loadingConfirmPayment || isRedirecting || !orderDetailsData?.contractSigned) {
     return <LoadingPage />;
   }
 
@@ -137,9 +123,7 @@ export const getPaymentPage = (
     case OrderStatus.WAITING:
       return <PaymentPage handlePay={confirmPayment} />;
     case OrderStatus.PAID:
-      return (
-        <AlreadyPaidPage isAdditionalProduct={orderType === OrderTypeEnum.ADDITIONAL_PRODUCT} />
-      );
+      return <AlreadyPaidPage isAdditionalProduct={orderType === OrderTypeEnum.ADDITIONAL_PRODUCT} />;
     case OrderStatus.EXPIRED:
       return <PastDueDatePage />;
     default:

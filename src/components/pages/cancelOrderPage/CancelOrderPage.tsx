@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
-import Layout from '../../../common/layout/Layout';
 import { Button } from 'reactstrap';
-import Input from '../../../common/Input';
+
+import Layout from '../../../common/layout/Layout';
+import Input from '../../../common/input/Input';
 
 import './cancelOrderPage.scss';
 

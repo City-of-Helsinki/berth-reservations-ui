@@ -11,7 +11,7 @@ interface Props {
   legend: StepLegend;
 }
 
-export default ({ legend }: Props) => {
+const FormLegend = ({ legend }: Props) => {
   const { t } = useTranslation();
   return (
     <div className="vene-form-legend">
@@ -20,3 +20,5 @@ export default ({ legend }: Props) => {
     </div>
   );
 };
+
+export default FormLegend;
