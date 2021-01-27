@@ -5,7 +5,6 @@ declare module 'piwik-react-router' {
     enableLinkTracking?: boolean;
     updateDocumentTitle?: boolean;
     ignoreInitialVisit?: boolean;
-    // eslint-disable-next-line @typescript-eslint/ban-types
     trackErrorHandler?: Function;
     injectScript?: boolean;
     clientTrackerName?: string;
