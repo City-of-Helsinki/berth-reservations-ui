@@ -12,7 +12,7 @@ import SelectionPageLegend from '../../legends/selectionPageLegend/SelectionPage
 import { ApplicationOptions } from '../../../types/applicationType';
 import { BerthFormValues, BerthType } from '../../../types/berth';
 import { Berths } from '../../berths/types';
-import SelectedResource from '../../../common/areaCard/selectedResource/SelectedResource';
+import SelectedResourceContainer from '../../../common/areaCard/selectedResource/SelectedResourceContainer';
 import { StepType } from '../../../common/steps/step/Step';
 
 import './selectedBerthPage.scss';
@@ -143,7 +143,7 @@ class SelectedBerthPage extends Component<Props> {
                           ];
 
                           return (
-                            <SelectedResource
+                            <SelectedResourceContainer
                               className="vene-selected-berth-page__berth"
                               title={`${index + 1}. ${resource.name}`}
                               id={resource.id}

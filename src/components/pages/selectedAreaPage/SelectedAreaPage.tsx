@@ -3,7 +3,7 @@ import { Form } from 'react-final-form';
 import { WithTranslation, withTranslation } from 'react-i18next';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
-import SelectedResource from '../../../common/areaCard/selectedResource/SelectedResource';
+import SelectedResourceContainer from '../../../common/areaCard/selectedResource/SelectedResourceContainer';
 import Icon, { IconNames } from '../../../common/icon/Icon';
 import LocalizedLink from '../../../common/LocalizedLink';
 import Layout from '../../../common/layout/Layout';
@@ -122,7 +122,7 @@ class SelectedAreaPage extends Component<Props> {
                           ];
 
                           return (
-                            <SelectedResource
+                            <SelectedResourceContainer
                               className="vene-selected-area-page__area"
                               title={`${index + 1}. ${resource.name}`}
                               id={resource.id}
