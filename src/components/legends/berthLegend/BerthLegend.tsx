@@ -6,7 +6,7 @@ import { Col, Container, Row } from 'reactstrap';
 import Icon, { IconNames } from '../../../common/icon/Icon';
 import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
-import ApplicationSelector from '../../forms/sections/applicationSelector/ApplicationSelector';
+import ApplicationSelector from '../../forms/sections/applicationSelector/ApplicationSelectorContainer';
 import Steps from '../../../common/steps/Steps';
 import { BerthsServices, SelectedServices } from '../../../types/services';
 import { StepType } from '../../../common/steps/step/Step';
@@ -40,8 +40,6 @@ interface Props {
 const BerthLegend = ({ form, legend, steps, services }: Props) => {
   const { t } = useTranslation();
 
-  // FIXME
-  /* eslint-disable react/no-unused-prop-types */
   return (
     <div className="vene-berths-legend">
       <Container>
@@ -57,7 +55,7 @@ const BerthLegend = ({ form, legend, steps, services }: Props) => {
             )}
             {form && (
               <Form initialValues={form.initialValues} onSubmit={form.onSubmit}>
-                {({ invalid }: { invalid: boolean }) => (
+                {({ invalid }) => (
                   <>
                     {form.render()}
                     {!invalid && <AutoSave debounce={500} save={form.onSubmit} />}

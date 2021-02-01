@@ -1,149 +1,102 @@
-import { mount } from 'enzyme';
+import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 
 import { ApplicationOptions } from '../../../../../types/applicationType';
-import Alert from '../../../../../common/alert/Alert';
-import Input from '../../../../../common/input/Input';
-import { UnconnectedApplicationSelector as ApplicationSelector } from '../ApplicationSelector';
+import ApplicationSelector, { ApplicationSelectorProps } from '../ApplicationSelector';
 
 describe('forms/sections/ApplicationSelector', () => {
-  const defaultProps = {
-    selectedBerthCount: 0,
+  const sharedProps: ApplicationSelectorProps = {
+    alertVisible: false,
+    className: 'TEST',
     berthsApplicationType: ApplicationOptions.NewApplication,
-    switchApplication: jest.fn(),
-    setBerthLimit: jest.fn(),
-    resetBerthLimit: jest.fn(),
-    berthLimit: 10,
+    onSwitch: jest.fn(),
+    closeAlert: jest.fn(),
   };
-  const getWrapper = (props?: object) => mount(<ApplicationSelector {...defaultProps} {...props} />);
+  const renderComponent = (props?: Partial<ApplicationSelectorProps>) =>
+    render(<ApplicationSelector {...sharedProps} {...props} />);
 
-  test('render normally', () => {
-    const wrapper = getWrapper();
-
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toHaveLength(1);
-  });
-
-  test('contain 2 input element', () => {
-    const wrapper = getWrapper();
-    const inputs = wrapper.find(Input);
+  test('contains 2 radio input elements', () => {
+    const { container } = renderComponent();
+    const inputs = container.querySelectorAll('input[type="radio"]');
 
     expect(inputs).toHaveLength(2);
   });
 
-  test('each input is a radio', () => {
-    const wrapper = getWrapper();
-    const input = wrapper.find(Input).first();
+  test('contains two titles (strong) and two info texts (paragraph)', () => {
+    const { container } = renderComponent();
+    const titles = container.querySelectorAll('strong');
+    const infoTexts = container.querySelectorAll('p');
 
-    expect(input.prop('type')).toEqual('radio');
+    expect(titles).toHaveLength(2);
+    expect(infoTexts).toHaveLength(2);
   });
 
-  test('each input has a label that contains a title of type strong and description of as a paragraph', () => {
-    const wrapper = getWrapper();
-    const input = wrapper.find(Input).first();
+  test('if berthsApplicationType is NewApplication, show "new application" as checked', () => {
+    const { getByLabelText } = renderComponent({
+      berthsApplicationType: ApplicationOptions.NewApplication,
+    });
 
-    expect(input.find('strong')).toHaveLength(1);
-    expect(input.find('p')).toHaveLength(1);
+    expect((getByLabelText(/Uusi hakemus/) as HTMLInputElement).checked).toBe(true);
+    expect((getByLabelText(/Vaihtohakemus/) as HTMLInputElement).checked).toBe(false);
   });
 
-  describe('berth limit', () => {
-    test('default to 10', () => {
-      const wrapper = getWrapper();
-
-      expect(wrapper.prop('berthLimit')).toEqual(10);
+  test('if berthsApplicationType is ExchangeApplication, show "exchange application" as checked', () => {
+    const { getByLabelText } = renderComponent({
+      berthsApplicationType: ApplicationOptions.ExchangeApplication,
     });
 
-    test('set new berth limit when switch to exchange application without alert', () => {
-      const mock = jest.fn();
-      const wrapper = getWrapper({ selectedBerthCount: 4, setBerthLimit: mock });
-      // avoid triggering alert
-
-      const instance = wrapper.children().instance() as any;
-      instance.onToggleSwitch({
-        currentTarget: {
-          value: 'exchange_application',
-        },
-      });
-
-      wrapper.update();
-
-      expect(mock).toBeCalled();
-    });
-
-    test('reset berth limit when switch to exchange application without alert', () => {
-      const mock = jest.fn();
-      const wrapper = getWrapper({ selectedBerthCount: 4, resetBerthLimit: mock });
-      // avoid triggering alert
-
-      const instance = wrapper.children().instance() as any;
-      instance.onToggleSwitch({
-        currentTarget: {
-          value: 'new_application',
-        },
-      });
-
-      wrapper.update();
-
-      expect(mock).toBeCalled();
-    });
+    expect((getByLabelText(/Uusi hakemus/) as HTMLInputElement).checked).toBe(false);
+    expect((getByLabelText(/Vaihtohakemus/) as HTMLInputElement).checked).toBe(true);
   });
-  describe('switch application', () => {
-    test('new application input is selected by default', () => {
-      const wrapper = getWrapper({ selectedBerthCount: 6 });
-      const input = wrapper.find(Input).first();
 
-      expect(input.prop('checked')).toBeTruthy();
+  test('clicking "new application" calls onSwitch expectedly', () => {
+    let eventValue = null;
+    const onSwitch = jest.fn((event) => (eventValue = event.target.value));
+    const { getByLabelText } = renderComponent({
+      berthsApplicationType: ApplicationOptions.ExchangeApplication,
+      onSwitch: onSwitch,
     });
 
-    test('show alert when exchange application is selected and berth selected > 5', () => {
-      const wrapper = getWrapper({ selectedBerthCount: 6 });
+    fireEvent.click(getByLabelText(/Uusi hakemus/));
+    expect(eventValue).toEqual(ApplicationOptions.NewApplication);
+  });
 
-      const instance = wrapper.children().instance() as any;
-      instance.onToggleSwitch({
-        currentTarget: {
-          value: 'exchange_application',
-        },
-      });
-
-      wrapper.update();
-
-      expect(wrapper.children().state('alertVisibility')).toBeTruthy();
-      expect(wrapper.find('.vene-alert').exists()).toEqual(true);
+  test('clicking "exchange application" calls onSwitch expectedly', () => {
+    let eventValue = null;
+    const onSwitch = jest.fn((event) => (eventValue = event.target.value));
+    const { getByLabelText } = renderComponent({
+      berthsApplicationType: ApplicationOptions.NewApplication,
+      onSwitch: onSwitch,
     });
 
-    describe('alert box', () => {
-      // FIXME
-      /*test.skip('will always not being rendered when new application is selected', () => {
-        const wrapper = getWrapper();
+    fireEvent.click(getByLabelText(/Vaihtohakemus/));
+    expect(eventValue).toEqual(ApplicationOptions.ExchangeApplication);
+  });
 
-        wrapper.setState({ alertVisibility: true });
-        wrapper.update();
-
-        const instance = wrapper.children().instance() as any;
-        instance.onToggleSwitch({
-          currentTarget: {
-            value: 'new_application',
-          },
-        });
-
-        expect(wrapper.find('.vene-alert').exists()).toEqual(false);
-      });*/
-
-      test('show alert when selected > 5', () => {
-        const wrapper = getWrapper({ selectedBerthCount: 6 });
-        const alert = wrapper.find(Alert);
-
-        expect(alert).toBeDefined();
-      });
-
-      test('able to close independenly by clicking close button', () => {
-        const wrapper = getWrapper();
-        wrapper.children().setState({ alertVisibility: true });
-        wrapper.update();
-
-        wrapper.find('.close').simulate('click');
-        expect(wrapper.find('.vene-alert').exists()).toEqual(false);
-      });
+  test('if alertVisible is true, Alert should be shown', () => {
+    const { getByText } = renderComponent({
+      alertVisible: true,
     });
+
+    expect(getByText(/Vaihtohakemukseen voit valita enintään/)).toBeDefined();
+  });
+
+  test('if alertVisible is false, Alert should not be shown', () => {
+    const { queryByText } = renderComponent({
+      alertVisible: false,
+    });
+
+    expect(queryByText(/Vaihtohakemukseen voit valita enintään/)).not.toBeTruthy();
+  });
+
+  test('clicking the alert toggle should call closeAlert', () => {
+    const closeAlert = jest.fn();
+    const { getByLabelText } = renderComponent({
+      alertVisible: true,
+      closeAlert: closeAlert,
+    });
+
+    fireEvent.click(getByLabelText(/Close/));
+    expect(closeAlert).toHaveBeenCalled();
   });
 });
