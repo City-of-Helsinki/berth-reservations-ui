@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
@@ -13,7 +13,7 @@ export interface ExchangeApplicationProps {
   reasons?: BerthSwitchReasonsQuery_berthSwitchReasons[];
 }
 
-const ExchangeApplication: FC<ExchangeApplicationProps> = ({ berths, reasons }) => {
+const ExchangeApplication = ({ berths, reasons }: ExchangeApplicationProps) => {
   const { t } = useTranslation();
   return (
     <Container className="vene-exchange-application">

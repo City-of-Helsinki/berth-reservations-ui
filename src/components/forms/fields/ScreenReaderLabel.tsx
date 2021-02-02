@@ -14,7 +14,7 @@ const buildLabelString = (parts: (string | undefined)[]): string => {
   return parts.filter((value) => value !== undefined).join(', ');
 };
 
-const ScreenReaderLabel: React.FC<Props> = ({ id, prepend, textKey, append }) => {
+const ScreenReaderLabel = ({ id, prepend, textKey, append }: Props) => {
   const { t } = useTranslation();
   return (
     <label id={id} className={classNames('vene-formfield__screen-reader-label')}>

@@ -10,7 +10,7 @@ import Spinner from '../spinner/Spinner';
 
 interface MapProps<T extends { id: string; geometry: { coordinates: [number, number] } }> {
   // eslint-disable-next-line react/no-unused-prop-types
-  TabHeader?: React.FC; // required for TabSelector component
+  TabHeader?: React.ReactNode; // required for TabSelector component
   filtered: List<T>;
   filteredNot: List<T>;
   selectedIds: List<string>;

@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
@@ -10,7 +10,7 @@ type Props = {
   registrationNumber?: string | null;
 };
 
-const OverviewStorageMethod: SFC<Props> = ({ storageMethod, registrationNumber }) => {
+const OverviewStorageMethod = ({ storageMethod, registrationNumber }: Props) => {
   const { t } = useTranslation();
   const storageLabel =
     storageMethod === WinterStorageMethod.ON_TRESTLES
