@@ -2,7 +2,7 @@ import get from 'lodash/get';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import { Query } from 'react-apollo';
+import { useQuery } from 'react-apollo';
 
 import { deselectWinterArea, moveWinterAreaDown, moveWinterAreaUp } from '../../../redux/actions/WinterAreaActions';
 import { WinterAreasQuery } from '../../../utils/__generated__/WinterAreasQuery';
@@ -60,44 +60,38 @@ const steps: StepType[] = [
 ];
 
 const UnconnectedSelectedAreaPage = ({ localePush, values, selectedAreas, selectedServices, ...rest }: Props) => {
+  const { data } = useQuery<WinterAreasQuery>(WINTER_AREAS_QUERY);
+
   const moveToForm = async () => {
     await localePush('/winter-storage/form/registered-boat');
   };
   const handlePrevious = async () => {
     await localePush('/winter-storage');
   };
-  return (
-    <Query<WinterAreasQuery> query={WINTER_AREAS_QUERY}>
-      {({
-        // error, TODO: handle errors
-        data,
-      }) => {
-        const width = get(values, 'boatWidth', '');
-        const length = get(values, 'boatLength', '');
-        const filter = getWinterStorageFilterByValues(values, selectedServices);
-        const areas = getResources(data ? data.winterStorageAreas : null);
-        const selected = getSelectedResources(selectedAreas, areas);
-        const validSelection = selected.every(filter);
 
-        return (
-          <SelectedAreaPage
-            boatInfo={{ width, length }}
-            handlePrevious={handlePrevious}
-            moveToForm={moveToForm}
-            filter={filter}
-            validSelection={validSelection}
-            steps={steps}
-            legend={{
-              title: 'legend.selected_areas.title',
-              legend: 'legend.selected_areas.legend',
-            }}
-            selectedAreas={selected}
-            values={values}
-            {...rest}
-          />
-        );
+  const width = get(values, 'boatWidth', '');
+  const length = get(values, 'boatLength', '');
+  const filter = getWinterStorageFilterByValues(values, selectedServices);
+  const areas = getResources(data ? data.winterStorageAreas : null);
+  const selected = getSelectedResources(selectedAreas, areas);
+  const validSelection = selected.every(filter);
+
+  return (
+    <SelectedAreaPage
+      boatInfo={{ width, length }}
+      handlePrevious={handlePrevious}
+      moveToForm={moveToForm}
+      filter={filter}
+      validSelection={validSelection}
+      steps={steps}
+      legend={{
+        title: 'legend.selected_areas.title',
+        legend: 'legend.selected_areas.legend',
       }}
-    </Query>
+      selectedAreas={selected}
+      values={values}
+      {...rest}
+    />
   );
 };
 

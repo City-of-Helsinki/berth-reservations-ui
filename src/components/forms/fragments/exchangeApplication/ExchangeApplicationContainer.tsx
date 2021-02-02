@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { useQuery } from 'react-apollo';
 
 import {
   BerthSwitchReasonsQuery,
@@ -13,15 +13,10 @@ type Props = Omit<ExchangeApplicationProps, 'reasons'>;
 const isReason = (reason: Reason | null): reason is Reason => reason !== null;
 
 const ExchangeApplicationContainer = (props: Props) => {
-  return (
-    <Query<BerthSwitchReasonsQuery> query={BERTH_SWITCH_REASONS_QUERY}>
-      {({ data }) => {
-        const reasons = data?.berthSwitchReasons ? data.berthSwitchReasons.filter(isReason) : [];
+  const { data } = useQuery<BerthSwitchReasonsQuery>(BERTH_SWITCH_REASONS_QUERY);
+  const reasons = data?.berthSwitchReasons ? data.berthSwitchReasons.filter(isReason) : [];
 
-        return <ExchangeApplication reasons={reasons} {...props} />;
-      }}
-    </Query>
-  );
+  return <ExchangeApplication reasons={reasons} {...props} />;
 };
 
 export default ExchangeApplicationContainer;

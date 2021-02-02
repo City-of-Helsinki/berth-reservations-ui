@@ -2,7 +2,7 @@ import get from 'lodash/get';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import { Query } from 'react-apollo';
+import { useQuery } from 'react-apollo';
 
 import { submitApplicationForm as submitExchangeForm } from '../../../redux/actions/ApplicationActions';
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
@@ -64,6 +64,8 @@ const steps: StepType[] = [
 ];
 
 const UnconnectedSelectedBerthPage = ({ localePush, values, selectedServices, selectedBerths, ...rest }: Props) => {
+  const { data, loading } = useQuery<BoatTypesBerthsQuery>(BOAT_TYPES_BERTHS_QUERY);
+
   const moveToForm = async () => {
     await localePush('/berths/form/registered-boat');
   };
@@ -71,44 +73,34 @@ const UnconnectedSelectedBerthPage = ({ localePush, values, selectedServices, se
     await localePush('/berths');
   };
 
-  return (
-    <Query<BoatTypesBerthsQuery> query={BOAT_TYPES_BERTHS_QUERY}>
-      {({
-        loading,
-        // error, TODO: handle errors
-        data,
-      }) => {
-        const berths = getResources(data ? data.harbors : null);
-        const selected = getSelectedResources(selectedBerths, berths);
-        const boatTypes = !loading && data ? data.boatTypes : [];
-        const type = get(values, 'boatType');
-        const width = get(values, 'boatWidth', '');
-        const length = get(values, 'boatLength', '');
-        const boatType = boatTypes ? boatTypes.find((t) => !!t && t.id === type) : undefined;
-        const boatTypeName = boatType && boatType.name;
-        const filter = getBerthFilterByValues(values, selectedServices);
-        const validSelection = selected.every(filter);
+  const berths = getResources(data ? data.harbors : null);
+  const selected = getSelectedResources(selectedBerths, berths);
+  const boatTypes = !loading && data ? data.boatTypes : [];
+  const type = get(values, 'boatType');
+  const width = get(values, 'boatWidth', '');
+  const length = get(values, 'boatLength', '');
+  const boatType = boatTypes ? boatTypes.find((t) => !!t && t.id === type) : undefined;
+  const boatTypeName = boatType && boatType.name;
+  const filter = getBerthFilterByValues(values, selectedServices);
+  const validSelection = selected.every(filter);
 
-        return (
-          <SelectedBerthPage
-            boatInfo={{ width, length, boatType: boatTypeName }}
-            handlePrevious={handlePrevious}
-            moveToForm={moveToForm}
-            filter={filter}
-            validSelection={validSelection}
-            steps={steps}
-            legend={{
-              title: 'legend.selected_berths.title',
-              legend: 'legend.selected_berths.legend',
-            }}
-            selectedBerths={selected}
-            values={values}
-            berths={berths}
-            {...rest}
-          />
-        );
+  return (
+    <SelectedBerthPage
+      boatInfo={{ width, length, boatType: boatTypeName }}
+      handlePrevious={handlePrevious}
+      moveToForm={moveToForm}
+      filter={filter}
+      validSelection={validSelection}
+      steps={steps}
+      legend={{
+        title: 'legend.selected_berths.title',
+        legend: 'legend.selected_berths.legend',
       }}
-    </Query>
+      selectedBerths={selected}
+      values={values}
+      berths={berths}
+      {...rest}
+    />
   );
 };
 

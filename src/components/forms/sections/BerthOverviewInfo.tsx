@@ -10,7 +10,7 @@ import BoatMeasures from '../fragments/overview/BoatMeasures';
 import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
 import Company from '../fragments/overview/company/Company';
 import LinkedEditSection from '../fragments/overview/linkedEditSection/LinkedEditSection';
-import OldBerthInfo from '../fragments/overview/oldBerthInfo/OldBerthInfo';
+import OldBerthInfo from '../fragments/overview/oldBerthInfo/OldBerthInfoContainer';
 import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
 import Person from '../fragments/overview/person/Person';
 import { ApplicationState } from '../../../redux/types';

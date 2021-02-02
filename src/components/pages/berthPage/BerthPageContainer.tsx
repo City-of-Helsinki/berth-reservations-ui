@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import { Query } from 'react-apollo';
+import { useQuery } from 'react-apollo';
 
 import { deselectBerth, deselectService, selectBerth, selectService } from '../../../redux/actions/BerthActions';
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
@@ -90,28 +90,12 @@ const BerthPageContainer = (props: Props) => {
     },
   ];
 
-  return (
-    <Query<BoatTypesBerthsQuery> query={BOAT_TYPES_BERTHS_QUERY}>
-      {({
-        // error, TODO: handle errors
-        data,
-        loading,
-      }) => {
-        const berths = getResources(data ? data.harbors : null);
-        const boatTypes = data ? data.boatTypes : [];
+  const { data, loading } = useQuery<BoatTypesBerthsQuery>(BOAT_TYPES_BERTHS_QUERY);
+  const berths = getResources(data ? data.harbors : null);
+  const boatTypes = data ? data.boatTypes : [];
 
-        return (
-          <BerthPage
-            {...props}
-            berths={berths}
-            boatTypes={boatTypes}
-            steps={steps}
-            services={services}
-            loading={loading}
-          />
-        );
-      }}
-    </Query>
+  return (
+    <BerthPage {...props} berths={berths} boatTypes={boatTypes} steps={steps} services={services} loading={loading} />
   );
 };
 

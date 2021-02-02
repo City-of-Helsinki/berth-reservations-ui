@@ -1,23 +1,18 @@
 import { shallow } from 'enzyme';
-import { Record } from 'immutable';
 import React from 'react';
 import { Row } from 'reactstrap';
 
-import OldBerthInfo from '../OldBerthInfo';
-import { ApplicationFactory, ApplicationProps } from '../../../../../../redux/types';
-import { ApplicationOptions } from '../../../../../../types/applicationType';
+import OldBerthInfo, { OldBerthInfoProps } from '../OldBerthInfo';
 
-describe('fragments/ExchangeApplication', () => {
-  const defaultData: ApplicationProps = {
-    berthsApplicationType: ApplicationOptions.NewApplication,
-    berthSwitch: {
-      harborId: '',
-      berthNumber: '',
-    },
+describe('fragments/OldBerthInfo', () => {
+  const sharedProps: OldBerthInfoProps = {
+    harborName: 'Harbor',
+    pier: 'Pier',
+    berthNumber: 'Number',
+    reasonTitle: 'Reason',
   };
-  const defaultApplication: ApplicationFactory = Record(defaultData);
 
-  const getWrapper = (props?: object) => shallow(<OldBerthInfo application={defaultApplication()} {...props} />);
+  const getWrapper = (props?: object) => shallow(<OldBerthInfo {...sharedProps} {...props} />);
   test('render Row component as a wrapper', () => {
     const wrapper = getWrapper();
 
