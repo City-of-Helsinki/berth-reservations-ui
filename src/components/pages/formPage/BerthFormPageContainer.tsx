@@ -11,13 +11,13 @@ import BoatDetails from '../../forms/sections/BerthBoatDetails';
 import FormPage from './FormPage';
 import { ApplicationOptions } from '../../../common/types/applicationType';
 import { ApplicationState, Store } from '../../../redux/types';
-import { BOAT_TYPES_BERTHS_QUERY, CREATE_APPLICATION } from '../../../utils/graphql';
+import { BOAT_TYPES_BERTHS_QUERY, CREATE_APPLICATION } from '../../../features/queries';
 import { BerthFormValues } from '../../../features/berthApplication/types';
-import { BoatTypesBerthsQuery } from '../../../utils/__generated__/BoatTypesBerthsQuery';
+import { BoatTypesBerthsQuery } from '../../../features/__generated__/BoatTypesBerthsQuery';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../../common/steps/step/Step';
-import { SubmitBerth, SubmitBerthVariables } from '../../../utils/__generated__/SubmitBerth';
+import { SubmitBerth, SubmitBerthVariables } from '../../../features/__generated__/SubmitBerth';
 import { getResources, getSelectedResources, stringToFloat } from '../../../common/utils/applicationUtils';
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
 

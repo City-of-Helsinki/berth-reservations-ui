@@ -4,21 +4,21 @@ import { compose } from 'recompose';
 
 import PaymentPage from './PaymentPage';
 import ContractPage from './ContractPage';
-import { CONFIRM_PAYMENT, FULFILL_CONTRACT, GET_ORDER_DETAILS } from '../../../utils/graphql';
+import { CONFIRM_PAYMENT, FULFILL_CONTRACT, GET_ORDER_DETAILS } from '../../../features/queries';
 import { getOrderNumber, setOrderNumber } from '../../../common/utils/urls';
 import GeneralPaymentErrorPage from './paymentError/GeneralPaymentErrorPage';
 import AlreadyPaidPage from './paymentError/AlreadyPaidPage';
 import PastDueDatePage from './paymentError/PastDueDatePage';
 import LoadingPage from '../../../common/loadingPage/LoadingPage';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
-import { ConfirmPayment, ConfirmPaymentVariables } from '../../../utils/__generated__/ConfirmPayment';
+import { ConfirmPayment, ConfirmPaymentVariables } from '../../../features/__generated__/ConfirmPayment';
 import { OrderStatus, OrderTypeEnum } from '../../../__generated__/globalTypes';
 import {
   OrderDetails,
   OrderDetails_contractAuthMethods as ContractAuthMethods,
   OrderDetailsVariables,
-} from '../../../utils/__generated__/OrderDetails';
-import { FulfillContract, FulfillContractVariables } from '../../../utils/__generated__/FulfillContract';
+} from '../../../features/__generated__/OrderDetails';
+import { FulfillContract, FulfillContractVariables } from '../../../features/__generated__/FulfillContract';
 
 interface Props {
   localePush: LocalePush;

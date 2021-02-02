@@ -10,10 +10,10 @@ import {
   selectService,
   selectWinterArea,
 } from '../../../redux/actions/WinterAreaActions';
-import { WinterAreasQuery } from '../../../utils/__generated__/WinterAreasQuery';
+import { WinterAreasQuery } from '../../../features/__generated__/WinterAreasQuery';
 import { filterAreasWithMarkedPlaces, getResources } from '../../../common/utils/applicationUtils';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
-import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
+import { WINTER_AREAS_QUERY } from '../../../features/queries';
 import { IconNames } from '../../../common/icon/Icon';
 import WinterStoragePage from './WinterStoragePage';
 import { Store } from '../../../redux/types';

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
 import { Select, Text } from '../../Fields';
-import { BerthSwitchReasonsQuery_berthSwitchReasons } from '../../../../utils/__generated__/BerthSwitchReasonsQuery';
+import { BerthSwitchReasonsQuery_berthSwitchReasons } from '../../../../features/__generated__/BerthSwitchReasonsQuery';
 import { Berths } from '../../../berths/types';
 
 import './exchangeApplication.scss';

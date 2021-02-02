@@ -5,7 +5,7 @@ import { compose } from 'recompose';
 import { useQuery } from 'react-apollo';
 
 import { deselectWinterArea, moveWinterAreaDown, moveWinterAreaUp } from '../../../redux/actions/WinterAreaActions';
-import { WinterAreasQuery } from '../../../utils/__generated__/WinterAreasQuery';
+import { WinterAreasQuery } from '../../../features/__generated__/WinterAreasQuery';
 import {
   getResources,
   getSelectedResources,
@@ -13,7 +13,7 @@ import {
 } from '../../../common/utils/applicationUtils';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import SelectedAreaPage from './SelectedAreaPage';
-import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
+import { WINTER_AREAS_QUERY } from '../../../features/queries';
 import { Store } from '../../../redux/types';
 import { SelectedWinterServices } from '../../../common/types/services';
 import { WinterFormValues } from '../../../features/winterStorageApplication/types';

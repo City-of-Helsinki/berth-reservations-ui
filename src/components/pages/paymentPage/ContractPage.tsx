@@ -5,7 +5,7 @@ import { Button } from 'reactstrap';
 import Layout from '../../../common/layout/Layout';
 import './paymentPage.scss';
 import { Checkbox } from '../../forms/Fields';
-import { ContractAuthMethods_contractAuthMethods as ContractAuthMethods } from '../../../utils/__generated__/ContractAuthMethods';
+import { ContractAuthMethods_contractAuthMethods as ContractAuthMethods } from '../../../features/__generated__/ContractAuthMethods';
 import Form from '../../forms/Form';
 import AuthButton from './authButton/AuthButton';
 

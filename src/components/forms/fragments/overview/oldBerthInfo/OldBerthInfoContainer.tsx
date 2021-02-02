@@ -2,13 +2,13 @@ import get from 'lodash/get';
 import React from 'react';
 import { useQuery } from 'react-apollo';
 
-import { BoatTypesBerthsQuery_harbors_edges_node as Harbor } from '../../../../../utils/__generated__/BoatTypesBerthsQuery';
-import { BERTH_SWITCH_REASONS_QUERY, GET_HARBOR_NAME } from '../../../../../utils/graphql';
+import { BoatTypesBerthsQuery_harbors_edges_node as Harbor } from '../../../../../features/__generated__/BoatTypesBerthsQuery';
+import { BERTH_SWITCH_REASONS_QUERY, GET_HARBOR_NAME } from '../../../../../features/queries';
 import { ApplicationState } from '../../../../../redux/types';
 import {
   BerthSwitchReasonsQuery,
   BerthSwitchReasonsQuery_berthSwitchReasons as Reason,
-} from '../../../../../utils/__generated__/BerthSwitchReasonsQuery';
+} from '../../../../../features/__generated__/BerthSwitchReasonsQuery';
 import OldBerthInfo from './OldBerthInfo';
 
 type OldBerthInfoContainerProps = {

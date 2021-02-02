@@ -7,17 +7,17 @@ import { compose } from 'recompose';
 import { useMutation, useQuery } from 'react-apollo';
 
 import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
-import { WinterAreasQuery } from '../../../utils/__generated__/WinterAreasQuery';
+import { WinterAreasQuery } from '../../../features/__generated__/WinterAreasQuery';
 import { getResources, getSelectedResources, stringToFloat } from '../../../common/utils/applicationUtils';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
-import { CREATE_WINTER_STORAGE_APPLICATION, WINTER_AREAS_QUERY } from '../../../utils/graphql';
+import { CREATE_WINTER_STORAGE_APPLICATION, WINTER_AREAS_QUERY } from '../../../features/queries';
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import WinterBoatDetails from '../../forms/sections/WinterBoatDetails';
 import WinterOverview from '../../forms/sections/WinterOverview';
 import FormPage from './FormPage';
 import { Store } from '../../../redux/types';
 import { WinterFormValues } from '../../../features/winterStorageApplication/types';
-import { SubmitWinterStorage, SubmitWinterStorageVariables } from '../../../utils/__generated__/SubmitWinterStorage';
+import { SubmitWinterStorage, SubmitWinterStorageVariables } from '../../../features/__generated__/SubmitWinterStorage';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../../common/steps/step/Step';
 

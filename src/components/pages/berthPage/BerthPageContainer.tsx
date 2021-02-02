@@ -5,10 +5,10 @@ import { useQuery } from 'react-apollo';
 
 import { deselectBerth, deselectService, selectBerth, selectService } from '../../../redux/actions/BerthActions';
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
-import { BoatTypesBerthsQuery } from '../../../utils/__generated__/BoatTypesBerthsQuery';
+import { BoatTypesBerthsQuery } from '../../../features/__generated__/BoatTypesBerthsQuery';
 import { getResources } from '../../../common/utils/applicationUtils';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
-import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
+import { BOAT_TYPES_BERTHS_QUERY } from '../../../features/queries';
 import { IconNames } from '../../../common/icon/Icon';
 import BerthPage from './BerthPage';
 import { Store } from '../../../redux/types';
