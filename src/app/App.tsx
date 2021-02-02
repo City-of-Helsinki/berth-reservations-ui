@@ -2,23 +2,23 @@ import React, { useEffect } from 'react';
 import { Route, RouteComponentProps, Switch } from 'react-router';
 
 import i18n from '../locales/i18n';
-import BerthPage from '../components/pages/berthPage/BerthPageContainer';
-import BerthFormPage from '../components/pages/formPage/BerthFormPageContainer';
-import WinterFormPage from '../components/pages/formPage/WinterFormPageContainer';
-import UnmarkedWinterFormPage from '../components/pages/formPage/UnmarkedWinterFormPageContainer';
-import FrontPage from '../components/pages/frontPage/FrontPage';
-import ApplicationThankYouPage from '../components/pages/notice/ApplicationSentPage';
-import NotFoundPage from '../components/pages/notice/NotFoundPage';
-import NoticeSentPage from '../components/pages/notice/NoticeSentPage';
-import SelectedAreaPage from '../components/pages/selectedAreaPage/SelectedAreaPageContainer';
-import SelectedBerthPage from '../components/pages/selectedBerthPage/SelectedBerthPageContainer';
-import WinterStoragePage from '../components/pages/winterStoragePage/WinterStoragePageContainer';
-import UnmarkedWinterStoragePage from '../components/pages/unmarkedWinterStoragePage/UnmarkedWinterStoragePageContainer';
+import BerthPage from '../features/berthPage/BerthPageContainer';
+import BerthFormPage from '../features/formPage/BerthFormPageContainer';
+import WinterFormPage from '../features/formPage/WinterFormPageContainer';
+import UnmarkedWinterFormPage from '../features/formPage/UnmarkedWinterFormPageContainer';
+import FrontPage from '../features/frontPage/FrontPage';
+import ApplicationThankYouPage from '../features/notice/ApplicationSentPage';
+import NotFoundPage from '../features/notice/NotFoundPage';
+import NoticeSentPage from '../features/notice/NoticeSentPage';
+import SelectedAreaPage from '../features/selectedAreaPage/SelectedAreaPageContainer';
+import SelectedBerthPage from '../features/selectedBerthPage/SelectedBerthPageContainer';
+import WinterStoragePage from '../features/winterStoragePage/WinterStoragePageContainer';
+import UnmarkedWinterStoragePage from '../features/unmarkedWinterStoragePage/UnmarkedWinterStoragePageContainer';
 import { ApplicationType } from '../common/types/applicationType';
 import { LocaleOpts } from '../common/types/intl';
-import PaymentPageContainer from '../components/pages/paymentPage/PaymentPageContainer';
-import { PaymentResultContainer } from '../components/pages/paymentResultPage/PaymentResultContainer';
-import CancelOrderPageContainer from '../components/pages/cancelOrderPage/CancelOrderPageContainer';
+import PaymentPageContainer from '../features/paymentPage/PaymentPageContainer';
+import { PaymentResultContainer } from '../features/paymentResultPage/PaymentResultContainer';
+import CancelOrderPageContainer from '../features/cancelOrderPage/CancelOrderPageContainer';
 
 type Props = RouteComponentProps<{ locale: LocaleOpts }>;
 
