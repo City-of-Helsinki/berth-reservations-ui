@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router-dom';
 import { Container, Row } from 'reactstrap';
 
-import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
+import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import Card from '../../../common/card/Card';
 import Hero from '../../../common/hero/Hero';
 import KoroSection from '../../../common/layout/koroSection/KoroSection';

@@ -4,7 +4,7 @@ import { RouteComponentProps, withRouter } from 'react-router';
 import { compose } from 'recompose';
 
 import { Store } from '../../redux/types';
-import { ApplicationOptions, ApplicationType } from '../../types/applicationType';
+import { ApplicationOptions, ApplicationType } from '../types/applicationType';
 
 type Props = {
   appType: string;

@@ -6,13 +6,17 @@ import { useQuery } from 'react-apollo';
 
 import { deselectWinterArea, moveWinterAreaDown, moveWinterAreaUp } from '../../../redux/actions/WinterAreaActions';
 import { WinterAreasQuery } from '../../../utils/__generated__/WinterAreasQuery';
-import { getResources, getSelectedResources, getWinterStorageFilterByValues } from '../../../utils/berths';
-import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
+import {
+  getResources,
+  getSelectedResources,
+  getWinterStorageFilterByValues,
+} from '../../../common/utils/applicationUtils';
+import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import SelectedAreaPage from './SelectedAreaPage';
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import { Store } from '../../../redux/types';
-import { SelectedWinterServices } from '../../../types/services';
-import { WinterFormValues } from '../../../types/winterStorage';
+import { SelectedWinterServices } from '../../../common/types/services';
+import { WinterFormValues } from '../../../features/winterStorageApplication/types';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../../common/steps/step/Step';
 

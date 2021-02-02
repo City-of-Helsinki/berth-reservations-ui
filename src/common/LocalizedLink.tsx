@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink, NavLinkProps } from 'react-router-dom';
 
-import { stripLeadingSlash } from '../utils/common';
+import { stripLeadingSlash } from './utils/urls';
 
 type Props = NavLinkProps;
 

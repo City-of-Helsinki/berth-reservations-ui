@@ -3,7 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, Button, Col, Row } from 'reactstrap';
 
-import { genValidSelector } from '../../utils/common';
+import { genValidSelector } from '../utils/urls';
 import AvailabilityLevel from '../../components/berths/availabilityLevel/AvailabilityLevel';
 import Icon from '../icon/Icon';
 import Image from '../image/Image';

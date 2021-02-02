@@ -7,7 +7,7 @@ import WinterNoBoat from '../tabs/WinterNoBoat';
 import WinterRegisteredBoat from '../tabs/WinterRegisteredBoat';
 import WinterUnregisteredBoat from '../tabs/WinterUnregisteredBoat';
 import { WinterStorageMethod } from '../../../__generated__/globalTypes';
-import { WinterFormValues } from '../../../types/winterStorage';
+import { WinterFormValues } from '../../../features/winterStorageApplication/types';
 import { WithBoatType } from '../Selects';
 import SectionSelector, { TypeProps } from './sectionSelector/SectionSelector';
 

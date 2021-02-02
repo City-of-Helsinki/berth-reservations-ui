@@ -14,8 +14,8 @@ import SelectedAreaPage from '../components/pages/selectedAreaPage/SelectedAreaP
 import SelectedBerthPage from '../components/pages/selectedBerthPage/SelectedBerthPageContainer';
 import WinterStoragePage from '../components/pages/winterStoragePage/WinterStoragePageContainer';
 import UnmarkedWinterStoragePage from '../components/pages/unmarkedWinterStoragePage/UnmarkedWinterStoragePageContainer';
-import { ApplicationType } from '../types/applicationType';
-import { LocaleOpts } from '../types/intl';
+import { ApplicationType } from '../common/types/applicationType';
+import { LocaleOpts } from '../common/types/intl';
 import PaymentPageContainer from '../components/pages/paymentPage/PaymentPageContainer';
 import { PaymentResultContainer } from '../components/pages/paymentResultPage/PaymentResultContainer';
 import CancelOrderPageContainer from '../components/pages/cancelOrderPage/CancelOrderPageContainer';

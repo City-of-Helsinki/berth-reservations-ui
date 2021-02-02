@@ -14,8 +14,8 @@ import OldBerthInfo from '../fragments/overview/oldBerthInfo/OldBerthInfoContain
 import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
 import Person from '../fragments/overview/person/Person';
 import { ApplicationState } from '../../../redux/types';
-import { ApplicationOptions } from '../../../types/applicationType';
-import { BerthFormValues } from '../../../types/berth';
+import { ApplicationOptions } from '../../../common/types/applicationType';
+import { BerthFormValues } from '../../../features/berthApplication/types';
 import { Berths } from '../../berths/types';
 import { StepType } from '../../../common/steps/step/Step';
 import { BigBoatTypeValue, WithBoatType } from '../Selects';

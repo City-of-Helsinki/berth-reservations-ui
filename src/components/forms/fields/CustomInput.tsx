@@ -3,7 +3,7 @@ import { Field, FieldRenderProps } from 'react-final-form';
 import { WithTranslation } from 'react-i18next';
 import { FormFeedback, FormGroup, FormText } from 'reactstrap';
 
-import validator, { mustBePresent } from '../../../utils/formValidation';
+import validator, { mustBePresent } from '../../../common/utils/formValidation';
 import Input from '../../../common/input/Input';
 import Label from './Label';
 

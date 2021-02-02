@@ -4,8 +4,8 @@ import { Trans, useTranslation } from 'react-i18next';
 import { Button, Col, Row } from 'reactstrap';
 
 import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg';
-import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../types/unmarkedWinterStorage';
-import { LocalePush } from '../../../utils/container';
+import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../features/unmarkedWinterStorageApplication/types';
+import { LocalePush } from '../../../common/utils/container';
 import Hero from '../../../common/hero/Hero';
 import { Select } from '../../forms/Fields';
 import KoroSection from '../../../common/layout/koroSection/KoroSection';

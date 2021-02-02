@@ -6,10 +6,10 @@ import validator, {
   mustBeLessThan,
   mustBePositiveNumber,
   mustNotExceedTwoDecimals,
-} from '../../../../utils/formValidation';
+} from '../../../../common/utils/formValidation';
 import { Checkbox, Number } from '../../Fields';
 import { BoatType } from '../../Selects';
-import { BoatTypes } from '../../../../types/boatTypes';
+import { BoatTypes } from '../../../../common/types/boatTypes';
 import './unregisteredBoatDetails.scss';
 
 interface Props {

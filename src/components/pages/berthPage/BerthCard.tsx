@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { BerthType } from '../../../types/berth';
-import { convertCmToM } from '../../../utils/berths';
+import { BerthType } from '../../../features/berthApplication/types';
+import { convertCmToM } from '../../../common/utils/applicationUtils';
 import AreaCard, { AreaCardProps } from '../../../common/areaCard/AreaCard';
 import Property from '../../../common/areaCard/property/Property';
 

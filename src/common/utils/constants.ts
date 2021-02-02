@@ -320,3 +320,5 @@ export const MUNICIPALITIES = [
   { id: 'ähtäri', translations: { sv: 'Etseri', fi: 'Ähtäri' } },
   { id: 'äänekoski', translations: { sv: 'Äänekoski', fi: 'Äänekoski' } },
 ];
+
+export const EXCHANGE_APPLICATION_LIMIT = 5;

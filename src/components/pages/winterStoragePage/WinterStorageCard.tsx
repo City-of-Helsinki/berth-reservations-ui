@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { WinterStorageType } from '../../../types/winterStorage';
-import { convertCmToM } from '../../../utils/berths';
+import { WinterStorageType } from '../../../features/winterStorageApplication/types';
+import { convertCmToM } from '../../../common/utils/applicationUtils';
 import AreaCard, { AreaCardProps } from '../../../common/areaCard/AreaCard';
 import Property from '../../../common/areaCard/property/Property';
 

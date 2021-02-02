@@ -7,7 +7,7 @@ import validator, {
   mustBeLessThan,
   mustBePositiveNumber,
   mustNotExceedTwoDecimals,
-} from '../../../utils/formValidation';
+} from '../../../common/utils/formValidation';
 
 interface Props {
   showDraught?: boolean;

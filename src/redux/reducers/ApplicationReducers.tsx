@@ -1,6 +1,6 @@
 import { Record } from 'immutable';
 
-import { ApplicationOptions } from '../../types/applicationType';
+import { ApplicationOptions } from '../../common/types/applicationType';
 import { Action, ApplicationFactory, ApplicationProps, ApplicationState } from '../types';
 
 const initState: ApplicationProps = {

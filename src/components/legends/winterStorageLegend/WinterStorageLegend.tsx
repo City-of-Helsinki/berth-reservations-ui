@@ -7,7 +7,7 @@ import Icon, { IconNames } from '../../../common/icon/Icon';
 import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
 import Steps from '../../../common/steps/Steps';
-import { SelectedWinterServices, WinterServices } from '../../../types/services';
+import { SelectedWinterServices, WinterServices } from '../../../common/types/services';
 import { StepType } from '../../../common/steps/step/Step';
 
 import './winterStorageLegend.scss';

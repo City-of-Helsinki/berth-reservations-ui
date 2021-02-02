@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { EXCHANGE_APPLICATION_LIMIT } from '../../../../constants/BerthConstants';
+import { EXCHANGE_APPLICATION_LIMIT } from '../../../../common/utils/constants';
 import { switchApplication as switchApplicationAction } from '../../../../redux/actions/ApplicationActions';
 import {
   resetBerthLimit as resetBerthLimitAction,
   setBerthLimit as setBirthLimitAction,
 } from '../../../../redux/actions/BerthActions';
 import { Store } from '../../../../redux/types';
-import { ApplicationOptions } from '../../../../types/applicationType';
+import { ApplicationOptions } from '../../../../common/types/applicationType';
 import './applicationSelector.scss';
 import ApplicationSelector from './ApplicationSelector';
 import useAutoDismissAlert from './useAutoDismissAlert';

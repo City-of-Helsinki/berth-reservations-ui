@@ -11,14 +11,14 @@ import {
   selectWinterArea,
 } from '../../../redux/actions/WinterAreaActions';
 import { WinterAreasQuery } from '../../../utils/__generated__/WinterAreasQuery';
-import { filterAreasWithMarkedPlaces, getResources } from '../../../utils/berths';
-import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
+import { filterAreasWithMarkedPlaces, getResources } from '../../../common/utils/applicationUtils';
+import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import { WINTER_AREAS_QUERY } from '../../../utils/graphql';
 import { IconNames } from '../../../common/icon/Icon';
 import WinterStoragePage from './WinterStoragePage';
 import { Store } from '../../../redux/types';
-import { SelectedWinterServices } from '../../../types/services';
-import { WinterFormValues } from '../../../types/winterStorage';
+import { SelectedWinterServices } from '../../../common/types/services';
+import { WinterFormValues } from '../../../features/winterStorageApplication/types';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../../common/steps/step/Step';
 

@@ -1,9 +1,9 @@
-import { WinterStorageApplicationInput } from '../__generated__/globalTypes';
+import { WinterStorageApplicationInput } from '../../__generated__/globalTypes';
 import {
   WinterAreasQuery_winterStorageAreas_edges_node,
   WinterAreasQuery_winterStorageAreas_edges_node_geometry,
   WinterAreasQuery_winterStorageAreas_edges_node_properties,
-} from '../utils/__generated__/WinterAreasQuery';
+} from '../../utils/__generated__/WinterAreasQuery';
 
 export type WinterStorageType = Pick<
   WinterAreasQuery_winterStorageAreas_edges_node_properties,

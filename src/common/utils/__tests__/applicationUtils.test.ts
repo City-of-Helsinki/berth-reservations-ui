@@ -1,8 +1,8 @@
 import { List, Record } from 'immutable';
 
-import { berth, createBerth } from '../../__fixtures__/berthFixture';
-import { createBerthValues, createWinterValues } from '../../__fixtures__/formValuesFixture';
-import { createWinterArea, winterArea } from '../../__fixtures__/winterStorageFixture';
+import { berth, createBerth } from '../../../__fixtures__/berthFixture';
+import { createBerthValues, createWinterValues } from '../../../__fixtures__/formValuesFixture';
+import { createWinterArea, winterArea } from '../../../__fixtures__/winterStorageFixture';
 import {
   convertCmToM,
   getBerthFilterByValues,
@@ -10,10 +10,10 @@ import {
   getWinterStorageFilterByValues,
   isResourceSelected,
   stringToFloat,
-} from '../berths';
+} from '../applicationUtils';
 import { SelectedServicesProps, SelectedWinterServicesProps } from '../../types/services';
 
-describe('utils/berths', () => {
+describe('utils/applicationUtils', () => {
   describe('convertCmToM', () => {
     test('should convert centimeters to meters', () => {
       expect(convertCmToM(100)).toBe(1);

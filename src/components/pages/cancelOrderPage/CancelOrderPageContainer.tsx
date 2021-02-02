@@ -4,8 +4,8 @@ import { compose } from 'recompose';
 
 import CancelOrderPage from './CancelOrderPage';
 import { CANCEL_ORDER } from '../../../utils/graphql';
-import { getOrderNumber } from '../../../utils/urls';
-import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
+import { getOrderNumber } from '../../../common/utils/urls';
+import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import { CancelOrder, CancelOrderVariables } from '../../../utils/__generated__/CancelOrder';
 import LoadingPage from '../../../common/loadingPage/LoadingPage';
 

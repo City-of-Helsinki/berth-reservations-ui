@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions';
 
-import { WinterStorageType } from '../../types/winterStorage';
+import { WinterStorageType } from '../../features/winterStorageApplication/types';
 
 const filterByStorageArea = createAction('FILTER_BY_STORAGE_AREA');
 const selectWinterArea = createAction('SELECT_WINTER_AREA', (area: WinterStorageType) => area);

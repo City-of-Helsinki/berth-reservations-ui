@@ -6,12 +6,12 @@ import { compose } from 'recompose';
 import { useQuery, useMutation } from 'react-apollo';
 
 import { onSubmitUnmarkedWinterForm } from '../../../redux/actions/FormActions';
-import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../types/unmarkedWinterStorage';
+import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../features/unmarkedWinterStorageApplication/types';
 import { UnmarkedWinterAreasQuery } from '../../../utils/__generated__/UnmarkedWinterAreasQuery';
-import { stringToFloat } from '../../../utils/berths';
-import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
+import { stringToFloat } from '../../../common/utils/applicationUtils';
+import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import { CREATE_WINTER_STORAGE_APPLICATION, UNMARKED_WINTER_AREAS_QUERY } from '../../../utils/graphql';
-import { getWinterStorageAreas } from '../../../utils/unmarkedWinterStorage';
+import { getWinterStorageAreas } from '../../../features/unmarkedWinterStorageApplication/utils';
 import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import WinterBoatDetails from '../../forms/sections/WinterBoatDetails';
 import UnmarkedWinterOverview from '../../forms/sections/UnmarkedWinterOverview';

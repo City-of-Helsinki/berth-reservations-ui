@@ -1,4 +1,4 @@
-import { WinterStorageApplicationInput } from '../__generated__/globalTypes';
+import { WinterStorageApplicationInput } from '../../__generated__/globalTypes';
 
 export type WinterStorageArea = {
   id: string;

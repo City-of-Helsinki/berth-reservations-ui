@@ -6,11 +6,11 @@ import { useQuery } from 'react-apollo';
 
 import { onSubmitUnmarkedWinterForm } from '../../../redux/actions/FormActions';
 import { Store } from '../../../redux/types';
-import { UnmarkedWinterFormValues } from '../../../types/unmarkedWinterStorage';
+import { UnmarkedWinterFormValues } from '../../../features/unmarkedWinterStorageApplication/types';
 import { UnmarkedWinterAreasQuery } from '../../../utils/__generated__/UnmarkedWinterAreasQuery';
-import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
+import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import { UNMARKED_WINTER_AREAS_QUERY } from '../../../utils/graphql';
-import { getWinterStorageAreas } from '../../../utils/unmarkedWinterStorage';
+import { getWinterStorageAreas } from '../../../features/unmarkedWinterStorageApplication/utils';
 import { StepType } from '../../../common/steps/step/Step';
 import UnmarkedWinterStoragePage from './UnmarkedWinterStoragePage';
 

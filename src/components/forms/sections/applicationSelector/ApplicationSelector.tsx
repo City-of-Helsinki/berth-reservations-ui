@@ -5,7 +5,7 @@ import { Col, Container, Row } from 'reactstrap';
 
 import Alert from '../../../../common/alert/Alert';
 import Input from '../../../../common/input/Input';
-import { ApplicationOptions } from '../../../../types/applicationType';
+import { ApplicationOptions } from '../../../../common/types/applicationType';
 
 export interface ApplicationSelectorProps {
   alertVisible: boolean;

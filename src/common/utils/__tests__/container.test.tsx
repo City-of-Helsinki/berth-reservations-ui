@@ -4,7 +4,7 @@ import { MemoryRouter, Route, RouteComponentProps } from 'react-router-dom';
 
 import { withMatchParamsHandlers } from '../container';
 
-describe('containers', () => {
+describe('utils/container', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });

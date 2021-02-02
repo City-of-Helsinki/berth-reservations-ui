@@ -10,7 +10,7 @@ import LinkedEditSection from '../fragments/overview/linkedEditSection/LinkedEdi
 import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
 import OverviewStorageMethod from '../fragments/overview/OverviewStorageMethod';
 import Person from '../fragments/overview/person/Person';
-import { WinterFormValues } from '../../../types/winterStorage';
+import { WinterFormValues } from '../../../features/winterStorageApplication/types';
 import { WinterAreas } from '../../berths/types';
 import { StepType } from '../../../common/steps/step/Step';
 import { WithBoatType } from '../Selects';

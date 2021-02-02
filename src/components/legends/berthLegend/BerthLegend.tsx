@@ -8,7 +8,7 @@ import AutoSave from '../../forms/AutoSave';
 import Form from '../../forms/Form';
 import ApplicationSelector from '../../forms/sections/applicationSelector/ApplicationSelectorContainer';
 import Steps from '../../../common/steps/Steps';
-import { BerthsServices, SelectedServices } from '../../../types/services';
+import { BerthsServices, SelectedServices } from '../../../common/types/services';
 import { StepType } from '../../../common/steps/step/Step';
 
 import './berthLegend.scss';

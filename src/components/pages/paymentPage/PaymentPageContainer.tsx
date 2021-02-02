@@ -5,12 +5,12 @@ import { compose } from 'recompose';
 import PaymentPage from './PaymentPage';
 import ContractPage from './ContractPage';
 import { CONFIRM_PAYMENT, FULFILL_CONTRACT, GET_ORDER_DETAILS } from '../../../utils/graphql';
-import { getOrderNumber, setOrderNumber } from '../../../utils/urls';
+import { getOrderNumber, setOrderNumber } from '../../../common/utils/urls';
 import GeneralPaymentErrorPage from './paymentError/GeneralPaymentErrorPage';
 import AlreadyPaidPage from './paymentError/AlreadyPaidPage';
 import PastDueDatePage from './paymentError/PastDueDatePage';
 import LoadingPage from '../../../common/loadingPage/LoadingPage';
-import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
+import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import { ConfirmPayment, ConfirmPaymentVariables } from '../../../utils/__generated__/ConfirmPayment';
 import { OrderStatus, OrderTypeEnum } from '../../../__generated__/globalTypes';
 import {

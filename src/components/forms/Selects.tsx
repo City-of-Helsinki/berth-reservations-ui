@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Select } from './Fields';
-import { BoatTypes } from '../../types/boatTypes';
+import { BoatTypes } from '../../common/types/boatTypes';
 
 export interface WithBoatType {
   boatTypes: BoatTypes;

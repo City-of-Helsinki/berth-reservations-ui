@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
-import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../types/unmarkedWinterStorage';
+import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../features/unmarkedWinterStorageApplication/types';
 import { StepType } from '../../../common/steps/step/Step';
 import BoatInfo from '../fragments/overview/BoatInfo';
 import BoatMeasures from '../fragments/overview/BoatMeasures';

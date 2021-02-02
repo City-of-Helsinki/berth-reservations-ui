@@ -1,8 +1,8 @@
 import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 
-import { EXCHANGE_APPLICATION_LIMIT } from '../../../../../constants/BerthConstants';
-import { ApplicationOptions } from '../../../../../types/applicationType';
+import { EXCHANGE_APPLICATION_LIMIT } from '../../../../../common/utils/constants';
+import { ApplicationOptions } from '../../../../../common/types/applicationType';
 import {
   _ApplicationSelectorContainer as ApplicationSelectorContainer,
   ApplicationSelectorContainerProps,

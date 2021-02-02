@@ -9,8 +9,8 @@ import ExchangeApplication from '../../forms/fragments/exchangeApplication/Excha
 import NewApplication from '../../forms/fragments/newApplication/NewApplication';
 import Layout from '../../../common/layout/Layout';
 import SelectionPageLegend from '../../legends/selectionPageLegend/SelectionPageLegend';
-import { ApplicationOptions } from '../../../types/applicationType';
-import { BerthFormValues, BerthType } from '../../../types/berth';
+import { ApplicationOptions } from '../../../common/types/applicationType';
+import { BerthFormValues, BerthType } from '../../../features/berthApplication/types';
 import { Berths } from '../../berths/types';
 import SelectedResourceContainer from '../../../common/areaCard/selectedResource/SelectedResourceContainer';
 import { StepType } from '../../../common/steps/step/Step';

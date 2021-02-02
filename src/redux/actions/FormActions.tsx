@@ -1,8 +1,8 @@
 import { createAction } from 'redux-actions';
 
-import { BerthFormValues } from '../../types/berth';
-import { UnmarkedWinterFormValues } from '../../types/unmarkedWinterStorage';
-import { WinterFormValues } from '../../types/winterStorage';
+import { BerthFormValues } from '../../features/berthApplication/types';
+import { UnmarkedWinterFormValues } from '../../features/unmarkedWinterStorageApplication/types';
+import { WinterFormValues } from '../../features/winterStorageApplication/types';
 
 const onSubmitBerthForm = createAction('SUBMIT_BERTH_FORM', (formData: BerthFormValues) => formData);
 const onSubmitWinterForm = createAction('SUBMIT_WINTER_FORM', (formData: WinterFormValues) => formData);

@@ -4,7 +4,7 @@ import React from 'react';
 import SelectedBerthPage, { Props } from '../SelectedBerthPage';
 import { berths } from '../../../../__fixtures__/berthFixture';
 import { berthValues } from '../../../../__fixtures__/formValuesFixture';
-import { ApplicationOptions } from '../../../../types/applicationType';
+import { ApplicationOptions } from '../../../../common/types/applicationType';
 
 describe('pages/BerthPage/SelectedBerthPage', () => {
   const defaultProps: Props = {

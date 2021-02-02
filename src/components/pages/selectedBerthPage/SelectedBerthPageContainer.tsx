@@ -7,13 +7,13 @@ import { useQuery } from 'react-apollo';
 import { submitApplicationForm as submitExchangeForm } from '../../../redux/actions/ApplicationActions';
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
 import { BoatTypesBerthsQuery } from '../../../utils/__generated__/BoatTypesBerthsQuery';
-import { getBerthFilterByValues, getResources, getSelectedResources } from '../../../utils/berths';
-import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
+import { getBerthFilterByValues, getResources, getSelectedResources } from '../../../common/utils/applicationUtils';
+import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import SelectedBerthPage from './SelectedBerthPage';
 import { Store } from '../../../redux/types';
-import { SelectedServices } from '../../../types/services';
+import { SelectedServices } from '../../../common/types/services';
 import { SelectedIds } from '../../berths/types';
-import { BerthFormValues } from '../../../types/berth';
+import { BerthFormValues } from '../../../features/berthApplication/types';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../utils/graphql';
 import { StepType } from '../../../common/steps/step/Step';
 

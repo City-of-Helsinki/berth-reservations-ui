@@ -7,7 +7,7 @@ import ApplicationCode from '../fragments/applicationCode/ApplicationCode';
 import Newsletter from '../fragments/Newsletter';
 import BerthOverviewInfo from './BerthOverviewInfo';
 import { ApplicationState } from '../../../redux/types';
-import { BerthFormValues } from '../../../types/berth';
+import { BerthFormValues } from '../../../features/berthApplication/types';
 import { Berths } from '../../berths/types';
 import { StepType } from '../../../common/steps/step/Step';
 import { WithBoatType } from '../Selects';

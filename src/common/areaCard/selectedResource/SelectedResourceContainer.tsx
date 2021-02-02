@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Transition from 'react-transition-group/Transition';
 
-import { genValidSelector } from '../../../utils/common';
+import { genValidSelector } from '../../utils/urls';
 import { IconNames } from '../../icon/Icon';
 import Modal from '../../modal/Modal';
 import SelectedResource from './SelectedResource';

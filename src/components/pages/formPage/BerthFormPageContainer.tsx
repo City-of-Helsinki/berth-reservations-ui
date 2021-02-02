@@ -9,16 +9,16 @@ import ApplicantDetails from '../../forms/sections/ApplicantDetails';
 import BerthOverview from '../../forms/sections/BerthOverview';
 import BoatDetails from '../../forms/sections/BerthBoatDetails';
 import FormPage from './FormPage';
-import { ApplicationOptions } from '../../../types/applicationType';
+import { ApplicationOptions } from '../../../common/types/applicationType';
 import { ApplicationState, Store } from '../../../redux/types';
 import { BOAT_TYPES_BERTHS_QUERY, CREATE_APPLICATION } from '../../../utils/graphql';
-import { BerthFormValues } from '../../../types/berth';
+import { BerthFormValues } from '../../../features/berthApplication/types';
 import { BoatTypesBerthsQuery } from '../../../utils/__generated__/BoatTypesBerthsQuery';
-import { LocalePush, withMatchParamsHandlers } from '../../../utils/container';
+import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import { SelectedIds } from '../../berths/types';
 import { StepType } from '../../../common/steps/step/Step';
 import { SubmitBerth, SubmitBerthVariables } from '../../../utils/__generated__/SubmitBerth';
-import { getResources, getSelectedResources, stringToFloat } from '../../../utils/berths';
+import { getResources, getSelectedResources, stringToFloat } from '../../../common/utils/applicationUtils';
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
 
 type Props = {
