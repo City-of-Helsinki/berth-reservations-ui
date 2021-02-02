@@ -12,7 +12,7 @@ import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/conta
 import SelectedBerthPage from './SelectedBerthPage';
 import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../common/types/services';
-import { SelectedIds } from '../../berths/types';
+import { SelectedIds } from '../../../common/types/resource';
 import { BerthFormValues } from '../../../features/berthApplication/types';
 import { BOAT_TYPES_BERTHS_QUERY } from '../../../features/queries';
 import { StepType } from '../../../common/steps/step/Step';

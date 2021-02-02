@@ -1,7 +1,7 @@
 import { List } from 'immutable';
 import get from 'lodash/get';
 
-import { SelectedIds } from '../../components/berths/types';
+import { SelectedIds } from '../types/resource';
 import { BerthFormValues, BerthType } from '../../features/berthApplication/types';
 import {
   SelectedServices,

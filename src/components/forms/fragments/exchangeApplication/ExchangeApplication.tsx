@@ -2,9 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
+import { Berths } from '../../../../features/berthApplication/types';
 import { Select, Text } from '../../Fields';
 import { BerthSwitchReasonsQuery_berthSwitchReasons } from '../../../../features/__generated__/BerthSwitchReasonsQuery';
-import { Berths } from '../../../berths/types';
 
 import './exchangeApplication.scss';
 

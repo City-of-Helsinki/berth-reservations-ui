@@ -1,3 +1,5 @@
+import { List } from 'immutable';
+
 import { WinterStorageApplicationInput } from '../../__generated__/globalTypes';
 import {
   WinterAreasQuery_winterStorageAreas_edges_node,
@@ -31,3 +33,5 @@ export type WinterFormValues = Pick<
 > &
   ValuesToOverride &
   AdditionalValues;
+
+export type WinterAreas = List<WinterStorageType>;

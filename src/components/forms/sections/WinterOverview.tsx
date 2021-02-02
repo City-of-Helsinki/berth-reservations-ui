@@ -7,8 +7,7 @@ import ApplicationCode from '../fragments/applicationCode/ApplicationCode';
 import Newsletter from '../fragments/Newsletter';
 import WinterOverviewInfo from './WinterOverviewInfo';
 import { ApplicationState } from '../../../redux/types';
-import { WinterFormValues } from '../../../features/winterStorageApplication/types';
-import { WinterAreas } from '../../berths/types';
+import { WinterAreas, WinterFormValues } from '../../../features/winterStorageApplication/types';
 import { StepType } from '../../../common/steps/step/Step';
 import { WithBoatType } from '../Selects';
 

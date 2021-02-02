@@ -17,7 +17,7 @@ import { WINTER_AREAS_QUERY } from '../../../features/queries';
 import { Store } from '../../../redux/types';
 import { SelectedWinterServices } from '../../../common/types/services';
 import { WinterFormValues } from '../../../features/winterStorageApplication/types';
-import { SelectedIds } from '../../berths/types';
+import { SelectedIds } from '../../../common/types/resource';
 import { StepType } from '../../../common/steps/step/Step';
 
 interface Props {

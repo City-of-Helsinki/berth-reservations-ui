@@ -1,3 +1,5 @@
+import { List } from 'immutable';
+
 import { BerthApplicationInput } from '../../__generated__/globalTypes';
 import {
   BoatTypesBerthsQuery_harbors_edges_node,
@@ -28,3 +30,5 @@ export type BerthFormValues = Pick<
   Exclude<keyof BerthApplicationInput, keyof ValuesToOverride>
 > &
   ValuesToOverride;
+
+export type Berths = List<BerthType>;

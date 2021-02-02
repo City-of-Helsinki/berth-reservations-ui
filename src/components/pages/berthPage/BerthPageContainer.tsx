@@ -12,9 +12,9 @@ import { BOAT_TYPES_BERTHS_QUERY } from '../../../features/queries';
 import { IconNames } from '../../../common/icon/Icon';
 import BerthPage from './BerthPage';
 import { Store } from '../../../redux/types';
-import { BerthFormValues } from '../../../features/berthApplication/types';
+import { BerthFormValues, Berths as BerthsType } from '../../../features/berthApplication/types';
 import { SelectedServices } from '../../../common/types/services';
-import { Berths as BerthsType, SelectedIds } from '../../berths/types';
+import { SelectedIds } from '../../../common/types/resource';
 import { StepType } from '../../../common/steps/step/Step';
 
 interface Props {

@@ -1,7 +1,6 @@
 import { List } from 'immutable';
 
-import { Berths } from '../components/berths/types';
-import { BerthType } from '../features/berthApplication/types';
+import { Berths, BerthType } from '../features/berthApplication/types';
 
 export const createBerth = (options?: Partial<BerthType>): BerthType => {
   const newBerth: BerthType = {

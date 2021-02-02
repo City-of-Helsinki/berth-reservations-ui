@@ -8,8 +8,7 @@ import Icon, { IconNames } from '../../../common/icon/Icon';
 import LocalizedLink from '../../../common/LocalizedLink';
 import Layout from '../../../common/layout/Layout';
 import SelectionPageLegend from '../../legends/selectionPageLegend/SelectionPageLegend';
-import { WinterFormValues, WinterStorageType } from '../../../features/winterStorageApplication/types';
-import { WinterAreas } from '../../berths/types';
+import { WinterAreas, WinterFormValues, WinterStorageType } from '../../../features/winterStorageApplication/types';
 import { StepType } from '../../../common/steps/step/Step';
 import './selectedAreaPage.scss';
 

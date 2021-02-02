@@ -2,7 +2,7 @@ import React, { useLayoutEffect } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import { getBerthFilterByValues, isResourceSelected } from '../../../common/utils/applicationUtils';
-import TabSelector from '../../berths/tabSelector/TabSelector';
+import TabSelector from '../../../common/tabSelector/TabSelector';
 import CardsList from '../../../common/cardsList/CardsList';
 import Hero from '../../../common/hero/Hero';
 import { IconNames } from '../../../common/icon/Icon';
@@ -11,11 +11,11 @@ import UnregisteredBoatDetails from '../../forms/fragments/unregisteredBoatDetai
 import KoroSection from '../../../common/layout/koroSection/KoroSection';
 import Layout from '../../../common/layout/Layout';
 import BerthLegend from '../../legends/berthLegend/BerthLegend';
-import { BerthFormValues, BerthType } from '../../../features/berthApplication/types';
+import { BerthFormValues, Berths as BerthsType, BerthType } from '../../../features/berthApplication/types';
 import { BoatTypes } from '../../../common/types/boatTypes';
 import { BerthsServices, SelectedServices } from '../../../common/types/services';
 import { LocalePush } from '../../../common/utils/container';
-import { Berths as BerthsType, SelectedIds } from '../../berths/types';
+import { SelectedIds } from '../../../common/types/resource';
 import { StepType } from '../../../common/steps/step/Step';
 import berthsHeroImg from '../../../assets/images/hero_image_berth.jpg';
 import BerthCard from './BerthCard';

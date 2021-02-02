@@ -1,7 +1,7 @@
 import { Record, RecordOf } from 'immutable';
 
 import { BerthSwitchInput } from '../__generated__/globalTypes';
-import { SelectedIds } from '../components/berths/types';
+import { SelectedIds } from '../common/types/resource';
 import { ApplicationOptions } from '../common/types/applicationType';
 import { BerthFormValues } from '../features/berthApplication/types';
 import { SelectedServices, SelectedWinterServices } from '../common/types/services';

@@ -18,7 +18,7 @@ import FormPage from './FormPage';
 import { Store } from '../../../redux/types';
 import { WinterFormValues } from '../../../features/winterStorageApplication/types';
 import { SubmitWinterStorage, SubmitWinterStorageVariables } from '../../../features/__generated__/SubmitWinterStorage';
-import { SelectedIds } from '../../berths/types';
+import { SelectedIds } from '../../../common/types/resource';
 import { StepType } from '../../../common/steps/step/Step';
 
 type Props = {

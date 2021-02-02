@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Icon from '../../../common/icon/Icon';
-import Popover from '../../../common/popover/Popover';
+import Icon from '../icon/Icon';
+import Popover from '../popover/Popover';
 
 import './invalidSelection.scss';
 

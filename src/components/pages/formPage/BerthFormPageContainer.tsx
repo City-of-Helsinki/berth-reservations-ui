@@ -15,7 +15,7 @@ import { BOAT_TYPES_BERTHS_QUERY, CREATE_APPLICATION } from '../../../features/q
 import { BerthFormValues } from '../../../features/berthApplication/types';
 import { BoatTypesBerthsQuery } from '../../../features/__generated__/BoatTypesBerthsQuery';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
-import { SelectedIds } from '../../berths/types';
+import { SelectedIds } from '../../../common/types/resource';
 import { StepType } from '../../../common/steps/step/Step';
 import { SubmitBerth, SubmitBerthVariables } from '../../../features/__generated__/SubmitBerth';
 import { getResources, getSelectedResources, stringToFloat } from '../../../common/utils/applicationUtils';
