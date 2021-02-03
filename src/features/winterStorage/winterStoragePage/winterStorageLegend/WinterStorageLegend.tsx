@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
 import Icon, { IconNames } from '../../../../common/icon/Icon';
-import AutoSave from '../../../../components/forms/AutoSave';
+import AutoSave from '../../../../common/autoSave/AutoSave';
 import Form from '../../../../components/forms/Form';
 import Steps from '../../../../common/steps/Steps';
 import { SelectedWinterServices, WinterServices } from '../../../../common/types/services';
