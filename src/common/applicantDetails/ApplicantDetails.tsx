@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'reactstrap';
 
 import Company from './tabs/Company';
 import PrivatePerson from './tabs/PrivatePerson';
-import SectionSelector from '../../components/forms/sections/sectionSelector/SectionSelector';
+import SectionSelector from '../sectionSelector/SectionSelector';
 
 interface Props {
   tab: string;

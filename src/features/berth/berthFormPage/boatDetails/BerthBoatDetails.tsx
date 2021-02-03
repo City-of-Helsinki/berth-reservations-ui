@@ -5,7 +5,7 @@ import { Col, Container, Row } from 'reactstrap';
 import BerthNoBoat from './tabs/BerthNoBoat';
 import BerthRegisteredBoat from './tabs/BerthRegisteredBoat';
 import BerthUnregisteredBoat from './tabs/BerthUnregisteredBoat';
-import SectionSelector from '../../../../components/forms/sections/sectionSelector/SectionSelector';
+import SectionSelector from '../../../../common/sectionSelector/SectionSelector';
 import { BerthFormValues } from '../../types';
 import { BigBoatTypeValue, WithBoatType } from '../../../../components/forms/Selects';
 

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { NavLink, RouteComponentProps, withRouter } from 'react-router-dom';
 import { Col, Container, Row } from 'reactstrap';
 
-import Icon, { IconNames } from '../../../../common/icon/Icon';
+import Icon, { IconNames } from '../icon/Icon';
 
 import './sectionSelector.scss';
 
