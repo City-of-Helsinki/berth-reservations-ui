@@ -2,22 +2,22 @@ import get from 'lodash/get';
 import React, { Fragment } from 'react';
 import { Col, Row } from 'reactstrap';
 
-import withApplicationType from '../../../common/withApplicationType/withApplicationType';
-import BigShipsInfo from '../fragments/overview/bigShipsInfo/BigShipsInfo';
-import BoatDraughtAndWeight from '../fragments/overview/BoatDraughtAndWeight';
-import BoatInfo from '../fragments/overview/BoatInfo';
-import BoatMeasures from '../fragments/overview/BoatMeasures';
-import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
-import Company from '../fragments/overview/company/Company';
-import LinkedEditSection from '../fragments/overview/linkedEditSection/LinkedEditSection';
-import OldBerthInfo from '../fragments/overview/oldBerthInfo/OldBerthInfoContainer';
-import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
-import Person from '../fragments/overview/person/Person';
-import { ApplicationState } from '../../../redux/types';
-import { ApplicationOptions } from '../../../common/types/applicationType';
-import { BerthFormValues, Berths } from '../../../features/berth/types';
-import { StepType } from '../../../common/steps/step/Step';
-import { BigBoatTypeValue, WithBoatType } from '../Selects';
+import withApplicationType from '../../../../common/withApplicationType/withApplicationType';
+import BigShipsInfo from '../../../../components/forms/fragments/overview/bigShipsInfo/BigShipsInfo';
+import BoatDraughtAndWeight from '../../../../components/forms/fragments/overview/BoatDraughtAndWeight';
+import BoatInfo from '../../../../components/forms/fragments/overview/BoatInfo';
+import BoatMeasures from '../../../../components/forms/fragments/overview/BoatMeasures';
+import BoatTypeAndModel from '../../../../components/forms/fragments/overview/BoatTypeAndModel';
+import Company from '../../../../components/forms/fragments/overview/company/Company';
+import LinkedEditSection from '../../../../components/forms/fragments/overview/linkedEditSection/LinkedEditSection';
+import OldBerthInfo from '../../../../components/forms/fragments/overview/oldBerthInfo/OldBerthInfoContainer';
+import OverviewInfo from '../../../../components/forms/fragments/overview/overviewInfo/OverviewInfo';
+import Person from '../../../../components/forms/fragments/overview/person/Person';
+import { ApplicationState } from '../../../../redux/types';
+import { ApplicationOptions } from '../../../../common/types/applicationType';
+import { BerthFormValues, Berths } from '../../types';
+import { StepType } from '../../../../common/steps/step/Step';
+import { BigBoatTypeValue, WithBoatType } from '../../../../components/forms/Selects';
 
 type Props = {
   values: BerthFormValues;

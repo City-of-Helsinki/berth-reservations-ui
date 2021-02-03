@@ -2,12 +2,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
-import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../features/unmarkedWinterStorage/types';
-import Agreement from '../fragments/Agreement';
-import Newsletter from '../fragments/Newsletter';
+import { UnmarkedWinterFormValues, WinterStorageArea } from '../../types';
+import Agreement from '../../../../components/forms/fragments/Agreement';
+import Newsletter from '../../../../components/forms/fragments/Newsletter';
 import UnmarkedWinterOverviewInfo from './UnmarkedWinterOverviewInfo';
-import { StepType } from '../../../common/steps/step/Step';
-import { WithBoatType } from '../Selects';
+import { StepType } from '../../../../common/steps/step/Step';
+import { WithBoatType } from '../../../../components/forms/Selects';
 
 type Props = {
   values?: UnmarkedWinterFormValues;

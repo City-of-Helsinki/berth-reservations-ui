@@ -2,19 +2,17 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
-import Agreement from '../fragments/Agreement';
-import ApplicationCode from '../fragments/applicationCode/ApplicationCode';
-import Newsletter from '../fragments/Newsletter';
+import Agreement from '../../../../components/forms/fragments/Agreement';
+import ApplicationCode from '../../../../components/forms/fragments/applicationCode/ApplicationCode';
+import Newsletter from '../../../../components/forms/fragments/Newsletter';
 import WinterOverviewInfo from './WinterOverviewInfo';
-import { ApplicationState } from '../../../redux/types';
-import { WinterAreas, WinterFormValues } from '../../../features/winterStorage/types';
-import { StepType } from '../../../common/steps/step/Step';
-import { WithBoatType } from '../Selects';
+import { WinterAreas, WinterFormValues } from '../../types';
+import { StepType } from '../../../../common/steps/step/Step';
+import { WithBoatType } from '../../../../components/forms/Selects';
 
 type Props = {
   values?: WinterFormValues;
   selectedAreas: WinterAreas;
-  application?: ApplicationState;
   boatTab: string;
   steps: StepType[];
 } & WithBoatType;
@@ -30,7 +28,7 @@ const getWinterStorageRulesLink = (language: string) => {
   }
 };
 
-const Submit = ({ values, selectedAreas, application, boatTab, boatTypes, steps }: Props) => {
+const WinterOverview = ({ values, selectedAreas, boatTab, boatTypes, steps }: Props) => {
   const {
     t,
     i18n: { language },
@@ -73,4 +71,4 @@ const Submit = ({ values, selectedAreas, application, boatTab, boatTypes, steps 
   );
 };
 
-export default Submit;
+export default WinterOverview;

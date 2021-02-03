@@ -14,7 +14,7 @@ import { CREATE_WINTER_STORAGE_APPLICATION, UNMARKED_WINTER_AREAS_QUERY } from '
 import { getWinterStorageAreas } from '../utils';
 import ApplicantDetails from '../../../common/applicantDetails/ApplicantDetails';
 import WinterBoatDetails from '../../../common/winterBoatDetails/WinterBoatDetails';
-import UnmarkedWinterOverview from '../../../components/forms/sections/UnmarkedWinterOverview';
+import UnmarkedWinterOverview from './overview/UnmarkedWinterOverview';
 import FormPage from '../../../common/formPage/FormPage';
 import { Store } from '../../../redux/types';
 import { SubmitWinterStorage, SubmitWinterStorageVariables } from '../../__generated__/SubmitWinterStorage';

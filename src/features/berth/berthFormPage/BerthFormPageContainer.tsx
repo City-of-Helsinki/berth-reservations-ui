@@ -6,7 +6,7 @@ import { useQuery, useMutation } from 'react-apollo';
 import { RouteComponentProps } from 'react-router';
 
 import ApplicantDetails from '../../../common/applicantDetails/ApplicantDetails';
-import BerthOverview from '../../../components/forms/sections/BerthOverview';
+import BerthOverview from './overview/BerthOverview';
 import BoatDetails from './boatDetails/BerthBoatDetails';
 import FormPage from '../../../common/formPage/FormPage';
 import { ApplicationOptions } from '../../../common/types/applicationType';

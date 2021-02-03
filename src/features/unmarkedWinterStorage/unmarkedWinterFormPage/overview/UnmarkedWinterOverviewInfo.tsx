@@ -1,17 +1,17 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
-import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../features/unmarkedWinterStorage/types';
-import { StepType } from '../../../common/steps/step/Step';
-import BoatInfo from '../fragments/overview/BoatInfo';
-import BoatMeasures from '../fragments/overview/BoatMeasures';
-import BoatTypeAndModel from '../fragments/overview/BoatTypeAndModel';
-import Company from '../fragments/overview/company/Company';
-import LinkedEditSection from '../fragments/overview/linkedEditSection/LinkedEditSection';
-import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
-import Person from '../fragments/overview/person/Person';
-import { WithBoatType } from '../Selects';
-import OverviewStorageMethod from '../fragments/overview/OverviewStorageMethod';
+import { UnmarkedWinterFormValues, WinterStorageArea } from '../../types';
+import { StepType } from '../../../../common/steps/step/Step';
+import BoatInfo from '../../../../components/forms/fragments/overview/BoatInfo';
+import BoatMeasures from '../../../../components/forms/fragments/overview/BoatMeasures';
+import BoatTypeAndModel from '../../../../components/forms/fragments/overview/BoatTypeAndModel';
+import Company from '../../../../components/forms/fragments/overview/company/Company';
+import LinkedEditSection from '../../../../components/forms/fragments/overview/linkedEditSection/LinkedEditSection';
+import OverviewInfo from '../../../../components/forms/fragments/overview/overviewInfo/OverviewInfo';
+import Person from '../../../../components/forms/fragments/overview/person/Person';
+import { WithBoatType } from '../../../../components/forms/Selects';
+import OverviewStorageMethod from '../../../../components/forms/fragments/overview/OverviewStorageMethod';
 
 export type UnmarkedWinterOverviewInfoProps = {
   values: UnmarkedWinterFormValues;

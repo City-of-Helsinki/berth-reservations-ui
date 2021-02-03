@@ -13,7 +13,7 @@ import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/conta
 import { CREATE_WINTER_STORAGE_APPLICATION, WINTER_AREAS_QUERY } from '../../queries';
 import ApplicantDetails from '../../../common/applicantDetails/ApplicantDetails';
 import WinterBoatDetails from '../../../common/winterBoatDetails/WinterBoatDetails';
-import WinterOverview from '../../../components/forms/sections/WinterOverview';
+import WinterOverview from './overview/WinterOverview';
 import FormPage from '../../../common/formPage/FormPage';
 import { Store } from '../../../redux/types';
 import { WinterFormValues } from '../types';
