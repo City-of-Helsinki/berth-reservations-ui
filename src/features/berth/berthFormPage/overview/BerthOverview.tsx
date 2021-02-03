@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
 import Agreement from '../../../../components/forms/fragments/Agreement';
-import ApplicationCode from '../../../../components/forms/fragments/applicationCode/ApplicationCode';
+import ApplicationCode from '../../../../common/applicationCode/ApplicationCode';
 import Newsletter from '../../../../components/forms/fragments/Newsletter';
 import BerthOverviewInfo from './BerthOverviewInfo';
 import { ApplicationState } from '../../../../redux/types';

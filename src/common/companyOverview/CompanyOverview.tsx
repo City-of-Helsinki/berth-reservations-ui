@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
-import './company.scss';
+import './companyOverview.scss';
 
 interface Props {
   companyName: string;
@@ -15,7 +15,7 @@ interface Props {
   municipality: string;
 }
 
-const Company = ({
+const CompanyOverview = ({
   companyName,
   businessId,
   firstName,
@@ -55,4 +55,4 @@ const Company = ({
   </>
 );
 
-export default Company;
+export default CompanyOverview;

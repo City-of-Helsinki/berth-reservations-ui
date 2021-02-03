@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
-import './person.scss';
+import './personOverview.scss';
 
 interface Props {
   firstName: string;
@@ -13,7 +13,7 @@ interface Props {
   municipality: string;
 }
 
-const Person = ({ firstName, lastName, email, phoneNumber, address, zipCode, municipality }: Props) => (
+const PersonOverview = ({ firstName, lastName, email, phoneNumber, address, zipCode, municipality }: Props) => (
   <>
     <Row className="vene-person__contact-section">
       <Col md={12}>
@@ -36,4 +36,4 @@ const Person = ({ firstName, lastName, email, phoneNumber, address, zipCode, mun
   </>
 );
 
-export default Person;
+export default PersonOverview;

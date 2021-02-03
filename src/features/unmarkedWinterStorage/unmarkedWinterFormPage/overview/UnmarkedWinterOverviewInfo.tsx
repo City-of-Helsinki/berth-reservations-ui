@@ -3,15 +3,15 @@ import { Col, Row } from 'reactstrap';
 
 import { UnmarkedWinterFormValues, WinterStorageArea } from '../../types';
 import { StepType } from '../../../../common/steps/step/Step';
-import BoatInfo from '../../../../components/forms/fragments/overview/BoatInfo';
-import BoatMeasures from '../../../../components/forms/fragments/overview/BoatMeasures';
-import BoatTypeAndModel from '../../../../components/forms/fragments/overview/BoatTypeAndModel';
-import Company from '../../../../components/forms/fragments/overview/company/Company';
-import LinkedEditSection from '../../../../components/forms/fragments/overview/linkedEditSection/LinkedEditSection';
-import OverviewInfo from '../../../../components/forms/fragments/overview/overviewInfo/OverviewInfo';
-import Person from '../../../../components/forms/fragments/overview/person/Person';
+import BoatInfo from '../../../../common/boatInfo/BoatInfo';
+import BoatMeasures from '../../../../common/boatMeasures/BoatMeasures';
+import BoatTypeAndModel from '../../../../common/boatTypeAndModel/BoatTypeAndModel';
+import CompanyOverview from '../../../../common/companyOverview/CompanyOverview';
+import LinkedEditSection from '../../../../common/linkedEditSection/LinkedEditSection';
+import OverviewInfo from '../../../../common/overviewInfo/OverviewInfo';
+import PersonOverview from '../../../../common/personOverview/PersonOverview';
 import { WithBoatType } from '../../../../components/forms/Selects';
-import OverviewStorageMethod from '../../../../components/forms/fragments/overview/OverviewStorageMethod';
+import OverviewStorageMethod from '../../../../common/overviewStorageMethod/OverviewStorageMethod';
 
 export type UnmarkedWinterOverviewInfoProps = {
   values: UnmarkedWinterFormValues;
@@ -60,7 +60,7 @@ const UnmarkedWinterOverviewInfo = ({
       </LinkedEditSection>
       <LinkedEditSection title="page.overview.info.owner_information" link={steps[2].linkTo}>
         {values.companyName && values.businessId ? (
-          <Company
+          <CompanyOverview
             companyName={values.companyName}
             businessId={values.businessId}
             firstName={values.firstName}
@@ -72,7 +72,7 @@ const UnmarkedWinterOverviewInfo = ({
             municipality={values.municipality}
           />
         ) : (
-          <Person
+          <PersonOverview
             firstName={values.firstName}
             lastName={values.lastName}
             email={values.email}

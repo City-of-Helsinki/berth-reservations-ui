@@ -1,8 +1,8 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
-import LabelValuePair from '../../../../common/labelValuePair/LabelValuePair';
-import { WithBoatType } from '../../Selects';
+import LabelValuePair from '../labelValuePair/LabelValuePair';
+import { WithBoatType } from '../../components/forms/Selects';
 
 type Props = {
   boatTypeId: string;

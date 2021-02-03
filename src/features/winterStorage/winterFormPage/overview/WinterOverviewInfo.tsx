@@ -2,14 +2,14 @@ import React from 'react';
 import { Col, Row } from 'reactstrap';
 
 import withApplicationType from '../../../../common/withApplicationType/withApplicationType';
-import BoatInfo from '../../../../components/forms/fragments/overview/BoatInfo';
-import BoatMeasures from '../../../../components/forms/fragments/overview/BoatMeasures';
-import BoatTypeAndModel from '../../../../components/forms/fragments/overview/BoatTypeAndModel';
-import Company from '../../../../components/forms/fragments/overview/company/Company';
-import LinkedEditSection from '../../../../components/forms/fragments/overview/linkedEditSection/LinkedEditSection';
-import OverviewInfo from '../../../../components/forms/fragments/overview/overviewInfo/OverviewInfo';
-import OverviewStorageMethod from '../../../../components/forms/fragments/overview/OverviewStorageMethod';
-import Person from '../../../../components/forms/fragments/overview/person/Person';
+import BoatInfo from '../../../../common/boatInfo/BoatInfo';
+import BoatMeasures from '../../../../common/boatMeasures/BoatMeasures';
+import BoatTypeAndModel from '../../../../common/boatTypeAndModel/BoatTypeAndModel';
+import CompanyOverview from '../../../../common/companyOverview/CompanyOverview';
+import LinkedEditSection from '../../../../common/linkedEditSection/LinkedEditSection';
+import OverviewInfo from '../../../../common/overviewInfo/OverviewInfo';
+import OverviewStorageMethod from '../../../../common/overviewStorageMethod/OverviewStorageMethod';
+import PersonOverview from '../../../../common/personOverview/PersonOverview';
 import { WinterAreas, WinterFormValues } from '../../types';
 import { StepType } from '../../../../common/steps/step/Step';
 import { WithBoatType } from '../../../../components/forms/Selects';
@@ -65,7 +65,7 @@ const WinterOverviewInfo = ({ values, selectedAreas, boatTypes, steps, boatTab, 
     </LinkedEditSection>
     <LinkedEditSection title="page.overview.info.person" link={steps[3].linkTo}>
       {values.companyName && values.businessId ? (
-        <Company
+        <CompanyOverview
           companyName={values.companyName}
           businessId={values.businessId}
           firstName={values.firstName}
@@ -77,7 +77,7 @@ const WinterOverviewInfo = ({ values, selectedAreas, boatTypes, steps, boatTab, 
           municipality={values.municipality}
         />
       ) : (
-        <Person
+        <PersonOverview
           firstName={values.firstName}
           lastName={values.lastName}
           email={values.email}

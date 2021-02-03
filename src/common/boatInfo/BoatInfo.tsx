@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
-import LabelValuePair from '../../../../common/labelValuePair/LabelValuePair';
+import LabelValuePair from '../labelValuePair/LabelValuePair';
 
 interface Props {
   name?: string | null;

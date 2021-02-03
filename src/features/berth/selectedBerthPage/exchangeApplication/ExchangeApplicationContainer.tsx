@@ -4,8 +4,8 @@ import { useQuery } from 'react-apollo';
 import {
   BerthSwitchReasonsQuery,
   BerthSwitchReasonsQuery_berthSwitchReasons as Reason,
-} from '../../../../features/__generated__/BerthSwitchReasonsQuery';
-import { BERTH_SWITCH_REASONS_QUERY } from '../../../../features/queries';
+} from '../../../__generated__/BerthSwitchReasonsQuery';
+import { BERTH_SWITCH_REASONS_QUERY } from '../../../queries';
 import ExchangeApplication, { ExchangeApplicationProps } from './ExchangeApplication';
 
 type Props = Omit<ExchangeApplicationProps, 'reasons'>;

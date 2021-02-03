@@ -2,8 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
-import Icon from '../../../../../common/icon/Icon';
-import LocalizedLink from '../../../../../common/localizedLink/LocalizedLink';
+import Icon from '../icon/Icon';
+import LocalizedLink from '../localizedLink/LocalizedLink';
 
 import './linkedEditSection.scss';
 

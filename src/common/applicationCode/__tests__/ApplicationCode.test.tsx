@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { Text } from '../../../../../common/fields/Fields';
+import { Text } from '../../fields/Fields';
 import ApplicationCode from '../ApplicationCode';
 
 describe('src/components/forms/fragments/applicationCode/ApplicationCode', () => {

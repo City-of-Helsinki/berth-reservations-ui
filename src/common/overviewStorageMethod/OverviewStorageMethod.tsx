@@ -2,8 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
-import LabelValuePair from '../../../../common/labelValuePair/LabelValuePair';
-import { WinterStorageMethod } from '../../../../__generated__/globalTypes';
+import LabelValuePair from '../labelValuePair/LabelValuePair';
+import { WinterStorageMethod } from '../../__generated__/globalTypes';
 
 type Props = {
   storageMethod: WinterStorageMethod;
