@@ -3,9 +3,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
-import Alert from '../../../../common/alert/Alert';
-import Input from '../../../../common/input/Input';
-import { ApplicationOptions } from '../../../../common/types/applicationType';
+import Alert from '../../../../../common/alert/Alert';
+import Input from '../../../../../common/input/Input';
+import { ApplicationOptions } from '../../../../../common/types/applicationType';
 
 export interface ApplicationSelectorProps {
   alertVisible: boolean;
