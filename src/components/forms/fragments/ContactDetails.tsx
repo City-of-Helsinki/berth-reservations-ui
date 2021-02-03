@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
-import { Text } from '../Fields';
+import { Text } from '../../../common/fields/Fields';
 import { mustBeEmail, mustBePhoneNumber } from '../../../common/utils/formValidation';
 
 const ContactDetailsFragment = () => (

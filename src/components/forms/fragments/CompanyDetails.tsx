@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Col, Row } from 'reactstrap';
 
 import { mustBeBusinessId, mustBeCompanyName } from '../../../common/utils/formValidation';
-import { Text } from '../Fields';
+import { Text } from '../../../common/fields/Fields';
 
 const CompanyDetailsFragment = () => (
   <Fragment>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Row } from 'reactstrap';
 
 import { mustBeNames } from '../../../common/utils/formValidation';
-import { Text } from '../Fields';
+import { Text } from '../../../common/fields/Fields';
 
 const FullNameFragment = () => (
   <Row>

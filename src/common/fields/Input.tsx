@@ -1,20 +1,14 @@
 import React from 'react';
 import { Field, FieldRenderProps } from 'react-final-form';
 import { WithTranslation } from 'react-i18next';
-import { FormFeedback, FormGroup, FormText } from 'reactstrap';
+import { FormFeedback, FormGroup, FormText, Input, InputProps } from 'reactstrap';
 
-import validator, { mustBePresent } from '../../../common/utils/formValidation';
-import Input from '../../../common/input/Input';
+import validator, { mustBePresent } from '../utils/formValidation';
 import Label from './Label';
 
-type Props = {
-  items: { name: string; label: string; value: string }[];
-} & WithTranslation &
-  FieldRenderProps<string, HTMLInputElement>;
+type Props = WithTranslation & FieldRenderProps<string, HTMLElement>;
 
-type CustomInputType = 'select' | 'file' | 'radio' | 'checkbox' | 'switch';
-
-const CustomInput = (type: CustomInputType, inlineLabel: boolean) => ({
+const TextInput = (type: InputProps['type']) => ({
   t,
   id,
   name,
@@ -35,13 +29,12 @@ const CustomInput = (type: CustomInputType, inlineLabel: boolean) => ({
     >
       {({ input, meta }) => (
         <FormGroup>
-          {!inlineLabel && label && <Label htmlFor={id} required={required} text={label} />}
+          {label && <Label htmlFor={id} required={required} text={label} />}
           <Input
             id={id}
             required={required}
-            placeholder={placeholder}
-            label={inlineLabel ? label : undefined}
             invalid={!!(meta.touched && meta.error)}
+            placeholder={placeholder ? t(placeholder) : ''}
             {...input}
             {...rest}
             type={type}
@@ -62,4 +55,4 @@ const CustomInput = (type: CustomInputType, inlineLabel: boolean) => ({
   );
 };
 
-export default CustomInput;
+export default TextInput;

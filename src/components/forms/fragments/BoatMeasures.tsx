@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
-import { Number } from '../Fields';
+import { Number } from '../../../common/fields/Fields';
 import validator, {
   mustBeLessThan,
   mustBePositiveNumber,

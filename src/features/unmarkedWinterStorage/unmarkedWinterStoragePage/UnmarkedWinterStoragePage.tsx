@@ -7,7 +7,7 @@ import winterHeroImg from '../../../assets/images/hero_image_winter_storage.jpg'
 import { UnmarkedWinterFormValues, WinterStorageArea } from '../types';
 import { LocalePush } from '../../../common/utils/container';
 import Hero from '../../../common/hero/Hero';
-import { Select } from '../../../components/forms/Fields';
+import { Select } from '../../../common/fields/Fields';
 import KoroSection from '../../../common/layout/koroSection/KoroSection';
 import Layout from '../../../common/layout/Layout';
 import UnmarkedWinterStorageLegend from './unmarkedWinterStorageLegend/UnmarkedWinterStorageLegend';

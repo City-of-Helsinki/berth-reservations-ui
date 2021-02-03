@@ -7,7 +7,7 @@ import validator, {
   mustBePositiveNumber,
   mustNotExceedTwoDecimals,
 } from '../../../../common/utils/formValidation';
-import { Checkbox, Number } from '../../Fields';
+import { Checkbox, Number } from '../../../../common/fields/Fields';
 import { BoatType } from '../../Selects';
 import { BoatTypes } from '../../../../common/types/boatTypes';
 import './unregisteredBoatDetails.scss';

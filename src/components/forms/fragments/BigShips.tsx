@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
-import { Checkbox, MultiRadio, Text } from '../Fields';
+import { Checkbox, MultiRadio, Text } from '../../../common/fields/Fields';
 import { HullMaterial, Propulsion } from '../Selects';
 
 const BigShipsFragment = () => {

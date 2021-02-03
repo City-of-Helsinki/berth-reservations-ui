@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Select } from './Fields';
+import { Select } from '../../common/fields/Fields';
 import { BoatTypes } from '../../common/types/boatTypes';
 
 export interface WithBoatType {

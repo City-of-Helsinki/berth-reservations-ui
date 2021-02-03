@@ -3,7 +3,7 @@ import { Col, Row } from 'reactstrap';
 import { useTranslation } from 'react-i18next';
 
 import { mustBeAddress, mustBePostalCode } from '../../../common/utils/formValidation';
-import { Select, Text } from '../Fields';
+import { Select, Text } from '../../../common/fields/Fields';
 import { MUNICIPALITIES, PRIORITIZED_MUNICIPALITIES } from '../../../common/utils/constants';
 
 const PostalDetailsFragment = () => {

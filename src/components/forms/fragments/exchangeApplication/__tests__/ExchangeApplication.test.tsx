@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 import { berths } from '../../../../../__fixtures__/berthFixture';
-import { Select, Text } from '../../../Fields';
+import { Select, Text } from '../../../../../common/fields/Fields';
 import ExchangeApplication, { ExchangeApplicationProps } from '../ExchangeApplication';
 
 describe('fragments/ExchangeApplication', () => {

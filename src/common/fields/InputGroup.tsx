@@ -11,7 +11,7 @@ import {
   InputProps,
 } from 'reactstrap';
 
-import validator, { mustBePresent } from '../../../common/utils/formValidation';
+import validator, { mustBePresent } from '../utils/formValidation';
 import ScreenReaderLabel from './ScreenReaderLabel';
 import Label from './Label';
 

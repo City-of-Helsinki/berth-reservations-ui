@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
-import { Checkbox } from '../Fields';
+import { Checkbox } from '../../../common/fields/Fields';
 
 const NewsletterFragment = () => {
   const { t } = useTranslation();

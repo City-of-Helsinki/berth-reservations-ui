@@ -5,7 +5,7 @@ import { Button, Col, Container, Row } from 'reactstrap';
 
 import AvailabilityLevel from '../../availabilityLevel/AvailabilityLevel';
 import InvalidSelection from '../../invalidSelection/InvalidSelection';
-import ScreenReaderLabel from '../../../components/forms/fields/ScreenReaderLabel';
+import ScreenReaderLabel from '../../fields/ScreenReaderLabel';
 import Icon, { IconNames } from '../../icon/Icon';
 import Popover from '../../popover/Popover';
 

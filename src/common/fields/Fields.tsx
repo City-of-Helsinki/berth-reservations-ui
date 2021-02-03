@@ -2,10 +2,10 @@ import React from 'react';
 import { withTranslation } from 'react-i18next';
 import { withProps } from 'recompose';
 
-import CustomInput from './fields/CustomInput';
-import Input from './fields/Input';
-import InputGroup from './fields/InputGroup';
-import MultiInput from './fields/MultiInput';
+import CustomInput from './CustomInput';
+import Input from './Input';
+import InputGroup from './InputGroup';
+import MultiInput from './MultiInput';
 
 const mapNameAsId = withProps(({ id, name }: any) => ({
   id: id || `form.${name}`,

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 
 import Icon from '../../icon/Icon';
-import ScreenReaderLabel from '../../../components/forms/fields/ScreenReaderLabel';
+import ScreenReaderLabel from '../../fields/ScreenReaderLabel';
 import './languageDropdown.scss';
 
 const LanguageDropdown = () => {

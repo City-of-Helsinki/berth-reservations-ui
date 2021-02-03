@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
-import { Text } from '../../Fields';
+import { Text } from '../../../../common/fields/Fields';
 
 import './applicationCode.scss';
 

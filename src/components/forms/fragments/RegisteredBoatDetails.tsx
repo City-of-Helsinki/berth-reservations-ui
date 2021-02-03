@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
 import { mustBeBoatRegistrationNumber } from '../../../common/utils/formValidation';
-import { Text } from '../Fields';
+import { Text } from '../../../common/fields/Fields';
 import { BoatType, WithBoatType } from '../Selects';
 
 const RegisteredBoatDetailsFragment = ({ boatTypes }: WithBoatType) => {
