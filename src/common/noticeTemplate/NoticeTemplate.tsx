@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'reactstrap';
 
-import LocalizedLink from '../LocalizedLink';
+import LocalizedLink from '../localizedLink/LocalizedLink';
 import Layout from '../layout/Layout';
 import './noticeTemplate.scss';
 

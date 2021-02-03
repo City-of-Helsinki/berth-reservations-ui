@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
 import Icon, { IconNames } from '../../../common/icon/Icon';
-import LocalizedLink from '../../../common/LocalizedLink';
+import LocalizedLink from '../../../common/localizedLink/LocalizedLink';
 import ExchangeApplication from '../../../components/forms/fragments/exchangeApplication/ExchangeApplicationContainer';
 import NewApplication from '../../../components/forms/fragments/newApplication/NewApplication';
 import Layout from '../../../common/layout/Layout';

@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import { Row } from 'reactstrap';
 
-import LocalizedLink from '../../../../../../common/LocalizedLink';
+import LocalizedLink from '../../../../../../common/localizedLink/LocalizedLink';
 import LinkedEditSection, { Props } from '../LinkedEditSection';
 
 describe('LinkedEditSection', () => {

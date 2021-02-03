@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Container, Nav, Navbar as BSNavbar } from 'reactstrap';
 
 import Icon from '../../icon/Icon';
-import LocalizedLink from '../../LocalizedLink';
+import LocalizedLink from '../../localizedLink/LocalizedLink';
 import LanguageDropdown from '../languageDropdown/LanguageDropdown';
 
 import './navbar.scss';
