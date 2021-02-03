@@ -2,10 +2,10 @@ import React, { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
-import { Checkbox, MultiRadio, Text } from '../../../common/fields/Fields';
-import { HullMaterial, Propulsion } from '../Selects';
+import { Checkbox, MultiRadio, Text } from '../../../../../../common/fields/Fields';
+import { HullMaterial, Propulsion } from '../../../../../../common/selects/Selects';
 
-const BigShipsFragment = () => {
+const BigShips = () => {
   const { t } = useTranslation();
   return (
     <Fragment>
@@ -73,4 +73,4 @@ const BigShipsFragment = () => {
   );
 };
 
-export default BigShipsFragment;
+export default BigShips;

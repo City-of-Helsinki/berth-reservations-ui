@@ -2,11 +2,11 @@ import React from 'react';
 import { Col, Row } from 'reactstrap';
 import { useTranslation } from 'react-i18next';
 
-import { mustBeAddress, mustBePostalCode } from '../../../common/utils/formValidation';
-import { Select, Text } from '../../../common/fields/Fields';
-import { MUNICIPALITIES, PRIORITIZED_MUNICIPALITIES } from '../../../common/utils/constants';
+import { mustBeAddress, mustBePostalCode } from '../../../utils/formValidation';
+import { Select, Text } from '../../../fields/Fields';
+import { MUNICIPALITIES, PRIORITIZED_MUNICIPALITIES } from '../../../utils/constants';
 
-const PostalDetailsFragment = () => {
+const PostalDetails = () => {
   const { t, i18n } = useTranslation();
 
   const renderMunicipalityOption = (municipality: { id: string; translations: Record<string, string> }) => {
@@ -53,4 +53,4 @@ const PostalDetailsFragment = () => {
     </Row>
   );
 };
-export default PostalDetailsFragment;
+export default PostalDetails;

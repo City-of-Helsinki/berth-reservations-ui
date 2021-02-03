@@ -1,17 +1,17 @@
 import React from 'react';
 
 import FormTab from '../../../../../common/formTab/FormTab';
-import Accessibility from '../../../../../components/forms/fragments/Accessibility';
-import BoatInfo from '../../../../../components/forms/fragments/BoatInfo';
-import UnregisteredBoatDetails from '../../../../../components/forms/fragments/unregisteredBoatDetails/UnregisteredBoatDetails';
-import { WithBoatType } from '../../../../../components/forms/Selects';
+import Accessibility from './fragments/Accessibility';
+import BoatInfoFragment from '../../../../../common/boatInfoFragment/BoatInfoFragment';
+import UnregisteredBoatDetails from '../../../../../common/unregisteredBoatDetails/UnregisteredBoatDetails';
+import { WithBoatType } from '../../../../../common/selects/Selects';
 
 type Props = WithBoatType;
 
 const BerthUnregisteredBoat = ({ boatTypes }: Props) => (
   <FormTab>
     <UnregisteredBoatDetails boatTypes={boatTypes} />
-    <BoatInfo />
+    <BoatInfoFragment />
     <Accessibility />
   </FormTab>
 );

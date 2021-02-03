@@ -2,11 +2,11 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
-import { mustBeBoatRegistrationNumber } from '../../../common/utils/formValidation';
-import { Text } from '../../../common/fields/Fields';
-import { BoatType, WithBoatType } from '../Selects';
+import { mustBeBoatRegistrationNumber } from '../utils/formValidation';
+import { Text } from '../fields/Fields';
+import { BoatType, WithBoatType } from '../selects/Selects';
 
-const RegisteredBoatDetailsFragment = ({ boatTypes }: WithBoatType) => {
+const RegisteredBoatDetails = ({ boatTypes }: WithBoatType) => {
   const { t } = useTranslation();
   return (
     <>
@@ -31,4 +31,4 @@ const RegisteredBoatDetailsFragment = ({ boatTypes }: WithBoatType) => {
   );
 };
 
-export default RegisteredBoatDetailsFragment;
+export default RegisteredBoatDetails;

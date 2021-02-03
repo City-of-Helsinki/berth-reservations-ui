@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 import { Col, Row } from 'reactstrap';
 
-import { mustBeBusinessId, mustBeCompanyName } from '../../../common/utils/formValidation';
-import { Text } from '../../../common/fields/Fields';
+import { mustBeBusinessId, mustBeCompanyName } from '../../../utils/formValidation';
+import { Text } from '../../../fields/Fields';
 
-const CompanyDetailsFragment = () => (
+const CompanyDetails = () => (
   <Fragment>
     <Row>
       <Col sm={5}>
@@ -31,4 +31,4 @@ const CompanyDetailsFragment = () => (
   </Fragment>
 );
 
-export default CompanyDetailsFragment;
+export default CompanyDetails;

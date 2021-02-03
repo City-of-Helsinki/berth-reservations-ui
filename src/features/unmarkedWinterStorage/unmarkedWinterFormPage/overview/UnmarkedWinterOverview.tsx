@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
 import { UnmarkedWinterFormValues, WinterStorageArea } from '../../types';
-import Agreement from '../../../../components/forms/fragments/Agreement';
-import Newsletter from '../../../../components/forms/fragments/Newsletter';
+import Agreement from '../../../../common/agreement/Agreement';
+import Newsletter from '../../../../common/newsletter/Newsletter';
 import UnmarkedWinterOverviewInfo from './UnmarkedWinterOverviewInfo';
 import { StepType } from '../../../../common/steps/step/Step';
-import { WithBoatType } from '../../../../components/forms/Selects';
+import { WithBoatType } from '../../../../common/selects/Selects';
 
 type Props = {
   values?: UnmarkedWinterFormValues;

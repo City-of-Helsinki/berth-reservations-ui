@@ -7,7 +7,7 @@ import BerthRegisteredBoat from './tabs/BerthRegisteredBoat';
 import BerthUnregisteredBoat from './tabs/BerthUnregisteredBoat';
 import SectionSelector from '../../../../common/sectionSelector/SectionSelector';
 import { BerthFormValues } from '../../types';
-import { BigBoatTypeValue, WithBoatType } from '../../../../components/forms/Selects';
+import { BigBoatTypeValue, WithBoatType } from '../../../../common/selects/Selects';
 
 type Props = {
   values?: BerthFormValues;

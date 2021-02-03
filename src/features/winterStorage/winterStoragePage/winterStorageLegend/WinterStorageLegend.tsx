@@ -5,7 +5,7 @@ import { Col, Container, Row } from 'reactstrap';
 
 import Icon, { IconNames } from '../../../../common/icon/Icon';
 import AutoSave from '../../../../common/autoSave/AutoSave';
-import Form from '../../../../components/forms/Form';
+import Form from '../../../../common/form/Form';
 import Steps from '../../../../common/steps/Steps';
 import { SelectedWinterServices, WinterServices } from '../../../../common/types/services';
 import { StepType } from '../../../../common/steps/step/Step';

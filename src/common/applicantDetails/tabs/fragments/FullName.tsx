@@ -1,10 +1,10 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
-import { mustBeNames } from '../../../common/utils/formValidation';
-import { Text } from '../../../common/fields/Fields';
+import { mustBeNames } from '../../../utils/formValidation';
+import { Text } from '../../../fields/Fields';
 
-const FullNameFragment = () => (
+const FullName = () => (
   <Row>
     <Col sm={4}>
       <Text
@@ -27,4 +27,4 @@ const FullNameFragment = () => (
   </Row>
 );
 
-export default FullNameFragment;
+export default FullName;

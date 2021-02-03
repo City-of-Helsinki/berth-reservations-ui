@@ -2,10 +2,10 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import FormTab from '../../formTab/FormTab';
-import CompanyDetails from '../../../components/forms/fragments/CompanyDetails';
-import ContactDetails from '../../../components/forms/fragments/ContactDetails';
-import FullName from '../../../components/forms/fragments/FullName';
-import PostalDetails from '../../../components/forms/fragments/PostalDetails';
+import CompanyDetails from './fragments/CompanyDetails';
+import ContactDetails from './fragments/ContactDetails';
+import FullName from './fragments/FullName';
+import PostalDetails from './fragments/PostalDetails';
 
 const Company = () => {
   const { t } = useTranslation();

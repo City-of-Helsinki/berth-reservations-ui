@@ -1,8 +1,8 @@
 import React from 'react';
 
-import BoatInfo from '../../../components/forms/fragments/BoatInfo';
-import UnregisteredBoatDetails from '../../../components/forms/fragments/unregisteredBoatDetails/UnregisteredBoatDetails';
-import { WithBoatType } from '../../../components/forms/Selects';
+import BoatInfoFragment from '../../boatInfoFragment/BoatInfoFragment';
+import UnregisteredBoatDetails from '../../unregisteredBoatDetails/UnregisteredBoatDetails';
+import { WithBoatType } from '../../selects/Selects';
 import FormTab from '../../formTab/FormTab';
 
 type Props = WithBoatType;
@@ -10,7 +10,7 @@ type Props = WithBoatType;
 const WinterUnregisteredBoat = ({ boatTypes }: Props) => (
   <FormTab>
     <UnregisteredBoatDetails boatTypes={boatTypes} />
-    <BoatInfo />
+    <BoatInfoFragment />
   </FormTab>
 );
 

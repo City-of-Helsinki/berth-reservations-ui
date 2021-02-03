@@ -2,13 +2,13 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
-import Agreement from '../../../../components/forms/fragments/Agreement';
+import Agreement from '../../../../common/agreement/Agreement';
 import ApplicationCode from '../../../../common/applicationCode/ApplicationCode';
-import Newsletter from '../../../../components/forms/fragments/Newsletter';
+import Newsletter from '../../../../common/newsletter/Newsletter';
 import WinterOverviewInfo from './WinterOverviewInfo';
 import { WinterAreas, WinterFormValues } from '../../types';
 import { StepType } from '../../../../common/steps/step/Step';
-import { WithBoatType } from '../../../../components/forms/Selects';
+import { WithBoatType } from '../../../../common/selects/Selects';
 
 type Props = {
   values?: WinterFormValues;

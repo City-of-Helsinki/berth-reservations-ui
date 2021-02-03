@@ -2,13 +2,13 @@ import get from 'lodash/get';
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
-import StorageMethod from '../../components/forms/fragments/storageMethod/StorageMethod';
+import StorageMethod from './storageMethod/StorageMethod';
 import WinterNoBoat from './tabs/WinterNoBoat';
 import WinterRegisteredBoat from './tabs/WinterRegisteredBoat';
 import WinterUnregisteredBoat from './tabs/WinterUnregisteredBoat';
 import { WinterStorageMethod } from '../../__generated__/globalTypes';
 import { WinterFormValues } from '../../features/winterStorage/types';
-import { WithBoatType } from '../../components/forms/Selects';
+import { WithBoatType } from '../selects/Selects';
 import SectionSelector, { TypeProps } from '../sectionSelector/SectionSelector';
 
 type Props = {

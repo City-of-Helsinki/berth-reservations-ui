@@ -1,7 +1,7 @@
 import React from 'react';
 
-import UnregisteredBoatDetails from '../../../components/forms/fragments/unregisteredBoatDetails/UnregisteredBoatDetails';
-import { WithBoatType } from '../../../components/forms/Selects';
+import UnregisteredBoatDetails from '../../unregisteredBoatDetails/UnregisteredBoatDetails';
+import { WithBoatType } from '../../selects/Selects';
 import FormTab from '../../formTab/FormTab';
 
 type Props = WithBoatType;

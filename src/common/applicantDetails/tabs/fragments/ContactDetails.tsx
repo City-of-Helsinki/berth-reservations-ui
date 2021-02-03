@@ -1,10 +1,10 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
-import { Text } from '../../../common/fields/Fields';
-import { mustBeEmail, mustBePhoneNumber } from '../../../common/utils/formValidation';
+import { Text } from '../../../fields/Fields';
+import { mustBeEmail, mustBePhoneNumber } from '../../../utils/formValidation';
 
-const ContactDetailsFragment = () => (
+const ContactDetails = () => (
   <Row>
     <Col sm={4}>
       <Text
@@ -27,4 +27,4 @@ const ContactDetailsFragment = () => (
   </Row>
 );
 
-export default ContactDetailsFragment;
+export default ContactDetails;

@@ -6,7 +6,7 @@ import Layout from '../../../common/layout/Layout';
 import './paymentPage.scss';
 import { Checkbox } from '../../../common/fields/Fields';
 import { ContractAuthMethods_contractAuthMethods as ContractAuthMethods } from '../../__generated__/ContractAuthMethods';
-import Form from '../../../components/forms/Form';
+import Form from '../../../common/form/Form';
 import AuthButton from './authButton/AuthButton';
 
 interface Props {

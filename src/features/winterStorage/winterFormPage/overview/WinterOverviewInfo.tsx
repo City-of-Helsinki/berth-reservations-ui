@@ -12,7 +12,7 @@ import OverviewStorageMethod from '../../../../common/overviewStorageMethod/Over
 import PersonOverview from '../../../../common/personOverview/PersonOverview';
 import { WinterAreas, WinterFormValues } from '../../types';
 import { StepType } from '../../../../common/steps/step/Step';
-import { WithBoatType } from '../../../../components/forms/Selects';
+import { WithBoatType } from '../../../../common/selects/Selects';
 
 type Props = {
   values: WinterFormValues;

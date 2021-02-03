@@ -10,7 +10,7 @@ import CompanyOverview from '../../../../common/companyOverview/CompanyOverview'
 import LinkedEditSection from '../../../../common/linkedEditSection/LinkedEditSection';
 import OverviewInfo from '../../../../common/overviewInfo/OverviewInfo';
 import PersonOverview from '../../../../common/personOverview/PersonOverview';
-import { WithBoatType } from '../../../../components/forms/Selects';
+import { WithBoatType } from '../../../../common/selects/Selects';
 import OverviewStorageMethod from '../../../../common/overviewStorageMethod/OverviewStorageMethod';
 
 export type UnmarkedWinterOverviewInfoProps = {

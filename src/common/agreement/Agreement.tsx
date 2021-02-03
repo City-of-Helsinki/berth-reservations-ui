@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
-import { Checkbox } from '../../../common/fields/Fields';
+import { Checkbox } from '../fields/Fields';
 
 interface Props {
   label: JSX.Element;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Select } from '../../common/fields/Fields';
-import { BoatTypes } from '../../common/types/boatTypes';
+import { Select } from '../fields/Fields';
+import { BoatTypes } from '../types/boatTypes';
 
 export interface WithBoatType {
   boatTypes: BoatTypes;
@@ -54,7 +54,6 @@ export const Propulsion = () => {
 };
 
 const hullMaterials = ['aluminium', 'concrete', 'thermoplastic', 'rubber', 'fibreglass', 'wood', 'steel', 'other'];
-
 export const HullMaterial = () => {
   const { t } = useTranslation();
 

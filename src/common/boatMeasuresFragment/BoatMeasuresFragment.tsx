@@ -2,19 +2,15 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
-import { Number } from '../../../common/fields/Fields';
-import validator, {
-  mustBeLessThan,
-  mustBePositiveNumber,
-  mustNotExceedTwoDecimals,
-} from '../../../common/utils/formValidation';
+import { Number } from '../fields/Fields';
+import validator, { mustBeLessThan, mustBePositiveNumber, mustNotExceedTwoDecimals } from '../utils/formValidation';
 
 interface Props {
   showDraught?: boolean;
   showWeight?: boolean;
 }
 
-const RegisteredBoatFragment = ({ showDraught, showWeight }: Props) => {
+const RegisteredBoat = ({ showDraught, showWeight }: Props) => {
   const { t } = useTranslation();
   return (
     <>
@@ -74,4 +70,4 @@ const RegisteredBoatFragment = ({ showDraught, showWeight }: Props) => {
   );
 };
 
-export default RegisteredBoatFragment;
+export default RegisteredBoat;

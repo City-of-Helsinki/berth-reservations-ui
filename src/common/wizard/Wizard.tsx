@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, Col, Container, Row } from 'reactstrap';
 
-import Form from './Form';
-import { StepType } from '../../common/steps/step/Step';
+import Form from '../form/Form';
+import { StepType } from '../steps/step/Step';
 import { WinterStorageMethod } from '../../__generated__/globalTypes';
 import './wizard.scss';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Row } from 'reactstrap';
 
 import LabelValuePair from '../labelValuePair/LabelValuePair';
-import { WithBoatType } from '../../components/forms/Selects';
+import { WithBoatType } from '../selects/Selects';
 
 type Props = {
   boatTypeId: string;

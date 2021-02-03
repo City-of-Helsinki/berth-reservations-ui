@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
 import AutoSave from '../../../../common/autoSave/AutoSave';
-import Form from '../../../../components/forms/Form';
+import Form from '../../../../common/form/Form';
 import { StepType } from '../../../../common/steps/step/Step';
 import Steps from '../../../../common/steps/Steps';
 

@@ -7,7 +7,7 @@ import CardsList from '../../../common/cardsList/CardsList';
 import Hero from '../../../common/hero/Hero';
 import { IconNames } from '../../../common/icon/Icon';
 import Map from '../../../common/map/Map';
-import UnregisteredBoatDetails from '../../../components/forms/fragments/unregisteredBoatDetails/UnregisteredBoatDetails';
+import UnregisteredBoatDetails from '../../../common/unregisteredBoatDetails/UnregisteredBoatDetails';
 import KoroSection from '../../../common/layout/koroSection/KoroSection';
 import Layout from '../../../common/layout/Layout';
 import WinterStorageLegend from './winterStorageLegend/WinterStorageLegend';

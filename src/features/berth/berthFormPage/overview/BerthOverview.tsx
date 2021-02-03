@@ -2,14 +2,14 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
-import Agreement from '../../../../components/forms/fragments/Agreement';
+import Agreement from '../../../../common/agreement/Agreement';
 import ApplicationCode from '../../../../common/applicationCode/ApplicationCode';
-import Newsletter from '../../../../components/forms/fragments/Newsletter';
+import Newsletter from '../../../../common/newsletter/Newsletter';
 import BerthOverviewInfo from './BerthOverviewInfo';
 import { ApplicationState } from '../../../../redux/types';
 import { BerthFormValues, Berths } from '../../types';
 import { StepType } from '../../../../common/steps/step/Step';
-import { WithBoatType } from '../../../../components/forms/Selects';
+import { WithBoatType } from '../../../../common/selects/Selects';
 
 type Props = {
   values?: BerthFormValues;

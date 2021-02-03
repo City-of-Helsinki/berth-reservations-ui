@@ -2,8 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
-import { MultiRadio, Text } from '../../../../common/fields/Fields';
-import { WinterStorageMethod } from '../../../../__generated__/globalTypes';
+import { MultiRadio, Text } from '../../fields/Fields';
+import { WinterStorageMethod } from '../../../__generated__/globalTypes';
 
 import './storageMethod.scss';
 

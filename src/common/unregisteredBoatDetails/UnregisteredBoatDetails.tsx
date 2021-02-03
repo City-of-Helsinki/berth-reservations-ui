@@ -2,14 +2,10 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
-import validator, {
-  mustBeLessThan,
-  mustBePositiveNumber,
-  mustNotExceedTwoDecimals,
-} from '../../../../common/utils/formValidation';
-import { Checkbox, Number } from '../../../../common/fields/Fields';
-import { BoatType } from '../../Selects';
-import { BoatTypes } from '../../../../common/types/boatTypes';
+import validator, { mustBeLessThan, mustBePositiveNumber, mustNotExceedTwoDecimals } from '../utils/formValidation';
+import { Checkbox, Number } from '../fields/Fields';
+import { BoatType } from '../selects/Selects';
+import { BoatTypes } from '../types/boatTypes';
 import './unregisteredBoatDetails.scss';
 
 interface Props {
@@ -20,7 +16,7 @@ interface Props {
   boatStoredOnTrailer?: boolean;
 }
 
-const UnregisteredBoatDetailsFragment = ({
+const UnregisteredBoatDetails = ({
   fieldsNotRequired,
   boatTypes,
   hideTitle,
@@ -80,4 +76,4 @@ const UnregisteredBoatDetailsFragment = ({
   );
 };
 
-export default UnregisteredBoatDetailsFragment;
+export default UnregisteredBoatDetails;

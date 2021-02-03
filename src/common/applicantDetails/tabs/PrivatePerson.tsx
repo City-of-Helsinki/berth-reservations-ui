@@ -2,9 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import FormTab from '../../formTab/FormTab';
-import ContactDetails from '../../../components/forms/fragments/ContactDetails';
-import FullName from '../../../components/forms/fragments/FullName';
-import PostalDetails from '../../../components/forms/fragments/PostalDetails';
+import ContactDetails from './fragments/ContactDetails';
+import FullName from './fragments/FullName';
+import PostalDetails from './fragments/PostalDetails';
 
 const PrivatePerson = () => {
   const { t } = useTranslation();

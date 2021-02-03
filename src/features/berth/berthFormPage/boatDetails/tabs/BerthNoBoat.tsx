@@ -1,9 +1,9 @@
 import React from 'react';
 
 import FormTab from '../../../../../common/formTab/FormTab';
-import Accessibility from '../../../../../components/forms/fragments/Accessibility';
-import UnregisteredBoatDetails from '../../../../../components/forms/fragments/unregisteredBoatDetails/UnregisteredBoatDetails';
-import { WithBoatType } from '../../../../../components/forms/Selects';
+import Accessibility from './fragments/Accessibility';
+import UnregisteredBoatDetails from '../../../../../common/unregisteredBoatDetails/UnregisteredBoatDetails';
+import { WithBoatType } from '../../../../../common/selects/Selects';
 
 type Props = WithBoatType;
 

@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
-import { Checkbox } from '../../../common/fields/Fields';
+import { Checkbox } from '../fields/Fields';
 
-const NewsletterFragment = () => {
+const Newsletter = () => {
   const { t } = useTranslation();
   return (
     <Fragment>
@@ -33,4 +33,4 @@ const NewsletterFragment = () => {
   );
 };
 
-export default NewsletterFragment;
+export default Newsletter;

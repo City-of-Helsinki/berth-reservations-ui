@@ -2,12 +2,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import FormTab from '../../../../../common/formTab/FormTab';
-import Accessibility from '../../../../../components/forms/fragments/Accessibility';
-import BigShips from '../../../../../components/forms/fragments/BigShips';
-import BoatInfo from '../../../../../components/forms/fragments/BoatInfo';
-import BoatMeasures from '../../../../../components/forms/fragments/BoatMeasures';
-import RegisteredBoatDetails from '../../../../../components/forms/fragments/RegisteredBoatDetails';
-import { WithBoatType } from '../../../../../components/forms/Selects';
+import Accessibility from './fragments/Accessibility';
+import BigShips from './fragments/BigShips';
+import BoatInfoFragment from '../../../../../common/boatInfoFragment/BoatInfoFragment';
+import BoatMeasures from '../../../../../common/boatMeasuresFragment/BoatMeasuresFragment';
+import RegisteredBoatDetails from '../../../../../common/registeredBoatDetails/RegisteredBoatDetails';
+import { WithBoatType } from '../../../../../common/selects/Selects';
 
 type Props = {
   showBigShipsForm: boolean;
@@ -28,7 +28,7 @@ const BerthRegisteredBoat = ({ showBigShipsForm, boatTypes }: Props) => {
           <p>{t('form.big_ship.text.inspection_and_insurance')}</p>
         </div>
       )}
-      <BoatInfo />
+      <BoatInfoFragment />
       <Accessibility />
     </FormTab>
   );
