@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import { useQuery, useMutation } from 'react-apollo';
 import { RouteComponentProps } from 'react-router';
 
-import ApplicantDetails from '../../../components/forms/sections/ApplicantDetails';
+import ApplicantDetails from '../../../common/applicantDetails/ApplicantDetails';
 import BerthOverview from '../../../components/forms/sections/BerthOverview';
-import BoatDetails from '../../../components/forms/sections/BerthBoatDetails';
+import BoatDetails from './boatDetails/BerthBoatDetails';
 import FormPage from '../../../common/formPage/FormPage';
 import { ApplicationOptions } from '../../../common/types/applicationType';
 import { ApplicationState, Store } from '../../../redux/types';

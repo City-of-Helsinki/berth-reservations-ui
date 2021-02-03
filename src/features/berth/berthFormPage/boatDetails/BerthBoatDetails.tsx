@@ -2,12 +2,12 @@ import get from 'lodash/get';
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
-import BerthNoBoat from '../tabs/BerthNoBoat';
-import BerthRegisteredBoat from '../tabs/BerthRegisteredBoat';
-import BerthUnregisteredBoat from '../tabs/BerthUnregisteredBoat';
-import SectionSelector from './sectionSelector/SectionSelector';
-import { BerthFormValues } from '../../../features/berth/types';
-import { BigBoatTypeValue, WithBoatType } from '../Selects';
+import BerthNoBoat from './tabs/BerthNoBoat';
+import BerthRegisteredBoat from './tabs/BerthRegisteredBoat';
+import BerthUnregisteredBoat from './tabs/BerthUnregisteredBoat';
+import SectionSelector from '../../../../components/forms/sections/sectionSelector/SectionSelector';
+import { BerthFormValues } from '../../types';
+import { BigBoatTypeValue, WithBoatType } from '../../../../components/forms/Selects';
 
 type Props = {
   values?: BerthFormValues;

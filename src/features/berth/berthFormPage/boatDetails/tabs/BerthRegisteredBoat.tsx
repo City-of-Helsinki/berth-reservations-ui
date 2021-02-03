@@ -1,15 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Container } from 'reactstrap';
 
-import Accessibility from '../fragments/Accessibility';
-import BigShips from '../fragments/BigShips';
-import BoatInfo from '../fragments/BoatInfo';
-import BoatMeasures from '../fragments/BoatMeasures';
-import RegisteredBoatDetails from '../fragments/RegisteredBoatDetails';
-import { WithBoatType } from '../Selects';
-
-import './tabs.scss';
+import FormTab from '../../../../../common/formTab/FormTab';
+import Accessibility from '../../../../../components/forms/fragments/Accessibility';
+import BigShips from '../../../../../components/forms/fragments/BigShips';
+import BoatInfo from '../../../../../components/forms/fragments/BoatInfo';
+import BoatMeasures from '../../../../../components/forms/fragments/BoatMeasures';
+import RegisteredBoatDetails from '../../../../../components/forms/fragments/RegisteredBoatDetails';
+import { WithBoatType } from '../../../../../components/forms/Selects';
 
 type Props = {
   showBigShipsForm: boolean;
@@ -18,11 +16,11 @@ type Props = {
 const BerthRegisteredBoat = ({ showBigShipsForm, boatTypes }: Props) => {
   const { t } = useTranslation();
   return (
-    <Container className="vene-form__styled-container">
+    <FormTab>
       <RegisteredBoatDetails boatTypes={boatTypes} />
       <BoatMeasures showWeight showDraught />
       {showBigShipsForm && (
-        <div className="vene-form__big-ships">
+        <div>
           <h3>{t('form.big_ship.header.title')}</h3>
           <p>{t('form.big_ship.text.summary')}</p>
           <h3>{t('form.big_ship.header.details')}</h3>
@@ -32,7 +30,7 @@ const BerthRegisteredBoat = ({ showBigShipsForm, boatTypes }: Props) => {
       )}
       <BoatInfo />
       <Accessibility />
-    </Container>
+    </FormTab>
   );
 };
 
