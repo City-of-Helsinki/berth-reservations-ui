@@ -15,7 +15,7 @@ import OverviewInfo from '../fragments/overview/overviewInfo/OverviewInfo';
 import Person from '../fragments/overview/person/Person';
 import { ApplicationState } from '../../../redux/types';
 import { ApplicationOptions } from '../../../common/types/applicationType';
-import { BerthFormValues, Berths } from '../../../features/berthApplication/types';
+import { BerthFormValues, Berths } from '../../../features/berth/types';
 import { StepType } from '../../../common/steps/step/Step';
 import { BigBoatTypeValue, WithBoatType } from '../Selects';
 

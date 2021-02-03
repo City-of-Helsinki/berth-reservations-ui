@@ -1,9 +1,9 @@
 import { Record } from 'immutable';
 
 import { WinterStorageMethod } from '../../__generated__/globalTypes';
-import { BerthFormValues } from '../../features/berthApplication/types';
-import { UnmarkedWinterFormValues } from '../../features/unmarkedWinterStorageApplication/types';
-import { WinterFormValues } from '../../features/winterStorageApplication/types';
+import { BerthFormValues } from '../../features/berth/types';
+import { UnmarkedWinterFormValues } from '../../features/unmarkedWinterStorage/types';
+import { WinterFormValues } from '../../features/winterStorage/types';
 import { Action, FormsFactory, FormsState } from '../types';
 
 const berthValues: BerthFormValues = {

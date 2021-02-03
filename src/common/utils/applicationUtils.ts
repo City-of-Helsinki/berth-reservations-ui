@@ -2,14 +2,14 @@ import { List } from 'immutable';
 import get from 'lodash/get';
 
 import { SelectedIds } from '../types/resource';
-import { BerthFormValues, BerthType } from '../../features/berthApplication/types';
+import { BerthFormValues, BerthType } from '../../features/berth/types';
 import {
   SelectedServices,
   SelectedServicesProps,
   SelectedWinterServices,
   SelectedWinterServicesProps,
 } from '../types/services';
-import { WinterFormValues, WinterStorageType } from '../../features/winterStorageApplication/types';
+import { WinterFormValues, WinterStorageType } from '../../features/winterStorage/types';
 
 /**
  * Utility function that converts centimeters to meters.

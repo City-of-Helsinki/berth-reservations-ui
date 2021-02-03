@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions';
 
-import { BerthType } from '../../features/berthApplication/types';
+import { BerthType } from '../../features/berth/types';
 
 const selectBerth = createAction('SELECT_BERTH', (berth: BerthType) => berth);
 const deselectBerth = createAction('DESELECT_BERTH', (berth: BerthType) => berth);

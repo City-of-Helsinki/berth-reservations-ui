@@ -1,6 +1,6 @@
 import { List } from 'immutable';
 
-import { WinterAreas, WinterStorageType } from '../features/winterStorageApplication/types';
+import { WinterAreas, WinterStorageType } from '../features/winterStorage/types';
 
 export const createWinterArea = (options?: Partial<WinterStorageType>): WinterStorageType => {
   const newWinterArea: WinterStorageType = {

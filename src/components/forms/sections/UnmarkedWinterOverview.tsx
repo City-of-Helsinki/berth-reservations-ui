@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
-import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../features/unmarkedWinterStorageApplication/types';
+import { UnmarkedWinterFormValues, WinterStorageArea } from '../../../features/unmarkedWinterStorage/types';
 import Agreement from '../fragments/Agreement';
 import Newsletter from '../fragments/Newsletter';
 import UnmarkedWinterOverviewInfo from './UnmarkedWinterOverviewInfo';

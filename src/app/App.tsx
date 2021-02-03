@@ -2,23 +2,23 @@ import React, { useEffect } from 'react';
 import { Route, RouteComponentProps, Switch } from 'react-router';
 
 import i18n from '../locales/i18n';
-import BerthPage from '../features/berthPage/BerthPageContainer';
-import BerthFormPage from '../features/formPage/BerthFormPageContainer';
-import WinterFormPage from '../features/formPage/WinterFormPageContainer';
-import UnmarkedWinterFormPage from '../features/formPage/UnmarkedWinterFormPageContainer';
+import BerthPage from '../features/berth/berthPage/BerthPageContainer';
+import BerthFormPage from '../features/berth/berthFormPage/BerthFormPageContainer';
+import WinterFormPage from '../features/winterStorage/winterFormPage/WinterFormPageContainer';
+import UnmarkedWinterFormPage from '../features/unmarkedWinterStorage/unmarkedWinterFormPage/UnmarkedWinterFormPageContainer';
 import FrontPage from '../features/frontPage/FrontPage';
 import ApplicationThankYouPage from '../features/notice/ApplicationSentPage';
 import NotFoundPage from '../features/notice/NotFoundPage';
 import NoticeSentPage from '../features/notice/NoticeSentPage';
-import SelectedAreaPage from '../features/selectedAreaPage/SelectedAreaPageContainer';
-import SelectedBerthPage from '../features/selectedBerthPage/SelectedBerthPageContainer';
-import WinterStoragePage from '../features/winterStoragePage/WinterStoragePageContainer';
-import UnmarkedWinterStoragePage from '../features/unmarkedWinterStoragePage/UnmarkedWinterStoragePageContainer';
+import SelectedAreaPage from '../features/winterStorage/selectedAreaPage/SelectedAreaPageContainer';
+import SelectedBerthPage from '../features/berth/selectedBerthPage/SelectedBerthPageContainer';
+import WinterStoragePage from '../features/winterStorage/winterStoragePage/WinterStoragePageContainer';
+import UnmarkedWinterStoragePage from '../features/unmarkedWinterStorage/unmarkedWinterStoragePage/UnmarkedWinterStoragePageContainer';
 import { ApplicationType } from '../common/types/applicationType';
 import { LocaleOpts } from '../common/types/intl';
-import PaymentPageContainer from '../features/paymentPage/PaymentPageContainer';
-import { PaymentResultContainer } from '../features/paymentResultPage/PaymentResultContainer';
-import CancelOrderPageContainer from '../features/cancelOrderPage/CancelOrderPageContainer';
+import PaymentPageContainer from '../features/payment/paymentPage/PaymentPageContainer';
+import { PaymentResultContainer } from '../features/payment/paymentResultPage/PaymentResultContainer';
+import CancelOrderPageContainer from '../features/payment/cancelOrderPage/CancelOrderPageContainer';
 
 type Props = RouteComponentProps<{ locale: LocaleOpts }>;
 
