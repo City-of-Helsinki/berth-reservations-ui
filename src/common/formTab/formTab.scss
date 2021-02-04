@@ -1,6 +1,8 @@
+@import 'styles/variables';
+
 .vene-form {
   &__styled-container {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: $spacing-02;
+    margin-bottom: $spacing-02;
   }
 }
