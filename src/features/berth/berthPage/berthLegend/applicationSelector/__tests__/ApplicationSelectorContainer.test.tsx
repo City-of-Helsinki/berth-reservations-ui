@@ -3,10 +3,7 @@ import React from 'react';
 
 import { EXCHANGE_APPLICATION_LIMIT } from '../../../../../../common/utils/constants';
 import { ApplicationOptions } from '../../../../../../common/types/applicationType';
-import {
-  _ApplicationSelectorContainer as ApplicationSelectorContainer,
-  ApplicationSelectorContainerProps,
-} from '../ApplicationSelectorContainer';
+import { ApplicationSelectorContainer, ApplicationSelectorContainerProps } from '../ApplicationSelectorContainer';
 import * as useAutoDismissAlert from '../useAutoDismissAlert';
 
 describe('forms/sections/ApplicationSelectorContainer', () => {

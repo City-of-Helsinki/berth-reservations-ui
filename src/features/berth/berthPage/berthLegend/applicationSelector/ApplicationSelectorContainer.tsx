@@ -22,7 +22,7 @@ export type ApplicationSelectorContainerProps = {
   switchApplication: Function;
 };
 
-export const _ApplicationSelectorContainer = ({
+export const ApplicationSelectorContainer = ({
   berthsApplicationType,
   className,
   resetBerthLimit,
@@ -67,4 +67,4 @@ export default connect(mapStateToProps, {
   switchApplication: switchApplicationAction,
   setBerthLimit: setBirthLimitAction,
   resetBerthLimit: resetBerthLimitAction,
-})(_ApplicationSelectorContainer);
+})(ApplicationSelectorContainer);
