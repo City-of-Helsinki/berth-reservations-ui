@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import { getBerthFilterByValues, isResourceSelected } from '../../../common/utils/applicationUtils';
+import { isResourceSelected } from '../../../common/utils/applicationUtils';
 import TabSelector from '../../../common/tabSelector/TabSelector';
 import CardsList from '../../../common/cardsList/CardsList';
 import Hero from '../../../common/hero/Hero';
@@ -10,6 +10,7 @@ import Map from '../../../common/map/Map';
 import UnregisteredBoatDetails from '../../../common/unregisteredBoatDetails/UnregisteredBoatDetails';
 import KoroSection from '../../../common/layout/koroSection/KoroSection';
 import Layout from '../../../common/layout/Layout';
+import { getBerthFilterByValues } from '../utils';
 import BerthLegend from './berthLegend/BerthLegend';
 import { BerthFormValues, Berths as BerthsType, BerthType } from '../types';
 import { BoatTypes } from '../../../common/types/boatTypes';

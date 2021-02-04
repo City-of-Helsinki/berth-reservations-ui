@@ -6,12 +6,9 @@ import { useQuery } from 'react-apollo';
 
 import { deselectWinterArea, moveWinterAreaDown, moveWinterAreaUp } from '../../../redux/actions/WinterAreaActions';
 import { WinterAreasQuery } from '../../__generated__/WinterAreasQuery';
-import {
-  getResources,
-  getSelectedResources,
-  getWinterStorageFilterByValues,
-} from '../../../common/utils/applicationUtils';
+import { getResources, getSelectedResources } from '../../../common/utils/applicationUtils';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
+import { getWinterStorageFilterByValues } from '../utils';
 import SelectedAreaPage from './SelectedAreaPage';
 import { WINTER_AREAS_QUERY } from '../../queries';
 import { Store } from '../../../redux/types';
