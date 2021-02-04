@@ -1,4 +1,3 @@
-import get from 'lodash/get';
 import React, { Fragment } from 'react';
 import { Col, Row } from 'reactstrap';
 
@@ -37,7 +36,7 @@ const BerthOverviewInfo = ({
   boatTab,
   applicationType,
 }: Props) => {
-  const showBigShipsForm = get(values, 'boatType') === BigBoatTypeValue;
+  const showBigShipsForm = values.boatType === BigBoatTypeValue;
 
   return (
     <OverviewInfo title={applicationType}>

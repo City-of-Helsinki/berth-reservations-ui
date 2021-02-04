@@ -1,4 +1,3 @@
-import get from 'lodash/get';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
@@ -77,9 +76,9 @@ const UnconnectedSelectedBerthPage = ({ localePush, values, selectedServices, se
   const berths = getResources(data ? data.harbors : null);
   const selected = getSelectedResources(selectedBerths, berths);
   const boatTypes = !loading && data ? data.boatTypes : [];
-  const type = get(values, 'boatType');
-  const width = get(values, 'boatWidth', '');
-  const length = get(values, 'boatLength', '');
+  const type = values.boatType;
+  const width = values.boatWidth;
+  const length = values.boatLength;
   const boatType = boatTypes ? boatTypes.find((t) => !!t && t.id === type) : undefined;
   const boatTypeName = boatType && boatType.name;
   const filter = getBerthFilterByValues(values, selectedServices);

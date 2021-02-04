@@ -1,4 +1,3 @@
-import get from 'lodash/get';
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
@@ -19,7 +18,7 @@ type Props = {
 } & WithBoatType;
 
 const WinterBoatDetails = ({ values, tab, requireBoat, boatTypes, showStorageMethod = true }: Props) => {
-  const showTrailerRegNum = get(values, 'storageMethod') === WinterStorageMethod.ON_TRAILER;
+  const showTrailerRegNum = values?.storageMethod === WinterStorageMethod.ON_TRAILER;
   const getRegistrationTypes = () => {
     const registeredBoat: TypeProps = {
       label: 'form.boat_type_selector.registered_boat.label',

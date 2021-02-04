@@ -1,4 +1,3 @@
-import get from 'lodash/get';
 import React from 'react';
 import { useQuery } from 'react-apollo';
 
@@ -19,7 +18,7 @@ const OldBerthInfoContainer = ({ application }: OldBerthInfoContainerProps) => {
   const isReason = (reason: Reason | null): reason is Reason => reason !== null;
 
   const { data: harborData } = useQuery<Harbor, { id: string }>(GET_HARBOR_NAME(application.berthSwitch.harborId));
-  const harborName = get(harborData, 'harbor.properties.name') || application.berthSwitch.harborId;
+  const harborName = harborData?.properties?.name || application.berthSwitch.harborId;
 
   const { data: reasonData } = useQuery<BerthSwitchReasonsQuery>(BERTH_SWITCH_REASONS_QUERY);
   const reasons = reasonData?.berthSwitchReasons ? reasonData.berthSwitchReasons.filter(isReason) : [];

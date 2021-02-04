@@ -1,4 +1,3 @@
-import get from 'lodash/get';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
@@ -70,8 +69,8 @@ const UnconnectedSelectedAreaPage = ({ localePush, values, selectedAreas, select
     await localePush('/winter-storage');
   };
 
-  const width = get(values, 'boatWidth', '');
-  const length = get(values, 'boatLength', '');
+  const width = values.boatWidth;
+  const length = values.boatLength;
   const filter = getWinterStorageFilterByValues(values, selectedServices);
   const areas = getResources(data ? data.winterStorageAreas : null);
   const selected = getSelectedResources(selectedAreas, areas);

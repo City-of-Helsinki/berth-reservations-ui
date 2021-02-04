@@ -1,4 +1,3 @@
-import get from 'lodash/get';
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
@@ -15,7 +14,7 @@ type Props = {
 } & WithBoatType;
 
 const BoatDetails = ({ values, tab, boatTypes }: Props) => {
-  const showBigShipsForm = get(values, 'boatType') === BigBoatTypeValue;
+  const showBigShipsForm = values?.boatType === BigBoatTypeValue;
   return (
     <>
       <SectionSelector
