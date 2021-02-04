@@ -63,9 +63,7 @@ const ApplicationSelector = ({
         </Row>
       </Container>
 
-      {alertVisible && (
-        <Alert toggle={() => closeAlert()} color="danger" messageId="page.berth.exchange_application.warning" />
-      )}
+      {alertVisible && <Alert toggle={closeAlert} color="danger" messageId="page.berth.exchange_application.warning" />}
     </div>
   );
 };

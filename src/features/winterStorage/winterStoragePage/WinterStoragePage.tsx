@@ -87,9 +87,7 @@ const WinterStoragePage = ({
   } = useTranslation();
   useLayoutEffect(() => window.scrollTo(0, 0));
 
-  const moveToForm = async () => {
-    await localePush('winter-storage/selected');
-  };
+  const moveToForm = () => localePush('winter-storage/selected');
 
   const toggleBerthSelect = (winterArea: WinterStorageType) => {
     if (selectedAreasIds.find((selectedId) => selectedId === winterArea.id)) {

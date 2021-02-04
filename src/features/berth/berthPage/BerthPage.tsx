@@ -88,9 +88,7 @@ const BerthPage = ({
   } = useTranslation();
   useLayoutEffect(() => window.scrollTo(0, 0));
 
-  const moveToForm = async () => {
-    await localePush('berths/selected');
-  };
+  const moveToForm = () => localePush('berths/selected');
 
   const toggleBerthSelect = (selectedBerth: BerthType) => {
     if (selectedBerthsIds.find((selectedId) => selectedId === selectedBerth.id)) {
