@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { FormSpy, FormSpyRenderProps } from 'react-final-form';
 
-interface Props {
-  save: (values: any) => void;
+interface Props<T> {
+  save: (values: T) => void;
   debounce: number;
-  values?: any;
+  values?: T;
 }
 
-class AutoSave extends Component<Props & FormSpyRenderProps> {
+class AutoSave extends Component<Props<any> & FormSpyRenderProps> {
   timeout?: number;
 
-  promise?: Promise<any>;
-  constructor(props: Props & FormSpyRenderProps) {
+  constructor(props: Props<any> & FormSpyRenderProps) {
     super(props);
     this.timeout = undefined;
   }
@@ -35,7 +34,7 @@ class AutoSave extends Component<Props & FormSpyRenderProps> {
 
 // FIXME: Turn into function component
 // eslint-disable-next-line import/no-anonymous-default-export
-export default (props: Props) => (
+export default (props: Props<any>) => (
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   <FormSpy {...props} subscription={{ values: true }} component={AutoSave} />
