@@ -27,7 +27,7 @@ const formTabs = [boatTabs, applicantTabs, ['overview']];
 
 type Props = {
   initialValues: UnmarkedWinterFormValues;
-  onSubmit: Function;
+  onSubmit: (values: UnmarkedWinterFormValues) => void;
   localePush: LocalePush;
 } & RouteComponentProps<{ tab: string }>;
 
@@ -103,22 +103,22 @@ const UnmarkedWinterFormPageContainer = ({
     },
   ];
 
-  const goBackward = async (values: {}) => {
-    await onSubmit(values);
+  const goBackward = (values: UnmarkedWinterFormValues) => {
+    onSubmit(values);
     if (steps[currentStep - 1]) {
-      await localePush(steps[currentStep - 1].linkTo);
+      localePush(steps[currentStep - 1].linkTo);
     }
   };
 
-  const goForward = async (values: UnmarkedWinterFormValues) => {
-    await onSubmit(values);
+  const goForward = (values: UnmarkedWinterFormValues) => {
+    onSubmit(values);
     if (steps[currentStep + 1]) {
-      await localePush(steps[currentStep + 1].linkTo);
+      localePush(steps[currentStep + 1].linkTo);
     }
   };
 
-  const submit = async (values: UnmarkedWinterFormValues) => {
-    await onSubmit(values);
+  const submit = (values: UnmarkedWinterFormValues) => {
+    onSubmit(values);
 
     const normalizedValues = Object.assign({}, values, {
       boatWidth: stringToFloat(values.boatWidth),

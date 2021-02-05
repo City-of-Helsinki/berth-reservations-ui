@@ -22,9 +22,9 @@ import { SelectedIds } from '../../../common/types/resource';
 import { StepType } from '../../../common/steps/step/Step';
 
 type Props = {
-  initialValues: {};
+  initialValues: WinterFormValues;
   selectedAreas: SelectedIds;
-  onSubmit: Function;
+  onSubmit: (values: WinterFormValues) => void;
   localePush: LocalePush;
 } & RouteComponentProps<{ tab: string }>;
 
@@ -111,22 +111,22 @@ const WinterFormPageContainer = ({
     },
   ];
 
-  const goBackward = async (values: {}) => {
-    await onSubmit(values);
+  const goBackward = (values: WinterFormValues) => {
+    onSubmit(values);
     if (steps[currentStep - 1]) {
-      await localePush(steps[currentStep - 1].linkTo);
+      localePush(steps[currentStep - 1].linkTo);
     }
   };
 
-  const goForward = async (values: WinterFormValues) => {
-    await onSubmit(values);
+  const goForward = (values: WinterFormValues) => {
+    onSubmit(values);
     if (steps[currentStep + 1]) {
-      await localePush(steps[currentStep + 1].linkTo);
+      localePush(steps[currentStep + 1].linkTo);
     }
   };
 
-  const submit = async (values: WinterFormValues) => {
-    await onSubmit(values);
+  const submit = (values: WinterFormValues) => {
+    onSubmit(values);
 
     const chosenAreas = selectedAreas
       .map((winterAreaId, priority) => ({

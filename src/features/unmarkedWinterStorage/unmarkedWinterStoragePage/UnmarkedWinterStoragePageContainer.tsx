@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import omit from 'lodash/omit';
 import { useQuery } from 'react-apollo';
 
 import { onSubmitUnmarkedWinterForm } from '../../../redux/actions/FormActions';
@@ -20,7 +19,7 @@ interface WithLocalePush {
 
 interface PropsFromState {
   initialValues: UnmarkedWinterFormValues;
-  onSubmit: Function;
+  onSubmit: (values: UnmarkedWinterFormValues) => void;
 }
 
 type Props = WithLocalePush & PropsFromState;
@@ -58,20 +57,10 @@ const UnmarkedWinterStoragePageContainer = ({ localePush, onSubmit, initialValue
 
   const winterStorageAreas = getWinterStorageAreas(data ? data.winterStorageAreas : null);
 
-  const handleSubmit = (values: Partial<UnmarkedWinterFormValues>) => {
-    if (values.chosenAreas !== initialValues.chosenAreas) {
-      const otherValues = omit(initialValues, 'chosenAreas');
-      return onSubmit({
-        ...otherValues,
-        ...values,
-      });
-    }
-  };
-
   return (
     <UnmarkedWinterStoragePage
       localePush={localePush}
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
       initialValues={initialValues}
       steps={steps}
       winterStorageAreas={winterStorageAreas}

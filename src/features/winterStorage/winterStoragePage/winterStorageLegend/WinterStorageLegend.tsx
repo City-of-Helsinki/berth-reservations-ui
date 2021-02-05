@@ -9,13 +9,14 @@ import Form from '../../../../common/form/Form';
 import Steps from '../../../../common/steps/Steps';
 import { SelectedWinterServices, WinterServices } from '../../../../common/types/services';
 import { StepType } from '../../../../common/steps/step/Step';
+import { WinterFormValues } from '../../types';
 
 import './winterStorageLegend.scss';
 
 interface Props {
   form?: {
-    initialValues: object;
-    onSubmit: Function;
+    initialValues: WinterFormValues;
+    onSubmit: (values: WinterFormValues) => void;
     render: () => JSX.Element;
   };
   legend?: {
@@ -29,10 +30,10 @@ interface Props {
       value: WinterServices;
       icon: IconNames;
     }[];
-    deselectService: Function;
+    deselectService: (type: string) => void;
     label: string;
     selectedServices: SelectedWinterServices;
-    selectService: Function;
+    selectService: (type: string) => void;
   };
 }
 

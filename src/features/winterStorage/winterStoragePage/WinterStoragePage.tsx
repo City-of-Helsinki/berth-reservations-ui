@@ -26,11 +26,11 @@ export type Props = {
   initialValues: WinterFormValues;
   selectedAreasIds: SelectedIds;
   selectedServices: SelectedWinterServices;
-  selectArea: Function;
-  deselectArea: Function;
-  selectService: Function;
-  deselectService: Function;
-  onSubmit: Function;
+  selectArea: (areaId: string) => void;
+  deselectArea: (areaId: string) => void;
+  selectService: (type: string) => void;
+  deselectService: (type: string) => void;
+  onSubmit: (values: WinterFormValues) => void;
   localePush: LocalePush;
   areas: WinterAreas;
   boatTypes?: BoatTypes;

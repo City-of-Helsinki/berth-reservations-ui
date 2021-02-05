@@ -22,9 +22,9 @@ import { getResources, getSelectedResources, stringToFloat } from '../../../comm
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
 
 type Props = {
-  initialValues: {};
+  initialValues: BerthFormValues;
   selectedBerths: SelectedIds;
-  onSubmit: Function;
+  onSubmit: (values: BerthFormValues) => void;
   localePush: LocalePush;
   application: ApplicationState;
 } & RouteComponentProps<{ tab: string }>;
@@ -111,22 +111,22 @@ const BerthFormPageContainer = ({
     },
   ];
 
-  const goBackward = async (values: {}) => {
-    await onSubmit(values);
+  const goBackward = (values: BerthFormValues) => {
+    onSubmit(values);
     if (steps[currentStep - 1]) {
-      await localePush(steps[currentStep - 1].linkTo);
+      localePush(steps[currentStep - 1].linkTo);
     }
   };
 
-  const goForward = async (values: BerthFormValues) => {
-    await onSubmit(values);
+  const goForward = (values: BerthFormValues) => {
+    onSubmit(values);
     if (steps[currentStep + 1]) {
-      await localePush(steps[currentStep + 1].linkTo);
+      localePush(steps[currentStep + 1].linkTo);
     }
   };
 
-  const submit = async (values: BerthFormValues) => {
-    await onSubmit(values);
+  const submit = (values: BerthFormValues) => {
+    onSubmit(values);
 
     const choices = selectedBerths
       .map((harborId, priority) => ({

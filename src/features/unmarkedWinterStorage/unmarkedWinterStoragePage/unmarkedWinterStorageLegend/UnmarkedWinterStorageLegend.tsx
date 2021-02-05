@@ -5,6 +5,7 @@ import AutoSave from '../../../../common/autoSave/AutoSave';
 import Form from '../../../../common/form/Form';
 import { StepType } from '../../../../common/steps/step/Step';
 import Steps from '../../../../common/steps/Steps';
+import { UnmarkedWinterFormValues } from '../../types';
 
 import './unmarkedWinterStorageLegend.scss';
 
@@ -14,8 +15,8 @@ export type UnmarkedWinterStorageLegendProps = {
     legend: string;
   };
   form: {
-    initialValues: object;
-    onSubmit: Function;
+    initialValues: UnmarkedWinterFormValues;
+    onSubmit: (values: UnmarkedWinterFormValues) => void;
     render: () => JSX.Element;
   };
   steps: StepType[];

@@ -25,16 +25,16 @@ export type Props = {
   berthLimit: number;
   berths: BerthsType;
   boatTypes?: BoatTypes;
-  deselectBerth: Function;
-  deselectService: Function;
+  deselectBerth: (berthId: string) => void;
+  deselectService: (type: string) => void;
   filtered: BerthsType;
   filteredNot: BerthsType;
   initialValues: BerthFormValues;
   loading: boolean;
   localePush: LocalePush;
-  onSubmit: Function;
-  selectBerth: Function;
-  selectService: Function;
+  onSubmit: (values: BerthFormValues) => void;
+  selectBerth: (berthId: string) => void;
+  selectService: (type: string) => void;
   selectedBerthsIds: SelectedIds;
   selectedServices: SelectedServices;
   services: {

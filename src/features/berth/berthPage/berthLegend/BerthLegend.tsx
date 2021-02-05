@@ -6,6 +6,7 @@ import { Col, Container, Row } from 'reactstrap';
 import Icon, { IconNames } from '../../../../common/icon/Icon';
 import AutoSave from '../../../../common/autoSave/AutoSave';
 import Form from '../../../../common/form/Form';
+import { BerthFormValues } from '../../types';
 import ApplicationSelector from './applicationSelector/ApplicationSelectorContainer';
 import Steps from '../../../../common/steps/Steps';
 import { BerthsServices, SelectedServices } from '../../../../common/types/services';
@@ -16,7 +17,7 @@ import './berthLegend.scss';
 interface Props {
   form?: {
     initialValues: object;
-    onSubmit: Function;
+    onSubmit: (values: BerthFormValues) => void;
     render: () => JSX.Element;
   };
   legend?: {
@@ -30,10 +31,10 @@ interface Props {
       value: BerthsServices;
       icon: IconNames;
     }[];
-    deselectService: Function;
+    deselectService: (type: string) => void;
     label: string;
     selectedServices: SelectedServices;
-    selectService: Function;
+    selectService: (type: string) => void;
   };
 }
 

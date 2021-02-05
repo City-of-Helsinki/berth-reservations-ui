@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { FormSpy, FormSpyRenderProps } from 'react-final-form';
 
 interface Props {
-  save: Function;
+  save: (values: any) => void;
   debounce: number;
-  values?: FormData;
+  values?: any;
 }
 
 class AutoSave extends Component<Props & FormSpyRenderProps> {
@@ -13,9 +13,7 @@ class AutoSave extends Component<Props & FormSpyRenderProps> {
   promise?: Promise<any>;
   constructor(props: Props & FormSpyRenderProps) {
     super(props);
-
     this.timeout = undefined;
-    this.promise = undefined;
   }
 
   componentDidUpdate() {
@@ -26,18 +24,12 @@ class AutoSave extends Component<Props & FormSpyRenderProps> {
   }
 
   save = async () => {
-    if (this.promise) {
-      await this.promise;
-    }
-
     const { values, save } = this.props;
-    this.promise = save(values);
-    await this.promise;
-    delete this.promise;
+    save(values);
   };
 
   render() {
-    return this.promise ? 'submitting' : null;
+    return null;
   }
 }
 

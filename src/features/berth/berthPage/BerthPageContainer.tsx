@@ -23,11 +23,11 @@ interface Props {
   filteredNot: BerthsType;
   selectedBerthsIds: SelectedIds;
   selectedServices: SelectedServices;
-  selectBerth: Function;
-  deselectBerth: Function;
-  selectService: Function;
-  deselectService: Function;
-  onSubmit: Function;
+  selectBerth: (berthId: string) => void;
+  deselectBerth: (berthId: string) => void;
+  selectService: (type: string) => string;
+  deselectService: (type: string) => string;
+  onSubmit: (values: BerthFormValues) => void;
   localePush: LocalePush;
   berthLimit: number;
 }

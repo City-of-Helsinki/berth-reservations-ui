@@ -12,7 +12,7 @@ const selectedWinterServices = Record({
 });
 
 const init: WinterAreasProps = {
-  selectedWinterAreas: List(),
+  selectedWinterAreas: List<string>(),
   selectedWinterServices: selectedWinterServices(),
   areasLimit: Number(process.env.REACT_APP_MAX_SELECTED_BERTHS) || 10,
 };

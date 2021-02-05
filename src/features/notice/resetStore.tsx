@@ -8,10 +8,10 @@ import { resetValues } from '../../redux/actions/FormActions';
 import { resetWinterAreas } from '../../redux/actions/WinterAreaActions';
 
 interface Props {
-  resetValues: Function;
-  resetBerths: Function;
-  resetWinterAreas: Function;
-  resetApplication: Function;
+  resetValues: () => void;
+  resetBerths: () => void;
+  resetWinterAreas: () => void;
+  resetApplication: () => void;
 }
 
 const resetStore = (component: React.ComponentType<Props>) =>

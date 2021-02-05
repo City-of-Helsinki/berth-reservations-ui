@@ -16,10 +16,10 @@ import useAutoDismissAlert from './useAutoDismissAlert';
 export type ApplicationSelectorContainerProps = {
   berthsApplicationType: string;
   className?: string;
-  resetBerthLimit: Function;
+  resetBerthLimit: () => void;
   selectedBerthCount: number;
-  setBerthLimit: Function;
-  switchApplication: Function;
+  setBerthLimit: (limit: number) => void;
+  switchApplication: (event: ApplicationOptions) => void;
 };
 
 export const ApplicationSelectorContainer = ({
@@ -41,7 +41,7 @@ export const ApplicationSelectorContainer = ({
     } else if (selectedBerthCount > EXCHANGE_APPLICATION_LIMIT) {
       setAlertVisible(true);
     } else {
-      switchApplication(e.currentTarget.value);
+      switchApplication(e.currentTarget.value as ApplicationOptions.ExchangeApplication);
       setBerthLimit(EXCHANGE_APPLICATION_LIMIT);
     }
   };

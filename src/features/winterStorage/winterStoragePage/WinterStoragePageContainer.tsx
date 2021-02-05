@@ -32,11 +32,11 @@ interface PropsFromState {
   selectedAreasIds: SelectedIds;
   selectedServices: SelectedWinterServices;
   areasLimit: number;
-  selectService: Function;
-  deselectService: Function;
-  onSubmit: Function;
-  selectArea: Function;
-  deselectArea: Function;
+  selectService: (type: string) => void;
+  deselectService: (type: string) => void;
+  onSubmit: (values: WinterFormValues) => void;
+  selectArea: (areaId: string) => void;
+  deselectArea: (areaId: string) => void;
 }
 
 type Props = WithLocalePush & PropsFromState;

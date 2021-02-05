@@ -11,7 +11,7 @@ export const selectedServices = Record({
 });
 
 const defaultState: BerthsFactory = Record({
-  selectedBerths: List(),
+  selectedBerths: List<string>(),
   selectedServices: selectedServices(),
   berthLimit: Number(process.env.REACT_APP_MAX_SELECTED_BERTHS) || 10,
 });

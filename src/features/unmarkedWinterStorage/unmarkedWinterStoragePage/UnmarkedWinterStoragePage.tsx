@@ -18,7 +18,7 @@ import './unmarkedWinterStoragePage.scss';
 export type UnmarkedWinterStoragePageProps = {
   initialValues: UnmarkedWinterFormValues;
   localePush: LocalePush;
-  onSubmit: Function;
+  onSubmit: (values: UnmarkedWinterFormValues) => void;
   steps: StepType[];
   winterStorageAreas: List<WinterStorageArea>;
 };
