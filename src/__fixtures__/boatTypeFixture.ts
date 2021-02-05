@@ -1,4 +1,4 @@
-import { BoatType } from '../types/boatTypes';
+import { BoatType } from '../common/types/boatTypes';
 
 export const boatType: BoatType = {
   __typename: 'BoatTypeType',

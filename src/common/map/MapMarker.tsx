@@ -4,7 +4,7 @@ import { Marker } from 'react-leaflet';
 
 interface Props {
   id: string;
-  onClick: Function;
+  onClick: () => void;
   markerIcon: L.Icon;
   position: [number, number];
 }

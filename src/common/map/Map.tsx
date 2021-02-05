@@ -4,13 +4,13 @@ import { MapContainer as LeafletMap, TileLayer } from 'react-leaflet';
 
 import mapIcon from './mapIcon';
 import MapMarker from './MapMarker';
-import { isResourceSelected } from '../../utils/berths';
+import { isResourceSelected } from '../utils/applicationUtils';
 import './map.scss';
 import Spinner from '../spinner/Spinner';
 
 interface MapProps<T extends { id: string; geometry: { coordinates: [number, number] } }> {
   // eslint-disable-next-line react/no-unused-prop-types
-  TabHeader?: React.FC; // required for TabSelector component
+  TabHeader?: React.ReactNode; // required for TabSelector component
   filtered: List<T>;
   filteredNot: List<T>;
   selectedIds: List<string>;

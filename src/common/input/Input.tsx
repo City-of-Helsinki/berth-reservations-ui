@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { FC } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { CustomInput as BTInput, CustomInputProps as BTInputProps } from 'reactstrap';
 
@@ -7,7 +7,7 @@ import './input.scss';
 
 export type InputProps = BTInputProps;
 
-const Input: FC<InputProps> = ({ className, type, placeholder, label, ...rest }) => {
+const Input = ({ className, type, placeholder, label, ...rest }: InputProps) => {
   const { t } = useTranslation();
 
   return (

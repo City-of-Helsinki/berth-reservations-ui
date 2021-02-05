@@ -1,12 +1,12 @@
 import { Record, RecordOf } from 'immutable';
 
 import { BerthSwitchInput } from '../__generated__/globalTypes';
-import { SelectedIds } from '../components/berths/types';
-import { ApplicationOptions } from '../types/applicationType';
-import { BerthFormValues } from '../types/berth';
-import { SelectedServices, SelectedWinterServices } from '../types/services';
-import { UnmarkedWinterFormValues } from '../types/unmarkedWinterStorage';
-import { WinterFormValues } from '../types/winterStorage';
+import { SelectedIds } from '../common/types/resource';
+import { ApplicationOptions } from '../common/types/applicationType';
+import { BerthFormValues } from '../features/berth/types';
+import { SelectedServices, SelectedWinterServices } from '../common/types/services';
+import { UnmarkedWinterFormValues } from '../features/unmarkedWinterStorage/types';
+import { WinterFormValues } from '../features/winterStorage/types';
 
 interface FormProps {
   berthValues: BerthFormValues;

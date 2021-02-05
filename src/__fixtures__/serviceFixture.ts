@@ -1,5 +1,5 @@
 import { selectedServices } from '../redux/reducers/BerthReducers';
-import { SelectedServices } from '../types/services';
+import { SelectedServices } from '../common/types/services';
 
 export const createServices = (options?: object): SelectedServices => {
   const defaultServices = selectedServices();

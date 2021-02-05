@@ -1,9 +1,9 @@
 import classNames from 'classnames';
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'reactstrap';
 
-import LocalizedLink from '../LocalizedLink';
+import LocalizedLink from '../localizedLink/LocalizedLink';
 import Layout from '../layout/Layout';
 import './noticeTemplate.scss';
 
@@ -15,9 +15,7 @@ export interface NoticePageProps {
 }
 
 const NoticeTemplate = ({ titleText, message, success = false, id }: NoticePageProps) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useLayoutEffect(() => window.scrollTo(0, 0), []);
   const { t } = useTranslation();
 
   return (

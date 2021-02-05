@@ -15,7 +15,7 @@ import './locales/i18n';
 import './assets/styles/main.scss';
 
 import { version } from '../package.json';
-import initApolloClient from './config/initApolloClient';
+import apolloClient from './app/apolloClient';
 import configureStore from './redux/store/configureStore';
 import App from './app/App';
 
@@ -33,7 +33,6 @@ Sentry.init({
   dsn: REACT_APP_SENTRY_DSN,
 });
 
-const client = initApolloClient();
 const { store, persistor } = configureStore();
 
 const localVersion = localStorage.getItem('venepaikka_version');
@@ -45,7 +44,7 @@ if (localVersion !== version) {
 }
 
 const Root = () => (
-  <ApolloProvider client={client}>
+  <ApolloProvider client={apolloClient}>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <Router history={piwik.connectToHistory(history)}>

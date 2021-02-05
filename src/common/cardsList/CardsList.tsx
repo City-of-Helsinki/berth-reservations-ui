@@ -8,7 +8,7 @@ import Spinner from '../spinner/Spinner';
 
 interface CardsListProps {
   // eslint-disable-next-line react/no-unused-prop-types
-  TabHeader?: React.FC; // required for TabSelector component
+  TabHeader?: React.ReactNode; // required for TabSelector component
   includedHeader: string;
   included: React.ReactNodeArray;
   excludedHeader: string;
