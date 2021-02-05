@@ -8,7 +8,7 @@ import './tabSelector.scss';
 
 interface Props {
   children: React.ReactNode;
-  progress: Function;
+  progress: () => void;
   selectedCount: number;
   invalidSelection?: string;
   tabMessage: React.ReactNode;

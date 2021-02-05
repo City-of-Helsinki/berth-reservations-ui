@@ -2,7 +2,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { MemoryRouter, Route, RouteComponentProps } from 'react-router-dom';
 
-import { withMatchParamsHandlers } from '../container';
+import { LocalePush, withMatchParamsHandlers } from '../container';
 
 describe('utils/container', () => {
   beforeEach(() => {
@@ -11,7 +11,9 @@ describe('utils/container', () => {
 
   describe('withMatchParamsHandlers', () => {
     // eslint-disable-next-line react/no-unused-prop-types
-    const Component = (props: { text: string; localePush: Function } & RouteComponentProps) => <div>{props.text}</div>;
+    const Component = (props: { text: string; localePush: LocalePush } & RouteComponentProps) => (
+      <div>{props.text}</div>
+    );
     const CompWithHandlers = withMatchParamsHandlers(Component);
     const getWrapper = (locale = 'fi') =>
       mount(
