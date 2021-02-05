@@ -37,7 +37,7 @@ const UnmarkedWinterStorageLegend = ({ legend, form, steps }: UnmarkedWinterStor
               {() => (
                 <>
                   {form.render()}
-                  <AutoSave debounce={500} save={form.onSubmit} />
+                  <AutoSave debounceInMs={500} save={form.onSubmit} />
                 </>
               )}
             </Form>

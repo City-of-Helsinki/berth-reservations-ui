@@ -56,7 +56,7 @@ const WinterStorageLegend = ({ form, legend, steps, services }: Props) => {
                 {() => (
                   <>
                     {form.render()}
-                    <AutoSave debounce={500} save={form.onSubmit} />
+                    <AutoSave debounceInMs={500} save={form.onSubmit} />
                   </>
                 )}
               </Form>

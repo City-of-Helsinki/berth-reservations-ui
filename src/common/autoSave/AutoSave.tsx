@@ -1,41 +1,38 @@
-import React, { Component } from 'react';
-import { FormSpy, FormSpyRenderProps } from 'react-final-form';
+import { debounce } from 'lodash';
+import React, { useCallback, useEffect } from 'react';
+import { FormSpy } from 'react-final-form';
 
-interface Props<T> {
+type AutoSaveProps<T> = {
   save: (values: T) => void;
-  debounce: number;
+  debounceInMs: number;
+};
+
+type AutoSaveComponentProps<T> = AutoSaveProps<T> & {
   values?: T;
-}
+};
 
-class AutoSave extends Component<Props<any> & FormSpyRenderProps> {
-  timeout?: number;
+const AutoSaveComponent = ({ save, values, debounceInMs }: AutoSaveComponentProps<any>) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debouncedSave = useCallback(
+    debounce((values) => {
+      save(values);
+    }, debounceInMs),
+    []
+  );
 
-  constructor(props: Props<any> & FormSpyRenderProps) {
-    super(props);
-    this.timeout = undefined;
-  }
+  useEffect(() => {
+    debouncedSave(values);
+  }, [debounceInMs, debouncedSave, save, values]);
 
-  componentDidUpdate() {
-    if (this.timeout) {
-      clearTimeout(this.timeout);
-    }
-    this.timeout = window.setTimeout(this.save, this.props.debounce);
-  }
+  return null;
+};
 
-  save = async () => {
-    const { values, save } = this.props;
-    save(values);
-  };
+const AutoSave = ({ save, debounceInMs }: AutoSaveProps<any>) => {
+  return (
+    <FormSpy subscription={{ values: true }}>
+      {({ values }) => <AutoSaveComponent save={save} debounceInMs={debounceInMs} values={values} />}
+    </FormSpy>
+  );
+};
 
-  render() {
-    return null;
-  }
-}
-
-// FIXME: Turn into function component
-// eslint-disable-next-line import/no-anonymous-default-export
-export default (props: Props<any>) => (
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  <FormSpy {...props} subscription={{ values: true }} component={AutoSave} />
-);
+export default AutoSave;
