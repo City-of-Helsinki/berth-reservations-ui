@@ -1,5 +1,5 @@
 import { List } from 'immutable';
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { Button, Col, Row } from 'reactstrap';
 
@@ -30,9 +30,7 @@ const UnmarkedWinterStoragePage = ({
   steps,
   winterStorageAreas,
 }: UnmarkedWinterStoragePageProps) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useLayoutEffect(() => window.scrollTo(0, 0), []);
   const {
     t,
     i18n: { language },

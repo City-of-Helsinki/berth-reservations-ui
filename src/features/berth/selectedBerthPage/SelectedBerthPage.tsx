@@ -59,7 +59,7 @@ const SelectedBerthPage = ({
   validSelection,
 }: Props) => {
   const { t } = useTranslation();
-  useLayoutEffect(() => window.scrollTo(0, 0));
+  useLayoutEffect(() => window.scrollTo(0, 0), []);
 
   const handleSubmitApplication = (values: BerthFormValues) => {
     if (submitExchangeForm) {

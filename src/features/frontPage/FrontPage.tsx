@@ -18,7 +18,7 @@ type Props = {
 
 const FrontPage = ({ localePush }: Props) => {
   const { t } = useTranslation();
-  useLayoutEffect(() => window.scrollTo(0, 0));
+  useLayoutEffect(() => window.scrollTo(0, 0), []);
 
   return (
     <Layout>

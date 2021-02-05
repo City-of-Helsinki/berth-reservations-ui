@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, Col, Container, Row } from 'reactstrap';
 
@@ -33,9 +33,7 @@ const Wizard = ({
   submit,
 }: Props) => {
   const { t } = useTranslation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useLayoutEffect(() => window.scrollTo(0, 0), []);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 

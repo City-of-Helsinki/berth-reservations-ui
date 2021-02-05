@@ -87,7 +87,7 @@ const BerthPage = ({
     t,
     i18n: { language },
   } = useTranslation();
-  useLayoutEffect(() => window.scrollTo(0, 0));
+  useLayoutEffect(() => window.scrollTo(0, 0), []);
 
   const moveToForm = () => localePush('berths/selected');
 
