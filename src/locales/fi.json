@@ -680,6 +680,20 @@
       "questions": "Kysymykset ja lisätiedot: ",
       "pay": "Jatka maksamaan"
     },
+    "profile": {
+      "contact": {
+        "title": "Yhteystiedot"
+      },
+      "boats": {
+        "title": "Veneet"
+      },
+      "berths": {
+        "title": "Venepaikat"
+      },
+      "winter_storage": {
+        "title": "Talvisäilytyspaikat"
+      }
+    },
     "winter_storage": {
       "appointed": "Merkityt ruutupaikat",
       "electricity": "Sähkö",

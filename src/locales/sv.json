@@ -680,6 +680,20 @@
       "questions": "Frågor och mer information: ",
       "pay": "Fortsätt till betalningent"
     },
+    "profile": {
+      "contact": {
+        "title": "Kontaktinformation"
+      },
+      "boats": {
+        "title": "Båtar"
+      },
+      "berths": {
+        "title": "Båtplatser"
+      },
+      "winter_storage": {
+        "title": "Vinteruppläggningsplatser"
+      }
+    },
     "winter_storage": {
       "appointed": "Markerade rutor",
       "electricity": "El",

@@ -680,6 +680,20 @@
       "questions": "Questions and further information: ",
       "pay": "Continue to payment"
     },
+    "profile": {
+      "contact": {
+        "title": "Contact information"
+      },
+      "boats": {
+        "title": "Boats"
+      },
+      "berths": {
+        "title": "Boat berths"
+      },
+      "winter_storage": {
+        "title": "Winter storage places"
+      }
+    },
     "winter_storage": {
       "appointed": "Appointed spaces",
       "electricity": "Electricity",
