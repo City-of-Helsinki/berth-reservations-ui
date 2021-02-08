@@ -1,0 +1,41 @@
+@import 'helsinki/colors';
+@import 'styles/variables';
+
+.vene-profile-page {
+  display: flex;
+  flex-grow: 1;
+  padding-bottom: $spacing-02;
+
+  &__tablist {
+    margin: $spacing-02 0;
+  }
+
+  &__tab {
+    color: 'black';
+    // Adjusting the colors here until HDS supports themes for Tabs
+    --tab-color: black;
+    --tab-active-border-color: black;
+
+    &--with-badge {
+      & span {
+        padding: 0;
+      }
+    }
+  }
+
+  &__tab-content {
+    &--with-badge {
+      &::after {
+        content: '';
+        display: block;
+        background: $hel-brick;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        right: $spacing-00-75;
+      }
+    }
+  }
+}
