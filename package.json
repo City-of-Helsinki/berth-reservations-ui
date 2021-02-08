@@ -51,7 +51,7 @@
     "immutable": "^4.0.0-rc.12",
     "leaflet": "^1.7.1",
     "lodash": "^4.17.20",
-    "node-sass": "^4.14.1",
+    "node-sass": "^5.0.0",
     "open-city-design": "^1.0.0-alpha.3",
     "piwik-react-router": "^0.12.1",
     "prettier": "^2.2.1",
