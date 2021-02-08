@@ -22,7 +22,7 @@
   "dependencies": {
     "@babel/helper-builder-react-jsx": "^7.12.13",
     "@babel/helper-builder-react-jsx-experimental": "^7.12.11",
-    "@sentry/browser": "^4.6.6",
+    "@sentry/browser": "^6.1.0",
     "@types/classnames": "^2.2.11",
     "@types/history": "^4.7.8",
     "@types/leaflet": "^1.5.21",
