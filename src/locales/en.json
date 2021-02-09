@@ -682,7 +682,15 @@
     },
     "profile": {
       "contact": {
-        "title": "Contact information"
+        "title": "Contact information",
+        "heading": "Hello {{ name }}",
+        "address": "Street address",
+        "postal_code": "Postal code",
+        "municipality": "City",
+        "phone_number": "Mobile phone",
+        "email_address": "E-mail",
+        "customer_group": "Customer group",
+        "language": "Language"
       },
       "boats": {
         "title": "Boats"
