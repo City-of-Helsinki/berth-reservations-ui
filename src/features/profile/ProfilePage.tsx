@@ -5,15 +5,17 @@ import { useTranslation } from 'react-i18next';
 import { Tab, TabList, TabPanel, Tabs } from 'hds-react';
 
 import Layout from '../../common/layout/Layout';
+import ContactInfo, { ContactInfoProps } from './contactInfo/ContactInfo';
 
 import './profilePage.scss';
 
 export interface ProfilePageProps {
+  customerContactInfo: ContactInfoProps;
   hasBerthNotifications: boolean;
   hasWSNotifications: boolean;
 }
 
-const ProfilePage = ({ hasBerthNotifications, hasWSNotifications }: ProfilePageProps) => {
+const ProfilePage = ({ customerContactInfo, hasBerthNotifications, hasWSNotifications }: ProfilePageProps) => {
   const { t } = useTranslation();
   const [isBerthTabClicked, setIsBerthTabClicked] = useState(false);
   const [isWSTabClicked, setIsWSTabClicked] = useState(false);
@@ -47,7 +49,9 @@ const ProfilePage = ({ hasBerthNotifications, hasWSNotifications }: ProfilePageP
                 </span>
               </Tab>
             </TabList>
-            <TabPanel>Contact information tab</TabPanel>
+            <TabPanel>
+              <ContactInfo {...customerContactInfo} />
+            </TabPanel>
             <TabPanel>Boats tab</TabPanel>
             <TabPanel>Berths tab</TabPanel>
             <TabPanel>Winter storage tab</TabPanel>
