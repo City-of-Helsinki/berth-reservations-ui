@@ -682,7 +682,15 @@
     },
     "profile": {
       "contact": {
-        "title": "Yhteystiedot"
+        "title": "Yhteystiedot",
+        "heading": "Hei {{ name }}",
+        "address": "Jakeluosoite",
+        "postal_code": "Postinumero",
+        "municipality": "Postitoimipaikka",
+        "phone_number": "Matkapuhelin",
+        "email_address": "Sähköpostiosoite",
+        "customer_group": "Asiakasryhmä",
+        "language": "Asiointikieli"
       },
       "boats": {
         "title": "Veneet"
