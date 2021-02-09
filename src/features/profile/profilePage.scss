@@ -11,15 +11,12 @@
   }
 
   &__tab {
-    color: 'black';
     // Adjusting the colors here until HDS supports themes for Tabs
     --tab-color: black;
     --tab-active-border-color: black;
 
-    &--with-badge {
-      & span {
-        padding: 0;
-      }
+    &--with-badge > span {
+      padding: 0;
     }
   }
 
