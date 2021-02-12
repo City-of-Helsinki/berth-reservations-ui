@@ -682,7 +682,15 @@
     },
     "profile": {
       "contact": {
-        "title": "Kontaktinformation"
+        "title": "Kontaktinformation",
+        "heading": "Hallå {{ name }}",
+        "address": "Utdelningsadress",
+        "postal_code": "Postnummer",
+        "municipality": "Postanstalt",
+        "phone_number": "Mobiltelefon",
+        "email_address": "E-postadress",
+        "customer_group": "Kundgrupp",
+        "language": "Språket"
       },
       "boats": {
         "title": "Båtar"
