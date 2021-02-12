@@ -5,7 +5,7 @@ import ProfilePage from './ProfilePage';
 const ProfilePageContainer = () => {
   const customerContactInfo = {
     name: 'Kalle',
-    address: 'Kallenkau 6',
+    address: 'Kallenkatu 6',
     postalCode: '00100',
     municipality: 'Helsinki',
     phoneNumber: '-',
