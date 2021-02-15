@@ -6,6 +6,7 @@ import { Tab, TabList, TabPanel, Tabs } from 'hds-react';
 
 import Layout from '../../common/layout/Layout';
 import ContactInfo, { ContactInfoProps } from './contactInfo/ContactInfo';
+import NoBerths from './customerBerths/NoBerths';
 
 import './profilePage.scss';
 
@@ -53,7 +54,9 @@ const ProfilePage = ({ customerContactInfo, hasBerthNotifications, hasWSNotifica
               <ContactInfo {...customerContactInfo} />
             </TabPanel>
             <TabPanel>Boats tab</TabPanel>
-            <TabPanel>Berths tab</TabPanel>
+            <TabPanel>
+              <NoBerths />
+            </TabPanel>
             <TabPanel>Winter storage tab</TabPanel>
           </Tabs>
         </Container>
