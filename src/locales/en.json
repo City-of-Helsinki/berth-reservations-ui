@@ -696,7 +696,8 @@
         "title": "Boats"
       },
       "berths": {
-        "title": "Boat berths"
+        "title": "Boat berths",
+        "noBerths": "You have no berths"
       },
       "winter_storage": {
         "title": "Winter storage places"
