@@ -697,7 +697,8 @@
       },
       "berths": {
         "title": "Båtplatser",
-        "noBerths": "Du har ingen båtplatser"
+        "no_berths": "Du har ingen båtplatser",
+        "apply_for_berth": "Ansök om en båtplats"
       },
       "winter_storage": {
         "title": "Vinteruppläggningsplatser"
