@@ -1,0 +1,27 @@
+@import 'helsinki/colors';
+@import 'styles/variables';
+
+.vene-berth-offer {
+  &__heading {
+    line-height: $spacing-02-50;
+    margin-bottom: $spacing-04;
+  }
+
+  &__columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  &__buttons {
+    margin-bottom: $spacing-02;
+
+    > button:not(:first-child) {
+      margin-left: $spacing-01;
+    }
+  }
+
+  &__divider {
+    margin: $spacing-02 0;
+    border-color: $hel-gray;
+  }
+}

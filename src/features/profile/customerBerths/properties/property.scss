@@ -1,0 +1,23 @@
+@import 'helsinki/colors';
+@import 'styles/variables';
+
+.vene-property {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: $spacing-04;
+
+  &__icon {
+    padding: 2px;
+    height: $spacing-02-50;
+    width: $spacing-02-50;
+    border: 2px solid $hel-black;
+    border-radius: 50%;
+  }
+
+  &__label {
+    font-size: $spacing-00-75;
+    font-weight: bold;
+    margin: 0;
+  }
+}

@@ -698,7 +698,26 @@
       "berths": {
         "title": "Venepaikat",
         "no_berths": "Sinulla ei ole venepaikkoja",
-        "apply_for_berth": "Tee venepaikkahakemus"
+        "apply_for_berth": "Tee venepaikkahakemus",
+        "berthOffer": {
+          "heading": "Tarjous venepaikasta. Jos haluat vastaanottaa sen,\n maksa se ennen eräpäivää {{date}}.",
+          "acceptAndPay": "Hyväksy ja siirry maksamaan",
+          "rejectOffer": "Hylkää tarjous",
+          "infoText": "Hakemus poistetaan molemmissa tapauksissa (hyväksy/hylkää). Mikäli haluat eri paikan, hyväksy tarjous jonka jälkeen voi tehdä vaihtohakemuksen. Vaihtohakemukset käsitellään vuosittain ennen uusia hakemuksia.",
+          "berthInfo": {
+            "harborMap": "Satamakartta (PDF)",
+            "harborWebsite": "Toimipisteen nettisivut",
+            "pier": "Laituri",
+            "berthNumber": "Paikka",
+            "berthWidth": "Leveys",
+            "berthLength": "Pituus",
+            "mooringType": "Kiinnitystapa",
+            "electricity": "Sähkö",
+            "gate": "Portti",
+            "lighting": "Valaistus",
+            "wasteCollection": "Jätehuolto"
+          }
+        }
       },
       "winter_storage": {
         "title": "Talvisäilytyspaikat"

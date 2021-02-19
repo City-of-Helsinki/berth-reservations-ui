@@ -1,0 +1,36 @@
+@import 'helsinki/colors';
+@import 'styles/variables';
+
+.vene-berth-info {
+  margin-bottom: $spacing-04;
+
+  &__main {
+    display: flex;
+  }
+
+  &__image {
+    margin-right: $spacing-01-50;
+    width: $spacing-12;
+  }
+
+  &__harbor-name {
+    font-size: $spacing-01-50;
+    margin: $spacing-00-25 0;
+  }
+
+  &__link {
+    text-decoration: underline;
+    margin-bottom: $spacing-00-25;
+    display: block;
+  }
+
+  &__field {
+    line-height: $spacing-01;
+    margin-bottom: $spacing-00-50;
+
+    &--bold {
+      font-weight: bold;
+      margin-bottom: $spacing-01;
+    }
+  }
+}
