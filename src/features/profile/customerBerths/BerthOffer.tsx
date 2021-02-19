@@ -27,6 +27,7 @@ const mockProps = {
   mooringType: 'Peräpoiju',
   pier: 'Rantamuuri',
   wasteCollection: true,
+  water: true,
 };
 
 const BerthOffer = (props: OfferProps) => {
@@ -39,17 +40,18 @@ const BerthOffer = (props: OfferProps) => {
     berthNumber,
     berthWidth,
     dueDate,
+    electricity,
+    gate,
     harborAddress,
     harborImage,
     harborMap,
     harborName,
     harborWebAddress,
+    lighting,
     mooringType,
     pier,
-    electricity,
-    gate,
     wasteCollection,
-    lighting,
+    water,
   } = mockProps;
 
   return (
@@ -74,6 +76,7 @@ const BerthOffer = (props: OfferProps) => {
             mooringType={mooringType}
             pier={pier}
             wasteCollection={wasteCollection}
+            water={water}
           />
           <div className="vene-berth-offer__buttons">
             <Button size="small">{t('page.profile.berths.berthOffer.acceptAndPay')}</Button>

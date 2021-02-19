@@ -20,6 +20,7 @@ export interface BerthInfoProps {
   mooringType: string; // FIXME
   pier: string;
   wasteCollection: boolean;
+  water: boolean;
 }
 
 const BerthInfo = ({
@@ -37,6 +38,7 @@ const BerthInfo = ({
   mooringType,
   pier,
   wasteCollection,
+  water,
 }: BerthInfoProps) => {
   const {
     t,
@@ -62,7 +64,13 @@ const BerthInfo = ({
           </p>
         </div>
       </div>
-      <Properties electricity={electricity} gate={gate} lighting={lighting} wasteCollection={wasteCollection} />
+      <Properties
+        electricity={electricity}
+        gate={gate}
+        lighting={lighting}
+        wasteCollection={wasteCollection}
+        water={water}
+      />
       <p className="vene-berth-info__field vene-berth-info__field--bold">
         {t('page.profile.berths.berthOffer.berthInfo.pier')}: {pier}
       </p>

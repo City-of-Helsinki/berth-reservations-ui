@@ -715,7 +715,8 @@
             "electricity": "Sähkö",
             "gate": "Portti",
             "lighting": "Valaistus",
-            "wasteCollection": "Jätehuolto"
+            "wasteCollection": "Jätehuolto",
+            "water": "Vesi"
           }
         }
       },
