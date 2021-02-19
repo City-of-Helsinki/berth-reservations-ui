@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -6,6 +7,7 @@ import Properties from '../properties/Properties';
 import './berthInfo.scss';
 
 export interface BerthInfoProps {
+  className?: string;
   berthLength: number;
   berthNumber: string;
   berthWidth: number;
@@ -24,6 +26,7 @@ export interface BerthInfoProps {
 }
 
 const BerthInfo = ({
+  className,
   berthLength,
   berthNumber,
   berthWidth,
@@ -46,7 +49,7 @@ const BerthInfo = ({
   } = useTranslation();
 
   return (
-    <div className="vene-berth-info">
+    <div className={classNames('vene-berth-info', className)}>
       <div className="vene-berth-info__main">
         <a href={harborImage}>
           <img className="vene-berth-info__image" src={harborImage} alt={harborName} />

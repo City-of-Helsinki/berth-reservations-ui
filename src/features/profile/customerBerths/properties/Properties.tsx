@@ -13,7 +13,7 @@ export interface PropertiesProps {
 
 const Properties = ({ electricity, gate, lighting, wasteCollection, water }: PropertiesProps) => {
   return (
-    <div className="vene-berth-properties">
+    <div className="vene-properties">
       {electricity && <Property icon="plug" labelKey="page.profile.berths.berthOffer.berthInfo.electricity" />}
       {gate && <Property icon="fence" labelKey="page.profile.berths.berthOffer.berthInfo.gate" />}
       {lighting && <Property icon="streetLight" labelKey="page.profile.berths.berthOffer.berthInfo.lighting" />}
