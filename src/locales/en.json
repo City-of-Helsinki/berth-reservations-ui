@@ -697,7 +697,8 @@
       },
       "berths": {
         "title": "Boat berths",
-        "noBerths": "You have no berths"
+        "no_berths": "You have no berths",
+        "apply_for_berth": "Apply for a berth"
       },
       "winter_storage": {
         "title": "Winter storage places"

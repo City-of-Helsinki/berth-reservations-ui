@@ -697,7 +697,8 @@
       },
       "berths": {
         "title": "Venepaikat",
-        "noBerths": "Sinulla ei ole venepaikkoja"
+        "no_berths": "Sinulla ei ole venepaikkoja",
+        "apply_for_berth": "Tee venepaikkahakemus"
       },
       "winter_storage": {
         "title": "Talvisäilytyspaikat"
