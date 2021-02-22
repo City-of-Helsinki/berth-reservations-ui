@@ -36,7 +36,7 @@ describe('format', () => {
     });
 
     it('should format prices with percentage correctly', () => {
-      expect(formatPrice(1, 'fi', 0.5)).toEqual('0.5%  01,00 €');
+      expect(formatPrice(1, 'fi', 0.5)).toEqual('0.5%  1,00 €');
     });
   });
 
