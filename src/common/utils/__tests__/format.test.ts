@@ -1,4 +1,4 @@
-import { formatDate, formatDimension } from '../format';
+import { formatDate, formatDimension, formatPercentage, formatPrice } from '../format';
 
 describe('format', () => {
   describe('formatDimension', () => {
@@ -23,6 +23,30 @@ describe('format', () => {
 
     it('should include time info when the third argument is true', () => {
       expect(formatDate('2018-11-28T12:26:28.146227+00:00', 'fi', true)).toMatchSnapshot();
+    });
+  });
+
+  describe('formatPrice', () => {
+    it('should add at least two decimals', () => {
+      expect(formatPrice(1, 'fi')).toMatch('1,00');
+    });
+
+    it('should add the currency unit to to the supplied value', () => {
+      expect(formatPrice(1, 'fi')).toMatch('€');
+    });
+
+    it('should format prices with percentage correctly', () => {
+      expect(formatPrice(1, 'fi', 0.5)).toEqual('0.5%  01,00 €');
+    });
+  });
+
+  describe('formatPercentage', () => {
+    it('should add the percentage sign to to the supplied value', () => {
+      expect(formatPercentage(1, 'fi')).toMatch('%');
+    });
+
+    it('should return the right value', () => {
+      expect(formatPercentage(10, 'fi')).toEqual('10 %');
     });
   });
 });

@@ -6,12 +6,68 @@ import { OrderStatus } from '../../../__generated__/globalTypes';
 import { formatDate } from '../../../common/utils/format';
 import BerthInfo from './berthInfo/BerthInfo';
 import InfoSection from './infoSection/InfoSection';
+import OrderInfo, { Order } from './orderInfo/OrderInfo';
 import './berthOffer.scss';
-import OrderInfo from './orderInfo/OrderInfo';
 
 export interface OfferProps {
   placeholder?: null;
 }
+
+const mockOrder: Order = {
+  fixedProducts: [
+    {
+      id: 'MOCK-PRODUCT-0',
+      name: 'MOORING',
+      orderId: 'MOCK-ORDER-0',
+      price: 79.52,
+    },
+    {
+      id: 'MOCK-PRODUCT-1',
+      name: 'ELECTRICITY',
+      orderId: 'MOCK-ORDER-0',
+      price: 34.08,
+    },
+    {
+      id: 'MOCK-PRODUCT-2',
+      name: 'WATER',
+      orderId: 'MOCK-ORDER-0',
+      price: 5.68,
+    },
+    {
+      id: 'MOCK-PRODUCT-3',
+      name: 'WASTE_COLLECTION',
+      orderId: 'MOCK-ORDER-0',
+      price: 22.72,
+    },
+    {
+      id: 'MOCK-PRODUCT-4',
+      name: 'GATE',
+      orderId: 'MOCK-ORDER-0',
+      price: 4,
+    },
+    {
+      id: 'MOCK-PRODUCT-5',
+      name: 'LIGHTING',
+      orderId: 'MOCK-ORDER-0',
+      price: 10,
+    },
+  ],
+  fixedProductsTotalPrice: 365.77,
+  netPrice: 354.84,
+  optionalProducts: [
+    {
+      id: 'MOCK-PRODUCT-6',
+      name: 'PARKING_PERMIT',
+      orderId: 'MOCK-ORDER-0',
+      price: 75,
+    },
+  ],
+  orderNumber: 'anw4sxjrmeqma',
+  price: 284,
+  totalPrice: 440,
+  vatAmount: 85.16,
+  vatPercentage: 24,
+};
 
 const mockProps = {
   berthLength: 5,
@@ -29,9 +85,9 @@ const mockProps = {
   mooringType: 'Peräpoiju',
   orderStatus: OrderStatus.WAITING,
   pier: 'Rantamuuri',
+  order: mockOrder,
   seasonStartDate: '2021-06-10',
   seasonEndDate: '2021-09-14',
-  orderId: 'anw4sxjrmeqma',
   wasteCollection: true,
   water: true,
 };
@@ -55,7 +111,7 @@ const BerthOffer = (props: OfferProps) => {
     harborWebAddress,
     lighting,
     mooringType,
-    orderId,
+    order,
     orderStatus,
     pier,
     seasonEndDate,
@@ -98,12 +154,13 @@ const BerthOffer = (props: OfferProps) => {
           {t('page.profile.berths.berthOffer.infoText')}
         </InfoSection>
         <OrderInfo
+          berthWidth={berthWidth}
           className="vene-berth-offer__order-info"
-          status={orderStatus}
-          id={orderId}
           dueDate={dueDate}
+          order={order}
           seasonEndDate={seasonEndDate}
           seasonStartDate={seasonStartDate}
+          status={orderStatus}
         />
       </div>
       <hr className="vene-berth-offer__divider" />

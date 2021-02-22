@@ -59,10 +59,10 @@ const BerthInfo = ({
           <p>{harborAddress}</p>
           <p>
             <a href={harborWebsite} className="vene-berth-info__link">
-              {t('page.profile.berths.berthOffer.berthInfo.harborWebsite')}
+              {t('page.profile.berths.berthOffer.harborWebsite')}
             </a>
             <a href={harborMap} className="vene-berth-info__link">
-              {t('page.profile.berths.berthOffer.berthInfo.harborMap')}
+              {t('page.profile.berths.berthOffer.harborMap')}
             </a>
           </p>
         </div>
@@ -75,19 +75,19 @@ const BerthInfo = ({
         water={water}
       />
       <p className="vene-berth-info__field vene-berth-info__field--bold">
-        {t('page.profile.berths.berthOffer.berthInfo.pier')}: {pier}
+        {t('page.profile.berths.berthOffer.pier')}: {pier}
       </p>
       <p className="vene-berth-info__field vene-berth-info__field--bold">
-        {t('page.profile.berths.berthOffer.berthInfo.berthNumber')}: {berthNumber}
+        {t('page.profile.berths.berthOffer.berthNumber')}: {berthNumber}
       </p>
       <p className="vene-berth-info__field">
-        {t('page.profile.berths.berthOffer.berthInfo.berthWidth')}: {formatDimension(berthWidth, language)}
+        {t('page.profile.berths.berthOffer.berthWidth')}: {formatDimension(berthWidth, language)}
       </p>
       <p className="vene-berth-info__field">
-        {t('page.profile.berths.berthOffer.berthInfo.berthLength')}: {formatDimension(berthLength, language)}
+        {t('page.profile.berths.berthOffer.berthLength')}: {formatDimension(berthLength, language)}
       </p>
       <p className="vene-berth-info__field">
-        {t('page.profile.berths.berthOffer.berthInfo.mooringType')}: {mooringType}
+        {t('page.profile.berths.berthOffer.mooringType')}: {mooringType}
       </p>
     </div>
   );
