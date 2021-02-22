@@ -4,44 +4,33 @@ import { useTranslation } from 'react-i18next';
 
 import { formatDimension } from '../../../../common/utils/format';
 import Properties from '../properties/Properties';
+import { BerthOffer } from '../types';
 import './berthInfo.scss';
 
 export interface BerthInfoProps {
   className?: string;
-  berthLength: number;
-  berthNumber: string;
-  berthWidth: number;
-  electricity: boolean;
-  gate: boolean;
-  harborAddress: string;
-  harborImage: string;
-  harborMap: string;
-  harborName: string;
-  harborWebsite: string;
-  lighting: boolean;
-  mooringType: string; // FIXME
-  pier: string;
-  wasteCollection: boolean;
-  water: boolean;
+  berthOffer: BerthOffer;
 }
 
 const BerthInfo = ({
   className,
-  berthLength,
-  berthNumber,
-  berthWidth,
-  electricity,
-  gate,
-  harborAddress,
-  harborImage,
-  harborMap,
-  harborName,
-  harborWebsite,
-  lighting,
-  mooringType,
-  pier,
-  wasteCollection,
-  water,
+  berthOffer: {
+    berthLength,
+    berthNumber,
+    berthWidth,
+    electricity,
+    gate,
+    harborAddress,
+    harborImage,
+    harborMap,
+    harborName,
+    harborWebsite,
+    lighting,
+    mooringType,
+    pier,
+    wasteCollection,
+    water,
+  },
 }: BerthInfoProps) => {
   const {
     t,
@@ -75,19 +64,19 @@ const BerthInfo = ({
         water={water}
       />
       <p className="vene-berth-info__field vene-berth-info__field--bold">
-        {t('page.profile.berths.berthOffer.pier')}: {pier}
+        {t('common.pier')}: {pier}
       </p>
       <p className="vene-berth-info__field vene-berth-info__field--bold">
         {t('page.profile.berths.berthOffer.berthNumber')}: {berthNumber}
       </p>
       <p className="vene-berth-info__field">
-        {t('page.profile.berths.berthOffer.berthWidth')}: {formatDimension(berthWidth, language)}
+        {t('common.width')}: {formatDimension(berthWidth, language)}
       </p>
       <p className="vene-berth-info__field">
-        {t('page.profile.berths.berthOffer.berthLength')}: {formatDimension(berthLength, language)}
+        {t('common.length')}: {formatDimension(berthLength, language)}
       </p>
       <p className="vene-berth-info__field">
-        {t('page.profile.berths.berthOffer.mooringType')}: {mooringType}
+        {t('common.mooringType')}: {mooringType}
       </p>
     </div>
   );

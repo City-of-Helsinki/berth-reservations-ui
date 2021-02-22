@@ -1,0 +1,41 @@
+@import 'styles/variables';
+
+.vene-berth-application {
+  margin-top: $spacing-03;
+
+  &__heading {
+    margin-top: $spacing-02;
+    font-size: $spacing-01;
+  }
+
+  &__applied-berths {
+    margin-bottom: $spacing-02;
+  }
+
+  &__berth-details {
+    max-width: 400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-bottom: $spacing-01;
+  }
+
+  &__berth-properties {
+    display: flex;
+    justify-content: flex-end;
+
+    > * {
+      width: $spacing-02;
+      height: $spacing-02;
+    }
+  }
+
+  &__buttons {
+    grid-area: buttons;
+    margin: $spacing-03 0;
+
+    > button:not(:first-child) {
+      margin-left: $spacing-01;
+    }
+  }
+}

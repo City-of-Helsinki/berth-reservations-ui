@@ -2,53 +2,24 @@ import classNames from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { OrderStatus } from '../../../../__generated__/globalTypes';
 import { formatDate, formatDimension, formatPercentage, formatPrice } from '../../../../common/utils/format';
-import { getProductServiceTKey } from './utils';
-import OrderStatusLabel from './OrderStatusLabel';
+import { Order, Product } from '../types';
 import './orderInfo.scss';
-
-export interface Product {
-  id: string;
-  name: string; // TODO: Use real enum
-  orderId: string;
-  price: number;
-}
-
-export interface Order {
-  fixedProducts: Product[];
-  fixedProductsTotalPrice: number;
-  netPrice: number;
-  optionalProducts: Product[];
-  orderNumber: string;
-  price: number;
-  totalPrice: number;
-  vatAmount: number;
-  vatPercentage: number;
-}
+import OrderStatusLabel from './OrderStatusLabel';
+import { getProductServiceTKey } from './utils';
 
 export interface OrderInfoProps {
   berthWidth: number;
   className?: string;
-  dueDate: string;
   order: Order;
   seasonEndDate: string;
   seasonStartDate: string;
-  status: OrderStatus;
 }
 
 const SPORTS_SERVICES_PRICES_URL =
   'https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/palvelut/liikunta-ja-ulkoilu/maksut/';
 
-const OrderInfo = ({
-  berthWidth,
-  className,
-  dueDate,
-  order,
-  seasonEndDate,
-  seasonStartDate,
-  status,
-}: OrderInfoProps) => {
+const OrderInfo = ({ berthWidth, className, order, seasonEndDate, seasonStartDate }: OrderInfoProps) => {
   const {
     t,
     i18n: { language },
@@ -61,7 +32,7 @@ const OrderInfo = ({
   );
 
   const renderSeason = (seasonStartDate: string, seasonEndDate: string, locale: string) => {
-    const label = t('page.profile.berths.berthOffer.season');
+    const label = t('common.season');
     const startDate = formatDate(seasonStartDate, locale);
     const endDate = formatDate(seasonEndDate, locale);
     return `${label}: ${startDate} - ${endDate}`;
@@ -76,12 +47,12 @@ const OrderInfo = ({
 
   return (
     <div className={classNames('vene-order-info', className)}>
-      <OrderStatusLabel status={status} />
+      <OrderStatusLabel status={order.orderStatus} />
       <p className="vene-order-info__field">
-        {t('page.profile.berths.berthOffer.orderNumber')}: {order.orderNumber}
+        {t('common.orderNumber')}: {order.orderNumber}
       </p>
       <p className="vene-order-info__field">
-        {t('page.profile.berths.berthOffer.dueDate')}: {formatDate(dueDate, language)}
+        {t('common.dueDate')}: {formatDate(order.dueDate, language)}
       </p>
       <p className="vene-order-info__field">{renderSeason(seasonStartDate, seasonEndDate, language)}</p>
 
@@ -105,7 +76,7 @@ const OrderInfo = ({
         </Row>
         {order.optionalProducts.length > 0 && (
           <Row>
-            <p>{t('page.profile.berths.berthOffer.additionalServices')}:</p>
+            <p>{t('common.additionalServices')}:</p>
           </Row>
         )}
         {order.optionalProducts.map(mapProduct)}
@@ -117,21 +88,21 @@ const OrderInfo = ({
           <p>{formatPrice(order.netPrice, language)}</p>
         </Row>
         <Row bold>
-          <p>{t('page.profile.berths.berthOffer.vat')}:</p>
+          <p>{t('common.vat')}:</p>
           <p>
             {formatPrice(order.vatAmount, language)} ({formatPercentage(order.vatPercentage, language)})
           </p>
         </Row>
         <Row bold>
-          <p>{t('page.profile.berths.berthOffer.total')}:</p>
+          <p>{t('common.total').toUpperCase()}:</p>
           <p>
-            {formatPrice(order.totalPrice, language)} / {t('page.profile.berths.berthOffer.year')}
+            {formatPrice(order.totalPrice, language)} / {t('common.year').toLowerCase()}
           </p>
         </Row>
       </div>
 
       <a className="vene-order-info__link" href={SPORTS_SERVICES_PRICES_URL}>
-        Liikuntapalvelujen hinnasto
+        {t('page.profile.berths.berthOffer.sportsServicesPrices')}
       </a>
     </div>
   );

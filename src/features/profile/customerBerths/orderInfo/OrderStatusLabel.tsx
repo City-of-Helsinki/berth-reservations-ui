@@ -13,17 +13,17 @@ const OrderStatusLabel = ({ status }: OrderStatusProps) => {
   const getStatusLabelKey = (status: OrderStatus) => {
     switch (status) {
       case OrderStatus.CANCELLED:
-        return 'Peruutettu';
+        return 'common.cancelled';
       case OrderStatus.ERROR:
-        return 'Virhe';
+        return 'common.error';
       case OrderStatus.EXPIRED:
-        return 'Erääntynyt';
+        return 'common.expired';
       case OrderStatus.PAID:
-        return 'Maksettu';
+        return 'common.paid';
       case OrderStatus.REJECTED:
-        return 'Hylätty';
+        return 'common.rejected';
       case OrderStatus.WAITING:
-        return 'Odottaa maksua';
+        return 'common.waitingForPayment';
     }
   };
 

@@ -6,7 +6,7 @@ import { Tab, TabList, TabPanel, Tabs } from 'hds-react';
 
 import Layout from '../../common/layout/Layout';
 import ContactInfo, { ContactInfoProps } from './contactInfo/ContactInfo';
-import BerthOffer from './customerBerths/BerthOffer';
+import BerthOffer from './customerBerths/BerthOfferContainer';
 import NoBerths from './customerBerths/NoBerths';
 
 import './profilePage.scss';

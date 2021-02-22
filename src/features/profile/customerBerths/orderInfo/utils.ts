@@ -2,27 +2,27 @@
 export const getProductServiceTKey = (productService: string) => {
   switch (productService) {
     case 'DINGHY_PLACE':
-      return 'page.profile.berths.berthOffer.dinghyPlace';
+      return 'common.dinghyPlace';
     case 'ELECTRICITY':
-      return 'page.profile.berths.berthOffer.electricity';
+      return 'common.electricity';
     case 'GATE':
-      return 'page.profile.berths.berthOffer.gate';
+      return 'common.gate';
     case 'LIGHTING':
-      return 'page.profile.berths.berthOffer.lighting';
+      return 'common.lighting';
     case 'MOORING':
-      return 'page.profile.berths.berthOffer.mooring';
+      return 'common.mooring';
     case 'PARKING_PERMIT':
-      return 'page.profile.berths.berthOffer.parkingPermit';
+      return 'common.parkingPermit';
     case 'STORAGE_ON_ICE':
-      return 'page.profile.berths.berthOffer.storageOnIce';
+      return 'common.storageOnIce';
     case 'SUMMER_STORAGE_FOR_DOCKING_EQUIPMENT':
-      return 'page.profile.berths.berthOffer.dockingEquipmentSummerStorage';
+      return 'common.dockingEquipmentSummerStorage';
     case 'SUMMER_STORAGE_FOR_TRAILERS':
-      return 'page.profile.berths.berthOffer.trawlerSummerStorage';
+      return 'common.trawlerSummerStorage';
     case 'WASTE_COLLECTION':
-      return 'page.profile.berths.berthOffer.wasteCollection';
+      return 'common.wasteCollection';
     case 'WATER':
-      return 'page.profile.berths.berthOffer.water';
+      return 'common.water';
 
     default:
       return productService;
