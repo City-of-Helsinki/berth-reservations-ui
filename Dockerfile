@@ -14,7 +14,7 @@ ENV NPM_CONFIG_PREFIX=/app/.npm-global
 ENV PATH=$PATH:/app/.npm-global/bin
 
 # Yarn
-ENV YARN_VERSION 1.19.1
+ENV YARN_VERSION 1.22.5
 RUN yarn policies set-version $YARN_VERSION
 
 # Use non-root user
