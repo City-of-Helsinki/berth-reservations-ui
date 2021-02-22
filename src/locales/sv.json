@@ -67,8 +67,7 @@
       "header": {
         "details": "Tilläggsuppgifter om stora fartyg",
         "inspection_and_insurance": "Besiktning och försäkringar",
-        "title": "Kajplatser för stora fartyg",
-        "legend": "Ange uppgifterna från båtens registreringsintyg. Registreringsnumret måste anges om båten är längre än 5,5 m eller har en motoreffekt på 15 kW eller mer."
+        "title": "Kajplatser för stora fartyg"
       },
       "text": {
         "inspection_and_insurance": "Ett besiktningsintyg och ett utdrag ur försäkringsbrevet ska lämnas in innan en kajplats kan beviljas. Besiktningen och försäkringen ska vara i kraft utan avbrott. Uthyraren har när som helst rätt att kräva att besiktningsintyget och utdraget ur försäkringsbrevet visas upp.",
@@ -298,7 +297,8 @@
       "header": {
         "additional_info": "Tilläggsuppgifter",
         "measures": "Båtens dimensioner",
-        "title": "Uppgifter om registrerad båt"
+        "title": "Uppgifter om registrerad båt",
+        "legend": "Ange uppgifterna från båtens registreringsintyg. Registreringsnumret måste anges om båten är längre än 5,5 m eller har en motoreffekt på 15 kW eller mer."
       }
     },
     "services": {
