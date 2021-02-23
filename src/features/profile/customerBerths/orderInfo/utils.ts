@@ -18,7 +18,7 @@ export const getProductServiceTKey = (productService: string) => {
     case 'SUMMER_STORAGE_FOR_DOCKING_EQUIPMENT':
       return 'common.dockingEquipmentSummerStorage';
     case 'SUMMER_STORAGE_FOR_TRAILERS':
-      return 'common.trawlerSummerStorage';
+      return 'common.summerStorageForTrailers';
     case 'WASTE_COLLECTION':
       return 'common.wasteCollection';
     case 'WATER':
