@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import LabelValuePair from '../../../../common/labelValuePair/LabelValuePair';
 import { formatDimension } from '../../../../common/utils/format';
 import Properties from '../properties/Properties';
 import { BerthOffer } from '../types';
@@ -63,21 +64,35 @@ const BerthInfo = ({
         wasteCollection={wasteCollection}
         water={water}
       />
-      <p className="vene-berth-info__field vene-berth-info__field--bold">
-        {t('common.pier')}: {pier}
-      </p>
-      <p className="vene-berth-info__field vene-berth-info__field--bold">
-        {t('page.profile.berths.berthOffer.berthNumber')}: {berthNumber}
-      </p>
-      <p className="vene-berth-info__field">
-        {t('common.width')}: {formatDimension(berthWidth, language)}
-      </p>
-      <p className="vene-berth-info__field">
-        {t('common.length')}: {formatDimension(berthLength, language)}
-      </p>
-      <p className="vene-berth-info__field">
-        {t('common.mooringType')}: {mooringType}
-      </p>
+
+      <LabelValuePair
+        labelClassName="vene-berth-info__bold-field"
+        label={t('common.pier')}
+        valueClassName="vene-berth-info__bold-field"
+        value={pier}
+      />
+      <LabelValuePair
+        labelClassName="vene-berth-info__bold-field"
+        label={t('page.profile.berths.berthOffer.berthNumber')}
+        valueClassName="vene-berth-info__bold-field"
+        value={berthNumber}
+      />
+
+      <LabelValuePair
+        labelClassName="vene-berth-info__normal-label"
+        label={t('common.width')}
+        value={formatDimension(berthWidth, language)}
+      />
+      <LabelValuePair
+        labelClassName="vene-berth-info__normal-label"
+        label={t('common.length')}
+        value={formatDimension(berthLength, language)}
+      />
+      <LabelValuePair
+        labelClassName="vene-berth-info__normal-label"
+        label={t('common.mooringType')}
+        value={mooringType}
+      />
     </div>
   );
 };

@@ -24,13 +24,13 @@
     display: block;
   }
 
-  &__field {
-    line-height: $spacing-01;
-    margin-bottom: $spacing-00-50;
+  &__normal-label {
+    font-weight: normal;
+  }
 
-    &--bold {
-      font-weight: bold;
-      margin-bottom: $spacing-01;
-    }
+  &__bold-field {
+    line-height: $spacing-02;
+    font-size: $spacing-01;
+    font-weight: bold;
   }
 }
