@@ -1,4 +1,8 @@
 // TODO: Use real enum
+import { StatusLabelProps } from 'hds-react';
+
+import { OrderStatus } from '../../../../__generated__/globalTypes';
+
 export const getProductServiceTKey = (productService: string) => {
   switch (productService) {
     case 'DINGHY_PLACE':
@@ -26,5 +30,43 @@ export const getProductServiceTKey = (productService: string) => {
 
     default:
       return productService;
+  }
+};
+
+export const getStatusLabelKey = (status: OrderStatus) => {
+  switch (status) {
+    case OrderStatus.CANCELLED:
+      return 'common.cancelled';
+    case OrderStatus.ERROR:
+      return 'common.error';
+    case OrderStatus.EXPIRED:
+      return 'common.expired';
+    case OrderStatus.PAID:
+      return 'common.paid';
+    case OrderStatus.REJECTED:
+      return 'common.rejected';
+    case OrderStatus.WAITING:
+      return 'common.waitingForPayment';
+    default:
+      return status;
+  }
+};
+
+export const getStatusLabelColor = (status: OrderStatus): StatusLabelProps['type'] => {
+  switch (status) {
+    case OrderStatus.CANCELLED:
+      return 'error';
+    case OrderStatus.ERROR:
+      return 'error';
+    case OrderStatus.EXPIRED:
+      return 'error';
+    case OrderStatus.PAID:
+      return 'success';
+    case OrderStatus.REJECTED:
+      return 'error';
+    case OrderStatus.WAITING:
+      return 'alert';
+    default:
+      return 'neutral';
   }
 };
