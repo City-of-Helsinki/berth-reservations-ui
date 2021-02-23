@@ -17,7 +17,7 @@ const Properties = ({ electricity, gate, lighting, wasteCollection, water }: Pro
       {electricity && <Property icon="plug" labelKey="common.electricity" />}
       {gate && <Property icon="fence" labelKey="common.gate" />}
       {lighting && <Property icon="streetLight" labelKey="common.lighting" />}
-      {wasteCollection && <Property icon="trash" labelKey="common.wasteCollection" />}
+      {wasteCollection && <Property icon="trash" labelKey="common.waste_collection" />}
       {water && <Property icon="waterTap" labelKey="common.water" />}
     </div>
   );

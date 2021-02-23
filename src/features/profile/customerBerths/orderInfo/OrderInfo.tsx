@@ -48,13 +48,13 @@ const OrderInfo = ({ berthWidth, className, order, seasonEndDate, seasonStartDat
       <div className={'vene-order-info__fields'}>
         <LabelValuePair
           labelClassName="vene-order-info__field"
-          label={t('common.orderNumber')}
+          label={t('common.order_number')}
           valueClassName="vene-order-info__field"
           value={order.orderNumber}
         />
         <LabelValuePair
           labelClassName="vene-order-info__field"
-          label={t('common.dueDate')}
+          label={t('common.due_date')}
           valueClassName="vene-order-info__field"
           value={formatDate(order.dueDate, language)}
         />
@@ -68,7 +68,7 @@ const OrderInfo = ({ berthWidth, className, order, seasonEndDate, seasonStartDat
 
       <div className="vene-order-info__order-rows">
         <Row
-          label={t('page.profile.berths.berthOffer.basePrice', {
+          label={t('page.profile.berths.berth_offer.base_price', {
             berthWidth: formatDimension(berthWidth, language),
           })}
           value={formatPrice(order.price, language)}
@@ -78,15 +78,19 @@ const OrderInfo = ({ berthWidth, className, order, seasonEndDate, seasonStartDat
         <hr className="vene-order-info__divider" />
 
         <Row
-          label={t('page.profile.berths.berthOffer.berthTotal')}
+          label={t('page.profile.berths.berth_offer.berth_total')}
           value={formatPrice(order.fixedProductsTotalPrice, language)}
         />
-        {order.optionalProducts.length > 0 && <Row label={t('common.additionalServices')} value="&nbsp;" />}
+        {order.optionalProducts.length > 0 && <Row label={t('common.additional_services')} value="&nbsp;" />}
         {order.optionalProducts.map(mapProduct)}
 
         <hr className="vene-order-info__divider" />
 
-        <Row bold label={t('page.profile.berths.berthOffer.netPrice')} value={formatPrice(order.netPrice, language)} />
+        <Row
+          bold
+          label={t('page.profile.berths.berth_offer.net_price').toUpperCase()}
+          value={formatPrice(order.netPrice, language)}
+        />
         <Row
           bold
           label={t('common.vat')}
@@ -101,11 +105,11 @@ const OrderInfo = ({ berthWidth, className, order, seasonEndDate, seasonStartDat
 
       <a
         className="vene-order-info__link"
-        href={t('page.profile.berths.berthOffer.sportsServicesPricesUrl')}
+        href={t('page.profile.berths.berth_offer.sports_services_prices_url')}
         target="_blank"
         rel="noopener noreferrer"
       >
-        {t('page.profile.berths.berthOffer.sportsServicesPrices')}
+        {t('page.profile.berths.berth_offer.sports_services_prices')}
       </a>
     </div>
   );

@@ -35,21 +35,21 @@ const BerthOffer = ({
   return (
     <div className="vene-berth-offer">
       <h1 className="vene-berth-offer__heading">
-        {t('page.profile.berths.berthOffer.heading', { date: formatDate(order.dueDate, language) })}
+        {t('page.profile.berths.berth_offer.heading', { date: formatDate(order.dueDate, language) })}
       </h1>
 
       <div className="vene-berth-offer__grid">
         <BerthInfo className="vene-berth-offer__berth-info" berthOffer={berthOffer} />
 
         <div className="vene-berth-offer__buttons">
-          <Button size="small">{t('page.profile.berths.berthOffer.acceptAndPay')}</Button>
+          <Button size="small">{t('page.profile.berths.berth_offer.accept_and_pay')}</Button>
           <Button size="small" variant="danger">
-            {t('page.profile.berths.berthOffer.rejectOffer')}
+            {t('page.profile.berths.berth_offer.reject_offer')}
           </Button>
         </div>
 
         <InfoSection className="vene-berth-offer__info-text">
-          {t('page.profile.berths.berthOffer.infoText')}
+          {t('page.profile.berths.berth_offer.info_text')}
         </InfoSection>
 
         <OrderInfo

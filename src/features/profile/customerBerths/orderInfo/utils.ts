@@ -6,7 +6,7 @@ import { OrderStatus } from '../../../../__generated__/globalTypes';
 export const getProductServiceTKey = (productService: string) => {
   switch (productService) {
     case 'DINGHY_PLACE':
-      return 'common.dinghyPlace';
+      return 'common.dinghy_place';
     case 'ELECTRICITY':
       return 'common.electricity';
     case 'GATE':
@@ -16,15 +16,15 @@ export const getProductServiceTKey = (productService: string) => {
     case 'MOORING':
       return 'common.mooring';
     case 'PARKING_PERMIT':
-      return 'common.parkingPermit';
+      return 'common.parking_permit';
     case 'STORAGE_ON_ICE':
-      return 'common.storageOnIce';
+      return 'common.storage_on_ice';
     case 'SUMMER_STORAGE_FOR_DOCKING_EQUIPMENT':
-      return 'common.dockingEquipmentSummerStorage';
+      return 'common.docking_equipment_summer_storage';
     case 'SUMMER_STORAGE_FOR_TRAILERS':
-      return 'common.summerStorageForTrailers';
+      return 'common.trailer_summer_storage';
     case 'WASTE_COLLECTION':
-      return 'common.wasteCollection';
+      return 'common.waste_collection';
     case 'WATER':
       return 'common.water';
 
@@ -46,7 +46,7 @@ export const getStatusLabelKey = (status: OrderStatus) => {
     case OrderStatus.REJECTED:
       return 'common.rejected';
     case OrderStatus.WAITING:
-      return 'common.waitingForPayment';
+      return 'common.waiting_for_payment';
     default:
       return status;
   }

@@ -49,10 +49,10 @@ const BerthInfo = ({
           <p>{harborAddress}</p>
           <p>
             <a href={harborWebsite} className="vene-berth-info__link">
-              {t('page.profile.berths.berthOffer.harborWebsite')}
+              {t('page.profile.berths.berth_offer.harbor_website')}
             </a>
             <a href={harborMap} className="vene-berth-info__link">
-              {t('page.profile.berths.berthOffer.harborMap')}
+              {t('page.profile.berths.berth_offer.harbor_map')}
             </a>
           </p>
         </div>
@@ -73,7 +73,7 @@ const BerthInfo = ({
       />
       <LabelValuePair
         labelClassName="vene-berth-info__bold-field"
-        label={t('page.profile.berths.berthOffer.berthNumber')}
+        label={t('page.profile.berths.berth_offer.berth_number')}
         valueClassName="vene-berth-info__bold-field"
         value={berthNumber}
       />
@@ -90,7 +90,7 @@ const BerthInfo = ({
       />
       <LabelValuePair
         labelClassName="vene-berth-info__normal-label"
-        label={t('common.mooringType')}
+        label={t('common.mooring_type')}
         value={mooringType}
       />
     </div>
