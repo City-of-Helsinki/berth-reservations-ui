@@ -745,7 +745,8 @@
           "netPrice": "NETTOHINTA",
           "keepApplicationActive": "Haluan että hakemus jää voimaan mikäli paikkoja ei ole vapaana tälle purjehduskaudelle",
           "rejectOffer": "Hylkää tarjous",
-          "sportsServicesPrices": "Liikuntapalvelujen hinnasto"
+          "sportsServicesPrices": "Liikuntapalvelujen hinnasto",
+          "sportsServicesPricesUrl": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/palvelut/liikunta-ja-ulkoilu/maksut/"
         }
       },
       "winter_storage": {

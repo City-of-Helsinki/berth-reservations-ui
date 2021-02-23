@@ -17,9 +17,6 @@ export interface OrderInfoProps {
   seasonStartDate: string;
 }
 
-const SPORTS_SERVICES_PRICES_URL =
-  'https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/palvelut/liikunta-ja-ulkoilu/maksut/';
-
 const OrderInfo = ({ berthWidth, className, order, seasonEndDate, seasonStartDate }: OrderInfoProps) => {
   const {
     t,
@@ -102,7 +99,12 @@ const OrderInfo = ({ berthWidth, className, order, seasonEndDate, seasonStartDat
         />
       </div>
 
-      <a className="vene-order-info__link" href={SPORTS_SERVICES_PRICES_URL}>
+      <a
+        className="vene-order-info__link"
+        href={t('page.profile.berths.berthOffer.sportsServicesPricesUrl')}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {t('page.profile.berths.berthOffer.sportsServicesPrices')}
       </a>
     </div>
