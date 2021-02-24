@@ -6,6 +6,7 @@ import { Tab, TabList, TabPanel, Tabs } from 'hds-react';
 
 import Layout from '../../common/layout/Layout';
 import ContactInfo, { ContactInfoProps } from './contactInfo/ContactInfo';
+import BerthOffer from './customerBerths/BerthOfferContainer';
 import NoBerths from './customerBerths/NoBerths';
 
 import './profilePage.scss';
@@ -39,6 +40,7 @@ const ProfilePage = ({ customerContactInfo, hasBerthNotifications, hasWSNotifica
                   {t('page.profile.berths.title')}
                 </span>
               </Tab>
+              <Tab>BerthOffer</Tab>
               <Tab className={classNames('vene-profile-page__tab', 'vene-profile-page__tab--with-badge')}>
                 <span
                   onMouseDown={() => setIsWSTabClicked(true)}
@@ -56,6 +58,9 @@ const ProfilePage = ({ customerContactInfo, hasBerthNotifications, hasWSNotifica
             <TabPanel>Boats tab</TabPanel>
             <TabPanel>
               <NoBerths />
+            </TabPanel>
+            <TabPanel>
+              <BerthOffer />
             </TabPanel>
             <TabPanel>Winter storage tab</TabPanel>
           </Tabs>

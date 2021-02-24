@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`format formatDate should format the date according to the supplied locale 1`] = `"28.11.2018"`;
+
+exports[`format formatDate should include time info when the third argument is true 1`] = `"28.11.2018 klo 12.26"`;

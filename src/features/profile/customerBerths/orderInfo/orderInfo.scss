@@ -1,0 +1,50 @@
+@import 'helsinki/colors';
+@import 'styles/variables';
+
+.vene-order-info {
+  &__fields {
+    margin: $spacing-01 0;
+  }
+
+  &__field {
+    font-weight: bold;
+  }
+
+  &__order-rows {
+    background: $hel-light;
+    padding: $spacing-01 $spacing-02;
+    margin-bottom: $spacing-00-50;
+  }
+
+  &__order-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  &__order-row-label {
+    margin: 0;
+
+    &--bold {
+      font-weight: bold;
+    }
+  }
+
+  &__order-row-value {
+    text-align: right;
+    margin: 0;
+
+    &--bold {
+      font-weight: bold;
+    }
+  }
+
+  &__divider {
+    margin: $spacing-01 0;
+    border-color: $hel-gray;
+  }
+
+  &__link {
+    text-decoration: underline;
+  }
+}

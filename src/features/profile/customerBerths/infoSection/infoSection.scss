@@ -1,0 +1,18 @@
+@import 'helsinki/colors';
+@import 'styles/variables';
+
+.vene-info-section {
+  display: grid;
+  grid-template-columns: $spacing-01-50 1fr;
+  grid-column-gap: $spacing-00-50;
+  color: $hel-dark;
+
+  &__icon {
+    height: $spacing-01-50;
+    width: $spacing-01-50;
+  }
+
+  &__text {
+    font-size: $spacing-01;
+  }
+}

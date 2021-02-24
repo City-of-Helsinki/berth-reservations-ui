@@ -1,4 +1,35 @@
 {
+  "common": {
+    "additional_services": "Lisäpalvelut",
+    "cancelled": "Peruutettu",
+    "dinghy_place": "Jollapaikka",
+    "due_date": "Eräpäivä",
+    "electricity": "Sähkö",
+    "error": "Virhe",
+    "expired": "Erääntynyt",
+    "gate": "Portti",
+    "length": "Pituus",
+    "lighting": "Valaistus",
+    "mooring": "Kiinnitys",
+    "mooring_type": "Kiinnitystapa",
+    "order_number": "Tilaustunnus",
+    "paid": "Maksettu",
+    "paid_manually": "Maksettu muualla",
+    "parking_permit":"Pysäköintilupa",
+    "pier": "Laituri",
+    "rejected": "Hylätty",
+    "season": "Sopimuskausi",
+    "sent": "Lähetetty",
+    "storage_on_ice": "Jäissä säilytys",
+    "total": "Yhteensä",
+    "trailer_summer_storage": "Trailerin kesäsäilytys",
+    "vat": "ALV",
+    "waiting_for_payment": "Odottaa maksua",
+    "waste_collection": "Jätehuolto",
+    "water": "Vesi",
+    "width": "Leveys",
+    "year": "Vuosi"
+  },
   "error": {
     "message": {
       "invalid_area": "Tällä alueella ei todennäköisesti ole veneesi koolle sopivia paikkoja.",
@@ -698,7 +729,26 @@
       "berths": {
         "title": "Venepaikat",
         "no_berths": "Sinulla ei ole venepaikkoja",
-        "apply_for_berth": "Tee venepaikkahakemus"
+        "apply_for_berth": "Tee venepaikkahakemus",
+        "berth_offer": {
+          "accept_and_pay": "Hyväksy ja siirry maksamaan",
+          "applied_berths": "Haetut venepaikat",
+          "base_price": "Perushinta ({{berthWidth}})",
+          "berth_number": "Paikka",
+          "berth_total": "Venepaikka yhteensä",
+          "delete_application": "Poista hakemus",
+          "docking_equipment_summer_storage":"Telakointi\u00ADtarvikkeiden kesäsäilytys",
+          "edit_application": "Muokkaa hakemusta",
+          "harbor_map": "Satamakartta (PDF)",
+          "harbor_website": "Toimipisteen nettisivut",
+          "heading": "Tarjous venepaikasta. Jos haluat vastaanottaa sen,\n maksa se ennen eräpäivää {{date}}.",
+          "info_text": "Hakemus poistetaan molemmissa tapauksissa (hyväksy/hylkää). Mikäli haluat eri paikan, hyväksy tarjous jonka jälkeen voi tehdä vaihtohakemuksen. Vaihtohakemukset käsitellään vuosittain ennen uusia hakemuksia.",
+          "net_price": "Nettohinta",
+          "keep_application_active": "Haluan että hakemus jää voimaan mikäli paikkoja ei ole vapaana tälle purjehduskaudelle",
+          "reject_offer": "Hylkää tarjous",
+          "sports_services_prices": "Liikuntapalvelujen hinnasto",
+          "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/palvelut/liikunta-ja-ulkoilu/maksut/"
+        }
       },
       "winter_storage": {
         "title": "Talvisäilytyspaikat"
