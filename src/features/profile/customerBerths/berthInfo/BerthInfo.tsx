@@ -48,10 +48,10 @@ const BerthInfo = ({
           <h2 className="vene-berth-info__harbor-name">{harborName}</h2>
           <p>{harborAddress}</p>
           <p>
-            <a href={harborWebsite} className="vene-berth-info__link">
+            <a href={harborWebsite} className="vene-berth-info__link" rel="noopener noreferrer" target="_blank">
               {t('page.profile.berths.berth_offer.harbor_website')}
             </a>
-            <a href={harborMap} className="vene-berth-info__link">
+            <a href={harborMap} className="vene-berth-info__link" rel="noopener noreferrer" target="_blank">
               {t('page.profile.berths.berth_offer.harbor_map')}
             </a>
           </p>
