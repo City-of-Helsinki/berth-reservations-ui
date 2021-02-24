@@ -14,6 +14,7 @@
     "mooring_type": "Kiinnitystapa",
     "order_number": "Tilaustunnus",
     "paid": "Maksettu",
+    "paid_manually": "Maksettu muualla",
     "parking_permit":"Pysäköintilupa",
     "pier": "Laituri",
     "rejected": "Hylätty",

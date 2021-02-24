@@ -15,6 +15,7 @@ export enum OrderStatus {
   ERROR = "ERROR",
   EXPIRED = "EXPIRED",
   PAID = "PAID",
+  PAID_MANUALLY = "PAID_MANUALLY",
   REJECTED = "REJECTED",
   WAITING = "WAITING",
 }

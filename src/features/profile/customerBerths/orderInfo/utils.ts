@@ -43,6 +43,8 @@ export const getStatusLabelKey = (status: OrderStatus) => {
       return 'common.expired';
     case OrderStatus.PAID:
       return 'common.paid';
+    case OrderStatus.PAID_MANUALLY:
+      return 'common.paid_manually';
     case OrderStatus.REJECTED:
       return 'common.rejected';
     case OrderStatus.WAITING:
@@ -61,6 +63,8 @@ export const getStatusLabelColor = (status: OrderStatus): StatusLabelProps['type
     case OrderStatus.EXPIRED:
       return 'error';
     case OrderStatus.PAID:
+      return 'success';
+    case OrderStatus.PAID_MANUALLY:
       return 'success';
     case OrderStatus.REJECTED:
       return 'error';
