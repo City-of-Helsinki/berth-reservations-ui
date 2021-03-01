@@ -43,9 +43,8 @@ export const overviewSelectors = {
     const pairs: string[] = [];
     for (let i = 0; i < labelValuePairCount; i += 1) {
       const label = await labelValuePairs.nth(i).child(0).textContent;
-      // Skipping index 1 because it is just ':'
-      const value = await labelValuePairs.nth(i).child(2).textContent;
-      pairs.push(`${label}: ${value}`);
+      const value = await labelValuePairs.nth(i).child(1).textContent;
+      pairs.push(`${label} ${value}`);
     }
     return pairs.join('\n');
   },

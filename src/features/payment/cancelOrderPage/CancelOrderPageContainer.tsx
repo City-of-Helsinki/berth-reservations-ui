@@ -23,7 +23,7 @@ const CancelOrderPageContainer = ({ localePush }: Props) => {
       },
     },
     onCompleted: () => {
-      localePush('/');
+      localePush('/order-cancelled');
     },
   });
 
