@@ -20,6 +20,7 @@ import PaymentPageContainer from '../features/payment/paymentPage/PaymentPageCon
 import { PaymentResultContainer } from '../features/payment/paymentResultPage/PaymentResultContainer';
 import CancelOrderPageContainer from '../features/payment/cancelOrderPage/CancelOrderPageContainer';
 import ProfilePageContainer from '../features/profile/ProfilePageContainer';
+import OrderCancelledPage from '../features/payment/cancelOrderPage/OrderCancelledPage';
 
 type Props = RouteComponentProps<{ locale: LocaleOpts }>;
 
@@ -55,6 +56,7 @@ const App = ({
       <Route exact path={`/${localeParam}/payment`} component={PaymentPageContainer} />
       <Route exact path={`/${localeParam}/payment-result`} component={PaymentResultContainer} />
       <Route exact path={`/${localeParam}/cancel-order`} component={CancelOrderPageContainer} />
+      <Route exact path={`/${localeParam}/order-cancelled`} component={OrderCancelledPage} />
 
       <Route exact path={`/${localeParam}/profile`} component={ProfilePageContainer} />
 

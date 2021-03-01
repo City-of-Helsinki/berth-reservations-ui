@@ -577,6 +577,10 @@
       "confirmation": "I want to cancel the offer/invoice",
       "submit_button": "OK"
     },
+    "order_cancelled": {
+      "title_text": "The cancellation was successful!",
+      "message": "We have received the cancellation and your berth has been terminated. You will receive a confirmation to your email."
+    },
     "common": {
       "website": "Website"
     },

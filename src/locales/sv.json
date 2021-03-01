@@ -577,6 +577,10 @@
       "confirmation": "Jag vill annullera erbjudandet/fakturan",
       "submit_button": "OK"
     },
+    "order_cancelled": {
+      "title_text": "Avbokningen lyckades!",
+      "message": "Vi har fått avbokningen och din båtplats har avslutats. Du kommer att få en bekräftelse på din e-post."
+    },
     "common": {
       "website": "Webbplats"
     },
