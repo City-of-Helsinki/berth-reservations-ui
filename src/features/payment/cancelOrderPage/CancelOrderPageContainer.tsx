@@ -22,9 +22,6 @@ const CancelOrderPageContainer = ({ localePush }: Props) => {
         orderNumber: orderNumber ?? '',
       },
     },
-    onCompleted: () => {
-      localePush('/order-cancelled');
-    },
   });
 
   if (loading) {
@@ -33,7 +30,7 @@ const CancelOrderPageContainer = ({ localePush }: Props) => {
 
   const handleCancel = () =>
     cancelOrder()
-      .then(() => localePush('/'))
+      .then(() => localePush('/order-cancelled'))
       // eslint-disable-next-line no-console
       .catch((err) => console.error(err));
 
