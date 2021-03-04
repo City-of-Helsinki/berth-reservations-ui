@@ -1,11 +1,12 @@
 import { Navigation, NavigationProps } from 'hds-react';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import './navbar.scss';
 import { matchPath, useHistory } from 'react-router';
 import { useLocation } from 'react-router-dom';
 
 import authService from '../../../app/auth/authService';
+import { useCurrentUser } from '../../../app/auth/hooks';
 
 const Navbar = () => {
   const {
@@ -14,14 +15,8 @@ const Navbar = () => {
   } = useTranslation();
   const location = useLocation();
   const history = useHistory();
-  const [userName, setUserName] = React.useState('-');
-  useEffect(() => {
-    const getUserName = async () => {
-      const user = await authService.getUser();
-      setUserName(user?.profile.name ?? '-');
-    };
-    getUserName();
-  }, []);
+  const currentUser = useCurrentUser();
+  const userName = currentUser?.name ?? '-';
 
   const localizedRootUrl = (lang: string) => `/${lang}`;
   const localizedLink = (url: string, lang: string = language) => `${localizedRootUrl(lang)}${url}`;
