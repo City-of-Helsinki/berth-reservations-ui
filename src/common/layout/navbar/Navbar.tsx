@@ -67,6 +67,7 @@ const Navbar = () => {
           userName={userName}
           onSignIn={() => history.push(localizedLink('/login'))}
         >
+          <Navigation.Item label="Profiili" href={localizedLink('/profile')} />
           <Navigation.Item label="Kirjaudu ulos" href={localizedLink('/logout')} />
         </Navigation.User>
 
