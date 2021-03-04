@@ -1,50 +1,68 @@
+import { Navigation, NavigationProps } from 'hds-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Container, Nav, Navbar as BSNavbar } from 'reactstrap';
-
-import Icon from '../../icon/Icon';
-import LocalizedLink from '../../localizedLink/LocalizedLink';
-import LanguageDropdown from '../languageDropdown/LanguageDropdown';
-
 import './navbar.scss';
+import { matchPath } from 'react-router';
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
-  const { t } = useTranslation();
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
+  const location = useLocation();
+
+  const localizedRootUrl = (lang: string) => `/${lang}`;
+  const localizedLink = (url: string, lang: string = language) => `${localizedRootUrl(lang)}${url}`;
+  const isLinkActive = (url: string) => !!matchPath(location.pathname, url);
+
+  const navigationProps: NavigationProps = {
+    className: 'vene-navbar',
+    logoLanguage: language === 'sv' ? 'sv' : 'fi',
+    menuToggleAriaLabel: '',
+    skipTo: '',
+    skipToContentLabel: '',
+    title: t('site.front.title'),
+    titleUrl: localizedLink('/'),
+  };
+
+  const languages = ['fi', 'sv', 'en'];
+  const links = [
+    {
+      url: '/berths',
+      label: t('site.berth.title'),
+    },
+    {
+      url: '/winter-storage',
+      label: t('site.winter.title'),
+    },
+    {
+      url: '/unmarked-winter-storage',
+      label: t('site.unmarked_winter_storage.title'),
+    },
+  ];
+
   return (
-    <div className="vene-navbar">
-      <div className="vene-navbar__top">
-        <Container>
-          <BSNavbar expand="md">
-            <LocalizedLink className="vene-navbar__main-link" id="main-link" to="/">
-              <Icon className="vene-navbar__icon" name="helsinkiLogo" />
-              <span className="vene-navbar__title">{t('site.front.title')}</span>
-            </LocalizedLink>
-            <Nav className="ml-auto" navbar>
-              <LanguageDropdown />
-            </Nav>
-          </BSNavbar>
-        </Container>
-      </div>
-      <Container>
-        <Nav className="vene-navbar__links-wrapper">
-          <LocalizedLink to="/berths" className="vene-navbar__link" activeClassName="vene-navbar__link--active">
-            <span>{t('site.berth.title')}</span>
-          </LocalizedLink>
+    <Navigation {...navigationProps}>
+      <Navigation.Row>
+        {links.map(({ label, url }) => (
+          <Navigation.Item
+            key={url}
+            active={isLinkActive(localizedLink(url))}
+            href={localizedLink(url)}
+            label={label}
+          />
+        ))}
+      </Navigation.Row>
 
-          <LocalizedLink to="/winter-storage" className="vene-navbar__link" activeClassName="vene-navbar__link--active">
-            <span>{t('site.winter.title')}</span>
-          </LocalizedLink>
-
-          <LocalizedLink
-            to="/unmarked-winter-storage"
-            className="vene-navbar__link"
-            activeClassName="vene-navbar__link--active"
-          >
-            <span>{t('site.unmarked_winter_storage.title')}</span>
-          </LocalizedLink>
-        </Nav>
-      </Container>
-    </div>
+      <Navigation.Actions>
+        <Navigation.LanguageSelector label={language.toUpperCase()} buttonAriaLabel={'site.language.select'}>
+          {languages.map((lang) => (
+            <Navigation.Item key={lang} href={localizedLink('/', lang)} label={t(`site.language.${lang}`)} />
+          ))}
+        </Navigation.LanguageSelector>
+      </Navigation.Actions>
+    </Navigation>
   );
 };
 
