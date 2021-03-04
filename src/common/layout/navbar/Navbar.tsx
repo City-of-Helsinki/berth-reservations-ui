@@ -1,9 +1,11 @@
 import { Navigation, NavigationProps } from 'hds-react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import './navbar.scss';
-import { matchPath } from 'react-router';
+import { matchPath, useHistory } from 'react-router';
 import { useLocation } from 'react-router-dom';
+
+import authService from '../../../app/auth/authService';
 
 const Navbar = () => {
   const {
@@ -11,6 +13,15 @@ const Navbar = () => {
     i18n: { language },
   } = useTranslation();
   const location = useLocation();
+  const history = useHistory();
+  const [userName, setUserName] = React.useState('-');
+  useEffect(() => {
+    const getUserName = async () => {
+      const user = await authService.getUser();
+      setUserName(user?.profile.name ?? '-');
+    };
+    getUserName();
+  }, []);
 
   const localizedRootUrl = (lang: string) => `/${lang}`;
   const localizedLink = (url: string, lang: string = language) => `${localizedRootUrl(lang)}${url}`;
@@ -25,7 +36,6 @@ const Navbar = () => {
     title: t('site.front.title'),
     titleUrl: localizedLink('/'),
   };
-
   const languages = ['fi', 'sv', 'en'];
   const links = [
     {
@@ -56,6 +66,15 @@ const Navbar = () => {
       </Navigation.Row>
 
       <Navigation.Actions>
+        <Navigation.User
+          authenticated={authService.isAuthenticated()}
+          label="Kirjaudu sisään"
+          userName={userName}
+          onSignIn={() => history.push(localizedLink('/login'))}
+        >
+          <Navigation.Item label="Kirjaudu ulos" href={localizedLink('/logout')} />
+        </Navigation.User>
+
         <Navigation.LanguageSelector label={language.toUpperCase()} buttonAriaLabel={'site.language.select'}>
           {languages.map((lang) => (
             <Navigation.Item key={lang} href={localizedLink('/', lang)} label={t(`site.language.${lang}`)} />

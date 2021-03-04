@@ -49,8 +49,8 @@ const Root = () => (
       <PersistGate loading={null} persistor={persistor}>
         <Router history={piwik.connectToHistory(history)}>
           <Switch>
-            <Redirect exact path="/" to="/fi" />
-            <Route path="/:locale(fi|sv|en)?" component={App} />
+            <Route path="/:locale(fi|sv|en)" component={App} />
+            <Route render={({ location: { pathname, hash } }) => <Redirect to={`/fi${pathname}${hash}`} />} />
           </Switch>
         </Router>
       </PersistGate>
