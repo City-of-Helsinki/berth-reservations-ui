@@ -21,6 +21,13 @@ const Navbar = () => {
   const localizedRootUrl = (lang: string) => `/${lang}`;
   const localizedLink = (url: string, lang: string = language) => `${localizedRootUrl(lang)}${url}`;
   const isLinkActive = (url: string) => !!matchPath(location.pathname, url);
+  const makeHrefAndOnClick = (url: string) => ({
+    href: url,
+    onClick: (e: React.MouseEvent) => {
+      e.preventDefault();
+      history.push(url);
+    },
+  });
 
   const navigationProps: NavigationProps = {
     className: 'vene-navbar',
@@ -30,6 +37,7 @@ const Navbar = () => {
     skipToContentLabel: '',
     title: t('site.front.title'),
     titleUrl: localizedLink('/'),
+    onTitleClick: () => history.push(localizedLink('/')),
   };
   const languages = ['fi', 'sv', 'en'];
   const links = [
@@ -54,7 +62,7 @@ const Navbar = () => {
           <Navigation.Item
             key={url}
             active={isLinkActive(localizedLink(url))}
-            href={localizedLink(url)}
+            {...makeHrefAndOnClick(localizedLink(url))}
             label={label}
           />
         ))}
@@ -67,13 +75,17 @@ const Navbar = () => {
           userName={userName}
           onSignIn={() => history.push(localizedLink('/login'))}
         >
-          <Navigation.Item label="Profiili" href={localizedLink('/profile')} />
-          <Navigation.Item label="Kirjaudu ulos" href={localizedLink('/logout')} />
+          <Navigation.Item label="Profiili" {...makeHrefAndOnClick(localizedLink('/profile'))} />
+          <Navigation.Item label="Kirjaudu ulos" {...makeHrefAndOnClick(localizedLink('/logout'))} />
         </Navigation.User>
 
         <Navigation.LanguageSelector label={language.toUpperCase()} buttonAriaLabel={'site.language.select'}>
           {languages.map((lang) => (
-            <Navigation.Item key={lang} href={localizedLink('/', lang)} label={t(`site.language.${lang}`)} />
+            <Navigation.Item
+              key={lang}
+              {...makeHrefAndOnClick(localizedLink('/', lang))}
+              label={t(`site.language.${lang}`)}
+            />
           ))}
         </Navigation.LanguageSelector>
       </Navigation.Actions>
