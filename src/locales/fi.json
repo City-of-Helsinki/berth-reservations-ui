@@ -854,7 +854,9 @@
     "navbar": {
       "log_in": "Kirjaudu sisään",
       "log_out": "Kirjaudu ulos",
-      "profile": "Profiili"
+      "menu_label": "Valikko",
+      "profile": "Profiili",
+      "skip_to_content": "Siirry sisältöön"
     },
     "footer": {
       "accessibility_statement": "Saavutettavuusseloste",

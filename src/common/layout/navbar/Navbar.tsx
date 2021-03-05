@@ -32,9 +32,9 @@ const Navbar = () => {
   const navigationProps: NavigationProps = {
     className: 'vene-navbar',
     logoLanguage: language === 'sv' ? 'sv' : 'fi',
-    menuToggleAriaLabel: '',
-    skipTo: '',
-    skipToContentLabel: '',
+    menuToggleAriaLabel: t('site.navbar.menu_label'),
+    skipTo: '#main',
+    skipToContentLabel: t('site.navbar.skip_to_content'),
     title: t('site.front.title'),
     titleUrl: localizedLink('/'),
     onTitleClick: () => history.push(localizedLink('/')),

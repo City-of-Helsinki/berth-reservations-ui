@@ -785,7 +785,9 @@
     "navbar": {
       "log_in": "Log in",
       "log_out": "Log out",
-      "profile": "Profile"
+      "menu_label": "Menu",
+      "profile": "Profile",
+      "skip_to_content": "Skip to content"
     },
     "footer": {
       "accessibility_statement": "Accessibility statement",
