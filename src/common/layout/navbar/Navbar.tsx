@@ -2,11 +2,12 @@ import { Navigation, NavigationProps } from 'hds-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import './navbar.scss';
-import { matchPath, useHistory } from 'react-router';
+import { useHistory } from 'react-router';
 import { useLocation } from 'react-router-dom';
 
 import authService from '../../../app/auth/authService';
 import { useCurrentUser } from '../../../app/auth/hooks';
+import { isLinkActive, localizedLink, makeNavigationItemProps, stripUrlLocale } from './utils';
 
 const Navbar = () => {
   const {
@@ -17,17 +18,7 @@ const Navbar = () => {
   const history = useHistory();
   const currentUser = useCurrentUser();
   const userName = currentUser?.name ?? '-';
-
-  const localizedRootUrl = (lang: string) => `/${lang}`;
-  const localizedLink = (url: string, lang: string = language) => `${localizedRootUrl(lang)}${url}`;
-  const isLinkActive = (url: string) => !!matchPath(location.pathname, url);
-  const makeHrefAndOnClick = (url: string) => ({
-    href: url,
-    onClick: (e: React.MouseEvent) => {
-      e.preventDefault();
-      history.push(url);
-    },
-  });
+  const currentLocationWithoutLocale = stripUrlLocale(`${location.pathname}${location.hash}`);
 
   const navigationProps: NavigationProps = {
     className: 'vene-navbar',
@@ -36,8 +27,7 @@ const Navbar = () => {
     skipTo: '#main',
     skipToContentLabel: t('site.navbar.skip_to_content'),
     title: t('site.front.title'),
-    titleUrl: localizedLink('/'),
-    onTitleClick: () => history.push(localizedLink('/')),
+    titleUrl: localizedLink('/', language),
   };
   const languages = ['fi', 'sv', 'en'];
   const links = [
@@ -61,8 +51,8 @@ const Navbar = () => {
         {links.map(({ label, url }) => (
           <Navigation.Item
             key={url}
-            active={isLinkActive(localizedLink(url))}
-            {...makeHrefAndOnClick(localizedLink(url))}
+            active={isLinkActive(localizedLink(url, language), location)}
+            {...makeNavigationItemProps(localizedLink(url, language), history)}
             label={label}
           />
         ))}
@@ -73,17 +63,23 @@ const Navbar = () => {
           authenticated={authService.isAuthenticated()}
           label={t('site.navbar.log_in')}
           userName={userName}
-          onSignIn={() => history.push(localizedLink('/login'))}
+          onSignIn={() => history.push(localizedLink('/login', language))}
         >
-          <Navigation.Item label={t('site.navbar.profile')} {...makeHrefAndOnClick(localizedLink('/profile'))} />
-          <Navigation.Item label={t('site.navbar.log_out')} {...makeHrefAndOnClick(localizedLink('/logout'))} />
+          <Navigation.Item
+            label={t('site.navbar.profile')}
+            {...makeNavigationItemProps(localizedLink('/profile', language), history)}
+          />
+          <Navigation.Item
+            label={t('site.navbar.log_out')}
+            {...makeNavigationItemProps(localizedLink('/logout', language), history)}
+          />
         </Navigation.User>
 
         <Navigation.LanguageSelector label={language.toUpperCase()} buttonAriaLabel={'site.language.select'}>
           {languages.map((lang) => (
             <Navigation.Item
               key={lang}
-              {...makeHrefAndOnClick(localizedLink('/', lang))}
+              {...makeNavigationItemProps(localizedLink(currentLocationWithoutLocale, lang), history)}
               label={t(`site.language.${lang}`)}
             />
           ))}
