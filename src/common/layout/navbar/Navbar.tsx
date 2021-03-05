@@ -71,12 +71,12 @@ const Navbar = () => {
       <Navigation.Actions>
         <Navigation.User
           authenticated={authService.isAuthenticated()}
-          label="Kirjaudu sisään"
+          label={t('site.navbar.log_in')}
           userName={userName}
           onSignIn={() => history.push(localizedLink('/login'))}
         >
-          <Navigation.Item label="Profiili" {...makeHrefAndOnClick(localizedLink('/profile'))} />
-          <Navigation.Item label="Kirjaudu ulos" {...makeHrefAndOnClick(localizedLink('/logout'))} />
+          <Navigation.Item label={t('site.navbar.profile')} {...makeHrefAndOnClick(localizedLink('/profile'))} />
+          <Navigation.Item label={t('site.navbar.log_out')} {...makeHrefAndOnClick(localizedLink('/logout'))} />
         </Navigation.User>
 
         <Navigation.LanguageSelector label={language.toUpperCase()} buttonAriaLabel={'site.language.select'}>

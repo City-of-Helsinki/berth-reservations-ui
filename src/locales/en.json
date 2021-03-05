@@ -782,6 +782,11 @@
       "servicemapURL": "https://servicemap.hel.fi/unit/{{servicemapId}}",
       "loading": "Loading"
     },
+    "navbar": {
+      "log_in": "Log in",
+      "log_out": "Log out",
+      "profile": "Profile"
+    },
     "footer": {
       "accessibility_statement": "Accessibility statement",
       "berth_search": "Boat berth search",
