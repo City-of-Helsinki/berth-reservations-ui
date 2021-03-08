@@ -2,31 +2,21 @@ import { Button } from 'hds-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { formatDate } from '../../../common/utils/format';
-import BerthApplication, { BerthChoice } from './berthApplication/BerthApplication';
-import BerthInfo from './berthInfo/BerthInfo';
-import InfoSection from './infoSection/InfoSection';
-import OrderInfo from './orderInfo/OrderInfo';
+import { formatDate } from '../../../../common/utils/format';
+import BerthInfo from '../berthInfo/BerthInfo';
+import InfoSection from '../infoSection/InfoSection';
+import OrderInfo from '../orderInfo/OrderInfo';
+import { BerthOffer as BerthOfferType, Order } from '../types';
 import './berthOffer.scss';
-import { BerthOffer as BerthOfferType, Order } from './types';
 
 export interface OfferProps {
-  applicationDate: string;
-  berthChoices: BerthChoice[];
   berthOffer: BerthOfferType;
   order: Order;
   seasonEndDate: string;
   seasonStartDate: string;
 }
 
-const BerthOffer = ({
-  applicationDate,
-  berthChoices,
-  berthOffer,
-  order,
-  seasonEndDate,
-  seasonStartDate,
-}: OfferProps) => {
+const BerthOffer = ({ berthOffer, order, seasonEndDate, seasonStartDate }: OfferProps) => {
   const {
     t,
     i18n: { language },
@@ -60,10 +50,6 @@ const BerthOffer = ({
           seasonStartDate={seasonStartDate}
         />
       </div>
-
-      <hr className="vene-berth-offer__divider" />
-
-      <BerthApplication applicationDate={applicationDate} berthChoices={berthChoices} />
     </div>
   );
 };

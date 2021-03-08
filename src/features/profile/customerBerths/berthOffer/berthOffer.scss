@@ -14,16 +14,16 @@
     grid-template-columns: 7fr 5fr;
     grid-template-rows: auto;
     grid-template-areas:
-            "berth-info berth-info"
-            "order-info order-info"
-            "buttons buttons"
-            "info-text info-text";
+      'berth-info berth-info'
+      'order-info order-info'
+      'buttons buttons'
+      'info-text info-text';
 
     @include for-desktop() {
       grid-template-areas:
-            "berth-info order-info"
-            "buttons order-info"
-            "info-text order-info";
+        'berth-info order-info'
+        'buttons order-info'
+        'info-text order-info';
     }
   }
 
@@ -46,10 +46,5 @@
 
   &__order-info {
     grid-area: order-info;
-  }
-
-  &__divider {
-    margin: $spacing-02 0;
-    border-color: $hel-gray;
   }
 }

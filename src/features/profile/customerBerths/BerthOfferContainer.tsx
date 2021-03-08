@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BerthOffer from './BerthOffer';
+import BerthOffer from './berthOffer/BerthOffer';
 import { mockProps } from './mockData';
 
 const BerthOfferContainer = () => {
