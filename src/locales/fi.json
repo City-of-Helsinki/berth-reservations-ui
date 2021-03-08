@@ -752,6 +752,13 @@
           "reject_offer": "Hylkää tarjous",
           "sports_services_prices": "Liikuntapalvelujen hinnasto",
           "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/palvelut/liikunta-ja-ulkoilu/maksut/"
+        },
+        "contract": {
+          "label": "Sopimus",
+          "issued": "Luotu",
+          "edited": "Muokattu",
+          "status": "Tila",
+          "show": "Näytä sopimus"
         }
       },
       "winter_storage": {
