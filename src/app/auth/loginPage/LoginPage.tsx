@@ -1,19 +1,24 @@
 import React, { useEffect } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { Redirect, RouteComponentProps, useLocation } from 'react-router-dom';
 
 import LoadingPage from '../../../common/loadingPage/LoadingPage';
-import authService from '../authService';
+import { isAuthenticated, login } from '../authService';
 
 export type LoginPageProps = RouteComponentProps;
 
 const LoginPage = ({ history }: LoginPageProps) => {
+  const searchParams = new URLSearchParams(useLocation().search);
+  const referrer = searchParams.get('referrer') || '/';
+  const authenticated = isAuthenticated();
+
   useEffect(() => {
-    authService.login().catch(() => {
-      history.replace('/error');
-    });
+    !authenticated &&
+      login(referrer).catch(() => {
+        history.replace('/error');
+      });
   });
 
-  return <LoadingPage />;
+  return authenticated ? <Redirect to={referrer} /> : <LoadingPage />;
 };
 
 export default LoginPage;

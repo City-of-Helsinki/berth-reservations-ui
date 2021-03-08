@@ -1,19 +1,19 @@
 import React from 'react';
 import { Route, Redirect, RouteProps, useLocation } from 'react-router-dom';
 
-import authService from '../authService';
+import { isAuthenticated } from '../authService';
 
 const PrivateRoute = (props: RouteProps) => {
   const location = useLocation();
-  const isAuthenticated = authService.isAuthenticated();
+  const currentLocation = `${location.pathname}${location.search}${location.hash}`;
+  const queryString = `?referrer=${encodeURIComponent(currentLocation)}`;
 
-  if (isAuthenticated) return <Route {...props} />;
+  if (isAuthenticated()) return <Route {...props} />;
 
   return (
     <Redirect
       to={{
-        pathname: '/login',
-        state: { from: location },
+        pathname: `/login${queryString}`,
       }}
     />
   );

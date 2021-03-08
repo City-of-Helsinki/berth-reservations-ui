@@ -1,6 +1,6 @@
 import ApolloClient, { gql } from 'apollo-boost';
 
-import authService from './auth/authService';
+import { getUser } from './auth/authService';
 
 const typeDefs = gql`
   type CurrentUser {
@@ -26,7 +26,7 @@ const apolloClient = new ApolloClient({
   resolvers: {
     Query: {
       async currentUser() {
-        const user = await authService.getUser();
+        const user = await getUser();
 
         if (!user) return null;
 
