@@ -20,12 +20,12 @@ export interface BerthChoice {
   gate: boolean;
 }
 
-export interface ApplicationProps {
+export interface BerthApplicationProps {
   applicationDate: string;
   berthChoices: BerthChoice[];
 }
 
-const BerthApplication = ({ applicationDate, berthChoices }: ApplicationProps) => {
+const BerthApplication = ({ applicationDate, berthChoices }: BerthApplicationProps) => {
   const {
     t,
     i18n: { language },
@@ -35,7 +35,7 @@ const BerthApplication = ({ applicationDate, berthChoices }: ApplicationProps) =
     { name, availabilityLevel, electricity, gate, lighting, wasteCollection, water }: BerthChoice,
     index: number
   ) => (
-    <div>
+    <div key={index}>
       <p>
         {index + 1}. {name}
       </p>
