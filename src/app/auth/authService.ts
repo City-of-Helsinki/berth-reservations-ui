@@ -12,22 +12,12 @@ const {
 
 export const API_TOKENS = 'apiTokens';
 
-export const fetchApiTokens = async (user: User): Promise<void> => {
-  const { data: apiTokens } = await axios.get(`${tunnistamoApiTokenEndpoint}/`, {
-    baseURL: tunnistamoUri,
-    headers: {
-      Authorization: `bearer ${user.access_token}`,
-    },
-  });
-
-  localStorage.setItem(API_TOKENS, JSON.stringify(apiTokens));
-};
-
 // oidc-client logging
 Log.logger = console;
 Log.level = Log.ERROR;
 
-const userManager = new UserManager({
+/* Exported for testing purposes only */
+export const userManager = new UserManager({
   authority: tunnistamoUri,
   automaticSilentRenew: true,
   client_id: tunnistamoClientId,
@@ -46,38 +36,62 @@ const clearUser = () => {
 
 userManager.events.addAccessTokenExpired(clearUser);
 userManager.events.addSilentRenewError(clearUser);
-userManager.events.addUserLoaded((user) => fetchApiTokens(user));
+userManager.events.addUserLoaded((user) => authService.fetchApiTokens(user));
 userManager.events.addUserUnloaded(clearUser);
 
-export const endLogin = async (): Promise<User> => {
+const endLogin = async (): Promise<User> => {
   const user = await userManager.signinRedirectCallback();
-  await fetchApiTokens(user);
+  await authService.fetchApiTokens(user);
   return user;
 };
 
-export const getTokens = (): string | null => {
+const fetchApiTokens = async (user: User): Promise<void> => {
+  const { data: apiTokens } = await axios.get(`${tunnistamoApiTokenEndpoint}/`, {
+    baseURL: tunnistamoUri,
+    headers: {
+      Authorization: `bearer ${user.access_token}`,
+    },
+  });
+
+  localStorage.setItem(API_TOKENS, JSON.stringify(apiTokens));
+};
+
+const getTokens = (): string | null => {
   return localStorage.getItem(API_TOKENS);
 };
 
-export const getUser = (): Promise<User | null> => {
+const getUser = (): Promise<User | null> => {
   return userManager.getUser();
 };
 
-export const isAuthenticated = () => {
+const isAuthenticated = () => {
   const oidcStorage = sessionStorage.getItem(`oidc.user:${tunnistamoUri}:${tunnistamoClientId}`);
-  const apiTokens = getTokens();
+  const apiTokens = authService.getTokens();
 
   return !!oidcStorage && !!JSON.parse(oidcStorage).access_token && !!apiTokens;
 };
 
-export const login = (path = '/'): Promise<void> => {
+const login = (path = '/'): Promise<void> => {
   return userManager.signinRedirect({ data: { path } });
 };
 
-export const logout = async (): Promise<void> => {
+const logout = async (): Promise<void> => {
   return userManager.signoutRedirect();
 };
 
-export const renewToken = (): Promise<User> => {
+const renewToken = (): Promise<User> => {
   return userManager.signinSilent();
 };
+
+const authService = {
+  endLogin,
+  fetchApiTokens,
+  getTokens,
+  getUser,
+  isAuthenticated,
+  login,
+  logout,
+  renewToken,
+};
+
+export default authService;

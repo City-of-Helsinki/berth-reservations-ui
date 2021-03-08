@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
 import LoadingPage from '../../../common/loadingPage/LoadingPage';
-import { logout } from '../authService';
+import authService from '../authService';
 
 export type LogoutPageProps = RouteComponentProps;
 
 const LogoutPage = ({ history }: LogoutPageProps) => {
   useEffect(() => {
-    logout().catch(() => {
+    authService.logout().catch(() => {
       history.replace('/error');
     });
   });

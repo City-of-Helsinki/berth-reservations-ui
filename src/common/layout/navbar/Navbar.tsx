@@ -5,7 +5,7 @@ import './navbar.scss';
 import { useHistory } from 'react-router';
 import { useLocation } from 'react-router-dom';
 
-import { isAuthenticated } from '../../../app/auth/authService';
+import authService from '../../../app/auth/authService';
 import { useCurrentUser } from '../../../app/auth/hooks';
 import { isLinkActive, localizedLink, makeNavigationItemProps, stripUrlLocale } from './utils';
 
@@ -63,7 +63,7 @@ const Navbar = () => {
 
       <Navigation.Actions>
         <Navigation.User
-          authenticated={isAuthenticated()}
+          authenticated={authService.isAuthenticated()}
           label={t('site.navbar.log_in')}
           userName={userName}
           onSignIn={() => history.push(localizedLink(`/login${loginQueryString}`, language))}
