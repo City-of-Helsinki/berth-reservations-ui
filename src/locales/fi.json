@@ -759,6 +759,10 @@
           "edited": "Muokattu",
           "status": "Tila",
           "show": "Näytä sopimus"
+        },
+        "history": {
+          "label": "Venepaikkahistoria",
+          "berth": "paikka"
         }
       },
       "winter_storage": {
