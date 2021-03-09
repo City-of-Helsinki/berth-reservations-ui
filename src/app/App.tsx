@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router';
 import { RouteComponentProps } from 'react-router-dom';
 
 import ApplicationSentPage from '../features/notice/ApplicationSentPage';
-import AuthTestPage from '../features/AuthTestPage';
 import BerthFormPageContainer from '../features/berth/berthFormPage/BerthFormPageContainer';
 import BerthPageContainer from '../features/berth/berthPage/BerthPageContainer';
 import CallbackPage from './auth/callbackPage/CallbackPage';
@@ -49,10 +48,9 @@ const App = ({
       <Route exact path={`/${localeParam}/login`} component={LoginPage} />
       <Route exact path={`/${localeParam}/logout`} component={LogoutPage} />
       <Route exact path={`/${localeParam}/callback`} component={CallbackPage} />
-      <PrivateRoute exact path={`/${localeParam}/auth-test`} component={AuthTestPage} />
 
       <Route exact path={`/${localeParam}`} component={FrontPage} />
-      <Route exact path={`/${localeParam}/profile/:id`} component={ProfilePageContainer} />
+      <PrivateRoute exact path={`/${localeParam}/profile/:id`} component={ProfilePageContainer} />
 
       <Route exact path={`/${localeParam}/${berthParam}`} component={BerthPageContainer} />
       <Route exact path={`/${localeParam}/${berthParam}/selected`} component={SelectedBerthPageContainer} />
