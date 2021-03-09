@@ -23,9 +23,10 @@ export interface BerthChoice {
 export interface BerthApplicationProps {
   applicationDate: string;
   berthChoices: BerthChoice[];
+  showHeading?: boolean;
 }
 
-const BerthApplication = ({ applicationDate, berthChoices }: BerthApplicationProps) => {
+const BerthApplication = ({ applicationDate, berthChoices, showHeading }: BerthApplicationProps) => {
   const {
     t,
     i18n: { language },
@@ -54,6 +55,8 @@ const BerthApplication = ({ applicationDate, berthChoices }: BerthApplicationPro
 
   return (
     <div className="vene-berth-application">
+      {showHeading && <h1>{t('page.profile.berths.berth_offer.berth_application')}</h1>}
+
       <p>
         {t('common.sent')}: {formatDate(applicationDate, language)}
       </p>
