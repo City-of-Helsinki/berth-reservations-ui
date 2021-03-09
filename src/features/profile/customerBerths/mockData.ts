@@ -60,6 +60,64 @@ export const mockOrder: Order = {
   vatPercentage: 24,
 };
 
+export const mockPaidOrder: Order = {
+  dueDate: '2021-03-25',
+  fixedProducts: [
+    {
+      id: 'MOCK-PRODUCT-0',
+      name: 'MOORING',
+      orderId: 'MOCK-ORDER-0',
+      price: 79.52,
+    },
+    {
+      id: 'MOCK-PRODUCT-1',
+      name: 'ELECTRICITY',
+      orderId: 'MOCK-ORDER-0',
+      price: 34.08,
+    },
+    {
+      id: 'MOCK-PRODUCT-2',
+      name: 'WATER',
+      orderId: 'MOCK-ORDER-0',
+      price: 5.68,
+    },
+    {
+      id: 'MOCK-PRODUCT-3',
+      name: 'WASTE_COLLECTION',
+      orderId: 'MOCK-ORDER-0',
+      price: 22.72,
+    },
+    {
+      id: 'MOCK-PRODUCT-4',
+      name: 'GATE',
+      orderId: 'MOCK-ORDER-0',
+      price: 4,
+    },
+    {
+      id: 'MOCK-PRODUCT-5',
+      name: 'LIGHTING',
+      orderId: 'MOCK-ORDER-0',
+      price: 10,
+    },
+  ],
+  fixedProductsTotalPrice: 365.77,
+  netPrice: 354.84,
+  optionalProducts: [
+    {
+      id: 'MOCK-PRODUCT-6',
+      name: 'PARKING_PERMIT',
+      orderId: 'MOCK-ORDER-0',
+      price: 75,
+    },
+  ],
+  orderNumber: 'anw4sxjrmeqma',
+  orderStatus: OrderStatus.PAID,
+  price: 284,
+  totalPrice: 440,
+  vatAmount: 85.16,
+  vatPercentage: 24,
+};
+
 export const mockChoices: BerthChoice[] = [
   {
     name: 'Laivalahden venesatama (aallonmurtaja)',
@@ -117,10 +175,10 @@ const mockBerthProperties: BerthProperties = {
   water: true,
 };
 
-export const mockProps = {
+export const mockCustomerBerthsProps = {
   applicationDate: '2021-01-05',
   berthChoices: mockChoices,
-  berthOffer: mockBerthOffer,
+  berthProperties: mockBerthProperties,
   order: mockOrder,
   seasonEndDate: '2021-09-14',
   seasonStartDate: '2021-06-10',
