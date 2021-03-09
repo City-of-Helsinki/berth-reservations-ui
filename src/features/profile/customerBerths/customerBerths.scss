@@ -1,0 +1,9 @@
+@import 'helsinki/colors';
+@import 'styles/variables';
+
+.vene-customer-berths {
+  &__divider {
+    margin: $spacing-02 0;
+    border-color: $hel-gray;
+  }
+}
