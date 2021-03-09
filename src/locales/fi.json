@@ -738,6 +738,7 @@
           "accept_and_pay": "Hyväksy ja siirry maksamaan",
           "applied_berths": "Haetut venepaikat",
           "base_price": "Perushinta ({{berthWidth}})",
+          "berth_application": "Venepaikkahakemus",
           "berth_number": "Paikka",
           "berth_total": "Venepaikka yhteensä",
           "delete_application": "Poista hakemus",
@@ -753,10 +754,17 @@
           "sports_services_prices": "Liikuntapalvelujen hinnasto",
           "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/palvelut/liikunta-ja-ulkoilu/maksut/"
         },
+        "berth_invoice": {
+          "heading": "Venepaikan tiedot",
+          "heading_secondary": "Lasku venepaikasta. Jos haluat jatkaa sopimusta,\n maksa se ennen eräpäivää, {{date}}.",
+          "pay": "Siirry maksamaan",
+          "terminate_berth": "Irtisano venepaikka"
+        },
         "contract": {
           "label": "Sopimus",
           "issued": "Luotu",
           "edited": "Muokattu",
+          "singed": "Allekirjoitettu",
           "status": "Tila",
           "show": "Näytä sopimus"
         },
