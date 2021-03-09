@@ -1,6 +1,6 @@
 import { OrderStatus } from '../../../__generated__/globalTypes';
 import { BerthChoice } from './berthApplication/BerthApplication';
-import { BerthOffer, Order } from './types';
+import { BerthProperties, Order } from './types';
 
 export const mockOrder: Order = {
   dueDate: '2021-03-25',
@@ -99,7 +99,7 @@ export const mockChoices: BerthChoice[] = [
   },
 ];
 
-const mockBerthOffer: BerthOffer = {
+const mockBerthProperties: BerthProperties = {
   berthLength: 5,
   berthNumber: '15',
   berthWidth: 3.5,

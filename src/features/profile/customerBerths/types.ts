@@ -21,7 +21,7 @@ export interface Order {
   vatPercentage: number;
 }
 
-export interface BerthOffer {
+export interface BerthProperties {
   berthLength: number;
   berthNumber: string;
   berthWidth: number;
