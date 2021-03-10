@@ -1,7 +1,7 @@
 import { within } from '@testing-library/testcafe';
 import { Selector } from 'testcafe';
 
-const element = Selector('header[class*="vene-navbar"]');
+const element = Selector('header');
 
 export const navbarSelectors = {
   mainLink: within(element).getByText('Venepaikat'),
