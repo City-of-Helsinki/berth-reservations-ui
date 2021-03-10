@@ -58,7 +58,7 @@ const App = ({
       <Route exact path={`/${localeParam}/cancel-order`} component={CancelOrderPageContainer} />
       <Route exact path={`/${localeParam}/order-cancelled`} component={OrderCancelledPage} />
 
-      <Route exact path={`/${localeParam}/profile`} component={ProfilePageContainer} />
+      <Route exact path={`/${localeParam}/profile/:id`} component={ProfilePageContainer} />
 
       <Route exact path={`/${localeParam}/thank-you`} component={ApplicationThankYouPage} />
       <Route exact path={`/${localeParam}/notice-sent`} component={NoticeSentPage} />

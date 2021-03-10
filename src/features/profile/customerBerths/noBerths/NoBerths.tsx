@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, IconFaceSad } from 'hds-react';
 
-import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
+import { LocalePush, withMatchParamsHandlers } from '../../../../common/utils/container';
 import './noBerths.scss';
 
 interface NoBerthsProps {

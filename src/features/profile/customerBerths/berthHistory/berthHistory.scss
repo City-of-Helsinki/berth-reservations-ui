@@ -1,0 +1,12 @@
+@import 'helsinki/fonts';
+
+.vene-berth-history {
+  &__heading {
+    font-size: $font-size-base;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+}

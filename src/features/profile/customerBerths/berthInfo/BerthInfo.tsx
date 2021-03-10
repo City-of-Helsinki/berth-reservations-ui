@@ -5,17 +5,17 @@ import { useTranslation } from 'react-i18next';
 import LabelValuePair from '../../../../common/labelValuePair/LabelValuePair';
 import { formatDimension } from '../../../../common/utils/format';
 import Properties from '../properties/Properties';
-import { BerthOffer } from '../types';
+import { BerthProperties } from '../types';
 import './berthInfo.scss';
 
 export interface BerthInfoProps {
   className?: string;
-  berthOffer: BerthOffer;
+  berthProperties: BerthProperties;
 }
 
 const BerthInfo = ({
   className,
-  berthOffer: {
+  berthProperties: {
     berthLength,
     berthNumber,
     berthWidth,

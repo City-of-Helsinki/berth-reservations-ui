@@ -6,18 +6,23 @@ import { Tab, TabList, TabPanel, Tabs } from 'hds-react';
 
 import Layout from '../../common/layout/Layout';
 import ContactInfo, { ContactInfoProps } from './contactInfo/ContactInfo';
-import BerthOffer from './customerBerths/BerthOfferContainer';
-import NoBerths from './customerBerths/NoBerths';
+import CustomerBerths, { CustomerBerthsProps } from './customerBerths/CustomerBerths';
 
 import './profilePage.scss';
 
 export interface ProfilePageProps {
   customerContactInfo: ContactInfoProps;
+  customerBerths: CustomerBerthsProps;
   hasBerthNotifications: boolean;
   hasWSNotifications: boolean;
 }
 
-const ProfilePage = ({ customerContactInfo, hasBerthNotifications, hasWSNotifications }: ProfilePageProps) => {
+const ProfilePage = ({
+  customerContactInfo,
+  customerBerths,
+  hasBerthNotifications,
+  hasWSNotifications,
+}: ProfilePageProps) => {
   const { t } = useTranslation();
   const [isBerthTabClicked, setIsBerthTabClicked] = useState(false);
   const [isWSTabClicked, setIsWSTabClicked] = useState(false);
@@ -40,7 +45,6 @@ const ProfilePage = ({ customerContactInfo, hasBerthNotifications, hasWSNotifica
                   {t('page.profile.berths.title')}
                 </span>
               </Tab>
-              <Tab>BerthOffer</Tab>
               <Tab className={classNames('vene-profile-page__tab', 'vene-profile-page__tab--with-badge')}>
                 <span
                   onMouseDown={() => setIsWSTabClicked(true)}
@@ -57,10 +61,7 @@ const ProfilePage = ({ customerContactInfo, hasBerthNotifications, hasWSNotifica
             </TabPanel>
             <TabPanel>Boats tab</TabPanel>
             <TabPanel>
-              <NoBerths />
-            </TabPanel>
-            <TabPanel>
-              <BerthOffer />
+              <CustomerBerths {...customerBerths} />
             </TabPanel>
             <TabPanel>Winter storage tab</TabPanel>
           </Tabs>

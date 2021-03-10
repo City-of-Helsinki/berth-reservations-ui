@@ -1,0 +1,67 @@
+@import 'helsinki/colors';
+@import 'styles/variables';
+@import 'styles/mixin';
+
+.vene-berth-invoice {
+  &__heading {
+    line-height: $spacing-02-50;
+    margin-bottom: $spacing-04;
+  }
+
+  &__grid {
+    display: grid;
+    grid-column-gap: $spacing-04;
+    grid-template-columns: 7fr 5fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'berth-info berth-info'
+      'order-info order-info'
+      'buttons buttons';
+
+    @include for-desktop() {
+      grid-template-areas:
+        'berth-info order-info'
+        'berth-info order-info'
+        'buttons order-info';
+    }
+  }
+
+  &__berth-info {
+    grid-area: berth-info;
+  }
+
+  &__buttons {
+    grid-area: buttons;
+    margin: $spacing-02 0;
+
+    > button:not(:first-child) {
+      margin-left: $spacing-01;
+    }
+  }
+
+  &__contract {
+    grid-area: contract;
+  }
+
+  &__order-info {
+    grid-area: order-info;
+  }
+
+  &--has-contract {
+    .vene-berth-invoice__grid {
+      grid-template-areas:
+        'berth-info berth-info'
+        'order-info order-info'
+        'contract contract'
+        'buttons buttons';
+
+      @include for-desktop() {
+        grid-template-areas:
+          'berth-info order-info'
+          'berth-info order-info'
+          'contract order-info'
+          'buttons buttons';
+      }
+    }
+  }
+}
