@@ -1,4 +1,5 @@
 @import 'helsinki/fonts';
+@import 'helsinki/colors';
 @import 'styles/variables';
 
 .vene-contract-info {
@@ -7,8 +8,11 @@
   }
 
   &__link {
-    display: inline-block;
-    margin-top: $spacing-01;
+    background-color: transparent;
+    border: none;
     text-decoration: underline;
+    margin: $spacing-01 0 0;
+    padding: 0;
+    color: $hel-bus;
   }
 }

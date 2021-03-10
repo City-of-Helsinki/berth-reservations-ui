@@ -27,10 +27,14 @@ const ContractInfo = ({ className, issuedAt, editedAt, signedAt }: ContractInfoP
       <LabelValuePair label={t('page.profile.berths.contract.issued')} value={formatDate(issuedAt, language)} />
       <LabelValuePair label={t('page.profile.berths.contract.edited')} value={formatDate(editedAt, language)} />
       <LabelValuePair label={t('page.profile.berths.contract.status')} value={contractStatus} />
-      {/* FIXME */}
-      <a className="vene-contract-info__link" href="#">
+      <button
+        className="vene-contract-info__link"
+        onClick={() => {
+          /* show contract */
+        }}
+      >
         {t('page.profile.berths.contract.show')}
-      </a>
+      </button>
     </div>
   );
 };
