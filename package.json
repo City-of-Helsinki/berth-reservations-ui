@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "browser-test": "testcafe \"chrome --window-size='1920,1080'\" browser-tests/ --skip-js-errors",
-    "browser-test:ci": "testcafe \"chrome:headless --disable-gpu --window-size='1920,1080'\" browser-tests/ -s takeOnFails=true --skip-js-errors",
+    "browser-test:ci": "testcafe \"chrome:headless --disable-gpu --window-size='1920,1080'\" --app \"yarn start\" --app-init-delay=90000 browser-tests/ -s takeOnFails=true --skip-js-errors",
     "browser-test:local": "TEST_ENV=local testcafe \"chrome --window-size='1920,1080'\" browser-tests/ --skip-js-errors",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
