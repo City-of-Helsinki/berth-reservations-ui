@@ -37,6 +37,13 @@ jobs:
           DOCKER_BUILD_ARG_REACT_APP_API_URL: 'https://api.hel.fi/berths/graphql/'
           DOCKER_BUILD_ARG_REACT_APP_API_URL_ROOT: 'https://api.hel.fi/berths/'
           DOCKER_BUILD_ARG_REACT_APP_ENVIRONMENT: 'production'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_URI: 'https://api.hel.fi/sso'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT: 'api-tokens'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_RENEW_ENDPOINT: 'silent_renew'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_LOGOUT_ENDPOINT: 'logout'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_CLIENT_ID: 'https://api.hel.fi/auth/berths-admin-ui'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_SCOPE_BERTHS: 'https://api.hel.fi/auth/berths'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_SCOPE_PROFILE: 'https://api.hel.fi/auth/helsinkiprofile'
           DOCKER_BUILD_ARG_REACT_APP_SENTRY_ENVIRONMENT: 'production'
 
   production:
