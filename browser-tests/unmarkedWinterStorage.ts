@@ -1,5 +1,5 @@
 import { navbarSelectors } from './selectors/navbar';
-import { overviewSelectors } from './selectors/shared';
+import { loadingSpinner, overviewSelectors } from './selectors/shared';
 import { areaSelectionSelectors, unmarkedWinterStorageSelectors } from './selectors/unmarkedWinterStorage';
 import { ApplicantInformation, UnmarkedWinterStorageChoice, WsBoatInformation } from './types/types';
 import { isUnmarkedWinterStoragePage } from './utils/page';
@@ -32,6 +32,9 @@ test('Unmarked winter storage notice, registered boat on trailer, private custom
   await t.click(navbarSelectors.unmarkedWinterStorage);
   await isUnmarkedWinterStoragePage();
 
+  // Wait for the data to be loaded
+  await t.wait(5000).expect(loadingSpinner.exists).notOk();
+
   await selectArea(t);
   await fillWsBoatInformation(t, testData);
 
@@ -58,7 +61,7 @@ const selectArea = async (t: TestController) => {
     .click(winterStorageAreaSelect)
     .click(winterStorageAreaSelect.find('option').withText(testData.winterStorageArea));
 
-  await t.wait(500).click(continueButton);
+  await t.click(continueButton);
 };
 
 const assertConfirmation = async (t: TestController, expectedBoatInfo: string) => {

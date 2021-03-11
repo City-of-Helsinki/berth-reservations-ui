@@ -1,4 +1,5 @@
 import { navbarSelectors } from './selectors/navbar';
+import { loadingSpinner } from './selectors/shared';
 import { selectAreasSelectors } from './selectors/winterStorage';
 import { ApplicantInformation, Choices, WsBoatInformation } from './types/types';
 import { isWinterStoragePage } from './utils/page';
@@ -35,6 +36,9 @@ fixture('Winter storage').page(envUrl());
 test('Winter storage application, registered boat on trailer, private customer', async (t) => {
   await t.click(navbarSelectors.winterStorage);
   await isWinterStoragePage();
+
+  // Wait for the data to be loaded
+  await t.wait(5000).expect(loadingSpinner.exists).notOk();
 
   await selectAreas(t);
   await swapSelections(t, testData);
