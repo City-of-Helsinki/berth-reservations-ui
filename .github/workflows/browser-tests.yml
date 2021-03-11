@@ -19,7 +19,7 @@ jobs:
     env:
       BROWSER_TESTS_UID: ${{ secrets.BROWSER_TESTS_UID }}
       BROWSER_TESTS_PWD: ${{ secrets.BROWSER_TESTS_PWD }}
-      TEST_ENV: local
+      BROWSER_TESTS_LOCAL_ENV_URL: ${{ secrets.BROWSER_TESTS_LOCAL_ENV_URL }}
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node.js environment
