@@ -22,6 +22,9 @@ jobs:
       BROWSER_TESTS_LOCAL_ENV_URL: ${{ secrets.BROWSER_TESTS_LOCAL_ENV_URL }}
     steps:
       - uses: actions/checkout@v2
+      - name: Increase watchers
+        if: matrix.os == 'ubuntu-latest'
+        run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
         with:
