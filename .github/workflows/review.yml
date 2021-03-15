@@ -73,9 +73,6 @@ jobs:
           DEPLOY_URL=$(kubectl get ingress -n "${{ env.K8S_NAMESPACE }}" -o jsonpath='{.items[0].spec.rules[0].host}')
           echo "BROWSER_TESTS_LOCAL_ENV_URL=https://$DEPLOY_URL" >> $GITHUB_ENV
         shell: bash
-      - name: Increase watchers
-        if: matrix.os == 'ubuntu-latest'
-        run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
         with:
@@ -92,6 +89,8 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install dependencies
         run: yarn --prefer-offline --frozen-lockfile --check-files
+      - name: Increase watchers
+        run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
       - name: Run Acceptance Tests (TestCafe Browser Tests)
         run: yarn browser-test:ci
       - name: Upload screenshots of failed tests
