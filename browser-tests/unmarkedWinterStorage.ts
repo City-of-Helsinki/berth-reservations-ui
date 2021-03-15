@@ -61,7 +61,8 @@ const selectArea = async (t: TestController) => {
     .click(winterStorageAreaSelect)
     .click(winterStorageAreaSelect.find('option').withText(testData.winterStorageArea));
 
-  await t.click(continueButton);
+  // There is a slight delay when selecting the area
+  await t.wait(500).click(continueButton);
 };
 
 const assertConfirmation = async (t: TestController, expectedBoatInfo: string) => {
