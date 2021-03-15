@@ -782,6 +782,13 @@
       "servicemapURL": "https://servicekarta.hel.fi/unit/{{servicemapId}}",
       "loading": "Laddar"
     },
+    "navbar": {
+      "log_in": "Logga in",
+      "log_out": "Logga ut",
+      "menu_label": "Menu",
+      "profile": "Profil",
+      "skip_to_content": "Hoppa till innehåll"
+    },
     "footer": {
       "accessibility_statement": "Tillgänglighetsutlåtande",
       "berth_search": "Ansökan om båtplats",

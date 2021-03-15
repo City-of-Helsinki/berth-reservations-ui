@@ -1,4 +1,4 @@
-name: Build & Staging
+name: Build & Staging & Acceptance tests
 on:
   push:
     branches:
@@ -37,6 +37,13 @@ jobs:
           DOCKER_BUILD_ARG_REACT_APP_API_URL: 'https://venepaikka-api.test.kuva.hel.ninja/graphql/'
           DOCKER_BUILD_ARG_REACT_APP_API_URL_ROOT: 'https://venepaikka-api.test.kuva.hel.ninja/'
           DOCKER_BUILD_ARG_REACT_APP_ENVIRONMENT: 'development'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_URI: 'https://tunnistamo.test.kuva.hel.ninja'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT: 'api-tokens'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_RENEW_ENDPOINT: 'silent_renew'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_LOGOUT_ENDPOINT: 'logout'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_CLIENT_ID: 'https://api.hel.fi/auth/berths-admin-ui'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_SCOPE_BERTHS: 'https://api.hel.fi/auth/berths'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_SCOPE_PROFILE: 'https://api.hel.fi/auth/helsinkiprofile'
           DOCKER_BUILD_ARG_REACT_APP_SENTRY_ENVIRONMENT: 'staging'
 
   staging:
@@ -55,3 +62,36 @@ jobs:
           K8S_NAMESPACE: ${{ secrets.K8S_NAMESPACE_STAGING }}
           ENVIRONMENT_URL: https://${{ secrets.ENVIRONMENT_URL_STAGING }}
           DOCKER_IMAGE_NAME: ${{ env.REPO_NAME }}-staging
+
+  acceptance-tests:
+    runs-on: windows-latest
+    needs: staging
+    name: Acceptance tests for staging
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: '12'
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install dependencies
+        run: yarn --prefer-offline --frozen-lockfile --check-files --production=false
+      - name: Run TestCafe tests
+        run: yarn browser-test:ci
+        env:
+          BROWSER_TESTS_LOCAL_ENV_URL: https://${{ secrets.ENVIRONMENT_URL_STAGING }}
+      - name: Upload screenshots of failed tests
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: screenshots
+          path: screenshots/

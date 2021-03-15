@@ -1,50 +1,94 @@
+import { Navigation, NavigationProps } from 'hds-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Container, Nav, Navbar as BSNavbar } from 'reactstrap';
-
-import Icon from '../../icon/Icon';
-import LocalizedLink from '../../localizedLink/LocalizedLink';
-import LanguageDropdown from '../languageDropdown/LanguageDropdown';
-
 import './navbar.scss';
+import { useHistory } from 'react-router';
+import { useLocation } from 'react-router-dom';
+
+import authService from '../../../app/auth/authService';
+import { useCurrentUser } from '../../../app/auth/hooks';
+import { isLinkActive, localizedLink, makeNavigationItemProps, stripUrlLocale } from './utils';
 
 const Navbar = () => {
-  const { t } = useTranslation();
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
+  const location = useLocation();
+  const history = useHistory();
+  const currentUser = useCurrentUser();
+
+  const userName = currentUser?.name ?? '-';
+  const currentLocation = `${location.pathname}${location.search}${location.hash}`;
+  const currentLocationWithoutLocale = stripUrlLocale(currentLocation);
+  const loginQueryString = `?referrer=${encodeURIComponent(currentLocation)}`;
+
+  const navigationProps: NavigationProps = {
+    className: 'vene-navbar',
+    logoLanguage: language === 'sv' ? 'sv' : 'fi',
+    menuToggleAriaLabel: t('site.navbar.menu_label'),
+    skipTo: '#main',
+    skipToContentLabel: t('site.navbar.skip_to_content'),
+    title: t('site.front.title'),
+    titleUrl: localizedLink('/', language),
+  };
+  const languages = ['fi', 'sv', 'en'];
+  const links = [
+    {
+      url: '/berths',
+      label: t('site.berth.title'),
+    },
+    {
+      url: '/winter-storage',
+      label: t('site.winter.title'),
+    },
+    {
+      url: '/unmarked-winter-storage',
+      label: t('site.unmarked_winter_storage.title'),
+    },
+  ];
+
   return (
-    <div className="vene-navbar">
-      <div className="vene-navbar__top">
-        <Container>
-          <BSNavbar expand="md">
-            <LocalizedLink className="vene-navbar__main-link" id="main-link" to="/">
-              <Icon className="vene-navbar__icon" name="helsinkiLogo" />
-              <span className="vene-navbar__title">{t('site.front.title')}</span>
-            </LocalizedLink>
-            <Nav className="ml-auto" navbar>
-              <LanguageDropdown />
-            </Nav>
-          </BSNavbar>
-        </Container>
-      </div>
-      <Container>
-        <Nav className="vene-navbar__links-wrapper">
-          <LocalizedLink to="/berths" className="vene-navbar__link" activeClassName="vene-navbar__link--active">
-            <span>{t('site.berth.title')}</span>
-          </LocalizedLink>
+    <Navigation {...navigationProps}>
+      <Navigation.Row>
+        {links.map(({ label, url }) => (
+          <Navigation.Item
+            key={url}
+            active={isLinkActive(localizedLink(url, language), location)}
+            {...makeNavigationItemProps(localizedLink(url, language), history)}
+            label={label}
+          />
+        ))}
+      </Navigation.Row>
 
-          <LocalizedLink to="/winter-storage" className="vene-navbar__link" activeClassName="vene-navbar__link--active">
-            <span>{t('site.winter.title')}</span>
-          </LocalizedLink>
+      <Navigation.Actions>
+        <Navigation.User
+          authenticated={authService.isAuthenticated()}
+          label={t('site.navbar.log_in')}
+          userName={userName}
+          onSignIn={() => history.push(localizedLink(`/login${loginQueryString}`, language))}
+        >
+          <Navigation.Item
+            label={t('site.navbar.profile')}
+            {...makeNavigationItemProps(localizedLink('/profile', language), history)}
+          />
+          <Navigation.Item
+            label={t('site.navbar.log_out')}
+            {...makeNavigationItemProps(localizedLink('/logout', language), history)}
+          />
+        </Navigation.User>
 
-          <LocalizedLink
-            to="/unmarked-winter-storage"
-            className="vene-navbar__link"
-            activeClassName="vene-navbar__link--active"
-          >
-            <span>{t('site.unmarked_winter_storage.title')}</span>
-          </LocalizedLink>
-        </Nav>
-      </Container>
-    </div>
+        <Navigation.LanguageSelector label={language.toUpperCase()} buttonAriaLabel={'site.language.select'}>
+          {languages.map((lang) => (
+            <Navigation.Item
+              key={lang}
+              {...makeNavigationItemProps(localizedLink(currentLocationWithoutLocale, lang), history)}
+              label={t(`site.language.${lang}`)}
+            />
+          ))}
+        </Navigation.LanguageSelector>
+      </Navigation.Actions>
+    </Navigation>
   );
 };
 

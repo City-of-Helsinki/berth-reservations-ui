@@ -1,4 +1,5 @@
 import { t, ClientFunction } from 'testcafe';
+
 import { navbarSelectors } from '../selectors/navbar';
 
 export const navigateToFrontPage = async () => {

@@ -1,6 +1,6 @@
-import { selectHarborsSelectors, berthSelectors } from './selectors/berth';
+import { selectHarborsSelectors } from './selectors/berth';
 import { navbarSelectors } from './selectors/navbar';
-import { boatInformationSelectors } from './selectors/shared';
+import { boatInformationSelectors, loadingSpinner } from './selectors/shared';
 import { ApplicantInformation, BerthBoatInformation, Choices } from './types/types';
 import { isBerthsPage } from './utils/page';
 import { envUrl } from './utils/settings';
@@ -63,7 +63,7 @@ const selectHarbors = async (t: TestController) => {
   } = selectHarborsSelectors;
 
   // Wait for the data to be loaded
-  await t.click(berthSelectors.map);
+  await t.wait(5000).expect(loadingSpinner.exists).notOk();
 
   await t
     .click(boatTypeSelect)

@@ -1,75 +1,26 @@
-@import 'helsinki/colors';
-@import 'helsinki/fonts';
-@import 'styles/variables';
-@import 'styles/mixin';
-
-$navBrandWidth: 96px;
-$navbarTitleColor: rgba(0, 0, 0, 0.9);
-
 .vene-navbar {
-  &__top {
-    background-color: $hel-white;
-    border-bottom: 1px solid $hel-light;
-    padding: 0.25em 0;
+  // Various fixes for overrides caused by site theme
 
-    .navbar {
-      padding: 0;
-    }
-  }
-
-  &__links-wrapper {
-    display: flex;
-
-    @include for-phone {
-      flex-direction: column;
-
-      .vene-navbar__link {
-        margin-right: auto;
-      }
-    }
-  }
-
-  &__main-link {
-    color: $hel-black;
-    transition: color 0.15s ease-in-out;
-
+  a[class^='Navigation-module_title'] {
     &:hover {
-      color: $hel-coat;
-      text-decoration: none;
-    }
-  }
-
-  &__icon {
-    color: $hel-black;
-    margin-left: -$spacing-00-50;
-    width: $navBrandWidth;
-  }
-
-  &__title {
-    font-weight: bold;
-    margin-left: $spacing-00-50;
-    text-decoration: none;
-  }
-
-  &__link {
-    box-sizing: border-box;
-    color: $hel-black;
-    margin-right: $spacing-01;
-    padding: $spacing-01 $spacing-00-50;
-    transition: color 0.15s ease-in-out;
-
-    span {
-      font-weight: $display1-weight;
-    }
-
-    &:hover {
-      color: $hel-coat;
+      color: inherit;
       text-decoration: none;
     }
 
-    &--active {
-      padding-bottom: $spacing-00-75;
-      border-bottom: $spacing-00-25 solid $hel-coat;
+    > span {
+      font-weight: inherit;
+      font-size: inherit;
+    }
+  }
+
+  span[class^='MenuButton-module_toggleButtonLabel'] {
+    font-weight: inherit;
+  }
+
+  a[class^='NavigationItem-module_rowItem'] {
+    &:hover {
+      color: inherit;
+      text-decoration: none;
     }
   }
 }

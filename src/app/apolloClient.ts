@@ -1,4 +1,17 @@
-import ApolloClient from 'apollo-boost';
+import ApolloClient, { gql } from 'apollo-boost';
+
+import authService from './auth/authService';
+
+const typeDefs = gql`
+  type CurrentUser {
+    id: ID!
+    name: String
+    email: String
+  }
+  extend type Query {
+    currentUser: CurrentUser
+  }
+`;
 
 const apolloClient = new ApolloClient({
   uri: process.env.REACT_APP_API_URL,
@@ -8,6 +21,20 @@ const apolloClient = new ApolloClient({
       'Accept-Language': lng,
     };
     operation.setContext({ headers });
+  },
+  typeDefs,
+  resolvers: {
+    Query: {
+      async currentUser() {
+        const user = await authService.getUser();
+
+        if (!user) return null;
+
+        const { name, email, sub } = user.profile;
+
+        return { __typename: 'CurrentUser', id: sub, name, email };
+      },
+    },
   },
 });
 

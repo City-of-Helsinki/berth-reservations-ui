@@ -1,4 +1,4 @@
-name: Build & Production
+name: Build & Production & Smoke Tests
 on:
   push:
     tags:
@@ -37,6 +37,13 @@ jobs:
           DOCKER_BUILD_ARG_REACT_APP_API_URL: 'https://api.hel.fi/berths/graphql/'
           DOCKER_BUILD_ARG_REACT_APP_API_URL_ROOT: 'https://api.hel.fi/berths/'
           DOCKER_BUILD_ARG_REACT_APP_ENVIRONMENT: 'production'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_URI: 'https://api.hel.fi/sso'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT: 'api-tokens'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_RENEW_ENDPOINT: 'silent_renew'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_LOGOUT_ENDPOINT: 'logout'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_CLIENT_ID: 'https://api.hel.fi/auth/berths-admin-ui'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_SCOPE_BERTHS: 'https://api.hel.fi/auth/berths'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_SCOPE_PROFILE: 'https://api.hel.fi/auth/helsinkiprofile'
           DOCKER_BUILD_ARG_REACT_APP_SENTRY_ENVIRONMENT: 'production'
 
   production:
@@ -56,3 +63,36 @@ jobs:
           K8S_ADDITIONAL_HOSTNAMES: ${{ secrets.K8S_ADDITIONAL_HOSTNAMES }}
           ENVIRONMENT_URL: https://${{ secrets.ENVIRONMENT_URL_STABLE }}
           DOCKER_IMAGE_NAME: ${{ env.REPO_NAME }}-production
+
+  smoke-tests:
+    runs-on: windows-latest
+    needs: production
+    name: Smoke tests for production
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: '12'
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install dependencies
+        run: yarn --prefer-offline --frozen-lockfile --check-files --production=false
+      - name: Run TestCafe tests
+        run: yarn browser-test:ci
+        env:
+          BROWSER_TESTS_LOCAL_ENV_URL: https://${{ secrets.ENVIRONMENT_URL_STABLE }}
+      - name: Upload screenshots of failed tests
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: screenshots
+          path: screenshots/

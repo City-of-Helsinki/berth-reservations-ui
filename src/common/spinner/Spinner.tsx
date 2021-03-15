@@ -15,7 +15,8 @@ const Spinner = ({ withText, text }: SpinnerProps) => {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
-    setTimeout(() => setCounter(counter + 1), 750);
+    const timeout = setTimeout(() => setCounter(counter + 1), 750);
+    return () => clearTimeout(timeout);
   }, [counter]);
 
   useEffect(() => {

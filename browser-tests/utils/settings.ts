@@ -1,16 +1,9 @@
 import * as dotenv from 'dotenv';
 dotenv.config({ path: '.env.development.local' });
 
-const TEST_ENV_URL = 'https://venepaikka.test.kuva.hel.ninja';
-const LOCAL_ENV_URL = 'http://localhost:3000';
-
 export const envUrl = (): string => {
-  switch (process.env.TEST_ENV) {
-    case 'local':
-      return LOCAL_ENV_URL;
-    case 'test':
-      return TEST_ENV_URL;
-    default:
-      return TEST_ENV_URL;
+  if (!process.env.BROWSER_TESTS_LOCAL_ENV_URL) {
+    throw new Error('No BROWSER_TESTS_LOCAL_ENV_URL specified.');
   }
+  return process.env.BROWSER_TESTS_LOCAL_ENV_URL;
 };

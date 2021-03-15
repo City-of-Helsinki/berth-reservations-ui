@@ -13,7 +13,7 @@ interface Props {
 const Layout = ({ children }: Props) => (
   <div className="vene-layout">
     <Navbar />
-    {children}
+    <main id="main">{children}</main>
     <KoroSection top color="blue">
       <Footer />
     </KoroSection>
