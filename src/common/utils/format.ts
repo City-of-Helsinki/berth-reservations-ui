@@ -9,6 +9,16 @@ export const formatDimension = (value: number | null | undefined, locale: string
   return `${localizedValues} m`;
 };
 
+export const formatWeight = (value: number | null | undefined, locale: string) => {
+  if (!value) return '-';
+
+  const localizedValues = new Intl.NumberFormat(locale, {
+    style: 'decimal',
+  }).format(value);
+
+  return `${localizedValues} kg`;
+};
+
 export const formatDate = (date: string | null, locale: string, withTime = false) => {
   if (!date) return '-';
 

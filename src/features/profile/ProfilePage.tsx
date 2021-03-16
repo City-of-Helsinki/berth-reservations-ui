@@ -7,7 +7,7 @@ import { Tab, TabList, TabPanel, Tabs } from 'hds-react';
 import Layout from '../../common/layout/Layout';
 import ContactInfo, { ContactInfoProps } from './contactInfo/ContactInfo';
 import CustomerBerths, { CustomerBerthsProps } from './customerBerths/CustomerBerths';
-
+import CustomerBoats from './customerBoats/CustomerBoats';
 import './profilePage.scss';
 
 export interface ProfilePageProps {
@@ -51,7 +51,9 @@ const ProfilePage = ({
             <TabPanel>
               <ContactInfo {...customerContactInfo} />
             </TabPanel>
-            <TabPanel>Boats tab</TabPanel>
+            <TabPanel>
+              <CustomerBoats />
+            </TabPanel>
             <TabPanel>
               <CustomerBerths {...customerBerths} />
             </TabPanel>
