@@ -743,7 +743,15 @@
       "berths": {
         "title": "Båtplatser",
         "no_berths": "Du har ingen båtplatser",
-        "apply_for_berth": "Ansök om en båtplats"
+        "apply_for_berth": "Ansök om en båtplats",
+        "contract": {
+          "label": "Avtal",
+          "issued": "Skapat",
+          "edited": "Redigerat",
+          "signed": "Signerad",
+          "status": "Status",
+          "show": "Visa avtal"
+        }
       },
       "winter_storage": {
         "title": "Vinteruppläggningsplatser"

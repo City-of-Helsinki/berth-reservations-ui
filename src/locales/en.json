@@ -743,7 +743,15 @@
       "berths": {
         "title": "Boat berths",
         "no_berths": "You have no berths",
-        "apply_for_berth": "Apply for a berth"
+        "apply_for_berth": "Apply for a berth",
+        "contract": {
+          "label": "Contract",
+          "issued": "Issued",
+          "edited": "Edited",
+          "signed": "Signed",
+          "status": "Status",
+          "show": "Show contract"
+        }
       },
       "winter_storage": {
         "title": "Winter storage places"

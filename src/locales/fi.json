@@ -774,7 +774,7 @@
           "label": "Sopimus",
           "issued": "Luotu",
           "edited": "Muokattu",
-          "singed": "Allekirjoitettu",
+          "signed": "Allekirjoitettu",
           "status": "Tila",
           "show": "Näytä sopimus"
         },
