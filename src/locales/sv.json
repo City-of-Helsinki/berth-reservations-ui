@@ -744,6 +744,12 @@
         "title": "Båtplatser",
         "no_berths": "Du har ingen båtplatser",
         "apply_for_berth": "Ansök om en båtplats",
+        "berth_invoice": {
+          "heading": "Båtplatsens information",
+          "heading_secondary": "Faktura för båtplats. Om du vill förlänga avtalet,\n betala fakturan före förfallodatumet, {{date}}.",
+          "pay": "Betala",
+          "terminate_berth": "Avsulta båtplatsen"
+        },
         "contract": {
           "label": "Avtal",
           "issued": "Skapat",

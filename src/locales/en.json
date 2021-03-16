@@ -744,6 +744,12 @@
         "title": "Boat berths",
         "no_berths": "You have no berths",
         "apply_for_berth": "Apply for a berth",
+        "berth_invoice": {
+          "heading": "Berth information",
+          "heading_secondary": "Berth invoice. If you wish to continue the contract,\n please pay the invoice before the due date, {{date}}.",
+          "pay": "Make your payment",
+          "terminate_berth": "Terminate berth"
+        },
         "contract": {
           "label": "Contract",
           "issued": "Issued",
