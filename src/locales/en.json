@@ -751,6 +751,10 @@
           "signed": "Signed",
           "status": "Status",
           "show": "Show contract"
+        },
+        "history": {
+          "label": "Berth history",
+          "berth": "berth"
         }
       },
       "winter_storage": {

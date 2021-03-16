@@ -751,6 +751,10 @@
           "signed": "Signerad",
           "status": "Status",
           "show": "Visa avtal"
+        },
+        "history": {
+          "label": "Båtplatshistoria",
+          "berth": "båtplats"
         }
       },
       "winter_storage": {
