@@ -728,7 +728,17 @@
         "language": "Språket"
       },
       "boats": {
-        "title": "Båtar"
+        "title": "Båtar",
+        "add_new_boat": "Lägg till en ny båt",
+        "name_and_model": "Båtens namn och märke",
+        "registration_number": "Registreringsnummer",
+        "boat_type": "Båtens typ",
+        "boat_width": "Båtens bredd",
+        "boat_length": "Båtens längd",
+        "boat_draught": "Båtens utkast",
+        "boat_weight": "Båtens vikt",
+        "edit_boat": "Redigera båtens information",
+        "delete_boat": "Ta bort båten"
       },
       "berths": {
         "title": "Båtplatser",

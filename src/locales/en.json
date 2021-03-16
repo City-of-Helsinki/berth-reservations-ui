@@ -728,7 +728,17 @@
         "language": "Language"
       },
       "boats": {
-        "title": "Boats"
+        "title": "Boats",
+        "add_new_boat": "Add new boat",
+        "name_and_model": "Boat name and model",
+        "registration_number": "Registration number",
+        "boat_type": "Boat type",
+        "boat_width": "Boat width",
+        "boat_length": "Boat length",
+        "boat_draught": "Boat draught",
+        "boat_weight": "Boat weight",
+        "edit_boat": "Edit boat",
+        "delete_boat": "Delete boat"
       },
       "berths": {
         "title": "Boat berths",
