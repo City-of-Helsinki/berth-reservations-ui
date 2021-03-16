@@ -2,22 +2,19 @@ import { Button } from 'hds-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Boat, { BoatType } from './boat/Boat';
+import { Boat } from './types';
+import BoatInfo from './boatInfo/BoatInfo';
 
-export interface CustomerBoatsProps {
-  placeholder?: null;
-}
-
-const CustomerBoats = (props: CustomerBoatsProps) => {
+const CustomerBoats = () => {
   const { t } = useTranslation();
-  const boats: BoatType[] = [
+  const boats: Boat[] = [
     {
       boatType: 'Perämoottorivene',
       draught: 1,
       id: 'MOCK-BOAT',
       length: 4,
-      model: 'Uppo',
-      name: 'Tukki',
+      model: 'Tukki',
+      name: 'Uppo',
       registrationNumber: 'sss',
       weight: 700,
       width: 2,
@@ -27,9 +24,9 @@ const CustomerBoats = (props: CustomerBoatsProps) => {
   return (
     <div className="vene-customer-boats">
       {boats.map((boat) => (
-        <Boat {...boat} editBoat={() => undefined} deleteBoat={() => undefined} />
+        <BoatInfo {...boat} editBoat={() => undefined} deleteBoat={() => undefined} />
       ))}
-      <Button size="small">＋&emsp;Lisää uusi vene</Button>
+      <Button size="small">＋&emsp;{t('page.profile.boats.add_new_boat')}</Button>
     </div>
   );
 };

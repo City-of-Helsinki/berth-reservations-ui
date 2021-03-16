@@ -728,7 +728,17 @@
         "language": "Asiointikieli"
       },
       "boats": {
-        "title": "Veneet"
+        "title": "Veneet",
+        "add_new_boat": "Lisää uusi vene",
+        "name_and_model": "Veneen nimi ja merkki",
+        "registration_number": "Rekisterinumero",
+        "boat_type": "Veneen tyyppi",
+        "boat_width": "Veneen leveys",
+        "boat_length": "Veneen pituus",
+        "boat_draught": "Veneen syväys",
+        "boat_weight": "Veneen paino",
+        "edit_boat": "Muokkaa veneen tietoja",
+        "delete_boat": "Poista vene"
       },
       "berths": {
         "title": "Venepaikat",
