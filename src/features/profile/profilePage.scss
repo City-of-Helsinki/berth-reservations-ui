@@ -11,16 +11,11 @@
   }
 
   &__tab {
+    position: relative;
     // Adjusting the colors here until HDS supports themes for Tabs
     --tab-color: black;
     --tab-active-border-color: black;
 
-    &--with-badge > span {
-      padding: 0 !important;
-    }
-  }
-
-  &__label {
     &--with-badge {
       &::after {
         content: '';
@@ -31,7 +26,7 @@
         border-radius: 50%;
         position: absolute;
         top: 0;
-        right: $spacing-00-75;
+        right: $spacing-00-25;
       }
     }
   }

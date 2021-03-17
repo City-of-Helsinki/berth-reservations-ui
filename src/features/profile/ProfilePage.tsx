@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import { Container } from 'reactstrap';
 import { useTranslation } from 'react-i18next';
@@ -24,8 +24,6 @@ const ProfilePage = ({
   hasWSNotifications,
 }: ProfilePageProps) => {
   const { t } = useTranslation();
-  const [isBerthTabClicked, setIsBerthTabClicked] = useState(false);
-  const [isWSTabClicked, setIsWSTabClicked] = useState(false);
 
   return (
     <Layout>
@@ -35,25 +33,19 @@ const ProfilePage = ({
             <TabList className="vene-profile-page__tablist">
               <Tab className="vene-profile-page__tab">{t('page.profile.contact.title')}</Tab>
               <Tab className="vene-profile-page__tab">{t('page.profile.boats.title')}</Tab>
-              <Tab className={classNames('vene-profile-page__tab', 'vene-profile-page__tab--with-badge')}>
-                <span
-                  onMouseDown={() => setIsBerthTabClicked(true)}
-                  className={classNames('vene-profile-page__label', {
-                    'vene-profile-page__label--with-badge': hasBerthNotifications && !isBerthTabClicked,
-                  })}
-                >
-                  {t('page.profile.berths.title')}
-                </span>
+              <Tab
+                className={classNames('vene-profile-page__tab', {
+                  'vene-profile-page__tab--with-badge': hasBerthNotifications,
+                })}
+              >
+                {t('page.profile.berths.title')}
               </Tab>
-              <Tab className={classNames('vene-profile-page__tab', 'vene-profile-page__tab--with-badge')}>
-                <span
-                  onMouseDown={() => setIsWSTabClicked(true)}
-                  className={classNames('vene-profile-page__label', {
-                    'vene-profile-page__label--with-badge': hasWSNotifications && !isWSTabClicked,
-                  })}
-                >
-                  {t('page.profile.winter_storage.title')}
-                </span>
+              <Tab
+                className={classNames('vene-profile-page__tab', {
+                  'vene-profile-page__tab--with-badge': hasWSNotifications,
+                })}
+              >
+                {t('page.profile.winter_storage.title')}
               </Tab>
             </TabList>
             <TabPanel>
