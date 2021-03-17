@@ -64,11 +64,12 @@ const BerthApplication = ({ applicationDate, berthChoices, showHeading }: BerthA
       <h2 className="vene-berth-application__heading">{t('page.profile.berths.berth_offer.applied_berths')}</h2>
       <div className="vene-berth-application__applied-berths">{berthChoices.map(renderAppliedBerth)}</div>
 
+      {/* Removing the checkbox until the design is ready
       <Checkbox
         checked
         id="keep-application-active"
         labelText={t('page.profile.berths.berth_offer.keep_application_active')}
-      />
+      /> */}
 
       <div className="vene-berth-application__buttons">
         <Button size="small" variant="secondary" disabled>
