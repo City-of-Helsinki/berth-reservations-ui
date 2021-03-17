@@ -34,7 +34,7 @@ const CustomerBerths = ({ application, offer, invoice, reservations }: CustomerB
       )}
       {application && (
         <>
-          <BerthApplication {...application} showHeading={!offer && !invoice} />
+          <BerthApplication {...application} showHeading={!offer && !invoice} disableButtons={!!offer} />
           <hr className="vene-berth-offer__divider" />
         </>
       )}

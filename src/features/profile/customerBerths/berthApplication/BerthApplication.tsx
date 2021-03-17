@@ -1,4 +1,4 @@
-import { Button, Checkbox } from 'hds-react';
+import { Button } from 'hds-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -24,9 +24,10 @@ export interface BerthApplicationProps {
   applicationDate: string;
   berthChoices: BerthChoice[];
   showHeading?: boolean;
+  disableButtons?: boolean;
 }
 
-const BerthApplication = ({ applicationDate, berthChoices, showHeading }: BerthApplicationProps) => {
+const BerthApplication = ({ applicationDate, berthChoices, showHeading, disableButtons }: BerthApplicationProps) => {
   const {
     t,
     i18n: { language },
@@ -72,10 +73,10 @@ const BerthApplication = ({ applicationDate, berthChoices, showHeading }: BerthA
       /> */}
 
       <div className="vene-berth-application__buttons">
-        <Button size="small" variant="secondary" disabled>
+        <Button size="small" variant="secondary" disabled={disableButtons}>
           {t('page.profile.berths.berth_offer.edit_application')}
         </Button>
-        <Button size="small" variant="secondary" disabled>
+        <Button size="small" variant="danger" disabled={disableButtons}>
           {t('page.profile.berths.berth_offer.delete_application')}
         </Button>
       </div>
