@@ -2,13 +2,6 @@ import axios from 'axios';
 import { User, Log, UserManager } from 'oidc-client';
 
 const origin = window.location.origin;
-const {
-  REACT_APP_TUNNISTAMO_SCOPE_BERTHS: berthScope,
-  REACT_APP_TUNNISTAMO_SCOPE_PROFILE: profileScope,
-  REACT_APP_TUNNISTAMO_URI: tunnistamoUri,
-  REACT_APP_TUNNISTAMO_CLIENT_ID: tunnistamoClientId,
-  REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT: tunnistamoApiTokenEndpoint,
-} = process.env;
 
 export const API_TOKENS = 'apiTokens';
 
@@ -18,14 +11,14 @@ Log.level = Log.ERROR;
 
 /* Exported for testing purposes only */
 export const userManager = new UserManager({
-  authority: tunnistamoUri,
+  authority: process.env.REACT_APP_TUNNISTAMO_URI,
   automaticSilentRenew: true,
-  client_id: tunnistamoClientId,
+  client_id: process.env.REACT_APP_TUNNISTAMO_CLIENT_ID,
   redirect_uri: `${origin}/callback`,
   post_logout_redirect_uri: origin,
   response_type: 'id_token token',
   silent_redirect_uri: `${origin}/silent-callback.html`,
-  scope: `openid ${berthScope} ${profileScope}`,
+  scope: `openid ${process.env.REACT_APP_TUNNISTAMO_SCOPE_BERTHS} ${process.env.REACT_APP_TUNNISTAMO_SCOPE_PROFILE}`,
 });
 
 const clearUser = () => {
@@ -46,8 +39,8 @@ const endLogin = async (): Promise<User> => {
 };
 
 const fetchApiTokens = async (user: User): Promise<void> => {
-  const { data: apiTokens } = await axios.get(`${tunnistamoApiTokenEndpoint}/`, {
-    baseURL: tunnistamoUri,
+  const { data: apiTokens } = await axios.get(`${process.env.REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT}/`, {
+    baseURL: process.env.REACT_APP_TUNNISTAMO_URI,
     headers: {
       Authorization: `bearer ${user.access_token}`,
     },
@@ -65,7 +58,9 @@ const getUser = (): Promise<User | null> => {
 };
 
 const isAuthenticated = () => {
-  const oidcStorage = sessionStorage.getItem(`oidc.user:${tunnistamoUri}:${tunnistamoClientId}`);
+  const oidcStorage = sessionStorage.getItem(
+    `oidc.user:${process.env.REACT_APP_TUNNISTAMO_URI}:${process.env.REACT_APP_TUNNISTAMO_CLIENT_ID}`
+  );
   const apiTokens = authService.getTokens();
 
   return !!oidcStorage && !!JSON.parse(oidcStorage).access_token && !!apiTokens;
