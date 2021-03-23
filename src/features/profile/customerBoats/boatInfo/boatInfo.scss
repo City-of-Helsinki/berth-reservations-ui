@@ -1,0 +1,20 @@
+@import 'styles/variables';
+
+.vene-boat-info {
+  margin: $spacing-02 0;
+
+  &__nameAndModelLabel {
+    font-weight: 500;
+    margin: 0;
+  }
+
+  &__nameAndModel {
+    margin: 0;
+    font-size: $spacing-02-50;
+    font-weight: bold;
+  }
+
+  &__properties {
+    margin: $spacing-02 0;
+  }
+}

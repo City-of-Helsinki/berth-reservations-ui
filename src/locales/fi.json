@@ -728,7 +728,17 @@
         "language": "Asiointikieli"
       },
       "boats": {
-        "title": "Veneet"
+        "title": "Veneet",
+        "add_new_boat": "Lisää uusi vene",
+        "name_and_model": "Veneen nimi ja merkki",
+        "registration_number": "Rekisterinumero",
+        "boat_type": "Veneen tyyppi",
+        "boat_width": "Veneen leveys",
+        "boat_length": "Veneen pituus",
+        "boat_draught": "Veneen syväys",
+        "boat_weight": "Veneen paino",
+        "edit_boat": "Muokkaa veneen tietoja",
+        "delete_boat": "Poista vene"
       },
       "berths": {
         "title": "Venepaikat",
@@ -747,7 +757,7 @@
           "harbor_map": "Satamakartta (PDF)",
           "harbor_website": "Toimipisteen nettisivut",
           "heading": "Tarjous venepaikasta. Jos haluat vastaanottaa sen,\n maksa se ennen eräpäivää {{date}}.",
-          "info_text": "Hakemus poistetaan molemmissa tapauksissa (hyväksy/hylkää). Mikäli haluat eri paikan, hyväksy tarjous jonka jälkeen voi tehdä vaihtohakemuksen. Vaihtohakemukset käsitellään vuosittain ennen uusia hakemuksia.",
+          "info_text": "Hakemus poistetaan molemmissa tapauksissa (hyväksy/hylkää). Mikäli haluat eri paikan, hyväksy tarjous jonka jälkeen voit tehdä vaihtohakemuksen. Vaihtohakemukset käsitellään vuosittain ennen uusia hakemuksia.",
           "net_price": "Nettohinta",
           "keep_application_active": "Haluan että hakemus jää voimaan mikäli paikkoja ei ole vapaana tälle purjehduskaudelle",
           "reject_offer": "Hylkää tarjous",
@@ -764,7 +774,7 @@
           "label": "Sopimus",
           "issued": "Luotu",
           "edited": "Muokattu",
-          "singed": "Allekirjoitettu",
+          "signed": "Allekirjoitettu",
           "status": "Tila",
           "show": "Näytä sopimus"
         },

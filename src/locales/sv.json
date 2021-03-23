@@ -1,4 +1,35 @@
 {
+  "common": {
+    "additional_services": "Ytterligare tjänster",
+    "cancelled": "Annullerat",
+    "dinghy_place": "Jolleplats",
+    "due_date": "Förfallodatum",
+    "electricity": "El",
+    "error": "Fel",
+    "expired": "Försenad",
+    "gate": "Port",
+    "length": "Längd",
+    "lighting": "Belysning",
+    "mooring": "Förtöjning",
+    "mooring_type": "Förtöjningssätt",
+    "order_number": "Ordernummer",
+    "paid": "Betalas",
+    "paid_manually": "Betalas någon annanstans",
+    "parking_permit": "Parkeringstillstånd",
+    "pier": "Kaj",
+    "rejected": "Avvisade",
+    "season": "Avtalsperiod",
+    "sent": "Skickas",
+    "storage_on_ice": "Förvaring på is",
+    "total": "Totalt",
+    "trailer_summer_storage": "Släp sommarförvaring",
+    "vat": "ALV",
+    "waiting_for_payment": "Väntar på betalning",
+    "waste_collection": "Avfallshantering",
+    "water": "Vatten",
+    "width": "Bredd",
+    "year": "År"
+  },
   "error": {
     "message": {
       "invalid_area": "Sannolikt finns det inte platser som lämpar sig för din båts storlek i det här området.",
@@ -697,12 +728,60 @@
         "language": "Språket"
       },
       "boats": {
-        "title": "Båtar"
+        "title": "Båtar",
+        "add_new_boat": "Lägg till en ny båt",
+        "name_and_model": "Båtens namn och märke",
+        "registration_number": "Registreringsnummer",
+        "boat_type": "Båtens typ",
+        "boat_width": "Båtens bredd",
+        "boat_length": "Båtens längd",
+        "boat_draught": "Båtens utkast",
+        "boat_weight": "Båtens vikt",
+        "edit_boat": "Redigera båtens information",
+        "delete_boat": "Ta bort båten"
       },
       "berths": {
         "title": "Båtplatser",
         "no_berths": "Du har ingen båtplatser",
-        "apply_for_berth": "Ansök om en båtplats"
+        "apply_for_berth": "Ansök om en båtplats",
+        "berth_offer": {
+          "accept_and_pay": "Acceptera och betala",
+          "applied_berths": "Sökte båtplatser",
+          "base_price": "Grundavgift ({{berthWidth}})",
+          "berth_application": "Båtplatsansökan",
+          "berth_number": "Plats",
+          "berth_total": "Båtplatsen totalt",
+          "delete_application": "Ta bort ansökan",
+          "docking_equipment_summer_storage":"Sommarförvaring för docknings\u00ADartiklar",
+          "edit_application": "Redigera ansökan",
+          "harbor_map": "Hamnkarta (PDF)",
+          "harbor_website": "Webbplats",
+          "heading": "Båtplatserbjudande. Om du vill ta emot den ska du betala för den före förfallodatumet, som är {{date}}.",
+          "info_text": "Ansökan raderas i båda fallen (acceptera/avvisa). Om du vill ha en annan plats, acceptera erbjudandet varefter du kan göra en ansökan om byte. Bytesansökningar behandlas årligen före nya ansökningar.",
+          "net_price": "Nettopris",
+          "keep_application_active": "Jag vill att ansökan ska vara giltig om det inte finns några lediga platser för denna seglingssäsong",
+          "reject_offer": "Avvisa erbjudandet",
+          "sports_services_prices": "Prislista för sporttjänster",
+          "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/sv/tjanster/motion-och-friluftsliv/priser/"
+        },
+        "berth_invoice": {
+          "heading": "Båtplatsens information",
+          "heading_secondary": "Faktura för båtplats. Om du vill förlänga avtalet,\n betala fakturan före förfallodatumet, {{date}}.",
+          "pay": "Betala",
+          "terminate_berth": "Avsulta båtplatsen"
+        },
+        "contract": {
+          "label": "Avtal",
+          "issued": "Skapat",
+          "edited": "Redigerat",
+          "signed": "Signerad",
+          "status": "Status",
+          "show": "Visa avtal"
+        },
+        "history": {
+          "label": "Båtplatshistoria",
+          "berth": "båtplats"
+        }
       },
       "winter_storage": {
         "title": "Vinteruppläggningsplatser"

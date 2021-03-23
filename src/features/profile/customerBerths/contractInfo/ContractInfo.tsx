@@ -19,7 +19,7 @@ const ContractInfo = ({ className, issuedAt, editedAt, signedAt }: ContractInfoP
     i18n: { language },
   } = useTranslation();
 
-  const contractStatus = `${t('page.profile.berths.contract.singed')} ${formatDate(signedAt, language)}`;
+  const contractStatus = `${t('page.profile.berths.contract.signed')} ${formatDate(signedAt, language)}`;
 
   return (
     <div className={classNames('vene-contract-info', className)}>
