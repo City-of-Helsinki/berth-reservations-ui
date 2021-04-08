@@ -7,6 +7,7 @@ import { useLocation } from 'react-router-dom';
 
 import authService from '../../../app/auth/authService';
 import { useCurrentUser } from '../../../app/auth/hooks';
+import { isUserAuthenticationEnabled } from '../../utils/featureFlags';
 import { isLinkActive, localizedLink, makeNavigationItemProps, stripUrlLocale } from './utils';
 
 const Navbar = () => {
@@ -62,21 +63,23 @@ const Navbar = () => {
       </Navigation.Row>
 
       <Navigation.Actions>
-        <Navigation.User
-          authenticated={authService.isAuthenticated()}
-          label={t('site.navbar.log_in')}
-          userName={userName}
-          onSignIn={() => history.push(localizedLink(`/login${loginQueryString}`, language))}
-        >
-          <Navigation.Item
-            label={t('site.navbar.profile')}
-            {...makeNavigationItemProps(localizedLink('/profile', language), history)}
-          />
-          <Navigation.Item
-            label={t('site.navbar.log_out')}
-            {...makeNavigationItemProps(localizedLink('/logout', language), history)}
-          />
-        </Navigation.User>
+        {isUserAuthenticationEnabled && (
+          <Navigation.User
+            authenticated={authService.isAuthenticated()}
+            label={t('site.navbar.log_in')}
+            userName={userName}
+            onSignIn={() => history.push(localizedLink(`/login${loginQueryString}`, language))}
+          >
+            <Navigation.Item
+              label={t('site.navbar.profile')}
+              {...makeNavigationItemProps(localizedLink('/profile', language), history)}
+            />
+            <Navigation.Item
+              label={t('site.navbar.log_out')}
+              {...makeNavigationItemProps(localizedLink('/logout', language), history)}
+            />
+          </Navigation.User>
+        )}
 
         <Navigation.LanguageSelector label={language.toUpperCase()} buttonAriaLabel={'site.language.select'}>
           {languages.map((lang) => (
