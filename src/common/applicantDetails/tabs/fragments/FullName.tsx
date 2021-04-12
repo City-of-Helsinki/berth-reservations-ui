@@ -12,7 +12,7 @@ const FullName = () => (
         label="form.private_person.field.first_name.label"
         placeholder="form.private_person.field.first_name.placeholder"
         required
-        validate={mustBeNames(4)}
+        validate={mustBeNames(5)}
       />
     </Col>
     <Col sm={4}>
@@ -21,7 +21,7 @@ const FullName = () => (
         label="form.private_person.field.last_name.label"
         placeholder="form.private_person.field.last_name.placeholder"
         required
-        validate={mustBeNames(1)}
+        validate={mustBeNames(5)}
       />
     </Col>
   </Row>
