@@ -11,8 +11,8 @@ export const mustBePresent = (value: unknown): string | undefined => {
 };
 
 export const mustBeNames = (maxNames: number) => (value: string): string | undefined => {
-  const regexString = `^([\\p{Script_Extensions=Latin}-]+\\s*){1,${maxNames}}$`;
-  const regex = RegExp(regexString, 'u');
+  const regexString = `^([a-zA-Z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u017F-]+\\s*){1,${maxNames}}$`;
+  const regex = RegExp(regexString);
 
   if (regex.test(value) && stringHasNoExtraWhitespace(value)) {
     return undefined;
