@@ -1,9 +1,37 @@
 {
   "common": {
+    "additional_services": "Additional services",
     "berth": "Berth",
+    "cancelled": "Cancelled",
+    "dinghy_place": "Dinghy place",
+    "due_date": "Due date",
+    "electricity": "Electricity",
+    "error": "Error",
+    "expired": "Expired",
+    "gate": "Gate",
     "harbor": "Harbour",
-    "pier": "Pier"
-    },
+    "length": "Length",
+    "lighting": "Lighting",
+    "mooring": "Mooring",
+    "mooring_type": "Mooring type",
+    "order_number": "Order number",
+    "paid": "Paid",
+    "paid_manually": "Paid elsewhere",
+    "parking_permit": "Parking permit",
+    "pier": "Pier",
+    "rejected": "Rejected",
+    "season": "Season",
+    "sent": "Sent",
+    "storage_on_ice": "Storage on ice",
+    "total": "Total",
+    "trailer_summer_storage": "Trailer summer storage",
+    "vat": "VAT",
+    "waiting_for_payment": "Waiting for payment",
+    "waste_collection": "Waste management",
+    "water": "Water",
+    "width": "Width",
+    "year": "Year"
+  },
   "error": {
     "message": {
       "invalid_area": "This area most likely does not have places suitable for the size of your boat.",
@@ -704,12 +732,60 @@
         "language": "Language"
       },
       "boats": {
-        "title": "Boats"
+        "title": "Boats",
+        "add_new_boat": "Add new boat",
+        "name_and_model": "Boat name and model",
+        "registration_number": "Registration number",
+        "boat_type": "Boat type",
+        "boat_width": "Boat width",
+        "boat_length": "Boat length",
+        "boat_draught": "Boat draught",
+        "boat_weight": "Boat weight",
+        "edit_boat": "Edit boat",
+        "delete_boat": "Delete boat"
       },
       "berths": {
         "title": "Boat berths",
         "no_berths": "You have no berths",
-        "apply_for_berth": "Apply for a berth"
+        "apply_for_berth": "Apply for a berth",
+        "berth_offer": {
+          "accept_and_pay": "Accept and pay",
+          "applied_berths": "Applied berths",
+          "base_price": "Base price ({{berthWidth}})",
+          "berth_application": "Berth application",
+          "berth_number": "Berth",
+          "berth_total": "Berth total",
+          "delete_application": "Delete application",
+          "docking_equipment_summer_storage":"Docking equipment summer storage",
+          "edit_application": "Edit application",
+          "harbor_map": "Harbor map (PDF)",
+          "harbor_website": "Website",
+          "heading": "Offer for berth. If you wish to accept it, please pay the invoice before the due date {{date}}.",
+          "info_text": "The invoice will be deleted in both cases (accept/decline). If you wish to have a different berth, accept the offer and make an exchange application. Exchange applications are processed yearly before new applications.",
+          "net_price": "Net price",
+          "keep_application_active": "I want the application to remain valid if there are no free berths for this sailing season",
+          "reject_offer": "Decline offer",
+          "sports_services_prices": "Sports services pricing",
+          "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/en/services/sports-and-recreation/pricing/"
+        },
+        "berth_invoice": {
+          "heading": "Berth information",
+          "heading_secondary": "Berth invoice. If you wish to continue the contract,\n please pay the invoice before the due date, {{date}}.",
+          "pay": "Make your payment",
+          "terminate_berth": "Terminate berth"
+        },
+        "contract": {
+          "label": "Contract",
+          "issued": "Issued",
+          "edited": "Edited",
+          "signed": "Signed",
+          "status": "Status",
+          "show": "Show contract"
+        },
+        "history": {
+          "label": "Berth history",
+          "berth": "berth"
+        }
       },
       "winter_storage": {
         "title": "Winter storage places"

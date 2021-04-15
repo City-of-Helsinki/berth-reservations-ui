@@ -1,4 +1,4 @@
-import { formatDate, formatDimension, formatPercentage, formatPrice } from '../format';
+import { formatDate, formatDimension, formatPercentage, formatPrice, formatWeight } from '../format';
 
 describe('format', () => {
   describe('formatDimension', () => {
@@ -13,6 +13,17 @@ describe('format', () => {
     it('should return "-" if the value is null', () => {
       expect(formatDimension(null, 'fi')).toBe('-');
       expect(formatDimension(null, 'fi')).toBe('-');
+    });
+  });
+
+  describe('formatWeight', () => {
+    it('should add "kg" unit to to the supplied value', () => {
+      expect(formatWeight(1, 'fi')).toMatch('kg');
+    });
+
+    it('should return "-" if the value is undefined/null', () => {
+      expect(formatWeight(null, 'fi')).toBe('-');
+      expect(formatWeight(null, 'fi')).toBe('-');
     });
   });
 
