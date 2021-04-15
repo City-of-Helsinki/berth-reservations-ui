@@ -37,18 +37,20 @@ export const getStatusLabelKey = (status: OrderStatus) => {
   switch (status) {
     case OrderStatus.CANCELLED:
       return 'common.cancelled';
+    case OrderStatus.DRAFTED:
+      return 'common.waiting_for_payment';
     case OrderStatus.ERROR:
       return 'common.error';
     case OrderStatus.EXPIRED:
       return 'common.expired';
+    case OrderStatus.OFFERED:
+      return 'common.offered';
     case OrderStatus.PAID:
       return 'common.paid';
     case OrderStatus.PAID_MANUALLY:
       return 'common.paid_manually';
     case OrderStatus.REJECTED:
       return 'common.rejected';
-    case OrderStatus.WAITING:
-      return 'common.waiting_for_payment';
     default:
       return status;
   }
@@ -58,18 +60,20 @@ export const getStatusLabelColor = (status: OrderStatus): StatusLabelProps['type
   switch (status) {
     case OrderStatus.CANCELLED:
       return 'error';
+    case OrderStatus.DRAFTED:
+      return 'alert';
     case OrderStatus.ERROR:
       return 'error';
     case OrderStatus.EXPIRED:
       return 'error';
+    case OrderStatus.OFFERED:
+      return 'alert';
     case OrderStatus.PAID:
       return 'success';
     case OrderStatus.PAID_MANUALLY:
       return 'success';
     case OrderStatus.REJECTED:
       return 'error';
-    case OrderStatus.WAITING:
-      return 'alert';
     default:
       return 'neutral';
   }

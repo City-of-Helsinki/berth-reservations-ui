@@ -105,7 +105,7 @@ const ProfilePageContainer = ({ match }: ProfilePageContainerProps) => {
   }
 
   const hasBerthNotifications =
-    customerBerths.invoice?.order.orderStatus === OrderStatus.WAITING || !!customerBerths.offer;
+    customerBerths.invoice?.order.orderStatus === OrderStatus.OFFERED || !!customerBerths.offer;
 
   return (
     <ProfilePage

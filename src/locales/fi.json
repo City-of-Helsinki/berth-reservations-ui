@@ -12,6 +12,7 @@
     "lighting": "Valaistus",
     "mooring": "Kiinnitys",
     "mooring_type": "Kiinnitystapa",
+    "offered": "Tarjottu",
     "order_number": "Tilaustunnus",
     "paid": "Maksettu",
     "paid_manually": "Maksettu muualla",

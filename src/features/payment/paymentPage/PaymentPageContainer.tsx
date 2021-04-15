@@ -120,7 +120,7 @@ export const getPaymentPage = (
   }
 
   switch (status) {
-    case OrderStatus.WAITING:
+    case OrderStatus.OFFERED:
       return <PaymentPage handlePay={confirmPayment} />;
     case OrderStatus.PAID:
       return <AlreadyPaidPage isAdditionalProduct={orderType === OrderTypeEnum.ADDITIONAL_PRODUCT} />;

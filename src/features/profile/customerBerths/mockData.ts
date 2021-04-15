@@ -53,7 +53,7 @@ export const mockOrder: Order = {
     },
   ],
   orderNumber: 'anw4sxjrmeqma',
-  orderStatus: OrderStatus.WAITING,
+  orderStatus: OrderStatus.OFFERED,
   price: 284,
   totalPrice: 440,
   vatAmount: 85.16,
