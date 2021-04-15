@@ -38,13 +38,13 @@ export const getStatusLabelKey = (status: OrderStatus) => {
     case OrderStatus.CANCELLED:
       return 'common.cancelled';
     case OrderStatus.DRAFTED:
-      return 'common.waiting_for_payment';
+      return 'common.drafted';
     case OrderStatus.ERROR:
       return 'common.error';
     case OrderStatus.EXPIRED:
       return 'common.expired';
     case OrderStatus.OFFERED:
-      return 'common.offered';
+      return 'common.waiting_for_payment';
     case OrderStatus.PAID:
       return 'common.paid';
     case OrderStatus.PAID_MANUALLY:
