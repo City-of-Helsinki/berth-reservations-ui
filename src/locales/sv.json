@@ -1,4 +1,9 @@
 {
+  "common": {
+    "berth": "Båtplatsen",
+    "harbor": "Hamn",
+    "pier": "Kaj"
+  },
   "error": {
     "message": {
       "invalid_area": "Sannolikt finns det inte platser som lämpar sig för din båts storlek i det här området.",
@@ -670,15 +675,17 @@
       "title": "Signering av avtal och betalning av faktura",
       "info": "Bästa kund, vi har lagt upp ett avtal för dig som ska signeras elektroniskt. Läs avtalet nedan. Då du godkänt avtalsvillkoren, kan du fortsätta till identifikationen och betalningen. För att få en båtplats måste du godkänna avtalsvillkoren.",
       "questions": "Frågor och mer information: ",
+      "read_and_approve": "Läs och acceptera avtalsvillkor för uthyrning av båtplats",
+      "select_signing_provider": "Signera avtalet genom att välja identifikationssätt",
       "terms_pdf": "Öppna avtalsvillkoren (PDF)",
       "terms_notice": "Notera. Villkoren i avtalet måste öppnas och läsas innan de kan accepteras.",
       "terms_checkbox": "Jag har läst avtalsvillkoren och godkänner dem",
       "terms_form_submit": "Fortsätt till identifikationen",
-      "select_signing_provider": "Signera avtalet genom att välja identifikationssätt",
       "termination_note": "Jag vill ge upp min kaj och vill inte betala för den längre.",
       "terminate": "Avsluta båtplatsen"
     },
     "payment": {
+      "berth_information": "Båtplatsen",
       "title": "Betalning av fakturan",
       "info": "Du kan gå till att betala din faktura.",
       "questions": "Frågor och mer information: ",

@@ -1,12 +1,14 @@
 {
   "common": {
     "additional_services": "Lisäpalvelut",
+    "berth": "Paikka",
     "cancelled": "Peruutettu",
     "dinghy_place": "Jollapaikka",
     "due_date": "Eräpäivä",
     "electricity": "Sähkö",
     "error": "Virhe",
     "expired": "Erääntynyt",
+    "harbor": "Satama",
     "gate": "Portti",
     "length": "Pituus",
     "lighting": "Valaistus",
@@ -702,15 +704,17 @@
       "title": "Sopimuksen allekirjoittaminen ja laskun maksaminen",
       "info": "Hyvä asiakkaamme, olemme luoneet teille sopimuksen joka allekirjoitetaan sähköisesti. Tutustu sopimukseen alla. Voit jatkaa tunnistautumiseen ja maksamiseen hyväksyttyäsi sopimusehdot. Vene- tai talvisäilytyspaikan saaminen edellyttää sopimusehtojen hyväksymistä.",
       "questions": "Kysymykset ja lisätiedot: ",
+      "read_and_approve": "Tutustu sopimusehtoihin ja hyväksy ne",
+      "select_signing_provider": "Allekirjoita sopimus valitsemalla tunnistautumistapa",
       "terms_pdf": "Avaa sopimusehdot (PDF)",
       "terms_notice": "Huom. Sopimusehdot täytyy avata ja lukea ennen kuin ne voi hyväksyä.",
       "terms_checkbox": "Olen lukenut sopimusehdot ja hyväksyn ne",
       "terms_form_submit": "Jatka tunnistautumiseen",
-      "select_signing_provider": "Allekirjoita sopimus valitsemalla tunnistautumistapa",
       "termination_note": "Haluan luopua venepaikastani enkä halua enää maksaa sitä.",
       "terminate": "Irtisano venepaikka"
     },
     "payment": {
+      "berth_information": "Venepaikan tiedot",
       "title": "Laskun maksaminen",
       "info": "Voit siirtyä maksamaan laskusi.",
       "questions": "Kysymykset ja lisätiedot: ",

@@ -170,6 +170,9 @@ export const GET_ORDER_DETAILS = gql`
     orderDetails(orderNumber: $orderNumber) {
       orderType
       status
+      harbor
+      pier
+      berth
     }
     contractSigned(orderNumber: $orderNumber) {
       isSigned

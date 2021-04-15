@@ -24,6 +24,10 @@
     }
   }
 
+  &__subheading {
+    font-size: $font-size-lg;
+  }
+
   &__content {
     margin: 0 $spacing-01;
 
