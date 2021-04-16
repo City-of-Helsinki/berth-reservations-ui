@@ -13,6 +13,7 @@ export interface OrderDetails_orderDetails {
   __typename: "OrderDetailsType";
   orderType: OrderTypeEnum;
   status: OrderStatus;
+  isApplicationOrder: boolean;
 }
 
 export interface OrderDetails_contractSigned {

@@ -603,6 +603,7 @@
       "message": {
         "paragraph1": "Är du säker på att du vill annullera erbjudandet/fakturan?",
         "paragraph2": "OBS! Denna funktion annullerar följande dokument som bifogats till respektive plats:<br/>hyresavtal och faktura",
+        "paragraph2_application": "OBS! Om du väljer att inte ta emot båtplatsen förfaller din ansökan. Din ansökan förfaller också om du inte betalar båtplatsavgiften. Om du vill ansöka om en båtplats på nytt, måste du göra en ny ansökan på adressen https://venepaikat.hel.fi/sv/",
         "paragraph3": "Du kan stänga denna sida om du inte vill utföra en annullering.<0/>Frågor och mer information: <1>venepaikkavaraukset@hel.fi</1>"
       },
       "confirmation": "Jag vill annullera erbjudandet/fakturan",

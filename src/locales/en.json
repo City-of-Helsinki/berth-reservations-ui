@@ -603,6 +603,7 @@
       "message": {
         "paragraph1": "Are you sure you want to cancel the offer/invoice?",
         "paragraph2": "NOTE! This function will cancel the following documents connected to the berth in question:<br/>lease agreement and invoice",
+        "paragraph2_application": "NOTE! If you decide not to have the offered berth or if you don’t pay the berth fee, your application will be deleted. If you want to apply for a berth again, you must make a new application at https://venepaikat.hel.fi/en/",
         "paragraph3": "If you do not want to cancel, you can close this page.<0/>Questions and further information: <1>venepaikkavaraukset@hel.fi</1>"
       },
       "confirmation": "I want to cancel the offer/invoice",
