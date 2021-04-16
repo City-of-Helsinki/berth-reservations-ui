@@ -8,7 +8,7 @@ describe('PaymentPageContainer', () => {
     [
       [null, '#vene-payment-general-error-page'],
       [undefined, '#vene-payment-general-error-page'],
-      [OrderStatus.WAITING, '#vene-payment-page'],
+      [OrderStatus.OFFERED, '#vene-payment-page'],
       [OrderStatus.EXPIRED, '#vene-payment-expired-page'],
       [OrderStatus.PAID, '#vene-already-paid-page'],
       [OrderStatus.REJECTED, '#vene-payment-general-error-page'],

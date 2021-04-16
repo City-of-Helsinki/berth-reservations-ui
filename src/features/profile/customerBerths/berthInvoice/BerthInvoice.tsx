@@ -28,7 +28,7 @@ const BerthInvoice = ({ berthProperties, order, seasonEndDate, seasonStartDate, 
   return (
     <div className={classNames('vene-berth-invoice', { 'vene-berth-invoice--has-contract': contract })}>
       <h1 className="vene-berth-invoice__heading">
-        {order.orderStatus !== OrderStatus.WAITING
+        {order.orderStatus !== OrderStatus.OFFERED
           ? t('page.profile.berths.berth_invoice.heading')
           : t('page.profile.berths.berth_invoice.heading_secondary', { date: formatDate(order.dueDate, language) })}
       </h1>
