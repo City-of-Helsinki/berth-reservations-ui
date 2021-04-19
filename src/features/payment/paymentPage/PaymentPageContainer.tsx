@@ -83,6 +83,11 @@ const PaymentPageContainer = ({ localePush }: Props) => {
   }
 
   return getPaymentPage(
+    {
+      harbor: orderDetailsData.orderDetails?.harbor,
+      pier: orderDetailsData.orderDetails?.pier,
+      berth: orderDetailsData.orderDetails?.berth,
+    },
     orderDetailsData?.orderDetails?.orderType,
     orderNumber,
     orderDetailsData.contractSigned.isSigned,
@@ -95,6 +100,11 @@ const PaymentPageContainer = ({ localePush }: Props) => {
 };
 
 export const getPaymentPage = (
+  placeDetails: {
+    harbor: string | undefined;
+    pier: string | undefined;
+    berth: string | undefined;
+  },
   orderType: OrderTypeEnum | undefined,
   orderNumber: string,
   contractSigned: boolean | null,
@@ -111,6 +121,7 @@ export const getPaymentPage = (
   if (contractSigned !== null && !contractSigned) {
     return (
       <ContractPage
+        placeDetails={placeDetails}
         orderNumber={orderNumber}
         handleSign={signContract}
         handleTerminate={handleTerminate}
@@ -121,7 +132,7 @@ export const getPaymentPage = (
 
   switch (status) {
     case OrderStatus.OFFERED:
-      return <PaymentPage handlePay={confirmPayment} />;
+      return <PaymentPage handlePay={confirmPayment} placeDetails={placeDetails} />;
     case OrderStatus.PAID:
       return <AlreadyPaidPage isAdditionalProduct={orderType === OrderTypeEnum.ADDITIONAL_PRODUCT} />;
     case OrderStatus.EXPIRED:

@@ -13,6 +13,9 @@ export interface OrderDetails_orderDetails {
   __typename: "OrderDetailsType";
   orderType: OrderTypeEnum;
   status: OrderStatus;
+  harbor: string;
+  pier: string;
+  berth: string;
   isApplicationOrder: boolean;
 }
 

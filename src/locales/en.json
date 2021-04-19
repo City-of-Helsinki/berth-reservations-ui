@@ -1,6 +1,7 @@
 {
   "common": {
     "additional_services": "Additional services",
+    "berth": "Berth",
     "cancelled": "Cancelled",
     "dinghy_place": "Dinghy place",
     "drafted": "Drafted",
@@ -9,6 +10,7 @@
     "error": "Error",
     "expired": "Expired",
     "gate": "Gate",
+    "harbor": "Harbour",
     "length": "Length",
     "lighting": "Lighting",
     "mooring": "Mooring",
@@ -703,15 +705,17 @@
       "title": "Signing the contract and paying the invoice",
       "info": "Dear customer, we have created for you a contract that is to be signed electronically. See the contract below. You can continue to identify and pay after accepting the terms of the contract. Obtaining a berth or winter storage place requires acceptance of the terms of a contract.",
       "questions": "Questions and further information: ",
+      "read_and_approve": "Read and accept the berth lease terms",
+      "select_signing_provider": "Sign the contract by choosing an authentication method",
       "terms_pdf": "Open contract (PDF)",
       "terms_notice": "Note. The terms of the agreement must be opened and read before they can be accepted.",
       "terms_checkbox": "I have read and accept the contract terms",
       "terms_form_submit": "Continue to authentication",
-      "select_signing_provider": "Sign the contract by choosing an authentication method",
       "termination_note": "I want to give up my berth and I don’t want to pay for it anymore.",
       "terminate": "Terminate the berth"
     },
     "payment": {
+      "berth_information": "Berth",
       "title": "Paying the invoice",
       "info": "You can proceed to pay your invoice.",
       "questions": "Questions and further information: ",
