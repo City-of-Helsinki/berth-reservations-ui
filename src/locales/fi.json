@@ -3,6 +3,7 @@
     "additional_services": "Lisäpalvelut",
     "cancelled": "Peruutettu",
     "dinghy_place": "Jollapaikka",
+    "drafted": "Luotu",
     "due_date": "Eräpäivä",
     "electricity": "Sähkö",
     "error": "Virhe",
@@ -603,6 +604,7 @@
       "message": {
         "paragraph1": "Oletko varma että haluat peruuttaa tarjouksen/laskun?",
         "paragraph2": "HUOM! Tämä toiminto peruuttaa seuraavat kyseiseen paikkaan liitetyt asiakirjat:<br/>vuokrasopimus ja lasku",
+        "paragraph2_application": "HUOM! Jos päätät olla vastaanottamatta venepaikkaa, hakemuksesi raukeaa. Hakemuksesi raukeaa myös, jos et maksa venepaikkamaksua. Jos haluat hakea uudestaan venepaikkaa, sinun on tehtävä uusi hakemus osoitteessa venepaikat.hel.fi",
         "paragraph3": "Mikäli et halua peruuttaa, voit sulkea tämän sivun.<0/>Kysymykset ja lisätiedot: <1>venepaikkavaraukset@hel.fi</1>"
       },
       "confirmation": "Haluan peruuttaa tarjouksen/laskun",

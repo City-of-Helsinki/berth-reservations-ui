@@ -8,10 +8,11 @@ import Input from '../../../common/input/Input';
 import './cancelOrderPage.scss';
 
 export interface CancelOrderPageProps {
+  isApplicationOrder: boolean;
   handleCancel(): void;
 }
 
-const CancelOrderPage = ({ handleCancel }: CancelOrderPageProps) => {
+const CancelOrderPage = ({ isApplicationOrder, handleCancel }: CancelOrderPageProps) => {
   const { t } = useTranslation();
   const [confirmed, setConfirmed] = useState(false);
 
@@ -24,7 +25,10 @@ const CancelOrderPage = ({ handleCancel }: CancelOrderPageProps) => {
             <p>{t('page.cancel_order.message.paragraph1')}</p>
             <p>
               <strong>
-                <Trans i18nKey="page.cancel_order.message.paragraph2" />
+                <Trans
+                  i18nKey="page.cancel_order.message.paragraph2"
+                  tOptions={{ context: isApplicationOrder ? 'application' : undefined }}
+                />
               </strong>
             </p>
             <p>

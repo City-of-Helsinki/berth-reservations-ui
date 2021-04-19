@@ -1,13 +1,15 @@
 import React from 'react';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 import { compose } from 'recompose';
 
 import CancelOrderPage from './CancelOrderPage';
-import { CANCEL_ORDER } from '../../queries';
+import { CANCEL_ORDER, GET_ORDER_DETAILS } from '../../queries';
 import { getOrderNumber } from '../../../common/utils/urls';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import { CancelOrder, CancelOrderVariables } from '../../__generated__/CancelOrder';
 import LoadingPage from '../../../common/loadingPage/LoadingPage';
+import { OrderDetails, OrderDetailsVariables } from '../../__generated__/OrderDetails';
+import GeneralPaymentErrorPage from '../paymentPage/paymentError/GeneralPaymentErrorPage';
 
 type Props = {
   localePush: LocalePush;
@@ -15,6 +17,16 @@ type Props = {
 
 const CancelOrderPageContainer = ({ localePush }: Props) => {
   const orderNumber = getOrderNumber(window.location.search);
+
+  const { loading: loadingOrderDetails, data: orderDetailsData, error: orderDetailsError } = useQuery<
+    OrderDetails,
+    OrderDetailsVariables
+  >(GET_ORDER_DETAILS, {
+    variables: {
+      orderNumber: orderNumber ?? '',
+    },
+    skip: !orderNumber,
+  });
 
   const [cancelOrder, { loading }] = useMutation<CancelOrder, CancelOrderVariables>(CANCEL_ORDER, {
     variables: {
@@ -24,9 +36,9 @@ const CancelOrderPageContainer = ({ localePush }: Props) => {
     },
   });
 
-  if (loading) {
-    return <LoadingPage />;
-  }
+  if (loading || loadingOrderDetails) return <LoadingPage />;
+
+  if (!orderDetailsData || orderDetailsError) return <GeneralPaymentErrorPage customMsg="" />;
 
   const handleCancel = () =>
     cancelOrder()
@@ -34,7 +46,12 @@ const CancelOrderPageContainer = ({ localePush }: Props) => {
       // eslint-disable-next-line no-console
       .catch((err) => console.error(err));
 
-  return <CancelOrderPage handleCancel={handleCancel} />;
+  return (
+    <CancelOrderPage
+      isApplicationOrder={!!orderDetailsData.orderDetails?.isApplicationOrder}
+      handleCancel={handleCancel}
+    />
+  );
 };
 
 export default compose<Props, Props>(withMatchParamsHandlers)(CancelOrderPageContainer);
