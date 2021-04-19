@@ -776,6 +776,14 @@
           "pay": "Make your payment",
           "terminate_berth": "Terminate berth"
         },
+        "berth_switch_offer": {
+          "heading": "Accept switch offer",
+          "info_text": "Dear customer, do you accept the berth we offer? If you do not want to accept the new berth, you will retain your current berth",
+          "questions": "Questions and further information: ",
+          "accept": "I want the new berth",
+          "decline": "I do not want the new berth, I will keep my current berth",
+          "confirm": "Confirm"
+        },
         "contract": {
           "label": "Contract",
           "issued": "Issued",
@@ -787,6 +795,11 @@
         "history": {
           "label": "Berth history",
           "berth": "berth"
+        },
+        "switch_offer_completed": {
+          "title": "Thank you!",
+          "paragraph1": "Your switch application has been fully processed.",
+          "paragraph2": "Enjoy your boating!"
         }
       },
       "winter_storage": {

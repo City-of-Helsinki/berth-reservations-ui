@@ -41,6 +41,12 @@ export enum WinterStorageMethod {
   UNDER_TARP = "UNDER_TARP",
 }
 
+export interface AcceptBerthSwitchOfferMutationInput {
+  offerNumber: string;
+  isAccepted: boolean;
+  clientMutationId?: string | null;
+}
+
 export interface BerthApplicationInput {
   language: string;
   firstName: string;

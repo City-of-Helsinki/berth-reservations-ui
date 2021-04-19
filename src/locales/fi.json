@@ -777,6 +777,14 @@
           "pay": "Siirry maksamaan",
           "terminate_berth": "Irtisano venepaikka"
         },
+        "berth_switch_offer": {
+          "heading": "Vaihtotarjouksen hyväksyminen",
+          "info_text": "Hyvä asiakkaamme, haluatko ottaa vastaan tarjoamamme venepaikan? Mikäli et halua ottaa uutta paikkaa vastaan, pidät alkuperäisen paikkasi",
+          "questions": "Kysymykset ja lisätiedot: ",
+          "accept": "Haluan uuden paikan",
+          "decline": "En halua uutta paikkaa, pidän nykyisen paikkani",
+          "confirm": "Hyväksy"
+        },
         "contract": {
           "label": "Sopimus",
           "issued": "Luotu",
@@ -788,6 +796,11 @@
         "history": {
           "label": "Venepaikkahistoria",
           "berth": "paikka"
+        },
+        "switch_offer_completed": {
+          "title": "Kiitos!",
+          "paragraph1": "Vaihtohakemuksesi on nyt käsitelty loppuun saakka.",
+          "paragraph2": "Toivotamme hienoja veneilyhetkiä!"
         }
       },
       "winter_storage": {
