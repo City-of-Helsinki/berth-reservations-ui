@@ -29,7 +29,9 @@ const BerthSwitchOfferPage = ({ initialChoice, onConfirm }: BerthSwitchOfferPage
             <p>{t('page.profile.berths.berth_switch_offer.info_text')}</p>
             <p>
               {t('page.profile.berths.berth_switch_offer.questions')}
-              <a href="mailto:venepaikkavaraukset@hel.fi">venepaikkavaraukset@hel.fi</a>
+              <a href="mailto:venepaikkavaraukset@hel.fi" rel="noopener noreferrer" target="_blank">
+                venepaikkavaraukset@hel.fi
+              </a>
             </p>
           </div>
         </div>

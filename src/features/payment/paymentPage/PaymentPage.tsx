@@ -27,7 +27,12 @@ const PaymentPage = ({ placeDetails, handlePay }: Props) => {
             <p>{t('page.payment.info')}</p>
             <p className="vene-payment-page__contact-info">
               {t('page.payment.questions')}&nbsp;
-              <a href="mailto:venepaikkavaraukset@hel.fi" className="vene-payment-page__link">
+              <a
+                href="mailto:venepaikkavaraukset@hel.fi"
+                rel="noopener noreferrer"
+                target="_blank"
+                className="vene-payment-page__link"
+              >
                 venepaikkavaraukset@hel.fi
               </a>
             </p>

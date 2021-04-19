@@ -36,7 +36,12 @@ const PaymentPage = ({ contractAuthMethods, placeDetails, orderNumber, handleSig
             <p>{t('page.contract.info')}</p>
             <p className="vene-payment-page__contact-info">
               {t('page.contract.questions')}&nbsp;
-              <a href="mailto:venepaikat@hel.fi" className="vene-payment-page__link">
+              <a
+                href="mailto:venepaikat@hel.fi"
+                rel="noopener noreferrer"
+                target="_blank"
+                className="vene-payment-page__link"
+              >
                 venepaikat@hel.fi
               </a>
             </p>
