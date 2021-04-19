@@ -16,6 +16,7 @@ export interface OrderDetails_orderDetails {
   harbor: string;
   pier: string;
   berth: string;
+  isApplicationOrder: boolean;
 }
 
 export interface OrderDetails_contractSigned {

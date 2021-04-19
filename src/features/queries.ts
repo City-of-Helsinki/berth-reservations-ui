@@ -173,6 +173,7 @@ export const GET_ORDER_DETAILS = gql`
       harbor
       pier
       berth
+      isApplicationOrder
     }
     contractSigned(orderNumber: $orderNumber) {
       isSigned
