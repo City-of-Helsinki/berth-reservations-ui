@@ -9,15 +9,15 @@
 
   &__header {
     background-color: $hel-fog;
+  }
 
-    h2 {
-      margin-bottom: $spacing-02;
-    }
+  &__header-title {
+    margin-bottom: $spacing-02;
+  }
 
-    p {
-      max-width: $spacing-40;
-      margin: $spacing-01 0;
-    }
+  &__header-paragraph {
+    max-width: $spacing-40;
+    margin: $spacing-01 0;
   }
 
   &__content {

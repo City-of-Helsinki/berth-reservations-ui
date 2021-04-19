@@ -25,9 +25,9 @@ const BerthSwitchOfferPage = ({ initialChoice, onConfirm }: BerthSwitchOfferPage
       <div className="vene-offer-page">
         <div className="vene-offer-page__header">
           <div className="vene-offer-page__content">
-            <h2>{t('page.profile.berths.berth_switch_offer.heading')}</h2>
-            <p>{t('page.profile.berths.berth_switch_offer.info_text')}</p>
-            <p>
+            <h2 className="vene-offer-page__header-title">{t('page.profile.berths.berth_switch_offer.heading')}</h2>
+            <p className="vene-offer-page__header-paragraph">{t('page.profile.berths.berth_switch_offer.info_text')}</p>
+            <p className="vene-offer-page__header-paragraph">
               {t('page.profile.berths.berth_switch_offer.questions')}
               <a href="mailto:venepaikkavaraukset@hel.fi" rel="noopener noreferrer" target="_blank">
                 venepaikkavaraukset@hel.fi
