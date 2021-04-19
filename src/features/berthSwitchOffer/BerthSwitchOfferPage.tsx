@@ -60,9 +60,9 @@ const BerthSwitchOfferPage = ({ initialChoice, onConfirm }: BerthSwitchOfferPage
               label={t('page.profile.berths.berth_switch_offer.decline')}
             />
           </div>
-          {isAccepted !== null && (
-            <Button onClick={() => onConfirm(isAccepted)}>{t('page.profile.berths.berth_switch_offer.confirm')}</Button>
-          )}
+          <Button disabled={isAccepted === null} onClick={() => isAccepted !== null && onConfirm(isAccepted)}>
+            {t('page.profile.berths.berth_switch_offer.confirm')}
+          </Button>
         </div>
       </div>
     </Layout>
