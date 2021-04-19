@@ -1,0 +1,56 @@
+@import 'styles/mixin';
+@import 'helsinki/colors';
+@import 'helsinki/fonts';
+@import 'styles/variables';
+
+.vene-offer-page {
+  background-color: $hel-light;
+  flex-grow: 1;
+
+  &__header {
+    background-color: $hel-fog;
+  }
+
+  &__header-title {
+    margin-bottom: $spacing-02;
+  }
+
+  &__header-paragraph {
+    max-width: $spacing-40;
+    margin: $spacing-01 0;
+  }
+
+  &__content {
+    padding: $spacing-03 $spacing-01;
+    max-width: $spacing-48;
+    margin: auto;
+  }
+
+  &__berth-info {
+    margin-bottom: $spacing-02;
+    > * {
+      margin: 0;
+    }
+  }
+
+  &__berth-info-label {
+    font-weight: bold;
+  }
+
+  &__choices {
+    display: flex;
+    margin-bottom: $spacing-02;
+  }
+
+  &__choice {
+    margin-right: $spacing-02;
+
+    &:not(:first-of-type) {
+      margin-top: 0;
+    }
+
+    label {
+      font-weight: normal;
+    }
+  }
+}

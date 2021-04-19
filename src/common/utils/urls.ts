@@ -25,6 +25,25 @@ export const setOrderNumber = (url: string, orderNumber: string): string => {
   return `${url}?${stringified}`;
 };
 
+export const getOfferNumber = (searchString: string): string => {
+  const parsed = queryString.parse(searchString);
+  const offerNumber = parsed.offer_number;
+
+  if (Array.isArray(offerNumber) || !offerNumber) {
+    return '';
+  }
+  return offerNumber;
+};
+
+export const getAccept = (searchString: string): boolean | undefined => {
+  const parsed = queryString.parse(searchString);
+  const accept = parsed.accept;
+
+  if (accept === 'true') return true;
+  if (accept === 'false') return false;
+  return undefined;
+};
+
 export const getPaymentSuccess = (searchString: string): boolean => {
   const parsed = queryString.parse(searchString);
   const paymentStatus = parsed.payment_status;

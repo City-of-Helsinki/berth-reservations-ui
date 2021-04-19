@@ -776,6 +776,14 @@
           "pay": "Betala",
           "terminate_berth": "Avsulta båtplatsen"
         },
+        "berth_switch_offer": {
+          "heading": "Acceptering om utbyteserbjudande",
+          "info_text": "Bästa kund, vill du motta båtplatsen som vi erbjuder? Om du vill inte ta emot den nya plats, du behåller din ursprungliga plats",
+          "questions": "Frågor och mer information: ",
+          "accept": "Jag vill ha den ny plats",
+          "decline": "Jag vill inte ha den ny plats, jag vill behålla min nuvarande plats",
+          "confirm": "Acceptera"
+        },
         "contract": {
           "label": "Avtal",
           "issued": "Skapat",
@@ -787,6 +795,11 @@
         "history": {
           "label": "Båtplatshistoria",
           "berth": "båtplats"
+        },
+        "switch_offer_completed": {
+          "title": "Tack!",
+          "paragraph1": "Din utbytesansökning har nu behandlats fullständigt.",
+          "paragraph2": "Vi önskar dig trevliga båtturer!"
         }
       },
       "winter_storage": {
