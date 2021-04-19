@@ -43,7 +43,7 @@
     "accessibility": {
       "field": {
         "accessibility": {
-          "label": "Currently, there are no accessible berths in our harbors."
+          "label": "Currently, there are no accessible berths in our harbours."
         }
       }
     },
@@ -756,7 +756,7 @@
           "delete_application": "Delete application",
           "docking_equipment_summer_storage":"Docking equipment summer storage",
           "edit_application": "Edit application",
-          "harbor_map": "Harbor map (PDF)",
+          "harbor_map": "Harbour map (PDF)",
           "harbor_website": "Website",
           "heading": "Offer for berth. If you wish to accept it, please pay the invoice before the due date {{date}}.",
           "info_text": "The invoice will be deleted in both cases (accept/decline). If you wish to have a different berth, accept the offer and make an exchange application. Exchange applications are processed yearly before new applications.",
