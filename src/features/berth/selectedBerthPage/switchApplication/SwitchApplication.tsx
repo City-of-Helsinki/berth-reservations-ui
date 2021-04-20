@@ -31,11 +31,13 @@ const SwitchApplication = ({ berths, reasons }: SwitchApplicationProps) => {
           <Select name="harborId" label="page.berth.switch_application.form.current_harbour_area.label" required>
             <option />
             {berths.size &&
-              berths.map((berth) => (
-                <option key={berth.id} value={berth.id}>
-                  {berth.name}
-                </option>
-              ))}
+              berths
+                .sort((a, b) => ((a.name || '') > (b.name || '') ? 1 : -1))
+                .map((berth) => (
+                  <option key={berth.id} value={berth.id}>
+                    {berth.name}
+                  </option>
+                ))}
           </Select>
         </Col>
       </Row>
