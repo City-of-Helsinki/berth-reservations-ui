@@ -37,11 +37,11 @@ describe('withApplicationType', () => {
       expect(wrapper.find(Component).prop('applicationType')).toBe('site.steps.title.berths.new');
     });
 
-    test('Exchange application: the value of "applicationType" should be "site.steps.title.berths.exchange"', () => {
+    test('Switch application: the value of "applicationType" should be "site.steps.title.berths.switch"', () => {
       const WrappedComponent = getApplicationType(Component);
       const wrapper = shallow(
         <WrappedComponent
-          appType={ApplicationOptions.ExchangeApplication}
+          appType={ApplicationOptions.SwitchApplication}
           match={{
             params: { app: ApplicationType.BerthApp },
             isExact: true,
@@ -51,7 +51,7 @@ describe('withApplicationType', () => {
         />
       );
 
-      expect(wrapper.find(Component).prop('applicationType')).toBe('site.steps.title.berths.exchange');
+      expect(wrapper.find(Component).prop('applicationType')).toBe('site.steps.title.berths.switch');
     });
   });
 

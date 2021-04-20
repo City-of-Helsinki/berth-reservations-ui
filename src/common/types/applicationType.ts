@@ -1,6 +1,6 @@
 export enum ApplicationOptions {
   NewApplication = 'new_application',
-  ExchangeApplication = 'exchange_application',
+  SwitchApplication = 'switch_application',
 }
 
 export enum ApplicationType {

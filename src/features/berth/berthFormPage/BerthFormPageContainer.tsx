@@ -142,7 +142,7 @@ const BerthFormPageContainer = ({
       boatWeight: stringToFloat(values.boatWeight),
     });
 
-    // Append berthSwitch property only when exchange application is selected.
+    // Append berthSwitch property only when switch application is selected.
     const payload = Object.assign(
       {},
       {
@@ -151,7 +151,7 @@ const BerthFormPageContainer = ({
           choices,
         },
       },
-      ApplicationOptions.ExchangeApplication === application.berthsApplicationType && {
+      ApplicationOptions.SwitchApplication === application.berthsApplicationType && {
         berthSwitch: application.berthSwitch,
       }
     );

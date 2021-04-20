@@ -14,7 +14,7 @@ describe('pages/BerthPage/SelectedBerthPage', () => {
     moveUp: jest.fn(),
     moveDown: jest.fn(),
     berthsApplicationType: ApplicationOptions.NewApplication,
-    submitExchangeForm: jest.fn(),
+    submitSwitchForm: jest.fn(),
     values: berthValues,
     moveToForm: jest.fn(),
     handlePrevious: jest.fn(),

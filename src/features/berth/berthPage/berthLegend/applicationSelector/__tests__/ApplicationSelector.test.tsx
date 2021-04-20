@@ -40,9 +40,9 @@ describe('forms/sections/ApplicationSelector', () => {
     expect((getByLabelText(/Vaihtohakemus/) as HTMLInputElement).checked).toBe(false);
   });
 
-  test('if berthsApplicationType is ExchangeApplication, show "exchange application" as checked', () => {
+  test('if berthsApplicationType is SwitchApplication, show "switch application" as checked', () => {
     const { getByLabelText } = renderComponent({
-      berthsApplicationType: ApplicationOptions.ExchangeApplication,
+      berthsApplicationType: ApplicationOptions.SwitchApplication,
     });
 
     expect((getByLabelText(/Uusi hakemus/) as HTMLInputElement).checked).toBe(false);
@@ -53,7 +53,7 @@ describe('forms/sections/ApplicationSelector', () => {
     let eventValue = null;
     const onSwitch = jest.fn((event) => (eventValue = event.target.value));
     const { getByLabelText } = renderComponent({
-      berthsApplicationType: ApplicationOptions.ExchangeApplication,
+      berthsApplicationType: ApplicationOptions.SwitchApplication,
       onSwitch: onSwitch,
     });
 
@@ -61,7 +61,7 @@ describe('forms/sections/ApplicationSelector', () => {
     expect(eventValue).toEqual(ApplicationOptions.NewApplication);
   });
 
-  test('clicking "exchange application" calls onSwitch expectedly', () => {
+  test('clicking "switch application" calls onSwitch expectedly', () => {
     let eventValue = null;
     const onSwitch = jest.fn((event) => (eventValue = event.target.value));
     const { getByLabelText } = renderComponent({
@@ -70,7 +70,7 @@ describe('forms/sections/ApplicationSelector', () => {
     });
 
     fireEvent.click(getByLabelText(/Vaihtohakemus/));
-    expect(eventValue).toEqual(ApplicationOptions.ExchangeApplication);
+    expect(eventValue).toEqual(ApplicationOptions.SwitchApplication);
   });
 
   test('if alertVisible is true, Alert should be shown', () => {

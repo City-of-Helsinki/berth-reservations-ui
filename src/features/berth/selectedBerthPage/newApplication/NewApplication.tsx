@@ -10,8 +10,8 @@ const NewApplication = () => {
     <Container className="vene-new-application">
       <Row>
         <Col sm={10}>
-          <h3 className="vene-new-application__heading">{t('page.berth.exchange_application.new.title')}</h3>
-          <span>{t('page.berth.exchange_application.new.info_text')}</span>
+          <h3 className="vene-new-application__heading">{t('page.berth.switch_application.new.title')}</h3>
+          <span>{t('page.berth.switch_application.new.info_text')}</span>
         </Col>
       </Row>
     </Container>

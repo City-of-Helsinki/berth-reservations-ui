@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { useQuery } from 'react-apollo';
 
-import { submitApplicationForm as submitExchangeForm } from '../../../redux/actions/ApplicationActions';
+import { submitApplicationForm as submitSwitchForm } from '../../../redux/actions/ApplicationActions';
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
 import { BoatTypesBerthsQuery } from '../../__generated__/BoatTypesBerthsQuery';
 import { getResources, getSelectedResources } from '../../../common/utils/applicationUtils';
@@ -24,7 +24,7 @@ interface Props {
   values: BerthFormValues;
   berthsApplicationType: string;
   initialValues: BerthFormValues;
-  submitExchangeForm(values: BerthFormValues): void;
+  submitSwitchForm(values: BerthFormValues): void;
   deselectBerth(id: string): void;
   moveUp(id: string): void;
   moveDown(id: string): void;
@@ -118,7 +118,7 @@ export default compose<Props, Props>(
       deselectBerth,
       moveUp,
       moveDown,
-      submitExchangeForm,
+      submitSwitchForm,
     }
   )
 )(UnconnectedSelectedBerthPage);

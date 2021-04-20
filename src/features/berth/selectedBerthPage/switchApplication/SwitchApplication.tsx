@@ -6,31 +6,29 @@ import { Berths } from '../../types';
 import { Select, Text } from '../../../../common/fields/Fields';
 import { BerthSwitchReasonsQuery_berthSwitchReasons } from '../../../__generated__/BerthSwitchReasonsQuery';
 
-import './exchangeApplication.scss';
+import './switchApplication.scss';
 
-export interface ExchangeApplicationProps {
+export interface SwitchApplicationProps {
   berths: Berths;
   reasons?: BerthSwitchReasonsQuery_berthSwitchReasons[];
 }
 
-const ExchangeApplication = ({ berths, reasons }: ExchangeApplicationProps) => {
+const SwitchApplication = ({ berths, reasons }: SwitchApplicationProps) => {
   const { t } = useTranslation();
   return (
-    <Container className="vene-exchange-application">
+    <Container className="vene-switch-application">
       <Row>
         <Col>
-          <h3 className="vene-exchange-application__heading">
-            {t('page.berth.exchange_application.current_berth.title')}
-          </h3>
-          <p className="vene-exchange-application__description">
-            {t('page.berth.exchange_application.current_berth.info_text')}
+          <h3 className="vene-switch-application__heading">{t('page.berth.switch_application.current_berth.title')}</h3>
+          <p className="vene-switch-application__description">
+            {t('page.berth.switch_application.current_berth.info_text')}
           </p>
         </Col>
       </Row>
 
       <Row>
         <Col>
-          <Select name="harborId" label="page.berth.exchange_application.form.current_harbour_area.label" required>
+          <Select name="harborId" label="page.berth.switch_application.form.current_harbour_area.label" required>
             <option />
             {berths.size &&
               berths.map((berth) => (
@@ -46,8 +44,8 @@ const ExchangeApplication = ({ berths, reasons }: ExchangeApplicationProps) => {
         <Col sm={6}>
           <Text
             name="pier"
-            label="page.berth.exchange_application.form.pier.title"
-            placeholder="page.berth.exchange_application.form.pier.placeholder"
+            label="page.berth.switch_application.form.pier.title"
+            placeholder="page.berth.switch_application.form.pier.placeholder"
           />
         </Col>
 
@@ -55,25 +53,23 @@ const ExchangeApplication = ({ berths, reasons }: ExchangeApplicationProps) => {
           <Text
             name="berthNumber"
             required
-            label="page.berth.exchange_application.form.berth.title"
-            placeholder="page.berth.exchange_application.form.berth.placeholder"
+            label="page.berth.switch_application.form.berth.title"
+            placeholder="page.berth.switch_application.form.berth.placeholder"
           />
         </Col>
       </Row>
 
       <Row>
         <Col>
-          <h3 className="vene-exchange-application__heading">{t('page.berth.exchange_application.reason.title')}</h3>
-          <p className="vene-exchange-application__description">
-            {t('page.berth.exchange_application.reason.info_text')}
-          </p>
+          <h3 className="vene-switch-application__heading">{t('page.berth.switch_application.reason.title')}</h3>
+          <p className="vene-switch-application__description">{t('page.berth.switch_application.reason.info_text')}</p>
         </Col>
       </Row>
 
       <Row>
         <Col>
           <Select name="reason">
-            <option value="">{t('page.berth.exchange_application.reason.default')}</option>
+            <option value="">{t('page.berth.switch_application.reason.default')}</option>
             {reasons &&
               reasons.map((reason) => (
                 <option key={reason.id} value={reason.id}>
@@ -87,4 +83,4 @@ const ExchangeApplication = ({ berths, reasons }: ExchangeApplicationProps) => {
   );
 };
 
-export default ExchangeApplication;
+export default SwitchApplication;

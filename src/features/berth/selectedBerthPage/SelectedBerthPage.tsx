@@ -5,7 +5,7 @@ import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
 import Icon, { IconNames } from '../../../common/icon/Icon';
 import LocalizedLink from '../../../common/localizedLink/LocalizedLink';
-import ExchangeApplication from './exchangeApplication/ExchangeApplicationContainer';
+import SwitchApplication from './switchApplication/SwitchApplicationContainer';
 import NewApplication from './newApplication/NewApplication';
 import Layout from '../../../common/layout/Layout';
 import SelectionPageLegend from '../../../common/selectionPageLegend/SelectionPageLegend';
@@ -38,7 +38,7 @@ export type Props = {
   moveDown(id: string): void;
   moveToForm(): void;
   moveUp(id: string): void;
-  submitExchangeForm?(values: BerthFormValues): void;
+  submitSwitchForm?(values: BerthFormValues): void;
 };
 
 const SelectedBerthPage = ({
@@ -55,15 +55,15 @@ const SelectedBerthPage = ({
   moveUp,
   selectedBerths,
   steps,
-  submitExchangeForm,
+  submitSwitchForm,
   validSelection,
 }: Props) => {
   const { t } = useTranslation();
   useLayoutEffect(() => window.scrollTo(0, 0), []);
 
   const handleSubmitApplication = (values: BerthFormValues) => {
-    if (submitExchangeForm) {
-      submitExchangeForm(values);
+    if (submitSwitchForm) {
+      submitSwitchForm(values);
     }
     moveToForm();
   };
@@ -84,7 +84,7 @@ const SelectedBerthPage = ({
                     (berthsApplicationType === ApplicationOptions.NewApplication ? (
                       <NewApplication />
                     ) : (
-                      <ExchangeApplication berths={berths} />
+                      <SwitchApplication berths={berths} />
                     ))}
 
                   <h3>{t('page.berth.selected.title')}</h3>

@@ -21,8 +21,8 @@ export const getApplicationType = (Component: React.ComponentType<{ applicationT
     applicationType = 'site.steps.title.winter_storage';
   } else if (match.params.app === ApplicationType.BerthApp) {
     applicationType =
-      appType === ApplicationOptions.ExchangeApplication
-        ? 'site.steps.title.berths.exchange'
+      appType === ApplicationOptions.SwitchApplication
+        ? 'site.steps.title.berths.switch'
         : 'site.steps.title.berths.new';
   }
 

@@ -31,7 +31,7 @@ export type Props = {
   moveDown(id: string): void;
   moveToForm(): void;
   moveUp(id: string): void;
-  submitExchangeForm?(values: WinterFormValues): void;
+  submitSwitchForm?(values: WinterFormValues): void;
 };
 
 const SelectedAreaPage = ({
@@ -46,15 +46,15 @@ const SelectedAreaPage = ({
   moveUp,
   selectedAreas,
   steps,
-  submitExchangeForm,
+  submitSwitchForm,
   validSelection,
 }: Props) => {
   const { t } = useTranslation();
   useLayoutEffect(() => window.scrollTo(0, 0), []);
 
   const handleSubmitApplication = (values: WinterFormValues) => {
-    if (submitExchangeForm) {
-      submitExchangeForm(values);
+    if (submitSwitchForm) {
+      submitSwitchForm(values);
     }
     moveToForm();
   };

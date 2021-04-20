@@ -14,13 +14,13 @@ const OldBerthInfo = ({ harborName, pier, berthNumber, reasonTitle }: OldBerthIn
   return (
     <Row>
       <Col xs={12}>
-        <LabelValuePair label="page.berth.exchange_application.form.current_harbour_area.label" value={harborName} />
+        <LabelValuePair label="page.berth.switch_application.form.current_harbour_area.label" value={harborName} />
 
-        <LabelValuePair label="page.berth.exchange_application.form.pier.title" value={pier} />
+        <LabelValuePair label="page.berth.switch_application.form.pier.title" value={pier} />
 
-        <LabelValuePair label="page.berth.exchange_application.form.berth.title" value={berthNumber} />
+        <LabelValuePair label="page.berth.switch_application.form.berth.title" value={berthNumber} />
 
-        <LabelValuePair label="page.berth.exchange_application.reason.title" value={reasonTitle} />
+        <LabelValuePair label="page.berth.switch_application.reason.title" value={reasonTitle} />
       </Col>
     </Row>
   );
