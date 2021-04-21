@@ -12,9 +12,9 @@ export interface PropertyProps {
 const Property = ({ icon, labelKey }: PropertyProps) => {
   const { t } = useTranslation();
   return (
-    <div className="vene-property">
-      <Icon name={icon} className="vene-property__icon" />
-      <p className="vene-property__label">{t(labelKey)}</p>
+    <div className="vene-berth-property">
+      <Icon name={icon} className="vene-berth-property__icon" />
+      <p className="vene-berth-property__label">{t(labelKey)}</p>
     </div>
   );
 };

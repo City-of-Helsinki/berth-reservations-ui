@@ -518,12 +518,12 @@
       "title": "Kiitos, hakemuksesi on lähetetty!"
     },
     "berth": {
-      "exchange_application": {
+      "switch_application": {
         "current_berth": {
           "info_text": "Vaihtohakemusta varten syötä nykyisen venepaikan tiedot. ",
           "title": "Nykyisen paikan tiedot"
         },
-        "exchange": {
+        "switch": {
           "info_text": "Helsingin kaupungin satamassa olevan venepaikan vaihto",
           "title": "Vaihtohakemus"
         },
@@ -928,7 +928,7 @@
       "send_application": "Yhteenveto",
       "title": {
         "berths": {
-          "exchange": "Vaihtohakemus",
+          "switch": "Vaihtohakemus",
           "new": "Uusi hakemus"
         },
         "winter_storage": "Talvisäilytyspaikan hakemus"

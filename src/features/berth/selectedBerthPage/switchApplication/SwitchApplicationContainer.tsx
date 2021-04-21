@@ -6,17 +6,17 @@ import {
   BerthSwitchReasonsQuery_berthSwitchReasons as Reason,
 } from '../../../__generated__/BerthSwitchReasonsQuery';
 import { BERTH_SWITCH_REASONS_QUERY } from '../../../queries';
-import ExchangeApplication, { ExchangeApplicationProps } from './ExchangeApplication';
+import SwitchApplication, { SwitchApplicationProps } from './SwitchApplication';
 
-type Props = Omit<ExchangeApplicationProps, 'reasons'>;
+type Props = Omit<SwitchApplicationProps, 'reasons'>;
 
 const isReason = (reason: Reason | null): reason is Reason => reason !== null;
 
-const ExchangeApplicationContainer = (props: Props) => {
+const SwitchApplicationContainer = (props: Props) => {
   const { data } = useQuery<BerthSwitchReasonsQuery>(BERTH_SWITCH_REASONS_QUERY);
   const reasons = data?.berthSwitchReasons ? data.berthSwitchReasons.filter(isReason) : [];
 
-  return <ExchangeApplication reasons={reasons} {...props} />;
+  return <SwitchApplication reasons={reasons} {...props} />;
 };
 
-export default ExchangeApplicationContainer;
+export default SwitchApplicationContainer;

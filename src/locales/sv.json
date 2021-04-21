@@ -517,12 +517,12 @@
       "title": "Tack, din ansökan har skickats!"
     },
     "berth": {
-      "exchange_application": {
+      "switch_application": {
         "current_berth": {
           "info_text": "Fyll i uppgifterna om den nuvarande platsen i ansökan om byte. ",
           "title": "Uppgifter om den nuvarande platsen"
         },
-        "exchange": {
+        "switch": {
           "info_text": "Byte av båtplats i någon av Helsingfors stads hamnar",
           "title": "Ansökan om byte"
         },
@@ -927,7 +927,7 @@
       "send_application": "Sammanfattning",
       "title": {
         "berths": {
-          "exchange": "Ansökan om byte",
+          "switch": "Ansökan om byte",
           "new": "Ny ansökan"
         },
         "winter_storage": "Ansökan om vinteruppläggningsplats"

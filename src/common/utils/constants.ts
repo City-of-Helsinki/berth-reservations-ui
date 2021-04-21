@@ -321,4 +321,4 @@ export const MUNICIPALITIES = [
   { id: 'äänekoski', translations: { sv: 'Äänekoski', fi: 'Äänekoski' } },
 ];
 
-export const EXCHANGE_APPLICATION_LIMIT = 5;
+export const SWITCH_APPLICATION_LIMIT = 5;

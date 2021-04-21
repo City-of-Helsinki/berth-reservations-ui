@@ -3,14 +3,14 @@ import React from 'react';
 
 import { berths } from '../../../../../__fixtures__/berthFixture';
 import { Select, Text } from '../../../../../common/fields/Fields';
-import ExchangeApplication, { ExchangeApplicationProps } from '../ExchangeApplication';
+import SwitchApplication, { SwitchApplicationProps } from '../SwitchApplication';
 
-describe('fragments/ExchangeApplication', () => {
+describe('fragments/SwitchApplication', () => {
   const mockHarbor = berths;
 
-  const getWrapper = (props?: Partial<ExchangeApplicationProps>) =>
+  const getWrapper = (props?: Partial<SwitchApplicationProps>) =>
     shallow(
-      <ExchangeApplication
+      <SwitchApplication
         reasons={[
           { __typename: 'BerthSwitchReasonType', id: '1', title: 'foo' },
           { __typename: 'BerthSwitchReasonType', id: '2', title: 'bar' },

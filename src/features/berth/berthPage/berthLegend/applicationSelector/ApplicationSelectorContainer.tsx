@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { EXCHANGE_APPLICATION_LIMIT } from '../../../../../common/utils/constants';
+import { SWITCH_APPLICATION_LIMIT } from '../../../../../common/utils/constants';
 import { switchApplication as switchApplicationAction } from '../../../../../redux/actions/ApplicationActions';
 import {
   resetBerthLimit as resetBerthLimitAction,
@@ -38,11 +38,11 @@ export const ApplicationSelectorContainer = ({
       setAlertVisible(false);
       switchApplication(e.currentTarget.value);
       resetBerthLimit();
-    } else if (selectedBerthCount > EXCHANGE_APPLICATION_LIMIT) {
+    } else if (selectedBerthCount > SWITCH_APPLICATION_LIMIT) {
       setAlertVisible(true);
     } else {
-      switchApplication(e.currentTarget.value as ApplicationOptions.ExchangeApplication);
-      setBerthLimit(EXCHANGE_APPLICATION_LIMIT);
+      switchApplication(e.currentTarget.value as ApplicationOptions.SwitchApplication);
+      setBerthLimit(SWITCH_APPLICATION_LIMIT);
     }
   };
 

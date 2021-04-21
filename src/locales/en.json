@@ -517,14 +517,14 @@
       "title": "Thank you, your application has been sent successfully!"
     },
     "berth": {
-      "exchange_application": {
+      "switch_application": {
         "current_berth": {
-          "info_text": "Please provide the details of your current berth for the exchange application. ",
+          "info_text": "Please provide the details of your current berth for the switch application. ",
           "title": "Information on your current berth"
         },
-        "exchange": {
+        "switch": {
           "info_text": "Exchanging a berth at a City of Helsinki harbour",
-          "title": "Exchange application"
+          "title": "Switch application"
         },
         "form": {
           "berth": {
@@ -548,7 +548,7 @@
           "info_text": "You can select a special request concerning the type of the new berth from the list. Please note, however, that if you select a special request, you will only be offered a berth when a berth meeting your request becomes available.",
           "title": "Special request for a new berth"
         },
-        "warning": "You can select up to five harbours for your exchange application. Please remove excess selections and change the application type again."
+        "warning": "You can select up to five harbours for your switch application. Please remove excess selections and change the application type again."
       },
       "selected": {
         "alert": {
@@ -623,7 +623,7 @@
       "card": {
         "berths": {
           "button_label": "Browse and search for boat berths",
-          "description": "Browse the City of Helsinki’s boat harbours. You can submit a new boat berth application or apply to exchange your current boat berth for another one.",
+          "description": "Browse the City of Helsinki’s boat harbours. You can submit a new boat berth application or apply to switch your current boat berth for another one.",
           "title": "Boat berth search"
         },
         "instructions": "Additional information and instructions (hel.fi)",
@@ -640,7 +640,7 @@
         }
       },
       "description": {
-        "body": "Browse the City of Helsinki’s boat harbours. You can submit a new boat berth application or apply to exchange your current boat berth for another one.",
+        "body": "Browse the City of Helsinki’s boat harbours. You can submit a new boat berth application or apply to switch your current boat berth for another one.",
         "heading": "Boat berths and the winter storage of boats"
       },
       "title": "Boat berths"
@@ -763,7 +763,7 @@
           "harbor_map": "Harbour map (PDF)",
           "harbor_website": "Website",
           "heading": "Offer for berth. If you wish to accept it, please pay the invoice before the due date {{date}}.",
-          "info_text": "The invoice will be deleted in both cases (accept/decline). If you wish to have a different berth, accept the offer and make an exchange application. Exchange applications are processed yearly before new applications.",
+          "info_text": "The invoice will be deleted in both cases (accept/decline). If you wish to have a different berth, accept the offer and make an switch application. Switch applications are processed yearly before new applications.",
           "net_price": "Net price",
           "keep_application_active": "I want the application to remain valid if there are no free berths for this sailing season",
           "reject_offer": "Decline offer",
@@ -927,7 +927,7 @@
       "send_application": "Summary",
       "title": {
         "berths": {
-          "exchange": "Exchange application",
+          "switch": "Switch application",
           "new": "New application"
         },
         "winter_storage": "Winter storage application"

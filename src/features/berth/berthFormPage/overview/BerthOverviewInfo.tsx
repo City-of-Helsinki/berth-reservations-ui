@@ -40,8 +40,8 @@ const BerthOverviewInfo = ({
 
   return (
     <OverviewInfo title={applicationType}>
-      {application && application.berthsApplicationType === ApplicationOptions.ExchangeApplication && (
-        <LinkedEditSection title="page.berth.exchange_application.current_berth.title" link="berths/selected">
+      {application && application.berthsApplicationType === ApplicationOptions.SwitchApplication && (
+        <LinkedEditSection title="page.berth.switch_application.current_berth.title" link="berths/selected">
           <OldBerthInfo application={application} />
         </LinkedEditSection>
       )}

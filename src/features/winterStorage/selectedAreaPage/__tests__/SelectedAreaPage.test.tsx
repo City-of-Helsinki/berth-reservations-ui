@@ -12,7 +12,7 @@ describe('pages/BerthPage/SelectedAreaPage', () => {
     deselectArea: jest.fn(),
     moveUp: jest.fn(),
     moveDown: jest.fn(),
-    submitExchangeForm: jest.fn(),
+    submitSwitchForm: jest.fn(),
     values: winterValues,
     moveToForm: jest.fn(),
     handlePrevious: jest.fn(),

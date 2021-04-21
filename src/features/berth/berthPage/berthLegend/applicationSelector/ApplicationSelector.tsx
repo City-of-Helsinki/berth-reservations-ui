@@ -38,8 +38,8 @@ const ApplicationSelector = ({
               name="application-selector-radio"
               label={
                 <>
-                  <strong>{t('page.berth.exchange_application.new.title')}</strong>
-                  <p>{t('page.berth.exchange_application.new.info_text')}</p>
+                  <strong>{t('page.berth.switch_application.new.title')}</strong>
+                  <p>{t('page.berth.switch_application.new.info_text')}</p>
                 </>
               }
             />
@@ -47,15 +47,15 @@ const ApplicationSelector = ({
           <Col xs="12" md="6">
             <Input
               type="radio"
-              value={ApplicationOptions.ExchangeApplication}
-              checked={berthsApplicationType === ApplicationOptions.ExchangeApplication}
+              value={ApplicationOptions.SwitchApplication}
+              checked={berthsApplicationType === ApplicationOptions.SwitchApplication}
               onChange={onSwitch}
-              id="vene-application-selector-exchange"
+              id="vene-application-selector-switch"
               name="application-selector-radio"
               label={
                 <>
-                  <strong>{t('page.berth.exchange_application.exchange.title')}</strong>
-                  <p>{t('page.berth.exchange_application.exchange.info_text')}</p>
+                  <strong>{t('page.berth.switch_application.switch.title')}</strong>
+                  <p>{t('page.berth.switch_application.switch.info_text')}</p>
                 </>
               }
             />
@@ -63,7 +63,7 @@ const ApplicationSelector = ({
         </Row>
       </Container>
 
-      {alertVisible && <Alert toggle={closeAlert} color="danger" messageId="page.berth.exchange_application.warning" />}
+      {alertVisible && <Alert toggle={closeAlert} color="danger" messageId="page.berth.switch_application.warning" />}
     </div>
   );
 };
