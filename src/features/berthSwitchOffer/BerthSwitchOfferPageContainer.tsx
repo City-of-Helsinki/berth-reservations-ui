@@ -3,9 +3,9 @@ import { compose } from 'recompose';
 
 import { LocalePush, withMatchParamsHandlers } from '../../common/utils/container';
 import { getAccept, getOfferNumber } from '../../common/utils/urls';
-import { AcceptBerthSwitchOffer, AcceptBerthSwitchOfferVariables } from './__generated__/AcceptBerthSwitchOffer';
+import { AcceptBerthSwitchOffer, AcceptBerthSwitchOfferVariables } from '../__generated__/AcceptBerthSwitchOffer';
 import BerthSwitchOfferPage from './BerthSwitchOfferPage';
-import { ACCEPT_BERTH_SWITCH_OFFER } from './mutations';
+import { ACCEPT_BERTH_SWITCH_OFFER } from '../queries';
 
 type Props = {
   localePush: LocalePush;

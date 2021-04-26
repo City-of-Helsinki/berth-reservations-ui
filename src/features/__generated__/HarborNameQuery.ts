@@ -13,13 +13,10 @@ export interface HarborNameQuery_harbor_properties {
 }
 
 export interface HarborNameQuery_harbor {
-  __typename: "HarborType";
+  __typename: "HarborNode";
   properties: HarborNameQuery_harbor_properties | null;
 }
 
 export interface HarborNameQuery {
-  /**
-   * The ID of the object
-   */
   harbor: HarborNameQuery_harbor | null;
 }

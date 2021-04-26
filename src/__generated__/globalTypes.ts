@@ -7,9 +7,6 @@
 // START Enums and Input Objects
 //==============================================================
 
-/**
- * An enumeration.
- */
 export enum OrderStatus {
   CANCELLED = "CANCELLED",
   DRAFTED = "DRAFTED",
@@ -22,9 +19,6 @@ export enum OrderStatus {
   REJECTED = "REJECTED",
 }
 
-/**
- * An enumeration.
- */
 export enum OrderTypeEnum {
   ADDITIONAL_PRODUCT = "ADDITIONAL_PRODUCT",
   BERTH = "BERTH",
@@ -32,9 +26,6 @@ export enum OrderTypeEnum {
   WINTER_STORAGE = "WINTER_STORAGE",
 }
 
-/**
- * An enumeration.
- */
 export enum WinterStorageMethod {
   ON_TRAILER = "ON_TRAILER",
   ON_TRESTLES = "ON_TRESTLES",
@@ -86,9 +77,7 @@ export interface BerthApplicationInput {
 }
 
 export interface BerthSwitchInput {
-  harborId: string;
-  pier?: string | null;
-  berthNumber: string;
+  berthId: string;
   reason?: string | null;
 }
 
@@ -99,6 +88,17 @@ export interface CancelOrderMutationInput {
 
 export interface ConfirmPaymentMutationInput {
   orderNumber: string;
+  clientMutationId?: string | null;
+}
+
+export interface CreateBerthApplicationMutationInput {
+  berthApplication: BerthApplicationInput;
+  berthSwitch?: BerthSwitchInput | null;
+  clientMutationId?: string | null;
+}
+
+export interface CreateWinterStorageApplicationMutationInput {
+  winterStorageApplication: WinterStorageApplicationInput;
   clientMutationId?: string | null;
 }
 

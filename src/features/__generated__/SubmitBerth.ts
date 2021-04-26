@@ -3,14 +3,14 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { BerthApplicationInput, BerthSwitchInput } from "./../../__generated__/globalTypes";
+import { CreateBerthApplicationMutationInput } from "./../../__generated__/globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: SubmitBerth
 // ====================================================
 
 export interface SubmitBerth_createBerthApplication {
-  __typename: "CreateBerthApplication";
+  __typename: "CreateBerthApplicationMutationPayload";
   ok: boolean | null;
 }
 
@@ -19,6 +19,5 @@ export interface SubmitBerth {
 }
 
 export interface SubmitBerthVariables {
-  application: BerthApplicationInput;
-  berthSwitch?: BerthSwitchInput | null;
+  input: CreateBerthApplicationMutationInput;
 }
