@@ -1,23 +1,9 @@
 import { List } from 'immutable';
 
 import { createBerth } from '../../../__fixtures__/berthFixture';
-import { convertCmToM, getSelectedResources, isResourceSelected, stringToFloat } from '../applicationUtils';
+import { getSelectedResources, isResourceSelected, stringToFloat } from '../applicationUtils';
 
 describe('utils/applicationUtils', () => {
-  describe('convertCmToM', () => {
-    test('should convert centimeters to meters', () => {
-      expect(convertCmToM(100)).toBe(1);
-    });
-
-    test('should return null when the supplied parameter is null', () => {
-      expect(convertCmToM(null)).toBeNull();
-    });
-
-    test('should return undefined when the parameter is undefined', () => {
-      expect(convertCmToM()).toBeUndefined();
-    });
-  });
-
   describe('getSelectedResources', () => {
     const berthA = createBerth({ id: 'a' });
     const berthB = createBerth({ id: 'b' });

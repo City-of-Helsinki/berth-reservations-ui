@@ -3,20 +3,36 @@ import { List } from 'immutable';
 import { WinterStorageApplicationInput } from '../../__generated__/globalTypes';
 import {
   WinterAreasQuery_winterStorageAreas_edges_node,
-  WinterAreasQuery_winterStorageAreas_edges_node_geometry,
-  WinterAreasQuery_winterStorageAreas_edges_node_properties,
+  WinterAreasQuery_winterStorageAreas_edges_node_properties as AreaProperties,
 } from '../__generated__/WinterAreasQuery';
 
-export type WinterStorageType = Pick<
-  WinterAreasQuery_winterStorageAreas_edges_node_properties,
-  Exclude<keyof WinterAreasQuery_winterStorageAreas_edges_node_properties, '__typename'>
-> & {
-  geometry: Pick<
-    WinterAreasQuery_winterStorageAreas_edges_node_geometry,
-    Exclude<keyof WinterAreasQuery_winterStorageAreas_edges_node_geometry, '__typename'>
-  >;
-} & Pick<WinterAreasQuery_winterStorageAreas_edges_node, 'id'> &
-  Pick<WinterAreasQuery_winterStorageAreas_edges_node, '__typename'>;
+export type WinterStorageAreaType = {
+  __typename: WinterAreasQuery_winterStorageAreas_edges_node['__typename'];
+  id: string;
+  geometry: {
+    coordinates: any | null;
+  };
+  availabilityLevel: AreaProperties['availabilityLevel'];
+  estimatedNumberOfSectionSpaces: AreaProperties['estimatedNumberOfSectionSpaces'];
+  estimatedNumberOfUnmarkedSpaces: AreaProperties['estimatedNumberOfUnmarkedSpaces'];
+  imageFile: AreaProperties['imageFile'];
+  maxLength: AreaProperties['maxLength'];
+  maxLengthOfSectionSpaces: AreaProperties['maxLengthOfSectionSpaces'];
+  maxWidth: AreaProperties['maxWidth'];
+  municipality: AreaProperties['municipality'];
+  name: AreaProperties['name'];
+  servicemapId: AreaProperties['servicemapId'];
+  streetAddress: AreaProperties['streetAddress'];
+  wwwUrl: AreaProperties['wwwUrl'];
+  zipCode: AreaProperties['zipCode'];
+  electricity: boolean;
+  water: boolean;
+  gate: boolean;
+  repairArea: boolean;
+  summerStorageForDockingEquipment: boolean;
+  summerStorageForTrailers: boolean;
+  summerStorageForBoats: boolean;
+};
 
 interface ValuesToOverride {
   boatLength: string;
@@ -34,4 +50,4 @@ export type WinterFormValues = Pick<
   ValuesToOverride &
   AdditionalValues;
 
-export type WinterAreas = List<WinterStorageType>;
+export type WinterStorageAreas = List<WinterStorageAreaType>;

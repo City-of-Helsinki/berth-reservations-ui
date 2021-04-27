@@ -6,19 +6,20 @@ import { useQuery, useMutation } from 'react-apollo';
 import { RouteComponentProps } from 'react-router';
 
 import ApplicantDetails from '../../../common/applicantDetails/ApplicantDetails';
+import { getHarbors } from '../utils';
 import BerthOverview from './overview/BerthOverview';
 import BoatDetails from './boatDetails/BerthBoatDetails';
 import FormPage from '../../../common/formPage/FormPage';
 import { ApplicationOptions } from '../../../common/types/applicationType';
 import { ApplicationState, Store } from '../../../redux/types';
-import { BOAT_TYPES_BERTHS_QUERY, CREATE_APPLICATION } from '../../queries';
+import { HARBORS_QUERY, CREATE_APPLICATION } from '../../queries';
 import { BerthFormValues } from '../types';
-import { BoatTypesBerthsQuery } from '../../__generated__/BoatTypesBerthsQuery';
+import { HarborsQuery } from '../../__generated__/HarborsQuery';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import { SelectedIds } from '../../../common/types/resource';
 import { StepType } from '../../../common/steps/step/Step';
 import { SubmitBerth, SubmitBerthVariables } from '../../__generated__/SubmitBerth';
-import { getResources, getSelectedResources, stringToFloat } from '../../../common/utils/applicationUtils';
+import { getSelectedResources, stringToFloat } from '../../../common/utils/applicationUtils';
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
 
 type Props = {
@@ -59,11 +60,11 @@ const BerthFormPageContainer = ({
     }
   }, [tab]);
 
-  const { loading, data } = useQuery<BoatTypesBerthsQuery>(BOAT_TYPES_BERTHS_QUERY);
+  const { loading, data } = useQuery<HarborsQuery>(HARBORS_QUERY);
   const [submitBerth] = useMutation<SubmitBerth, SubmitBerthVariables>(CREATE_APPLICATION);
 
   const boatTypes = data ? data.boatTypes : [];
-  const berths = getResources(data ? data.harbors : null);
+  const berths = getHarbors(data);
   const selected = getSelectedResources(selectedBerths, berths);
 
   const steps: StepType[] = [
@@ -146,7 +147,7 @@ const BerthFormPageContainer = ({
     const payload = Object.assign(
       {},
       {
-        application: {
+        berthApplication: {
           ...normalizedValues,
           choices,
         },
@@ -157,7 +158,9 @@ const BerthFormPageContainer = ({
     );
 
     submitBerth({
-      variables: payload,
+      variables: {
+        input: payload,
+      },
     }).then(() => localePush('/thank-you'));
   };
 

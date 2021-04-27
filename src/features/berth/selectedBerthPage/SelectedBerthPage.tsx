@@ -10,7 +10,7 @@ import NewApplication from './newApplication/NewApplication';
 import Layout from '../../../common/layout/Layout';
 import SelectionPageLegend from '../../../common/selectionPageLegend/SelectionPageLegend';
 import { ApplicationOptions } from '../../../common/types/applicationType';
-import { BerthFormValues, Berths, BerthType } from '../types';
+import { BerthFormValues, Harbors, HarborType } from '../types';
 import SelectedResourceContainer from '../../../common/areaCard/selectedResource/SelectedResourceContainer';
 import { StepType } from '../../../common/steps/step/Step';
 
@@ -23,17 +23,17 @@ type BoatInfoForBerths = {
 };
 
 export type Props = {
-  berths?: Berths;
+  berths?: Harbors;
   berthsApplicationType?: string;
   boatInfo: BoatInfoForBerths;
   initialValues?: BerthFormValues;
   legend: { title: string; legend: string };
-  selectedBerths: Berths;
+  selectedBerths: Harbors;
   steps: StepType[];
   validSelection: boolean;
   values: BerthFormValues;
   deselectBerth(id: string): void;
-  filter(resource: BerthType): boolean;
+  filter(resource: HarborType): boolean;
   handlePrevious(): void;
   moveDown(id: string): void;
   moveToForm(): void;
@@ -84,7 +84,7 @@ const SelectedBerthPage = ({
                     (berthsApplicationType === ApplicationOptions.NewApplication ? (
                       <NewApplication />
                     ) : (
-                      <SwitchApplication berths={berths} />
+                      <SwitchApplication harbors={berths} />
                     ))}
 
                   <h3>{t('page.berth.selected.title')}</h3>

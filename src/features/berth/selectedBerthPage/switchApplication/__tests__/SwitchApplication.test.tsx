@@ -15,7 +15,7 @@ describe('fragments/SwitchApplication', () => {
           { __typename: 'BerthSwitchReasonType', id: '1', title: 'foo' },
           { __typename: 'BerthSwitchReasonType', id: '2', title: 'bar' },
         ]}
-        berths={mockHarbor}
+        harbors={mockHarbor}
         {...props}
       />
     );

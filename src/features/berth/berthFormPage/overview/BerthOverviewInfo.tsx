@@ -14,13 +14,13 @@ import OverviewInfo from '../../../../common/overviewInfo/OverviewInfo';
 import PersonOverview from '../../../../common/personOverview/PersonOverview';
 import { ApplicationState } from '../../../../redux/types';
 import { ApplicationOptions } from '../../../../common/types/applicationType';
-import { BerthFormValues, Berths } from '../../types';
+import { BerthFormValues, Harbors } from '../../types';
 import { StepType } from '../../../../common/steps/step/Step';
 import { BigBoatTypeValue, WithBoatType } from '../../../../common/selects/Selects';
 
 type Props = {
   values: BerthFormValues;
-  selectedBerths: Berths;
+  selectedBerths: Harbors;
   application?: ApplicationState;
   steps: StepType[];
   boatTab: string;

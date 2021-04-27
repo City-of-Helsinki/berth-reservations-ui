@@ -25,7 +25,7 @@ export const setOrderNumber = (url: string, orderNumber: string): string => {
   return `${url}?${stringified}`;
 };
 
-export const getOfferNumber = (searchString: string): string => {
+export const getOfferId = (searchString: string): string => {
   const parsed = queryString.parse(searchString);
   const offerNumber = parsed.offer_number;
 

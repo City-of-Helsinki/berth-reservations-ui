@@ -2,18 +2,18 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
-import { Berths } from '../../types';
+import { Harbors } from '../../types';
 import { Select, Text } from '../../../../common/fields/Fields';
 import { BerthSwitchReasonsQuery_berthSwitchReasons } from '../../../__generated__/BerthSwitchReasonsQuery';
 
 import './switchApplication.scss';
 
 export interface SwitchApplicationProps {
-  berths: Berths;
+  harbors: Harbors;
   reasons?: BerthSwitchReasonsQuery_berthSwitchReasons[];
 }
 
-const SwitchApplication = ({ berths, reasons }: SwitchApplicationProps) => {
+const SwitchApplication = ({ harbors, reasons }: SwitchApplicationProps) => {
   const { t } = useTranslation();
   return (
     <Container className="vene-switch-application">
@@ -30,8 +30,8 @@ const SwitchApplication = ({ berths, reasons }: SwitchApplicationProps) => {
         <Col>
           <Select name="harborId" label="page.berth.switch_application.form.current_harbour_area.label" required>
             <option />
-            {berths.size &&
-              berths
+            {harbors.size &&
+              harbors
                 .sort((a, b) => ((a.name || '') > (b.name || '') ? 1 : -1))
                 .map((berth) => (
                   <option key={berth.id} value={berth.id}>

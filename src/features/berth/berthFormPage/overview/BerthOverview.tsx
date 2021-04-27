@@ -7,13 +7,13 @@ import ApplicationCode from '../../../../common/applicationCode/ApplicationCode'
 import Newsletter from '../../../../common/newsletter/Newsletter';
 import BerthOverviewInfo from './BerthOverviewInfo';
 import { ApplicationState } from '../../../../redux/types';
-import { BerthFormValues, Berths } from '../../types';
+import { BerthFormValues, Harbors } from '../../types';
 import { StepType } from '../../../../common/steps/step/Step';
 import { WithBoatType } from '../../../../common/selects/Selects';
 
 type Props = {
   values?: BerthFormValues;
-  selectedBerths: Berths;
+  selectedBerths: Harbors;
   application?: ApplicationState;
   boatTab: string;
   steps: StepType[];

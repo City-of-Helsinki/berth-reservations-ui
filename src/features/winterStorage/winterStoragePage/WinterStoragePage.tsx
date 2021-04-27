@@ -14,7 +14,7 @@ import { getWinterStorageFilterByValues } from '../utils';
 import WinterStorageLegend from './winterStorageLegend/WinterStorageLegend';
 import { BoatTypes } from '../../../common/types/boatTypes';
 import { SelectedWinterServices, WinterServices } from '../../../common/types/services';
-import { WinterAreas, WinterFormValues, WinterStorageType } from '../types';
+import { WinterStorageAreas, WinterFormValues, WinterStorageAreaType } from '../types';
 import { LocalePush } from '../../../common/utils/container';
 import { SelectedIds } from '../../../common/types/resource';
 import { StepType } from '../../../common/steps/step/Step';
@@ -32,7 +32,7 @@ export type Props = {
   deselectService: (type: string) => void;
   onSubmit: (values: WinterFormValues) => void;
   localePush: LocalePush;
-  areas: WinterAreas;
+  areas: WinterStorageAreas;
   boatTypes?: BoatTypes;
   steps: StepType[];
   services: {
@@ -90,7 +90,7 @@ const WinterStoragePage = ({
 
   const moveToForm = () => localePush('winter-storage/selected');
 
-  const toggleBerthSelect = (winterArea: WinterStorageType) => {
+  const handleSelectArea = (winterArea: WinterStorageAreaType) => {
     if (selectedAreasIds.find((selectedId) => selectedId === winterArea.id)) {
       deselectArea(winterArea.id);
     } else {
@@ -105,9 +105,9 @@ const WinterStoragePage = ({
     .filter((area) => selectedAreasIds.find((selectedId) => selectedId === area.id))
     .every(filter);
 
-  const renderAreaCard: (isExcluded: boolean) => (selected: WinterStorageType) => React.ReactNode = (isExcluded) => (
-    area
-  ) => {
+  const renderAreaCard: (isExcluded: boolean) => (selected: WinterStorageAreaType) => React.ReactNode = (
+    isExcluded
+  ) => (area) => {
     return (
       <WinterStorageCard
         key={area.id}
@@ -115,7 +115,7 @@ const WinterStoragePage = ({
         selected={isResourceSelected(selectedAreasIds, area.id)}
         disabled={selectedAreasIds.size >= areasLimit}
         isExcluded={isExcluded}
-        handleSelect={() => toggleBerthSelect(area)}
+        handleSelect={() => handleSelectArea(area)}
       />
     );
   };

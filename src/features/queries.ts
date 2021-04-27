@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 
-export const BOAT_TYPES_BERTHS_QUERY = gql`
-  query BoatTypesBerthsQuery {
+export const HARBORS_QUERY = gql`
+  query HarborsQuery {
     boatTypes {
       id
       name
@@ -158,11 +158,22 @@ export const CREATE_WINTER_STORAGE_APPLICATION = gql`
   }
 `;
 
-export const GET_HARBOR_NAME = (harborId: string) => gql`
-  query HarborNameQuery{
-    harbor(id: "${harborId}") {
-      properties {
-        name
+export const GET_BERTH = (berthId: string) => gql`
+  query BerthQuery{
+    berth(id: "${berthId}") {
+      id
+      number
+      pier {
+          id
+          properties {
+              identifier
+              harbor {
+                  id
+                  properties {
+                      name
+                  }
+              }
+          }
       }
     }
   }
@@ -217,6 +228,34 @@ export const ACCEPT_BERTH_SWITCH_OFFER = gql`
   mutation AcceptBerthSwitchOffer($input: AcceptBerthSwitchOfferMutationInput!) {
     acceptBerthSwitchOffer(input: $input) {
       clientMutationId
+    }
+  }
+`;
+
+// TODO
+export const SWITCH_OFFER_BERTH_DETAILS = gql`
+  # query SwitchOfferBerthDetails($offerNumber: String!) {
+  query SwitchOfferBerthDetails($offerNumber: ID!) {
+    # berthSwitchOffer(offerNumber: $offerNumber) {
+    berthSwitchOffer(id: $offerNumber) {
+      id
+      offerNumber
+      berth {
+        id
+        number
+        pier {
+          id
+          properties {
+            identifier
+            harbor {
+              id
+              properties {
+                name
+              }
+            }
+          }
+        }
+      }
     }
   }
 `;

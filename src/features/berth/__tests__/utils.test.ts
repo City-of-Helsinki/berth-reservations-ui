@@ -3,9 +3,34 @@ import { Record } from 'immutable';
 import { berth, createBerth } from '../../../__fixtures__/berthFixture';
 import { createBerthValues } from '../../../__fixtures__/formValuesFixture';
 import { SelectedServicesProps } from '../../../common/types/services';
-import { getBerthFilterByValues } from '../utils';
+import { mockPiers } from '../__fixtures__/mockData';
+import { anyPierHasProperty, getBerthFilterByValues, getSuitableBoatTypes, onlyUnique } from '../utils';
 
 describe('berth utils', () => {
+  describe('anyPierHasProperty', () => {
+    test('should return correct information', () => {
+      expect(anyPierHasProperty(mockPiers, 'electricity')).toBe(false);
+      expect(anyPierHasProperty(mockPiers, 'gate')).toBe(true);
+      expect(anyPierHasProperty(mockPiers, 'lighting')).toBe(true);
+      expect(anyPierHasProperty(mockPiers, 'mooring')).toBe(true);
+      expect(anyPierHasProperty(mockPiers, 'wasteCollection')).toBe(false);
+      expect(anyPierHasProperty(mockPiers, 'water')).toBe(true);
+    });
+  });
+
+  describe('onlyUnique', () => {
+    test('should filter entries and return only unique entries', () => {
+      const testData = ['1', '1', '2', '3', '4', '1'];
+      expect(testData.filter(onlyUnique)).toEqual(['1', '2', '3', '4']);
+    });
+  });
+
+  describe('getSuitableBoatTypes', () => {
+    test('should return all suitable boat types from a list of piers', () => {
+      expect(getSuitableBoatTypes(mockPiers)).toEqual(['1', '2', '3', '5']);
+    });
+  });
+
   describe('getBerthFilterByValues', () => {
     const defaultValues = createBerthValues({
       boatLength: '10.2',
@@ -14,9 +39,9 @@ describe('berth utils', () => {
     });
 
     const matchOptions = {
-      maximumLength: 1100,
+      maxLength: 1100,
       suitableBoatTypes: [],
-      maximumWidth: 500,
+      maxWidth: 500,
     };
 
     const createBerthOptions = (options?: {}) => ({
@@ -58,8 +83,8 @@ describe('berth utils', () => {
       expect(value).toBe(false);
     });
 
-    test('should return false if the supplied width is larger than maximumWidth after converting to cm', () => {
-      const customOptions = createBerthOptions({ maximumWidth: 490 });
+    test('should return false if the supplied width is larger than maxWidth after converting to cm', () => {
+      const customOptions = createBerthOptions({ maxWidth: 490 });
       const value = getBerthFilterByValues(
         createBerthValues({ boatWidth: '5' }),
         createSelectedServices()
@@ -68,8 +93,8 @@ describe('berth utils', () => {
       expect(value).toBe(false);
     });
 
-    test('should return false if the supplied length is larger than maximumLength after converting to cm', () => {
-      const customOptions = createBerthOptions({ maximumLength: 900 });
+    test('should return false if the supplied length is larger than maxLength after converting to cm', () => {
+      const customOptions = createBerthOptions({ maxLength: 900 });
       const value = getBerthFilterByValues(
         createBerthValues({ boatLength: '10' }),
         createSelectedServices()

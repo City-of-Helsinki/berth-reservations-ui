@@ -5,16 +5,16 @@ import { useQuery } from 'react-apollo';
 
 import { submitApplicationForm as submitSwitchForm } from '../../../redux/actions/ApplicationActions';
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
-import { BoatTypesBerthsQuery } from '../../__generated__/BoatTypesBerthsQuery';
-import { getResources, getSelectedResources } from '../../../common/utils/applicationUtils';
+import { HarborsQuery } from '../../__generated__/HarborsQuery';
+import { getSelectedResources } from '../../../common/utils/applicationUtils';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
-import { getBerthFilterByValues } from '../utils';
+import { getBerthFilterByValues, getHarbors } from '../utils';
 import SelectedBerthPage from './SelectedBerthPage';
 import { Store } from '../../../redux/types';
 import { SelectedServices } from '../../../common/types/services';
 import { SelectedIds } from '../../../common/types/resource';
 import { BerthFormValues } from '../types';
-import { BOAT_TYPES_BERTHS_QUERY } from '../../queries';
+import { HARBORS_QUERY } from '../../queries';
 import { StepType } from '../../../common/steps/step/Step';
 
 interface Props {
@@ -64,7 +64,7 @@ const steps: StepType[] = [
 ];
 
 const UnconnectedSelectedBerthPage = ({ localePush, values, selectedServices, selectedBerths, ...rest }: Props) => {
-  const { data, loading } = useQuery<BoatTypesBerthsQuery>(BOAT_TYPES_BERTHS_QUERY);
+  const { data, loading } = useQuery<HarborsQuery>(HARBORS_QUERY);
 
   const moveToForm = async () => {
     await localePush('/berths/form/registered-boat');
@@ -73,7 +73,7 @@ const UnconnectedSelectedBerthPage = ({ localePush, values, selectedServices, se
     await localePush('/berths');
   };
 
-  const berths = getResources(data ? data.harbors : null);
+  const berths = getHarbors(data);
   const selected = getSelectedResources(selectedBerths, berths);
   const boatTypes = !loading && data ? data.boatTypes : [];
   const type = values.boatType;

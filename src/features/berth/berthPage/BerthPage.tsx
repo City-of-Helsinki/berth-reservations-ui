@@ -12,7 +12,7 @@ import KoroSection from '../../../common/layout/koroSection/KoroSection';
 import Layout from '../../../common/layout/Layout';
 import { getBerthFilterByValues } from '../utils';
 import BerthLegend from './berthLegend/BerthLegend';
-import { BerthFormValues, Berths as BerthsType, BerthType } from '../types';
+import { BerthFormValues, Harbors, HarborType } from '../types';
 import { BoatTypes } from '../../../common/types/boatTypes';
 import { BerthsServices, SelectedServices } from '../../../common/types/services';
 import { LocalePush } from '../../../common/utils/container';
@@ -23,12 +23,12 @@ import BerthCard from './BerthCard';
 
 export type Props = {
   berthLimit: number;
-  berths: BerthsType;
+  harbors: Harbors;
   boatTypes?: BoatTypes;
   deselectBerth: (berthId: string) => void;
   deselectService: (type: string) => void;
-  filtered: BerthsType;
-  filteredNot: BerthsType;
+  filtered: Harbors;
+  filteredNot: Harbors;
   initialValues: BerthFormValues;
   loading: boolean;
   localePush: LocalePush;
@@ -68,7 +68,7 @@ const getFormattedMessageId = (count: number, total: number): string => {
 
 const BerthPage = ({
   berthLimit,
-  berths,
+  harbors,
   boatTypes,
   deselectBerth,
   deselectService,
@@ -91,7 +91,7 @@ const BerthPage = ({
 
   const moveToForm = () => localePush('berths/selected');
 
-  const toggleBerthSelect = (selectedBerth: BerthType) => {
+  const toggleBerthSelect = (selectedBerth: HarborType) => {
     if (selectedBerthsIds.find((selectedId) => selectedId === selectedBerth.id)) {
       deselectBerth(selectedBerth.id);
     } else {
@@ -100,13 +100,13 @@ const BerthPage = ({
   };
 
   const filter = getBerthFilterByValues(initialValues, selectedServices);
-  const filtered = berths.filter(filter);
-  const filteredNot = berths.filterNot(filter);
-  const invalidSelection = !berths
+  const filtered = harbors.filter(filter);
+  const filteredNot = harbors.filterNot(filter);
+  const invalidSelection = !harbors
     .filter((selectedBerth) => selectedBerthsIds.find((selectedId) => selectedId === selectedBerth.id))
     .every(filter);
 
-  const renderHarborCard: (isExcluded: boolean) => (berth: BerthType) => React.ReactNode = (isExcluded) => (berth) => {
+  const renderHarborCard: (isExcluded: boolean) => (berth: HarborType) => React.ReactNode = (isExcluded) => (berth) => {
     return (
       <BerthCard
         key={berth.id}

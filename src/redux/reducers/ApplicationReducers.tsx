@@ -6,9 +6,7 @@ import { Action, ApplicationFactory, ApplicationProps, ApplicationState } from '
 const initState: ApplicationProps = {
   berthsApplicationType: ApplicationOptions.NewApplication,
   berthSwitch: {
-    harborId: '',
-    pier: '',
-    berthNumber: '',
+    berthId: '',
   },
 };
 const defaultState: ApplicationFactory = Record(initState);

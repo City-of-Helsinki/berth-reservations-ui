@@ -8,11 +8,12 @@ import { useMutation, useQuery } from 'react-apollo';
 
 import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
 import { WinterAreasQuery } from '../../__generated__/WinterAreasQuery';
-import { getResources, getSelectedResources, stringToFloat } from '../../../common/utils/applicationUtils';
+import { getSelectedResources, stringToFloat } from '../../../common/utils/applicationUtils';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import { CREATE_WINTER_STORAGE_APPLICATION, WINTER_AREAS_QUERY } from '../../queries';
 import ApplicantDetails from '../../../common/applicantDetails/ApplicantDetails';
 import WinterBoatDetails from '../../../common/winterBoatDetails/WinterBoatDetails';
+import { getWinterStorageAreas } from '../utils';
 import WinterOverview from './overview/WinterOverview';
 import FormPage from '../../../common/formPage/FormPage';
 import { Store } from '../../../redux/types';
@@ -63,7 +64,7 @@ const WinterFormPageContainer = ({
   );
 
   const boatTypes = data ? data.boatTypes : [];
-  const areas = getResources(data ? data.winterStorageAreas : null);
+  const areas = getWinterStorageAreas(data);
   const selected = getSelectedResources(selectedAreas, areas);
 
   const steps: StepType[] = [
@@ -142,14 +143,16 @@ const WinterFormPageContainer = ({
     const allowedFormValues = omit(normalizedValues, 'boatStoredOnTrailer');
 
     const payload = {
-      application: {
+      winterStorageApplication: {
         ...allowedFormValues,
         chosenAreas,
       },
     };
 
     submitWinterStorage({
-      variables: payload,
+      variables: {
+        input: payload,
+      },
     }).then(() => localePush('/thank-you'));
   };
 

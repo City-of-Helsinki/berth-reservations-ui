@@ -2,21 +2,38 @@ import { List } from 'immutable';
 
 import { BerthApplicationInput } from '../../__generated__/globalTypes';
 import {
-  BoatTypesBerthsQuery_harbors_edges_node,
-  BoatTypesBerthsQuery_harbors_edges_node_geometry,
-  BoatTypesBerthsQuery_harbors_edges_node_properties,
-} from '../__generated__/BoatTypesBerthsQuery';
+  HarborsQuery_harbors_edges_node,
+  HarborsQuery_harbors_edges_node_properties as BerthProperties,
+} from '../__generated__/HarborsQuery';
 
-export type BerthType = Pick<
-  BoatTypesBerthsQuery_harbors_edges_node_properties,
-  Exclude<keyof BoatTypesBerthsQuery_harbors_edges_node_properties, '__typename'>
-> & {
-  geometry: Pick<
-    BoatTypesBerthsQuery_harbors_edges_node_geometry,
-    Exclude<keyof BoatTypesBerthsQuery_harbors_edges_node_geometry, '__typename'>
-  >;
-} & Pick<BoatTypesBerthsQuery_harbors_edges_node, 'id'> &
-  Pick<BoatTypesBerthsQuery_harbors_edges_node, '__typename'>;
+export type HarborType = {
+  __typename: HarborsQuery_harbors_edges_node['__typename'];
+  id: string;
+  geometry: {
+    coordinates: any | null;
+  };
+  availabilityLevel: BerthProperties['availabilityLevel'];
+  email: BerthProperties['email'];
+  imageFile: BerthProperties['imageFile'];
+  maxDepth: BerthProperties['maxDepth'];
+  maxLength: BerthProperties['maxLength'];
+  maxWidth: BerthProperties['maxWidth'];
+  municipality: BerthProperties['municipality'];
+  name: BerthProperties['name'];
+  numberOfPlaces: BerthProperties['numberOfPlaces'];
+  phone: BerthProperties['phone'];
+  servicemapId: BerthProperties['servicemapId'];
+  streetAddress: BerthProperties['streetAddress'];
+  wwwUrl: BerthProperties['wwwUrl'];
+  zipCode: BerthProperties['zipCode'];
+  mooring: boolean;
+  electricity: boolean;
+  water: boolean;
+  wasteCollection: boolean;
+  gate: boolean;
+  lighting: boolean;
+  suitableBoatTypes: string[];
+};
 
 interface ValuesToOverride {
   boatLength: string;
@@ -31,4 +48,4 @@ export type BerthFormValues = Pick<
 > &
   ValuesToOverride;
 
-export type Berths = List<BerthType>;
+export type Harbors = List<HarborType>;

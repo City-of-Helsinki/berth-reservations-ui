@@ -48,13 +48,6 @@ const WinterStorageNotice = () => {
                 </a>,
               ]}
             />
-            {/*{t('page.winter_storage.notice.paragraph1', {
-              link: (
-                <a href={t('page.winter_storage.notice.paragraph1.link_url')}>
-                  {t('page.winter_storage.notice.paragraph1.link_label')}
-                </a>
-              ),
-            })}*/}
           </p>
           <p>
             <Trans

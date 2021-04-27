@@ -8,7 +8,7 @@ export const getWinterStorageAreas = (data: WINTER_STORAGE_AREAS | null) => {
   if (!data || !data.edges) return List([]);
 
   const areas = data.edges.reduce<WinterStorageArea[]>((acc, area) => {
-    if (!area?.node?.properties || !area.node.properties.numberOfUnmarkedSpaces) return acc;
+    if (!area?.node?.properties || !area.node.properties.estimatedNumberOfUnmarkedSpaces) return acc;
 
     return [
       ...acc,

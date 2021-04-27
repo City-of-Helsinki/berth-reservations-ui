@@ -1,10 +1,10 @@
 import { List } from 'immutable';
 
-import { Berths, BerthType } from '../features/berth/types';
+import { Harbors, HarborType } from '../features/berth/types';
 
-export const createBerth = (options?: Partial<BerthType>): BerthType => {
-  const newBerth: BerthType = {
-    __typename: 'HarborType',
+export const createBerth = (options?: Partial<HarborType>): HarborType => {
+  const newBerth: HarborType = {
+    __typename: 'HarborNode',
     id: 'foo',
     name: 'Airorannan venesatama B',
     streetAddress: 'Airoranta 2',
@@ -31,9 +31,9 @@ export const createBerth = (options?: Partial<BerthType>): BerthType => {
         'Satamat, joihin on paljon hakijoita ja yleensä useamman vuoden jonotusaika. Näistä satamista vapautuu paikkoja pääasiassa venepaikan vaihtajille.',
     },
     numberOfPlaces: 5,
-    maximumWidth: 200,
-    maximumLength: 400,
-    maximumDepth: 13,
+    maxWidth: 200,
+    maxLength: 400,
+    maxDepth: 13,
     geometry: { coordinates: [60.18808000000039, 25.0665395178596] },
   };
 
@@ -41,4 +41,4 @@ export const createBerth = (options?: Partial<BerthType>): BerthType => {
 };
 
 export const berth = createBerth();
-export const berths: Berths = List([berth]);
+export const berths: Harbors = List([berth]);

@@ -1,5 +1,3 @@
-// import { Record } from 'immutable';
-
 import { WinterStorageMethod } from '../__generated__/globalTypes';
 import { BerthFormValues } from '../features/berth/types';
 import { UnmarkedWinterFormValues } from '../features/unmarkedWinterStorage/types';
