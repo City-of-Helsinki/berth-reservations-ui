@@ -19,7 +19,6 @@ export const createWinterArea = (options?: Partial<WinterStorageAreaType>): Wint
     electricity: true,
     water: true,
     gate: false,
-    repairArea: false,
     summerStorageForDockingEquipment: true,
     summerStorageForTrailers: true,
     summerStorageForBoats: false,

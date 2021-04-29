@@ -75,13 +75,7 @@ const steps: StepType[] = [
 
 const services: {
   label: string;
-  value:
-    | 'electricity'
-    | 'water'
-    | 'gate'
-    | 'repairArea'
-    | 'summerStorageForDockingEquipment'
-    | 'summerStorageForTrailers';
+  value: 'electricity' | 'water' | 'gate' | 'summerStorageForDockingEquipment' | 'summerStorageForTrailers';
   icon: IconNames;
 }[] = [
   { label: 'form.services.field.water.label', value: 'water', icon: 'waterTap' },
@@ -100,11 +94,6 @@ const services: {
     label: 'form.services.field.storage_for_docking_equip.label',
     value: 'summerStorageForDockingEquipment',
     icon: 'trestle',
-  },
-  {
-    label: 'form.services.field.repair_area.label',
-    value: 'repairArea',
-    icon: 'tools',
   },
 ];
 

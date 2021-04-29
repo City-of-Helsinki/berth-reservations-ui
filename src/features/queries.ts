@@ -32,23 +32,14 @@ export const HARBORS_QUERY = gql`
             streetAddress
             wwwUrl
             zipCode
-            piers {
-              edges {
-                node {
-                  id
-                  properties {
-                    mooring
-                    electricity
-                    water
-                    wasteCollection
-                    gate
-                    lighting
-                    suitableBoatTypes {
-                      id
-                    }
-                  }
-                }
-              }
+            mooring
+            electricity
+            water
+            wasteCollection
+            gate
+            lighting
+            suitableBoatTypes {
+              id
             }
           }
         }
@@ -88,22 +79,12 @@ export const WINTER_AREAS_QUERY = gql`
             streetAddress
             wwwUrl
             zipCode
-            sections {
-              edges {
-                node {
-                  id
-                  properties {
-                    electricity
-                    water
-                    gate
-                    repairArea
-                    summerStorageForDockingEquipment
-                    summerStorageForTrailers
-                    summerStorageForBoats
-                  }
-                }
-              }
-            }
+            electricity
+            water
+            gate
+            summerStorageForDockingEquipment
+            summerStorageForTrailers
+            summerStorageForBoats
           }
         }
       }

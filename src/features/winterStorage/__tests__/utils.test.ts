@@ -28,7 +28,6 @@ describe('winter storage utils', () => {
         electricity: false,
         water: false,
         gate: false,
-        repairArea: false,
         summerStorageForDockingEquipment: false,
         summerStorageForTrailers: false,
         ...services,

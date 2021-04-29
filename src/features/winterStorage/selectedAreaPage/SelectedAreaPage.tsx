@@ -113,7 +113,6 @@ const SelectedAreaPage = ({
                           ['plug', resource.electricity],
                           ['dollyEmpty', resource.summerStorageForTrailers],
                           ['trestle', resource.summerStorageForDockingEquipment],
-                          ['tools', resource.repairArea],
                         ];
 
                         return (

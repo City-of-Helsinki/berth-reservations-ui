@@ -2,20 +2,8 @@ import { List } from 'immutable';
 
 import { SelectedWinterServices, SelectedWinterServicesProps } from '../../common/types/services';
 import { stringToFloat } from '../../common/utils/applicationUtils';
-import {
-  WinterAreasQuery,
-  WinterAreasQuery_winterStorageAreas_edges_node_properties_sections as Sections,
-  WinterAreasQuery_winterStorageAreas_edges_node_properties_sections_edges_node_properties as SectionProperties,
-} from '../__generated__/WinterAreasQuery';
+import { WinterAreasQuery } from '../__generated__/WinterAreasQuery';
 import { WinterFormValues, WinterStorageAreaType, WinterStorageAreas } from './types';
-
-const anySectionHasProperty = (sections: Sections, property: keyof SectionProperties): boolean => {
-  return (
-    sections.edges.filter((edge) => {
-      return !!edge?.node?.properties?.[property];
-    }).length > 0
-  );
-};
 
 export const getWinterStorageAreas = (data?: WinterAreasQuery): WinterStorageAreas => {
   if (!data?.winterStorageAreas?.edges) return List([]);
@@ -25,9 +13,7 @@ export const getWinterStorageAreas = (data?: WinterAreasQuery): WinterStorageAre
       const areaNode = area?.node;
       if (!(areaNode && areaNode.properties && areaNode.geometry)) return acc;
 
-      const {
-        properties: { sections, ...properties },
-      } = areaNode;
+      const { properties } = areaNode;
 
       const winterStorageArea: WinterStorageAreaType = {
         __typename: areaNode.__typename,
@@ -48,13 +34,12 @@ export const getWinterStorageAreas = (data?: WinterAreasQuery): WinterStorageAre
         streetAddress: properties.streetAddress,
         wwwUrl: properties.wwwUrl,
         zipCode: properties.zipCode,
-        electricity: anySectionHasProperty(sections, 'electricity'),
-        water: anySectionHasProperty(sections, 'water'),
-        gate: anySectionHasProperty(sections, 'gate'),
-        repairArea: anySectionHasProperty(sections, 'repairArea'),
-        summerStorageForDockingEquipment: anySectionHasProperty(sections, 'summerStorageForDockingEquipment'),
-        summerStorageForTrailers: anySectionHasProperty(sections, 'summerStorageForTrailers'),
-        summerStorageForBoats: anySectionHasProperty(sections, 'summerStorageForBoats'),
+        electricity: properties.electricity,
+        water: properties.water,
+        gate: properties.gate,
+        summerStorageForDockingEquipment: properties.summerStorageForDockingEquipment,
+        summerStorageForTrailers: properties.summerStorageForTrailers,
+        summerStorageForBoats: properties.summerStorageForBoats,
       };
 
       return [winterStorageArea, ...acc];

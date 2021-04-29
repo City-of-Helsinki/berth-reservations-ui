@@ -6,7 +6,6 @@ const selectedWinterServices = Record({
   electricity: false,
   water: false,
   gate: false,
-  repairArea: false,
   summerStorageForDockingEquipment: false,
   summerStorageForTrailers: false,
 });

@@ -28,7 +28,6 @@ export type WinterStorageAreaType = {
   electricity: boolean;
   water: boolean;
   gate: boolean;
-  repairArea: boolean;
   summerStorageForDockingEquipment: boolean;
   summerStorageForTrailers: boolean;
   summerStorageForBoats: boolean;

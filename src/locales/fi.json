@@ -355,9 +355,6 @@
         "lighting": {
           "label": "Valaistus"
         },
-        "repair_area": {
-          "label": "Korjausalue"
-        },
         "storage_for_docking_equip": {
           "label": "Telakointi\u00ADtarvikkeiden kesäsäilytys"
         },

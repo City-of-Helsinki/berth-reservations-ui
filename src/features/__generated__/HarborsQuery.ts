@@ -25,36 +25,9 @@ export interface HarborsQuery_harbors_edges_node_properties_availabilityLevel {
   description: string | null;
 }
 
-export interface HarborsQuery_harbors_edges_node_properties_piers_edges_node_properties_suitableBoatTypes {
+export interface HarborsQuery_harbors_edges_node_properties_suitableBoatTypes {
   __typename: "BoatTypeType";
   id: string;
-}
-
-export interface HarborsQuery_harbors_edges_node_properties_piers_edges_node_properties {
-  __typename: "PierProperties";
-  mooring: boolean;
-  electricity: boolean;
-  water: boolean;
-  wasteCollection: boolean;
-  gate: boolean;
-  lighting: boolean;
-  suitableBoatTypes: HarborsQuery_harbors_edges_node_properties_piers_edges_node_properties_suitableBoatTypes[];
-}
-
-export interface HarborsQuery_harbors_edges_node_properties_piers_edges_node {
-  __typename: "PierNode";
-  id: string;
-  properties: HarborsQuery_harbors_edges_node_properties_piers_edges_node_properties | null;
-}
-
-export interface HarborsQuery_harbors_edges_node_properties_piers_edges {
-  __typename: "PierNodeEdge";
-  node: HarborsQuery_harbors_edges_node_properties_piers_edges_node | null;
-}
-
-export interface HarborsQuery_harbors_edges_node_properties_piers {
-  __typename: "PierNodeConnection";
-  edges: (HarborsQuery_harbors_edges_node_properties_piers_edges | null)[];
 }
 
 export interface HarborsQuery_harbors_edges_node_properties {
@@ -73,7 +46,13 @@ export interface HarborsQuery_harbors_edges_node_properties {
   streetAddress: string | null;
   wwwUrl: string;
   zipCode: string;
-  piers: HarborsQuery_harbors_edges_node_properties_piers | null;
+  mooring: boolean;
+  electricity: boolean;
+  water: boolean;
+  wasteCollection: boolean;
+  gate: boolean;
+  lighting: boolean;
+  suitableBoatTypes: (HarborsQuery_harbors_edges_node_properties_suitableBoatTypes | null)[];
 }
 
 export interface HarborsQuery_harbors_edges_node {
