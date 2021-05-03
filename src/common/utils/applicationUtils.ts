@@ -8,8 +8,8 @@ export const getSelectedResources = <T extends { id: string }>(selectedIds: Sele
     return matched ? acc.push(matched) : acc;
   }, List([]));
 
-export const isResourceSelected = (selectedBerths: SelectedIds, resourceId: string): boolean =>
-  !!selectedBerths.find((selectedBerth) => selectedBerth === resourceId);
+export const isResourceSelected = (selectedHarbors: SelectedIds, resourceId: string): boolean =>
+  !!selectedHarbors.find((selectedBerth) => selectedBerth === resourceId);
 
 /**
  * Convert number in string to floating number.

@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import { berth } from '../../../../__fixtures__/berthFixture';
+import { harbor } from '../../../../__fixtures__/harborFixture';
 import Modal from '../../../modal/Modal';
 import SelectedResource from '../SelectedResource';
 import SelectedResourceContainer, { Props } from '../SelectedResourceContainer';
@@ -9,13 +9,13 @@ import SelectedResourceContainer, { Props } from '../SelectedResourceContainer';
 describe('SelectedResourceContainer', () => {
   const sharedProps: Props = {
     title: 'foo',
-    id: berth.id,
+    id: harbor.id,
     services: [
-      ['plug', berth.electricity],
-      ['waterTap', berth.water],
-      ['trash', berth.wasteCollection],
-      ['fence', berth.gate],
-      ['streetLight', berth.lighting],
+      ['plug', harbor.electricity],
+      ['waterTap', harbor.water],
+      ['trash', harbor.wasteCollection],
+      ['fence', harbor.gate],
+      ['streetLight', harbor.lighting],
     ],
     moveUp: jest.fn(),
     moveDown: jest.fn(),

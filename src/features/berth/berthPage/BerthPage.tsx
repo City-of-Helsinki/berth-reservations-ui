@@ -35,7 +35,7 @@ export type Props = {
   onSubmit: (values: BerthFormValues) => void;
   selectBerth: (berthId: string) => void;
   selectService: (type: string) => void;
-  selectedBerthsIds: SelectedIds;
+  selectedHarborsIds: SelectedIds;
   selectedServices: SelectedServices;
   services: {
     label: string;
@@ -78,7 +78,7 @@ const BerthPage = ({
   onSubmit,
   selectBerth,
   selectService,
-  selectedBerthsIds,
+  selectedHarborsIds,
   selectedServices,
   services,
   steps,
@@ -92,7 +92,7 @@ const BerthPage = ({
   const moveToForm = () => localePush('berths/selected');
 
   const toggleBerthSelect = (selectedBerth: HarborType) => {
-    if (selectedBerthsIds.find((selectedId) => selectedId === selectedBerth.id)) {
+    if (selectedHarborsIds.find((selectedId) => selectedId === selectedBerth.id)) {
       deselectBerth(selectedBerth.id);
     } else {
       selectBerth(selectedBerth.id);
@@ -103,7 +103,7 @@ const BerthPage = ({
   const filtered = harbors.filter(filter);
   const filteredNot = harbors.filterNot(filter);
   const invalidSelection = !harbors
-    .filter((selectedBerth) => selectedBerthsIds.find((selectedId) => selectedId === selectedBerth.id))
+    .filter((selectedBerth) => selectedHarborsIds.find((selectedId) => selectedId === selectedBerth.id))
     .every(filter);
 
   const renderHarborCard: (isExcluded: boolean) => (berth: HarborType) => React.ReactNode = (isExcluded) => (berth) => {
@@ -111,8 +111,8 @@ const BerthPage = ({
       <BerthCard
         key={berth.id}
         berth={berth}
-        selected={isResourceSelected(selectedBerthsIds, berth.id)}
-        disabled={selectedBerthsIds.size >= berthLimit}
+        selected={isResourceSelected(selectedHarborsIds, berth.id)}
+        disabled={selectedHarborsIds.size >= berthLimit}
         isExcluded={isExcluded}
         handleSelect={() => toggleBerthSelect(berth)}
       />
@@ -173,13 +173,13 @@ const BerthPage = ({
       </KoroSection>
       <TabSelector
         progress={moveToForm}
-        selectedCount={selectedBerthsIds.size}
+        selectedCount={selectedHarborsIds.size}
         invalidSelection={invalidSelection ? 'error.message.invalid_berth_selection' : undefined}
         tabMessage={
           <span>
-            {t(getFormattedMessageId(selectedBerthsIds.size, berthLimit), {
+            {t(getFormattedMessageId(selectedHarborsIds.size, berthLimit), {
               total: berthLimit,
-              count: berthLimit - selectedBerthsIds.size, // left
+              count: berthLimit - selectedHarborsIds.size, // left
             })}
           </span>
         }
@@ -189,7 +189,7 @@ const BerthPage = ({
           mapHeader={<span>{t('page.berths.list.berth_count', { count: filtered.size })}</span>}
           filtered={filtered}
           filteredNot={filteredNot}
-          selectedIds={selectedBerthsIds}
+          selectedIds={selectedHarborsIds}
           renderSelected={renderHarborCard(false)}
           loading={loading}
         />

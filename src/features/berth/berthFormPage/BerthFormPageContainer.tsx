@@ -6,12 +6,13 @@ import { useQuery, useMutation } from 'react-apollo';
 import { RouteComponentProps } from 'react-router';
 
 import ApplicantDetails from '../../../common/applicantDetails/ApplicantDetails';
+import { BerthOption } from '../selectedBerthPage/types';
 import { getHarbors } from '../utils';
 import BerthOverview from './overview/BerthOverview';
 import BoatDetails from './boatDetails/BerthBoatDetails';
 import FormPage from '../../../common/formPage/FormPage';
 import { ApplicationOptions } from '../../../common/types/applicationType';
-import { ApplicationState, Store } from '../../../redux/types';
+import { BerthSwitchState, Store } from '../../../redux/types';
 import { HARBORS_QUERY, CREATE_APPLICATION } from '../../queries';
 import { BerthFormValues } from '../types';
 import { HarborsQuery } from '../../__generated__/HarborsQuery';
@@ -23,11 +24,12 @@ import { getSelectedResources, stringToFloat } from '../../../common/utils/appli
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
 
 type Props = {
-  initialValues: BerthFormValues;
-  selectedBerths: SelectedIds;
-  onSubmit: (values: BerthFormValues) => void;
+  applicationType: ApplicationOptions;
+  berthSwitch: BerthSwitchState;
+  berthValues: BerthFormValues;
   localePush: LocalePush;
-  application: ApplicationState;
+  onSubmit: (values: BerthFormValues) => void;
+  selectedHarbors: SelectedIds;
 } & RouteComponentProps<{ tab: string }>;
 
 const stepsBeforeForm = 2;
@@ -36,13 +38,15 @@ const applicantTabs = ['private-person', 'company'];
 const formTabs = [boatTabs, applicantTabs, ['overview']];
 
 const BerthFormPageContainer = ({
-  selectedBerths,
+  applicationType,
+  berthSwitch,
+  berthValues,
   localePush,
   match: {
     params: { tab },
   },
-  application,
   onSubmit,
+  selectedHarbors,
   ...rest
 }: Props) => {
   const [currentStep, setCurrentStep] = useState(stepsBeforeForm);
@@ -60,12 +64,12 @@ const BerthFormPageContainer = ({
     }
   }, [tab]);
 
-  const { loading, data } = useQuery<HarborsQuery>(HARBORS_QUERY);
+  const { data, loading } = useQuery<HarborsQuery>(HARBORS_QUERY);
   const [submitBerth] = useMutation<SubmitBerth, SubmitBerthVariables>(CREATE_APPLICATION);
 
   const boatTypes = data ? data.boatTypes : [];
   const berths = getHarbors(data);
-  const selected = getSelectedResources(selectedBerths, berths);
+  const selected = getSelectedResources(selectedHarbors, berths);
 
   const steps: StepType[] = [
     {
@@ -129,7 +133,7 @@ const BerthFormPageContainer = ({
   const submit = (values: BerthFormValues) => {
     onSubmit(values);
 
-    const choices = selectedBerths
+    const choices = selectedHarbors
       .map((harborId, priority) => ({
         harborId,
         priority: priority + 1,
@@ -152,8 +156,11 @@ const BerthFormPageContainer = ({
           choices,
         },
       },
-      ApplicationOptions.SwitchApplication === application.berthsApplicationType && {
-        berthSwitch: application.berthSwitch,
+      applicationType === ApplicationOptions.SwitchApplication && {
+        berthSwitch: {
+          berthId: (berthSwitch.berth as BerthOption).value,
+          reason: berthSwitch.reason?.value,
+        },
       }
     );
 
@@ -174,11 +181,11 @@ const BerthFormPageContainer = ({
         return (
           !loading && (
             <BerthOverview
-              selectedBerths={selected}
-              boatTypes={boatTypes}
+              berthSwitch={berthSwitch}
               boatTab={boatTab}
+              boatTypes={boatTypes}
+              selectedHarbors={selected}
               steps={steps}
-              application={application}
             />
           )
         );
@@ -190,6 +197,7 @@ const BerthFormPageContainer = ({
       currentStep={currentStep}
       goBackward={goBackward}
       goForward={goForward}
+      initialValues={berthValues}
       steps={steps}
       stepsBeforeForm={stepsBeforeForm}
       submit={submit}
@@ -204,9 +212,10 @@ export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({
-      initialValues: state.forms.berthValues,
-      selectedBerths: state.berths.selectedBerths,
-      application: state.application,
+      applicationType: state.berths.applicationType,
+      berthSwitch: state.berthSwitch,
+      berthValues: state.forms.berthValues,
+      selectedHarbors: state.berths.selectedHarbors,
     }),
     { onSubmit: onSubmitBerthForm }
   )

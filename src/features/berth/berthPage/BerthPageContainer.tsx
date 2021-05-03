@@ -21,7 +21,7 @@ interface Props {
   initialValues: BerthFormValues;
   filtered: HarborsType;
   filteredNot: HarborsType;
-  selectedBerthsIds: SelectedIds;
+  selectedHarborsIds: SelectedIds;
   selectedServices: SelectedServices;
   selectBerth: (berthId: string) => void;
   deselectBerth: (berthId: string) => void;
@@ -104,7 +104,7 @@ export default compose<Props, Props>(
   connect(
     (state: Store) => ({
       initialValues: state.forms.berthValues,
-      selectedBerthsIds: state.berths.selectedBerths,
+      selectedHarborsIds: state.berths.selectedHarbors,
       selectedServices: state.berths.selectedServices,
       berthLimit: state.berths.berthLimit,
     }),

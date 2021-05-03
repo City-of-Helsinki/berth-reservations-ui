@@ -1,6 +1,7 @@
 import { List, Record } from 'immutable';
 
-import { Action, BerthsFactory, BerthsState } from '../types';
+import { ApplicationOptions } from '../../common/types/applicationType';
+import { Action, BerthsFactory, BerthsProps, BerthsState } from '../types';
 
 export const selectedServices = Record({
   electricity: false,
@@ -10,46 +11,50 @@ export const selectedServices = Record({
   lighting: false,
 });
 
-const defaultState: BerthsFactory = Record({
-  selectedBerths: List<string>(),
+const initState: BerthsProps = {
+  applicationType: ApplicationOptions.NewApplication,
+  selectedHarbors: List<string>(),
   selectedServices: selectedServices(),
   berthLimit: Number(process.env.REACT_APP_MAX_SELECTED_BERTHS) || 10,
-});
+};
+const defaultState: BerthsFactory = Record(initState);
 
 const BerthReducers = (state: BerthsState = defaultState(), action: Action): BerthsState => {
   const { type, payload } = action;
   switch (type) {
+    case 'SET_APPLICATION_TYPE':
+      return state.set('applicationType', payload);
     case 'SELECT_SERVICE':
       return state.setIn(['selectedServices', payload], true);
     case 'DESELECT_SERVICE':
       return state.setIn(['selectedServices', payload], false);
     case 'SELECT_BERTH':
-      return state.update('selectedBerths', (selectedBerths) => selectedBerths.push(payload));
+      return state.update('selectedHarbors', (selectedHarbors) => selectedHarbors.push(payload));
     case 'DESELECT_BERTH':
-      return state.update('selectedBerths', (selectedBerths) => selectedBerths.filterNot((b) => b === payload));
+      return state.update('selectedHarbors', (selectedHarbors) => selectedHarbors.filterNot((b) => b === payload));
     case 'MOVE_BERTH_UP':
-      return state.update('selectedBerths', (selectedBerths) => {
-        const index = selectedBerths.findIndex((k) => k === payload);
+      return state.update('selectedHarbors', (selectedHarbors) => {
+        const index = selectedHarbors.findIndex((k) => k === payload);
         const nextInOrder = index - 1;
-        const swapWith = selectedBerths.get(nextInOrder);
+        const swapWith = selectedHarbors.get(nextInOrder);
         if (swapWith && nextInOrder >= 0) {
-          const before = selectedBerths.slice(0, index - 1);
-          const after = selectedBerths.slice(index + 1);
+          const before = selectedHarbors.slice(0, index - 1);
+          const after = selectedHarbors.slice(index + 1);
           return List([]).concat(before).concat([payload, swapWith]).concat(after);
         }
-        return selectedBerths;
+        return selectedHarbors;
       });
     case 'MOVE_BERTH_DOWN':
-      return state.update('selectedBerths', (selectedBerths) => {
-        const index = selectedBerths.findIndex((k) => k === payload);
+      return state.update('selectedHarbors', (selectedHarbors) => {
+        const index = selectedHarbors.findIndex((k) => k === payload);
         const previousInOrder = index + 1;
-        const swapWith = selectedBerths.get(previousInOrder);
-        if (swapWith && previousInOrder <= selectedBerths.size - 1) {
-          const before = selectedBerths.slice(0, index);
-          const after = selectedBerths.slice(index + 2);
+        const swapWith = selectedHarbors.get(previousInOrder);
+        if (swapWith && previousInOrder <= selectedHarbors.size - 1) {
+          const before = selectedHarbors.slice(0, index);
+          const after = selectedHarbors.slice(index + 2);
           return List([]).concat(before).concat([swapWith, payload]).concat(after);
         }
-        return selectedBerths;
+        return selectedHarbors;
       });
     case 'RESET_BERTHS':
       return defaultState();

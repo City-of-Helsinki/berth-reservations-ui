@@ -1,105 +1,98 @@
 import React from 'react';
+import { Form } from 'react-final-form';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { useQuery } from 'react-apollo';
 
-import { submitApplicationForm as submitSwitchForm } from '../../../redux/actions/ApplicationActions';
-import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
-import { HarborsQuery } from '../../__generated__/HarborsQuery';
-import { getSelectedResources } from '../../../common/utils/applicationUtils';
-import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
-import { getBerthFilterByValues, getHarbors } from '../utils';
+import LoadingPage from '../../../common/loadingPage/LoadingPage';
 import SelectedBerthPage from './SelectedBerthPage';
-import { Store } from '../../../redux/types';
-import { SelectedServices } from '../../../common/types/services';
-import { SelectedIds } from '../../../common/types/resource';
+import { BERTH_SWITCH_REASONS_QUERY, HARBORS_QUERY } from '../../queries';
 import { BerthFormValues } from '../types';
-import { HARBORS_QUERY } from '../../queries';
-import { StepType } from '../../../common/steps/step/Step';
+import { BerthSwitchReasonsQuery } from '../../__generated__/BerthSwitchReasonsQuery';
+import { HarborsQuery } from '../../__generated__/HarborsQuery';
+import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
+import { SelectedIds } from '../../../common/types/resource';
+import { SelectedServices } from '../../../common/types/services';
+import { BerthSwitchProps, Store } from '../../../redux/types';
+import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
+import { getBerthFilterByValues, getHarbors } from '../utils';
+import { getSelectedResources } from '../../../common/utils/applicationUtils';
+import { submitBerthSwitch } from '../../../redux/actions/BerthSwitchActions';
+import { getBoatInfo, getHarborOptions, getReasonOptions } from './utils';
 
 interface Props {
-  selectedBerths: SelectedIds;
-  selectedServices: SelectedServices;
+  applicationType: string;
+  berthValues: BerthFormValues;
+  berthSwitchValues: BerthSwitchProps;
   localePush: LocalePush;
-  values: BerthFormValues;
-  berthsApplicationType: string;
-  initialValues: BerthFormValues;
-  submitSwitchForm(values: BerthFormValues): void;
+  selectedHarbors: SelectedIds;
+  selectedServices: SelectedServices;
   deselectBerth(id: string): void;
-  moveUp(id: string): void;
   moveDown(id: string): void;
+  moveUp(id: string): void;
+  submitBerthSwitch(values: BerthSwitchProps): void;
 }
 
-const steps: StepType[] = [
-  {
-    completed: true,
-    current: false,
-    label: 'site.steps.berths',
-    linkTo: `berths`,
-  },
-  {
-    completed: false,
-    current: true,
-    label: 'site.steps.selected_berths',
-    linkTo: '',
-  },
-  {
-    completed: false,
-    current: false,
-    label: 'site.steps.boat_information',
-    linkTo: '',
-  },
-  {
-    completed: false,
-    current: false,
-    label: 'site.steps.applicant',
-    linkTo: '',
-  },
-  {
-    completed: false,
-    current: false,
-    label: 'site.steps.send_application',
-    linkTo: '',
-  },
-];
-
-const UnconnectedSelectedBerthPage = ({ localePush, values, selectedServices, selectedBerths, ...rest }: Props) => {
+const SelectedBerthPageContainer = ({
+  applicationType,
+  berthValues,
+  berthSwitchValues,
+  localePush,
+  selectedHarbors,
+  selectedServices,
+  deselectBerth,
+  moveDown,
+  moveUp,
+  submitBerthSwitch,
+}: Props) => {
   const { data, loading } = useQuery<HarborsQuery>(HARBORS_QUERY);
+  const { data: berthSwitchReasonsData, loading: berthSwitchReasonsLoading } = useQuery<BerthSwitchReasonsQuery>(
+    BERTH_SWITCH_REASONS_QUERY
+  );
 
-  const moveToForm = async () => {
+  const harbors = getHarbors(data);
+  const selected = getSelectedResources(selectedHarbors, harbors);
+  const filter = getBerthFilterByValues(berthValues, selectedServices);
+  const validSelection = selected.every(filter);
+  const boatInfo = getBoatInfo(data, berthValues);
+  const harborOptions = getHarborOptions(data);
+  const reasonOptions = getReasonOptions(berthSwitchReasonsData);
+
+  const handleSubmitApplication = async (values: BerthSwitchProps) => {
+    submitBerthSwitch(values);
     await localePush('/berths/form/registered-boat');
   };
+
   const handlePrevious = async () => {
     await localePush('/berths');
   };
 
-  const berths = getHarbors(data);
-  const selected = getSelectedResources(selectedBerths, berths);
-  const boatTypes = !loading && data ? data.boatTypes : [];
-  const type = values.boatType;
-  const width = values.boatWidth;
-  const length = values.boatLength;
-  const boatType = boatTypes ? boatTypes.find((t) => !!t && t.id === type) : undefined;
-  const boatTypeName = boatType && boatType.name;
-  const filter = getBerthFilterByValues(values, selectedServices);
-  const validSelection = selected.every(filter);
+  if (loading || berthSwitchReasonsLoading) return <LoadingPage />;
 
   return (
-    <SelectedBerthPage
-      boatInfo={{ width, length, boatType: boatTypeName }}
-      handlePrevious={handlePrevious}
-      moveToForm={moveToForm}
-      filter={filter}
-      validSelection={validSelection}
-      steps={steps}
-      legend={{
-        title: 'legend.selected_berths.title',
-        legend: 'legend.selected_berths.legend',
-      }}
-      selectedBerths={selected}
-      values={values}
-      berths={berths}
-      {...rest}
+    <Form
+      onSubmit={handleSubmitApplication}
+      initialValues={berthSwitchValues}
+      render={({ handleSubmit, invalid, values, form: { change } }) => (
+        <SelectedBerthPage
+          applicationType={applicationType}
+          reasonOptions={reasonOptions}
+          boatInfo={boatInfo}
+          change={change}
+          deselectBerth={deselectBerth}
+          filter={filter}
+          handlePrevious={handlePrevious}
+          handleSubmit={handleSubmit}
+          harbors={harbors}
+          harborOptions={harborOptions}
+          invalid={invalid}
+          moveDown={moveDown}
+          moveUp={moveUp}
+          selectedHarbors={selected}
+          validSelection={validSelection}
+          values={values}
+        />
+      )}
     />
   );
 };
@@ -108,17 +101,17 @@ export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({
-      selectedBerths: state.berths.selectedBerths,
+      applicationType: state.berths.applicationType,
+      berthSwitchValues: state.berthSwitch.toObject(),
+      berthValues: state.forms.berthValues,
+      selectedHarbors: state.berths.selectedHarbors,
       selectedServices: state.berths.selectedServices,
-      values: state.forms.berthValues,
-      berthsApplicationType: state.application.berthsApplicationType,
-      initialValues: state.application.berthSwitch,
     }),
     {
       deselectBerth,
       moveUp,
       moveDown,
-      submitSwitchForm,
+      submitBerthSwitch,
     }
   )
-)(UnconnectedSelectedBerthPage);
+)(SelectedBerthPageContainer);

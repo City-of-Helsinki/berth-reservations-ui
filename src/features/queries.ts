@@ -19,28 +19,46 @@ export const HARBORS_QUERY = gql`
               title
               description
             }
+            electricity
             email
+            gate
             imageFile
+            lighting
             maxDepth
             maxLength
             maxWidth
+            mooring
             municipality
             name
             numberOfPlaces
             phone
+            piers {
+              edges {
+                node {
+                  id
+                  properties {
+                    identifier
+                    berths {
+                      edges {
+                        node {
+                          id
+                          number
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
             servicemapId
             streetAddress
-            wwwUrl
-            zipCode
-            mooring
-            electricity
-            water
-            wasteCollection
-            gate
-            lighting
             suitableBoatTypes {
               id
             }
+            wasteCollection
+            water
+            wwwUrl
+            zipCode
           }
         }
       }
@@ -214,29 +232,13 @@ export const ACCEPT_BERTH_SWITCH_OFFER = gql`
 `;
 
 // TODO
-export const SWITCH_OFFER_BERTH_DETAILS = gql`
-  # query SwitchOfferBerthDetails($offerNumber: String!) {
-  query SwitchOfferBerthDetails($offerNumber: ID!) {
-    # berthSwitchOffer(offerNumber: $offerNumber) {
-    berthSwitchOffer(id: $offerNumber) {
-      id
-      offerNumber
-      berth {
-        id
-        number
-        pier {
-          id
-          properties {
-            identifier
-            harbor {
-              id
-              properties {
-                name
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+// export const SWITCH_OFFER_DETAILS = gql`
+//   query SwitchOfferDetails($offerNumber: String!) {
+//     offerDetails(offerNumber: $offerNumber) {
+//       status
+//       harbor
+//       pier
+//       berth
+//     }
+//   }
+// `;

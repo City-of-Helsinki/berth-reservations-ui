@@ -46,7 +46,7 @@
     "final-form": "^4.20.1",
     "focus-visible": "5.2.0",
     "graphql": "^15.0.0",
-    "hds-react": "^0.21.0",
+    "hds-react": "^1.0.0",
     "history": "^4.10.1",
     "i18next": "^19.8.7",
     "immutable": "^4.0.0-rc.12",

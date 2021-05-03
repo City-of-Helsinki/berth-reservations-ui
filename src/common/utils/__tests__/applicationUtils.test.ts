@@ -1,13 +1,13 @@
 import { List } from 'immutable';
 
-import { createBerth } from '../../../__fixtures__/berthFixture';
+import { createHarbor } from '../../../__fixtures__/harborFixture';
 import { getSelectedResources, isResourceSelected, stringToFloat } from '../applicationUtils';
 
 describe('utils/applicationUtils', () => {
   describe('getSelectedResources', () => {
-    const berthA = createBerth({ id: 'a' });
-    const berthB = createBerth({ id: 'b' });
-    const berthC = createBerth({ id: 'c' });
+    const berthA = createHarbor({ id: 'a' });
+    const berthB = createHarbor({ id: 'b' });
+    const berthC = createHarbor({ id: 'c' });
     const allBerths = List([berthA, berthB, berthC]);
 
     test('return a List of resources of the matching ids', () => {
@@ -38,14 +38,14 @@ describe('utils/applicationUtils', () => {
     const berthIdA = 'a';
     const berthIdB = 'b';
     const berthIdC = 'c';
-    const selectedBerths = List([berthIdA, berthIdB]);
+    const selectedHarbors = List([berthIdA, berthIdB]);
 
     test('should return true if the supplied berth is in the selected list', () => {
-      expect(isResourceSelected(selectedBerths, berthIdA)).toBe(true);
+      expect(isResourceSelected(selectedHarbors, berthIdA)).toBe(true);
     });
 
     test('should return false if the supplied berth is not in the selected list', () => {
-      expect(isResourceSelected(selectedBerths, berthIdC)).toBe(false);
+      expect(isResourceSelected(selectedHarbors, berthIdC)).toBe(false);
     });
   });
 

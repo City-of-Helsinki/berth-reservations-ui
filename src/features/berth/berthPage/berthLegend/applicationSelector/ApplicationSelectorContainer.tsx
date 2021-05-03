@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { SWITCH_APPLICATION_LIMIT } from '../../../../../common/utils/constants';
-import { switchApplication as switchApplicationAction } from '../../../../../redux/actions/ApplicationActions';
 import {
+  setApplicationType as setApplicationTypeAction,
   resetBerthLimit as resetBerthLimitAction,
   setBerthLimit as setBirthLimitAction,
 } from '../../../../../redux/actions/BerthActions';
@@ -19,7 +19,7 @@ export type ApplicationSelectorContainerProps = {
   resetBerthLimit: () => void;
   selectedBerthCount: number;
   setBerthLimit: (limit: number) => void;
-  switchApplication: (event: ApplicationOptions) => void;
+  setApplicationType: (event: ApplicationOptions) => void;
 };
 
 export const ApplicationSelectorContainer = ({
@@ -28,7 +28,7 @@ export const ApplicationSelectorContainer = ({
   resetBerthLimit,
   selectedBerthCount,
   setBerthLimit,
-  switchApplication,
+  setApplicationType,
 }: ApplicationSelectorContainerProps) => {
   const [alertVisible, setAlertVisible] = useAutoDismissAlert();
 
@@ -36,12 +36,12 @@ export const ApplicationSelectorContainer = ({
     // new application selected
     if (e.currentTarget.value === ApplicationOptions.NewApplication) {
       setAlertVisible(false);
-      switchApplication(e.currentTarget.value);
+      setApplicationType(e.currentTarget.value);
       resetBerthLimit();
     } else if (selectedBerthCount > SWITCH_APPLICATION_LIMIT) {
       setAlertVisible(true);
     } else {
-      switchApplication(e.currentTarget.value as ApplicationOptions.SwitchApplication);
+      setApplicationType(e.currentTarget.value as ApplicationOptions.SwitchApplication);
       setBerthLimit(SWITCH_APPLICATION_LIMIT);
     }
   };
@@ -58,13 +58,13 @@ export const ApplicationSelectorContainer = ({
 };
 
 const mapStateToProps = (state: Store) => ({
-  selectedBerthCount: state.berths.selectedBerths.size,
-  berthsApplicationType: state.application.berthsApplicationType,
+  selectedBerthCount: state.berths.selectedHarbors.size,
+  berthsApplicationType: state.berths.applicationType,
   berthLimit: state.berths.berthLimit,
 });
 
 export default connect(mapStateToProps, {
-  switchApplication: switchApplicationAction,
+  setApplicationType: setApplicationTypeAction,
   setBerthLimit: setBirthLimitAction,
   resetBerthLimit: resetBerthLimitAction,
 })(ApplicationSelectorContainer);

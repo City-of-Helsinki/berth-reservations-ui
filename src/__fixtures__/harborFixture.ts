@@ -2,8 +2,8 @@ import { List } from 'immutable';
 
 import { Harbors, HarborType } from '../features/berth/types';
 
-export const createBerth = (options?: Partial<HarborType>): HarborType => {
-  const newBerth: HarborType = {
+export const createHarbor = (options?: Partial<HarborType>): HarborType => {
+  const newHarbor: HarborType = {
     __typename: 'HarborNode',
     id: 'foo',
     name: 'Airorannan venesatama B',
@@ -37,8 +37,8 @@ export const createBerth = (options?: Partial<HarborType>): HarborType => {
     geometry: { coordinates: [60.18808000000039, 25.0665395178596] },
   };
 
-  return { ...newBerth, ...options };
+  return { ...newHarbor, ...options };
 };
 
-export const berth = createBerth();
-export const berths: Harbors = List([berth]);
+export const harbor = createHarbor();
+export const harbors: Harbors = List([harbor]);

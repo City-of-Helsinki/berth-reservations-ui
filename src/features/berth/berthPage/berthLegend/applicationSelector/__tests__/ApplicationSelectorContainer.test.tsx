@@ -7,12 +7,12 @@ import { ApplicationSelectorContainer, ApplicationSelectorContainerProps } from 
 import * as useAutoDismissAlert from '../useAutoDismissAlert';
 
 describe('forms/sections/ApplicationSelectorContainer', () => {
-  const sharedProps = {
+  const sharedProps: ApplicationSelectorContainerProps = {
     berthsApplicationType: ApplicationOptions.NewApplication,
     resetBerthLimit: jest.fn(),
     selectedBerthCount: 0,
     setBerthLimit: jest.fn(),
-    switchApplication: jest.fn(),
+    setApplicationType: jest.fn(),
   };
   const renderComponent = (props?: Partial<ApplicationSelectorContainerProps>) =>
     render(<ApplicationSelectorContainer {...sharedProps} {...props} />);
@@ -23,52 +23,52 @@ describe('forms/sections/ApplicationSelectorContainer', () => {
 
   test('if switched to new application, should hide alert and reset berth limit', () => {
     const resetBerthLimit = jest.fn();
-    const switchApplication = jest.fn();
+    const setApplicationType = jest.fn();
     const setAlertVisible = jest.fn();
 
     jest.spyOn(useAutoDismissAlert, 'default').mockImplementation(() => [false, setAlertVisible]);
     const { getByLabelText } = renderComponent({
       berthsApplicationType: ApplicationOptions.SwitchApplication,
       resetBerthLimit: resetBerthLimit,
-      switchApplication: switchApplication,
+      setApplicationType: setApplicationType,
     });
 
     fireEvent.click(getByLabelText(/Uusi hakemus/));
     expect(resetBerthLimit).toHaveBeenCalled();
-    expect(switchApplication).toHaveBeenCalledWith(ApplicationOptions.NewApplication);
+    expect(setApplicationType).toHaveBeenCalledWith(ApplicationOptions.NewApplication);
     expect(setAlertVisible).toHaveBeenCalledWith(false);
   });
 
   test('if switched to switch application and over berth limit, should prevent switch and show alert', () => {
-    const switchApplication = jest.fn();
+    const setApplicationType = jest.fn();
     const setAlertVisible = jest.fn();
 
     jest.spyOn(useAutoDismissAlert, 'default').mockImplementation(() => [false, setAlertVisible]);
     const { getByLabelText } = renderComponent({
       berthsApplicationType: ApplicationOptions.NewApplication,
       selectedBerthCount: SWITCH_APPLICATION_LIMIT + 1,
-      switchApplication: switchApplication,
+      setApplicationType: setApplicationType,
     });
 
     fireEvent.click(getByLabelText(/Vaihtohakemus/));
-    expect(switchApplication).not.toHaveBeenCalled();
+    expect(setApplicationType).not.toHaveBeenCalled();
     expect(setAlertVisible).toHaveBeenCalledWith(true);
   });
 
   test('if switched to switch application, should set berth limit', () => {
     const setBerthLimit = jest.fn();
-    const switchApplication = jest.fn();
+    const setApplicationType = jest.fn();
     const setAlertVisible = jest.fn();
 
     jest.spyOn(useAutoDismissAlert, 'default').mockImplementation(() => [false, setAlertVisible]);
     const { getByLabelText } = renderComponent({
       berthsApplicationType: ApplicationOptions.NewApplication,
       setBerthLimit: setBerthLimit,
-      switchApplication: switchApplication,
+      setApplicationType: setApplicationType,
     });
 
     fireEvent.click(getByLabelText(/Vaihtohakemus/));
     expect(setBerthLimit).toHaveBeenCalledWith(SWITCH_APPLICATION_LIMIT);
-    expect(switchApplication).toHaveBeenCalledWith(ApplicationOptions.SwitchApplication);
+    expect(setApplicationType).toHaveBeenCalledWith(ApplicationOptions.SwitchApplication);
   });
 });

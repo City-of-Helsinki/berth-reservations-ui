@@ -2,26 +2,31 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 import SelectedBerthPage, { Props } from '../SelectedBerthPage';
-import { berths } from '../../../../__fixtures__/berthFixture';
-import { berthValues } from '../../../../__fixtures__/formValuesFixture';
+import { harbors } from '../../../../__fixtures__/harborFixture';
 import { ApplicationOptions } from '../../../../common/types/applicationType';
 
 describe('pages/BerthPage/SelectedBerthPage', () => {
   const defaultProps: Props = {
     boatInfo: { width: '4', length: '10' },
-    selectedBerths: berths,
+    selectedHarbors: harbors,
     deselectBerth: jest.fn(),
     moveUp: jest.fn(),
     moveDown: jest.fn(),
-    berthsApplicationType: ApplicationOptions.NewApplication,
-    submitSwitchForm: jest.fn(),
-    values: berthValues,
-    moveToForm: jest.fn(),
+    applicationType: ApplicationOptions.NewApplication,
+    handleSubmit: jest.fn(),
+    values: {
+      berth: null,
+      pier: null,
+      harbor: null,
+      reason: null,
+    },
     handlePrevious: jest.fn(),
-    legend: { title: 'foo', legend: 'bar' },
-    steps: [],
     validSelection: true,
     filter: jest.fn(),
+    reasonOptions: [],
+    harborOptions: [],
+    invalid: false,
+    change: jest.fn(),
   };
 
   beforeEach(() => {

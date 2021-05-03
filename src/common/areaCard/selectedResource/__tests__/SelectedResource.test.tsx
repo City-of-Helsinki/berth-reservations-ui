@@ -2,18 +2,18 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 
-import { berth } from '../../../../__fixtures__/berthFixture';
+import { harbor } from '../../../../__fixtures__/harborFixture';
 import SelectedResource, { SelectedResourceProps } from '../SelectedResource';
 
 describe('SelectedResourceContainer', () => {
   const sharedProps: SelectedResourceProps = {
     title: 'foo',
     services: [
-      ['plug', berth.electricity],
-      ['waterTap', berth.water],
-      ['trash', berth.wasteCollection],
-      ['fence', berth.gate],
-      ['streetLight', berth.lighting],
+      ['plug', harbor.electricity],
+      ['waterTap', harbor.water],
+      ['trash', harbor.wasteCollection],
+      ['fence', harbor.gate],
+      ['streetLight', harbor.lighting],
     ],
     doMoveUp: jest.fn(),
     doMoveDown: jest.fn(),
