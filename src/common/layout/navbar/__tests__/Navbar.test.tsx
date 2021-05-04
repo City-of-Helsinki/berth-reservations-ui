@@ -22,9 +22,9 @@ describe('Navbar', () => {
     renderComponent();
 
     expect(
-      screen.getByRole('button', {
+      screen.getAllByRole('button', {
         name: /kirjaudu sisään/i,
-      })
+      })[0] // HDS renders two buttons for some reason
     ).toBeTruthy();
     expect(isAuthenticated).toHaveBeenCalled();
     expect(useCurrentUser).toHaveBeenCalled();
