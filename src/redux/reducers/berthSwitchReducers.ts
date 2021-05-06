@@ -10,7 +10,7 @@ const initState: BerthSwitchProps = {
 };
 const defaultState: BerthSwitchFactory = Record(initState);
 
-const BerthSwitchReducers = (state: BerthSwitchState = defaultState(), action: Action): BerthSwitchState => {
+const berthSwitchReducers = (state: BerthSwitchState = defaultState(), action: Action): BerthSwitchState => {
   const { type, payload } = action;
 
   switch (type) {
@@ -28,4 +28,4 @@ const BerthSwitchReducers = (state: BerthSwitchState = defaultState(), action: A
   }
 };
 
-export default BerthSwitchReducers;
+export default berthSwitchReducers;

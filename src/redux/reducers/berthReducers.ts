@@ -19,7 +19,7 @@ const initState: BerthsProps = {
 };
 const defaultState: BerthsFactory = Record(initState);
 
-const BerthReducers = (state: BerthsState = defaultState(), action: Action): BerthsState => {
+const berthReducers = (state: BerthsState = defaultState(), action: Action): BerthsState => {
   const { type, payload } = action;
   switch (type) {
     case 'SET_APPLICATION_TYPE':
@@ -67,4 +67,4 @@ const BerthReducers = (state: BerthsState = defaultState(), action: Action): Ber
   }
 };
 
-export default BerthReducers;
+export default berthReducers;
