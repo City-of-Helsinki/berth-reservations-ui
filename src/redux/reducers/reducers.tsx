@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 
-import BerthReducers from './BerthReducers';
-import BerthSwitchReducers from './BerthSwitchReducers';
-import FormReducers from './FormReducers';
-import WinterAreaReducers from './WinterAreaReducers';
+import berthReducers from './berthReducers';
+import berthSwitchReducers from './berthSwitchReducers';
+import formReducers from './formReducers';
+import winterAreaReducers from './winterAreaReducers';
 
 export default combineReducers({
-  berthSwitch: BerthSwitchReducers,
-  berths: BerthReducers,
-  forms: FormReducers,
-  winterAreas: WinterAreaReducers,
+  berthSwitch: berthSwitchReducers,
+  berths: berthReducers,
+  forms: formReducers,
+  winterAreas: winterAreaReducers,
 });
