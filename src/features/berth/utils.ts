@@ -21,9 +21,9 @@ export const getHarbors = (data?: HarborsQuery): Harbors => {
   if (!data?.harbors?.edges) return List([]);
 
   return List(
-    data?.harbors?.edges.reduce<HarborType[]>((acc, harborData) => {
+    data.harbors.edges.reduce<HarborType[]>((acc, harborData) => {
       const harborNode = harborData?.node;
-      if (!(harborNode && harborNode.properties && harborNode.geometry)) return acc;
+      if (!harborNode?.properties || !harborNode?.geometry) return acc;
 
       const { properties } = harborNode;
 

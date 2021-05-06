@@ -72,10 +72,10 @@ export const getReasonOptions = (data: BerthSwitchReasonsQuery | undefined): Rea
 };
 
 export const getBoatInfo = (data: HarborsQuery | undefined, values: BerthFormValues): BoatInfo | undefined => {
-  const boatTypes = data?.boatTypes ?? [];
-  const boatType = boatTypes.find((t) => !!t && t.id === values.boatType);
+  if (!data?.boatTypes) return undefined;
+  const boatType = data.boatTypes.find((type) => !!type && type.id === values.boatType);
   return {
-    boatType: boatType && boatType.name,
+    boatType: boatType?.name ?? null,
     width: values.boatWidth,
     length: values.boatLength,
   };

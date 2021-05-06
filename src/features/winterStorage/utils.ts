@@ -9,9 +9,9 @@ export const getWinterStorageAreas = (data?: WinterAreasQuery): WinterStorageAre
   if (!data?.winterStorageAreas?.edges) return List([]);
 
   return List(
-    data?.winterStorageAreas?.edges.reduce<WinterStorageAreaType[]>((acc, area) => {
+    data.winterStorageAreas.edges.reduce<WinterStorageAreaType[]>((acc, area) => {
       const areaNode = area?.node;
-      if (!(areaNode && areaNode.properties && areaNode.geometry)) return acc;
+      if (!areaNode?.properties || !areaNode?.geometry) return acc;
 
       const { properties } = areaNode;
 

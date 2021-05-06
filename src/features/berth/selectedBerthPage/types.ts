@@ -18,7 +18,7 @@ export type HarborOption = Option & {
 export type ReasonOption = Option;
 
 export type BoatInfo = {
-  boatType?: string | null;
+  boatType: string | null;
   length: string;
   width: string;
 };
