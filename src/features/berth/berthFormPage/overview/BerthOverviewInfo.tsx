@@ -12,39 +12,40 @@ import LinkedEditSection from '../../../../common/linkedEditSection/LinkedEditSe
 import OldBerthInfo from './oldBerthInfo/OldBerthInfoContainer';
 import OverviewInfo from '../../../../common/overviewInfo/OverviewInfo';
 import PersonOverview from '../../../../common/personOverview/PersonOverview';
-import { ApplicationState } from '../../../../redux/types';
-import { ApplicationOptions } from '../../../../common/types/applicationType';
-import { BerthFormValues, Berths } from '../../types';
+import { BerthSwitchState } from '../../../../redux/types';
+import { BerthFormValues, Harbors } from '../../types';
 import { StepType } from '../../../../common/steps/step/Step';
 import { BigBoatTypeValue, WithBoatType } from '../../../../common/selects/Selects';
 
 type Props = {
-  values: BerthFormValues;
-  selectedBerths: Berths;
-  application?: ApplicationState;
-  steps: StepType[];
-  boatTab: string;
   applicationType: string;
+  berthSwitch: BerthSwitchState;
+  boatTab: string;
+  selectedHarbors: Harbors;
+  steps: StepType[];
+  values: BerthFormValues;
 } & WithBoatType;
 
 const BerthOverviewInfo = ({
-  values,
-  selectedBerths,
-  boatTypes,
-  application,
-  steps,
-  boatTab,
   applicationType,
+  berthSwitch,
+  boatTab,
+  boatTypes,
+  selectedHarbors,
+  steps,
+  values,
 }: Props) => {
   const showBigShipsForm = values.boatType === BigBoatTypeValue;
+  const isSwitchApplication = applicationType === 'site.steps.title.berths.switch';
 
   return (
     <OverviewInfo title={applicationType}>
-      {application && application.berthsApplicationType === ApplicationOptions.SwitchApplication && (
+      {isSwitchApplication && (
         <LinkedEditSection title="page.berth.switch_application.current_berth.title" link="berths/selected">
-          <OldBerthInfo application={application} />
+          <OldBerthInfo berthSwitch={berthSwitch} />
         </LinkedEditSection>
       )}
+
       <LinkedEditSection title="page.overview.info.boat_info" link={steps[2].linkTo}>
         {boatTab === 'registered-boat' && (
           <Fragment>
@@ -78,10 +79,11 @@ const BerthOverviewInfo = ({
           </Fragment>
         )}
       </LinkedEditSection>
+
       <LinkedEditSection title="page.overview.info.berths" link={steps[1].linkTo}>
         <Row>
           <Col xs={12}>
-            {selectedBerths.map((berth, index) => (
+            {selectedHarbors.map((berth, index) => (
               <div key={berth.id}>
                 {index + 1}. {berth.name}
               </div>
@@ -89,6 +91,7 @@ const BerthOverviewInfo = ({
           </Col>
         </Row>
       </LinkedEditSection>
+
       <LinkedEditSection title="page.overview.info.person" link={steps[3].linkTo}>
         {values.companyName && values.businessId ? (
           <CompanyOverview

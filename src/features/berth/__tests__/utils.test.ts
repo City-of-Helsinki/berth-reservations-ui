@@ -1,6 +1,6 @@
 import { Record } from 'immutable';
 
-import { berth, createBerth } from '../../../__fixtures__/berthFixture';
+import { harbor, createHarbor } from '../../../__fixtures__/harborFixture';
 import { createBerthValues } from '../../../__fixtures__/formValuesFixture';
 import { SelectedServicesProps } from '../../../common/types/services';
 import { getBerthFilterByValues } from '../utils';
@@ -14,9 +14,9 @@ describe('berth utils', () => {
     });
 
     const matchOptions = {
-      maximumLength: 1100,
+      maxLength: 11,
       suitableBoatTypes: [],
-      maximumWidth: 500,
+      maxWidth: 5,
     };
 
     const createBerthOptions = (options?: {}) => ({
@@ -38,12 +38,12 @@ describe('berth utils', () => {
       const returnValue = getBerthFilterByValues(defaultValues, createSelectedServices());
 
       expect(typeof returnValue).toBe('function');
-      expect(typeof returnValue(createBerth())).toBe('boolean');
-      expect(typeof returnValue(berth)).toBe('boolean');
+      expect(typeof returnValue(createHarbor())).toBe('boolean');
+      expect(typeof returnValue(harbor)).toBe('boolean');
     });
 
     test('should return true if all filter conditions are met', () => {
-      const value = getBerthFilterByValues(defaultValues, createSelectedServices())(createBerth(matchOptions));
+      const value = getBerthFilterByValues(defaultValues, createSelectedServices())(createHarbor(matchOptions));
 
       expect(value).toBe(true);
     });
@@ -53,27 +53,27 @@ describe('berth utils', () => {
       const value = getBerthFilterByValues(
         defaultValues,
         createSelectedServices({ gate: true })
-      )(createBerth(customOptions));
+      )(createHarbor(customOptions));
 
       expect(value).toBe(false);
     });
 
-    test('should return false if the supplied width is larger than maximumWidth after converting to cm', () => {
-      const customOptions = createBerthOptions({ maximumWidth: 490 });
+    test('should return false if the supplied width is larger than maxWidth', () => {
+      const customOptions = createBerthOptions({ maxWidth: 4.9 });
       const value = getBerthFilterByValues(
         createBerthValues({ boatWidth: '5' }),
         createSelectedServices()
-      )(createBerth(customOptions));
+      )(createHarbor(customOptions));
 
       expect(value).toBe(false);
     });
 
-    test('should return false if the supplied length is larger than maximumLength after converting to cm', () => {
-      const customOptions = createBerthOptions({ maximumLength: 900 });
+    test('should return false if the supplied length is larger than maxLength', () => {
+      const customOptions = createBerthOptions({ maxLength: 9.0 });
       const value = getBerthFilterByValues(
         createBerthValues({ boatLength: '10' }),
         createSelectedServices()
-      )(createBerth(customOptions));
+      )(createHarbor(customOptions));
 
       expect(value).toBe(false);
     });
@@ -82,7 +82,7 @@ describe('berth utils', () => {
       const berthOptions = createBerthOptions({
         suitableBoatTypes: [{ __typename: 'BoatTypeType', id: '19' }],
       });
-      const newBerth = createBerth(berthOptions);
+      const newBerth = createHarbor(berthOptions);
       const value = getBerthFilterByValues(createBerthValues({ boatType: '10' }), createSelectedServices())(newBerth);
 
       expect(value).toBe(false);

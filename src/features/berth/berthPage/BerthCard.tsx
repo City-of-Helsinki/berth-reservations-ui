@@ -1,12 +1,11 @@
 import React from 'react';
 
-import { BerthType } from '../types';
-import { convertCmToM } from '../../../common/utils/applicationUtils';
+import { HarborType } from '../types';
 import AreaCard, { AreaCardProps } from '../../../common/areaCard/AreaCard';
 import Property from '../../../common/areaCard/property/Property';
 
 export interface BerthCardProps {
-  berth: BerthType;
+  berth: HarborType;
   isExcluded: boolean;
   handleSelect: AreaCardProps['handleSelect'];
   selected: AreaCardProps['selected'];
@@ -14,7 +13,7 @@ export interface BerthCardProps {
 }
 
 const BerthCard = ({ isExcluded, berth, selected, disabled, handleSelect }: BerthCardProps) => {
-  const maximumWidth = convertCmToM(berth.maximumWidth);
+  const maxWidth = berth.maxWidth;
   const address = `${berth.streetAddress}, ${berth.zipCode} ${berth.municipality}`;
   const excluded = isExcluded ? 'error.message.invalid_berth' : undefined;
 
@@ -32,7 +31,7 @@ const BerthCard = ({ isExcluded, berth, selected, disabled, handleSelect }: Bert
       disabled={disabled}
       details={[
         <Property key="numberOfPlaces" available value={berth.numberOfPlaces} titleId="page.berths.number_of_places" />,
-        <Property key="maximumWidth" available value={maximumWidth} unit="m" titleId="page.berths.maximum_width" />,
+        <Property key="maxWidth" available value={maxWidth} unit="m" titleId="page.berths.maximum_width" />,
         <Property
           key="wasteCollection"
           available={berth.wasteCollection}

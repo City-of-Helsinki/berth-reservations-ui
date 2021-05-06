@@ -4,12 +4,7 @@ import { navbarSelectors } from './selectors/navbar';
 import { navigateToFrontPage } from './utils/navigation';
 import { envUrl } from './utils/settings';
 import { switchToEnglish, switchToFinnish, switchToSwedish } from './utils/switchLanguage';
-import {
-  isBerthsPage,
-  isFrontPage,
-  isUnmarkedWinterStoragePage,
-  isWinterStoragePage,
-} from './utils/page';
+import { isBerthsPage, isFrontPage, isUnmarkedWinterStoragePage, isWinterStoragePage } from './utils/page';
 
 fixture('Front page').page(envUrl());
 
@@ -34,21 +29,17 @@ test('Navigation', async (t) => {
 });
 
 test('Switching language', async (t) => {
-  const { languageSelect } = navbarSelectors;
   const { title } = frontPageSelectors;
 
   // Switch to Swedish
-  await t.expect(languageSelect.Swedish.visible).notOk();
   await switchToSwedish(t);
   await t.expect(title.innerText).eql('Båtplatser');
 
   // Switch to English
-  await t.expect(languageSelect.English.visible).notOk();
   await switchToEnglish(t);
   await t.expect(title.innerText).eql('Boat berths');
 
   // Switch to Finnish
-  await t.expect(languageSelect.Finnish.visible).notOk();
   await switchToFinnish(t);
   await t.expect(title.innerText).eql('Venepaikat');
 });

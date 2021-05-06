@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 
-export const BOAT_TYPES_BERTHS_QUERY = gql`
-  query BoatTypesBerthsQuery {
+export const HARBORS_QUERY = gql`
+  query HarborsQuery {
     boatTypes {
       id
       name
@@ -14,33 +14,51 @@ export const BOAT_TYPES_BERTHS_QUERY = gql`
             coordinates
           }
           properties {
-            name
-            servicemapId
-            streetAddress
-            zipCode
-            municipality
-            phone
-            email
-            wwwUrl
-            imageFile
-            mooring
-            electricity
-            water
-            wasteCollection
-            gate
-            lighting
-            suitableBoatTypes {
-              id
-            }
             availabilityLevel {
               id
               title
               description
             }
+            electricity
+            email
+            gate
+            imageFile
+            lighting
+            maxDepth
+            maxLength
+            maxWidth
+            mooring
+            municipality
+            name
             numberOfPlaces
-            maximumWidth
-            maximumLength
-            maximumDepth
+            phone
+            piers {
+              edges {
+                node {
+                  id
+                  properties {
+                    identifier
+                    berths {
+                      edges {
+                        node {
+                          id
+                          number
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            servicemapId
+            streetAddress
+            suitableBoatTypes {
+              id
+            }
+            wasteCollection
+            water
+            wwwUrl
+            zipCode
           }
         }
       }
@@ -62,31 +80,29 @@ export const WINTER_AREAS_QUERY = gql`
             coordinates
           }
           properties {
-            name
-            streetAddress
-            zipCode
-            imageFile
-            numberOfMarkedPlaces
-            maximumWidth: maxWidth
-            maximumLength: maxLength
-            numberOfSectionSpaces
-            servicemapId
-            maxLengthOfSectionSpaces
-            numberOfUnmarkedSpaces
-            electricity
-            water
-            gate
-            repairArea
-            summerStorageForDockingEquipment
-            summerStorageForTrailers
-            summerStorageForBoats
-            municipality
-            wwwUrl
             availabilityLevel {
               id
               title
               description
             }
+            estimatedNumberOfSectionSpaces
+            estimatedNumberOfUnmarkedSpaces
+            imageFile
+            maxLength
+            maxLengthOfSectionSpaces
+            maxWidth
+            municipality
+            name
+            servicemapId
+            streetAddress
+            wwwUrl
+            zipCode
+            electricity
+            water
+            gate
+            summerStorageForDockingEquipment
+            summerStorageForTrailers
+            summerStorageForBoats
           }
         }
       }
@@ -106,7 +122,7 @@ export const UNMARKED_WINTER_AREAS_QUERY = gql`
           id
           properties {
             name
-            numberOfUnmarkedSpaces
+            estimatedNumberOfUnmarkedSpaces
           }
         }
       }
@@ -124,26 +140,39 @@ export const BERTH_SWITCH_REASONS_QUERY = gql`
 `;
 
 export const CREATE_APPLICATION = gql`
-  mutation SubmitBerth($application: BerthApplicationInput!, $berthSwitch: BerthSwitchInput) {
-    createBerthApplication(berthApplication: $application, berthSwitch: $berthSwitch) {
+  mutation SubmitBerth($input: CreateBerthApplicationMutationInput!) {
+    createBerthApplication(input: $input) {
       ok
     }
   }
 `;
 
 export const CREATE_WINTER_STORAGE_APPLICATION = gql`
-  mutation SubmitWinterStorage($application: WinterStorageApplicationInput!) {
-    createWinterStorageApplication(winterStorageApplication: $application) {
-      ok
+  mutation SubmitWinterStorage($input: CreateWinterStorageApplicationMutationInput!) {
+    createWinterStorageApplication(input: $input) {
+      winterStorageApplication {
+        id
+      }
     }
   }
 `;
 
-export const GET_HARBOR_NAME = (harborId: string) => gql`
-  query HarborNameQuery{
-    harbor(id: "${harborId}") {
-      properties {
-        name
+export const GET_BERTH = (berthId: string) => gql`
+  query BerthQuery{
+    berth(id: "${berthId}") {
+      id
+      number
+      pier {
+          id
+          properties {
+              identifier
+              harbor {
+                  id
+                  properties {
+                      name
+                  }
+              }
+          }
       }
     }
   }
@@ -193,3 +222,23 @@ export const CANCEL_ORDER = gql`
     }
   }
 `;
+
+export const ACCEPT_BERTH_SWITCH_OFFER = gql`
+  mutation AcceptBerthSwitchOffer($input: AcceptBerthSwitchOfferMutationInput!) {
+    acceptBerthSwitchOffer(input: $input) {
+      clientMutationId
+    }
+  }
+`;
+
+// TODO
+// export const SWITCH_OFFER_DETAILS = gql`
+//   query SwitchOfferDetails($offerNumber: String!) {
+//     offerDetails(offerNumber: $offerNumber) {
+//       status
+//       harbor
+//       pier
+//       berth
+//     }
+//   }
+// `;

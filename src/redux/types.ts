@@ -1,8 +1,8 @@
 import { Record, RecordOf } from 'immutable';
 
-import { BerthSwitchInput } from '../__generated__/globalTypes';
 import { SelectedIds } from '../common/types/resource';
 import { ApplicationOptions } from '../common/types/applicationType';
+import { BerthOption, HarborOption, PierOption, ReasonOption } from '../features/berth/selectedBerthPage/types';
 import { BerthFormValues } from '../features/berth/types';
 import { SelectedServices, SelectedWinterServices } from '../common/types/services';
 import { UnmarkedWinterFormValues } from '../features/unmarkedWinterStorage/types';
@@ -14,15 +14,18 @@ interface FormProps {
   unmarkedWinterValues: UnmarkedWinterFormValues;
 }
 
-interface BerthsProps {
-  selectedBerths: SelectedIds;
+export interface BerthsProps {
+  applicationType: ApplicationOptions;
+  selectedHarbors: SelectedIds;
   selectedServices: SelectedServices;
   berthLimit: number;
 }
 
-export interface ApplicationProps {
-  berthSwitch: BerthSwitchInput;
-  berthsApplicationType: ApplicationOptions;
+export interface BerthSwitchProps {
+  berth: BerthOption | null;
+  pier: PierOption | null;
+  harbor: HarborOption | null;
+  reason: ReasonOption | null;
 }
 
 export interface WinterAreasProps {
@@ -37,14 +40,14 @@ export type BerthsFactory = Record.Factory<BerthsProps>;
 export type BerthsState = RecordOf<BerthsProps>;
 export type WinterAreasFactory = Record.Factory<WinterAreasProps>;
 export type WinterAreasState = RecordOf<WinterAreasProps>;
-export type ApplicationState = RecordOf<ApplicationProps>;
-export type ApplicationFactory = Record.Factory<ApplicationProps>;
+export type BerthSwitchState = RecordOf<BerthSwitchProps>;
+export type BerthSwitchFactory = Record.Factory<BerthSwitchProps>;
 
 export interface Store {
   forms: FormsState;
   berths: BerthsState;
   winterAreas: WinterAreasState;
-  application: ApplicationState;
+  berthSwitch: BerthSwitchState;
 }
 
 export interface Action {

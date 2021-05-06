@@ -29,8 +29,8 @@ export const getApplicationType = (Component: React.ComponentType<{ applicationT
   return <Component {...props} applicationType={applicationType} />;
 };
 
-const mapStateToProps = ({ application }: Store) => ({
-  appType: application.get('berthsApplicationType'),
+const mapStateToProps = ({ berths }: Store) => ({
+  appType: berths.get('applicationType'),
 });
 
 const withApplicationType = <P extends object>(C: React.ComponentType<P>) =>

@@ -8,7 +8,7 @@ import Icon, { IconNames } from '../../../common/icon/Icon';
 import LocalizedLink from '../../../common/localizedLink/LocalizedLink';
 import Layout from '../../../common/layout/Layout';
 import SelectionPageLegend from '../../../common/selectionPageLegend/SelectionPageLegend';
-import { WinterAreas, WinterFormValues, WinterStorageType } from '../types';
+import { WinterStorageAreas, WinterFormValues, WinterStorageAreaType } from '../types';
 import { StepType } from '../../../common/steps/step/Step';
 import './selectedAreaPage.scss';
 
@@ -21,12 +21,12 @@ export type Props = {
   boatInfo: BoatInfoForWinter;
   initialValues?: WinterFormValues;
   legend: { title: string; legend: string };
-  selectedAreas: WinterAreas;
+  selectedAreas: WinterStorageAreas;
   steps: StepType[];
   validSelection: boolean;
   values: WinterFormValues;
   deselectArea(id: string): void;
-  filter(resource: WinterStorageType): boolean;
+  filter(resource: WinterStorageAreaType): boolean;
   handlePrevious(): void;
   moveDown(id: string): void;
   moveToForm(): void;
@@ -113,7 +113,6 @@ const SelectedAreaPage = ({
                           ['plug', resource.electricity],
                           ['dollyEmpty', resource.summerStorageForTrailers],
                           ['trestle', resource.summerStorageForDockingEquipment],
-                          ['tools', resource.repairArea],
                         ];
 
                         return (

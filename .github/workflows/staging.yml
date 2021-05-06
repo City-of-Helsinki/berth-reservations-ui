@@ -34,7 +34,7 @@ jobs:
         uses: andersinno/kolga-build-action@v2
         env:
           DOCKER_IMAGE_NAME: ${{ env.REPO_NAME }}-staging
-          DOCKER_BUILD_ARG_REACT_APP_API_URL: 'https://venepaikka-api.test.kuva.hel.ninja/graphql/'
+          DOCKER_BUILD_ARG_REACT_APP_API_URL: 'https://venepaikka-federation.test.kuva.hel.ninja/graphql/'
           DOCKER_BUILD_ARG_REACT_APP_API_URL_ROOT: 'https://venepaikka-api.test.kuva.hel.ninja/'
           DOCKER_BUILD_ARG_REACT_APP_ENVIRONMENT: 'development'
           DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_URI: 'https://tunnistamo.test.kuva.hel.ninja'

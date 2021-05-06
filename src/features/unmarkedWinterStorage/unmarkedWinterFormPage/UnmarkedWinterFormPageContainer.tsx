@@ -132,13 +132,15 @@ const UnmarkedWinterFormPageContainer = ({
     });
 
     const payload = {
-      application: {
+      winterStorageApplication: {
         ...normalizedValues,
       },
     };
 
     submitUnmarkedWinterStorage({
-      variables: payload,
+      variables: {
+        input: payload,
+      },
     }).then(() => {
       localePush('/notice-sent');
     });

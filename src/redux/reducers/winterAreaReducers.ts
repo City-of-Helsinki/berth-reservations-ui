@@ -6,7 +6,6 @@ const selectedWinterServices = Record({
   electricity: false,
   water: false,
   gate: false,
-  repairArea: false,
   summerStorageForDockingEquipment: false,
   summerStorageForTrailers: false,
 });
@@ -19,7 +18,7 @@ const init: WinterAreasProps = {
 
 const defaultState: WinterAreasFactory = Record(init);
 
-const WinterAreaReducers = (state: WinterAreasState = defaultState(), action: Action): WinterAreasState => {
+const winterAreaReducers = (state: WinterAreasState = defaultState(), action: Action): WinterAreasState => {
   const { type, payload } = action;
   switch (type) {
     case 'SELECT_WINTER_SERVICE':
@@ -61,4 +60,4 @@ const WinterAreaReducers = (state: WinterAreasState = defaultState(), action: Ac
   }
 };
 
-export default WinterAreaReducers;
+export default winterAreaReducers;

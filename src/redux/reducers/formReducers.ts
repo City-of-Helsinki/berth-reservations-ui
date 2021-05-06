@@ -77,7 +77,7 @@ const defaultState: FormsFactory = Record({
   unmarkedWinterValues,
 });
 
-const FormReducers = (state: FormsState = defaultState(), action: Action): FormsState => {
+const formReducers = (state: FormsState = defaultState(), action: Action): FormsState => {
   const { type, payload } = action;
   switch (type) {
     case 'SUBMIT_BERTH_FORM':
@@ -93,4 +93,4 @@ const FormReducers = (state: FormsState = defaultState(), action: Action): Forms
   }
 };
 
-export default FormReducers;
+export default formReducers;

@@ -1,21 +1,26 @@
 import { shallow } from 'enzyme';
 import React from 'react';
+import { Field } from 'react-final-form';
 
-import { berths } from '../../../../../__fixtures__/berthFixture';
-import { Select, Text } from '../../../../../common/fields/Fields';
+import { mockHarbors } from '../../../../../__fixtures__/switchApplicationHarborsFixture';
 import SwitchApplication, { SwitchApplicationProps } from '../SwitchApplication';
 
-describe('fragments/SwitchApplication', () => {
-  const mockHarbor = berths;
-
+describe('SwitchApplication', () => {
   const getWrapper = (props?: Partial<SwitchApplicationProps>) =>
     shallow(
       <SwitchApplication
-        reasons={[
-          { __typename: 'BerthSwitchReasonType', id: '1', title: 'foo' },
-          { __typename: 'BerthSwitchReasonType', id: '2', title: 'bar' },
+        change={() => undefined}
+        reasonOptions={[
+          { label: '1', value: 'foo' },
+          { label: '2', value: 'bar' },
         ]}
-        berths={mockHarbor}
+        harborOptions={mockHarbors}
+        values={{
+          berth: null,
+          harbor: null,
+          pier: null,
+          reason: null,
+        }}
         {...props}
       />
     );
@@ -25,46 +30,31 @@ describe('fragments/SwitchApplication', () => {
     expect(wrapper).toBeDefined();
   });
 
-  test('contain Select components for "harborId"', () => {
+  test('contain Field component for "harbor"', () => {
     const wrapper = getWrapper();
-    const select = wrapper.find(Select);
+    const select = wrapper.find(Field);
 
-    expect(select.find('[name="harborId"]').prop('required')).toBe(true);
+    expect(select.find('[name="harbor"]').prop('required')).toBe(true);
   });
 
-  test('contain Select components for "reason"', () => {
+  test('contain Field component for "pier"', () => {
     const wrapper = getWrapper();
-    const select = wrapper.find(Select);
+    const select = wrapper.find(Field);
 
-    expect(select.find('[name="reason"]').last().prop('required')).toBeFalsy();
+    expect(select.find('[name="pier"]').prop('required')).toBe(true);
   });
 
-  test('contain 2 text component', () => {
+  test('contain Field component for "berth"', () => {
     const wrapper = getWrapper();
-    const texts = wrapper.find(Text);
+    const select = wrapper.find(Field);
 
-    expect(texts).toHaveLength(2);
-    expect(texts.first().prop('required')).toBeFalsy();
-    expect(texts.last().prop('required')).toBeTruthy();
+    expect(select.find('[name="berth"]').prop('required')).toBe(true);
   });
 
-  describe('Select: reason', () => {
-    test('reasons are provided: render reasons as options along with the default FormattedMessage/option', () => {
-      const wrapper = getWrapper();
-      const reasonSelect = wrapper.find('[name="reason"]');
-      const reasonSelectChildren = reasonSelect.children();
-      const options = reasonSelect.find('option');
+  test('contain Select component for "reason"', () => {
+    const wrapper = getWrapper();
+    const select = wrapper.find(Field);
 
-      expect(reasonSelectChildren.length).toBeGreaterThan(1);
-      expect(options.length).toBeGreaterThan(0);
-    });
-
-    test('reasons are NOT provided: render FormattedMessage as the only child', () => {
-      const wrapper = getWrapper({ reasons: undefined });
-      const reasonSelect = wrapper.find('[name="reason"]');
-      const reasonSelectChildren = reasonSelect.children();
-
-      expect(reasonSelectChildren).toHaveLength(1);
-    });
+    expect(select.find('[name="reason"]').prop('required')).toBeFalsy();
   });
 });

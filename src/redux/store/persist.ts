@@ -2,22 +2,24 @@ import { List, Record } from 'immutable';
 import { createTransform } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { ApplicationState, BerthsState, FormsState, WinterAreasState } from '../types';
+import { BerthSwitchState, BerthsState, FormsState, WinterAreasState } from '../types';
 
 const BerthsTransform = createTransform(
   (inboundState: BerthsState) => {
-    const { selectedServices, selectedBerths, berthLimit } = inboundState.toObject();
+    const { applicationType, selectedServices, selectedHarbors, berthLimit } = inboundState.toObject();
 
     return {
+      applicationType,
       berthLimit,
       selectedServices: selectedServices.toObject(),
-      selectedBerths: selectedBerths.toArray(),
+      selectedHarbors: selectedHarbors.toArray(),
     };
   },
   (outboundState) => {
     const berths = Record({
+      applicationType: outboundState.applicationType,
       selectedServices: Record(outboundState.selectedServices)(),
-      selectedBerths: List(outboundState.selectedBerths),
+      selectedHarbors: List(outboundState.selectedHarbors),
       berthLimit: outboundState.berthLimit,
     });
     return berths();
@@ -57,22 +59,22 @@ const FormsTransform = createTransform(
   { whitelist: ['forms'] }
 );
 
-const ApplicationTransform = createTransform(
-  (inboundState: ApplicationState) => {
+const BerthSwitchTransform = createTransform(
+  (inboundState: BerthSwitchState) => {
     return inboundState.toObject();
   },
   (outboundState) => {
-    const application = Record(outboundState);
-    return application();
+    const berthSwitch = Record(outboundState);
+    return berthSwitch();
   },
-  { whitelist: ['application'] }
+  { whitelist: ['berthSwitch'] }
 );
 
 const persist = {
   storage,
   key: 'root',
-  transforms: [BerthsTransform, WinterAreasTransform, FormsTransform, ApplicationTransform],
-  whitelist: ['berths', 'winterAreas', 'forms', 'application'],
+  transforms: [BerthsTransform, WinterAreasTransform, FormsTransform, BerthSwitchTransform],
+  whitelist: ['berths', 'winterAreas', 'forms', 'berthSwitch'],
 };
 
 export default persist;

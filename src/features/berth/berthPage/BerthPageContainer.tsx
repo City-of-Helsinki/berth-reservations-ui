@@ -5,23 +5,23 @@ import { useQuery } from 'react-apollo';
 
 import { deselectBerth, deselectService, selectBerth, selectService } from '../../../redux/actions/BerthActions';
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
-import { BoatTypesBerthsQuery } from '../../__generated__/BoatTypesBerthsQuery';
-import { getResources } from '../../../common/utils/applicationUtils';
+import { HarborsQuery } from '../../__generated__/HarborsQuery';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
-import { BOAT_TYPES_BERTHS_QUERY } from '../../queries';
+import { HARBORS_QUERY } from '../../queries';
 import { IconNames } from '../../../common/icon/Icon';
+import { getHarbors } from '../utils';
 import BerthPage from './BerthPage';
 import { Store } from '../../../redux/types';
-import { BerthFormValues, Berths as BerthsType } from '../types';
+import { BerthFormValues, Harbors as HarborsType } from '../types';
 import { SelectedServices } from '../../../common/types/services';
 import { SelectedIds } from '../../../common/types/resource';
 import { StepType } from '../../../common/steps/step/Step';
 
 interface Props {
   initialValues: BerthFormValues;
-  filtered: BerthsType;
-  filteredNot: BerthsType;
-  selectedBerthsIds: SelectedIds;
+  filtered: HarborsType;
+  filteredNot: HarborsType;
+  selectedHarborsIds: SelectedIds;
   selectedServices: SelectedServices;
   selectBerth: (berthId: string) => void;
   deselectBerth: (berthId: string) => void;
@@ -90,12 +90,12 @@ const BerthPageContainer = (props: Props) => {
     },
   ];
 
-  const { data, loading } = useQuery<BoatTypesBerthsQuery>(BOAT_TYPES_BERTHS_QUERY);
-  const berths = getResources(data ? data.harbors : null);
+  const { data, loading } = useQuery<HarborsQuery>(HARBORS_QUERY);
+  const harbors = getHarbors(data);
   const boatTypes = data ? data.boatTypes : [];
 
   return (
-    <BerthPage {...props} berths={berths} boatTypes={boatTypes} steps={steps} services={services} loading={loading} />
+    <BerthPage {...props} harbors={harbors} boatTypes={boatTypes} steps={steps} services={services} loading={loading} />
   );
 };
 
@@ -104,7 +104,7 @@ export default compose<Props, Props>(
   connect(
     (state: Store) => ({
       initialValues: state.forms.berthValues,
-      selectedBerthsIds: state.berths.selectedBerths,
+      selectedHarborsIds: state.berths.selectedHarbors,
       selectedServices: state.berths.selectedServices,
       berthLimit: state.berths.berthLimit,
     }),

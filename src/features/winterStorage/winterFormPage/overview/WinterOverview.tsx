@@ -6,13 +6,13 @@ import Agreement from '../../../../common/agreement/Agreement';
 import ApplicationCode from '../../../../common/applicationCode/ApplicationCode';
 import Newsletter from '../../../../common/newsletter/Newsletter';
 import WinterOverviewInfo from './WinterOverviewInfo';
-import { WinterAreas, WinterFormValues } from '../../types';
+import { WinterStorageAreas, WinterFormValues } from '../../types';
 import { StepType } from '../../../../common/steps/step/Step';
 import { WithBoatType } from '../../../../common/selects/Selects';
 
 type Props = {
   values?: WinterFormValues;
-  selectedAreas: WinterAreas;
+  selectedAreas: WinterStorageAreas;
   boatTab: string;
   steps: StepType[];
 } & WithBoatType;

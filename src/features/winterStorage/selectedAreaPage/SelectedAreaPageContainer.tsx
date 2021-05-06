@@ -5,9 +5,9 @@ import { useQuery } from 'react-apollo';
 
 import { deselectWinterArea, moveWinterAreaDown, moveWinterAreaUp } from '../../../redux/actions/WinterAreaActions';
 import { WinterAreasQuery } from '../../__generated__/WinterAreasQuery';
-import { getResources, getSelectedResources } from '../../../common/utils/applicationUtils';
+import { getSelectedResources } from '../../../common/utils/applicationUtils';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
-import { getWinterStorageFilterByValues } from '../utils';
+import { getWinterStorageAreas, getWinterStorageFilterByValues } from '../utils';
 import SelectedAreaPage from './SelectedAreaPage';
 import { WINTER_AREAS_QUERY } from '../../queries';
 import { Store } from '../../../redux/types';
@@ -72,7 +72,7 @@ const UnconnectedSelectedAreaPage = ({ localePush, values, selectedAreas, select
   const width = values.boatWidth;
   const length = values.boatLength;
   const filter = getWinterStorageFilterByValues(values, selectedServices);
-  const areas = getResources(data ? data.winterStorageAreas : null);
+  const areas = getWinterStorageAreas(data);
   const selected = getSelectedResources(selectedAreas, areas);
   const validSelection = selected.every(filter);
 

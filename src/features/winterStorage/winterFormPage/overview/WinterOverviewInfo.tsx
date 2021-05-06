@@ -10,13 +10,13 @@ import LinkedEditSection from '../../../../common/linkedEditSection/LinkedEditSe
 import OverviewInfo from '../../../../common/overviewInfo/OverviewInfo';
 import OverviewStorageMethod from '../../../../common/overviewStorageMethod/OverviewStorageMethod';
 import PersonOverview from '../../../../common/personOverview/PersonOverview';
-import { WinterAreas, WinterFormValues } from '../../types';
+import { WinterStorageAreas, WinterFormValues } from '../../types';
 import { StepType } from '../../../../common/steps/step/Step';
 import { WithBoatType } from '../../../../common/selects/Selects';
 
 type Props = {
   values: WinterFormValues;
-  selectedAreas: WinterAreas;
+  selectedAreas: WinterStorageAreas;
   steps: StepType[];
   boatTab: string;
   applicationType: string;

@@ -14,8 +14,8 @@ describe('winter storage utils', () => {
     });
 
     const matchOptions = {
-      maximumLength: 1100,
-      maximumWidth: 500,
+      maxLength: 11,
+      maxWidth: 5,
     };
 
     const createAreaOptions = (options?: {}) => ({
@@ -28,7 +28,6 @@ describe('winter storage utils', () => {
         electricity: false,
         water: false,
         gate: false,
-        repairArea: false,
         summerStorageForDockingEquipment: false,
         summerStorageForTrailers: false,
         ...services,
@@ -61,8 +60,8 @@ describe('winter storage utils', () => {
       expect(value).toBe(false);
     });
 
-    test('should return false if the supplied width is larger than maximumWidth after converting to cm', () => {
-      const customOptions = createAreaOptions({ maximumWidth: 490 });
+    test('should return false if the supplied width is larger than maxWidth', () => {
+      const customOptions = createAreaOptions({ maxWidth: 4.9 });
       const value = getWinterStorageFilterByValues(
         createWinterValues({ boatWidth: '5' }),
         createWinterSelectedServices()
@@ -71,8 +70,8 @@ describe('winter storage utils', () => {
       expect(value).toBe(false);
     });
 
-    test('should return false if the supplied length is larger than maximumLength after converting to cm', () => {
-      const customOptions = createAreaOptions({ maximumLength: 900 });
+    test('should return false if the supplied length is larger than maxLength', () => {
+      const customOptions = createAreaOptions({ maxLength: 9.0 });
       const value = getWinterStorageFilterByValues(
         createWinterValues({ boatLength: '10' }),
         createWinterSelectedServices()

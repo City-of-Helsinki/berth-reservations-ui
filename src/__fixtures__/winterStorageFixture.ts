@@ -1,26 +1,24 @@
 import { List } from 'immutable';
 
-import { WinterAreas, WinterStorageType } from '../features/winterStorage/types';
+import { WinterStorageAreas, WinterStorageAreaType } from '../features/winterStorage/types';
 
-export const createWinterArea = (options?: Partial<WinterStorageType>): WinterStorageType => {
-  const newWinterArea: WinterStorageType = {
-    __typename: 'WinterStorageAreaType',
+export const createWinterArea = (options?: Partial<WinterStorageAreaType>): WinterStorageAreaType => {
+  const newWinterArea: WinterStorageAreaType = {
+    __typename: 'WinterStorageAreaNode',
     id: 'V2ludlO',
     name: 'Marjaniemi',
     streetAddress: 'Niittyranta 19',
     zipCode: '00930',
     imageFile: 'https://venepaikka-api.test.hel.ninja/media/winter_areas/9/marjaniemi.jpg',
-    numberOfMarkedPlaces: null,
-    maximumWidth: null,
-    maximumLength: null,
-    numberOfSectionSpaces: null,
+    estimatedNumberOfSectionSpaces: null,
+    maxWidth: null,
+    maxLength: null,
+    estimatedNumberOfUnmarkedSpaces: null,
     maxLengthOfSectionSpaces: null,
-    numberOfUnmarkedSpaces: 100,
     servicemapId: null,
     electricity: true,
     water: true,
     gate: false,
-    repairArea: false,
     summerStorageForDockingEquipment: true,
     summerStorageForTrailers: true,
     summerStorageForBoats: false,
@@ -39,4 +37,4 @@ export const createWinterArea = (options?: Partial<WinterStorageType>): WinterSt
 };
 
 export const winterArea = createWinterArea();
-export const winterAreas: WinterAreas = List([winterArea]);
+export const winterAreas: WinterStorageAreas = List([winterArea]);

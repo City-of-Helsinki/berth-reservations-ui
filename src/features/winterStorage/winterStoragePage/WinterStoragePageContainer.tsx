@@ -11,11 +11,10 @@ import {
   selectWinterArea,
 } from '../../../redux/actions/WinterAreaActions';
 import { WinterAreasQuery } from '../../__generated__/WinterAreasQuery';
-import { getResources } from '../../../common/utils/applicationUtils';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import { WINTER_AREAS_QUERY } from '../../queries';
 import { IconNames } from '../../../common/icon/Icon';
-import { filterAreasWithMarkedPlaces } from '../utils';
+import { filterAreasWithMarkedPlaces, getWinterStorageAreas } from '../utils';
 import WinterStoragePage from './WinterStoragePage';
 import { Store } from '../../../redux/types';
 import { SelectedWinterServices } from '../../../common/types/services';
@@ -76,13 +75,7 @@ const steps: StepType[] = [
 
 const services: {
   label: string;
-  value:
-    | 'electricity'
-    | 'water'
-    | 'gate'
-    | 'repairArea'
-    | 'summerStorageForDockingEquipment'
-    | 'summerStorageForTrailers';
+  value: 'electricity' | 'water' | 'gate' | 'summerStorageForDockingEquipment' | 'summerStorageForTrailers';
   icon: IconNames;
 }[] = [
   { label: 'form.services.field.water.label', value: 'water', icon: 'waterTap' },
@@ -102,17 +95,12 @@ const services: {
     value: 'summerStorageForDockingEquipment',
     icon: 'trestle',
   },
-  {
-    label: 'form.services.field.repair_area.label',
-    value: 'repairArea',
-    icon: 'tools',
-  },
 ];
 
 const WinterStoragePageContainer = (props: Props) => {
   const { data, loading } = useQuery<WinterAreasQuery>(WINTER_AREAS_QUERY);
 
-  const winterAreas = getResources(data ? data.winterStorageAreas : null).filter(filterAreasWithMarkedPlaces);
+  const winterAreas = getWinterStorageAreas(data).filter(filterAreasWithMarkedPlaces);
 
   return <WinterStoragePage {...props} areas={winterAreas} steps={steps} services={services} loading={loading} />;
 };

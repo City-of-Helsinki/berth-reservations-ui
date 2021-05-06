@@ -6,17 +6,16 @@ import Layout from '../../common/layout/Layout';
 import './berthSwitchOfferPage.scss';
 
 type BerthSwitchOfferPageProps = {
-  // TODO: This can not be queried yet
-  /*berthDetails: {
+  berthDetails: {
     harbor: string;
     pier: string;
     berth: string;
-  };*/
+  };
   initialChoice?: boolean;
   onConfirm(isAccepted: boolean): void;
 };
 
-const BerthSwitchOfferPage = ({ initialChoice, onConfirm }: BerthSwitchOfferPageProps) => {
+const BerthSwitchOfferPage = ({ berthDetails, initialChoice, onConfirm }: BerthSwitchOfferPageProps) => {
   const { t } = useTranslation();
   const [isAccepted, setIsAccepted] = useState<boolean | null>(initialChoice ?? null);
 
@@ -37,12 +36,12 @@ const BerthSwitchOfferPage = ({ initialChoice, onConfirm }: BerthSwitchOfferPage
         </div>
 
         <div className="vene-offer-page__content">
-          {/*<div className="vene-offer-page__berth-info">
+          <div className="vene-offer-page__berth-info">
             <p className="vene-offer-page__berth-info-label">Venepaikan tiedot:</p>
             <p>Satama: {berthDetails.harbor}</p>
             <p>Laituri: {berthDetails.pier}</p>
             <p>Paikka: {berthDetails.berth}</p>
-          </div>*/}
+          </div>
 
           <div className="vene-offer-page__choices">
             <RadioButton

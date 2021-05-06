@@ -1,12 +1,11 @@
 import React from 'react';
 
-import { WinterStorageType } from '../types';
-import { convertCmToM } from '../../../common/utils/applicationUtils';
+import { WinterStorageAreaType } from '../types';
 import AreaCard, { AreaCardProps } from '../../../common/areaCard/AreaCard';
 import Property from '../../../common/areaCard/property/Property';
 
 export interface WinterStorageCardProps {
-  area: WinterStorageType;
+  area: WinterStorageAreaType;
   isExcluded: boolean;
   selected: AreaCardProps['selected'];
   disabled: AreaCardProps['disabled'];
@@ -14,8 +13,8 @@ export interface WinterStorageCardProps {
 }
 
 const WinterStorageCard = ({ area, selected, disabled, isExcluded, handleSelect }: WinterStorageCardProps) => {
-  const maximumWidth = convertCmToM(area.maximumWidth);
-  const maximumLength = convertCmToM(area.maximumLength);
+  const maxWidth = area.maxWidth;
+  const maxLength = area.maxLength;
   const address = `${area.streetAddress}, ${area.zipCode} ${area.municipality}`;
   const excluded = isExcluded ? 'error.message.invalid_area' : undefined;
 
@@ -32,23 +31,11 @@ const WinterStorageCard = ({ area, selected, disabled, isExcluded, handleSelect 
       selected={selected}
       disabled={disabled}
       details={[
-        <Property
-          key="maximumWidth"
-          available
-          value={maximumWidth}
-          unit="m"
-          titleId="page.winter_storage.maximum_width"
-        />,
-        <Property
-          key="maximumLength"
-          available
-          value={maximumLength}
-          unit="m"
-          titleId="page.winter_storage.maximum_length"
-        />,
+        <Property key="maxWidth" available value={maxWidth} unit="m" titleId="page.winter_storage.maximum_width" />,
+        <Property key="maxLength" available value={maxLength} unit="m" titleId="page.winter_storage.maximum_length" />,
         <Property
           key="appointed"
-          available={!!area.numberOfMarkedPlaces}
+          available={!!area.estimatedNumberOfSectionSpaces}
           iconName="divided"
           titleId="page.winter_storage.appointed"
         />,
