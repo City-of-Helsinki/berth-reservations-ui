@@ -118,7 +118,7 @@ const SelectedBerthPage = ({
               <h3>{t('page.berth.selected.title')}</h3>
               <hr />
 
-              {boatInfo && Object.values(boatInfo).every((value) => !!value) ? (
+              {boatInfo ? (
                 <Container>
                   <Row>
                     <Col md="5">
