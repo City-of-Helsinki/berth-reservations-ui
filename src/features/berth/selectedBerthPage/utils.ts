@@ -1,9 +1,9 @@
 import { BerthSwitchReasonsQuery } from '../../__generated__/BerthSwitchReasonsQuery';
 import {
-  HarborsQuery,
-  HarborsQuery_harbors_edges_node_properties_piers,
-  HarborsQuery_harbors_edges_node_properties_piers_edges_node_properties_berths,
-} from '../../__generated__/HarborsQuery';
+  HarborPiersQuery,
+  HarborPiersQuery_harbor_properties_piers_edges_node_properties_berths,
+} from '../../__generated__/HarborPiersQuery';
+import { HarborsQuery } from '../../__generated__/HarborsQuery';
 import { BerthFormValues } from '../types';
 import { BerthOption, BoatInfo, HarborOption, PierOption, Reason, ReasonOption } from './types';
 
@@ -12,7 +12,7 @@ const sortByKeyAsNumber = <T>(property: keyof T) => (a: T, b: T) =>
   (Number(a[property]) || 0) > (Number(b[property]) || 0) ? 1 : -1;
 
 const getBerthOptions = (
-  data: HarborsQuery_harbors_edges_node_properties_piers_edges_node_properties_berths
+  data: HarborPiersQuery_harbor_properties_piers_edges_node_properties_berths
 ): BerthOption[] => {
   return data.edges
     .reduce<BerthOption[]>((acc, edge) => {
@@ -28,8 +28,9 @@ const getBerthOptions = (
     .sort(sortByKeyAsNumber('label'));
 };
 
-const getPierOptions = (data: HarborsQuery_harbors_edges_node_properties_piers): PierOption[] => {
-  return data.edges
+export const getPierOptions = (data: HarborPiersQuery | undefined): PierOption[] => {
+  if (!data?.harbor?.properties?.piers?.edges) return [];
+  return data.harbor.properties?.piers?.edges
     .reduce<PierOption[]>((acc, edge) => {
       if (!edge?.node?.properties) return acc;
 
@@ -48,12 +49,11 @@ export const getHarborOptions = (data: HarborsQuery | undefined): HarborOption[]
   if (!data?.harbors?.edges) return [];
   return data.harbors.edges
     .reduce<HarborOption[]>((acc, edge) => {
-      if (!edge?.node?.properties?.name || !edge?.node?.properties?.piers) return acc;
+      if (!edge?.node?.properties?.name || !edge?.node?.properties) return acc;
 
       const harbor: HarborOption = {
         value: edge.node.id,
         label: edge.node.properties.name,
-        piers: getPierOptions(edge.node.properties.piers),
       };
 
       return [...acc, harbor];

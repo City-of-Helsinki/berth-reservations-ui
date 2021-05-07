@@ -11,9 +11,7 @@ export type PierOption = Option & {
   berths: BerthOption[];
 };
 
-export type HarborOption = Option & {
-  piers: PierOption[];
-};
+export type HarborOption = Option;
 
 export type ReasonOption = Option;
 

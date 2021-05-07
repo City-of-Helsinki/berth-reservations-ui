@@ -4,29 +4,25 @@ import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 
 import Icon, { IconNames } from '../../../common/icon/Icon';
 import LocalizedLink from '../../../common/localizedLink/LocalizedLink';
-import { BerthSwitchProps } from '../../../redux/types';
 import NewApplication from './newApplication/NewApplication';
 import Layout from '../../../common/layout/Layout';
 import SelectionPageLegend from '../../../common/selectionPageLegend/SelectionPageLegend';
 import { ApplicationOptions } from '../../../common/types/applicationType';
 import { Harbors, HarborType } from '../types';
 import SelectedResourceContainer from '../../../common/areaCard/selectedResource/SelectedResourceContainer';
-import SwitchApplication from './switchApplication/SwitchApplication';
+import SwitchApplication, { SwitchApplicationProps } from './switchApplication/SwitchApplication';
 import { StepType } from '../../../common/steps/step/Step';
 import './selectedBerthPage.scss';
-import { BoatInfo, HarborOption, ReasonOption } from './types';
+import { BoatInfo } from './types';
 
 export type Props = {
   applicationType?: string;
-  reasonOptions: ReasonOption[];
   boatInfo?: BoatInfo;
+  enableSubmit: boolean;
   harbors?: Harbors;
-  harborOptions: HarborOption[];
-  invalid: boolean;
   selectedHarbors: Harbors;
+  switchApplicationProps: SwitchApplicationProps;
   validSelection: boolean;
-  values: BerthSwitchProps;
-  change<F extends 'berth' | 'pier' | 'harbor'>(name: F, value: BerthSwitchProps[F]): void;
   deselectBerth(id: string): void;
   filter(resource: HarborType): boolean;
   handlePrevious(): void;
@@ -70,21 +66,18 @@ const steps: StepType[] = [
 
 const SelectedBerthPage = ({
   applicationType,
-  reasonOptions,
   boatInfo,
-  change,
+  enableSubmit,
   deselectBerth,
   filter,
   handlePrevious,
   handleSubmit,
   harbors,
-  harborOptions,
-  invalid,
   moveDown,
   moveUp,
   selectedHarbors,
+  switchApplicationProps,
   validSelection,
-  values,
 }: Props) => {
   const { t } = useTranslation();
   useLayoutEffect(() => window.scrollTo(0, 0), []);
@@ -107,12 +100,7 @@ const SelectedBerthPage = ({
                 (applicationType === ApplicationOptions.NewApplication ? (
                   <NewApplication />
                 ) : (
-                  <SwitchApplication
-                    values={values}
-                    harborOptions={harborOptions}
-                    reasonOptions={reasonOptions}
-                    change={change}
-                  />
+                  <SwitchApplication {...switchApplicationProps} />
                 ))}
 
               <h3>{t('page.berth.selected.title')}</h3>
@@ -197,17 +185,7 @@ const SelectedBerthPage = ({
                   <Button color="link" type="button" onClick={handlePrevious}>
                     <span>{t('form.wizard.button.previous')}</span>
                   </Button>
-                  <Button
-                    type="submit"
-                    outline
-                    color="primary"
-                    size="lg"
-                    disabled={
-                      selectedHarbors.size === 0 ||
-                      invalid ||
-                      (applicationType === ApplicationOptions.SwitchApplication && !values.berth)
-                    }
-                  >
+                  <Button type="submit" outline color="primary" size="lg" disabled={enableSubmit}>
                     <span>{t('page.berth.selected.submit')}</span>
                   </Button>
                 </div>

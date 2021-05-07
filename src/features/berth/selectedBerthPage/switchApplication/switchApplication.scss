@@ -5,6 +5,17 @@
   background-color: $hel-light;
   padding: $spacing-02 $spacing-03 $spacing-01 $spacing-01-50;
 
+  &__row {
+    margin-bottom: $spacing-02;
+  }
+
+  &__loading {
+    margin: $spacing-02;
+    > * {
+      margin: 0 auto;
+    }
+  }
+
   &__heading {
     margin-top: 0;
   }
