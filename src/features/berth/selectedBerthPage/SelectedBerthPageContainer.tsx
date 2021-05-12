@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form } from 'react-final-form';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { useQuery } from 'react-apollo';
 
 import LoadingPage from '../../../common/loadingPage/LoadingPage';
+import { ApplicationOptions } from '../../../common/types/applicationType';
+import { HarborPiersQuery, HarborPiersQueryVariables } from '../../__generated__/HarborPiersQuery';
 import SelectedBerthPage from './SelectedBerthPage';
-import { BERTH_SWITCH_REASONS_QUERY, HARBORS_QUERY } from '../../queries';
+import { BERTH_SWITCH_REASONS_QUERY, HARBOR_PIERS_QUERY, HARBORS_QUERY } from '../../queries';
 import { BerthFormValues } from '../types';
 import { BerthSwitchReasonsQuery } from '../../__generated__/BerthSwitchReasonsQuery';
 import { HarborsQuery } from '../../__generated__/HarborsQuery';
@@ -18,7 +20,7 @@ import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthAct
 import { getBerthFilterByValues, getHarbors } from '../utils';
 import { getSelectedResources } from '../../../common/utils/applicationUtils';
 import { submitBerthSwitch } from '../../../redux/actions/BerthSwitchActions';
-import { getBoatInfo, getHarborOptions, getReasonOptions } from './utils';
+import { getBoatInfo, getHarborOptions, getPierOptions, getReasonOptions } from './utils';
 
 interface Props {
   applicationType: string;
@@ -46,6 +48,18 @@ const SelectedBerthPageContainer = ({
   submitBerthSwitch,
 }: Props) => {
   const { data, loading } = useQuery<HarborsQuery>(HARBORS_QUERY);
+
+  const [currentHarborId, setCurrentHarborId] = useState<string | null>(berthSwitchValues.harbor?.value ?? null);
+  const { data: harborPiersData, loading: harborPiersLoading } = useQuery<HarborPiersQuery, HarborPiersQueryVariables>(
+    HARBOR_PIERS_QUERY,
+    {
+      variables: {
+        id: currentHarborId ?? '',
+      },
+      skip: !currentHarborId,
+    }
+  );
+
   const { data: berthSwitchReasonsData, loading: berthSwitchReasonsLoading } = useQuery<BerthSwitchReasonsQuery>(
     BERTH_SWITCH_REASONS_QUERY
   );
@@ -56,6 +70,7 @@ const SelectedBerthPageContainer = ({
   const validSelection = selected.every(filter);
   const boatInfo = getBoatInfo(data, berthValues);
   const harborOptions = getHarborOptions(data);
+  const pierOptions = getPierOptions(harborPiersData);
   const reasonOptions = getReasonOptions(berthSwitchReasonsData);
 
   const handleSubmitApplication = async (values: BerthSwitchProps) => {
@@ -67,6 +82,11 @@ const SelectedBerthPageContainer = ({
     await localePush('/berths');
   };
 
+  const submitDisabled = (invalid: boolean, values: BerthSwitchProps) =>
+    selectedHarbors.size === 0 ||
+    invalid ||
+    (applicationType === ApplicationOptions.SwitchApplication && !values.berth);
+
   if (loading || berthSwitchReasonsLoading) return <LoadingPage />;
 
   return (
@@ -76,21 +96,34 @@ const SelectedBerthPageContainer = ({
       render={({ handleSubmit, invalid, values, form: { change } }) => (
         <SelectedBerthPage
           applicationType={applicationType}
-          reasonOptions={reasonOptions}
           boatInfo={boatInfo}
-          change={change}
           deselectBerth={deselectBerth}
+          submitDisabled={submitDisabled(invalid, values)}
           filter={filter}
           handlePrevious={handlePrevious}
           handleSubmit={handleSubmit}
           harbors={harbors}
-          harborOptions={harborOptions}
-          invalid={invalid}
           moveDown={moveDown}
           moveUp={moveUp}
           selectedHarbors={selected}
+          switchApplicationProps={{
+            berthOptions: values.pier?.berths ?? [],
+            harborOptions,
+            pierOptions,
+            pierOptionsLoading: harborPiersLoading,
+            reasonOptions,
+            changeSelectedHarbor: (harbor) => {
+              change('harbor', harbor);
+              setCurrentHarborId(harbor?.value ?? null);
+              change('pier', null);
+              change('berth', null);
+            },
+            changeSelectedPier: (pier) => {
+              change('pier', pier);
+              change('berth', null);
+            },
+          }}
           validSelection={validSelection}
-          values={values}
         />
       )}
     />

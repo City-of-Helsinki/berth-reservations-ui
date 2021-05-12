@@ -32,24 +32,6 @@ export const HARBORS_QUERY = gql`
             name
             numberOfPlaces
             phone
-            piers {
-              edges {
-                node {
-                  id
-                  properties {
-                    identifier
-                    berths {
-                      edges {
-                        node {
-                          id
-                          number
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
             servicemapId
             streetAddress
             suitableBoatTypes {
@@ -59,6 +41,33 @@ export const HARBORS_QUERY = gql`
             water
             wwwUrl
             zipCode
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const HARBOR_PIERS_QUERY = gql`
+  query HarborPiersQuery($id: ID!) {
+    harbor(id: $id) {
+      properties {
+        piers {
+          edges {
+            node {
+              id
+              properties {
+                identifier
+                berths {
+                  edges {
+                    node {
+                      id
+                      number
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

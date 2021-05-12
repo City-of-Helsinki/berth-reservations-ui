@@ -2,7 +2,6 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import { Field } from 'react-final-form';
 
-import { mockHarbors } from '../../../../../__fixtures__/switchApplicationHarborsFixture';
 import SwitchApplication, { SwitchApplicationProps } from '../SwitchApplication';
 
 describe('SwitchApplication', () => {
@@ -14,7 +13,13 @@ describe('SwitchApplication', () => {
           { label: '1', value: 'foo' },
           { label: '2', value: 'bar' },
         ]}
-        harborOptions={mockHarbors}
+        harborOptions={[
+          {
+            label: 'Harbor',
+            value: 'MOCK-HARBOR',
+          },
+        ]}
+        pierOptions={[]}
         values={{
           berth: null,
           harbor: null,
