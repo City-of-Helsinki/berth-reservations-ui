@@ -82,6 +82,11 @@ const SelectedBerthPageContainer = ({
     await localePush('/berths');
   };
 
+  const submitDisabled = (invalid: boolean, values: BerthSwitchProps) =>
+    selectedHarbors.size === 0 ||
+    invalid ||
+    (applicationType === ApplicationOptions.SwitchApplication && !values.berth);
+
   if (loading || berthSwitchReasonsLoading) return <LoadingPage />;
 
   return (
@@ -93,11 +98,7 @@ const SelectedBerthPageContainer = ({
           applicationType={applicationType}
           boatInfo={boatInfo}
           deselectBerth={deselectBerth}
-          enableSubmit={
-            selectedHarbors.size === 0 ||
-            invalid ||
-            (applicationType === ApplicationOptions.SwitchApplication && !values.berth)
-          }
+          submitDisabled={submitDisabled(invalid, values)}
           filter={filter}
           handlePrevious={handlePrevious}
           handleSubmit={handleSubmit}

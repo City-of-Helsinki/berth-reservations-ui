@@ -18,7 +18,7 @@ import { BoatInfo } from './types';
 export type Props = {
   applicationType?: string;
   boatInfo?: BoatInfo;
-  enableSubmit: boolean;
+  submitDisabled: boolean;
   harbors?: Harbors;
   selectedHarbors: Harbors;
   switchApplicationProps: SwitchApplicationProps;
@@ -67,7 +67,7 @@ const steps: StepType[] = [
 const SelectedBerthPage = ({
   applicationType,
   boatInfo,
-  enableSubmit,
+  submitDisabled,
   deselectBerth,
   filter,
   handlePrevious,
@@ -185,7 +185,7 @@ const SelectedBerthPage = ({
                   <Button color="link" type="button" onClick={handlePrevious}>
                     <span>{t('form.wizard.button.previous')}</span>
                   </Button>
-                  <Button type="submit" outline color="primary" size="lg" disabled={enableSubmit}>
+                  <Button type="submit" outline color="primary" size="lg" disabled={submitDisabled}>
                     <span>{t('page.berth.selected.submit')}</span>
                   </Button>
                 </div>
