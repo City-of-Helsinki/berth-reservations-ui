@@ -5,9 +5,9 @@ import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import './berthInfo.scss';
 
 export interface BerthInfoProps {
-  harbor: string | undefined;
-  pier: string | undefined;
-  berth: string | undefined;
+  harbor: string | null | undefined;
+  pier: string | null | undefined;
+  berth: string | null | undefined;
 }
 
 const BerthInfo = ({ harbor, pier, berth }: BerthInfoProps) => {
