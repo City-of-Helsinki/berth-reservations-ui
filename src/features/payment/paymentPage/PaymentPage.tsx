@@ -3,19 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { Button } from 'reactstrap';
 
 import Layout from '../../../common/layout/Layout';
-import BerthInfo from '../berthInfo/BerthInfo';
 import './paymentPage.scss';
 
 interface Props {
-  placeDetails: {
-    harbor: string | undefined;
-    pier: string | undefined;
-    berth: string | undefined;
-  };
+  orderProductDetails: React.ReactNode;
   handlePay: () => void;
 }
 
-const PaymentPage = ({ placeDetails, handlePay }: Props) => {
+const PaymentPage = ({ orderProductDetails, handlePay }: Props) => {
   const { t } = useTranslation();
 
   return (
@@ -40,7 +35,7 @@ const PaymentPage = ({ placeDetails, handlePay }: Props) => {
         </div>
         <div className="vene-payment-page__content-container">
           <div className="vene-payment-page__content vene-payment-page__accept-terms-content">
-            <BerthInfo {...placeDetails} />
+            {orderProductDetails}
             <Button className="vene-payment-page__pay-button" color="secondary" onClick={handlePay}>
               {t('page.payment.pay')}
             </Button>

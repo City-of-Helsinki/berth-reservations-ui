@@ -8,21 +8,16 @@ import { Checkbox } from '../../../common/fields/Fields';
 import { ContractAuthMethods_contractAuthMethods as ContractAuthMethods } from '../../__generated__/ContractAuthMethods';
 import Form from '../../../common/form/Form';
 import AuthButton from './authButton/AuthButton';
-import BerthInfo from '../berthInfo/BerthInfo';
 
 export interface Props {
-  placeDetails: {
-    harbor: string | undefined;
-    pier: string | undefined;
-    berth: string | undefined;
-  };
   orderNumber: string;
+  orderProductDetails: React.ReactNode;
   contractAuthMethods: ContractAuthMethods[];
   handleSign: (authMethod: string) => void;
   handleTerminate: () => void;
 }
 
-const PaymentPage = ({ contractAuthMethods, placeDetails, orderNumber, handleSign, handleTerminate }: Props) => {
+const PaymentPage = ({ contractAuthMethods, orderProductDetails, orderNumber, handleSign, handleTerminate }: Props) => {
   const { t } = useTranslation();
   const [termsOpened, setTermsOpened] = useState<boolean>(false);
   const [termsAccepted, setTermsAccepted] = useState<boolean>(false);
@@ -49,7 +44,7 @@ const PaymentPage = ({ contractAuthMethods, placeDetails, orderNumber, handleSig
         </div>
         <div className="vene-payment-page__content-container">
           <div className="vene-payment-page__content vene-payment-page__accept-terms-content">
-            <BerthInfo {...placeDetails} />
+            {orderProductDetails}
             <div>
               <h3 className="vene-payment-page__subheading">{t('page.contract.read_and_approve')}</h3>
               <p className="vene-payment-page__notice">{t('page.contract.terms_notice')}</p>
