@@ -1,6 +1,7 @@
 {
   "common": {
     "additional_services": "Lisäpalvelut",
+    "area": "Alue",
     "berth": "Paikka",
     "cancelled": "Peruutettu",
     "dinghy_place": "Jollapaikka",
@@ -21,8 +22,10 @@
     "paid_manually": "Maksettu muualla",
     "parking_permit":"Pysäköintilupa",
     "pier": "Laituri",
+    "place": "Paikka",
     "rejected": "Hylätty",
     "season": "Sopimuskausi",
+    "section": "Osasto",
     "sent": "Lähetetty",
     "storage_on_ice": "Jäissä säilytys",
     "total": "Yhteensä",
@@ -714,6 +717,7 @@
     },
     "payment": {
       "berth_information": "Venepaikan tiedot",
+      "winter_storage_information": "Talvisäilytyspaikan tiedot",
       "title": "Laskun maksaminen",
       "info": "Voit siirtyä maksamaan laskusi.",
       "questions": "Kysymykset ja lisätiedot: ",

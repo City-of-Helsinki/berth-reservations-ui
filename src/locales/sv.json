@@ -1,6 +1,7 @@
 {
   "common": {
     "additional_services": "Ytterligare tjänster",
+    "area": "Området",
     "berth": "Båtplatsen",
     "cancelled": "Annullerat",
     "dinghy_place": "Jolleplats",
@@ -20,8 +21,10 @@
     "paid_manually": "Betalas någon annanstans",
     "parking_permit": "Parkeringstillstånd",
     "pier": "Kaj",
+    "place": "Plats",
     "rejected": "Avvisade",
     "season": "Avtalsperiod",
+    "section": "Sektion",
     "sent": "Skickas",
     "storage_on_ice": "Förvaring på is",
     "total": "Totalt",
@@ -713,6 +716,7 @@
     },
     "payment": {
       "berth_information": "Båtplatsen",
+      "winter_storage_information": "Vinteruppläggningsplats",
       "title": "Betalning av fakturan",
       "info": "Du kan gå till att betala din faktura.",
       "questions": "Frågor och mer information: ",

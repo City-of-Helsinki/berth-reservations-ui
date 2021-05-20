@@ -1,6 +1,7 @@
 {
   "common": {
     "additional_services": "Additional services",
+    "area": "Area",
     "berth": "Berth",
     "cancelled": "Cancelled",
     "dinghy_place": "Dinghy place",
@@ -20,8 +21,10 @@
     "paid_manually": "Paid elsewhere",
     "parking_permit": "Parking permit",
     "pier": "Pier",
+    "place": "Place",
     "rejected": "Rejected",
     "season": "Season",
+    "section": "Section",
     "sent": "Sent",
     "storage_on_ice": "Storage on ice",
     "total": "Total",
@@ -713,6 +716,7 @@
     },
     "payment": {
       "berth_information": "Berth",
+      "winter_storage_information": "Winter storage place",
       "title": "Paying the invoice",
       "info": "You can proceed to pay your invoice.",
       "questions": "Questions and further information: ",
