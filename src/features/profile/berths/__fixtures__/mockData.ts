@@ -1,6 +1,7 @@
-import { OrderStatus } from '../../../__generated__/globalTypes';
-import { BerthChoice } from './berthApplication/BerthApplication';
-import { BerthProperties, Order } from './types';
+import { OrderStatus } from '../../../../__generated__/globalTypes';
+import { BerthChoice } from '../berthApplication/BerthApplication';
+import { BerthsProps } from '../Berths';
+import { BerthProperties, Order } from '../types';
 
 export const mockOrder: Order = {
   dueDate: '2021-03-25',
@@ -182,4 +183,82 @@ export const mockCustomerBerthsProps = {
   order: mockOrder,
   seasonEndDate: '2021-09-14',
   seasonStartDate: '2021-06-10',
+};
+
+const application = {
+  applicationDate: 'Thu May 28 2020 23:21:00 GMT+0300 (Eastern European Summer Time)',
+  berthChoices: mockCustomerBerthsProps.berthChoices,
+};
+
+const reservations = [
+  {
+    startDate: '2021-03-05',
+    endDate: '2021-03-05',
+    harbor: 'Test',
+    berth: '15',
+  },
+];
+
+const offer = {
+  berthProperties: mockCustomerBerthsProps.berthProperties,
+  order: mockCustomerBerthsProps.order,
+  seasonEndDate: mockCustomerBerthsProps.seasonEndDate,
+  seasonStartDate: mockCustomerBerthsProps.seasonStartDate,
+};
+
+export const getCustomerBerthsProps = (id: string): BerthsProps => {
+  switch (id) {
+    case '1':
+      return {
+        // has an application
+        application,
+        offer: null,
+        invoice: null,
+        reservations: null,
+      };
+
+    case '2':
+      // has an application
+      return {
+        application,
+        offer,
+        invoice: null,
+        reservations,
+      };
+
+    case '3':
+      // invoice unpaid
+      return {
+        application: null,
+        offer: null,
+        invoice: { ...mockCustomerBerthsProps, contract: null },
+        reservations,
+      };
+
+    case '4':
+      // invoice paid
+      return {
+        application: null,
+        offer: null,
+        invoice: {
+          ...mockCustomerBerthsProps,
+          order: mockPaidOrder,
+          contract: {
+            issuedAt: 'Thu Dec 10 2020 00:53:53 GMT+0200 (Eastern European Standard Time)',
+            editedAt: 'Fri Mar 20 2020 01:53:14 GMT+0200 (Eastern European Standard Time)',
+            signedAt: 'Fri Apr 17 2020 03:23:48 GMT+0300 (Eastern European Summer Time)',
+          },
+        },
+        reservations,
+      };
+
+    default:
+      // no berths
+      return {
+        application: null,
+        offer: null,
+        invoice: null,
+        reservations: null,
+      };
+  }
 };
