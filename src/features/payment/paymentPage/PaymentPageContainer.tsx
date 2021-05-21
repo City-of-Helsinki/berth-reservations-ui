@@ -19,6 +19,8 @@ import {
   OrderDetailsVariables,
 } from '../../__generated__/OrderDetails';
 import { FulfillContract, FulfillContractVariables } from '../../__generated__/FulfillContract';
+import BerthInfo from '../berthInfo/BerthInfo';
+import WinterStorageInfo from '../winterStorageInfo/WinterStorageInfo';
 
 interface Props {
   localePush: LocalePush;
@@ -84,9 +86,9 @@ const PaymentPageContainer = ({ localePush }: Props) => {
 
   return getPaymentPage(
     {
-      harbor: orderDetailsData.orderDetails?.harbor,
-      pier: orderDetailsData.orderDetails?.pier,
-      berth: orderDetailsData.orderDetails?.berth,
+      area: orderDetailsData.orderDetails?.area,
+      section: orderDetailsData.orderDetails?.section,
+      place: orderDetailsData.orderDetails?.place,
     },
     orderDetailsData?.orderDetails?.orderType,
     orderNumber,
@@ -101,9 +103,9 @@ const PaymentPageContainer = ({ localePush }: Props) => {
 
 export const getPaymentPage = (
   placeDetails: {
-    harbor: string | undefined;
-    pier: string | undefined;
-    berth: string | undefined;
+    area: string | null | undefined;
+    section: string | null | undefined;
+    place: string | null | undefined;
   },
   orderType: OrderTypeEnum | undefined,
   orderNumber: string,
@@ -118,10 +120,26 @@ export const getPaymentPage = (
     return <GeneralPaymentErrorPage />;
   }
 
+  let orderProductDetails: React.ReactNode = null;
+
+  switch (orderType) {
+    case OrderTypeEnum.BERTH:
+    case OrderTypeEnum.ADDITIONAL_PRODUCT:
+      orderProductDetails = (
+        <BerthInfo harbor={placeDetails.area} pier={placeDetails.section} berth={placeDetails.place} />
+      );
+      break;
+    case OrderTypeEnum.WINTER_STORAGE:
+      orderProductDetails = <WinterStorageInfo {...placeDetails} />;
+      break;
+    default:
+      break;
+  }
+
   if (contractSigned !== null && !contractSigned) {
     return (
       <ContractPage
-        placeDetails={placeDetails}
+        orderProductDetails={orderProductDetails}
         orderNumber={orderNumber}
         handleSign={signContract}
         handleTerminate={handleTerminate}
@@ -132,7 +150,7 @@ export const getPaymentPage = (
 
   switch (status) {
     case OrderStatus.OFFERED:
-      return <PaymentPage handlePay={confirmPayment} placeDetails={placeDetails} />;
+      return <PaymentPage handlePay={confirmPayment} orderProductDetails={orderProductDetails} />;
     case OrderStatus.PAID:
       return <AlreadyPaidPage isAdditionalProduct={orderType === OrderTypeEnum.ADDITIONAL_PRODUCT} />;
     case OrderStatus.EXPIRED:

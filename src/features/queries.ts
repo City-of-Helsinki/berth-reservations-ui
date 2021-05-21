@@ -208,9 +208,9 @@ export const GET_ORDER_DETAILS = gql`
     orderDetails(orderNumber: $orderNumber) {
       orderType
       status
-      harbor
-      pier
-      berth
+      place
+      section
+      area
       isApplicationOrder
     }
     contractSigned(orderNumber: $orderNumber) {

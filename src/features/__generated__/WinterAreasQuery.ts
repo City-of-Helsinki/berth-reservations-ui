@@ -36,6 +36,9 @@ export interface WinterAreasQuery_winterStorageAreas_edges_node_properties {
   maxWidth: number | null;
   municipality: string | null;
   name: string | null;
+  /**
+   * Tunnus palvelukarttajärjestelmässä
+   */
   servicemapId: string | null;
   streetAddress: string | null;
   wwwUrl: string;
@@ -50,6 +53,9 @@ export interface WinterAreasQuery_winterStorageAreas_edges_node_properties {
 
 export interface WinterAreasQuery_winterStorageAreas_edges_node {
   __typename: "WinterStorageAreaNode";
+  /**
+   * The ID of the object.
+   */
   id: string;
   geometry: WinterAreasQuery_winterStorageAreas_edges_node_geometry | null;
   properties: WinterAreasQuery_winterStorageAreas_edges_node_properties | null;
@@ -57,11 +63,17 @@ export interface WinterAreasQuery_winterStorageAreas_edges_node {
 
 export interface WinterAreasQuery_winterStorageAreas_edges {
   __typename: "WinterStorageAreaNodeEdge";
+  /**
+   * The item at the end of the edge
+   */
   node: WinterAreasQuery_winterStorageAreas_edges_node | null;
 }
 
 export interface WinterAreasQuery_winterStorageAreas {
   __typename: "WinterStorageAreaNodeConnection";
+  /**
+   * Contains the nodes in this connection.
+   */
   edges: (WinterAreasQuery_winterStorageAreas_edges | null)[];
 }
 
