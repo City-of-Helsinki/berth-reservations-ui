@@ -1,6 +1,6 @@
 {
   "name": "venepaikka",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "private": true,
   "scripts": {
     "browser-test": "testcafe \"chrome --window-size='1920,1080'\" browser-tests/ --skip-js-errors",
