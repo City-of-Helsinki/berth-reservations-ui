@@ -6,16 +6,16 @@ import BerthOffer, { OfferProps } from './berthOffer/BerthOffer';
 import BerthInvoice, { BerthInvoiceProps } from './berthInvoice/BerthInvoice';
 import NoBerths from './noBerths/NoBerths';
 
-import './customerBerths.scss';
+import './berths.scss';
 
-export interface CustomerBerthsProps {
+export interface BerthsProps {
   application: BerthApplicationProps | null;
   offer: OfferProps | null;
   invoice: BerthInvoiceProps | null;
   reservations: BerthHistoryProps['reservations'] | null;
 }
 
-const CustomerBerths = ({ application, offer, invoice, reservations }: CustomerBerthsProps) => {
+const Berths = ({ application, offer, invoice, reservations }: BerthsProps) => {
   if (!application && !invoice) return <NoBerths />;
 
   return (
@@ -43,4 +43,4 @@ const CustomerBerths = ({ application, offer, invoice, reservations }: CustomerB
   );
 };
 
-export default CustomerBerths;
+export default Berths;

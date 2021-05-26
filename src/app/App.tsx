@@ -7,6 +7,7 @@ import ApplicationSentPage from '../features/notice/ApplicationSentPage';
 import BerthFormPageContainer from '../features/berth/berthFormPage/BerthFormPageContainer';
 import BerthPageContainer from '../features/berth/berthPage/BerthPageContainer';
 import BerthSwitchOfferPageContainer from '../features/berthSwitchOffer/BerthSwitchOfferPageContainer';
+import ProfilePageContainer from '../features/profile/ProfilePageContainer';
 import CallbackPage from './auth/callbackPage/CallbackPage';
 import CancelOrderPageContainer from '../features/payment/cancelOrderPage/CancelOrderPageContainer';
 import FrontPage from '../features/frontPage/FrontPage';
@@ -17,7 +18,7 @@ import NoticeSentPage from '../features/notice/NoticeSentPage';
 import OrderCancelledPage from '../features/payment/cancelOrderPage/OrderCancelledPage';
 import PaymentPageContainer from '../features/payment/paymentPage/PaymentPageContainer';
 import PrivateRoute from './auth/privateRoute/PrivateRoute';
-import ProfilePageContainer from '../features/profile/ProfilePageContainer';
+import MockProfilePageContainer from '../features/profile/MockProfilePageContainer';
 import SelectedAreaPageContainer from '../features/winterStorage/selectedAreaPage/SelectedAreaPageContainer';
 import SelectedBerthPageContainer from '../features/berth/selectedBerthPage/SelectedBerthPageContainer';
 import UnmarkedWinterFormPageContainer from '../features/unmarkedWinterStorage/unmarkedWinterFormPage/UnmarkedWinterFormPageContainer';
@@ -28,7 +29,7 @@ import i18n from '../locales/i18n';
 import { ApplicationType } from '../common/types/applicationType';
 import { LocaleOpts } from '../common/types/intl';
 import { PaymentResultContainer } from '../features/payment/paymentResultPage/PaymentResultContainer';
-import { isUserAuthenticationEnabled } from '../common/utils/featureFlags';
+import { isMockProfileRouteEnabled, isUserAuthenticationEnabled } from '../common/utils/featureFlags';
 
 type Props = RouteComponentProps<{ locale: LocaleOpts }>;
 
@@ -53,7 +54,10 @@ const App = ({
       {isUserAuthenticationEnabled && <Route exact path={`/${localeParam}/callback`} component={CallbackPage} />}
 
       <Route exact path={`/${localeParam}`} component={FrontPage} />
-      <PrivateRoute exact path={`/${localeParam}/profile/:id`} component={ProfilePageContainer} />
+      <PrivateRoute exact path={`/${localeParam}/profile`} component={ProfilePageContainer} />
+      {isMockProfileRouteEnabled && (
+        <PrivateRoute exact path={`/${localeParam}/profile/:id`} component={MockProfilePageContainer} />
+      )}
 
       <Route exact path={`/${localeParam}/${berthParam}`} component={BerthPageContainer} />
       <Route exact path={`/${localeParam}/${berthParam}/selected`} component={SelectedBerthPageContainer} />

@@ -1,64 +1,63 @@
 import React from 'react';
-import classNames from 'classnames';
 import { Container } from 'reactstrap';
 import { useTranslation } from 'react-i18next';
-import { Tab, TabList, TabPanel, Tabs } from 'hds-react';
 
 import Layout from '../../common/layout/Layout';
+import BerthsContainer from './berths/BerthsContainer';
+import BoatsContainer from './boats/BoatsContainer';
 import ContactInfo, { ContactInfoProps } from './contactInfo/ContactInfo';
-import CustomerBerths, { CustomerBerthsProps } from './customerBerths/CustomerBerths';
-import CustomerBoats from './customerBoats/CustomerBoats';
 import './profilePage.scss';
+import Tabs from '../../common/tabs/Tabs';
+import { TabModule } from '../../common/tabs/types';
 
 export interface ProfilePageProps {
-  customerContactInfo: ContactInfoProps;
-  customerBerths: CustomerBerthsProps;
-  hasBerthNotifications: boolean;
-  hasWSNotifications: boolean;
+  contactInfo: ContactInfoProps;
+  showUnfinishedModules?: boolean;
+  hasBerthNotifications?: boolean;
+  hasWSNotifications?: boolean;
 }
 
 const ProfilePage = ({
-  customerContactInfo,
-  customerBerths,
+  contactInfo,
   hasBerthNotifications,
   hasWSNotifications,
+  showUnfinishedModules,
 }: ProfilePageProps) => {
   const { t } = useTranslation();
+
+  const contactTab: TabModule = {
+    component: <ContactInfo {...contactInfo} />,
+    id: 'contact',
+    title: t('page.profile.contact.title'),
+  };
+
+  const boatsTab: TabModule = {
+    component: <BoatsContainer />,
+    id: 'boats',
+    title: t('page.profile.boats.title'),
+  };
+
+  const berthsTab: TabModule = {
+    component: <BerthsContainer />,
+    id: 'berths',
+    showBadge: hasBerthNotifications,
+    title: t('page.profile.berths.title'),
+  };
+
+  const winterStorageTab: TabModule = {
+    component: 'Winter storage tab', // TODO
+    id: 'winterStorage',
+    showBadge: hasWSNotifications,
+    title: t('page.profile.winter_storage.title'),
+  };
+
+  const modules = showUnfinishedModules ? [contactTab, boatsTab, berthsTab, winterStorageTab] : [contactTab];
 
   return (
     <Layout>
       <div className="vene-profile-page">
         <Container>
-          <Tabs>
-            <TabList className="vene-profile-page__tablist">
-              <Tab className="vene-profile-page__tab">{t('page.profile.contact.title')}</Tab>
-              <Tab className="vene-profile-page__tab">{t('page.profile.boats.title')}</Tab>
-              <Tab
-                className={classNames('vene-profile-page__tab', {
-                  'vene-profile-page__tab--with-badge': hasBerthNotifications,
-                })}
-              >
-                {t('page.profile.berths.title')}
-              </Tab>
-              <Tab
-                className={classNames('vene-profile-page__tab', {
-                  'vene-profile-page__tab--with-badge': hasWSNotifications,
-                })}
-              >
-                {t('page.profile.winter_storage.title')}
-              </Tab>
-            </TabList>
-            <TabPanel>
-              <ContactInfo {...customerContactInfo} />
-            </TabPanel>
-            <TabPanel>
-              <CustomerBoats />
-            </TabPanel>
-            <TabPanel>
-              <CustomerBerths {...customerBerths} />
-            </TabPanel>
-            <TabPanel>Winter storage tab</TabPanel>
-          </Tabs>
+          <Tabs tabModules={modules} />
         </Container>
       </div>
     </Layout>
