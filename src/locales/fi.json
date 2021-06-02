@@ -729,17 +729,6 @@
         "edit_application": "Muokkaa hakemusta",
         "keep_application_active": "Haluan että hakemus jää voimaan mikäli paikkoja ei ole vapaana tälle purjehduskaudelle"
       },
-      "contact": {
-        "title": "Yhteystiedot",
-        "heading": "Hei {{ name }}",
-        "address": "Jakeluosoite",
-        "postal_code": "Postinumero",
-        "municipality": "Postitoimipaikka",
-        "phone_number": "Matkapuhelin",
-        "email_address": "Sähköpostiosoite",
-        "customer_group": "Asiakasryhmä",
-        "language": "Asiointikieli"
-      },
       "boats": {
         "title": "Veneet",
         "add_new_boat": "Lisää uusi vene",
@@ -788,23 +777,36 @@
           "decline": "En halua uutta paikkaa, pidän nykyisen paikkani",
           "confirm": "Hyväksy"
         },
-        "contract": {
-          "label": "Sopimus",
-          "issued": "Luotu",
-          "edited": "Muokattu",
-          "signed": "Allekirjoitettu",
-          "status": "Tila",
-          "show": "Näytä sopimus"
-        },
         "history": {
-          "label": "Venepaikkahistoria",
-          "berth": "paikka"
+          "label": "Venepaikkahistoria"
         },
         "switch_offer_completed": {
           "title": "Kiitos!",
           "paragraph1": "Vaihtohakemuksesi on nyt käsitelty loppuun saakka.",
           "paragraph2": "Toivotamme hienoja veneilyhetkiä!"
         }
+      },
+      "contact": {
+        "title": "Yhteystiedot",
+        "heading": "Hei {{ name }}",
+        "address": "Jakeluosoite",
+        "postal_code": "Postinumero",
+        "municipality": "Postitoimipaikka",
+        "phone_number": "Matkapuhelin",
+        "email_address": "Sähköpostiosoite",
+        "customer_group": "Asiakasryhmä",
+        "language": "Asiointikieli"
+      },
+      "contract": {
+        "label": "Sopimus",
+        "issued": "Luotu",
+        "edited": "Muokattu",
+        "signed": "Allekirjoitettu",
+        "status": "Tila",
+        "show": "Näytä sopimus"
+      },
+      "history": {
+        "place": "Paikka"
       },
       "winter_storage": {
         "title": "Talvisäilytyspaikat"

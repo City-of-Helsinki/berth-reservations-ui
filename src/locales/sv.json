@@ -728,17 +728,6 @@
         "edit_application": "Redigera ansökan",
         "keep_application_active": "Jag vill att ansökan ska vara giltig om det inte finns några lediga platser för denna seglingssäsong"
       },
-      "contact": {
-        "title": "Kontaktinformation",
-        "heading": "Hallå {{ name }}",
-        "address": "Utdelningsadress",
-        "postal_code": "Postnummer",
-        "municipality": "Postanstalt",
-        "phone_number": "Mobiltelefon",
-        "email_address": "E-postadress",
-        "customer_group": "Kundgrupp",
-        "language": "Språket"
-      },
       "boats": {
         "title": "Båtar",
         "add_new_boat": "Lägg till en ny båt",
@@ -787,23 +776,33 @@
           "decline": "Jag vill inte ha den ny plats, jag vill behålla min nuvarande plats",
           "confirm": "Acceptera"
         },
-        "contract": {
-          "label": "Avtal",
-          "issued": "Skapat",
-          "edited": "Redigerat",
-          "signed": "Signerad",
-          "status": "Status",
-          "show": "Visa avtal"
-        },
         "history": {
-          "label": "Båtplatshistoria",
-          "berth": "båtplats"
+          "label": "Båtplatshistoria"
         },
         "switch_offer_completed": {
           "title": "Tack!",
           "paragraph1": "Din utbytesansökning har nu behandlats fullständigt.",
           "paragraph2": "Vi önskar dig trevliga båtturer!"
         }
+      },
+      "contact": {
+        "title": "Kontaktinformation",
+        "heading": "Hallå {{ name }}",
+        "address": "Utdelningsadress",
+        "postal_code": "Postnummer",
+        "municipality": "Postanstalt",
+        "phone_number": "Mobiltelefon",
+        "email_address": "E-postadress",
+        "customer_group": "Kundgrupp",
+        "language": "Språket"
+      },
+      "contract": {
+        "label": "Avtal",
+        "issued": "Skapat",
+        "edited": "Redigerat",
+        "signed": "Signerad",
+        "status": "Status",
+        "show": "Visa avtal"
       },
       "winter_storage": {
         "title": "Vinteruppläggningsplatser"

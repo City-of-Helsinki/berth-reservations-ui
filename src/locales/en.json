@@ -728,17 +728,6 @@
         "edit_application": "Edit application",
         "keep_application_active": "I want the application to remain valid if there are no free berths for this sailing season"
       },
-      "contact": {
-        "title": "Contact information",
-        "heading": "Hello {{ name }}",
-        "address": "Street address",
-        "postal_code": "Postal code",
-        "municipality": "City",
-        "phone_number": "Mobile phone",
-        "email_address": "E-mail",
-        "customer_group": "Customer group",
-        "language": "Language"
-      },
       "boats": {
         "title": "Boats",
         "add_new_boat": "Add new boat",
@@ -787,23 +776,33 @@
           "decline": "I do not want the new berth, I will keep my current berth",
           "confirm": "Confirm"
         },
-        "contract": {
-          "label": "Contract",
-          "issued": "Issued",
-          "edited": "Edited",
-          "signed": "Signed",
-          "status": "Status",
-          "show": "Show contract"
-        },
         "history": {
-          "label": "Berth history",
-          "berth": "berth"
+          "label": "Berth history"
         },
         "switch_offer_completed": {
           "title": "Thank you!",
           "paragraph1": "Your switch application has been fully processed.",
           "paragraph2": "Enjoy your boating!"
         }
+      },
+      "contact": {
+        "title": "Contact information",
+        "heading": "Hello {{ name }}",
+        "address": "Street address",
+        "postal_code": "Postal code",
+        "municipality": "City",
+        "phone_number": "Mobile phone",
+        "email_address": "E-mail",
+        "customer_group": "Customer group",
+        "language": "Language"
+      },
+      "contract": {
+        "label": "Contract",
+        "issued": "Issued",
+        "edited": "Edited",
+        "signed": "Signed",
+        "status": "Status",
+        "show": "Show contract"
       },
       "winter_storage": {
         "title": "Winter storage places"
