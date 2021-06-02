@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Icon, { IconProps } from '../../../../common/icon/Icon';
@@ -12,9 +11,9 @@ export interface PropertyProps {
 const Property = ({ icon, labelKey }: PropertyProps) => {
   const { t } = useTranslation();
   return (
-    <div className="vene-berth-property">
-      <Icon name={icon} className="vene-berth-property__icon" />
-      <p className="vene-berth-property__label">{t(labelKey)}</p>
+    <div className="vene-profile-property">
+      <Icon name={icon} className="vene-profile-property__icon" />
+      <p className="vene-profile-property__label">{t(labelKey)}</p>
     </div>
   );
 };
