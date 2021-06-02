@@ -1,5 +1,4 @@
 import { StatusLabel } from 'hds-react';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { OrderStatus } from '../../../../__generated__/globalTypes';
