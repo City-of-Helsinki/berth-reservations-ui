@@ -21,26 +21,17 @@ export interface UnmarkedWinterAreasQuery_winterStorageAreas_edges_node_properti
 
 export interface UnmarkedWinterAreasQuery_winterStorageAreas_edges_node {
   __typename: "WinterStorageAreaNode";
-  /**
-   * The ID of the object.
-   */
   id: string;
   properties: UnmarkedWinterAreasQuery_winterStorageAreas_edges_node_properties | null;
 }
 
 export interface UnmarkedWinterAreasQuery_winterStorageAreas_edges {
   __typename: "WinterStorageAreaNodeEdge";
-  /**
-   * The item at the end of the edge
-   */
   node: UnmarkedWinterAreasQuery_winterStorageAreas_edges_node | null;
 }
 
 export interface UnmarkedWinterAreasQuery_winterStorageAreas {
   __typename: "WinterStorageAreaNodeConnection";
-  /**
-   * Contains the nodes in this connection.
-   */
   edges: (UnmarkedWinterAreasQuery_winterStorageAreas_edges | null)[];
 }
 

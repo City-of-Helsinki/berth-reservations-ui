@@ -11,9 +11,6 @@ import { CreateWinterStorageApplicationMutationInput } from "./../../__generated
 
 export interface SubmitWinterStorage_createWinterStorageApplication_winterStorageApplication {
   __typename: "WinterStorageApplicationNode";
-  /**
-   * The ID of the object.
-   */
   id: string;
 }
 
