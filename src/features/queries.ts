@@ -240,6 +240,39 @@ export const ACCEPT_BERTH_SWITCH_OFFER = gql`
   }
 `;
 
+export const PROFILE_PAGE_QUERY = gql`
+  query ProfilePageQuery {
+    myProfile {
+      id
+      language
+      firstName
+      lastName
+      primaryAddress {
+        id
+        address
+        postalCode
+        city
+      }
+      primaryEmail {
+        id
+        email
+      }
+      primaryPhone {
+        id
+        phone
+      }
+    }
+  }
+`;
+
+export const ADD_SERVICE_CONNECTION = gql`
+  mutation AddServiceConnection($input: AddServiceConnectionMutationInput!) {
+    addServiceConnection(input: $input) {
+      clientMutationId
+    }
+  }
+`;
+
 // TODO
 // export const SWITCH_OFFER_DETAILS = gql`
 //   query SwitchOfferDetails($offerNumber: String!) {
