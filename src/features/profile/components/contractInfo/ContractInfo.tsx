@@ -19,21 +19,21 @@ const ContractInfo = ({ className, issuedAt, editedAt, signedAt }: ContractInfoP
     i18n: { language },
   } = useTranslation();
 
-  const contractStatus = `${t('page.profile.berths.contract.signed')} ${formatDate(signedAt, language)}`;
+  const contractStatus = `${t('page.profile.contract.signed')} ${formatDate(signedAt, language)}`;
 
   return (
     <div className={classNames('vene-contract-info', className)}>
-      <h3 className="vene-contract-info__heading">{t('page.profile.berths.contract.label')}</h3>
-      <LabelValuePair label={t('page.profile.berths.contract.issued')} value={formatDate(issuedAt, language)} />
-      <LabelValuePair label={t('page.profile.berths.contract.edited')} value={formatDate(editedAt, language)} />
-      <LabelValuePair label={t('page.profile.berths.contract.status')} value={contractStatus} />
+      <h3 className="vene-contract-info__heading">{t('page.profile.contract.label')}</h3>
+      <LabelValuePair label={t('page.profile.contract.issued')} value={formatDate(issuedAt, language)} />
+      <LabelValuePair label={t('page.profile.contract.edited')} value={formatDate(editedAt, language)} />
+      <LabelValuePair label={t('page.profile.contract.status')} value={contractStatus} />
       <button
         className="vene-contract-info__link"
         onClick={() => {
           /* show contract */
         }}
       >
-        {t('page.profile.berths.contract.show')}
+        {t('page.profile.contract.show')}
       </button>
     </div>
   );
