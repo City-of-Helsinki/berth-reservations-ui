@@ -723,6 +723,11 @@
       "pay": "Continue to payment"
     },
     "profile": {
+      "application": {
+        "delete_application": "Delete application",
+        "edit_application": "Edit application",
+        "keep_application_active": "I want the application to remain valid if there are no free berths for this sailing season"
+      },
       "contact": {
         "title": "Contact information",
         "heading": "Hello {{ name }}",
@@ -758,15 +763,12 @@
           "berth_application": "Berth application",
           "berth_number": "Berth",
           "berth_total": "Berth total",
-          "delete_application": "Delete application",
           "docking_equipment_summer_storage":"Docking equipment summer storage",
-          "edit_application": "Edit application",
           "harbor_map": "Harbour map (PDF)",
           "harbor_website": "Website",
           "heading": "Offer for berth. If you wish to accept it, please pay the invoice before the due date {{date}}.",
           "info_text": "The invoice will be deleted in both cases (accept/decline). If you wish to have a different berth, accept the offer and make an switch application. Switch applications are processed yearly before new applications.",
           "net_price": "Net price",
-          "keep_application_active": "I want the application to remain valid if there are no free berths for this sailing season",
           "reject_offer": "Decline offer",
           "sports_services_prices": "Sports services pricing",
           "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/en/services/sports-and-recreation/pricing/"

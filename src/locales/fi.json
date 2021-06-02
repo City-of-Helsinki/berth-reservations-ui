@@ -724,6 +724,11 @@
       "pay": "Jatka maksamaan"
     },
     "profile": {
+      "application": {
+        "delete_application": "Poista hakemus",
+        "edit_application": "Muokkaa hakemusta",
+        "keep_application_active": "Haluan että hakemus jää voimaan mikäli paikkoja ei ole vapaana tälle purjehduskaudelle"
+      },
       "contact": {
         "title": "Yhteystiedot",
         "heading": "Hei {{ name }}",
@@ -759,15 +764,12 @@
           "berth_application": "Venepaikkahakemus",
           "berth_number": "Paikka",
           "berth_total": "Venepaikka yhteensä",
-          "delete_application": "Poista hakemus",
           "docking_equipment_summer_storage":"Telakointi\u00ADtarvikkeiden kesäsäilytys",
-          "edit_application": "Muokkaa hakemusta",
           "harbor_map": "Satamakartta (PDF)",
           "harbor_website": "Toimipisteen nettisivut",
           "heading": "Tarjous venepaikasta. Jos haluat vastaanottaa sen,\n maksa se ennen eräpäivää {{date}}.",
           "info_text": "Hakemus poistetaan molemmissa tapauksissa (hyväksy/hylkää). Mikäli haluat eri paikan, hyväksy tarjous jonka jälkeen voit tehdä vaihtohakemuksen. Vaihtohakemukset käsitellään vuosittain ennen uusia hakemuksia.",
           "net_price": "Nettohinta",
-          "keep_application_active": "Haluan että hakemus jää voimaan mikäli paikkoja ei ole vapaana tälle purjehduskaudelle",
           "reject_offer": "Hylkää tarjous",
           "sports_services_prices": "Liikuntapalvelujen hinnasto",
           "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/palvelut/liikunta-ja-ulkoilu/maksut/"

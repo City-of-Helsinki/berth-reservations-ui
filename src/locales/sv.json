@@ -723,6 +723,11 @@
       "pay": "Fortsätt till betalningent"
     },
     "profile": {
+      "application": {
+        "delete_application": "Ta bort ansökan",
+        "edit_application": "Redigera ansökan",
+        "keep_application_active": "Jag vill att ansökan ska vara giltig om det inte finns några lediga platser för denna seglingssäsong"
+      },
       "contact": {
         "title": "Kontaktinformation",
         "heading": "Hallå {{ name }}",
@@ -758,15 +763,12 @@
           "berth_application": "Båtplatsansökan",
           "berth_number": "Plats",
           "berth_total": "Båtplatsen totalt",
-          "delete_application": "Ta bort ansökan",
           "docking_equipment_summer_storage":"Sommarförvaring för docknings\u00ADartiklar",
-          "edit_application": "Redigera ansökan",
           "harbor_map": "Hamnkarta (PDF)",
           "harbor_website": "Webbplats",
           "heading": "Båtplatserbjudande. Om du vill ta emot den ska du betala för den före förfallodatumet, som är {{date}}.",
           "info_text": "Ansökan raderas i båda fallen (acceptera/avvisa). Om du vill ha en annan plats, acceptera erbjudandet varefter du kan göra en ansökan om byte. Bytesansökningar behandlas årligen före nya ansökningar.",
           "net_price": "Nettopris",
-          "keep_application_active": "Jag vill att ansökan ska vara giltig om det inte finns några lediga platser för denna seglingssäsong",
           "reject_offer": "Avvisa erbjudandet",
           "sports_services_prices": "Prislista för sporttjänster",
           "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/sv/tjanster/motion-och-friluftsliv/priser/"
