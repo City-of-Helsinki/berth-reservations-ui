@@ -747,21 +747,14 @@
         "no_berths": "Sinulla ei ole venepaikkoja",
         "apply_for_berth": "Tee venepaikkahakemus",
         "berth_offer": {
-          "accept_and_pay": "Hyväksy ja siirry maksamaan",
           "applied_berths": "Haetut venepaikat",
-          "base_price": "Perushinta ({{berthWidth}})",
           "berth_application": "Venepaikkahakemus",
           "berth_number": "Paikka",
-          "berth_total": "Venepaikka yhteensä",
           "docking_equipment_summer_storage":"Telakointi\u00ADtarvikkeiden kesäsäilytys",
           "harbor_map": "Satamakartta (PDF)",
           "harbor_website": "Toimipisteen nettisivut",
           "heading": "Tarjous venepaikasta. Jos haluat vastaanottaa sen,\n maksa se ennen eräpäivää {{date}}.",
-          "info_text": "Hakemus poistetaan molemmissa tapauksissa (hyväksy/hylkää). Mikäli haluat eri paikan, hyväksy tarjous jonka jälkeen voit tehdä vaihtohakemuksen. Vaihtohakemukset käsitellään vuosittain ennen uusia hakemuksia.",
-          "net_price": "Nettohinta",
-          "reject_offer": "Hylkää tarjous",
-          "sports_services_prices": "Liikuntapalvelujen hinnasto",
-          "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/palvelut/liikunta-ja-ulkoilu/maksut/"
+          "info_text": "Hakemus poistetaan molemmissa tapauksissa (hyväksy/hylkää). Mikäli haluat eri paikan, hyväksy tarjous jonka jälkeen voit tehdä vaihtohakemuksen. Vaihtohakemukset käsitellään vuosittain ennen uusia hakemuksia."
         },
         "berth_invoice": {
           "heading": "Venepaikan tiedot",
@@ -807,6 +800,14 @@
       },
       "history": {
         "place": "Paikka"
+      },
+      "offer": {
+        "accept_and_pay": "Hyväksy ja siirry maksamaan",
+        "base_price": "Perushinta ({{berthWidth}})",
+        "net_price": "Nettohinta",
+        "reject_offer": "Hylkää tarjous",
+        "sports_services_prices": "Liikuntapalvelujen hinnasto",
+        "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/palvelut/liikunta-ja-ulkoilu/maksut/"
       },
       "winter_storage": {
         "title": "Talvisäilytyspaikat"
