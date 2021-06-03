@@ -1,7 +1,7 @@
 @import 'helsinki/colors';
 @import 'styles/variables';
 
-.vene-berth-info {
+.vene-place-info {
   margin-bottom: $spacing-02;
 
   &__main {
@@ -13,7 +13,7 @@
     width: $spacing-12;
   }
 
-  &__harbor-name {
+  &__area-name {
     font-size: $spacing-01-50;
     margin: $spacing-00-25 0;
   }
@@ -29,7 +29,6 @@
   }
 
   &__bold-field {
-    line-height: $spacing-02;
     font-size: $spacing-01;
     font-weight: bold;
   }
