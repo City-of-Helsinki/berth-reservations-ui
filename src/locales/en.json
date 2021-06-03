@@ -753,7 +753,7 @@
           "harbor_map": "Harbour map (PDF)",
           "harbor_website": "Website",
           "heading": "Offer for berth. If you wish to accept it, please pay the invoice before the due date {{date}}.",
-          "info_text": "The invoice will be deleted in both cases (accept/decline). If you wish to have a different berth, accept the offer and make an switch application. Switch applications are processed yearly before new applications.",
+          "info_text": "The invoice will be deleted in both cases (accept/decline). If you wish to have a different berth, accept the offer and make an switch application. Switch applications are processed yearly before new applications."
         },
         "berth_invoice": {
           "heading": "Berth information",
