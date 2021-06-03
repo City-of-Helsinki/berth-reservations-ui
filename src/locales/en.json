@@ -758,7 +758,6 @@
         "berth_invoice": {
           "heading": "Berth information",
           "heading_secondary": "Berth invoice. If you wish to continue the contract,\n please pay the invoice before the due date, {{date}}.",
-          "pay": "Make your payment",
           "terminate_berth": "Terminate berth"
         },
         "berth_switch_offer": {
@@ -796,6 +795,9 @@
       },
       "history": {
         "label": "Berth history"
+      },
+      "invoice": {
+        "pay": "Make your payment"
       },
       "offer": {
         "accept_and_pay": "Accept and pay",

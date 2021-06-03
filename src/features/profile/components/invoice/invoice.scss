@@ -2,7 +2,7 @@
 @import 'styles/variables';
 @import 'styles/mixin';
 
-.vene-berth-invoice {
+.vene-invoice {
   &__heading {
     line-height: $spacing-02-50;
     margin-bottom: $spacing-04;
@@ -14,20 +14,20 @@
     grid-template-columns: 7fr 5fr;
     grid-template-rows: auto;
     grid-template-areas:
-      'berth-info berth-info'
+      'space-info space-info'
       'order-info order-info'
       'buttons buttons';
 
     @include for-desktop() {
       grid-template-areas:
-        'berth-info order-info'
-        'berth-info order-info'
+        'space-info order-info'
+        'space-info order-info'
         'buttons order-info';
     }
   }
 
-  &__berth-info {
-    grid-area: berth-info;
+  &__space-info {
+    grid-area: space-info;
   }
 
   &__buttons {
@@ -50,15 +50,15 @@
   &--has-contract {
     .vene-berth-invoice__grid {
       grid-template-areas:
-        'berth-info berth-info'
+        'space-info space-info'
         'order-info order-info'
         'contract contract'
         'buttons buttons';
 
       @include for-desktop() {
         grid-template-areas:
-          'berth-info order-info'
-          'berth-info order-info'
+          'space-info order-info'
+          'space-info order-info'
           'contract order-info'
           'buttons buttons';
       }

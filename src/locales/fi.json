@@ -759,7 +759,6 @@
         "berth_invoice": {
           "heading": "Venepaikan tiedot",
           "heading_secondary": "Lasku venepaikasta. Jos haluat jatkaa sopimusta,\n maksa se ennen eräpäivää, {{date}}.",
-          "pay": "Siirry maksamaan",
           "terminate_berth": "Irtisano venepaikka"
         },
         "berth_switch_offer": {
@@ -800,6 +799,9 @@
       },
       "history": {
         "place": "Paikka"
+      },
+      "invoice": {
+        "pay": "Siirry maksamaan"
       },
       "offer": {
         "accept_and_pay": "Hyväksy ja siirry maksamaan",

@@ -758,7 +758,6 @@
         "berth_invoice": {
           "heading": "Båtplatsens information",
           "heading_secondary": "Faktura för båtplats. Om du vill förlänga avtalet,\n betala fakturan före förfallodatumet, {{date}}.",
-          "pay": "Betala",
           "terminate_berth": "Avsulta båtplatsen"
         },
         "berth_switch_offer": {
@@ -796,6 +795,9 @@
       },
       "history": {
         "label": "Båtplatshistoria"
+      },
+      "invoice": {
+        "pay": "Betala"
       },
       "offer": {
         "accept_and_pay": "Acceptera och betala",
