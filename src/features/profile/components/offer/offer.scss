@@ -2,7 +2,7 @@
 @import 'styles/variables';
 @import 'styles/mixin';
 
-.vene-berth-offer {
+.vene-offer {
   &__heading {
     line-height: $spacing-02-50;
     margin-bottom: $spacing-04;
@@ -14,21 +14,21 @@
     grid-template-columns: 7fr 5fr;
     grid-template-rows: auto;
     grid-template-areas:
-      'berth-info berth-info'
+      'place-info place-info'
       'order-info order-info'
       'buttons buttons'
       'info-text info-text';
 
     @include for-desktop() {
       grid-template-areas:
-        'berth-info order-info'
+        'place-info order-info'
         'buttons order-info'
         'info-text order-info';
     }
   }
 
-  &__berth-info {
-    grid-area: berth-info;
+  &__place-info {
+    grid-area: place-info;
   }
 
   &__buttons {
