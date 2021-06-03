@@ -1,45 +1,148 @@
-import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-import BerthApplication, { BerthApplicationProps } from './berthApplication/BerthApplication';
-import BerthHistory, { BerthHistoryProps } from './berthHistory/BerthHistory';
-import BerthOffer, { OfferProps } from './berthOffer/BerthOffer';
-import BerthInvoice, { BerthInvoiceProps } from './berthInvoice/BerthInvoice';
-import NoBerths from './noBerths/NoBerths';
-
-import './berths.scss';
+import Application from '../components/application/Application';
+import ReservationHistory, { ReservationHistoryProps } from '../components/reservationHistory/ReservationHistory';
+import Offer from '../components/offer/Offer';
+import BerthInvoice from '../components/invoice/Invoice';
+import NoPlaces from '../components/noPlaces/NoPlaces';
+import Icon from '../../../common/icon/Icon';
+import Divider from '../components/divider/Divider';
+import { BerthSpecs, Properties } from './types';
+import { formatDate, formatDimension } from '../../../common/utils/format';
+import { ApplicationData, OfferData, InvoiceData } from '../types';
+import { OrderStatus } from '../../../__generated__/globalTypes';
 
 export interface BerthsProps {
-  application: BerthApplicationProps | null;
-  offer: OfferProps | null;
-  invoice: BerthInvoiceProps | null;
-  reservations: BerthHistoryProps['reservations'] | null;
+  application: ApplicationData<Properties> | null;
+  offer: OfferData<BerthSpecs> | null;
+  invoice: InvoiceData<BerthSpecs> | null;
+  reservations: ReservationHistoryProps['reservations'] | null;
 }
 
 const Berths = ({ application, offer, invoice, reservations }: BerthsProps) => {
-  if (!application && !invoice) return <NoBerths />;
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
+
+  if (!application && !invoice)
+    return (
+      <NoPlaces
+        linkTo="berths"
+        message={t('page.profile.berths.no_berths')}
+        buttonLabel={t('page.profile.berths.apply_for_berth')}
+      />
+    );
 
   return (
-    <div className="vene-customer-berths">
+    <>
       {offer && (
         <>
-          <BerthOffer {...offer} />
-          <hr className="vene-berth-offer__divider" />
+          <Offer
+            {...offer}
+            placeSpecs={[
+              {
+                label: t('common.pier'),
+                value: offer.placeSpecs.pier,
+                bold: true,
+              },
+              {
+                label: t('page.profile.berths.berth_offer.berth_number'),
+                value: offer.placeSpecs.berthNumber,
+                bold: true,
+              },
+              {
+                label: t('common.width'),
+                value: formatDimension(offer.placeSpecs.berthWidth, language),
+              },
+              {
+                label: t('common.length'),
+                value: formatDimension(offer.placeSpecs.berthLength, language),
+              },
+              {
+                label: t('common.mooring_type'),
+                value: offer.placeSpecs.mooringType,
+              },
+            ]}
+            area={{
+              ...offer.area,
+              websiteLabel: t('page.profile.berths.berth_offer.harbor_website'),
+              mapLabel: t('page.profile.berths.berth_offer.harbor_map'),
+            }}
+            heading={t('page.profile.berths.berth_offer.heading', { date: formatDate(offer.order.dueDate, language) })}
+            infoMsg={t('page.profile.berths.berth_offer.info_text')}
+          />
+          <Divider />
         </>
       )}
       {invoice && (
         <>
-          <BerthInvoice {...invoice} />
-          <hr className="vene-berth-offer__divider" />
+          <BerthInvoice
+            {...invoice}
+            heading={
+              invoice.order.orderStatus !== OrderStatus.OFFERED
+                ? t('page.profile.berths.berth_invoice.heading')
+                : t('page.profile.berths.berth_invoice.heading_secondary', {
+                    date: formatDate(invoice.order.dueDate, language),
+                  })
+            }
+            placeSpecs={[
+              {
+                label: t('common.pier'),
+                value: invoice.placeSpecs.pier,
+                bold: true,
+              },
+              {
+                label: t('page.profile.berths.berth_offer.berth_number'),
+                value: invoice.placeSpecs.berthNumber,
+                bold: true,
+              },
+              {
+                label: t('common.width'),
+                value: formatDimension(invoice.placeSpecs.berthWidth, language),
+              },
+              {
+                label: t('common.length'),
+                value: formatDimension(invoice.placeSpecs.berthLength, language),
+              },
+              {
+                label: t('common.mooring_type'),
+                value: invoice.placeSpecs.mooringType,
+              },
+            ]}
+            area={{
+              ...invoice.area,
+              websiteLabel: t('page.profile.berths.berth_offer.harbor_website'),
+              mapLabel: t('page.profile.berths.berth_offer.harbor_map'),
+            }}
+          />
+          <Divider />
         </>
       )}
       {application && (
         <>
-          <BerthApplication {...application} showHeading={!offer && !invoice} disableButtons={!!offer} />
-          <hr className="vene-berth-offer__divider" />
+          <Application
+            {...application}
+            subHeading={t('page.profile.berths.berth_offer.applied_berths')}
+            heading={!offer && !invoice ? t('page.profile.berths.berth_offer.berth_application') : undefined}
+            renderProperties={({ electricity, gate, lighting, wasteCollection, water }) => (
+              <>
+                {electricity && <Icon name="plug" />}
+                {gate && <Icon name="fence" />}
+                {lighting && <Icon name="streetLight" />}
+                {wasteCollection && <Icon name="trash" />}
+                {water && <Icon name="waterTap" />}
+              </>
+            )}
+            disableButtons={!!offer}
+          />
+          <Divider />
         </>
       )}
-      {reservations && <BerthHistory reservations={reservations} />}
-    </div>
+      {reservations && (
+        <ReservationHistory label={t('page.profile.berths.history.label')} reservations={reservations} />
+      )}
+    </>
   );
 };
 

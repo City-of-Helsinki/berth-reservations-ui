@@ -42,3 +42,28 @@ export interface ApplicationData<T extends Record<string, boolean>> {
   applicationDate: string;
   choices: Choice<T>[];
 }
+
+export interface OfferData<PlaceSpecs> {
+  area: Area;
+  order: Order;
+  placeSpecs: PlaceSpecs;
+  seasonEndDate: string;
+  seasonStartDate: string;
+  properties: Record<string, boolean>;
+}
+
+export interface ContractData {
+  issuedAt: string;
+  editedAt: string;
+  signedAt: string;
+}
+
+export interface InvoiceData<PlaceSpecs> {
+  area: Area;
+  properties: Record<string, boolean>;
+  placeSpecs: PlaceSpecs;
+  order: Order;
+  seasonEndDate: string;
+  seasonStartDate: string;
+  contract: ContractData | null;
+}
