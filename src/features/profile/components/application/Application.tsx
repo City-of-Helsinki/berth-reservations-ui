@@ -5,16 +5,7 @@ import { useTranslation } from 'react-i18next';
 import './application.scss';
 import AvailabilityLevel from '../../../../common/availabilityLevel/AvailabilityLevel';
 import { formatDate } from '../../../../common/utils/format';
-
-export interface Choice<T extends Record<string, boolean>> {
-  name: string;
-  availabilityLevel: {
-    id: string;
-    label: string;
-  };
-  properties: T;
-}
-
+import { Choice } from '../../types';
 export interface ApplicationProps<T extends Record<string, boolean>> {
   applicationDate: string;
   choices: Choice<T>[];

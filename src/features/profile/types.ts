@@ -1,0 +1,44 @@
+import { OrderStatus } from '../../__generated__/globalTypes';
+
+export interface Choice<T extends Record<string, boolean>> {
+  name: string;
+  availabilityLevel: {
+    id: string;
+    label: string;
+  };
+  properties: T;
+}
+
+export interface Area {
+  address: string;
+  image: string;
+  map: string;
+  name: string;
+  website: string;
+}
+
+export interface Product {
+  id: string;
+  name: string; // TODO: Use real enum
+  orderId: string;
+  price: number;
+}
+
+export interface Order {
+  dueDate: string;
+  fixedProducts: Product[];
+  fixedProductsTotalPrice: number;
+  netPrice: number;
+  optionalProducts: Product[];
+  orderNumber: string;
+  price: number;
+  totalPrice: number;
+  orderStatus: OrderStatus;
+  vatAmount: number;
+  vatPercentage: number;
+}
+
+export interface ApplicationData<T extends Record<string, boolean>> {
+  applicationDate: string;
+  choices: Choice<T>[];
+}
