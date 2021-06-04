@@ -43,7 +43,7 @@ const Invoice = ({
           baseProduct={{
             id: 'baseProduct',
             orderId: 'foo',
-            name: t('page.profile.berths.berth_offer.base_price', {
+            name: t('page.profile.offer.base_price', {
               // berthWidth: formatDimension(berthProperties.berthWidth, language),
             }),
             price: order.price,
