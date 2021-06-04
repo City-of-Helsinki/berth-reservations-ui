@@ -30,8 +30,8 @@ const Properties = <T extends Partial<CommonProperties>>({
       {lighting && <Property icon="streetLight" labelKey="common.lighting" />}
       {wasteCollection && <Property icon="trash" labelKey="common.waste_collection" />}
       {water && <Property icon="waterTap" labelKey="common.water" />}
-      {summerStorageForDockingEquipment && <Property icon="trestle" labelKey="common.waste_collection" />}
-      {summerStorageForTrailers && <Property icon="dollyEmpty" labelKey="common.waste_collection" />}
+      {summerStorageForDockingEquipment && <Property icon="trestle" labelKey="common.storage_for_docking_equip" />}
+      {summerStorageForTrailers && <Property icon="dollyEmpty" labelKey="common.storage_for_trailers" />}
     </div>
   );
 };
