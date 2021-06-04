@@ -180,19 +180,18 @@ const mockArea = {
   website: '',
 };
 
-const berthSpecs = {
-  berthLength: 5,
-  berthNumber: '15',
-  berthWidth: 3.5,
-  mooringType: 'Peräpoiju',
-  pier: 'Rantamuuri',
+const winterStorageSpecs = {
+  length: 5,
+  placeNumber: '15',
+  width: 3.5,
+  section: 'Rantamuuri',
 };
 
 export const mockCustomerBerthsProps = {
   applicationDate: '2021-01-05',
   choices: mockChoices,
   area: mockArea,
-  placeSpecs: berthSpecs,
+  placeSpecs: winterStorageSpecs,
   properties: mockBerthProperties,
   order: mockOrder,
   seasonEndDate: '2021-09-14',
@@ -215,7 +214,7 @@ const reservations = [
 
 const offer = {
   area: mockArea,
-  placeSpecs: berthSpecs,
+  placeSpecs: winterStorageSpecs,
   properties: mockCustomerBerthsProps.properties,
   order: mockCustomerBerthsProps.order,
   seasonEndDate: mockCustomerBerthsProps.seasonEndDate,

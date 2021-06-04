@@ -3,19 +3,18 @@ import { useTranslation } from 'react-i18next';
 import ReservationHistory, { ReservationHistoryProps } from '../components/reservationHistory/ReservationHistory';
 import Offer from '../components/offer/Offer';
 import Invoice from '../components/invoice/Invoice';
-import { Properties } from './types';
+import { WinterStorageSpecs, Properties } from './types';
 import Application from '../components/application/Application';
 import NoPlaces from '../components/noPlaces/NoPlaces';
 import Divider from '../components/divider/Divider';
 import Icon from '../../../common/icon/Icon';
 import { formatDate, formatDimension } from '../../../common/utils/format';
-import { BerthSpecs } from '../berths/types';
 import { ApplicationData, OfferData, InvoiceData } from '../types';
 
 export interface WinterStorageProps {
   application: ApplicationData<Properties> | null;
-  offer: OfferData<BerthSpecs> | null;
-  invoice: InvoiceData<BerthSpecs> | null;
+  offer: OfferData<WinterStorageSpecs> | null;
+  invoice: InvoiceData<WinterStorageSpecs> | null;
   reservations: ReservationHistoryProps['reservations'] | null;
 }
 
@@ -43,26 +42,22 @@ const WinterStorage = ({ application, offer, invoice, reservations }: WinterStor
             {...offer}
             placeSpecs={[
               {
-                label: t('common.pier'),
-                value: offer.placeSpecs.pier,
+                label: t('common.section'),
+                value: offer.placeSpecs.section,
                 bold: true,
               },
               {
-                label: t('page.profile.berths.berth_offer.berth_number'),
-                value: offer.placeSpecs.berthNumber,
+                label: t('common.area'),
+                value: offer.placeSpecs.placeNumber,
                 bold: true,
               },
               {
                 label: t('common.width'),
-                value: formatDimension(offer.placeSpecs.berthWidth, language),
+                value: formatDimension(offer.placeSpecs.width, language),
               },
               {
                 label: t('common.length'),
-                value: formatDimension(offer.placeSpecs.berthLength, language),
-              },
-              {
-                label: t('common.mooring_type'),
-                value: offer.placeSpecs.mooringType,
+                value: formatDimension(offer.placeSpecs.length, language),
               },
             ]}
             area={{
@@ -83,26 +78,22 @@ const WinterStorage = ({ application, offer, invoice, reservations }: WinterStor
             {...invoice}
             placeSpecs={[
               {
-                label: t('common.pier'),
-                value: invoice.placeSpecs.pier,
+                label: t('common.section'),
+                value: invoice.placeSpecs.section,
                 bold: true,
               },
               {
-                label: t('page.profile.berths.berth_offer.berth_number'),
-                value: invoice.placeSpecs.berthNumber,
+                label: t('common.area'),
+                value: invoice.placeSpecs.placeNumber,
                 bold: true,
               },
               {
                 label: t('common.width'),
-                value: formatDimension(invoice.placeSpecs.berthWidth, language),
+                value: formatDimension(invoice.placeSpecs.width, language),
               },
               {
                 label: t('common.length'),
-                value: formatDimension(invoice.placeSpecs.berthLength, language),
-              },
-              {
-                label: t('common.mooring_type'),
-                value: invoice.placeSpecs.mooringType,
+                value: formatDimension(invoice.placeSpecs.length, language),
               },
             ]}
             area={{

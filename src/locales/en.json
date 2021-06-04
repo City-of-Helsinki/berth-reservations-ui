@@ -748,7 +748,6 @@
         "berth_offer": {
           "applied_berths": "Applied berths",
           "berth_application": "Berth application",
-          "berth_number": "Berth",
           "docking_equipment_summer_storage":"Docking equipment summer storage",
           "harbor_map": "Harbour map (PDF)",
           "harbor_website": "Website",

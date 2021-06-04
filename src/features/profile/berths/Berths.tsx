@@ -47,7 +47,7 @@ const Berths = ({ application, offer, invoice, reservations }: BerthsProps) => {
                 bold: true,
               },
               {
-                label: t('page.profile.berths.berth_offer.berth_number'),
+                label: t('common.berth'),
                 value: offer.placeSpecs.berthNumber,
                 bold: true,
               },
@@ -93,7 +93,7 @@ const Berths = ({ application, offer, invoice, reservations }: BerthsProps) => {
                 bold: true,
               },
               {
-                label: t('page.profile.berths.berth_offer.berth_number'),
+                label: t('common.berth'),
                 value: invoice.placeSpecs.berthNumber,
                 bold: true,
               },
