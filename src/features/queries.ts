@@ -273,6 +273,14 @@ export const ADD_SERVICE_CONNECTION = gql`
   }
 `;
 
+export const UPDATE_PROFILE = gql`
+  mutation UpdateProfile($input: UpdateMyProfileMutationInput!) {
+    updateMyProfile(input: $input) {
+      clientMutationId
+    }
+  }
+`;
+
 // TODO
 // export const SWITCH_OFFER_DETAILS = gql`
 //   query SwitchOfferDetails($offerNumber: String!) {

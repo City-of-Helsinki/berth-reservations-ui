@@ -9,7 +9,7 @@ import ProfilePage from './ProfilePage';
 import { getContactInfo } from './utils';
 
 const ProfilePageContainer = () => {
-  const { data, loading, error } = useQuery<ProfilePageQuery>(PROFILE_PAGE_QUERY);
+  const { data, loading, error, refetch } = useQuery<ProfilePageQuery>(PROFILE_PAGE_QUERY);
 
   if (loading) return <LoadingPage />;
 
@@ -21,7 +21,7 @@ const ProfilePageContainer = () => {
 
   return (
     <>
-      <ProfilePage contactInfo={contactInfo} />
+      <ProfilePage contactInfo={contactInfo} refetch={refetch} />
       {isProfileDebugEnabled && <ProfileDebug error={error} />}
     </>
   );
