@@ -45,14 +45,7 @@ export const mockOrder: Order = {
   ],
   fixedProductsTotalPrice: 365.77,
   netPrice: 354.84,
-  optionalProducts: [
-    {
-      id: 'MOCK-PRODUCT-6',
-      name: 'PARKING_PERMIT',
-      orderId: 'MOCK-ORDER-0',
-      price: 75,
-    },
-  ],
+  optionalProducts: [],
   orderNumber: 'anw4sxjrmeqma',
   orderStatus: OrderStatus.OFFERED,
   price: 284,
@@ -103,14 +96,7 @@ export const mockPaidOrder: Order = {
   ],
   fixedProductsTotalPrice: 365.77,
   netPrice: 354.84,
-  optionalProducts: [
-    {
-      id: 'MOCK-PRODUCT-6',
-      name: 'PARKING_PERMIT',
-      orderId: 'MOCK-ORDER-0',
-      price: 75,
-    },
-  ],
+  optionalProducts: [],
   orderNumber: 'anw4sxjrmeqma',
   orderStatus: OrderStatus.PAID,
   price: 284,

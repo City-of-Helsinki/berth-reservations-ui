@@ -82,7 +82,7 @@ const OrderInfo = ({
         {fixedProducts.map(mapProduct)}
         <hr className="vene-order-info__divider" />
 
-        {optionalProducts.length && (
+        {!!optionalProducts.length && (
           <>
             <Row label={t('common.total')} value={formatPrice(order.fixedProductsTotalPrice, language)} />
             <Row label={t('common.additional_services')} value="&nbsp;" />
