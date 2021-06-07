@@ -7,9 +7,12 @@
 // START Enums and Input Objects
 //==============================================================
 
-/**
- * An enumeration.
- */
+export enum Language {
+  ENGLISH = "ENGLISH",
+  FINNISH = "FINNISH",
+  SWEDISH = "SWEDISH",
+}
+
 export enum OrderStatus {
   CANCELLED = "CANCELLED",
   DRAFTED = "DRAFTED",
@@ -22,9 +25,6 @@ export enum OrderStatus {
   REJECTED = "REJECTED",
 }
 
-/**
- * An enumeration.
- */
 export enum OrderTypeEnum {
   ADDITIONAL_PRODUCT = "ADDITIONAL_PRODUCT",
   BERTH = "BERTH",
@@ -32,9 +32,13 @@ export enum OrderTypeEnum {
   WINTER_STORAGE = "WINTER_STORAGE",
 }
 
-/**
- * An enumeration.
- */
+export enum ServiceType {
+  BERTH = "BERTH",
+  GODCHILDREN_OF_CULTURE = "GODCHILDREN_OF_CULTURE",
+  HKI_MY_DATA = "HKI_MY_DATA",
+  YOUTH_MEMBERSHIP = "YOUTH_MEMBERSHIP",
+}
+
 export enum WinterStorageMethod {
   ON_TRAILER = "ON_TRAILER",
   ON_TRESTLES = "ON_TRESTLES",
@@ -44,6 +48,11 @@ export enum WinterStorageMethod {
 export interface AcceptBerthSwitchOfferMutationInput {
   offerNumber: string;
   isAccepted: boolean;
+  clientMutationId?: string | null;
+}
+
+export interface AddServiceConnectionMutationInput {
+  serviceConnection: ServiceConnectionInput;
   clientMutationId?: string | null;
 }
 
@@ -121,6 +130,15 @@ export interface FulfillContractMutationInput {
 export interface HarborChoiceInput {
   harborId: string;
   priority: number;
+}
+
+export interface ServiceConnectionInput {
+  service?: ServiceInput | null;
+  enabled?: boolean | null;
+}
+
+export interface ServiceInput {
+  type?: ServiceType | null;
 }
 
 export interface WinterStorageApplicationInput {

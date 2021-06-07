@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import findIndex from 'lodash/findIndex';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
-import { useQuery, useMutation } from 'react-apollo';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { RouteComponentProps } from 'react-router';
 
 import ApplicantDetails from '../../../common/applicantDetails/ApplicantDetails';

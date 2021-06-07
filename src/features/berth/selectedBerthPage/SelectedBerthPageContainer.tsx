@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Form } from 'react-final-form';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import { useQuery } from 'react-apollo';
+import { useQuery } from '@apollo/react-hooks';
 
 import LoadingPage from '../../../common/loadingPage/LoadingPage';
 import { ApplicationOptions } from '../../../common/types/applicationType';

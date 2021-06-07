@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
-import { useMutation, useQuery } from 'react-apollo';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 
 import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
 import { WinterAreasQuery } from '../../__generated__/WinterAreasQuery';

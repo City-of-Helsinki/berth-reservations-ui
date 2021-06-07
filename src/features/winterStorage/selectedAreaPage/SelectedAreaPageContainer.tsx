@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import { useQuery } from 'react-apollo';
+import { useQuery } from '@apollo/react-hooks';
 
 import { deselectWinterArea, moveWinterAreaDown, moveWinterAreaUp } from '../../../redux/actions/WinterAreaActions';
 import { WinterAreasQuery } from '../../__generated__/WinterAreasQuery';

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import { useQuery } from 'react-apollo';
+import { useQuery } from '@apollo/react-hooks';
 
 import { deselectBerth, deselectService, selectBerth, selectService } from '../../../redux/actions/BerthActions';
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';

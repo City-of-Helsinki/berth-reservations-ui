@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import { gql } from 'graphql-tag';
 
 export const HARBORS_QUERY = gql`
   query HarborsQuery {
@@ -235,6 +235,39 @@ export const CANCEL_ORDER = gql`
 export const ACCEPT_BERTH_SWITCH_OFFER = gql`
   mutation AcceptBerthSwitchOffer($input: AcceptBerthSwitchOfferMutationInput!) {
     acceptBerthSwitchOffer(input: $input) {
+      clientMutationId
+    }
+  }
+`;
+
+export const PROFILE_PAGE_QUERY = gql`
+  query ProfilePageQuery {
+    myProfile {
+      id
+      language
+      firstName
+      lastName
+      primaryAddress {
+        id
+        address
+        postalCode
+        city
+      }
+      primaryEmail {
+        id
+        email
+      }
+      primaryPhone {
+        id
+        phone
+      }
+    }
+  }
+`;
+
+export const ADD_SERVICE_CONNECTION = gql`
+  mutation AddServiceConnection($input: AddServiceConnectionMutationInput!) {
+    addServiceConnection(input: $input) {
       clientMutationId
     }
   }

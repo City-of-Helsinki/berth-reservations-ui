@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { compose } from 'recompose';
-import { useQuery, useMutation } from 'react-apollo';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 
 import { onSubmitUnmarkedWinterForm } from '../../../redux/actions/FormActions';
 import { UnmarkedWinterFormValues, WinterStorageArea } from '../types';

@@ -4,7 +4,7 @@ import 'react-app-polyfill/ie11';
 import * as Sentry from '@sentry/browser';
 import { createBrowserHistory } from 'history';
 import PiwikReactRouter from 'piwik-react-router';
-import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider } from '@apollo/react-hooks';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
