@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { HarborType } from '../types';
 import AreaCard, { AreaCardProps } from '../../../common/areaCard/AreaCard';
 import Property from '../../../common/areaCard/property/Property';

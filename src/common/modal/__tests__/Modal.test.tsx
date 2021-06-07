@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme';
-import React from 'react';
 import { Modal as RsModal } from 'reactstrap';
 
 import Modal from '../Modal';

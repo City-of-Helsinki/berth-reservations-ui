@@ -26,6 +26,7 @@
     "season": "Season",
     "section": "Section",
     "sent": "Sent",
+    "storage_for_docking_equip": "Winter storage of accessories",
     "storage_on_ice": "Storage on ice",
     "total": "Total",
     "trailer_summer_storage": "Trailer summer storage",
@@ -723,16 +724,10 @@
       "pay": "Continue to payment"
     },
     "profile": {
-      "contact": {
-        "title": "Contact information",
-        "heading": "Hello {{ name }}",
-        "address": "Street address",
-        "postal_code": "Postal code",
-        "municipality": "City",
-        "phone_number": "Mobile phone",
-        "email_address": "E-mail",
-        "customer_group": "Customer group",
-        "language": "Language"
+      "application": {
+        "delete_application": "Delete application",
+        "edit_application": "Edit application",
+        "keep_application_active": "I want the application to remain valid if there are no free berths for this sailing season"
       },
       "boats": {
         "title": "Boats",
@@ -752,29 +747,17 @@
         "no_berths": "You have no berths",
         "apply_for_berth": "Apply for a berth",
         "berth_offer": {
-          "accept_and_pay": "Accept and pay",
           "applied_berths": "Applied berths",
-          "base_price": "Base price ({{berthWidth}})",
           "berth_application": "Berth application",
-          "berth_number": "Berth",
-          "berth_total": "Berth total",
-          "delete_application": "Delete application",
           "docking_equipment_summer_storage":"Docking equipment summer storage",
-          "edit_application": "Edit application",
           "harbor_map": "Harbour map (PDF)",
           "harbor_website": "Website",
           "heading": "Offer for berth. If you wish to accept it, please pay the invoice before the due date {{date}}.",
-          "info_text": "The invoice will be deleted in both cases (accept/decline). If you wish to have a different berth, accept the offer and make an switch application. Switch applications are processed yearly before new applications.",
-          "net_price": "Net price",
-          "keep_application_active": "I want the application to remain valid if there are no free berths for this sailing season",
-          "reject_offer": "Decline offer",
-          "sports_services_prices": "Sports services pricing",
-          "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/en/services/sports-and-recreation/pricing/"
+          "info_text": "The invoice will be deleted in both cases (accept/decline). If you wish to have a different berth, accept the offer and make an switch application. Switch applications are processed yearly before new applications."
         },
         "berth_invoice": {
           "heading": "Berth information",
           "heading_secondary": "Berth invoice. If you wish to continue the contract,\n please pay the invoice before the due date, {{date}}.",
-          "pay": "Make your payment",
           "terminate_berth": "Terminate berth"
         },
         "berth_switch_offer": {
@@ -785,23 +768,44 @@
           "decline": "I do not want the new berth, I will keep my current berth",
           "confirm": "Confirm"
         },
-        "contract": {
-          "label": "Contract",
-          "issued": "Issued",
-          "edited": "Edited",
-          "signed": "Signed",
-          "status": "Status",
-          "show": "Show contract"
-        },
-        "history": {
-          "label": "Berth history",
-          "berth": "berth"
-        },
         "switch_offer_completed": {
           "title": "Thank you!",
           "paragraph1": "Your switch application has been fully processed.",
           "paragraph2": "Enjoy your boating!"
         }
+      },
+      "contact": {
+        "title": "Contact information",
+        "heading": "Hello {{ name }}",
+        "address": "Street address",
+        "postal_code": "Postal code",
+        "municipality": "City",
+        "phone_number": "Mobile phone",
+        "email_address": "E-mail",
+        "customer_group": "Customer group",
+        "language": "Language"
+      },
+      "contract": {
+        "label": "Contract",
+        "issued": "Issued",
+        "edited": "Edited",
+        "signed": "Signed",
+        "status": "Status",
+        "show": "Show contract"
+      },
+      "history": {
+        "label": "Berth history"
+      },
+      "invoice": {
+        "pay": "Make your payment"
+      },
+      "offer": {
+        "accept_and_pay": "Accept and pay",
+        "base_price": "Base price ({{width}})",
+        "net_price": "Net price",
+        "reject_offer": "Decline offer",
+        "sports_services_prices": "Sports services pricing",
+        "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/en/services/sports-and-recreation/pricing/"
       },
       "winter_storage": {
         "title": "Winter storage places"

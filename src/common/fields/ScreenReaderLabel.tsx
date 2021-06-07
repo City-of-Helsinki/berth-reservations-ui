@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import React from 'react';
 import './screenReaderLabel.scss';
 import { useTranslation } from 'react-i18next';
 

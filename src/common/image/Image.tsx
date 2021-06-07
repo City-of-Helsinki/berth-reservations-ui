@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ImageProps } from './types';
 
 const Image = ({ src, alt, ...rest }: ImageProps) => {

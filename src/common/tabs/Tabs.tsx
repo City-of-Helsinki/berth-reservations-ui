@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import { Tab, TabList, TabPanel, Tabs as HDSTabs } from 'hds-react';
-import React from 'react';
 
 import { TabModule } from './types';
 import './tabs.scss';

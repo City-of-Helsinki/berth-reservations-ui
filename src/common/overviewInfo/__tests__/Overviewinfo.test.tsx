@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme';
-import React from 'react';
 import { Container } from 'reactstrap';
 
 import OverviewInfo, { Props } from '../OverviewInfo';

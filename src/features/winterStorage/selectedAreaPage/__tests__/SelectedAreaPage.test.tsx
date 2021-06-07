@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme';
-import React from 'react';
 
 import SelectedAreaPage, { Props } from '../SelectedAreaPage';
 import { winterValues } from '../../../../__fixtures__/formValuesFixture';

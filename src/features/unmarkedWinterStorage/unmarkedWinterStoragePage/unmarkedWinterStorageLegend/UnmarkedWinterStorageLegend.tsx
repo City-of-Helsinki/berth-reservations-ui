@@ -1,4 +1,3 @@
-import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
 import AutoSave from '../../../../common/autoSave/AutoSave';

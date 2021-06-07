@@ -1,5 +1,4 @@
 import { mount } from 'enzyme';
-import React from 'react';
 import { MemoryRouter, Route, RouteComponentProps } from 'react-router-dom';
 
 import { LocalePush, withMatchParamsHandlers } from '../container';

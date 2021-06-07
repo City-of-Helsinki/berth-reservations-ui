@@ -1,5 +1,3 @@
-import React from 'react';
-
 import BoatInfoFragment from '../../boatInfoFragment/BoatInfoFragment';
 import BoatMeasures from '../../boatMeasuresFragment/BoatMeasuresFragment';
 import RegisteredBoatDetails from '../../registeredBoatDetails/RegisteredBoatDetails';

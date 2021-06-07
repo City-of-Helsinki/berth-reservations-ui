@@ -1,5 +1,3 @@
-import React from 'react';
-
 import BoatInfoFragment from '../../boatInfoFragment/BoatInfoFragment';
 import UnregisteredBoatDetails from '../../unregisteredBoatDetails/UnregisteredBoatDetails';
 import { WithBoatType } from '../../selects/Selects';

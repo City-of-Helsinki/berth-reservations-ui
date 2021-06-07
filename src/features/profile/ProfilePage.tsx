@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container } from 'reactstrap';
 import { useTranslation } from 'react-i18next';
 
@@ -6,9 +5,10 @@ import Layout from '../../common/layout/Layout';
 import BerthsContainer from './berths/BerthsContainer';
 import BoatsContainer from './boats/BoatsContainer';
 import ContactInfo, { ContactInfoProps } from './contactInfo/ContactInfo';
-import './profilePage.scss';
+import WinterStorageContainer from './winterStorage/WinterStorageContainer';
 import Tabs from '../../common/tabs/Tabs';
 import { TabModule } from '../../common/tabs/types';
+import './profilePage.scss';
 
 export interface ProfilePageProps {
   contactInfo: ContactInfoProps;
@@ -45,7 +45,7 @@ const ProfilePage = ({
   };
 
   const winterStorageTab: TabModule = {
-    component: 'Winter storage tab', // TODO
+    component: <WinterStorageContainer />,
     id: 'winterStorage',
     showBadge: hasWSNotifications,
     title: t('page.profile.winter_storage.title'),

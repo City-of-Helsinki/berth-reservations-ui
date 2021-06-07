@@ -1,5 +1,4 @@
 import { Navigation, NavigationProps } from 'hds-react';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import './navbar.scss';
 import { useHistory } from 'react-router';

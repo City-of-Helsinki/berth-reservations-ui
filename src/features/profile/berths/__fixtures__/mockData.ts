@@ -1,7 +1,8 @@
 import { OrderStatus } from '../../../../__generated__/globalTypes';
-import { BerthChoice } from '../berthApplication/BerthApplication';
+import { Area } from '../../components/placeInfo/PlaceInfo';
 import { BerthsProps } from '../Berths';
-import { BerthProperties, Order } from '../types';
+import { Properties } from '../types';
+import { Choice, Order } from '../../types';
 
 export const mockOrder: Order = {
   dueDate: '2021-03-25',
@@ -119,18 +120,20 @@ export const mockPaidOrder: Order = {
   vatPercentage: 24,
 };
 
-export const mockChoices: BerthChoice[] = [
+export const mockChoices: Choice<Properties>[] = [
   {
     name: 'Laivalahden venesatama (aallonmurtaja)',
     availabilityLevel: {
       id: '3',
       label: 'Paljon jonoa',
     },
-    electricity: true,
-    gate: false,
-    lighting: true,
-    wasteCollection: true,
-    water: false,
+    properties: {
+      electricity: true,
+      gate: false,
+      lighting: true,
+      wasteCollection: true,
+      water: false,
+    },
   },
   {
     name: 'Laivalahden venesatama (Reginankuja)',
@@ -138,11 +141,13 @@ export const mockChoices: BerthChoice[] = [
       id: '3',
       label: 'Paljon jonoa',
     },
-    electricity: false,
-    gate: false,
-    lighting: true,
-    wasteCollection: false,
-    water: true,
+    properties: {
+      electricity: false,
+      gate: false,
+      lighting: true,
+      wasteCollection: false,
+      water: true,
+    },
   },
   {
     name: 'Kipparlahden venesatama (rantamuuri)',
@@ -150,36 +155,46 @@ export const mockChoices: BerthChoice[] = [
       id: '2',
       label: 'Jonkin verran jonoa',
     },
-    electricity: false,
-    gate: false,
-    lighting: false,
-    wasteCollection: true,
-    water: false,
+    properties: {
+      electricity: false,
+      gate: false,
+      lighting: false,
+      wasteCollection: true,
+      water: false,
+    },
   },
 ];
 
-const mockBerthProperties: BerthProperties = {
+const berthSpecs = {
   berthLength: 5,
   berthNumber: '15',
   berthWidth: 3.5,
-  electricity: true,
-  gate: true,
-  harborAddress: 'Kipparlahdenkuja 3, 00810 Helsinki',
-  harborImage: '/img/helsinki_harbors/41189.jpg',
-  harborMap: '',
-  harborName: 'Kipparlahden venesatama',
-  harborWebsite: '',
-  lighting: true,
   mooringType: 'Peräpoiju',
   pier: 'Rantamuuri',
-  wasteCollection: true,
+};
+
+const mockBerthProperties = {
   water: true,
+  wasteCollection: true,
+  lighting: true,
+  electricity: true,
+  gate: true,
+};
+
+const mockHarbor: Omit<Area, 'mapLabel' | 'websiteLabel'> = {
+  address: 'Kipparlahdenkuja 3, 00810 Helsinki',
+  image: '/img/helsinki_harbors/41189.jpg',
+  map: '',
+  name: 'Kipparlahden venesatama',
+  website: '',
 };
 
 export const mockCustomerBerthsProps = {
   applicationDate: '2021-01-05',
-  berthChoices: mockChoices,
-  berthProperties: mockBerthProperties,
+  area: mockHarbor,
+  choices: mockChoices,
+  placeSpecs: berthSpecs,
+  properties: mockBerthProperties,
   order: mockOrder,
   seasonEndDate: '2021-09-14',
   seasonStartDate: '2021-06-10',
@@ -187,20 +202,22 @@ export const mockCustomerBerthsProps = {
 
 const application = {
   applicationDate: 'Thu May 28 2020 23:21:00 GMT+0300 (Eastern European Summer Time)',
-  berthChoices: mockCustomerBerthsProps.berthChoices,
+  choices: mockCustomerBerthsProps.choices,
 };
 
 const reservations = [
   {
     startDate: '2021-03-05',
     endDate: '2021-03-05',
-    harbor: 'Test',
-    berth: '15',
+    area: 'Test',
+    place: '15',
   },
 ];
 
 const offer = {
-  berthProperties: mockCustomerBerthsProps.berthProperties,
+  area: mockHarbor,
+  placeSpecs: mockCustomerBerthsProps.placeSpecs,
+  properties: mockCustomerBerthsProps.properties,
   order: mockCustomerBerthsProps.order,
   seasonEndDate: mockCustomerBerthsProps.seasonEndDate,
   seasonStartDate: mockCustomerBerthsProps.seasonStartDate,
@@ -218,7 +235,7 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
       };
 
     case '2':
-      // has an application
+      // has an application and an offer
       return {
         application,
         offer,

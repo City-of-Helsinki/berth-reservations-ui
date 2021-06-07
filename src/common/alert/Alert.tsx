@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert as BTAlert, AlertProps as BTAlertProps } from 'reactstrap';
 import './alert.scss';

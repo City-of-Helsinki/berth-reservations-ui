@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import findIndex from 'lodash/findIndex';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';

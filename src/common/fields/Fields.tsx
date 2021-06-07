@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { withTranslation } from 'react-i18next';
 import { withProps } from 'recompose';
 

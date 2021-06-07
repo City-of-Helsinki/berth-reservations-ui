@@ -1,0 +1,7 @@
+@import 'helsinki/colors';
+@import 'styles/variables';
+
+.vene-divider {
+  margin: $spacing-02 0;
+  border-color: $hel-gray;
+}

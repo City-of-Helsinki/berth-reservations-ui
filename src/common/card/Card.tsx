@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Button, Card as RSCard, CardBody, CardTitle } from 'reactstrap';
 
 import './card.scss';

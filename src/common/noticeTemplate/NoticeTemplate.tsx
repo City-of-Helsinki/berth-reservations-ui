@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import React, { useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
+import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'reactstrap';
 

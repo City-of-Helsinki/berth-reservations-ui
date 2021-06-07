@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { Col, Row } from 'reactstrap';
 
 import { mustBeBusinessId, mustBeCompanyName } from '../../../utils/formValidation';

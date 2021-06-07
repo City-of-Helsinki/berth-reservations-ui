@@ -1,5 +1,4 @@
 import { Button } from 'hds-react';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Boat } from './types';

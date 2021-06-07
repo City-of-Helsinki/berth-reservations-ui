@@ -26,9 +26,10 @@
     "season": "Avtalsperiod",
     "section": "Sektion",
     "sent": "Skickas",
+    "storage_for_docking_equip": "Sommar\u00ADförvaring för utrustning",
     "storage_on_ice": "Förvaring på is",
     "total": "Totalt",
-    "trailer_summer_storage": "Släp sommarförvaring",
+    "trailer_summer_storage": "Släp sommar\u00ADförvaring",
     "vat": "ALV",
     "waiting_for_payment": "Väntar på betalning",
     "waste_collection": "Avfallshantering",
@@ -723,16 +724,10 @@
       "pay": "Fortsätt till betalningent"
     },
     "profile": {
-      "contact": {
-        "title": "Kontaktinformation",
-        "heading": "Hallå {{ name }}",
-        "address": "Utdelningsadress",
-        "postal_code": "Postnummer",
-        "municipality": "Postanstalt",
-        "phone_number": "Mobiltelefon",
-        "email_address": "E-postadress",
-        "customer_group": "Kundgrupp",
-        "language": "Språket"
+      "application": {
+        "delete_application": "Ta bort ansökan",
+        "edit_application": "Redigera ansökan",
+        "keep_application_active": "Jag vill att ansökan ska vara giltig om det inte finns några lediga platser för denna seglingssäsong"
       },
       "boats": {
         "title": "Båtar",
@@ -752,29 +747,17 @@
         "no_berths": "Du har ingen båtplatser",
         "apply_for_berth": "Ansök om en båtplats",
         "berth_offer": {
-          "accept_and_pay": "Acceptera och betala",
           "applied_berths": "Sökte båtplatser",
-          "base_price": "Grundavgift ({{berthWidth}})",
           "berth_application": "Båtplatsansökan",
-          "berth_number": "Plats",
-          "berth_total": "Båtplatsen totalt",
-          "delete_application": "Ta bort ansökan",
           "docking_equipment_summer_storage":"Sommarförvaring för docknings\u00ADartiklar",
-          "edit_application": "Redigera ansökan",
           "harbor_map": "Hamnkarta (PDF)",
           "harbor_website": "Webbplats",
           "heading": "Båtplatserbjudande. Om du vill ta emot den ska du betala för den före förfallodatumet, som är {{date}}.",
-          "info_text": "Ansökan raderas i båda fallen (acceptera/avvisa). Om du vill ha en annan plats, acceptera erbjudandet varefter du kan göra en ansökan om byte. Bytesansökningar behandlas årligen före nya ansökningar.",
-          "net_price": "Nettopris",
-          "keep_application_active": "Jag vill att ansökan ska vara giltig om det inte finns några lediga platser för denna seglingssäsong",
-          "reject_offer": "Avvisa erbjudandet",
-          "sports_services_prices": "Prislista för sporttjänster",
-          "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/sv/tjanster/motion-och-friluftsliv/priser/"
+          "info_text": "Ansökan raderas i båda fallen (acceptera/avvisa). Om du vill ha en annan plats, acceptera erbjudandet varefter du kan göra en ansökan om byte. Bytesansökningar behandlas årligen före nya ansökningar."
         },
         "berth_invoice": {
           "heading": "Båtplatsens information",
           "heading_secondary": "Faktura för båtplats. Om du vill förlänga avtalet,\n betala fakturan före förfallodatumet, {{date}}.",
-          "pay": "Betala",
           "terminate_berth": "Avsulta båtplatsen"
         },
         "berth_switch_offer": {
@@ -785,23 +768,44 @@
           "decline": "Jag vill inte ha den ny plats, jag vill behålla min nuvarande plats",
           "confirm": "Acceptera"
         },
-        "contract": {
-          "label": "Avtal",
-          "issued": "Skapat",
-          "edited": "Redigerat",
-          "signed": "Signerad",
-          "status": "Status",
-          "show": "Visa avtal"
-        },
-        "history": {
-          "label": "Båtplatshistoria",
-          "berth": "båtplats"
-        },
         "switch_offer_completed": {
           "title": "Tack!",
           "paragraph1": "Din utbytesansökning har nu behandlats fullständigt.",
           "paragraph2": "Vi önskar dig trevliga båtturer!"
         }
+      },
+      "contact": {
+        "title": "Kontaktinformation",
+        "heading": "Hallå {{ name }}",
+        "address": "Utdelningsadress",
+        "postal_code": "Postnummer",
+        "municipality": "Postanstalt",
+        "phone_number": "Mobiltelefon",
+        "email_address": "E-postadress",
+        "customer_group": "Kundgrupp",
+        "language": "Språket"
+      },
+      "contract": {
+        "label": "Avtal",
+        "issued": "Skapat",
+        "edited": "Redigerat",
+        "signed": "Signerad",
+        "status": "Status",
+        "show": "Visa avtal"
+      },
+      "history": {
+        "label": "Båtplatshistoria"
+      },
+      "invoice": {
+        "pay": "Betala"
+      },
+      "offer": {
+        "accept_and_pay": "Acceptera och betala",
+        "base_price": "Grundavgift ({{berthWidth}})",
+        "net_price": "Nettopris",
+        "reject_offer": "Avvisa erbjudandet",
+        "sports_services_prices": "Prislista för sporttjänster",
+        "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/sv/tjanster/motion-och-friluftsliv/priser/"
       },
       "winter_storage": {
         "title": "Vinteruppläggningsplatser"

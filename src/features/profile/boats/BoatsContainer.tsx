@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { mockBoats } from './__fixtures__/mockData';
 import Boats from './Boats';
 

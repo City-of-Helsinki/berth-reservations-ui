@@ -1,5 +1,4 @@
 import { useMutation } from '@apollo/react-hooks';
-import React from 'react';
 import { compose } from 'recompose';
 
 import { LocalePush, withMatchParamsHandlers } from '../../common/utils/container';
