@@ -1,7 +1,7 @@
 import Property from './Property';
 import './properties.scss';
 
-type CommonProperties = Record<
+type AllProperties = Record<
   | 'electricity'
   | 'gate'
   | 'lighting'
@@ -12,9 +12,9 @@ type CommonProperties = Record<
   boolean
 >;
 
-export type PropertiesProps<T extends Partial<CommonProperties>> = T;
+export type PropertiesProps<T extends Partial<AllProperties>> = T;
 
-const Properties = <T extends Partial<CommonProperties>>({
+const Properties = <T extends Partial<AllProperties>>({
   electricity,
   gate,
   lighting,
