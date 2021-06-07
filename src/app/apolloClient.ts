@@ -37,7 +37,7 @@ const authLink = setContext((_, { headers }) => {
     headers: {
       ...headers,
       'Accept-Language': i18n.language,
-      'Api-Tokens': apiTokens,
+      ...(apiTokens && { 'Api-Tokens': apiTokens }),
     },
   };
 });
