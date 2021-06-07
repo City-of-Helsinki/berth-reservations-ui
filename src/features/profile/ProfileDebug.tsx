@@ -32,8 +32,6 @@ export const ProfileDebug = ({ error }: { error?: ApolloError }) => {
     _addServiceConnection().then(() => reloadPage());
   };
 
-  const isServiceConnectionMissing = error?.message.includes('You do not have permission');
-
   const style: React.CSSProperties = {
     background: 'white',
     padding: '10px',
@@ -57,7 +55,7 @@ export const ProfileDebug = ({ error }: { error?: ApolloError }) => {
       </p>
 
       <p>
-        <button type="button" disabled={!isServiceConnectionMissing} onClick={() => addServiceConnection()}>
+        <button type="button" onClick={() => addServiceConnection()}>
           Add service connection
         </button>
       </p>
