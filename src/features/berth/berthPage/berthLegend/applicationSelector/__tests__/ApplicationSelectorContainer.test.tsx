@@ -1,5 +1,4 @@
 import { fireEvent, render } from '@testing-library/react';
-import React from 'react';
 
 import { SWITCH_APPLICATION_LIMIT } from '../../../../../../common/utils/constants';
 import { ApplicationOptions } from '../../../../../../common/types/applicationType';

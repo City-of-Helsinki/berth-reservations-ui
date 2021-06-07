@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import { TransitionStatus } from 'react-transition-group/Transition';
 import { Button, Col, Container, Row } from 'reactstrap';
 

@@ -1,4 +1,4 @@
-import React, { FormEvent, useLayoutEffect } from 'react';
+import { FormEvent, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, Button, Col, Container, Form as BTForm, Row } from 'reactstrap';
 

@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme';
-import React from 'react';
 import { Field } from 'react-final-form';
 
 import SwitchApplication, { SwitchApplicationProps } from '../SwitchApplication';

@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme';
-import React from 'react';
 
 import SelectedBerthPage, { Props } from '../SelectedBerthPage';
 import { harbors } from '../../../../__fixtures__/harborFixture';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { BerthSwitchState } from '../../../../../redux/types';
 import OldBerthInfo from './OldBerthInfo';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button, IconFaceSad } from 'hds-react';
 
 import { LocalePush, withMatchParamsHandlers } from '../../../../common/utils/container';

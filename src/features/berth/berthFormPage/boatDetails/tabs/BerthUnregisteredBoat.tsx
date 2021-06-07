@@ -1,5 +1,3 @@
-import React from 'react';
-
 import FormTab from '../../../../../common/formTab/FormTab';
 import Accessibility from './fragments/Accessibility';
 import BoatInfoFragment from '../../../../../common/boatInfoFragment/BoatInfoFragment';

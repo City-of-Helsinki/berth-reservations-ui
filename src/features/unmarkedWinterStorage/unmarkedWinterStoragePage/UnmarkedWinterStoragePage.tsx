@@ -1,5 +1,5 @@
 import { List } from 'immutable';
-import React, { useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { Button, Col, Row } from 'reactstrap';
 

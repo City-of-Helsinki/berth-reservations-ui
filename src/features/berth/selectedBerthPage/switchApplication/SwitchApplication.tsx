@@ -1,4 +1,3 @@
-import React from 'react';
 import { Field } from 'react-final-form';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';

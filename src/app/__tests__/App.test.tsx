@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme';
-import React from 'react';
 
 import { getMockRouterProps } from '../../__fixtures__/routerFixture';
 import { LocaleOpts } from '../../common/types/intl';

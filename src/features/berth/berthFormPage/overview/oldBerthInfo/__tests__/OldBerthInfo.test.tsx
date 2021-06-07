@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme';
-import React from 'react';
 import { Row } from 'reactstrap';
 
 import OldBerthInfo, { OldBerthInfoProps } from '../OldBerthInfo';

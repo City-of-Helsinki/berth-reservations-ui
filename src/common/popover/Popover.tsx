@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import React, { useState } from 'react';
+import { useState } from 'react';
+import * as React from 'react';
 import { Popover as RsPopover, PopoverBody, PopoverProps } from 'reactstrap';
 
 import './popover.scss';

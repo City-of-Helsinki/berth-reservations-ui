@@ -1,5 +1,4 @@
 import { fireEvent, render } from '@testing-library/react';
-import React from 'react';
 
 import { ApplicationOptions } from '../../../../../../common/types/applicationType';
 import ApplicationSelector, { ApplicationSelectorProps } from '../ApplicationSelector';

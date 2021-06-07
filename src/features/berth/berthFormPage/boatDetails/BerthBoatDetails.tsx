@@ -1,4 +1,3 @@
-import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
 import BerthNoBoat from './tabs/BerthNoBoat';

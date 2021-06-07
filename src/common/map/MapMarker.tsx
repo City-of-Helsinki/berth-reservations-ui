@@ -1,5 +1,4 @@
 import L from 'leaflet';
-import React from 'react';
 import { Marker } from 'react-leaflet';
 
 interface Props {

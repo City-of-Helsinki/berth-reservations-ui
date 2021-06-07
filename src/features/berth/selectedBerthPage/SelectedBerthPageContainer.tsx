@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Form } from 'react-final-form';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';

@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme';
-import React from 'react';
 import { Button } from 'reactstrap';
 
 import Card from '../Card';

@@ -1,4 +1,5 @@
-import React, { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
+import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, Col, Container, Row } from 'reactstrap';
 

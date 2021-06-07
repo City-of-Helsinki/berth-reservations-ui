@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink, RouteComponentProps, withRouter } from 'react-router-dom';
 import { Col, Container, Row } from 'reactstrap';

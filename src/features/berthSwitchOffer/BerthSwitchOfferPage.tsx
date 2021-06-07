@@ -1,5 +1,5 @@
 import { Button, RadioButton } from 'hds-react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Layout from '../../common/layout/Layout';

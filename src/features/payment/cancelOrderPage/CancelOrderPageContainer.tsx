@@ -1,4 +1,3 @@
-import React from 'react';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { compose } from 'recompose';
 

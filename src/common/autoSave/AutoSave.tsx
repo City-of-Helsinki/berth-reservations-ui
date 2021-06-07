@@ -1,5 +1,5 @@
 import { debounce } from 'lodash';
-import React, { useCallback, useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { FormSpy } from 'react-final-form';
 
 type AutoSaveProps<T> = {

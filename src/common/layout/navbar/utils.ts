@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { matchPath } from 'react-router';
 import { History, Location } from 'history';
 
