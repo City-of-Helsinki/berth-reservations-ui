@@ -6,16 +6,12 @@ import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import './contactInfo.scss';
 
 export type ContactInfoProps = {
-  contactInfo?: ContactInfoType;
+  contactInfo: ContactInfoType;
   handleEdit(): void;
 };
 
 const ContactInfo = ({ contactInfo, handleEdit }: ContactInfoProps) => {
   const { t } = useTranslation();
-
-  if (!contactInfo) {
-    return <div>Sinulla ei ole vielä profiilia. Luo uusi profiili tästä.</div>;
-  }
 
   const {
     firstName,

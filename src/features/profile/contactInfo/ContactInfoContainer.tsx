@@ -58,6 +58,11 @@ const ContactInfoContainer = ({ contactInfo, refetch }: ContactInfoContainerProp
     });
   };
 
+  if (!contactInfo) {
+    // TODO: Create profile
+    return <div>Debug: User does not have a profile</div>;
+  }
+
   if (isEditing) {
     return (
       <EditContactInfo
