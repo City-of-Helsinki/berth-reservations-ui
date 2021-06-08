@@ -1,12 +1,23 @@
 import { ProfilePageQuery } from '../__generated__/ProfilePageQuery';
+import { ContactInfo } from './types';
 
-export const getContactInfo = (data: ProfilePageQuery | undefined) => ({
-  address: data?.myProfile?.primaryAddress?.address ?? '',
-  customerGroup: '',
-  emailAddress: data?.myProfile?.primaryEmail?.email ?? '',
-  language: data?.myProfile?.language ?? '',
-  municipality: data?.myProfile?.primaryAddress?.city ?? '',
-  name: `${data?.myProfile?.firstName ?? ''} ${data?.myProfile?.lastName ?? ''}`,
-  phoneNumber: data?.myProfile?.primaryPhone?.phone ?? '',
-  postalCode: data?.myProfile?.primaryAddress?.postalCode ?? '',
-});
+export const getContactInfo = (data: ProfilePageQuery | undefined): ContactInfo | undefined => {
+  if (!data?.myProfile) return undefined;
+
+  const { primaryAddress, language, primaryEmail, primaryPhone, firstName, lastName } = data.myProfile;
+
+  return {
+    address: primaryAddress?.address ?? '',
+    customerGroup: '',
+    emailAddress: primaryEmail?.email ?? '',
+    language: language ?? undefined,
+    municipality: primaryAddress?.city ?? '',
+    firstName: firstName ?? '',
+    lastName: lastName ?? '',
+    phoneNumber: primaryPhone?.phone ?? '',
+    postalCode: primaryAddress?.postalCode ?? '',
+    primaryAddressId: primaryAddress?.id ?? '',
+    primaryEmailId: primaryEmail?.id ?? '',
+    primaryPhoneId: primaryPhone?.id ?? '',
+  };
+};

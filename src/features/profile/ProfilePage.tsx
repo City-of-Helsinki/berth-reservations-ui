@@ -4,17 +4,19 @@ import { useTranslation } from 'react-i18next';
 import Layout from '../../common/layout/Layout';
 import BerthsContainer from './berths/BerthsContainer';
 import BoatsContainer from './boats/BoatsContainer';
-import ContactInfo, { ContactInfoProps } from './contactInfo/ContactInfo';
+import ContactInfoContainer from './contactInfo/ContactInfoContainer';
+import { ContactInfo as ContactInfoType } from './types';
 import WinterStorageContainer from './winterStorage/WinterStorageContainer';
 import Tabs from '../../common/tabs/Tabs';
 import { TabModule } from '../../common/tabs/types';
 import './profilePage.scss';
 
 export interface ProfilePageProps {
-  contactInfo: ContactInfoProps;
-  showUnfinishedModules?: boolean;
+  contactInfo?: ContactInfoType;
   hasBerthNotifications?: boolean;
   hasWSNotifications?: boolean;
+  showUnfinishedModules?: boolean;
+  refetch(): void;
 }
 
 const ProfilePage = ({
@@ -22,11 +24,12 @@ const ProfilePage = ({
   hasBerthNotifications,
   hasWSNotifications,
   showUnfinishedModules,
+  refetch,
 }: ProfilePageProps) => {
   const { t } = useTranslation();
 
   const contactTab: TabModule = {
-    component: <ContactInfo {...contactInfo} />,
+    component: <ContactInfoContainer refetch={refetch} contactInfo={contactInfo} />,
     id: 'contact',
     title: t('page.profile.contact.title'),
   };

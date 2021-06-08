@@ -35,7 +35,12 @@
     "waste_collection": "Avfallshantering",
     "water": "Vatten",
     "width": "Bredd",
-    "year": "År"
+    "year": "År",
+    "language": {
+      "FINNISH": "finska",
+      "ENGLISH": "engelska",
+      "SWEDISH": "svenska"
+    }
   },
   "error": {
     "message": {
@@ -777,13 +782,18 @@
       "contact": {
         "title": "Kontaktinformation",
         "heading": "Hallå {{ name }}",
+        "first_name": "Förnamn",
+        "last_name": "Efternamn",
         "address": "Utdelningsadress",
         "postal_code": "Postnummer",
         "municipality": "Postanstalt",
         "phone_number": "Mobiltelefon",
         "email_address": "E-postadress",
         "customer_group": "Kundgrupp",
-        "language": "Språket"
+        "language": "Språket",
+        "edit": "Redigera kontaktinformation",
+        "cancel": "Avbryt",
+        "save": "Spara ändringar"
       },
       "contract": {
         "label": "Avtal",

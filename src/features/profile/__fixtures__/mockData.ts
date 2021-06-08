@@ -1,14 +1,19 @@
+import { Language } from '../../../__generated__/globalTypes';
 import { ProfilePageProps } from '../ProfilePage';
 
 export const mockContactInfo: ProfilePageProps['contactInfo'] = {
-  name: 'Kalle',
+  firstName: 'Kalle',
+  lastName: 'Kallela',
   address: 'Kallenkatu 6',
   postalCode: '00100',
   municipality: 'Helsinki',
   phoneNumber: '-',
   emailAddress: 'kalle@gmail.com',
   customerGroup: 'Yksityinen',
-  language: 'Suomi',
+  language: Language.FINNISH,
+  primaryAddressId: 'MOCK-ADDRESS',
+  primaryEmailId: 'MOCK-EMAIL',
+  primaryPhoneId: 'MOCK-PHONE',
 };
 
 // Simplified based on mockData for berths

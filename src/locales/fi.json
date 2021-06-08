@@ -36,7 +36,12 @@
     "waste_collection": "Jätehuolto",
     "water": "Vesi",
     "width": "Leveys",
-    "year": "Vuosi"
+    "year": "Vuosi",
+    "language": {
+      "FINNISH": "suomi",
+      "ENGLISH": "englanti",
+      "SWEDISH": "ruotsi"
+    }
   },
   "error": {
     "message": {
@@ -781,13 +786,18 @@
       "contact": {
         "title": "Yhteystiedot",
         "heading": "Hei {{ name }}",
+        "first_name": "Etunimi",
+        "last_name": "Sukunimi",
         "address": "Jakeluosoite",
         "postal_code": "Postinumero",
         "municipality": "Postitoimipaikka",
         "phone_number": "Matkapuhelin",
         "email_address": "Sähköpostiosoite",
         "customer_group": "Asiakasryhmä",
-        "language": "Asiointikieli"
+        "language": "Asiointikieli",
+        "edit": "Muokkaa yhteystietoja",
+        "cancel": "Peruuta",
+        "save": "Tallenna muutokset"
       },
       "contract": {
         "label": "Sopimus",

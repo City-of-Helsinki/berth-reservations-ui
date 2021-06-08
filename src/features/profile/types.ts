@@ -1,4 +1,19 @@
-import { OrderStatus } from '../../__generated__/globalTypes';
+import { OrderStatus, Language } from '../../__generated__/globalTypes';
+
+export type ContactInfo = {
+  address: string;
+  customerGroup: string;
+  emailAddress: string;
+  firstName: string;
+  language?: Language;
+  lastName: string;
+  municipality: string;
+  phoneNumber: string;
+  postalCode: string;
+  primaryAddressId: string;
+  primaryEmailId: string;
+  primaryPhoneId: string;
+};
 
 export interface Choice<T extends Record<string, boolean>> {
   name: string;

@@ -1,0 +1,19 @@
+@import 'styles/variables';
+
+.vene-edit-contact-info {
+  &__section {
+    margin: $spacing-02 0;
+    display: flex;
+  }
+
+  &__field {
+    margin-left: $spacing-01;
+    width: $spacing-16;
+  }
+
+  &__buttons {
+    > * {
+      margin-right: $spacing-01;
+    }
+  }
+}
