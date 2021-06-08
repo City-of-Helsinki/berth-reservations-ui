@@ -32,14 +32,16 @@ const cache = new InMemoryCache({
 cache.writeData({ data: { currentUser: null } });
 
 const authLink = setContext((_, { headers }) => {
-  const apiTokens = authService.getTokens();
-  return {
-    headers: {
-      ...headers,
-      'Accept-Language': i18n.language,
-      ...(apiTokens && { 'Api-Tokens': apiTokens }),
-    },
-  };
+  authService.getUser().then((user) => {
+    const apiTokens = user ? authService.getTokens() : null;
+    return {
+      headers: {
+        ...headers,
+        'Accept-Language': i18n.language,
+        ...(apiTokens && { 'Api-Tokens': apiTokens }),
+      },
+    };
+  });
 });
 
 export const errorHandler: ErrorLink.ErrorHandler = ({ graphQLErrors, networkError }) => {
