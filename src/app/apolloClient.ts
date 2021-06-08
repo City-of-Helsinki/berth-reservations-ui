@@ -32,7 +32,7 @@ const cache = new InMemoryCache({
 cache.writeData({ data: { currentUser: null } });
 
 const authLink = setContext((_, { headers }) => {
-  authService.getUser().then((user) => {
+  return authService.getUser().then((user) => {
     const apiTokens = user ? authService.getTokens() : null;
     return {
       headers: {
