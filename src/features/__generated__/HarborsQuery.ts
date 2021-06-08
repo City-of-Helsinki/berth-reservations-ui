@@ -46,9 +46,6 @@ export interface HarborsQuery_harbors_edges_node_properties {
   name: string | null;
   numberOfPlaces: number;
   phone: string;
-  /**
-   * Tunnus palvelukarttajärjestelmässä
-   */
   servicemapId: string | null;
   streetAddress: string | null;
   suitableBoatTypes: (HarborsQuery_harbors_edges_node_properties_suitableBoatTypes | null)[];
@@ -60,9 +57,6 @@ export interface HarborsQuery_harbors_edges_node_properties {
 
 export interface HarborsQuery_harbors_edges_node {
   __typename: "HarborNode";
-  /**
-   * The ID of the object.
-   */
   id: string;
   geometry: HarborsQuery_harbors_edges_node_geometry | null;
   properties: HarborsQuery_harbors_edges_node_properties | null;
@@ -70,17 +64,11 @@ export interface HarborsQuery_harbors_edges_node {
 
 export interface HarborsQuery_harbors_edges {
   __typename: "HarborNodeEdge";
-  /**
-   * The item at the end of the edge
-   */
   node: HarborsQuery_harbors_edges_node | null;
 }
 
 export interface HarborsQuery_harbors {
   __typename: "HarborNodeConnection";
-  /**
-   * Contains the nodes in this connection.
-   */
   edges: (HarborsQuery_harbors_edges | null)[];
 }
 

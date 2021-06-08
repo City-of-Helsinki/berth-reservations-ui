@@ -13,6 +13,7 @@ const Tabs = ({ tabModules }: TabsProps) => (
     <TabList className="vene-tabs__tablist">
       {tabModules.map((module) => (
         <Tab
+          key={module.id}
           className={classNames('vene-tabs__tab', {
             'vene-tabs__tab--with-badge': module.showBadge,
           })}

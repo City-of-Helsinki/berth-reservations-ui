@@ -15,6 +15,7 @@ const MockProfilePageContainer = ({ match }: ProfilePageContainerProps) => {
   return (
     <ProfilePage
       contactInfo={contactInfo}
+      refetch={() => undefined}
       hasBerthNotifications={hasBerthNotifications}
       hasWSNotifications={hasWSNotifications}
       showUnfinishedModules

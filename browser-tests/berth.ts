@@ -34,6 +34,10 @@ test('New berth application, registered boat, private customer', async (t) => {
   await isBerthsPage();
 
   await selectHarbors(t);
+
+  // Wait for the data to be loaded
+  await t.wait(5000).expect(loadingSpinner.exists).notOk();
+
   await swapSelections(t, testData);
   await fillBoatInformation(t);
   await fillApplicantInformation(t, testData);

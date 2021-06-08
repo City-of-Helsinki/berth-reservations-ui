@@ -35,7 +35,12 @@
     "waste_collection": "Waste management",
     "water": "Water",
     "width": "Width",
-    "year": "Year"
+    "year": "Year",
+    "language": {
+      "FINNISH": "Finnish",
+      "ENGLISH": "English",
+      "SWEDISH": "Swedish"
+    }
   },
   "error": {
     "message": {
@@ -777,13 +782,18 @@
       "contact": {
         "title": "Contact information",
         "heading": "Hello {{ name }}",
+        "first_name": "First name",
+        "last_name": "Last name",
         "address": "Street address",
         "postal_code": "Postal code",
         "municipality": "City",
         "phone_number": "Mobile phone",
         "email_address": "E-mail",
         "customer_group": "Customer group",
-        "language": "Language"
+        "language": "Language",
+        "edit": "Edit contact information",
+        "cancel": "Cancel",
+        "save": "Save changes"
       },
       "contract": {
         "label": "Contract",
