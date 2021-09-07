@@ -79,11 +79,12 @@ const PaymentPageContainer = ({ localePush }: Props) => {
     localePush(setOrderNumber('cancel-order', orderNumber));
   };
 
-  if (confirmError || orderDetailsError) {
-    return <GeneralPaymentErrorPage />;
-  }
-  if (loadingOrderDetails || loadingConfirmPayment || isRedirecting || !orderDetailsData?.contractSigned) {
+  if (loadingOrderDetails || loadingConfirmPayment || isRedirecting) {
     return <LoadingPage />;
+  }
+
+  if (confirmError || orderDetailsError || typeof orderDetailsData?.contractSigned?.isSigned !== 'boolean') {
+    return <GeneralPaymentErrorPage />;
   }
 
   return getPaymentPage(
@@ -111,7 +112,7 @@ export const getPaymentPage = (
   },
   orderType: OrderTypeEnum | undefined,
   orderNumber: string,
-  contractSigned: boolean | null,
+  contractSigned: boolean,
   status: OrderStatus | undefined | null,
   contractAuthMethods: ContractAuthMethods[],
   confirmPayment: () => void,
@@ -135,7 +136,7 @@ export const getPaymentPage = (
     translationContext = 'winter';
   }
 
-  if (contractSigned !== null && !contractSigned) {
+  if (!contractSigned) {
     return (
       <ContractPage
         translationContext={translationContext}
