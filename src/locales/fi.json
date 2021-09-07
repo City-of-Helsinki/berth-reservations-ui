@@ -612,8 +612,10 @@
       "title": "Tarjouksen/laskun peruuttaminen",
       "message": {
         "paragraph1": "Oletko varma että haluat peruuttaa tarjouksen/laskun?",
-        "paragraph2": "HUOM! Tämä toiminto peruuttaa seuraavat kyseiseen paikkaan liitetyt asiakirjat:<br/>vuokrasopimus ja lasku",
-        "paragraph2_application": "HUOM! Jos päätät olla vastaanottamatta venepaikkaa, hakemuksesi raukeaa. Hakemuksesi raukeaa myös, jos et maksa venepaikkamaksua. Jos haluat hakea uudestaan venepaikkaa, sinun on tehtävä uusi hakemus osoitteessa venepaikat.hel.fi",
+        "paragraph2_berth": "HUOM! Tämä toiminto peruuttaa seuraavat kyseiseen paikkaan liitetyt asiakirjat:<br/>vuokrasopimus ja lasku",
+        "paragraph2_winter": "HUOM! Tämä toiminto peruuttaa seuraavat kyseiseen paikkaan liitetyt asiakirjat:<br/>vuokrasopimus ja lasku",
+        "paragraph2_application_berth": "HUOM! Jos päätät olla vastaanottamatta venepaikkaa, hakemuksesi raukeaa. Hakemuksesi raukeaa myös, jos et maksa venepaikkamaksua. Jos haluat hakea uudestaan venepaikkaa, sinun on tehtävä uusi hakemus osoitteessa venepaikat.hel.fi",
+        "paragraph2_application_winter": "HUOM! Jos päätät olla vastaanottamatta paikkaa, hakemuksesi raukeaa. Hakemuksesi raukeaa myös, jos et maksa paikkamaksua. Jos haluat hakea uudestaan paikkaa, sinun on tehtävä uusi hakemus osoitteessa venepaikat.hel.fi",
         "paragraph3": "Mikäli et halua peruuttaa, voit sulkea tämän sivun.<0/>Kysymykset ja lisätiedot: <1>venepaikkavaraukset@hel.fi</1>"
       },
       "confirmation": "Haluan peruuttaa tarjouksen/laskun",
@@ -718,8 +720,10 @@
       "terms_notice": "Huom. Sopimusehdot täytyy avata ja lukea ennen kuin ne voi hyväksyä.",
       "terms_checkbox": "Olen lukenut sopimusehdot ja hyväksyn ne",
       "terms_form_submit": "Jatka tunnistautumiseen",
-      "termination_note": "Haluan luopua venepaikastani enkä halua enää maksaa sitä.",
-      "terminate": "Irtisano venepaikka"
+      "termination_note_berth": "Haluan luopua venepaikastani enkä halua enää maksaa sitä.",
+      "termination_note_winter": "Haluan luopua paikastani enkä halua enää maksaa sitä.",
+      "terminate_berth": "Irtisano venepaikka",
+      "terminate_winter": "Irtisano paikka"
     },
     "payment": {
       "berth_information": "Venepaikan tiedot",

@@ -4,6 +4,7 @@ import { compose } from 'recompose';
 import CancelOrderPage from './CancelOrderPage';
 import { CANCEL_ORDER, GET_ORDER_DETAILS } from '../../queries';
 import { getOrderNumber } from '../../../common/utils/urls';
+import { isOrderBerthOrWinter } from '../../../common/utils/orders';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import { CancelOrder, CancelOrderVariables } from '../../__generated__/CancelOrder';
 import LoadingPage from '../../../common/loadingPage/LoadingPage';
@@ -45,9 +46,12 @@ const CancelOrderPageContainer = ({ localePush }: Props) => {
       // eslint-disable-next-line no-console
       .catch((err) => console.error(err));
 
+  const translationContext = isOrderBerthOrWinter(orderDetailsData.orderDetails?.orderType);
+
   return (
     <CancelOrderPage
       isApplicationOrder={!!orderDetailsData.orderDetails?.isApplicationOrder}
+      translationContext={translationContext}
       handleCancel={handleCancel}
     />
   );
