@@ -14,11 +14,19 @@ export interface Props {
   orderNumber: string;
   orderProductDetails: React.ReactNode;
   contractAuthMethods: ContractAuthMethods[];
+  translationContext: 'winter' | 'berth';
   handleSign: (authMethod: string) => void;
   handleTerminate: () => void;
 }
 
-const PaymentPage = ({ contractAuthMethods, orderProductDetails, orderNumber, handleSign, handleTerminate }: Props) => {
+const PaymentPage = ({
+  contractAuthMethods,
+  orderProductDetails,
+  orderNumber,
+  translationContext,
+  handleSign,
+  handleTerminate,
+}: Props) => {
   const { t } = useTranslation();
   const [termsOpened, setTermsOpened] = useState<boolean>(false);
   const [termsAccepted, setTermsAccepted] = useState<boolean>(false);
@@ -33,12 +41,12 @@ const PaymentPage = ({ contractAuthMethods, orderProductDetails, orderNumber, ha
             <p className="vene-payment-page__contact-info">
               {t('page.contract.questions')}&nbsp;
               <a
-                href="mailto:venepaikat@hel.fi"
+                href="mailto:venepaikkavaraukset@hel.fi"
                 rel="noopener noreferrer"
                 target="_blank"
                 className="vene-payment-page__link"
               >
-                venepaikat@hel.fi
+                venepaikkavaraukset@hel.fi
               </a>
             </p>
           </div>
@@ -47,7 +55,9 @@ const PaymentPage = ({ contractAuthMethods, orderProductDetails, orderNumber, ha
           <div className="vene-payment-page__content vene-payment-page__accept-terms-content">
             {orderProductDetails}
             <div>
-              <h3 className="vene-payment-page__subheading">{t('page.contract.read_and_approve')}</h3>
+              <h3 className="vene-payment-page__subheading">
+                {t('page.contract.read_and_approve', { context: translationContext })}
+              </h3>
               <p className="vene-payment-page__notice">{t('page.contract.terms_notice')}</p>
               <a
                 href={`${process.env.REACT_APP_API_URL_ROOT}contract_document/${orderNumber}`}
@@ -83,9 +93,9 @@ const PaymentPage = ({ contractAuthMethods, orderProductDetails, orderNumber, ha
             </Form>
 
             <div>
-              <p>{t('page.contract.termination_note')}</p>
+              <p>{t('page.contract.termination_note', { context: translationContext })}</p>
               <Button color="danger" onClick={handleTerminate} outline>
-                {t('page.contract.terminate')}
+                {t('page.contract.terminate', { context: translationContext })}
               </Button>
             </div>
 

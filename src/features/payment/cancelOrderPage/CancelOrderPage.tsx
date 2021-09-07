@@ -9,10 +9,11 @@ import './cancelOrderPage.scss';
 
 export interface CancelOrderPageProps {
   isApplicationOrder: boolean;
+  translationContext: 'winter' | 'berth';
   handleCancel(): void;
 }
 
-const CancelOrderPage = ({ isApplicationOrder, handleCancel }: CancelOrderPageProps) => {
+const CancelOrderPage = ({ isApplicationOrder, translationContext, handleCancel }: CancelOrderPageProps) => {
   const { t } = useTranslation();
   const [confirmed, setConfirmed] = useState(false);
 
@@ -26,8 +27,12 @@ const CancelOrderPage = ({ isApplicationOrder, handleCancel }: CancelOrderPagePr
             <p>
               <strong>
                 <Trans
-                  i18nKey="page.cancel_order.message.paragraph2"
-                  tOptions={{ context: isApplicationOrder ? 'application' : undefined }}
+                  i18nKey={
+                    isApplicationOrder
+                      ? 'page.cancel_order.message.paragraph2_application'
+                      : 'page.cancel_order.message.paragraph2'
+                  }
+                  tOptions={{ context: translationContext }}
                 />
               </strong>
             </p>

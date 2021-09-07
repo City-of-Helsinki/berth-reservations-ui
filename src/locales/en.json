@@ -611,8 +611,10 @@
       "title": "Offer/invoice cancellation",
       "message": {
         "paragraph1": "Are you sure you want to cancel the offer/invoice?",
-        "paragraph2": "NOTE! This function will cancel the following documents connected to the berth in question:<br/>lease agreement and invoice",
-        "paragraph2_application": "NOTE! If you decide not to have the offered berth or if you don’t pay the berth fee, your application will be deleted. If you want to apply for a berth again, you must make a new application at https://venepaikat.hel.fi/en/",
+        "paragraph2_berth": "NOTE! This function will cancel the following documents connected to the berth in question:<br/>lease agreement and invoice",
+        "paragraph2_winter": "NOTE! This function will cancel the following documents connected to the place in question:<br/>lease agreement and invoice",
+        "paragraph2_application_berth": "NOTE! If you decide not to have the offered berth or if you don’t pay the berth fee, your application will be deleted. If you want to apply for a berth again, you must make a new application at https://venepaikat.hel.fi/en/",
+        "paragraph2_application_winter": "NOTE! If you decide not to have the offered place or if you don’t pay the place fee, your application will be deleted. If you want to apply for a place again, you must make a new application at https://venepaikat.hel.fi/en/",
         "paragraph3": "If you do not want to cancel, you can close this page.<0/>Questions and further information: <1>venepaikkavaraukset@hel.fi</1>"
       },
       "confirmation": "I want to cancel the offer/invoice",
@@ -620,7 +622,7 @@
     },
     "order_cancelled": {
       "title_text": "The cancellation was successful!",
-      "message": "We have received the cancellation and your berth has been terminated. You will receive a confirmation to your email."
+      "message": "We have received the cancellation and your place has been terminated. You will receive a confirmation to your email."
     },
     "common": {
       "website": "Website"
@@ -717,8 +719,10 @@
       "terms_notice": "Note. The terms of the agreement must be opened and read before they can be accepted.",
       "terms_checkbox": "I have read and accept the contract terms",
       "terms_form_submit": "Continue to authentication",
-      "termination_note": "I want to give up my berth and I don’t want to pay for it anymore.",
-      "terminate": "Terminate the berth"
+      "termination_note_berth": "I want to give up my berth and I don’t want to pay for it anymore.",
+      "termination_note_winter": "I want to give up my place and I don’t want to pay for it anymore.",
+      "terminate_berth": "Terminate the berth",
+      "terminate_winter": "Terminate the place"
     },
     "payment": {
       "berth_information": "Berth",

@@ -611,8 +611,10 @@
       "title": "Annullering av erbjudande/faktura",
       "message": {
         "paragraph1": "Är du säker på att du vill annullera erbjudandet/fakturan?",
-        "paragraph2": "OBS! Denna funktion annullerar följande dokument som bifogats till respektive plats:<br/>hyresavtal och faktura",
-        "paragraph2_application": "OBS! Om du väljer att inte ta emot båtplatsen förfaller din ansökan. Din ansökan förfaller också om du inte betalar båtplatsavgiften. Om du vill ansöka om en båtplats på nytt, måste du göra en ny ansökan på adressen https://venepaikat.hel.fi/sv/",
+        "paragraph2_berth": "OBS! Denna funktion annullerar följande dokument som bifogats till respektive plats:<br/>hyresavtal och faktura",
+        "paragraph2_winter": "OBS! Denna funktion annullerar följande dokument som bifogats till respektive plats:<br/>hyresavtal och faktura",
+        "paragraph2_application_berth": "OBS! Om du väljer att inte ta emot båtplatsen förfaller din ansökan. Din ansökan förfaller också om du inte betalar båtplatsavgiften. Om du vill ansöka om en båtplats på nytt, måste du göra en ny ansökan på adressen https://venepaikat.hel.fi/sv/",
+        "paragraph2_application_winter": "OBS! Om du väljer att inte ta emot båtplatsen förfaller din ansökan. Din ansökan förfaller också om du inte betalar båtplatsavgiften. Om du vill ansöka om en vinteruppläggningsplats båtplats på nytt, måste du göra en ny ansökan på adressen https://venepaikat.hel.fi/sv/",
         "paragraph3": "Du kan stänga denna sida om du inte vill utföra en annullering.<0/>Frågor och mer information: <1>venepaikkavaraukset@hel.fi</1>"
       },
       "confirmation": "Jag vill annullera erbjudandet/fakturan",
@@ -620,7 +622,7 @@
     },
     "order_cancelled": {
       "title_text": "Avbokningen lyckades!",
-      "message": "Vi har fått avbokningen och din båtplats har avslutats. Du kommer att få en bekräftelse på din e-post."
+      "message": "Vi har fått avbokningen och din plats har avslutats. Du kommer att få en bekräftelse på din e-post."
     },
     "common": {
       "website": "Webbplats"
@@ -711,14 +713,17 @@
       "title": "Signering av avtal och betalning av faktura",
       "info": "Bästa kund, vi har lagt upp ett avtal för dig som ska signeras elektroniskt. Läs avtalet nedan. Då du godkänt avtalsvillkoren, kan du fortsätta till identifikationen och betalningen. För att få en båtplats måste du godkänna avtalsvillkoren.",
       "questions": "Frågor och mer information: ",
-      "read_and_approve": "Läs och acceptera avtalsvillkor för uthyrning av båtplats",
+      "read_and_approve_berth": "Läs och acceptera avtalsvillkor för uthyrning av båtplats",
+      "read_and_approve_winter": "Läs och acceptera avtalsvillkor för uthyrning av vinteruppläggningsplats",
       "select_signing_provider": "Signera avtalet genom att välja identifikationssätt",
       "terms_pdf": "Öppna avtalsvillkoren (PDF)",
       "terms_notice": "Notera. Villkoren i avtalet måste öppnas och läsas innan de kan accepteras.",
       "terms_checkbox": "Jag har läst avtalsvillkoren och godkänner dem",
       "terms_form_submit": "Fortsätt till identifikationen",
-      "termination_note": "Jag vill ge upp min kaj och vill inte betala för den längre.",
-      "terminate": "Avsluta båtplatsen"
+      "termination_note_berth": "Jag vill ge upp min plats och vill inte betala för den längre.",
+      "termination_note_winter": "Jag vill ge upp min plats och vill inte betala för den längre.",
+      "terminate_berth": "Avsluta båtplatsen",
+      "terminate_winter": "Avsluta platsen"
     },
     "payment": {
       "berth_information": "Båtplatsen",

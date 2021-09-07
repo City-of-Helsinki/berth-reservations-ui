@@ -7,6 +7,7 @@ import PaymentPage from './PaymentPage';
 import ContractPage from './ContractPage';
 import { CONFIRM_PAYMENT, FULFILL_CONTRACT, GET_ORDER_DETAILS } from '../../queries';
 import { getOrderNumber, setOrderNumber } from '../../../common/utils/urls';
+import { isOrderBerthOrWinter } from '../../../common/utils/orders';
 import GeneralPaymentErrorPage from './paymentError/GeneralPaymentErrorPage';
 import AlreadyPaidPage from './paymentError/AlreadyPaidPage';
 import PastDueDatePage from './paymentError/PastDueDatePage';
@@ -122,24 +123,22 @@ export const getPaymentPage = (
   }
 
   let orderProductDetails: React.ReactNode = null;
+  let translationContext: 'berth' | 'winter' = 'berth';
 
-  switch (orderType) {
-    case OrderTypeEnum.BERTH:
-    case OrderTypeEnum.ADDITIONAL_PRODUCT:
-      orderProductDetails = (
-        <BerthInfo harbor={placeDetails.area} pier={placeDetails.section} berth={placeDetails.place} />
-      );
-      break;
-    case OrderTypeEnum.WINTER_STORAGE:
-      orderProductDetails = <WinterStorageInfo {...placeDetails} />;
-      break;
-    default:
-      break;
+  if (isOrderBerthOrWinter(orderType) === 'berth') {
+    orderProductDetails = (
+      <BerthInfo harbor={placeDetails.area} pier={placeDetails.section} berth={placeDetails.place} />
+    );
+    translationContext = 'berth';
+  } else if (isOrderBerthOrWinter(orderType) === 'winter') {
+    orderProductDetails = <WinterStorageInfo {...placeDetails} />;
+    translationContext = 'winter';
   }
 
   if (contractSigned !== null && !contractSigned) {
     return (
       <ContractPage
+        translationContext={translationContext}
         orderProductDetails={orderProductDetails}
         orderNumber={orderNumber}
         handleSign={signContract}
