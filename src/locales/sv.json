@@ -614,7 +614,7 @@
         "paragraph2_berth": "OBS! Denna funktion annullerar följande dokument som bifogats till respektive plats:<br/>hyresavtal och faktura",
         "paragraph2_winter": "OBS! Denna funktion annullerar följande dokument som bifogats till respektive plats:<br/>hyresavtal och faktura",
         "paragraph2_application_berth": "OBS! Om du väljer att inte ta emot båtplatsen förfaller din ansökan. Din ansökan förfaller också om du inte betalar båtplatsavgiften. Om du vill ansöka om en båtplats på nytt, måste du göra en ny ansökan på adressen https://venepaikat.hel.fi/sv/",
-        "paragraph2_application_winter": "OBS! Om du väljer att inte ta emot båtplatsen förfaller din ansökan. Din ansökan förfaller också om du inte betalar båtplatsavgiften. Om du vill ansöka om en vinteruppläggningsplats båtplats på nytt, måste du göra en ny ansökan på adressen https://venepaikat.hel.fi/sv/",
+        "paragraph2_application_winter": "OBS! Om du väljer att inte ta emot platsen förfaller din ansökan. Din ansökan förfaller också om du inte betalar avgiften. Om du vill ansöka om en vinteruppläggningsplats på nytt, måste du göra en ny ansökan på adressen https://venepaikat.hel.fi/sv/",
         "paragraph3": "Du kan stänga denna sida om du inte vill utföra en annullering.<0/>Frågor och mer information: <1>venepaikkavaraukset@hel.fi</1>"
       },
       "confirmation": "Jag vill annullera erbjudandet/fakturan",
@@ -711,7 +711,7 @@
     },
     "contract": {
       "title": "Signering av avtal och betalning av faktura",
-      "info": "Bästa kund, vi har lagt upp ett avtal för dig som ska signeras elektroniskt. Läs avtalet nedan. Då du godkänt avtalsvillkoren, kan du fortsätta till identifikationen och betalningen. För att få en båtplats måste du godkänna avtalsvillkoren.",
+      "info": "Bästa kund, vi har lagt upp ett avtal för dig som ska signeras elektroniskt. Läs avtalet nedan. Då du godkänt avtalsvillkoren, kan du fortsätta till identifikationen och betalningen. För att fä en båtplats eller vinteruppläggningsplats måste du godkänna avtalsvillkoren.",
       "questions": "Frågor och mer information: ",
       "read_and_approve_berth": "Läs och acceptera avtalsvillkor för uthyrning av båtplats",
       "read_and_approve_winter": "Läs och acceptera avtalsvillkor för uthyrning av vinteruppläggningsplats",
