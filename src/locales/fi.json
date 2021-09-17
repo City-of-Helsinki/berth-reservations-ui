@@ -646,6 +646,11 @@
           "button_label": "Ilmoita",
           "description": "Ilmoita meille, kun olet vienyt veneesi nosto\u00ADjärjestysalueelle.",
           "title": "Nostojärjestys\u00ADilmoitus"
+        },
+        "trailer": {
+          "button_label": "Maksa kesäsäilytys tästä",
+          "description": "Osta venetrailerin kesäsäilytysoikeus vuodelle 2021. Maksa kesäsäilytysmaksu, jos olet säilyttänyt traileriasi Helsingin kaupungin trailereiden kesäsäilytykseen tarkoitetuilla alueilla tai paikoilla.",
+          "title": "Trailerin kesäsäilytysmaksu 2021"
         }
       },
       "description": {

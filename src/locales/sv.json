@@ -645,6 +645,11 @@
           "button_label": "Anmäl",
           "description": "Skicka en anmälan till oss när du har fört din båt till ett område för vinteruppläggning som fylls i upptagningsordning.",
           "title": "Anmälan för upplagsområde som fylls i upptagningsordning"
+        },
+        "trailer": {
+          "button_label": "Maksa kesäsäilytys tästä",
+          "description": "Osta venetrailerin kesäsäilytysoikeus vuodelle 2021. Maksa kesäsäilytysmaksu, jos olet säilyttänyt traileriasi Helsingin kaupungin trailereiden kesäsäilytykseen tarkoitetuilla alueilla tai paikoilla.",
+          "title": "Trailerin kesäsäilytysmaksu 2021"
         }
       },
       "description": {
