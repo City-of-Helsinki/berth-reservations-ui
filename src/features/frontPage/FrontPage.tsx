@@ -1,7 +1,7 @@
 import { useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router-dom';
-import { Container, Row } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 
 import { LocalePush, withMatchParamsHandlers } from '../../common/utils/container';
 import Card from '../../common/card/Card';
@@ -31,8 +31,8 @@ const FrontPage = ({ localePush }: Props) => {
         centered
       >
         <Container className="vene-front-page">
-          <Row>
-            <div className="vene-front-page__card-wrapper vene-front-page__card-wrapper--wide">
+          <Row sm="1" md="2" lg="3">
+            <Col className="vene-front-page__card-wrapper">
               <Card
                 onClick={() => localePush('/berths')}
                 btnLabel={t('page.front.card.berths.button_label')}
@@ -47,8 +47,8 @@ const FrontPage = ({ localePush }: Props) => {
                   <p>{t('page.front.card.instructions')}</p>
                 </a>
               </Card>
-            </div>
-            <div className="vene-front-page__card-wrapper vene-front-page__card-wrapper--wide">
+            </Col>
+            <Col className="vene-front-page__card-wrapper">
               <Card
                 onClick={() => localePush('/winter-storage')}
                 btnLabel={t('page.front.card.winter.button_label')}
@@ -63,8 +63,8 @@ const FrontPage = ({ localePush }: Props) => {
                   <p>{t('page.front.card.instructions')}</p>
                 </a>
               </Card>
-            </div>
-            <div className="vene-front-page__card-wrapper vene-front-page__card-wrapper--thin">
+            </Col>
+            <Col className="vene-front-page__card-wrapper">
               <Card
                 onClick={() => localePush('/unmarked-winter-storage')}
                 btnLabel={t('page.front.card.unmarked_winter.button_label')}
@@ -79,7 +79,17 @@ const FrontPage = ({ localePush }: Props) => {
                   <p>{t('page.front.card.instructions_short')}</p>
                 </a>
               </Card>
-            </div>
+            </Col>
+            <Col className="vene-front-page__card-wrapper">
+              <Card
+                btnLabel={t('page.front.card.trailer.button_label')}
+                title={t('page.front.card.trailer.title')}
+                href={process.env.REACT_APP_TRAILER_PAYMENT_LINK ?? '#'}
+                rel="noopener noreferrer nofollow"
+              >
+                <p>{t('page.front.card.trailer.description')}</p>
+              </Card>
+            </Col>
           </Row>
         </Container>
       </KoroSection>

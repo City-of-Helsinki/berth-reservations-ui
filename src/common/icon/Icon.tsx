@@ -25,6 +25,7 @@ import { ReactComponent as trash } from './icons/trash-o.svg';
 import { ReactComponent as trestle } from './icons/trestle.svg';
 import { ReactComponent as unregisteredBoat } from './icons/unregistered.svg';
 import { ReactComponent as waterTap } from './icons/water-tap.svg';
+import { ReactComponent as linkExternal } from './icons/link-external.svg';
 
 import './icon.scss';
 
@@ -54,6 +55,7 @@ const icons = {
   trestle,
   tools,
   dollyEmpty,
+  linkExternal,
 };
 
 export type IconNames = keyof typeof icons;

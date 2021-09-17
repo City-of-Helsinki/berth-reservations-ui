@@ -7,11 +7,28 @@ import Icon from '../icon/Icon';
 type Props = {
   title: string;
   btnLabel: string;
-  onClick: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   children: React.ReactNode;
 };
 
-const Card = ({ title, onClick, btnLabel, children }: Props) => {
+interface InternalProps extends Props {
+  onClick: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+}
+
+interface ExternalProps extends Props {
+  href: string;
+  rel?: string;
+  target?: string;
+}
+
+type CardProps = InternalProps | ExternalProps;
+
+const isInternal = (props: CardProps): props is InternalProps => {
+  return (props as InternalProps).onClick !== undefined;
+};
+
+const Card = (props: CardProps) => {
+  const { title, btnLabel, children, ...rest } = props;
+
   return (
     <RSCard className="vene-card">
       <CardBody className="vene-card__body">
@@ -19,9 +36,15 @@ const Card = ({ title, onClick, btnLabel, children }: Props) => {
           {title}
         </CardTitle>
         <div className="vene-card__description">{children}</div>
-        <Button onClick={onClick} className="vene-card__button" type="button" color="primary" outline>
+        <Button
+          className="vene-card__button"
+          type="button"
+          color="primary"
+          outline
+          {...(isInternal(props) ? rest : { ...rest, tag: 'a' })}
+        >
           <span className="vene-card__button-label">{btnLabel}</span>
-          <Icon name="arrowRight" className="vene-card__arrow-icon" />
+          <Icon name={isInternal(props) ? 'arrowRight' : 'linkExternal'} className="vene-card__arrow-icon" />
         </Button>
       </CardBody>
     </RSCard>
