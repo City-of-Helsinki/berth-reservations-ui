@@ -42,7 +42,7 @@ jobs:
           DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_SCOPE_BERTHS: 'https://api.hel.fi/auth/berths'
           DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_SCOPE_PROFILE: 'https://api.hel.fi/auth/helsinkiprofile'
           DOCKER_BUILD_ARG_REACT_APP_SENTRY_ENVIRONMENT: 'review'
-          DOCKER_BUILD_ARG_REACT_APP_TRAILER_PAYMENT_LINK: 'https://talpa-verkkokauppa-kassa-ui-dev.agw.arodevtest.hel.fi/purchase/306ab20a-6b30-3ce3-95e8-fef818e6c30e?language=fi&quantity=1&namespace=venepaikat'
+          DOCKER_BUILD_ARG_REACT_APP_TRAILER_PAYMENT_URL: 'https://talpa-verkkokauppa-kassa-ui-dev.agw.arodevtest.hel.fi/purchase/306ab20a-6b30-3ce3-95e8-fef818e6c30e?language=fi&quantity=1&namespace=venepaikat'
 
   review:
     runs-on: ubuntu-latest

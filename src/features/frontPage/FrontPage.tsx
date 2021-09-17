@@ -17,8 +17,11 @@ type Props = {
 } & RouteComponentProps;
 
 const FrontPage = ({ localePush }: Props) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   useLayoutEffect(() => window.scrollTo(0, 0), []);
+
+  const trailerPaymentURL = new URL(process.env.REACT_APP_TRAILER_PAYMENT_URL ?? window.location.href);
+  trailerPaymentURL.searchParams.set('language', i18n.language);
 
   return (
     <Layout>
@@ -84,7 +87,7 @@ const FrontPage = ({ localePush }: Props) => {
               <Card
                 btnLabel={t('page.front.card.trailer.button_label')}
                 title={t('page.front.card.trailer.title')}
-                href={process.env.REACT_APP_TRAILER_PAYMENT_LINK ?? '#'}
+                href={trailerPaymentURL.href}
                 rel="noopener noreferrer nofollow"
               >
                 <p>{t('page.front.card.trailer.description')}</p>
