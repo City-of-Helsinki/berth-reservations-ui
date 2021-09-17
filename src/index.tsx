@@ -17,6 +17,7 @@ import { version } from '../package.json';
 import apolloClient from './app/apolloClient';
 import configureStore from './redux/store/configureStore';
 import App from './app/App';
+import TermsOfService from './features/terms/TermsOfService';
 
 const { REACT_APP_PIWIK_URL, REACT_APP_PIWIK_ID, REACT_APP_SENTRY_DSN, REACT_APP_SENTRY_ENVIRONMENT } = process.env;
 
@@ -49,6 +50,7 @@ const Root = () => (
         <Router history={piwik.connectToHistory(history)}>
           <Switch>
             <Route path="/:locale(fi|sv|en)" component={App} />
+            <Route exact path="/traileriehdot" component={TermsOfService} />
             <Route render={({ location: { pathname, hash } }) => <Redirect to={`/fi${pathname}${hash}`} />} />
           </Switch>
         </Router>

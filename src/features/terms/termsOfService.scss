@@ -1,0 +1,15 @@
+@import 'helsinki/fonts';
+@import 'styles/variables';
+
+.vene-terms-of-service {
+  margin: $spacing-03 auto $spacing-04;
+  max-width: 38em;
+
+  &__heading {
+    font-size: $h1-font-size;
+  }
+
+  &__sub-heading {
+    font-size: $h3-font-size;
+  }
+}
