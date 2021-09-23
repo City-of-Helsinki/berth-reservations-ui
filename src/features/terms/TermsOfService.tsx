@@ -35,20 +35,24 @@ const TermsOfService = () => {
         Jos palvelutarjoaja ei pysty ylivoimaisen esteen (force majeure) takia tarjoamaan varattua palvelua,
         palvelutarjoajalla on oikeus peruttaa asiakkaan trailerin kesäsäilytys. Palvelutarjoajan käyttäessä
         peruutusoikeuttaan asiakkaasta riippumattomista syistä, maksu palautetaan asiakkaalle kokonaisuudessaan.
+        <br />
         Palvelutarjoajalla on oikeus purkaa sopimus päättymään välittömästi, jos asiakas tai hänen seuralaisensa
         syyllistyy sellaiseen laiminlyöntiin tai menettelyyn, mikä olennaisesti rikkoo tätä sopimusta, satamakiinteistön
         järjestyssääntöjä tai venesatamasääntöjä tai suomen lakia, tai jos asiakas tai hänen seuralaisensa harjoittaa
         satamassa tai trailerin kesäsäilytysalueella rikollista, vaarallista tai muutoin sopimuksen vastaista tai
-        sopimattomaksi katsottavaa toimintaa. Jos trailerin kesäsäilytys joudutaan keskeyttämään asiakkaan
-        häiriökäyttäytymisen tai laiminlyönnin takia, maksuja ei palauteta.
+        sopimattomaksi katsottavaa toimintaa.
+        <br />
+        Jos trailerin kesäsäilytys joudutaan keskeyttämään asiakkaan häiriökäyttäytymisen tai laiminlyönnin takia,
+        maksuja ei palauteta.
       </p>
 
       <h3 className="vene-terms-of-service__sub-heading">VASTUUNRAJOITUKSET JA ERIMIELISYYKSIEN RATKAISEMINEN</h3>
       <p>
         Palveluntarjoaja ei vastaa peruuntumisesta tai keskeytymisestä aiheutuneista välillisistä vahingoista.
-        Palveluntarjoaja ei vastaa virheestä tai viivästyksestä, jos se aiheutuu ylivoimaisesta esteestä. Tätä sopimusta
-        koskevat erimielisyydet ratkaistaan Helsingin käräjäoikeudessa. Kuluttaja-asiakas voi saattaa asian myös
-        kuluttajariitalautakunnan käsiteltäväksi. Sopimukseen sovelletaan Suomen lakia.
+        Palveluntarjoaja ei vastaa virheestä tai viivästyksestä, jos se aiheutuu ylivoimaisesta esteestä.
+        <br />
+        Tätä sopimusta koskevat erimielisyydet ratkaistaan Helsingin käräjäoikeudessa. Kuluttaja-asiakas voi saattaa
+        asian myös kuluttajariitalautakunnan käsiteltäväksi. Sopimukseen sovelletaan Suomen lakia.
       </p>
 
       <h3 className="vene-terms-of-service__sub-heading">SOPIMUKSEN VOIMAATULO</h3>
@@ -60,17 +64,40 @@ const TermsOfService = () => {
 
       <h3 className="vene-terms-of-service__sub-heading">MAKSAMINEN</h3>
       <p>
-        Hinta sisältää arvolisäveron. Kertalippu maksetaan verkossa ja maksutapahtumaa koskevat tiedot välitetään
-        salattua yhteyttä käyttäen. Maksunvälittäjänä toimii VismaPay (PayByWay Oy, y-tunnus 2486559-4). VismaPay
-        välittää maksut Helsingin kaupungille, jolloin tiliotteellasi maksun saajana näkyy VismaPay tai Paybyway Oy.
+        Hinta sisältää arvolisäveron.
+        <br />
+        Verkkokaupan maksuvälittäjänä toimii Visma Pay (Paybyway Oy, y-tunnus 2486559-4), joka on rekisteröity
+        Finanssivalvonnan ylläpitämään maksulaitosrekisteriin. Maksamiseen siirrytään Visma Payn verkkopalvelun kautta
+        ja tiliotteella ja laskulla maksun saajana näkyy Visma Pay tai Paybyway Oy. Visma Pay välittää maksut
+        verkkokauppiaalle. Maksaminen on turvallista, sillä kaikki maksutapahtumaa koskevat tiedot välitetään salattua
+        yhteyttä käyttäen niin, ettei kukaan ulkopuolinen taho näe maksutapahtuman tietoja.
+        <br />
+        Kauppa syntyy verkkokaupan asiakkaan ja verkkokaupan välille. Verkkokaupan vastuulla ovat kaikki kauppaan
+        liittyvät velvoitteet.
+        <br />
+        Lue lisää Visma Paysta: https://www.visma.fi/vismapay/
       </p>
 
       <h3 className="vene-terms-of-service__sub-heading">MAKSUTAVAT</h3>
       <p>
-        Voit maksaa varauksen verkkopankkitunnuksilla, Lompakko-sovelluksilla tai maksukorteilla (credit/debit).
-        Käytettävissä ovat seuraavat maksutavat: Osuuspankki, Nordea, Danske Bank, Oma Säästöpankki, Säästöpankki,
-        Aktia, Paikallisosuuspankit, S-Pankki, Handelsbanken, Ålandsbanken, MobilePay, Masterpass, Visa-, Visa Debit-,
-        Visa Electron-, MasterCard- ja Debit MasterCard –kortit, MobilePay, Pivo.
+        Visma Pay -palvelun kautta voit maksaa verkkopankkitunnuksilla, lompakolla, maksukorteilla (credit/debit),
+        laskulla tai osamaksulla. Käytettävissä ovat seuraavat maksutavat: Osuuspankki, Nordea, Danske Bank, Oma
+        Säästöpankki, Säästöpankki, Aktia, Paikallisosuuspankit, S-Pankki, Handelsbanken, Ålandsbanken, MobilePay,
+        Masterpass, Pivo, Visa-, Visa Debit-, Visa Electron-, MasterCard- ja Debit MasterCard - kortit, sekä Jousto ja
+        Enterpay Lasku yritykselle.
+        <br />
+        MobilePay: Voit maksaa MobilePay-lompakollasi mikäli olet sallinut verkkokaupoissa maksamisen sovelluksen
+        asetuksista. MobilePay-lompakolla suoritetut maksut veloitetaan lompakkoon liitetyltä maksukortilta. Mikäli
+        maksun veloittaminen maksukortilta epäonnistuu, MobilePay-lompakolla maksaminen ei ole mahdollista
+        verkkokaupassa.
+        <br />
+        Pivo: Käyttöehdot ovat tarjolla Pivon sivuilla: https://pivo.fi/kayttoehdot/pivon- kayttoehdot/
+        <br />
+        Visma Pay -maksupalvelun yhteystiedot
+        <br />
+        Visma Pay, Paybyway Oy (Y-tunnus 2486559-4) Sähköposti: helpdesk@vismapay.com
+        <br />
+        Puhelin: 09 315 42 037 (arkisin klo 8-16) Postiosoite: Laserkatu 6, 53850 Lappeenranta
       </p>
 
       <h3 className="vene-terms-of-service__sub-heading">MAKSUVAHVISTUS</h3>
