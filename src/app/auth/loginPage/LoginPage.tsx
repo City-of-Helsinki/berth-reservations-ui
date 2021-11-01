@@ -7,8 +7,7 @@ import authService from '../authService';
 export type LoginPageProps = RouteComponentProps;
 
 const LoginPage = ({ history }: LoginPageProps) => {
-  const searchParams = new URLSearchParams(useLocation().search);
-  const referrer = searchParams.get('referrer') || '/';
+  const referrer = useLocation<{ referrer: string }>().state?.referrer || '/';
   const authenticated = authService.isAuthenticated();
 
   useEffect(() => {

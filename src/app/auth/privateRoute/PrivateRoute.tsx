@@ -16,12 +16,14 @@ const PrivateRoute = (props: RouteProps) => {
   if (authService.isAuthenticated()) return <Route {...props} />;
 
   const currentLocation = `${location.pathname}${location.search}${location.hash}`;
-  const queryString = `?referrer=${encodeURIComponent(currentLocation)}`;
 
   return (
     <Redirect
       to={{
-        pathname: localizedLink(`/login${queryString}`, language),
+        pathname: localizedLink('/login', language),
+        state: {
+          referrer: currentLocation,
+        },
       }}
     />
   );
