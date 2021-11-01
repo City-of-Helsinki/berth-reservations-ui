@@ -61,17 +61,18 @@ const App = ({
 
       <Route exact path={`/${localeParam}/${berthParam}`} component={BerthPageContainer} />
       <Route exact path={`/${localeParam}/${berthParam}/selected`} component={SelectedBerthPageContainer} />
-      <Route exact path={`/${localeParam}/${berthParam}/form`} component={BerthFormPageContainer} />
-      <Route exact path={`/${localeParam}/${berthParam}/form/:tab`} component={BerthFormPageContainer} />
+      <PrivateRoute exact path={`/${localeParam}/${berthParam}/form/:tab`} component={BerthFormPageContainer} />
 
       <Route exact path={`/${localeParam}/${winterParam}`} component={WinterStoragePageContainer} />
       <Route exact path={`/${localeParam}/${winterParam}/selected`} component={SelectedAreaPageContainer} />
-      <Route exact path={`/${localeParam}/${winterParam}/form`} component={WinterFormPageContainer} />
-      <Route exact path={`/${localeParam}/${winterParam}/form/:tab`} component={WinterFormPageContainer} />
+      <PrivateRoute exact path={`/${localeParam}/${winterParam}/form/:tab`} component={WinterFormPageContainer} />
 
       <Route exact path={`/${localeParam}/${unmarkedWsParam}`} component={UnmarkedWinterStoragePageContainer} />
-      <Route exact path={`/${localeParam}/${unmarkedWsParam}/form`} component={UnmarkedWinterFormPageContainer} />
-      <Route exact path={`/${localeParam}/${unmarkedWsParam}/form/:tab`} component={UnmarkedWinterFormPageContainer} />
+      <PrivateRoute
+        exact
+        path={`/${localeParam}/${unmarkedWsParam}/form/:tab`}
+        component={UnmarkedWinterFormPageContainer}
+      />
 
       <Route exact path={`/${localeParam}/payment`} component={PaymentPageContainer} />
       <Route exact path={`/${localeParam}/payment-result`} component={PaymentResultContainer} />
