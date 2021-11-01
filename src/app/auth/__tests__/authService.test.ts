@@ -107,6 +107,20 @@ describe('authService', () => {
     });
   });
 
+  describe('getProfileToken', () => {
+    it('finds profile token', () => {
+      const profileToken = 'profile token';
+
+      jest.spyOn(Storage.prototype, 'getItem').mockReturnValueOnce(
+        JSON.stringify({
+          [process.env.REACT_APP_TUNNISTAMO_SCOPE_PROFILE as string]: profileToken,
+        })
+      );
+
+      expect(authService.getProfileToken()).toEqual(profileToken);
+    });
+  });
+
   describe('getUser', () => {
     it('should call getUser from oidc', () => {
       const getUser = jest.spyOn(userManager, 'getUser');
