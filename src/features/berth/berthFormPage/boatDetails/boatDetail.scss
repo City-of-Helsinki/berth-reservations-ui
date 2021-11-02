@@ -1,0 +1,11 @@
+@import 'styles/variables';
+
+.boat-detail {
+  & > strong {
+    margin-bottom: $spacing-00-25;
+  }
+
+  & > p {
+    margin-bottom: 0;
+  }
+}

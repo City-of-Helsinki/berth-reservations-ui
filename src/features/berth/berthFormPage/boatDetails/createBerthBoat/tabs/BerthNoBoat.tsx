@@ -1,7 +1,7 @@
-import FormTab from '../../../../../common/formTab/FormTab';
+import FormTab from '../../../../../../common/formTab/FormTab';
 import Accessibility from './fragments/Accessibility';
-import UnregisteredBoatDetails from '../../../../../common/unregisteredBoatDetails/UnregisteredBoatDetails';
-import { WithBoatType } from '../../../../../common/selects/Selects';
+import UnregisteredBoatDetails from '../../../../../../common/unregisteredBoatDetails/UnregisteredBoatDetails';
+import { WithBoatType } from '../../../../../../common/selects/Selects';
 
 type Props = WithBoatType;
 

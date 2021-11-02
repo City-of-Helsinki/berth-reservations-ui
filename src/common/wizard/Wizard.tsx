@@ -2,6 +2,7 @@ import { useLayoutEffect, useState } from 'react';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, Col, Container, Row } from 'reactstrap';
+import omit from 'lodash/omit';
 
 import Form from '../form/Form';
 import { StepType } from '../steps/step/Step';
@@ -67,10 +68,28 @@ const Wizard = ({
     goBackward(values);
   };
 
-  const handleSubmit = (values: {}) => {
+  const handleSubmit = (values: { boatId?: string }) => {
     if (isLastFormStep(currentStep)) {
       setIsSubmitting(true);
-      submit(values);
+
+      let apiValues = values;
+
+      if (values.boatId) {
+        // In case the user has opted to use an existing boat, don't pass other
+        // boat related fields than boatId, as the API does not accepts such
+        // a request.
+        apiValues = omit(values, [
+          'boatDraught',
+          'boatLength',
+          'boatModel',
+          'boatName',
+          'boatType',
+          'boatWeight',
+          'boatWidth',
+        ]);
+      }
+
+      submit(apiValues);
     } else {
       window.scrollTo(0, 0);
       focusFirstPageElement();

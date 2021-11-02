@@ -2,8 +2,8 @@ import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 
-import { Checkbox, MultiRadio, Text } from '../../../../../../common/fields/Fields';
-import { HullMaterial, Propulsion } from '../../../../../../common/selects/Selects';
+import { Checkbox, MultiRadio, Text } from '../../../../../../../common/fields/Fields';
+import { HullMaterial, Propulsion } from '../../../../../../../common/selects/Selects';
 
 const BigShips = () => {
   const { t } = useTranslation();

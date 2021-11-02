@@ -1,18 +1,17 @@
-import { Col, Container, Row } from 'reactstrap';
-
+import { BigBoatTypeValue, WithBoatType } from '../../../../../common/selects/Selects';
+import SectionSelector from '../../../../../common/sectionSelector/SectionSelector';
+import { BerthFormValues } from '../../../types';
+import BoatDetailsPhase from '../BoatDetailsPhase';
 import BerthNoBoat from './tabs/BerthNoBoat';
 import BerthRegisteredBoat from './tabs/BerthRegisteredBoat';
 import BerthUnregisteredBoat from './tabs/BerthUnregisteredBoat';
-import SectionSelector from '../../../../common/sectionSelector/SectionSelector';
-import { BerthFormValues } from '../../types';
-import { BigBoatTypeValue, WithBoatType } from '../../../../common/selects/Selects';
 
 type Props = {
   values?: BerthFormValues;
   tab: string;
 } & WithBoatType;
 
-const BoatDetails = ({ values, tab, boatTypes }: Props) => {
+const CreateBerthBoat = ({ values, tab, boatTypes }: Props) => {
   const showBigShipsForm = values?.boatType === BigBoatTypeValue;
   return (
     <>
@@ -41,19 +40,13 @@ const BoatDetails = ({ values, tab, boatTypes }: Props) => {
           },
         ]}
       />
-      <Container>
-        <Row>
-          <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-            {tab === 'registered-boat' && (
-              <BerthRegisteredBoat showBigShipsForm={showBigShipsForm} boatTypes={boatTypes} />
-            )}
-            {tab === 'unregistered-boat' && <BerthUnregisteredBoat boatTypes={boatTypes} />}
-            {tab === 'no-boat' && <BerthNoBoat boatTypes={boatTypes} />}
-          </Col>
-        </Row>
-      </Container>
+      <BoatDetailsPhase>
+        {tab === 'registered-boat' && <BerthRegisteredBoat showBigShipsForm={showBigShipsForm} boatTypes={boatTypes} />}
+        {tab === 'unregistered-boat' && <BerthUnregisteredBoat boatTypes={boatTypes} />}
+        {tab === 'no-boat' && <BerthNoBoat boatTypes={boatTypes} />}
+      </BoatDetailsPhase>
     </>
   );
 };
 
-export default BoatDetails;
+export default CreateBerthBoat;

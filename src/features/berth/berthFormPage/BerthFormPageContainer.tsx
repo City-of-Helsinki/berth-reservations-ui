@@ -8,13 +8,19 @@ import { RouteComponentProps } from 'react-router';
 import ApplicantDetails from '../../../common/applicantDetails/ApplicantDetails';
 import { getHarbors } from '../utils';
 import BerthOverview from './overview/BerthOverview';
-import BoatDetails from './boatDetails/BerthBoatDetails';
+import BoatDetails from './boatDetails/BoatDetails';
 import FormPage from '../../../common/formPage/FormPage';
 import SwitchApplication from './switchApplication/SwitchApplication';
 import { ApplicationOptions } from '../../../common/types/applicationType';
 import { Store } from '../../../redux/types';
-import { HARBORS_QUERY, CREATE_APPLICATION, BERTH_SWITCH_REASONS_QUERY, PROFILE_PAGE_QUERY } from '../../queries';
-import { BerthFormValues } from '../types';
+import {
+  HARBORS_QUERY,
+  CREATE_APPLICATION,
+  BERTH_SWITCH_REASONS_QUERY,
+  PROFILE_PAGE_QUERY,
+  MY_BOATS_QUERY,
+} from '../../queries';
+import { BerthFormValues, Boat } from '../types';
 import { HarborsQuery } from '../../__generated__/HarborsQuery';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import { SelectedIds } from '../../../common/types/resource';
@@ -26,6 +32,7 @@ import { BerthSwitchReasonsQuery } from '../../__generated__/BerthSwitchReasonsQ
 import { getCurrentBerths, getReasonOptions } from './switchApplication/utils';
 import { ProfilePageQuery } from '../../__generated__/ProfilePageQuery';
 import { getFormValuesFromProfile } from '../../profile/utils';
+import { MyBoatsQuery } from '../../__generated__/MyBoatsQuery';
 
 type Props = {
   applicationType: ApplicationOptions;
@@ -68,20 +75,24 @@ const BerthFormPageContainer = ({
 
   const isSwitchApplication = applicationType === ApplicationOptions.SwitchApplication;
 
-  const { data, loading } = useQuery<HarborsQuery>(HARBORS_QUERY);
-  const { data: profileData, loading: profileLoading } = useQuery<ProfilePageQuery>(PROFILE_PAGE_QUERY);
+  const harborsQuery = useQuery<HarborsQuery>(HARBORS_QUERY);
+  const profilePageQuery = useQuery<ProfilePageQuery>(PROFILE_PAGE_QUERY);
+  const myBoatsQuery = useQuery<MyBoatsQuery>(MY_BOATS_QUERY);
 
   const { data: berthSwitchReasonsData } = useQuery<BerthSwitchReasonsQuery>(BERTH_SWITCH_REASONS_QUERY, {
     skip: !isSwitchApplication,
   });
   const [submitBerth] = useMutation<SubmitBerth, SubmitBerthVariables>(CREATE_APPLICATION);
 
-  const initialValues = { ...berthValues, ...getFormValuesFromProfile(profileData) };
-  const currentBerths = getCurrentBerths(profileData);
+  const initialValues = { ...berthValues, ...getFormValuesFromProfile(profilePageQuery.data) };
+  const currentBerths = getCurrentBerths(profilePageQuery.data);
   const reasonOptions = getReasonOptions(berthSwitchReasonsData);
-  const boatTypes = data ? data.boatTypes : [];
-  const berths = getHarbors(data);
+  const boatTypes = harborsQuery.data ? harborsQuery.data.boatTypes : [];
+  const berths = getHarbors(harborsQuery.data);
   const selected = getSelectedResources(selectedHarbors, berths);
+  const myBoats =
+    myBoatsQuery.data?.myProfile?.boats?.edges?.map((edge) => edge?.node).filter((node: any): node is Boat => node) ??
+    [];
 
   const steps: StepType[] = [
     {
@@ -185,10 +196,14 @@ const BerthFormPageContainer = ({
     }).then(() => localePush('/thank-you'));
   };
 
+  const loading = harborsQuery.loading || myBoatsQuery.loading;
+
   const getStepComponent = () => {
     switch (currentStep) {
       case 2:
-        return <BoatDetails tab={boatTab} boatTypes={boatTypes} />;
+        return (
+          !loading && <BoatDetails tab={boatTab} boatTypes={boatTypes} selectedHarbors={selected} myBoats={myBoats} />
+        );
       case 3:
         return (
           <>
@@ -212,7 +227,7 @@ const BerthFormPageContainer = ({
       steps={steps}
       stepsBeforeForm={stepsBeforeForm}
       submit={submit}
-      loading={profileLoading}
+      loading={profilePageQuery.loading}
       {...rest}
     >
       {getStepComponent()}

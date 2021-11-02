@@ -323,3 +323,29 @@ export const CREATE_BERTH_PROFILE_MUTATION = gql`
 //     }
 //   }
 // `;
+
+export const MY_BOATS_QUERY = gql`
+  query MyBoatsQuery {
+    myProfile {
+      id
+      boats(first: 100) {
+        edges {
+          node {
+            id
+            boatType {
+              id
+              name
+            }
+            name
+            registrationNumber
+            length
+            width
+            draught
+            weight
+            model
+          }
+        }
+      }
+    }
+  }
+`;

@@ -298,7 +298,13 @@
       }
     },
     "registered": {
+      "action": {
+        "intent_to_create_boat": "SV: Lisää uusi vene"
+      },
       "field": {
+        "boat_id": {
+          "label": "SV: Vene"
+        },
         "draught": {
           "label": "Båtens djup",
           "placeholder": "0,0"
@@ -342,7 +348,8 @@
         "additional_info": "Tilläggsuppgifter",
         "measures": "Båtens dimensioner",
         "title": "Uppgifter om registrerad båt",
-        "legend": "Ange uppgifterna från båtens registreringsintyg. Registreringsnumret måste anges om båten är längre än 5,5 m eller har en motoreffekt på 15 kW eller mer."
+        "legend": "Ange uppgifterna från båtens registreringsintyg. Registreringsnumret måste anges om båten är längre än 5,5 m eller har en motoreffekt på 15 kW eller mer.",
+        "boat_info": "SV: Veneesi tiedot"
       }
     },
     "services": {
@@ -778,7 +785,7 @@
         "berth_offer": {
           "applied_berths": "Sökte båtplatser",
           "berth_application": "Båtplatsansökan",
-          "docking_equipment_summer_storage":"Sommarförvaring för docknings\u00ADartiklar",
+          "docking_equipment_summer_storage": "Sommarförvaring för docknings\u00ADartiklar",
           "harbor_map": "Hamnkarta (PDF)",
           "harbor_website": "Webbplats",
           "heading": "Båtplatserbjudande. Om du vill ta emot den ska du betala för den före förfallodatumet, som är {{date}}.",

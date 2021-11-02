@@ -21,7 +21,7 @@
     "order_number": "Tilaustunnus",
     "paid": "Maksettu",
     "paid_manually": "Maksettu muualla",
-    "parking_permit":"Pysäköintilupa",
+    "parking_permit": "Pysäköintilupa",
     "pier": "Laituri",
     "place": "Paikka",
     "rejected": "Hylätty",
@@ -299,7 +299,13 @@
       }
     },
     "registered": {
+      "action": {
+        "intent_to_create_boat": "Lisää uusi vene"
+      },
       "field": {
+        "boat_id": {
+          "label": "Vene"
+        },
         "draught": {
           "label": "Veneen syväys",
           "placeholder": "0,0"
@@ -343,7 +349,15 @@
         "additional_info": "Lisätiedot",
         "measures": "Veneen mitat",
         "title": "Rekisteröidyn veneen tiedot",
-        "legend": "Syötä tiedot veneen rekisteröintitodistuksesta. Rekisterinumero on ilmoitettava, jos veneen pituus on yli 5,5 m tai moottoriteho 15 kW tai enemmän."
+        "legend": "Syötä tiedot veneen rekisteröintitodistuksesta. Rekisterinumero on ilmoitettava, jos veneen pituus on yli 5,5 m tai moottoriteho 15 kW tai enemmän.",
+        "boat_info": "Veneesi tiedot",
+        "boat_from_profile": "Profiilistasi löytyi seuraava vene:"
+      },
+      "notification": {
+        "boat_does_not_match": {
+          "label": "Veneen tiedot eivät täsmää",
+          "description": "Veneen tiedot eivät täsmää valittujen satamien kanssa. Tarkistathan satamavalinnat tai veneen tiedot."
+        }
       }
     },
     "services": {
@@ -778,7 +792,7 @@
         "berth_offer": {
           "applied_berths": "Haetut venepaikat",
           "berth_application": "Venepaikkahakemus",
-          "docking_equipment_summer_storage":"Telakointi\u00ADtarvikkeiden kesäsäilytys",
+          "docking_equipment_summer_storage": "Telakointi\u00ADtarvikkeiden kesäsäilytys",
           "harbor_map": "Satamakartta (PDF)",
           "harbor_website": "Toimipisteen nettisivut",
           "heading": "Tarjous venepaikasta. Jos haluat vastaanottaa sen,\n maksa se ennen eräpäivää {{date}}.",
