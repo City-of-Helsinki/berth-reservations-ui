@@ -56,7 +56,7 @@ const SelectedResource = ({
               >
                 <Icon name="times" />
               </Button>
-              <ScreenReaderLabel id="vene-selected-berth__remove" textKey="page.berth.selected.button.remove" />
+              <ScreenReaderLabel id="vene-selected-berth__remove" textKey="page.selected.button.remove" />
             </Col>
           </Row>
           <Row className="vene-selected-berth__services-bar">
