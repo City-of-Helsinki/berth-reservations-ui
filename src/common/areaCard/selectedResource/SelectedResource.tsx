@@ -104,8 +104,8 @@ const SelectedResource = ({
           >
             <Icon name="angleDown" className="vene-selected-berth__arrow-icon" />
           </Button>
-          <ScreenReaderLabel id="vene-selected-berth__up" textKey="page.berth.selected.button.up" />
-          <ScreenReaderLabel id="vene-selected-berth__down" textKey="page.berth.selected.button.down" />
+          <ScreenReaderLabel id="vene-selected-berth__up" textKey="page.selected.button.up" />
+          <ScreenReaderLabel id="vene-selected-berth__down" textKey="page.selected.button.down" />
         </Col>
       </Row>
     </Container>
