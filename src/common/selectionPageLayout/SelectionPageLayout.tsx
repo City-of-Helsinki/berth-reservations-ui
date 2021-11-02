@@ -10,9 +10,10 @@ import SelectionPageLegend from '../selectionPageLegend/SelectionPageLegend';
 import { StepType } from '../steps/step/Step';
 import './selectionPage.scss';
 import { BoatInfo } from '../../features/berth/selectedBerthPage/types';
+import { TContext } from '../types/translation';
 
 export type Props = {
-  tContext: 'berth' | 'winter';
+  tContext: TContext;
   boatInfo?: BoatInfo;
   legend: { title: string; legend: string };
   submitDisabled: boolean;
@@ -116,7 +117,7 @@ const SelectionPageLayout = ({
                     <span>{t('form.wizard.button.previous')}</span>
                   </Button>
                   <Button type="submit" outline color="primary" size="lg" disabled={submitDisabled}>
-                    <span>{isAuthenticated ? t('page.selected.submit') : t('page.selected.login')}</span>
+                    <span>{isAuthenticated ? t('form.wizard.button.continue') : t('page.selected.login')}</span>
                   </Button>
                 </div>
               </Col>

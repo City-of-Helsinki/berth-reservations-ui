@@ -6,6 +6,10 @@
 .vene-selected-berth {
   position: relative;
 
+  &:not(:last-child) {
+    margin-bottom: $spacing-01;
+  }
+
   &__info {
     &--moving-entering,
     &--moving-exiting {
