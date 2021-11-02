@@ -34,7 +34,7 @@ jobs:
           DOCKER_BUILD_ARG_REACT_APP_API_URL: 'https://venepaikka-federation.test.kuva.hel.ninja/'
           DOCKER_BUILD_ARG_REACT_APP_API_URL_ROOT: 'https://venepaikka-api.test.kuva.hel.ninja/'
           DOCKER_BUILD_ARG_REACT_APP_ENVIRONMENT: 'development'
-          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_URI: 'https://tunnistamo.test.kuva.hel.ninja'
+          DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_URI: 'https://tunnistamo.test.hel.ninja'
           DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT: 'api-tokens'
           DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_RENEW_ENDPOINT: 'silent_renew'
           DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_LOGOUT_ENDPOINT: 'logout'
