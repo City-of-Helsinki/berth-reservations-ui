@@ -545,6 +545,12 @@
       "warning": {
         "heading_berth": "Huomio: Olet valinnut satamia joissa ei ole veneesi koolle tai tyypille sopivia paikkoja.",
         "heading_winter": "Huomio: Olet valinnut alueita joissa ei ole veneesi koolle tai tyypille sopivia paikkoja."
+      },
+      "auth": {
+        "heading": "Jatka hakemuksen tekoa",
+        "paragraph_berth": "Venepaikkahakemuksen jättämiseksi pyydämme sinua tunnistautumaan. Tunnistautuminen toimii pankkitunnuksilla tai mobiilivarmenteella. Tunnistautumisen lisäksi sinulla on mahdollisuus hyödyntää Helsinki-profiilia, jolla voit hallita tietojasi useissa Helsingin kaupungin palveluissa.",
+        "paragraph_winter": "Venepaikkahakemuksen jättämiseksi pyydämme sinua tunnistautumaan. Tunnistautuminen toimii pankkitunnuksilla tai mobiilivarmenteella. Tunnistautumisen lisäksi sinulla on mahdollisuus hyödyntää Helsinki-profiilia, jolla voit hallita tietojasi useissa Helsingin kaupungin palveluissa.",
+        "contact": "Jos sinulla on kysyttävää, ota yhteytta venepaikat@hel.fi"
       }
     },
     "berth": {

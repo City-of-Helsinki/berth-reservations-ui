@@ -544,6 +544,12 @@
       "warning": {
         "heading_berth": "Please note! You have selected harbours with no available berths for the size and type of your boat.",
         "heading_winter": "Please note! You have selected areas with no available places for the size and type of your boat."
+      },
+      "auth": {
+        "heading": "Jatka hakemuksen tekoa",
+        "paragraph_berth": "Venepaikkahakemuksen jättämiseksi pyydämme sinua tunnistautumaan. Tunnistautuminen toimii pankkitunnuksilla tai mobiilivarmenteella. Tunnistautumisen lisäksi sinulla on mahdollisuus hyödyntää Helsinki-profiilia, jolla voit hallita tietojasi useissa Helsingin kaupungin palveluissa.",
+        "paragraph_winter": "Venepaikkahakemuksen jättämiseksi pyydämme sinua tunnistautumaan. Tunnistautuminen toimii pankkitunnuksilla tai mobiilivarmenteella. Tunnistautumisen lisäksi sinulla on mahdollisuus hyödyntää Helsinki-profiilia, jolla voit hallita tietojasi useissa Helsingin kaupungin palveluissa.",
+        "contact": "Jos sinulla on kysyttävää, ota yhteytta venepaikat@hel.fi"
       }
     },
     "berth": {

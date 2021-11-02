@@ -96,13 +96,9 @@ const SelectionPageLayout = ({
             <Row>
               <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
                 <hr />
-                <h3>Jatka hakemuksen tekoa</h3>
-                <p>
-                  Venepaikkahakemuksen jättämiseksi pyydämme sinua tunnistautumaan. Tunnistautuminen toimii
-                  pankkitunnuksilla tai mobiilivarmenteella. Tunnistautumisen lisäksi sinulla on mahdollisuus hyödyntää
-                  Helsinki-profiilia, jolla voit hallita tietojasi useissa Helsingin kaupungin palveluissa.
-                </p>
-                <p>Jos sinulla on kysyttävää, ota yhteytta venepaikat@hel.fi</p>
+                <h3>{t('page.selected.auth.heading')}</h3>
+                <p>{t('page.selected.auth.paragraph', { context })}</p>
+                <p>{t('page.selected.auth.contact')}</p>
               </Col>
             </Row>
           )}

@@ -544,6 +544,12 @@
       "warning": {
         "heading_berth": "Obs: Du har valt hamnar som saknar lämpliga platser för din båts storlek eller typ.",
         "heading_winter": "Obs: Du har valt områder som saknar lämpliga platser för din båts storlek eller typ."
+      },
+      "auth": {
+        "heading": "Jatka hakemuksen tekoa",
+        "paragraph_berth": "Venepaikkahakemuksen jättämiseksi pyydämme sinua tunnistautumaan. Tunnistautuminen toimii pankkitunnuksilla tai mobiilivarmenteella. Tunnistautumisen lisäksi sinulla on mahdollisuus hyödyntää Helsinki-profiilia, jolla voit hallita tietojasi useissa Helsingin kaupungin palveluissa.",
+        "paragraph_winter": "Venepaikkahakemuksen jättämiseksi pyydämme sinua tunnistautumaan. Tunnistautuminen toimii pankkitunnuksilla tai mobiilivarmenteella. Tunnistautumisen lisäksi sinulla on mahdollisuus hyödyntää Helsinki-profiilia, jolla voit hallita tietojasi useissa Helsingin kaupungin palveluissa.",
+        "contact": "Jos sinulla on kysyttävää, ota yhteytta venepaikat@hel.fi"
       }
     }
   },
