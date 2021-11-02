@@ -522,6 +522,30 @@
       },
       "title": "Thank you, your application has been sent successfully!"
     },
+    "selected": {
+      "login": "Jatka tunnistautumiseen",
+      "button": {
+        "down": "Move down",
+        "remove": "Remove",
+        "up": "Move up"
+      },
+      "alert": {
+        "paragraph_berth": "Select the desired harbours from the list of harbours",
+        "paragraph_winter": "Select the desired winter storage areas from the list of areas",
+        "strong_berth": "Please note! You have not yet selected any harbours",
+        "strong_winter": "Please note! You have not yet selected any winter storage areas"
+      },
+      "confirmation_body_berth": "Are you sure you want to remove the harbour from the selection list?",
+      "confirmation_body_winter": "Are you sure you want to remove the area from the selection list?",
+      "info_text_berth": "Select the type and size of your boat to see if the selected harbours have any available berths",
+      "info_text_winter": "Select the type and size of your boat to see if the selected area have any available places",
+      "title_berth": "Please order the places you have chosen by preference.",
+      "title_winter": "Please order the places you have chosen by preference.",
+      "warning": {
+        "heading_berth": "Please note! You have selected harbours with no available berths for the size and type of your boat.",
+        "heading_winter": "Please note! You have selected areas with no available places for the size and type of your boat."
+      }
+    },
     "berth": {
       "switch_application": {
         "current_berth": {
@@ -555,24 +579,6 @@
           "title": "Special request for a new berth"
         },
         "warning": "You can select up to five harbours for your switch application. Please remove excess selections and change the application type again."
-      },
-      "selected": {
-        "alert": {
-          "paragraph": "Select the desired harbours from the list of harbours",
-          "strong": "Please note! You have not yet selected any harbours"
-        },
-        "button": {
-          "down": "Move down",
-          "remove": "Remove",
-          "up": "Move up"
-        },
-        "confirmation_body": "Are you sure you want to remove the harbour from the selection list?",
-        "info_text": "Select the type and size of your boat to see if the selected harbours have any available berths",
-        "submit": "Continue",
-        "title": "Please order the places you have chosen by preference.",
-        "warning": {
-          "heading": "Please note! You have selected harbours with no available berths for the size and type of your boat."
-        }
       }
     },
     "berths": {
@@ -854,19 +860,6 @@
         "paragraph2": "Customers who have had a winter storage space in a unmarked winter storage area will not be sent an invoice. Instead, they can pay their fee onto the berth reservation account after the boat has been brought to the unmarked winter storage area. We will provide information about paying for unmarked winter storage area spaces later online at <0>hel.fi/boating</0> and on the information boards of unmarked winter storage areas. Customers who have paid for a winter storage space will be sent a winter storage sticker to be attached to their boats on a visible spot.",
         "paragraph3": "Boaters can bring their boats to the unmarked winter storage area of their choosing starting from 15 September 2020. Please note that boats must not be brought to unmarked winter storage areas before the storage season starts on 15 September.",
         "title": "Applying for winter storage spaces 2020–2021"
-      },
-      "selected": {
-        "alert": {
-          "paragraph": "Select the desired winter storage areas from the list of areas",
-          "strong": "Please note! You have not yet selected any winter storage areas"
-        },
-        "confirmation_body": "Are you sure you want to remove the area from the selection list?",
-        "info_text": "Select the type and size of your boat to see if the selected area have any available places",
-        "submit": "Continue",
-        "title": "Please order the places you have chosen by preference.",
-        "warning": {
-          "heading": "Please note! You have selected areas with no available places for the size and type of your boat."
-        }
       },
       "storage_areas": {
         "appointed_spaces": {
