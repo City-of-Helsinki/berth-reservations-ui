@@ -27,7 +27,7 @@ import WinterFormPageContainer from '../features/winterStorage/winterFormPage/Wi
 import WinterStoragePageContainer from '../features/winterStorage/winterStoragePage/WinterStoragePageContainer';
 import i18n from '../locales/i18n';
 import { ApplicationType } from '../common/types/applicationType';
-import { LocaleOpts } from '../common/types/intl';
+import { LocaleOpts } from '../common/types/translation';
 import { PaymentResultContainer } from '../features/payment/paymentResultPage/PaymentResultContainer';
 import { isMockProfileRouteEnabled, isUserAuthenticationEnabled } from '../common/utils/featureFlags';
 
