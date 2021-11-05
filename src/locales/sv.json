@@ -551,8 +551,7 @@
         "paragraph_winter": "Venepaikkahakemuksen jättämiseksi pyydämme sinua tunnistautumaan. Tunnistautuminen toimii pankkitunnuksilla tai mobiilivarmenteella. Tunnistautumisen lisäksi sinulla on mahdollisuus hyödyntää Helsinki-profiilia, jolla voit hallita tietojasi useissa Helsingin kaupungin palveluissa.",
         "contact": "Jos sinulla on kysyttävää, ota yhteytta venepaikat@hel.fi"
       }
-    }
-  },
+    },
     "berth": {
       "switch_application": {
         "current_berth": {
@@ -586,7 +585,8 @@
           "title": "Särskilda önskemål för den nya platsen"
         },
         "warning": "I ansökan om byte kan högst fem hamnar väljas. Radera extravalen och byt ansökningstyp igen."
-      },
+      }
+    },
     "berths": {
       "appointed": "Markerade rutor",
       "electricity": "El",
