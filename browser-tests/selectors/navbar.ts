@@ -16,4 +16,7 @@ export const navbarSelectors = {
     Swedish: within(element).getByRole('link', { name: 'På svenska' }),
     English: within(element).getByRole('link', { name: 'In English' }),
   },
+  loginButton: within(element).getByRole('button', {
+    name: /kirjaudu sisään/i,
+  }),
 };

@@ -8,6 +8,7 @@ import authService from '../../../app/auth/authService';
 import { useCurrentUser } from '../../../app/auth/hooks';
 import { isUserAuthenticationEnabled } from '../../utils/featureFlags';
 import { isLinkActive, localizedLink, makeNavigationItemProps, stripUrlLocale } from './utils';
+import { LocaleOpts } from '../../types/translation';
 
 const Navbar = () => {
   const {
@@ -32,7 +33,7 @@ const Navbar = () => {
     title: t('site.front.title'),
     titleUrl: localizedLink('/', language),
   };
-  const languages = ['fi', 'sv', 'en'];
+  const languages = Object.values(LocaleOpts);
   const links = [
     {
       url: '/berths',

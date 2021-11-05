@@ -5,6 +5,7 @@ import { ApplicantInformation, BerthBoatInformation, Choices } from './types/typ
 import { isBerthsPage } from './utils/page';
 import { envUrl } from './utils/settings';
 import { fillApplicantInformation, assertOverview, swapSelections } from './sharedTests/sharedTests';
+import { login } from './utils/login';
 
 const testData: Choices & BerthBoatInformation & ApplicantInformation = {
   address: 'Testiosoite 1',
@@ -30,6 +31,8 @@ const testData: Choices & BerthBoatInformation & ApplicantInformation = {
 fixture('Berth').page(envUrl());
 
 test('New berth application, registered boat, private customer', async (t) => {
+  await login(t);
+
   await t.click(navbarSelectors.berths);
   await isBerthsPage();
 
