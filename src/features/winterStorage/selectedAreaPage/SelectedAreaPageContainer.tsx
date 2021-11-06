@@ -90,13 +90,6 @@ const UnconnectedSelectedAreaPage = ({
   const selected = getSelectedResources(selectedAreas, areas);
   const validSelection = selected.every(filter);
 
-  const handleSubmitApplication = (values: WinterFormValues) => {
-    // if (submitSwitchForm) {
-    //   submitSwitchForm(values);
-    // }
-    moveToForm();
-  };
-
   const SelectionElements = selected.map((resource, index) => {
     const services: [IconNames, boolean][] = [
       ['waterTap', resource.water],
@@ -124,7 +117,7 @@ const UnconnectedSelectedAreaPage = ({
 
   return (
     <Form
-      onSubmit={handleSubmitApplication}
+      onSubmit={moveToForm}
       initialValues={initialValues}
       render={({ handleSubmit, invalid }) => (
         <SelectionPageLayout
