@@ -90,7 +90,7 @@ const UnconnectedSelectedAreaPage = ({
   const selected = getSelectedResources(selectedAreas, areas);
   const validSelection = selected.every(filter);
 
-  const SelectionElements = selected.map((resource, index) => {
+  const selectionElements = selected.map((resource, index) => {
     const services: [IconNames, boolean][] = [
       ['waterTap', resource.water],
       ['fence', resource.gate],
@@ -128,7 +128,7 @@ const UnconnectedSelectedAreaPage = ({
             title: 'legend.selected_areas.title',
             legend: 'legend.selected_areas.legend',
           }}
-          SelectionElements={SelectionElements}
+          selectionElements={selectionElements}
           handleSubmit={handleSubmit}
           submitDisabled={selectedAreas.size === 0 || invalid}
           handlePrevious={handlePrevious}

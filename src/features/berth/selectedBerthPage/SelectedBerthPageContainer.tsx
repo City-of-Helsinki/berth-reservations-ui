@@ -99,7 +99,7 @@ const SelectedBerthPageContainer = ({
 
   if (loading) return <LoadingPage />;
 
-  const SelectedHarbors = selected.map((resource, index) => {
+  const selectionElements = selected.map((resource, index) => {
     const services: [IconNames, boolean][] = [
       ['plug', resource.electricity],
       ['waterTap', resource.water],
@@ -137,7 +137,7 @@ const SelectedBerthPageContainer = ({
             title: 'legend.selected_berths.title',
             legend: 'legend.selected_berths.legend',
           }}
-          SelectionElements={SelectedHarbors}
+          selectionElements={selectionElements}
           handleSubmit={handleSubmit}
           submitDisabled={submitDisabled(invalid, values)}
           handlePrevious={handlePrevious}

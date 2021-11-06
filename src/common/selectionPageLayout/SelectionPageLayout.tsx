@@ -17,7 +17,7 @@ export type Props = {
   boatInfo?: BoatInfo;
   legend: { title: string; legend: string };
   submitDisabled: boolean;
-  SelectionElements: List<JSX.Element>;
+  selectionElements: List<JSX.Element>;
   validSelection: boolean;
   isAuthenticated: boolean;
   steps: StepType[];
@@ -34,7 +34,7 @@ const SelectionPageLayout = ({
   isAuthenticated,
   handlePrevious,
   handleSubmit,
-  SelectionElements,
+  selectionElements,
   validSelection,
 }: Props) => {
   const { t } = useTranslation();
@@ -82,13 +82,13 @@ const SelectionPageLayout = ({
                   <strong>{t('page.selected.warning.heading', { context })}</strong>
                 </Alert>
               )}
-              {SelectionElements.size === 0 ? (
+              {selectionElements.size === 0 ? (
                 <Alert color="danger">
                   <strong>{t('page.selected.alert.strong', { context })}</strong>
                   <h2>{t('page.selected.alert.paragraph', { context })}</h2>
                 </Alert>
               ) : (
-                SelectionElements
+                selectionElements
               )}
             </Col>
           </Row>
