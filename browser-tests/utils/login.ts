@@ -1,7 +1,5 @@
 import { ssoLogin } from '../ssoLogin';
-import { login as loginButton } from '../selectors/login';
 import { testUsername, testUserPassword } from './settings';
-// import { navigation } from '../pages/navigation';
 import { navbarSelectors } from '../selectors/navbar';
 
 export const login = async (t: TestController) => {
@@ -21,6 +19,5 @@ export const login = async (t: TestController) => {
     // all is well, do nothing
   }
 
-  // await t.expect(navigation.sidebarContainer.exists).ok({ timeout: 20000 });
-  await t.expect(navbarSelectors.mainLink).ok({ timeout: 20000 });
+  await t.expect(navbarSelectors.mainLink.exists).ok({ timeout: 20000 });
 };

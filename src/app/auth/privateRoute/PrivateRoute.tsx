@@ -15,14 +15,12 @@ const PrivateRoute = (props: RouteProps) => {
   if (!isUserAuthenticationEnabled) return <NotFoundPage />;
   if (authService.isAuthenticated()) return <Route {...props} />;
 
-  const currentLocation = `${location.pathname}${location.search}${location.hash}`;
-
   return (
     <Redirect
       to={{
         pathname: localizedLink('/login', language),
         state: {
-          referrer: currentLocation,
+          from: location,
         },
       }}
     />
