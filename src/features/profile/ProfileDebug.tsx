@@ -49,7 +49,7 @@ export const ProfileDebug = ({ error }: { error?: ApolloError }) => {
       {error && <p style={{ color: 'red' }}>Error: {error.message}</p>}
 
       <p>
-        <a href="https://profiili.test.kuva.hel.ninja/" rel="noopener noreferrer" target="_blank">
+        <a href="https://profiili.test.hel.ninja/" rel="noopener noreferrer" target="_blank">
           <button type="button">Open Profile UI</button>
         </a>
       </p>
