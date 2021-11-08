@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 
 import { getMockRouterProps } from '../../__fixtures__/routerFixture';
-import { LocaleOpts } from '../../common/types/intl';
+import { LocaleOpts } from '../../common/types/translation';
 import App from '../App';
 
 describe('App', () => {

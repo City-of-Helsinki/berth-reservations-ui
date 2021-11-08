@@ -7,6 +7,7 @@ import SelectedResourceContainer, { Props } from '../SelectedResourceContainer';
 
 describe('SelectedResourceContainer', () => {
   const sharedProps: Props = {
+    tContext: 'berth',
     title: 'foo',
     id: harbor.id,
     services: [

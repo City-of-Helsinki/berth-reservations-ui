@@ -61,6 +61,10 @@ Browser tests are written in TypeScript with [TestCafe](https://devexpress.githu
 
 ### How to run locally
 
+Set test user login credentials
+
+- Open `.env.development.local` and set `BROWSER_TESTS_UID` and `BROWSER_TESTS_PWD`
+
 Running against test environment
 
 - `yarn browser-test`

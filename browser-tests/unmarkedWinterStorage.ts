@@ -5,6 +5,7 @@ import { ApplicantInformation, UnmarkedWinterStorageChoice, WsBoatInformation } 
 import { isUnmarkedWinterStoragePage } from './utils/page';
 import { envUrl } from './utils/settings';
 import { fillApplicantInformation, assertApplicantOverview, fillWsBoatInformation } from './sharedTests/sharedTests';
+import { login } from './utils/login';
 
 const testData: UnmarkedWinterStorageChoice & WsBoatInformation & ApplicantInformation = {
   address: 'Testiosoite 1',
@@ -29,6 +30,8 @@ const testData: UnmarkedWinterStorageChoice & WsBoatInformation & ApplicantInfor
 fixture('Unmarked winter storage').page(envUrl());
 
 test('Unmarked winter storage notice, registered boat on trailer, private customer', async (t) => {
+  await login(t);
+
   await t.click(navbarSelectors.unmarkedWinterStorage);
   await isUnmarkedWinterStoragePage();
 

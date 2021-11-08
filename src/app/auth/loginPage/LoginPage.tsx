@@ -5,20 +5,21 @@ import LoadingPage from '../../../common/loadingPage/LoadingPage';
 import authService from '../authService';
 
 export type LoginPageProps = RouteComponentProps;
+type LocationState = { from: Location } | null | undefined;
 
 const LoginPage = ({ history }: LoginPageProps) => {
-  const searchParams = new URLSearchParams(useLocation().search);
-  const referrer = searchParams.get('referrer') || '/';
   const authenticated = authService.isAuthenticated();
+  const location = useLocation<LocationState>();
+  const pathname = location.state?.from?.pathname ?? '/';
 
   useEffect(() => {
     !authenticated &&
-      authService.login(referrer).catch(() => {
+      authService.login(pathname).catch(() => {
         history.replace('/error');
       });
   });
 
-  return authenticated ? <Redirect to={referrer} /> : <LoadingPage />;
+  return authenticated ? <Redirect to={pathname} /> : <LoadingPage />;
 };
 
 export default LoginPage;

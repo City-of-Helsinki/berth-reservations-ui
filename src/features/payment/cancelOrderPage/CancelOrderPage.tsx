@@ -4,16 +4,17 @@ import { Button } from 'reactstrap';
 
 import Layout from '../../../common/layout/Layout';
 import Input from '../../../common/input/Input';
+import { TContext } from '../../../common/types/translation';
 
 import './cancelOrderPage.scss';
 
 export interface CancelOrderPageProps {
   isApplicationOrder: boolean;
-  translationContext: 'winter' | 'berth';
+  tContext: TContext;
   handleCancel(): void;
 }
 
-const CancelOrderPage = ({ isApplicationOrder, translationContext, handleCancel }: CancelOrderPageProps) => {
+const CancelOrderPage = ({ isApplicationOrder, tContext, handleCancel }: CancelOrderPageProps) => {
   const { t } = useTranslation();
   const [confirmed, setConfirmed] = useState(false);
 
@@ -32,7 +33,7 @@ const CancelOrderPage = ({ isApplicationOrder, translationContext, handleCancel 
                       ? 'page.cancel_order.message.paragraph2_application'
                       : 'page.cancel_order.message.paragraph2'
                   }
-                  tOptions={{ context: translationContext }}
+                  tOptions={{ context: tContext }}
                 />
               </strong>
             </p>

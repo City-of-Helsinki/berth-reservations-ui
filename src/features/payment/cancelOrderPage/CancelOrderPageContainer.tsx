@@ -51,7 +51,7 @@ const CancelOrderPageContainer = ({ localePush }: Props) => {
   return (
     <CancelOrderPage
       isApplicationOrder={!!orderDetailsData.orderDetails?.isApplicationOrder}
-      translationContext={translationContext}
+      tContext={translationContext}
       handleCancel={handleCancel}
     />
   );

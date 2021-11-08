@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { Form } from 'react-final-form';
 import { compose } from 'recompose';
 import { useQuery } from '@apollo/react-hooks';
 
@@ -7,15 +8,19 @@ import { WinterAreasQuery } from '../../__generated__/WinterAreasQuery';
 import { getSelectedResources } from '../../../common/utils/applicationUtils';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import { getWinterStorageAreas, getWinterStorageFilterByValues } from '../utils';
-import SelectedAreaPage from './SelectedAreaPage';
 import { WINTER_AREAS_QUERY } from '../../queries';
 import { Store } from '../../../redux/types';
 import { SelectedWinterServices } from '../../../common/types/services';
 import { WinterFormValues } from '../types';
 import { SelectedIds } from '../../../common/types/resource';
 import { StepType } from '../../../common/steps/step/Step';
+import authService from '../../../app/auth/authService';
+import SelectionPageLayout from '../../../common/selectionPageLayout/SelectionPageLayout';
+import SelectedResourceContainer from '../../../common/areaCard/selectedResource/SelectedResourceContainer';
+import { IconNames } from '../../../common/icon/Icon';
 
 interface Props {
+  initialValues: WinterFormValues;
   selectedAreas: SelectedIds;
   selectedServices: SelectedWinterServices;
   localePush: LocalePush;
@@ -58,7 +63,16 @@ const steps: StepType[] = [
   },
 ];
 
-const UnconnectedSelectedAreaPage = ({ localePush, values, selectedAreas, selectedServices, ...rest }: Props) => {
+const UnconnectedSelectedAreaPage = ({
+  localePush,
+  values,
+  selectedAreas,
+  selectedServices,
+  initialValues,
+  moveUp,
+  moveDown,
+  deselectArea,
+}: Props) => {
   const { data } = useQuery<WinterAreasQuery>(WINTER_AREAS_QUERY);
 
   const moveToForm = async () => {
@@ -67,6 +81,7 @@ const UnconnectedSelectedAreaPage = ({ localePush, values, selectedAreas, select
   const handlePrevious = async () => {
     await localePush('/winter-storage');
   };
+  const isAuthenticated = authService.isAuthenticated();
 
   const width = values.boatWidth;
   const length = values.boatLength;
@@ -75,21 +90,52 @@ const UnconnectedSelectedAreaPage = ({ localePush, values, selectedAreas, select
   const selected = getSelectedResources(selectedAreas, areas);
   const validSelection = selected.every(filter);
 
+  const selectionElements = selected.map((resource, index) => {
+    const services: [IconNames, boolean][] = [
+      ['waterTap', resource.water],
+      ['fence', resource.gate],
+      ['plug', resource.electricity],
+      ['dollyEmpty', resource.summerStorageForTrailers],
+      ['trestle', resource.summerStorageForDockingEquipment],
+    ];
+
+    return (
+      <SelectedResourceContainer
+        tContext="winter"
+        title={`${index + 1}. ${resource.name}`}
+        id={resource.id}
+        key={resource.id}
+        services={services}
+        moveUp={index !== 0 ? moveUp : undefined}
+        moveDown={index !== selectedAreas.size - 1 ? moveDown : undefined}
+        handleRemove={deselectArea}
+        availabilityLevel={resource.availabilityLevel}
+        validationErrMsg={filter(resource) ? undefined : 'error.message.invalid_area'}
+      />
+    );
+  });
+
   return (
-    <SelectedAreaPage
-      boatInfo={{ width, length }}
-      handlePrevious={handlePrevious}
-      moveToForm={moveToForm}
-      filter={filter}
-      validSelection={validSelection}
-      steps={steps}
-      legend={{
-        title: 'legend.selected_areas.title',
-        legend: 'legend.selected_areas.legend',
-      }}
-      selectedAreas={selected}
-      values={values}
-      {...rest}
+    <Form
+      onSubmit={moveToForm}
+      initialValues={initialValues}
+      render={({ handleSubmit, invalid }) => (
+        <SelectionPageLayout
+          tContext="winter"
+          steps={steps}
+          boatInfo={{ width, length }}
+          legend={{
+            title: 'legend.selected_areas.title',
+            legend: 'legend.selected_areas.legend',
+          }}
+          selectionElements={selectionElements}
+          handleSubmit={handleSubmit}
+          submitDisabled={selectedAreas.size === 0 || invalid}
+          handlePrevious={handlePrevious}
+          validSelection={validSelection}
+          isAuthenticated={isAuthenticated}
+        />
+      )}
     />
   );
 };
@@ -98,6 +144,7 @@ export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({
+      initialValues: state.forms.winterValues,
       selectedAreas: state.winterAreas.selectedWinterAreas,
       selectedServices: state.winterAreas.selectedWinterServices,
       values: state.forms.winterValues,

@@ -9,12 +9,13 @@ import { Checkbox } from '../../../common/fields/Fields';
 import { ContractAuthMethods_contractAuthMethods as ContractAuthMethods } from '../../__generated__/ContractAuthMethods';
 import Form from '../../../common/form/Form';
 import AuthButton from './authButton/AuthButton';
+import { TContext } from '../../../common/types/translation';
 
 export interface Props {
   orderNumber: string;
   orderProductDetails: React.ReactNode;
   contractAuthMethods: ContractAuthMethods[];
-  translationContext: 'winter' | 'berth';
+  tContext: TContext;
   handleSign: (authMethod: string) => void;
   handleTerminate: () => void;
 }
@@ -23,7 +24,7 @@ const PaymentPage = ({
   contractAuthMethods,
   orderProductDetails,
   orderNumber,
-  translationContext,
+  tContext,
   handleSign,
   handleTerminate,
 }: Props) => {
@@ -56,7 +57,7 @@ const PaymentPage = ({
             {orderProductDetails}
             <div>
               <h3 className="vene-payment-page__subheading">
-                {t('page.contract.read_and_approve', { context: translationContext })}
+                {t('page.contract.read_and_approve', { context: tContext })}
               </h3>
               <p className="vene-payment-page__notice">{t('page.contract.terms_notice')}</p>
               <a
@@ -93,9 +94,9 @@ const PaymentPage = ({
             </Form>
 
             <div>
-              <p>{t('page.contract.termination_note', { context: translationContext })}</p>
+              <p>{t('page.contract.termination_note', { context: tContext })}</p>
               <Button color="danger" onClick={handleTerminate} outline>
-                {t('page.contract.terminate', { context: translationContext })}
+                {t('page.contract.terminate', { context: tContext })}
               </Button>
             </div>
 

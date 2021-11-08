@@ -3,6 +3,7 @@ import * as React from 'react';
 import Transition from 'react-transition-group/Transition';
 
 import { genValidSelector } from '../../utils/urls';
+import { TContext } from '../../types/translation';
 import { IconNames } from '../../icon/Icon';
 import Modal from '../../modal/Modal';
 import SelectedResource from './SelectedResource';
@@ -10,6 +11,7 @@ import './selectedResource.scss';
 import useTransitionLogic from './useTransitionLogic';
 
 export type Props = {
+  tContext: TContext;
   availabilityLevel?: { id: string; title: string | null; description: string | null } | null;
   className?: string;
   id: string;
@@ -22,6 +24,7 @@ export type Props = {
 };
 
 const SelectedResourceContainer = ({
+  tContext,
   availabilityLevel,
   className,
   handleRemove,
@@ -60,7 +63,8 @@ const SelectedResourceContainer = ({
             toggleModal={toggleModal}
           />
           <Modal
-            body="page.berth.selected.confirmation_body"
+            tContext={tContext}
+            body="page.selected.confirmation_body"
             handleAccept={doDelete}
             handleToggle={toggleModal}
             isOpen={isModalOpen}

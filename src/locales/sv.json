@@ -522,6 +522,36 @@
       },
       "title": "Tack, din ansökan har skickats!"
     },
+    "selected": {
+      "login": "Jatka tunnistautumiseen",
+      "button": {
+        "down": "Flytta ner",
+        "remove": "Ta bort",
+        "up": "Flytta upp"
+      },
+      "alert": {
+        "paragraph_berth": "Välj de hamnar i förteckningen där du vill ansöka om båtplats.",
+        "paragraph_winter": "Välj de områden i förteckningen där du vill ansöka om uppläggningsplats.",
+        "strong_berth": "Obs: Du har inga valda hamnar ännu.",
+        "strong_winter": "Obs: Du har inga valda områden ännu."
+      },
+      "confirmation_body_berth": "Är du säker på att du vill ta bort hamnen från listan?",
+      "confirmation_body_winter": "Är du säker på att du vill ta bort området från listan?",
+      "info_text_berth": "Uppge båtens typ och storlek för att se om det finns lämpliga platser i de valda hamnarna.",
+      "info_text_winter": "Uppge båtens typ och storlek för att se om det finns lämpliga platser i de valda områden.",
+      "title_berth": "Ordna de valda platserna i prioritetsordning.",
+      "title_winter": "Ordna de valda områden i prioritetsordning.",
+      "warning": {
+        "heading_berth": "Obs: Du har valt hamnar som saknar lämpliga platser för din båts storlek eller typ.",
+        "heading_winter": "Obs: Du har valt områder som saknar lämpliga platser för din båts storlek eller typ."
+      },
+      "auth": {
+        "heading": "Jatka hakemuksen tekoa",
+        "paragraph_berth": "Venepaikkahakemuksen jättämiseksi pyydämme sinua tunnistautumaan. Tunnistautuminen toimii pankkitunnuksilla tai mobiilivarmenteella. Tunnistautumisen lisäksi sinulla on mahdollisuus hyödyntää Helsinki-profiilia, jolla voit hallita tietojasi useissa Helsingin kaupungin palveluissa.",
+        "paragraph_winter": "Venepaikkahakemuksen jättämiseksi pyydämme sinua tunnistautumaan. Tunnistautuminen toimii pankkitunnuksilla tai mobiilivarmenteella. Tunnistautumisen lisäksi sinulla on mahdollisuus hyödyntää Helsinki-profiilia, jolla voit hallita tietojasi useissa Helsingin kaupungin palveluissa.",
+        "contact": "Jos sinulla on kysyttävää, ota yhteytta venepaikat@hel.fi"
+      }
+    },
     "berth": {
       "switch_application": {
         "current_berth": {
@@ -555,24 +585,6 @@
           "title": "Särskilda önskemål för den nya platsen"
         },
         "warning": "I ansökan om byte kan högst fem hamnar väljas. Radera extravalen och byt ansökningstyp igen."
-      },
-      "selected": {
-        "alert": {
-          "paragraph": "Välj de hamnar i förteckningen där du vill ansöka om båtplats.",
-          "strong": "Obs: Du har inga valda hamnar ännu."
-        },
-        "button": {
-          "down": "Flytta ner",
-          "remove": "Ta bort",
-          "up": "Flytta upp"
-        },
-        "confirmation_body": "Är du säker på att du vill ta bort hamnen från listan?",
-        "info_text": "Uppge båtens typ och storlek för att se om det finns lämpliga platser i de valda hamnarna.",
-        "submit": "Fortsätt",
-        "title": "Ordna de valda platserna i prioritetsordning.",
-        "warning": {
-          "heading": "Obs: Du har valt hamnar som saknar lämpliga platser för din båts storlek eller typ."
-        }
       }
     },
     "berths": {
@@ -855,19 +867,6 @@
         "paragraph2": "Vi skickar inte någon faktura till de kunder som har haft vinteruppläggningsplats i upptagningsordningsområdet, utan betalning sker till båtplatsreserveringens konto efter att båten har tagits till upptagningsordningsområdet. Vi informerar senare på webben om betalning för plats i upptagningsordningsområdet på adressen <0>hel.fi/båtliv</0>, samt på upptagningsordningsområdets infotavlor. Till de kunder som har betalat för en vinteruppläggningsplats skickas en vinteruppläggningsdekal till hemadressen, Vi ber er klistra dekalen på en synlig plats på båten.",
         "paragraph3": "Båtägarna kan ta sin båt till önskat upptagningsordningsområde från och med den 15 september 2020. Observera att man inte får ta båtar till upptagningsordningsområdena innan uppläggningstiden börjar den 15 september 2020.",
         "title": "Ansökan om vinteruppläggningsplatser 2020–2021"
-      },
-      "selected": {
-        "alert": {
-          "paragraph": "Välj de områden i förteckningen där du vill ansöka om uppläggningsplats.",
-          "strong": "Obs: Du har inga valda områden ännu."
-        },
-        "confirmation_body": "Är du säker på att du vill ta bort området från listan?",
-        "info_text": "Uppge båtens typ och storlek för att se om det finns lämpliga platser i de valda områden.",
-        "submit": "Fortsätt",
-        "title": "Ordna de valda områden i prioritetsordning.",
-        "warning": {
-          "heading": "Obs: Du har valt områder som saknar lämpliga platser för din båts storlek eller typ."
-        }
       },
       "storage_areas": {
         "appointed_spaces": {

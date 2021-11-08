@@ -23,6 +23,7 @@ import {
 import { FulfillContract, FulfillContractVariables } from '../../__generated__/FulfillContract';
 import BerthInfo from '../berthInfo/BerthInfo';
 import WinterStorageInfo from '../winterStorageInfo/WinterStorageInfo';
+import { TContext } from '../../../common/types/translation';
 
 interface Props {
   localePush: LocalePush;
@@ -124,22 +125,22 @@ export const getPaymentPage = (
   }
 
   let orderProductDetails: React.ReactNode = null;
-  let translationContext: 'berth' | 'winter' = 'berth';
+  let tContext: TContext = 'berth';
 
   if (isOrderBerthOrWinter(orderType) === 'berth') {
     orderProductDetails = (
       <BerthInfo harbor={placeDetails.area} pier={placeDetails.section} berth={placeDetails.place} />
     );
-    translationContext = 'berth';
+    tContext = 'berth';
   } else if (isOrderBerthOrWinter(orderType) === 'winter') {
     orderProductDetails = <WinterStorageInfo {...placeDetails} />;
-    translationContext = 'winter';
+    tContext = 'winter';
   }
 
   if (!contractSigned) {
     return (
       <ContractPage
-        translationContext={translationContext}
+        tContext={tContext}
         orderProductDetails={orderProductDetails}
         orderNumber={orderNumber}
         handleSign={signContract}

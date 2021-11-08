@@ -523,6 +523,36 @@
       },
       "title": "Kiitos, hakemuksesi on lähetetty!"
     },
+    "selected": {
+      "login": "Jatka tunnistautumiseen",
+      "button": {
+        "down": "Siirrä alas",
+        "remove": "Poista",
+        "up": "Siirrä ylös"
+      },
+      "alert": {
+        "paragraph_berth": "Valitse satamalistasta satamat joista haluat hakea venepaikkaa",
+        "paragraph_winter": "Valitse säilytysalueiden listasta alueet joista haluat hakea säilytyspaikkaa",
+        "strong_berth": "Huomio: Sinulla ei ole vielä valittuja satamia",
+        "strong_winter": "Huomio: Sinulla ei ole vielä valittuja alueita"
+      },
+      "confirmation_body_berth": "Oletko varma että haluat poistaa sataman valintalistalta?",
+      "confirmation_body_winter": "Oletko varma että haluat poistaa alueen valintalistalta?",
+      "info_text_berth": "Valitse sijoitettavan veneen tyyppi ja koko nähdäksesi onko valituissa satamissa sopivia paikkoja",
+      "info_text_winter": "Valitse sijoitettavan veneen tyyppi ja koko nähdäksesi onko valituilla alueilla sopivia paikkoja",
+      "title_berth": "Järjestä valitsemasi satamat toivejärjestykseen.",
+      "title_winter": "Järjestä valitsemasi paikat toivejärjestykseen.",
+      "warning": {
+        "heading_berth": "Huomio: Olet valinnut satamia joissa ei ole veneesi koolle tai tyypille sopivia paikkoja.",
+        "heading_winter": "Huomio: Olet valinnut alueita joissa ei ole veneesi koolle tai tyypille sopivia paikkoja."
+      },
+      "auth": {
+        "heading": "Jatka hakemuksen tekoa",
+        "paragraph_berth": "Venepaikkahakemuksen jättämiseksi pyydämme sinua tunnistautumaan. Tunnistautuminen toimii pankkitunnuksilla tai mobiilivarmenteella. Tunnistautumisen lisäksi sinulla on mahdollisuus hyödyntää Helsinki-profiilia, jolla voit hallita tietojasi useissa Helsingin kaupungin palveluissa.",
+        "paragraph_winter": "Venepaikkahakemuksen jättämiseksi pyydämme sinua tunnistautumaan. Tunnistautuminen toimii pankkitunnuksilla tai mobiilivarmenteella. Tunnistautumisen lisäksi sinulla on mahdollisuus hyödyntää Helsinki-profiilia, jolla voit hallita tietojasi useissa Helsingin kaupungin palveluissa.",
+        "contact": "Jos sinulla on kysyttävää, ota yhteytta venepaikat@hel.fi"
+      }
+    },
     "berth": {
       "switch_application": {
         "current_berth": {
@@ -556,24 +586,6 @@
           "title": "Erityistoive uudelle paikalle"
         },
         "warning": "Vaihtohakemukseen voit valita enintään viisi satamaa. Poista ylimääräiset valinnat ja vaihda hakemuksen tyyppi uudelleen."
-      },
-      "selected": {
-        "alert": {
-          "paragraph": "Valitse satamalistasta satamat joista haluat hakea venepaikkaa",
-          "strong": "Huomio: Sinulla ei ole vielä valittuja satamia"
-        },
-        "button": {
-          "down": "Siirrä alas",
-          "remove": "Poista",
-          "up": "Siirrä ylös"
-        },
-        "confirmation_body": "Oletko varma että haluat poistaa sataman valintalistalta?",
-        "info_text": "Valitse sijoitettavan veneen tyyppi ja koko nähdäksesi onko valituissa satamissa sopivia paikkoja",
-        "submit": "Jatka",
-        "title": "Järjestä valitsemasi satamat toivejärjestykseen.",
-        "warning": {
-          "heading": "Huomio: Olet valinnut satamia joissa ei ole veneesi koolle tai tyypille sopivia paikkoja."
-        }
       }
     },
     "berths": {
@@ -858,19 +870,6 @@
         "paragraph2": "Niille asiakkaille, joilla on ollut talvisäilytyspaikka nostojärjestysalueella, emme lähetä laskua vaan maksaminen tapahtuu venepaikkavarausten tilille sen jälkeen, kun vene on viety nostojärjestysalueelle. Tiedotamme nostojärjestysaluepaikan maksamisesta myöhemmin verkossa osoitteessa <0>hel.fi/veneily</0> sekä nostojärjestysalueiden infotauluissa. Talvisäilytyspaikan maksaneille asiakkaille lähetetään talvisäilytys-tarra, joka kiinnitetään näkyvälle paikalle veneeseen.",
         "paragraph3": "Veneilijät voivat viedä veneensä haluamalleen nostojärjestysalueelle 15.9.2020 alkaen. Huomioithan, että nostojärjestysalueille ei tule viedä veneitä ennen 15.9. alkavaa säilytyskautta.",
         "title": "Talvisäilytyspaikkojen 2020–2021 hakeminen"
-      },
-      "selected": {
-        "alert": {
-          "paragraph": "Valitse säilytysalueiden listasta alueet joista haluat hakea säilytyspaikkaa",
-          "strong": "Huomio: Sinulla ei ole vielä valittuja alueita"
-        },
-        "confirmation_body": "Oletko varma että haluat poistaa alueen valintalistalta?",
-        "info_text": "Valitse sijoitettavan veneen tyyppi ja koko nähdäksesi onko valituilla alueilla sopivia paikkoja",
-        "submit": "Jatka",
-        "title": "Järjestä valitsemasi paikat toivejärjestykseen.",
-        "warning": {
-          "heading": "Huomio: Olet valinnut alueita joissa ei ole veneesi koolle tai tyypille sopivia paikkoja."
-        }
       },
       "storage_areas": {
         "appointed_spaces": {

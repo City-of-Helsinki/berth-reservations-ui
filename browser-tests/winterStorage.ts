@@ -10,6 +10,7 @@ import {
   fillWsBoatInformation,
   swapSelections,
 } from './sharedTests/sharedTests';
+import { login } from './utils/login';
 
 const testData: Choices & WsBoatInformation & ApplicantInformation = {
   address: 'Testiosoite 1',
@@ -34,6 +35,8 @@ const testData: Choices & WsBoatInformation & ApplicantInformation = {
 fixture('Winter storage').page(envUrl());
 
 test('Winter storage application, registered boat on trailer, private customer', async (t) => {
+  await login(t);
+
   await t.click(navbarSelectors.winterStorage);
   await isWinterStoragePage();
 
