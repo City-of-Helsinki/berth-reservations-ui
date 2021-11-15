@@ -88,7 +88,7 @@ jobs:
       - name: Run Acceptance Tests (TestCafe Browser Tests)
         run: yarn browser-test:ci
         env:
-          REACT_APP_TUNNISTAMO_URI: ${{ secrets.BROWSER_TESTS_UID }}
+          BROWSER_TESTS_LOCAL_ENV_URL: https://${{ secrets.ENVIRONMENT_URL_STAGING }}
           REACT_APP_TUNNISTAMO_URI: https://tunnistamo.test.hel.ninja
       - name: Upload screenshots of failed tests
         uses: actions/upload-artifact@v2
