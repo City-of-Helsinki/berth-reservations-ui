@@ -26,7 +26,6 @@ const Navbar = ({ disableNav }: NavbarProps) => {
   const userName = currentUser?.name ?? '-';
   const currentLocation = `${location.pathname}${location.search}${location.hash}`;
   const currentLocationWithoutLocale = stripUrlLocale(currentLocation);
-  const loginQueryString = `?referrer=${encodeURIComponent(currentLocation)}`;
 
   const navigationProps: NavigationProps = {
     className: 'vene-navbar',
@@ -74,7 +73,7 @@ const Navbar = ({ disableNav }: NavbarProps) => {
             authenticated={authService.isAuthenticated()}
             label={t('site.navbar.log_in')}
             userName={userName}
-            onSignIn={() => history.push(localizedLink(`/login${loginQueryString}`, language))}
+            onSignIn={() => authService.login(currentLocation)}
           >
             <Navigation.Item
               label={t('site.navbar.profile')}
