@@ -87,9 +87,6 @@ jobs:
         run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
       - name: Run Acceptance Tests (TestCafe Browser Tests)
         run: yarn browser-test:ci
-        env:
-          BROWSER_TESTS_UID: ${{ secrets.BROWSER_TESTS_UID }}
-          BROWSER_TESTS_PWD: ${{ secrets.BROWSER_TESTS_PWD }}
       - name: Upload screenshots of failed tests
         uses: actions/upload-artifact@v2
         if: failure()
