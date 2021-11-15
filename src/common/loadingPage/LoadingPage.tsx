@@ -4,7 +4,7 @@ import './loadingPage.scss';
 
 const LoadingPage = () => {
   return (
-    <Layout>
+    <Layout disableNav>
       <div className="vene-loading-page">
         <Spinner />
       </div>

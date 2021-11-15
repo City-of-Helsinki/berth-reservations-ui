@@ -10,7 +10,11 @@ import { isUserAuthenticationEnabled } from '../../utils/featureFlags';
 import { isLinkActive, localizedLink, makeNavigationItemProps, stripUrlLocale } from './utils';
 import { LocaleOpts } from '../../types/translation';
 
-const Navbar = () => {
+interface NavbarProps {
+  disableNav?: boolean;
+}
+
+const Navbar = ({ disableNav }: NavbarProps) => {
   const {
     t,
     i18n: { language },
@@ -48,6 +52,8 @@ const Navbar = () => {
       label: t('site.unmarked_winter_storage.title'),
     },
   ];
+
+  if (disableNav) return <Navigation {...navigationProps}></Navigation>;
 
   return (
     <Navigation {...navigationProps}>
