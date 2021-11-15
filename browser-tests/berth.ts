@@ -1,6 +1,6 @@
 import { selectHarborsSelectors } from './selectors/berth';
 import { navbarSelectors } from './selectors/navbar';
-import { boatInformationSelectors, loadingSpinner } from './selectors/shared';
+import { boatInformationSelectors } from './selectors/shared';
 import { ApplicantInformation, BerthBoatInformation, Choices } from './types/types';
 import { isBerthsPage } from './utils/page';
 import { envUrl } from './utils/settings';
@@ -32,14 +32,12 @@ fixture('Berth').page(envUrl());
 
 test('New berth application, registered boat, private customer', async (t) => {
   await login(t);
+  await t.wait(20000);
 
   await t.click(navbarSelectors.berths);
   await isBerthsPage();
 
   await selectHarbors(t);
-
-  // Wait for the data to be loaded
-  await t.wait(5000).expect(loadingSpinner.exists).notOk();
 
   await swapSelections(t, testData);
   await fillBoatInformation(t);
@@ -68,9 +66,6 @@ const selectHarbors = async (t: TestController) => {
     nextButton,
     getSelectButtonForHarbor,
   } = selectHarborsSelectors;
-
-  // Wait for the data to be loaded
-  await t.wait(5000).expect(loadingSpinner.exists).notOk();
 
   await t
     .click(boatTypeSelect)

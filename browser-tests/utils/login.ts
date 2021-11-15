@@ -1,15 +1,18 @@
 import { ssoLogin } from '../ssoLogin';
-import { testUsername, testUserPassword } from './settings';
+// import { testUsername, testUserPassword } from './settings';
 import { navbarSelectors } from '../selectors/navbar';
+import { footerSelectors } from '../selectors/footer';
 
 export const login = async (t: TestController) => {
   await t.click(navbarSelectors.loginButton);
 
   await t
     .click(ssoLogin.loginLink)
-    .typeText(ssoLogin.username, testUsername())
-    .typeText(ssoLogin.password, testUserPassword())
-    .click(ssoLogin.loginButton);
+    .click(ssoLogin.testUser)
+    .click(ssoLogin.defaultSSN)
+    .click(ssoLogin.authButton)
+    .click(ssoLogin.continueButton)
+    .click(ssoLogin.acceptButton);
 
   try {
     if (await ssoLogin.permissionRequestHeading.exists) {
@@ -18,6 +21,4 @@ export const login = async (t: TestController) => {
   } catch {
     // all is well, do nothing
   }
-
-  await t.expect(navbarSelectors.mainLink.exists).ok({ timeout: 20000 });
 };
