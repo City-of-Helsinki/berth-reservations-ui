@@ -72,7 +72,7 @@ const SelectionPageLayout = ({
                 <div className="vene-selected-page__notice">
                   <Icon name="exclamationCircle" />
                   <LocalizedLink to={steps[0].linkTo || ''}>
-                    <span>{t('page.selected.info_text')}</span>
+                    <span>{t('page.selected.info_text', { context })}</span>
                   </LocalizedLink>
                 </div>
               )}
