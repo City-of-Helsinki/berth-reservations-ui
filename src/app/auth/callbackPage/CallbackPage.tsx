@@ -20,7 +20,7 @@ const CallbackPage = ({ history }: CallbackPageProps) => {
         history.replace(user.state.path);
       })
       .catch(() => {
-        history.replace('/error');
+        // TODO: handle error
       });
   });
 
