@@ -47,23 +47,6 @@ jobs:
           DOCKER_BUILD_ARG_REACT_APP_SENTRY_ENVIRONMENT: 'production'
           DOCKER_BUILD_ARG_REACT_APP_TRAILER_PAYMENT_URL: 'https://checkout.hel.fi/purchase/306ab20a-6b30-3ce3-95e8-fef818e6c30e?language=fi&quantity=1&namespace=venepaikat'
 
-  production:
-    runs-on: ubuntu-latest
-    needs: build
-    name: Production
-    steps:
-      - uses: actions/checkout@v2
-      - uses: andersinno/kolga-setup-action@v2
-
-      - name: Deploy
-        uses: andersinno/kolga-deploy-action@v2
-        with:
-          track: 'stable'
-        env:
-          K8S_NAMESPACE: ${{ secrets.K8S_NAMESPACE_STABLE }}
-          K8S_ADDITIONAL_HOSTNAMES: ${{ secrets.K8S_ADDITIONAL_HOSTNAMES }}
-          ENVIRONMENT_URL: https://${{ secrets.ENVIRONMENT_URL_STABLE }}
-          DOCKER_IMAGE_NAME: ${{ env.REPO_NAME }}-production
 
   smoke-tests:
     runs-on: windows-latest
@@ -97,3 +80,22 @@ jobs:
         with:
           name: screenshots
           path: screenshots/
+          
+  production:
+    runs-on: ubuntu-latest
+    needs: build
+    name: Production
+    steps:
+      - uses: actions/checkout@v2
+      - uses: andersinno/kolga-setup-action@v2
+
+      - name: Deploy
+        uses: andersinno/kolga-deploy-action@v2
+        with:
+          track: 'stable'
+        env:
+          K8S_NAMESPACE: ${{ secrets.K8S_NAMESPACE_STABLE }}
+          K8S_ADDITIONAL_HOSTNAMES: ${{ secrets.K8S_ADDITIONAL_HOSTNAMES }}
+          ENVIRONMENT_URL: https://${{ secrets.ENVIRONMENT_URL_STABLE }}
+          DOCKER_IMAGE_NAME: ${{ env.REPO_NAME }}-production
+
