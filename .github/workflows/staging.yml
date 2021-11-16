@@ -90,7 +90,6 @@ jobs:
         run: yarn browser-test:ci
         env:
           BROWSER_TESTS_LOCAL_ENV_URL: https://${{ secrets.ENVIRONMENT_URL_STAGING }}
-          REACT_APP_TUNNISTAMO_URI: https://tunnistamo.test.hel.ninja
       - name: Upload screenshots of failed tests
         uses: actions/upload-artifact@v2
         if: failure()
