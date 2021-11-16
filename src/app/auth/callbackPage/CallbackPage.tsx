@@ -24,7 +24,7 @@ const CallbackPage = ({ history }: CallbackPageProps) => {
       });
   });
 
-  return <LoadingPage />;
+  return <LoadingPage disableNav />;
 };
 
 export default CallbackPage;

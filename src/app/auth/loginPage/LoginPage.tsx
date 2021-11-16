@@ -19,7 +19,7 @@ const LoginPage = ({ history }: LoginPageProps) => {
       });
   });
 
-  return authenticated ? <Redirect to={pathname} /> : <LoadingPage />;
+  return authenticated ? <Redirect to={pathname} /> : <LoadingPage disableNav />;
 };
 
 export default LoginPage;
