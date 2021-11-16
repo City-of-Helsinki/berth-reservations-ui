@@ -1,4 +1,4 @@
-name: Build & Review & Acceptance Tests
+name: Build & Review
 on: [pull_request]
 
 env:
@@ -74,31 +74,3 @@ jobs:
           header: deployment-of-venepaikat-review
           message: |
             **Venepaikat is deployed to:** ${{ env.ENVIRONMENT_URL }}
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.2
-        with:
-          node-version: '12'
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install dependencies
-        run: yarn --prefer-offline --frozen-lockfile --check-files
-      - name: Increase watchers
-        run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-      - name: Run Acceptance Tests (TestCafe Browser Tests)
-        run: yarn browser-test:ci
-        env:
-          BROWSER_TESTS_LOCAL_ENV_URL: ${{ env.ENVIRONMENT_URL }}
-      - name: Upload screenshots of failed tests
-        uses: actions/upload-artifact@v2
-        if: failure()
-        with:
-          name: screenshots
-          path: screenshots/
