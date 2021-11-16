@@ -1,6 +1,7 @@
 import {
   applicantInformationSelectors,
   boatInformationSelectors,
+  loadingSpinner,
   overviewSelectors,
   yourSelectionSelectors,
 } from '../selectors/shared';
@@ -8,6 +9,8 @@ import { ApplicantInformation, Choices, WsBoatInformation } from '../types/types
 
 export const swapSelections = async (t: TestController, testData: Choices) => {
   const { heading, getHarborHeading, getUpButtonForHeading, nextButton } = yourSelectionSelectors;
+
+  await t.wait(5000).expect(loadingSpinner.exists).notOk();
 
   await t.expect(heading.exists).ok();
 

@@ -1,7 +1,5 @@
 import { ssoLogin } from '../ssoLogin';
-// import { testUsername, testUserPassword } from './settings';
 import { navbarSelectors } from '../selectors/navbar';
-import { footerSelectors } from '../selectors/footer';
 
 export const login = async (t: TestController) => {
   await t.click(navbarSelectors.loginButton);
