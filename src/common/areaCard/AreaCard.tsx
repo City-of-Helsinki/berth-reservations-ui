@@ -96,8 +96,7 @@ const AreaCard = ({
                   rel="noopener noreferrer"
                   href={t('site.common.servicemapURL', { servicemapId })}
                 >
-                  <span>{t('page.common.website')}</span>
-                  <Icon name="arrowRight" />
+                  <span>{t('page.common.website')}</span> <Icon name="linkExternal" />
                 </a>
               </div>
             )}

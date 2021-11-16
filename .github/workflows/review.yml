@@ -1,4 +1,4 @@
-name: Build & Review & Acceptance Tests
+name: Build & Review
 on: [pull_request]
 
 env:
@@ -65,34 +65,12 @@ jobs:
         id: deploy-url
         run: |
           DEPLOY_URL=$(kubectl get ingress -n "${{ env.K8S_NAMESPACE }}" -o jsonpath='{.items[0].spec.rules[0].host}')
-          echo "BROWSER_TESTS_LOCAL_ENV_URL=https://$DEPLOY_URL" >> $GITHUB_ENV
+          echo "ENVIRONMENT_URL=https://$DEPLOY_URL" >> $GITHUB_ENV
         shell: bash
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.2
+      - name: Create PR comment for Venepaikat review
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
-          node-version: '12'
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install dependencies
-        run: yarn --prefer-offline --frozen-lockfile --check-files
-      - name: Increase watchers
-        run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-      - name: Run Acceptance Tests (TestCafe Browser Tests)
-        run: yarn browser-test:ci
-        env:
-          BROWSER_TESTS_UID: ${{ secrets.BROWSER_TESTS_UID }}
-          BROWSER_TESTS_PWD: ${{ secrets.BROWSER_TESTS_PWD }}
-      - name: Upload screenshots of failed tests
-        uses: actions/upload-artifact@v2
-        if: failure()
-        with:
-          name: screenshots
-          path: screenshots/
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          header: deployment-of-venepaikat-review
+          message: |
+            **Venepaikat is deployed to:** ${{ env.ENVIRONMENT_URL }}

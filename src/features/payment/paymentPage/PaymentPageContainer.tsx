@@ -81,7 +81,7 @@ const PaymentPageContainer = ({ localePush }: Props) => {
   };
 
   if (loadingOrderDetails || loadingConfirmPayment || isRedirecting) {
-    return <LoadingPage />;
+    return <LoadingPage disableNav />;
   }
 
   if (confirmError || orderDetailsError || typeof orderDetailsData?.contractSigned?.isSigned !== 'boolean') {

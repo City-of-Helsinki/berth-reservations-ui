@@ -20,11 +20,11 @@ const CallbackPage = ({ history }: CallbackPageProps) => {
         history.replace(user.state.path);
       })
       .catch(() => {
-        history.replace('/error');
+        // TODO: handle error
       });
   });
 
-  return <LoadingPage />;
+  return <LoadingPage disableNav />;
 };
 
 export default CallbackPage;

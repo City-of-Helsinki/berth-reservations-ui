@@ -1,5 +1,5 @@
 {
-  "assertionTimeout": 10000,
+  "assertionTimeout": 40000,
   "clientScripts": [
     {
       "module": "@testing-library/dom/dist/@testing-library/dom.umd.js"

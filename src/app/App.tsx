@@ -12,7 +12,6 @@ import CallbackPage from './auth/callbackPage/CallbackPage';
 import CancelOrderPageContainer from '../features/payment/cancelOrderPage/CancelOrderPageContainer';
 import FrontPage from '../features/frontPage/FrontPage';
 import LoginPage from './auth/loginPage/LoginPage';
-import LogoutPage from './auth/logoutPage/LogoutPage';
 import NotFoundPage from '../features/notice/NotFoundPage';
 import NoticeSentPage from '../features/notice/NoticeSentPage';
 import OrderCancelledPage from '../features/payment/cancelOrderPage/OrderCancelledPage';
@@ -50,7 +49,6 @@ const App = ({
   return (
     <Switch>
       {isUserAuthenticationEnabled && <Route path={`/${localeParam}/login`} component={LoginPage} />}
-      {isUserAuthenticationEnabled && <Route exact path={`/${localeParam}/logout`} component={LogoutPage} />}
       {isUserAuthenticationEnabled && <Route exact path={`/${localeParam}/callback`} component={CallbackPage} />}
 
       <Route exact path={`/${localeParam}`} component={FrontPage} />

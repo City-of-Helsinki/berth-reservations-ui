@@ -10,7 +10,11 @@ import { isUserAuthenticationEnabled } from '../../utils/featureFlags';
 import { isLinkActive, localizedLink, makeNavigationItemProps, stripUrlLocale } from './utils';
 import { LocaleOpts } from '../../types/translation';
 
-const Navbar = () => {
+interface NavbarProps {
+  disableNav?: boolean;
+}
+
+const Navbar = ({ disableNav }: NavbarProps) => {
   const {
     t,
     i18n: { language },
@@ -22,7 +26,6 @@ const Navbar = () => {
   const userName = currentUser?.name ?? '-';
   const currentLocation = `${location.pathname}${location.search}${location.hash}`;
   const currentLocationWithoutLocale = stripUrlLocale(currentLocation);
-  const loginQueryString = `?referrer=${encodeURIComponent(currentLocation)}`;
 
   const navigationProps: NavigationProps = {
     className: 'vene-navbar',
@@ -49,6 +52,8 @@ const Navbar = () => {
     },
   ];
 
+  if (disableNav) return <Navigation {...navigationProps}></Navigation>;
+
   return (
     <Navigation {...navigationProps}>
       <Navigation.Row>
@@ -68,16 +73,13 @@ const Navbar = () => {
             authenticated={authService.isAuthenticated()}
             label={t('site.navbar.log_in')}
             userName={userName}
-            onSignIn={() => history.push(localizedLink(`/login${loginQueryString}`, language))}
+            onSignIn={() => authService.login(currentLocation)}
           >
             <Navigation.Item
               label={t('site.navbar.profile')}
               {...makeNavigationItemProps(localizedLink('/profile', language), history)}
             />
-            <Navigation.Item
-              label={t('site.navbar.log_out')}
-              {...makeNavigationItemProps(localizedLink('/logout', language), history)}
-            />
+            <Navigation.Item href="#" label={t('site.navbar.log_out')} onClick={() => authService.logout()} />
           </Navigation.User>
         )}
 

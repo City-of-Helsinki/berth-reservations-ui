@@ -95,7 +95,7 @@ const SelectedBerthPageContainer = ({
 
   const handlePrevious = () => localePush('/berths');
 
-  const submitDisabled = (invalid: boolean, values: BerthSwitchProps) => selectedHarbors.size === 0 || invalid;
+  const submitDisabled = (invalid: boolean) => selectedHarbors.size === 0 || invalid;
 
   if (loading) return <LoadingPage />;
 
@@ -128,7 +128,7 @@ const SelectedBerthPageContainer = ({
     <Form
       onSubmit={handleSubmitApplication}
       initialValues={berthSwitchValues}
-      render={({ handleSubmit, invalid, values, form: { change } }) => (
+      render={({ handleSubmit, invalid }) => (
         <SelectionPageLayout
           tContext="berth"
           steps={steps}
@@ -139,7 +139,7 @@ const SelectedBerthPageContainer = ({
           }}
           selectionElements={selectionElements}
           handleSubmit={handleSubmit}
-          submitDisabled={submitDisabled(invalid, values)}
+          submitDisabled={submitDisabled(invalid)}
           handlePrevious={handlePrevious}
           validSelection={validSelection}
           isAuthenticated={isAuthenticated}
