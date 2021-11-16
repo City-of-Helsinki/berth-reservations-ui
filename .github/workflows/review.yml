@@ -65,7 +65,7 @@ jobs:
         id: deploy-url
         run: |
           DEPLOY_URL=$(kubectl get ingress -n "${{ env.K8S_NAMESPACE }}" -o jsonpath='{.items[0].spec.rules[0].host}')
-          echo "BROWSER_TESTS_LOCAL_ENV_URL=https://$DEPLOY_URL" >> $GITHUB_ENV
+          echo "ENVIRONMENT_URL=https://$DEPLOY_URL" >> $GITHUB_ENV
         shell: bash
       - name: Create PR comment for Venepaikat review
         uses: marocchino/sticky-pull-request-comment@v2
@@ -73,7 +73,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           header: deployment-of-venepaikat-review
           message: |
-            **Venepaikat is deployed to:** https://${{ env.DEPLOY_URL }}
+            **Venepaikat is deployed to:** ${{ env.ENVIRONMENT_URL }}
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
         with:
@@ -95,7 +95,7 @@ jobs:
       - name: Run Acceptance Tests (TestCafe Browser Tests)
         run: yarn browser-test:ci
         env:
-          BROWSER_TESTS_LOCAL_ENV_URL: ${{ env.BROWSER_TESTS_LOCAL_ENV_URL }}
+          BROWSER_TESTS_LOCAL_ENV_URL: ${{ env.ENVIRONMENT_URL }}
       - name: Upload screenshots of failed tests
         uses: actions/upload-artifact@v2
         if: failure()
