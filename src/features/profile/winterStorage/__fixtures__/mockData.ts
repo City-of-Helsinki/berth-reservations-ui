@@ -185,6 +185,7 @@ export const mockCustomerBerthsProps = {
 };
 
 const application = {
+  id: 'abc-123',
   applicationDate: 'Thu May 28 2020 23:21:00 GMT+0300 (Eastern European Summer Time)',
   choices: mockCustomerBerthsProps.choices,
 };

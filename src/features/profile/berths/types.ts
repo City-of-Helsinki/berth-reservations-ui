@@ -7,3 +7,8 @@ export interface BerthSpecs {
 }
 
 export type Properties = Record<'electricity' | 'gate' | 'lighting' | 'wasteCollection' | 'water', boolean>;
+
+export type {
+  berthApplicationNodeFragment as BerthApplicationNode,
+  berthApplicationNodeFragment_harborChoices as HarborChoice,
+} from './__generated__/berthApplicationNodeFragment';

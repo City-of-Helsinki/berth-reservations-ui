@@ -4,6 +4,7 @@
     "area": "Area",
     "berth": "Berth",
     "cancelled": "Cancelled",
+    "data_missing_query_error": "EN: Tietojen lataamisesa tapahtui virhe",
     "dinghy_place": "Dinghy place",
     "drafted": "Drafted",
     "due_date": "Due date",

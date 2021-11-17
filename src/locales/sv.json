@@ -4,6 +4,7 @@
     "area": "Området",
     "berth": "Båtplatsen",
     "cancelled": "Annullerat",
+    "data_missing_query_error": "SV: Tietojen lataamisesa tapahtui virhe",
     "dinghy_place": "Jolleplats",
     "drafted": "Erbjuden",
     "due_date": "Förfallodatum",

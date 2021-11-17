@@ -2,16 +2,18 @@ import { Button } from 'hds-react';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import './application.scss';
 import AvailabilityLevel from '../../../../common/availabilityLevel/AvailabilityLevel';
 import { formatDate } from '../../../../common/utils/format';
 import { Choice } from '../../types';
+import './application.scss';
+
 export interface ApplicationProps<T extends Record<string, boolean>> {
   applicationDate: string;
   choices: Choice<T>[];
   heading?: string;
   subHeading: string;
   disableButtons?: boolean;
+  onDelete?: () => void;
   renderProperties(properties: T): React.ReactNode;
 }
 
@@ -22,6 +24,7 @@ const Application = <T extends Record<string, boolean>>({
   choices,
   disableButtons,
   renderProperties,
+  onDelete,
 }: ApplicationProps<T>) => {
   const {
     t,
@@ -60,7 +63,7 @@ const Application = <T extends Record<string, boolean>>({
         <Button size="small" variant="secondary" disabled={disableButtons}>
           {t('page.profile.application.edit_application')}
         </Button>
-        <Button size="small" variant="danger" disabled={disableButtons}>
+        <Button size="small" variant="danger" onClick={() => onDelete?.()}>
           {t('page.profile.application.delete_application')}
         </Button>
       </div>

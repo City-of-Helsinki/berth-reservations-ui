@@ -4,6 +4,7 @@
     "area": "Alue",
     "berth": "Paikka",
     "cancelled": "Peruutettu",
+    "data_missing_query_error": "Tietojen lataamisesa tapahtui virhe",
     "dinghy_place": "Jollapaikka",
     "drafted": "Luotu",
     "due_date": "Eräpäivä",
