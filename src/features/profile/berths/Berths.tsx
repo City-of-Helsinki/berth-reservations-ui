@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Application from '../components/application/Application';
@@ -120,28 +121,28 @@ const Berths = ({ applications, offer, invoice, reservations, onDeleteApplicatio
           <Divider />
         </>
       )}
-      {applications &&
-        applications.map((application) => (
-          <>
-            <Application
-              {...application}
-              subHeading={t('page.profile.berths.berth_offer.applied_berths')}
-              heading={!offer && !invoice ? t('page.profile.berths.berth_offer.berth_application') : undefined}
-              renderProperties={({ electricity, gate, lighting, wasteCollection, water }) => (
-                <>
-                  {electricity && <Icon name="plug" />}
-                  {gate && <Icon name="fence" />}
-                  {lighting && <Icon name="streetLight" />}
-                  {wasteCollection && <Icon name="trash" />}
-                  {water && <Icon name="waterTap" />}
-                </>
-              )}
-              disableButtons={!!offer}
-              onDelete={() => onDeleteApplication(application.id)}
-            />
-            <Divider />
-          </>
-        ))}
+      {applications.map((application) => (
+        <Fragment key={application.id}>
+          <Application
+            applicationDate={application.applicationDate}
+            choices={application.choices}
+            subHeading={t('page.profile.berths.berth_offer.applied_berths')}
+            heading={!offer && !invoice ? t('page.profile.berths.berth_offer.berth_application') : undefined}
+            renderProperties={({ electricity, gate, lighting, wasteCollection, water }) => (
+              <>
+                {electricity && <Icon name="plug" />}
+                {gate && <Icon name="fence" />}
+                {lighting && <Icon name="streetLight" />}
+                {wasteCollection && <Icon name="trash" />}
+                {water && <Icon name="waterTap" />}
+              </>
+            )}
+            disableButtons={!!offer}
+            onDelete={() => onDeleteApplication(application.id)}
+          />
+          <Divider />
+        </Fragment>
+      ))}
       {reservations && (
         <ReservationHistory label={t('page.profile.berths.history.label')} reservations={reservations} />
       )}
