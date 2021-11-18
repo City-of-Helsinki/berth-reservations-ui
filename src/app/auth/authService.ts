@@ -53,6 +53,18 @@ const getTokens = (): string | null => {
   return localStorage.getItem(API_TOKENS);
 };
 
+const getProfileToken = (): string | null => {
+  const tokens = getTokens();
+
+  if (!tokens) {
+    return null;
+  }
+
+  const profileToken = JSON.parse(tokens)?.[process.env.REACT_APP_TUNNISTAMO_SCOPE_PROFILE as string];
+
+  return profileToken ?? null;
+};
+
 const getUser = (): Promise<User | null> => {
   return userManager.getUser();
 };
@@ -82,6 +94,7 @@ const authService = {
   endLogin,
   fetchApiTokens,
   getTokens,
+  getProfileToken,
   getUser,
   isAuthenticated,
   login,

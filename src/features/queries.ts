@@ -281,6 +281,14 @@ export const UPDATE_PROFILE = gql`
   }
 `;
 
+export const CREATE_BERTH_PROFILE_MUTATION = gql`
+  mutation CreateMyBerthProfile($input: CreateMyBerthProfileMutationInput!) {
+    createMyBerthProfile(input: $input) {
+      clientMutationId
+    }
+  }
+`;
+
 // TODO
 // export const SWITCH_OFFER_DETAILS = gql`
 //   query SwitchOfferDetails($offerNumber: String!) {

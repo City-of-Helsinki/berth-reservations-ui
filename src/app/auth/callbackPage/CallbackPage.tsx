@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import { useMutation } from '@apollo/react-hooks';
 
 import LoadingPage from '../../../common/loadingPage/LoadingPage';
+import { CREATE_BERTH_PROFILE_MUTATION } from '../../../features/queries';
 import apolloClient from '../../apolloClient';
 import authService from '../authService';
 
@@ -9,20 +11,35 @@ export type CallbackPageProps = RouteComponentProps;
 
 const CallbackPage = ({ history }: CallbackPageProps) => {
   const client = apolloClient;
+  const [createMyBerthProfile] = useMutation(CREATE_BERTH_PROFILE_MUTATION);
 
   useEffect(() => {
-    authService
-      .endLogin()
-      .then((user) => {
+    const endLogin = async () => {
+      try {
+        const user = await authService.endLogin();
+
+        // Create berth profile if it doesn't exist. If the profile does exist, this mutation
+        // returns the existing profile.
+        await createMyBerthProfile({
+          variables: {
+            input: {
+              profileToken: authService.getProfileToken(),
+            },
+          },
+        });
+
         client.writeData({
           data: { currentUser: { __typename: 'CurrentUser', ...user.profile } },
         });
+
         history.replace(user.state.path);
-      })
-      .catch(() => {
+      } catch (e) {
         // TODO: handle error
-      });
-  });
+      }
+    };
+
+    endLogin();
+  }, [client, createMyBerthProfile, history]);
 
   return <LoadingPage disableNav />;
 };

@@ -157,6 +157,11 @@ export interface CreateEmailInput {
   emailType: EmailType;
 }
 
+export interface CreateMyBerthProfileMutationInput {
+  profileToken: string;
+  clientMutationId?: string | null;
+}
+
 export interface CreatePhoneInput {
   primary?: boolean | null;
   phone: string;
