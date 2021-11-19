@@ -747,7 +747,11 @@
       "application": {
         "delete_application": "Delete application",
         "edit_application": "Edit application",
-        "keep_application_active": "I want the application to remain valid if there are no free berths for this sailing season"
+        "keep_application_active": "I want the application to remain valid if there are no free berths for this sailing season",
+        "confirm_delete_title": "EN: Haluatko varmasti poistaa hakemuksen?",
+        "confirm_delete_description": "EN: Poistettuasi hakemuksen et voi enää tarkastella sen tietoja.",
+        "confirm_delete_confirm": "EN: Poista hakemus",
+        "confirm_delete_cancel": "EN: Peruuta"
       },
       "boats": {
         "title": "Boats",

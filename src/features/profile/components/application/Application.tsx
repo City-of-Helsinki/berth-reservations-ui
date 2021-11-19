@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import AvailabilityLevel from '../../../../common/availabilityLevel/AvailabilityLevel';
 import { formatDate } from '../../../../common/utils/format';
 import { Choice } from '../../types';
+import ConfirmIntent from '../confirmIntent/ComfirmIntent';
 import './application.scss';
 
 export interface ApplicationProps<T extends Record<string, boolean>> {
@@ -63,9 +64,23 @@ const Application = <T extends Record<string, boolean>>({
         <Button size="small" variant="secondary" disabled={disableButtons}>
           {t('page.profile.application.edit_application')}
         </Button>
-        <Button size="small" variant="danger" onClick={() => onDelete?.()}>
-          {t('page.profile.application.delete_application')}
-        </Button>
+        {onDelete && (
+          <div className="vene-application__button">
+            <ConfirmIntent
+              id="delete-berth-application"
+              title={t('page.profile.application.confirm_delete_title')}
+              cancelIntentLabel={t('page.profile.application.confirm_delete_cancel')}
+              confirmIntentLabel={t('page.profile.application.confirm_delete_confirm')}
+              description={t('page.profile.application.confirm_delete_description')}
+              intent={() => onDelete()}
+              renderControl={({ ref, onClick }) => (
+                <Button ref={ref} size="small" variant="danger" onClick={onClick}>
+                  {t('page.profile.application.delete_application')}
+                </Button>
+              )}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
