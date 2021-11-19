@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import AvailabilityLevel from '../../../../common/availabilityLevel/AvailabilityLevel';
 import { formatDate } from '../../../../common/utils/format';
 import { Choice } from '../../types';
-import ConfirmIntent from '../confirmIntent/ComfirmIntent';
+import ConfirmIntent from '../confirmIntent/ConfirmIntent';
 import './application.scss';
 
 export interface ApplicationProps<T extends Record<string, boolean>> {
