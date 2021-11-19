@@ -20,12 +20,12 @@ const testData: Choices & BerthBoatInformation & ApplicantInformation = {
   boatWidth: '1.75',
   choice1: 'Lähteelä retkisatama',
   choice2: 'Strömsinlahden venesatama',
-  emailAddress: 'test@example.com',
+  email: 'test@example.com',
   firstName: 'Matti',
   lastName: 'Meikäläinen',
   municipality: 'Espoo',
   phoneNumber: '+358 50 123 4567',
-  postalCode: '02100',
+  zipCode: '02100',
 };
 
 fixture('Berth').page(envUrl());

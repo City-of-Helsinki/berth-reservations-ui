@@ -31,8 +31,8 @@ export type ApplicantInformation = {
   firstName: string;
   lastName: string;
   address: string;
-  postalCode: string;
+  zipCode: string;
   municipality: string;
   phoneNumber: string;
-  emailAddress: string;
+  email: string;
 };

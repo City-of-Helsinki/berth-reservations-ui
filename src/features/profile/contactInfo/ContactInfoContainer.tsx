@@ -30,7 +30,7 @@ const ContactInfoContainer = ({ contactInfo, refetch }: ContactInfoContainerProp
               {
                 id: contactInfo.primaryAddressId,
                 address: values.address,
-                postalCode: values.postalCode,
+                postalCode: values.zipCode,
                 city: values.municipality,
                 primary: true,
               },
@@ -39,7 +39,7 @@ const ContactInfoContainer = ({ contactInfo, refetch }: ContactInfoContainerProp
               {
                 id: contactInfo.primaryEmailId,
                 primary: true,
-                email: values.emailAddress,
+                email: values.email,
               },
             ],
             updatePhones: [
