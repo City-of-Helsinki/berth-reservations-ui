@@ -2,7 +2,7 @@ import { List, Record } from 'immutable';
 import { createTransform } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { BerthSwitchState, BerthsState, FormsState, WinterAreasState } from '../types';
+import { BerthsState, FormsState, WinterAreasState } from '../types';
 
 const BerthsTransform = createTransform(
   (inboundState: BerthsState) => {
@@ -59,21 +59,10 @@ const FormsTransform = createTransform(
   { whitelist: ['forms'] }
 );
 
-const BerthSwitchTransform = createTransform(
-  (inboundState: BerthSwitchState) => {
-    return inboundState.toObject();
-  },
-  (outboundState) => {
-    const berthSwitch = Record(outboundState);
-    return berthSwitch();
-  },
-  { whitelist: ['berthSwitch'] }
-);
-
 const persist = {
   storage,
   key: 'root',
-  transforms: [BerthsTransform, WinterAreasTransform, FormsTransform, BerthSwitchTransform],
+  transforms: [BerthsTransform, WinterAreasTransform, FormsTransform],
   whitelist: ['berths', 'winterAreas', 'forms', 'berthSwitch'],
 };
 

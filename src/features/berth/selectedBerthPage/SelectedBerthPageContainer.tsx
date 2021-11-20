@@ -147,7 +147,6 @@ export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({
-      berthSwitchValues: state.berthSwitch.toObject(),
       berthValues: state.forms.berthValues,
       selectedHarbors: state.berths.selectedHarbors,
       selectedServices: state.berths.selectedServices,
