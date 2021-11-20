@@ -12,6 +12,7 @@ const FullName = () => (
         placeholder="form.private_person.field.first_name.placeholder"
         required
         validate={mustBeNames(5)}
+        readOnly
       />
     </Col>
     <Col sm={4}>
@@ -21,6 +22,7 @@ const FullName = () => (
         placeholder="form.private_person.field.last_name.placeholder"
         required
         validate={mustBeNames(5)}
+        readOnly
       />
     </Col>
   </Row>
