@@ -28,12 +28,13 @@ const CallbackPage = ({ history }: CallbackPageProps) => {
           },
         });
 
-        const { name, email, sub } = user.profile;
+        const { name, email, sub, rest } = user.profile;
 
         client.writeData({
           data: {
             currentUser: {
               __typename: 'CurrentUser',
+              ...rest,
               name,
               email,
               id: sub,
