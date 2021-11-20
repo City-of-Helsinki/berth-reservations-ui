@@ -15,7 +15,6 @@ import { BerthSwitchProps, Store } from '../../../redux/types';
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
 import { getBerthFilterByValues, getHarbors } from '../utils';
 import { getSelectedResources } from '../../../common/utils/applicationUtils';
-import { submitBerthSwitch } from '../../../redux/actions/BerthSwitchActions';
 import { getBoatInfo } from './utils';
 import authService from '../../../app/auth/authService';
 import SelectedResourceContainer from '../../../common/areaCard/selectedResource/SelectedResourceContainer';
@@ -31,7 +30,6 @@ interface Props {
   deselectBerth(id: string): void;
   moveDown(id: string): void;
   moveUp(id: string): void;
-  submitBerthSwitch(values: BerthSwitchProps): void;
 }
 
 const steps: StepType[] = [
@@ -76,7 +74,6 @@ const SelectedBerthPageContainer = ({
   deselectBerth,
   moveDown,
   moveUp,
-  submitBerthSwitch,
 }: Props) => {
   const { data, loading } = useQuery<HarborsQuery>(HARBORS_QUERY);
 
@@ -88,10 +85,7 @@ const SelectedBerthPageContainer = ({
 
   const isAuthenticated = authService.isAuthenticated();
 
-  const handleSubmitApplication = (values: BerthSwitchProps) => {
-    submitBerthSwitch(values);
-    return localePush('/berths/form/registered-boat');
-  };
+  const handleSubmitApplication = () => localePush('/berths/form/registered-boat');
 
   const handlePrevious = () => localePush('/berths');
 
@@ -162,7 +156,6 @@ export default compose<Props, Props>(
       deselectBerth,
       moveUp,
       moveDown,
-      submitBerthSwitch,
     }
   )
 )(SelectedBerthPageContainer);
