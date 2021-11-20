@@ -3,29 +3,10 @@
 
 .vene-spinner {
   display: flex;
-  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
   align-items: center;
-  padding: $spacing-01;
-
-  &__spinner {
-    border: 2px solid $hel-light;
-    border-top: 2px solid $hel-black;
-    border-radius: 50%;
-    width: 72px;
-    height: 72px;
-    animation: spin 1s linear infinite;
-  }
-
-  &__text {
-    margin-top: $spacing-00-50;
-  }
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  flex-grow: 1;
+  padding: $spacing-02;
 }
