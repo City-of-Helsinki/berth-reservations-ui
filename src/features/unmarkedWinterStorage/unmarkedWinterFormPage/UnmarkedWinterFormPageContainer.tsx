@@ -10,7 +10,7 @@ import { UnmarkedWinterFormValues, WinterStorageArea } from '../types';
 import { UnmarkedWinterAreasQuery } from '../../__generated__/UnmarkedWinterAreasQuery';
 import { stringToFloat } from '../../../common/utils/applicationUtils';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
-import { CREATE_WINTER_STORAGE_APPLICATION, UNMARKED_WINTER_AREAS_QUERY } from '../../queries';
+import { CREATE_WINTER_STORAGE_APPLICATION, PROFILE_PAGE_QUERY, UNMARKED_WINTER_AREAS_QUERY } from '../../queries';
 import { getWinterStorageAreas } from '../utils';
 import ApplicantDetails from '../../../common/applicantDetails/ApplicantDetails';
 import WinterBoatDetails from '../../../common/winterBoatDetails/WinterBoatDetails';
@@ -19,6 +19,8 @@ import FormPage from '../../../common/formPage/FormPage';
 import { Store } from '../../../redux/types';
 import { SubmitWinterStorage, SubmitWinterStorageVariables } from '../../__generated__/SubmitWinterStorage';
 import { StepType } from '../../../common/steps/step/Step';
+import { ProfilePageQuery } from '../../__generated__/ProfilePageQuery';
+import { getFormValuesFromProfile } from '../../profile/utils';
 
 const stepsBeforeForm = 1;
 const boatTabs = ['registered-boat', 'unregistered-boat'];
@@ -26,7 +28,7 @@ const applicantTabs = ['private-person', 'company'];
 const formTabs = [boatTabs, applicantTabs, ['overview']];
 
 type Props = {
-  initialValues: UnmarkedWinterFormValues;
+  unmarkedWinterFormValues: UnmarkedWinterFormValues;
   onSubmit: (values: UnmarkedWinterFormValues) => void;
   localePush: LocalePush;
 } & RouteComponentProps<{ tab: string }>;
@@ -37,7 +39,7 @@ const UnmarkedWinterFormPageContainer = ({
     params: { tab },
   },
   onSubmit,
-  initialValues,
+  unmarkedWinterFormValues,
   ...rest
 }: Props) => {
   const [currentStep, setCurrentStep] = useState(stepsBeforeForm);
@@ -59,7 +61,9 @@ const UnmarkedWinterFormPageContainer = ({
   const [submitUnmarkedWinterStorage] = useMutation<SubmitWinterStorage, SubmitWinterStorageVariables>(
     CREATE_WINTER_STORAGE_APPLICATION
   );
+  const { data: profileData, loading: profileLoading } = useQuery<ProfilePageQuery>(PROFILE_PAGE_QUERY);
 
+  const initialValues = { ...unmarkedWinterFormValues, ...getFormValuesFromProfile(profileData) };
   const boatTypes = data ? data.boatTypes : [];
   const winterStorageAreas = getWinterStorageAreas(data ? data.winterStorageAreas : null);
 
@@ -176,6 +180,7 @@ const UnmarkedWinterFormPageContainer = ({
       stepsBeforeForm={stepsBeforeForm}
       submit={submit}
       initialValues={initialValues}
+      loading={profileLoading}
       {...rest}
     >
       {getStepComponent()}
@@ -187,7 +192,7 @@ export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({
-      initialValues: state.forms.unmarkedWinterValues,
+      unmarkedWinterFormValues: state.forms.unmarkedWinterValues,
     }),
     { onSubmit: onSubmitUnmarkedWinterForm }
   )

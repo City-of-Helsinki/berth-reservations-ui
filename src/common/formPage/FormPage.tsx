@@ -4,6 +4,7 @@ import { Col, Container, Row } from 'reactstrap';
 import Wizard from '../wizard/Wizard';
 import Layout from '../layout/Layout';
 import FormLegend from '../formLegend/FormLegend';
+import Spinner from '../spinner/Spinner';
 import Steps from '../steps/Steps';
 import { StepType } from '../steps/step/Step';
 
@@ -15,6 +16,7 @@ interface Props {
   goBackward: Function;
   goForward: Function;
   initialValues: {};
+  loading: boolean;
   steps: StepType[];
   stepsBeforeForm?: number;
   submit: Function;
@@ -26,6 +28,7 @@ const FormPage = ({
   goBackward,
   goForward,
   initialValues,
+  loading,
   steps,
   stepsBeforeForm = 0,
   submit,
@@ -44,17 +47,21 @@ const FormPage = ({
           </Row>
         </Container>
       </div>
-      <Wizard
-        currentStep={currentStep}
-        goBackward={goBackward}
-        goForward={goForward}
-        initialValues={initialValues}
-        steps={steps}
-        stepsBeforeForm={stepsBeforeForm}
-        submit={submit}
-      >
-        {children}
-      </Wizard>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <Wizard
+          currentStep={currentStep}
+          goBackward={goBackward}
+          goForward={goForward}
+          initialValues={initialValues}
+          steps={steps}
+          stepsBeforeForm={stepsBeforeForm}
+          submit={submit}
+        >
+          {children}
+        </Wizard>
+      )}
     </Layout>
   );
 };
