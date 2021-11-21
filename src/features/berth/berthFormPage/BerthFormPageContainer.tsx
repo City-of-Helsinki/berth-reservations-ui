@@ -10,7 +10,7 @@ import { getHarbors } from '../utils';
 import BerthOverview from './overview/BerthOverview';
 import BoatDetails from './boatDetails/BerthBoatDetails';
 import FormPage from '../../../common/formPage/FormPage';
-import SwitchApplication from '../selectedBerthPage/switchApplication/SwitchApplication';
+import SwitchApplication from './switchApplication/SwitchApplication';
 import { ApplicationOptions } from '../../../common/types/applicationType';
 import { Store } from '../../../redux/types';
 import { HARBORS_QUERY, CREATE_APPLICATION, BERTH_SWITCH_REASONS_QUERY, PROFILE_PAGE_QUERY } from '../../queries';
@@ -23,7 +23,7 @@ import { SubmitBerth, SubmitBerthVariables } from '../../__generated__/SubmitBer
 import { getSelectedResources, stringToFloat } from '../../../common/utils/applicationUtils';
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
 import { BerthSwitchReasonsQuery } from '../../__generated__/BerthSwitchReasonsQuery';
-import { getReasonOptions } from '../selectedBerthPage/utils';
+import { getCurrentBerths, getReasonOptions } from './switchApplication/utils';
 import { ProfilePageQuery } from '../../__generated__/ProfilePageQuery';
 import { getFormValuesFromProfile } from '../../profile/utils';
 
@@ -69,18 +69,16 @@ const BerthFormPageContainer = ({
   const isSwitchApplication = applicationType === ApplicationOptions.SwitchApplication;
 
   const { data, loading } = useQuery<HarborsQuery>(HARBORS_QUERY);
-
   const { data: profileData, loading: profileLoading } = useQuery<ProfilePageQuery>(PROFILE_PAGE_QUERY);
-
-  const initialValues = { ...berthValues, ...getFormValuesFromProfile(profileData) };
 
   const { data: berthSwitchReasonsData } = useQuery<BerthSwitchReasonsQuery>(BERTH_SWITCH_REASONS_QUERY, {
     skip: !isSwitchApplication,
   });
-  const reasonOptions = getReasonOptions(berthSwitchReasonsData);
-
   const [submitBerth] = useMutation<SubmitBerth, SubmitBerthVariables>(CREATE_APPLICATION);
 
+  const initialValues = { ...berthValues, ...getFormValuesFromProfile(profileData) };
+  const currentBerths = getCurrentBerths(profileData);
+  const reasonOptions = getReasonOptions(berthSwitchReasonsData);
   const boatTypes = data ? data.boatTypes : [];
   const berths = getHarbors(data);
   const selected = getSelectedResources(selectedHarbors, berths);
@@ -194,7 +192,7 @@ const BerthFormPageContainer = ({
         return (
           <>
             <ApplicantDetails tab={applicantTab} />
-            {isSwitchApplication && <SwitchApplication reasonOptions={reasonOptions} />}
+            {isSwitchApplication && <SwitchApplication currentBerths={currentBerths} reasonOptions={reasonOptions} />}
           </>
         );
       case 4:

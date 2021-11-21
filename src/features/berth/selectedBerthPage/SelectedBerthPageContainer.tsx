@@ -11,7 +11,7 @@ import { HarborsQuery } from '../../__generated__/HarborsQuery';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import { SelectedIds } from '../../../common/types/resource';
 import { SelectedServices } from '../../../common/types/services';
-import { BerthSwitchProps, Store } from '../../../redux/types';
+import { Store } from '../../../redux/types';
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
 import { getBerthFilterByValues, getHarbors } from '../utils';
 import { getSelectedResources } from '../../../common/utils/applicationUtils';
@@ -23,7 +23,6 @@ import { StepType } from '../../../common/steps/step/Step';
 
 interface Props {
   berthValues: BerthFormValues;
-  berthSwitchValues: BerthSwitchProps;
   localePush: LocalePush;
   selectedHarbors: SelectedIds;
   selectedServices: SelectedServices;
@@ -67,7 +66,6 @@ const steps: StepType[] = [
 
 const SelectedBerthPageContainer = ({
   berthValues,
-  berthSwitchValues,
   localePush,
   selectedHarbors,
   selectedServices,
@@ -121,7 +119,6 @@ const SelectedBerthPageContainer = ({
   return (
     <Form
       onSubmit={handleSubmitApplication}
-      initialValues={berthSwitchValues}
       render={({ handleSubmit, invalid }) => (
         <SelectionPageLayout
           tContext="berth"
