@@ -1,19 +1,14 @@
-@import 'helsinki/colors';
 @import 'styles/variables';
 
 .vene-switch-application {
-  background-color: $hel-light;
-  padding: $spacing-02 $spacing-03 $spacing-01 $spacing-01-50;
+  padding: 0 $spacing-01 $spacing-03;
 
   &__row {
     margin-bottom: $spacing-02;
   }
 
-  &__loading {
-    margin: $spacing-02;
-    > * {
-      margin: 0 auto;
-    }
+  &__divider {
+    margin-bottom: $spacing-03;
   }
 
   &__heading {

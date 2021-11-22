@@ -555,7 +555,8 @@
     "berth": {
       "switch_application": {
         "current_berth": {
-          "info_text": "Fyll i uppgifterna om den nuvarande platsen i ansökan om byte. ",
+          "info_text": "Olet tekemässä vaihtohakemusta, joten jos saat tähän hakemukseen venepaikkatarjouksen ja hyväksyt sen, se korvaa nykyisen venepaikkasi.  Tätä varten hakemukseen tarvitaan tiedot nykyisestä venepaikastasi.",
+          "select_info_text": "Vaihtohakemukseen haettiin seuraavat tiedot nykyisestä venepaikasta, valitse minkä paikan haluat vaihtaa:",
           "title": "Uppgifter om den nuvarande platsen"
         },
         "switch": {
@@ -563,16 +564,8 @@
           "title": "Ansökan om byte"
         },
         "form": {
-          "berth": {
-            "placeholder": "Nummer",
+          "current_berth": {
             "title": "Platsnummer"
-          },
-          "current_harbour_area": {
-            "label": "Nuvarande hamn"
-          },
-          "pier": {
-            "placeholder": "Kajkod",
-            "title": "Kaj"
           }
         },
         "new": {

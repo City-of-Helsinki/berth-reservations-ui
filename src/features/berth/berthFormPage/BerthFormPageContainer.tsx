@@ -173,6 +173,7 @@ const BerthFormPageContainer = ({
         berthSwitch && {
           berthSwitch: {
             berthId: berthSwitch.berth.value,
+            reason: berthSwitch.reason?.value,
           },
         }
     );

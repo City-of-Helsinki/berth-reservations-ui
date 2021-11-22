@@ -555,7 +555,8 @@
     "berth": {
       "switch_application": {
         "current_berth": {
-          "info_text": "Please provide the details of your current berth for the switch application. ",
+          "info_text": "Olet tekemässä vaihtohakemusta, joten jos saat tähän hakemukseen venepaikkatarjouksen ja hyväksyt sen, se korvaa nykyisen venepaikkasi.  Tätä varten hakemukseen tarvitaan tiedot nykyisestä venepaikastasi.",
+          "select_info_text": "Vaihtohakemukseen haettiin seuraavat tiedot nykyisestä venepaikasta, valitse minkä paikan haluat vaihtaa:",
           "title": "Information on your current berth"
         },
         "switch": {
@@ -563,16 +564,8 @@
           "title": "Switch application"
         },
         "form": {
-          "berth": {
-            "placeholder": "Berth ID",
-            "title": "Berth number"
-          },
-          "current_harbour_area": {
-            "label": "Current harbour"
-          },
-          "pier": {
-            "placeholder": "Pier ID",
-            "title": "Pier"
+          "current_berth": {
+            "title": "Current berth"
           }
         },
         "new": {
