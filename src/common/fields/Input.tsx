@@ -1,9 +1,11 @@
+import classNames from 'classnames';
 import { Field, FieldRenderProps } from 'react-final-form';
 import { WithTranslation } from 'react-i18next';
 import { FormFeedback, FormGroup, FormText, Input, InputProps } from 'reactstrap';
 
 import validator, { mustBePresent } from '../utils/formValidation';
 import Label from './Label';
+import './input.scss';
 
 type Props = WithTranslation & FieldRenderProps<string, HTMLElement>;
 
@@ -30,6 +32,9 @@ const TextInput = (type: InputProps['type']) => ({
         <FormGroup>
           {label && <Label htmlFor={id} required={required} text={label} />}
           <Input
+            className={classNames('vene-text-input', {
+              'vene-text-input--read-only': rest.readOnly,
+            })}
             id={id}
             required={required}
             invalid={!!(meta.touched && meta.error)}
