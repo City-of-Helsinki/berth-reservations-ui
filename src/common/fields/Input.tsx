@@ -14,6 +14,7 @@ const TextInput = (type: InputProps['type']) => ({
   id,
   name,
   label,
+  readOnly,
   required,
   text,
   validate,
@@ -33,10 +34,11 @@ const TextInput = (type: InputProps['type']) => ({
           {label && <Label htmlFor={id} required={required} text={label} />}
           <Input
             className={classNames('vene-input', {
-              'vene-input--read-only': rest.readOnly,
+              'vene-input--read-only': readOnly,
             })}
             id={id}
             required={required}
+            readOnly={readOnly}
             invalid={!!(meta.touched && meta.error)}
             placeholder={placeholder ? t(placeholder) : ''}
             {...input}
