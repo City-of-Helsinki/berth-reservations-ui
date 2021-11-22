@@ -24,7 +24,7 @@ const SwitchApplication = ({ currentBerths, reasonOptions }: SwitchApplicationPr
             {t('page.berth.switch_application.current_berth.info_text')}
           </p>
           <p>{t('page.berth.switch_application.current_berth.select_info_text')}</p>
-          <Field name="berthSwitch.berth" required>
+          <Field name="berthSwitch.berth" initialValue={currentBerths[0] ?? null} required validate={(val) => !val}>
             {({ input, meta }) => (
               <Select
                 id={input.name}
@@ -34,8 +34,8 @@ const SwitchApplication = ({ currentBerths, reasonOptions }: SwitchApplicationPr
                 onChange={input.onChange}
                 onFocus={input.onFocus}
                 options={currentBerths}
-                required
                 value={input.value}
+                required
               />
             )}
           </Field>
@@ -43,7 +43,7 @@ const SwitchApplication = ({ currentBerths, reasonOptions }: SwitchApplicationPr
       </Row>
       <Row className="vene-switch-application__row">
         <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
-          <Field name="berthSwitch.reason">
+          <Field<Option | null> name="berthSwitch.reason">
             {({ input, meta }) => (
               <Select
                 id={input.name}
