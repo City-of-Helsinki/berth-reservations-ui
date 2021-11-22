@@ -79,7 +79,10 @@ const Navbar = ({ disableNav }: NavbarProps) => {
               label={t('site.navbar.profile')}
               {...makeNavigationItemProps(localizedLink('/profile', language), history)}
             />
-            <Navigation.Item href="#" label={t('site.navbar.log_out')} onClick={() => authService.logout()} />
+            <Navigation.Item
+              label={t('site.navbar.log_out')}
+              {...makeNavigationItemProps(localizedLink('/logout', language), history)}
+            />
           </Navigation.User>
         )}
 

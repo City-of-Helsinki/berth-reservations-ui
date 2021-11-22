@@ -1,0 +1,6 @@
+.vene-input {
+  &--read-only[readonly] {
+    border: none;
+    background-color: transparent;
+  }
+}

@@ -6,14 +6,14 @@ import { useQuery, useMutation } from '@apollo/react-hooks';
 import { RouteComponentProps } from 'react-router';
 
 import ApplicantDetails from '../../../common/applicantDetails/ApplicantDetails';
-import { BerthOption } from '../selectedBerthPage/types';
 import { getHarbors } from '../utils';
 import BerthOverview from './overview/BerthOverview';
 import BoatDetails from './boatDetails/BerthBoatDetails';
 import FormPage from '../../../common/formPage/FormPage';
+import SwitchApplication from './switchApplication/SwitchApplication';
 import { ApplicationOptions } from '../../../common/types/applicationType';
-import { BerthSwitchState, Store } from '../../../redux/types';
-import { HARBORS_QUERY, CREATE_APPLICATION } from '../../queries';
+import { Store } from '../../../redux/types';
+import { HARBORS_QUERY, CREATE_APPLICATION, BERTH_SWITCH_REASONS_QUERY, PROFILE_PAGE_QUERY } from '../../queries';
 import { BerthFormValues } from '../types';
 import { HarborsQuery } from '../../__generated__/HarborsQuery';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
@@ -22,10 +22,13 @@ import { StepType } from '../../../common/steps/step/Step';
 import { SubmitBerth, SubmitBerthVariables } from '../../__generated__/SubmitBerth';
 import { getSelectedResources, stringToFloat } from '../../../common/utils/applicationUtils';
 import { onSubmitBerthForm } from '../../../redux/actions/FormActions';
+import { BerthSwitchReasonsQuery } from '../../__generated__/BerthSwitchReasonsQuery';
+import { getCurrentBerths, getReasonOptions } from './switchApplication/utils';
+import { ProfilePageQuery } from '../../__generated__/ProfilePageQuery';
+import { getFormValuesFromProfile } from '../../profile/utils';
 
 type Props = {
   applicationType: ApplicationOptions;
-  berthSwitch: BerthSwitchState;
   berthValues: BerthFormValues;
   localePush: LocalePush;
   onSubmit: (values: BerthFormValues) => void;
@@ -39,7 +42,6 @@ const formTabs = [boatTabs, applicantTabs, ['overview']];
 
 const BerthFormPageContainer = ({
   applicationType,
-  berthSwitch,
   berthValues,
   localePush,
   match: {
@@ -64,9 +66,19 @@ const BerthFormPageContainer = ({
     }
   }, [tab]);
 
+  const isSwitchApplication = applicationType === ApplicationOptions.SwitchApplication;
+
   const { data, loading } = useQuery<HarborsQuery>(HARBORS_QUERY);
+  const { data: profileData, loading: profileLoading } = useQuery<ProfilePageQuery>(PROFILE_PAGE_QUERY);
+
+  const { data: berthSwitchReasonsData } = useQuery<BerthSwitchReasonsQuery>(BERTH_SWITCH_REASONS_QUERY, {
+    skip: !isSwitchApplication,
+  });
   const [submitBerth] = useMutation<SubmitBerth, SubmitBerthVariables>(CREATE_APPLICATION);
 
+  const initialValues = { ...berthValues, ...getFormValuesFromProfile(profileData) };
+  const currentBerths = getCurrentBerths(profileData);
+  const reasonOptions = getReasonOptions(berthSwitchReasonsData);
   const boatTypes = data ? data.boatTypes : [];
   const berths = getHarbors(data);
   const selected = getSelectedResources(selectedHarbors, berths);
@@ -132,6 +144,7 @@ const BerthFormPageContainer = ({
 
   const submit = (values: BerthFormValues) => {
     onSubmit(values);
+    const { berthSwitch, ...rest } = values;
 
     const choices = selectedHarbors
       .map((harborId, priority) => ({
@@ -140,7 +153,7 @@ const BerthFormPageContainer = ({
       }))
       .toArray();
 
-    const normalizedValues = Object.assign({}, values, {
+    const normalizedValues = Object.assign({}, rest, {
       boatLength: stringToFloat(values.boatLength),
       boatWidth: stringToFloat(values.boatWidth),
       boatDraught: stringToFloat(values.boatDraught),
@@ -156,12 +169,13 @@ const BerthFormPageContainer = ({
           choices,
         },
       },
-      applicationType === ApplicationOptions.SwitchApplication && {
-        berthSwitch: {
-          berthId: (berthSwitch.berth as BerthOption).value,
-          reason: berthSwitch.reason?.value,
-        },
-      }
+      isSwitchApplication &&
+        berthSwitch && {
+          berthSwitch: {
+            berthId: berthSwitch.berth.value,
+            reason: berthSwitch.reason?.value,
+          },
+        }
     );
 
     submitBerth({
@@ -176,18 +190,15 @@ const BerthFormPageContainer = ({
       case 2:
         return <BoatDetails tab={boatTab} boatTypes={boatTypes} />;
       case 3:
-        return <ApplicantDetails tab={applicantTab} />;
+        return (
+          <>
+            <ApplicantDetails tab={applicantTab} />
+            {isSwitchApplication && <SwitchApplication currentBerths={currentBerths} reasonOptions={reasonOptions} />}
+          </>
+        );
       case 4:
         return (
-          !loading && (
-            <BerthOverview
-              berthSwitch={berthSwitch}
-              boatTab={boatTab}
-              boatTypes={boatTypes}
-              selectedHarbors={selected}
-              steps={steps}
-            />
-          )
+          !loading && <BerthOverview boatTab={boatTab} boatTypes={boatTypes} selectedHarbors={selected} steps={steps} />
         );
     }
   };
@@ -197,10 +208,11 @@ const BerthFormPageContainer = ({
       currentStep={currentStep}
       goBackward={goBackward}
       goForward={goForward}
-      initialValues={berthValues}
+      initialValues={initialValues}
       steps={steps}
       stepsBeforeForm={stepsBeforeForm}
       submit={submit}
+      loading={profileLoading}
       {...rest}
     >
       {getStepComponent()}
@@ -213,7 +225,6 @@ export default compose<Props, Props>(
   connect(
     (state: Store) => ({
       applicationType: state.berths.applicationType,
-      berthSwitch: state.berthSwitch,
       berthValues: state.forms.berthValues,
       selectedHarbors: state.berths.selectedHarbors,
     }),

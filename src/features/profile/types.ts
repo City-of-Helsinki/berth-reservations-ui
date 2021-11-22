@@ -3,13 +3,13 @@ import { OrderStatus, Language } from '../../__generated__/globalTypes';
 export type ContactInfo = {
   address: string;
   customerGroup: string;
-  emailAddress: string;
+  email: string;
   firstName: string;
   language?: Language;
   lastName: string;
   municipality: string;
   phoneNumber: string;
-  postalCode: string;
+  zipCode: string;
   primaryAddressId: string;
   primaryEmailId: string;
   primaryPhoneId: string;

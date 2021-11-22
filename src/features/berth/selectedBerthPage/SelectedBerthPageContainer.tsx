@@ -11,11 +11,10 @@ import { HarborsQuery } from '../../__generated__/HarborsQuery';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
 import { SelectedIds } from '../../../common/types/resource';
 import { SelectedServices } from '../../../common/types/services';
-import { BerthSwitchProps, Store } from '../../../redux/types';
+import { Store } from '../../../redux/types';
 import { deselectBerth, moveDown, moveUp } from '../../../redux/actions/BerthActions';
 import { getBerthFilterByValues, getHarbors } from '../utils';
 import { getSelectedResources } from '../../../common/utils/applicationUtils';
-import { submitBerthSwitch } from '../../../redux/actions/BerthSwitchActions';
 import { getBoatInfo } from './utils';
 import authService from '../../../app/auth/authService';
 import SelectedResourceContainer from '../../../common/areaCard/selectedResource/SelectedResourceContainer';
@@ -24,14 +23,12 @@ import { StepType } from '../../../common/steps/step/Step';
 
 interface Props {
   berthValues: BerthFormValues;
-  berthSwitchValues: BerthSwitchProps;
   localePush: LocalePush;
   selectedHarbors: SelectedIds;
   selectedServices: SelectedServices;
   deselectBerth(id: string): void;
   moveDown(id: string): void;
   moveUp(id: string): void;
-  submitBerthSwitch(values: BerthSwitchProps): void;
 }
 
 const steps: StepType[] = [
@@ -69,14 +66,12 @@ const steps: StepType[] = [
 
 const SelectedBerthPageContainer = ({
   berthValues,
-  berthSwitchValues,
   localePush,
   selectedHarbors,
   selectedServices,
   deselectBerth,
   moveDown,
   moveUp,
-  submitBerthSwitch,
 }: Props) => {
   const { data, loading } = useQuery<HarborsQuery>(HARBORS_QUERY);
 
@@ -88,10 +83,7 @@ const SelectedBerthPageContainer = ({
 
   const isAuthenticated = authService.isAuthenticated();
 
-  const handleSubmitApplication = (values: BerthSwitchProps) => {
-    submitBerthSwitch(values);
-    return localePush('/berths/form/registered-boat');
-  };
+  const handleSubmitApplication = () => localePush('/berths/form/registered-boat');
 
   const handlePrevious = () => localePush('/berths');
 
@@ -127,7 +119,6 @@ const SelectedBerthPageContainer = ({
   return (
     <Form
       onSubmit={handleSubmitApplication}
-      initialValues={berthSwitchValues}
       render={({ handleSubmit, invalid }) => (
         <SelectionPageLayout
           tContext="berth"
@@ -153,7 +144,6 @@ export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({
-      berthSwitchValues: state.berthSwitch.toObject(),
       berthValues: state.forms.berthValues,
       selectedHarbors: state.berths.selectedHarbors,
       selectedServices: state.berths.selectedServices,
@@ -162,7 +152,6 @@ export default compose<Props, Props>(
       deselectBerth,
       moveUp,
       moveDown,
-      submitBerthSwitch,
     }
   )
 )(SelectedBerthPageContainer);

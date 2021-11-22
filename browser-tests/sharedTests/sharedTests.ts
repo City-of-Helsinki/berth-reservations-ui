@@ -71,10 +71,10 @@ export const fillApplicantInformation = async (
     firstName,
     lastName,
     address,
-    postalCode,
+    zipCode,
     municipalitySelect,
     phoneNumber,
-    emailAddress,
+    email,
     nextButton,
   } = applicantInformationSelectors;
 
@@ -86,11 +86,11 @@ export const fillApplicantInformation = async (
     .typeText(firstName, testData.firstName)
     .typeText(lastName, testData.lastName)
     .typeText(address, testData.address)
-    .typeText(postalCode, testData.postalCode)
+    .typeText(zipCode, testData.zipCode)
     .click(municipalitySelect)
     .click(municipalitySelect.find('option').withText(testData.municipality))
     .typeText(phoneNumber, testData.phoneNumber)
-    .typeText(emailAddress, testData.emailAddress);
+    .typeText(email, testData.email);
 
   await t.click(nextButton);
 };
@@ -124,10 +124,10 @@ export const assertApplicantOverview = (
   testData: {
     firstName: string;
     lastName: string;
-    emailAddress: string;
+    email: string;
     phoneNumber: string;
     address: string;
-    postalCode: string;
+    zipCode: string;
     municipality: string;
   }
 ) => {
@@ -138,13 +138,13 @@ export const assertApplicantOverview = (
     .ok()
     .expect(textInOverview(testData.lastName).exists)
     .ok()
-    .expect(textInOverview(testData.emailAddress).exists)
+    .expect(textInOverview(testData.email).exists)
     .ok()
     .expect(textInOverview(testData.phoneNumber).exists)
     .ok()
     .expect(textInOverview(testData.address).exists)
     .ok()
-    .expect(textInOverview(testData.postalCode).exists)
+    .expect(textInOverview(testData.zipCode).exists)
     .ok()
     .expect(textInOverview(testData.municipality).exists)
     .ok();

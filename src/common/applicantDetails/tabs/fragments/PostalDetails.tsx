@@ -26,6 +26,7 @@ const PostalDetails = () => {
           placeholder={`form.postal_details.field.street_address.placeholder`}
           required
           validate={mustBeAddress}
+          readOnly
         />
       </Col>
       <Col sm={4}>
@@ -35,10 +36,11 @@ const PostalDetails = () => {
           placeholder={`form.postal_details.field.postal_code.placeholder`}
           required
           validate={mustBePostalCode}
+          readOnly
         />
       </Col>
       <Col sm={4}>
-        <Select name={`municipality`} label={`form.postal_details.field.municipality.label`} required>
+        <Select name={`municipality`} label={`form.postal_details.field.municipality.label`} required disabled>
           <option value="" disabled hidden>
             {t('form.postal_details.field.municipality.placeholder')}
           </option>

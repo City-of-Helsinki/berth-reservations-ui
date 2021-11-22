@@ -5,6 +5,7 @@ import {
   HarborsQuery_harbors_edges_node,
   HarborsQuery_harbors_edges_node_properties as BerthProperties,
 } from '../__generated__/HarborsQuery';
+import { Option } from './berthFormPage/switchApplication/types';
 
 export type HarborType = {
   __typename: HarborsQuery_harbors_edges_node['__typename'];
@@ -42,10 +43,14 @@ interface ValuesToOverride {
   boatWeight: string;
 }
 
+interface BerthSwitch {
+  berth: Option;
+  reason?: Option | null;
+}
+
 export type BerthFormValues = Pick<
   BerthApplicationInput,
   Exclude<keyof BerthApplicationInput, keyof ValuesToOverride>
-> &
-  ValuesToOverride;
+> & { berthSwitch?: BerthSwitch } & ValuesToOverride;
 
 export type Harbors = List<HarborType>;

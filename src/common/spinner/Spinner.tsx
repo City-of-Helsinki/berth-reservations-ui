@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
-import './spinner.scss';
 import { useTranslation } from 'react-i18next';
+import { LoadingSpinner } from 'hds-react';
+
+import './spinner.scss';
 
 export interface SpinnerProps {
   withText?: boolean;
@@ -9,28 +10,11 @@ export interface SpinnerProps {
 
 const Spinner = ({ withText, text }: SpinnerProps) => {
   const { t } = useTranslation();
-  const initialText = text ?? t('site.common.loading');
-
-  const [loadingText, setLoadingText] = useState(initialText);
-  const [counter, setCounter] = useState(0);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setCounter(counter + 1), 750);
-    return () => clearTimeout(timeout);
-  }, [counter]);
-
-  useEffect(() => {
-    setLoadingText(`${initialText}${'.'.repeat(counter % 4)}`);
-  }, [counter, initialText]);
-
-  if (!withText) {
-    return <div className="vene-spinner__spinner" />;
-  }
+  const loadingText = text ?? t('site.common.loading');
 
   return (
     <div className="vene-spinner">
-      <div className="vene-spinner__spinner" />
-      <span className="vene-spinner__text">{loadingText}</span>
+      <LoadingSpinner loadingText={withText ? loadingText : undefined} />
     </div>
   );
 };

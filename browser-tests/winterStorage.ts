@@ -23,12 +23,12 @@ const testData: Choices & WsBoatInformation & ApplicantInformation = {
   boatType: 'Soutuvene',
   boatTypeIndex: '2',
   boatWidth: '1.75',
-  emailAddress: 'test@example.com',
+  email: 'test@example.com',
   firstName: 'Matti',
   lastName: 'Meikäläinen',
   municipality: 'Espoo',
   phoneNumber: '+358 50 123 4567',
-  postalCode: '02100',
+  zipCode: '02100',
   trailerRegistrationNumber: 'DEF-123',
 };
 

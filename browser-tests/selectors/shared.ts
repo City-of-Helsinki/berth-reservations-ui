@@ -24,10 +24,10 @@ export const applicantInformationSelectors = {
   firstName: screen.getByRole('textbox', { name: /etunimi/i }),
   lastName: screen.getByRole('textbox', { name: /sukunimi/i }),
   address: screen.getByRole('textbox', { name: /jakeluosoite/i }),
-  postalCode: screen.getByRole('textbox', { name: /postinumero/i }),
+  zipCode: screen.getByRole('textbox', { name: /postinumero/i }),
   municipalitySelect: screen.getByRole('combobox', { name: /postitoimipaikka/i }),
   phoneNumber: screen.getByRole('textbox', { name: /matkapuhelin/i }),
-  emailAddress: screen.getByRole('textbox', { name: /sähköpostiosoite/i }),
+  email: screen.getByRole('textbox', { name: /sähköpostiosoite/i }),
   nextButton: screen.getByRole('button', { name: /seuraava/i }),
 };
 

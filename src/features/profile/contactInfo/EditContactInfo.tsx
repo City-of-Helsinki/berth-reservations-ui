@@ -59,7 +59,7 @@ const EditContactInfo = ({ initialValues, handleCancel, handleSave }: EditContac
           </div>
           <div className="vene-edit-contact-info__section">
             <FormField id="address" label={t('page.profile.contact.address')} />
-            <FormField id="postalCode" label={t('page.profile.contact.postal_code')} />
+            <FormField id="zipCode" label={t('page.profile.contact.postal_code')} />
             <div className="vene-edit-contact-info__field">
               <Field name="municipality">
                 {({ input }) => (
@@ -77,7 +77,7 @@ const EditContactInfo = ({ initialValues, handleCancel, handleSave }: EditContac
           </div>
           <div className="vene-edit-contact-info__section">
             <FormField id="phoneNumber" label={t('page.profile.contact.phone_number')} />
-            <FormField id="emailAddress" label={t('page.profile.contact.email_address')} />
+            <FormField id="email" label={t('page.profile.contact.email_address')} />
           </div>
           <div className="vene-edit-contact-info__section">
             <div className="vene-edit-contact-info__field">

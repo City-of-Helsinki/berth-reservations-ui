@@ -12,6 +12,7 @@ const ContactDetails = () => (
         label="form.contact_details.field.mobile_phone.label"
         placeholder="form.contact_details.field.mobile_phone.placeholder"
         required
+        readOnly
       />
     </Col>
     <Col sm={4}>
@@ -21,6 +22,7 @@ const ContactDetails = () => (
         label={`form.contact_details.field.email.label`}
         placeholder={`form.contact_details.field.email.placeholder`}
         required
+        readOnly
       />
     </Col>
   </Row>

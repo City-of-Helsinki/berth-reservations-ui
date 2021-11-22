@@ -47,7 +47,6 @@ jobs:
           DOCKER_BUILD_ARG_REACT_APP_SENTRY_ENVIRONMENT: 'production'
           DOCKER_BUILD_ARG_REACT_APP_TRAILER_PAYMENT_URL: 'https://checkout.hel.fi/purchase/306ab20a-6b30-3ce3-95e8-fef818e6c30e?language=fi&quantity=1&namespace=venepaikat'
 
-
   smoke-tests:
     runs-on: windows-latest
     needs: production
@@ -74,6 +73,7 @@ jobs:
         run: yarn browser-test:ci
         env:
           BROWSER_TESTS_LOCAL_ENV_URL: https://${{ secrets.ENVIRONMENT_URL_STABLE }}
+          BROWSER_TESTS_SSN: ${{ secrets.BROWSER_TESTS_SSN }}
       - name: Upload screenshots of failed tests
         uses: actions/upload-artifact@v2
         if: failure()

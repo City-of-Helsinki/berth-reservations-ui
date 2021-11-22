@@ -75,12 +75,9 @@ const UnconnectedSelectedAreaPage = ({
 }: Props) => {
   const { data } = useQuery<WinterAreasQuery>(WINTER_AREAS_QUERY);
 
-  const moveToForm = async () => {
-    await localePush('/winter-storage/form/registered-boat');
-  };
-  const handlePrevious = async () => {
-    await localePush('/winter-storage');
-  };
+  const moveToForm = () => localePush('/winter-storage/form/registered-boat');
+  const handlePrevious = () => localePush('/winter-storage');
+
   const isAuthenticated = authService.isAuthenticated();
 
   const width = values.boatWidth;

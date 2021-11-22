@@ -261,6 +261,29 @@ export const PROFILE_PAGE_QUERY = gql`
         id
         phone
       }
+      berthLeases {
+        edges {
+          node {
+            id
+            berth {
+              id
+              number
+              pier {
+                id
+                properties {
+                  identifier
+                  harbor {
+                    id
+                    properties {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 `;

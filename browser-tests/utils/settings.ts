@@ -7,3 +7,10 @@ export const envUrl = (): string => {
   }
   return process.env.BROWSER_TESTS_LOCAL_ENV_URL;
 };
+
+export const testUserSSN = (): string => {
+  if (!process.env.BROWSER_TESTS_SSN) {
+    throw new Error('No BROWSER_TESTS_SSN specified.');
+  }
+  return process.env.BROWSER_TESTS_SSN;
+};

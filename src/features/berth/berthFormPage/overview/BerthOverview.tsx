@@ -5,20 +5,18 @@ import Agreement from '../../../../common/agreement/Agreement';
 import ApplicationCode from '../../../../common/applicationCode/ApplicationCode';
 import Newsletter from '../../../../common/newsletter/Newsletter';
 import BerthOverviewInfo from './BerthOverviewInfo';
-import { BerthSwitchState } from '../../../../redux/types';
 import { BerthFormValues, Harbors } from '../../types';
 import { StepType } from '../../../../common/steps/step/Step';
 import { WithBoatType } from '../../../../common/selects/Selects';
 
 type Props = {
-  berthSwitch: BerthSwitchState;
   boatTab: string;
   selectedHarbors: Harbors;
   steps: StepType[];
   values?: BerthFormValues;
 } & WithBoatType;
 
-const BerthOverview = ({ berthSwitch, boatTab, boatTypes, selectedHarbors, steps, values }: Props) => {
+const BerthOverview = ({ boatTab, boatTypes, selectedHarbors, steps, values }: Props) => {
   const { t } = useTranslation();
   return (
     <Container>
@@ -27,7 +25,6 @@ const BerthOverview = ({ berthSwitch, boatTab, boatTypes, selectedHarbors, steps
           <div className="vene-form__styled-container">
             {values && (
               <BerthOverviewInfo
-                berthSwitch={berthSwitch}
                 boatTab={boatTab}
                 boatTypes={boatTypes}
                 selectedHarbors={selectedHarbors}

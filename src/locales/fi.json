@@ -556,24 +556,17 @@
     "berth": {
       "switch_application": {
         "current_berth": {
-          "info_text": "Vaihtohakemusta varten syötä nykyisen venepaikan tiedot. ",
-          "title": "Nykyisen paikan tiedot"
+          "info_text": "Olet tekemässä vaihtohakemusta, joten jos saat tähän hakemukseen venepaikkatarjouksen ja hyväksyt sen, se korvaa nykyisen venepaikkasi.  Tätä varten hakemukseen tarvitaan tiedot nykyisestä venepaikastasi.",
+          "select_info_text": "Vaihtohakemukseen haettiin seuraavat tiedot nykyisestä venepaikasta, valitse minkä paikan haluat vaihtaa:",
+          "title": "Nykyinen venepaikka"
         },
         "switch": {
           "info_text": "Helsingin kaupungin satamassa olevan venepaikan vaihto",
           "title": "Vaihtohakemus"
         },
         "form": {
-          "berth": {
-            "placeholder": "Numero",
-            "title": "Paikkanumero"
-          },
-          "current_harbour_area": {
-            "label": "Nykyinen satama"
-          },
-          "pier": {
-            "placeholder": "Laiturin tunnus",
-            "title": "Laituri"
+          "current_berth": {
+            "title": "Nykyinen venepaikka"
           }
         },
         "new": {

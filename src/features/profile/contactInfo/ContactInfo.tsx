@@ -17,10 +17,10 @@ const ContactInfo = ({ contactInfo, handleEdit }: ContactInfoProps) => {
     firstName,
     lastName,
     address,
-    postalCode,
+    zipCode,
     municipality,
     phoneNumber,
-    emailAddress,
+    email,
     customerGroup,
     language,
   } = contactInfo;
@@ -29,12 +29,12 @@ const ContactInfo = ({ contactInfo, handleEdit }: ContactInfoProps) => {
       <h1>{t('page.profile.contact.heading', { name: `${firstName} ${lastName}` })}</h1>
       <div className="vene-contact-info__section">
         <LabelValuePair label={t('page.profile.contact.address')} value={address} />
-        <LabelValuePair label={t('page.profile.contact.postal_code')} value={postalCode} />
+        <LabelValuePair label={t('page.profile.contact.postal_code')} value={zipCode} />
         <LabelValuePair label={t('page.profile.contact.municipality')} value={municipality} />
       </div>
       <div className="vene-contact-info__section">
         <LabelValuePair label={t('page.profile.contact.phone_number')} value={phoneNumber} />
-        <LabelValuePair label={t('page.profile.contact.email_address')} value={emailAddress} />
+        <LabelValuePair label={t('page.profile.contact.email_address')} value={email} />
       </div>
       <div className="vene-contact-info__section">
         <LabelValuePair label={t('page.profile.contact.customer_group')} value={customerGroup} />

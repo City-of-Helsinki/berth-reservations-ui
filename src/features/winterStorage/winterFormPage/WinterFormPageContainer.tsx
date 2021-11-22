@@ -10,7 +10,7 @@ import { onSubmitWinterForm } from '../../../redux/actions/FormActions';
 import { WinterAreasQuery } from '../../__generated__/WinterAreasQuery';
 import { getSelectedResources, stringToFloat } from '../../../common/utils/applicationUtils';
 import { LocalePush, withMatchParamsHandlers } from '../../../common/utils/container';
-import { CREATE_WINTER_STORAGE_APPLICATION, WINTER_AREAS_QUERY } from '../../queries';
+import { CREATE_WINTER_STORAGE_APPLICATION, PROFILE_PAGE_QUERY, WINTER_AREAS_QUERY } from '../../queries';
 import ApplicantDetails from '../../../common/applicantDetails/ApplicantDetails';
 import WinterBoatDetails from '../../../common/winterBoatDetails/WinterBoatDetails';
 import { getWinterStorageAreas } from '../utils';
@@ -21,9 +21,11 @@ import { WinterFormValues } from '../types';
 import { SubmitWinterStorage, SubmitWinterStorageVariables } from '../../__generated__/SubmitWinterStorage';
 import { SelectedIds } from '../../../common/types/resource';
 import { StepType } from '../../../common/steps/step/Step';
+import { ProfilePageQuery } from '../../__generated__/ProfilePageQuery';
+import { getFormValuesFromProfile } from '../../profile/utils';
 
 type Props = {
-  initialValues: WinterFormValues;
+  winterValues: WinterFormValues;
   selectedAreas: SelectedIds;
   onSubmit: (values: WinterFormValues) => void;
   localePush: LocalePush;
@@ -36,6 +38,7 @@ const formTabs = [boatTabs, applicantTabs, ['overview']];
 
 const WinterFormPageContainer = ({
   selectedAreas,
+  winterValues,
   localePush,
   match: {
     params: { tab },
@@ -62,7 +65,9 @@ const WinterFormPageContainer = ({
   const [submitWinterStorage] = useMutation<SubmitWinterStorage, SubmitWinterStorageVariables>(
     CREATE_WINTER_STORAGE_APPLICATION
   );
+  const { data: profileData, loading: profileLoading } = useQuery<ProfilePageQuery>(PROFILE_PAGE_QUERY);
 
+  const initialValues = { ...winterValues, ...getFormValuesFromProfile(profileData) };
   const boatTypes = data ? data.boatTypes : [];
   const areas = getWinterStorageAreas(data);
   const selected = getSelectedResources(selectedAreas, areas);
@@ -172,11 +177,13 @@ const WinterFormPageContainer = ({
   return (
     <FormPage
       currentStep={currentStep}
+      initialValues={initialValues}
       goBackward={goBackward}
       goForward={goForward}
       steps={steps}
       stepsBeforeForm={stepsBeforeForm}
       submit={submit}
+      loading={profileLoading}
       {...rest}
     >
       {getStepComponent()}
@@ -188,7 +195,7 @@ export default compose<Props, Props>(
   withMatchParamsHandlers,
   connect(
     (state: Store) => ({
-      initialValues: state.forms.winterValues,
+      winterValues: state.forms.winterValues,
       selectedAreas: state.winterAreas.selectedWinterAreas,
     }),
     { onSubmit: onSubmitWinterForm }
