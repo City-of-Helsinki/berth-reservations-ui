@@ -555,8 +555,8 @@
     "berth": {
       "switch_application": {
         "current_berth": {
-          "info_text": "Olet tekemässä vaihtohakemusta, joten jos saat tähän hakemukseen venepaikkatarjouksen ja hyväksyt sen, se korvaa nykyisen venepaikkasi.  Tätä varten hakemukseen tarvitaan tiedot nykyisestä venepaikastasi.",
-          "select_info_text": "Vaihtohakemukseen haettiin seuraavat tiedot nykyisestä venepaikasta, valitse minkä paikan haluat vaihtaa:",
+          "info_text": "SV: Olet tekemässä vaihtohakemusta, joten jos saat tähän hakemukseen venepaikkatarjouksen ja hyväksyt sen, se korvaa nykyisen venepaikkasi.  Tätä varten hakemukseen tarvitaan tiedot nykyisestä venepaikastasi.",
+          "select_info_text": "SV: Vaihtohakemukseen haettiin seuraavat tiedot nykyisestä venepaikasta, valitse minkä paikan haluat vaihtaa:",
           "title": "Uppgifter om den nuvarande platsen"
         },
         "switch": {
