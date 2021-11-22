@@ -4,12 +4,12 @@ import { BerthApplicationNode, Properties, HarborChoice } from './types';
 export const getChoicesFromBerthApplication = (
   berthApplication?: BerthApplicationNode | null
 ): Choice<Properties>[] => {
-  if (!berthApplication) {
+  if (!berthApplication?.harborChoices) {
     return [];
   }
 
-  const choices = berthApplication?.harborChoices
-    ?.filter((harborChoice): harborChoice is HarborChoice => Boolean(harborChoice))
+  const choices = berthApplication.harborChoices
+    .filter((harborChoice): harborChoice is HarborChoice => Boolean(harborChoice))
     .map(
       (harborChoice): Choice<Properties> => ({
         name: harborChoice?.harbor?.properties?.name ?? '',
