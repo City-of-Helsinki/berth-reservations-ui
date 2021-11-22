@@ -32,8 +32,8 @@ const TextInput = (type: InputProps['type']) => ({
         <FormGroup>
           {label && <Label htmlFor={id} required={required} text={label} />}
           <Input
-            className={classNames('vene-text-input', {
-              'vene-text-input--read-only': rest.readOnly,
+            className={classNames('vene-input', {
+              'vene-input--read-only': rest.readOnly,
             })}
             id={id}
             required={required}
