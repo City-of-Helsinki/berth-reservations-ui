@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { Col, Row } from 'reactstrap';
 
 import withApplicationType from '../../../../common/withApplicationType/withApplicationType';
@@ -9,46 +8,36 @@ import BoatMeasures from '../../../../common/boatMeasures/BoatMeasures';
 import BoatTypeAndModel from '../../../../common/boatTypeAndModel/BoatTypeAndModel';
 import CompanyOverview from '../../../../common/companyOverview/CompanyOverview';
 import LinkedEditSection from '../../../../common/linkedEditSection/LinkedEditSection';
-import OldBerthInfo from './oldBerthInfo/OldBerthInfoContainer';
 import OverviewInfo from '../../../../common/overviewInfo/OverviewInfo';
 import PersonOverview from '../../../../common/personOverview/PersonOverview';
-import { BerthSwitchState } from '../../../../redux/types';
 import { BerthFormValues, Harbors } from '../../types';
 import { StepType } from '../../../../common/steps/step/Step';
 import { BigBoatTypeValue, WithBoatType } from '../../../../common/selects/Selects';
+import OldBerthInfo from './oldBerthInfo/OldBerthInfo';
 
 type Props = {
   applicationType: string;
-  berthSwitch: BerthSwitchState;
   boatTab: string;
   selectedHarbors: Harbors;
   steps: StepType[];
   values: BerthFormValues;
 } & WithBoatType;
 
-const BerthOverviewInfo = ({
-  applicationType,
-  berthSwitch,
-  boatTab,
-  boatTypes,
-  selectedHarbors,
-  steps,
-  values,
-}: Props) => {
+const BerthOverviewInfo = ({ applicationType, boatTab, boatTypes, selectedHarbors, steps, values }: Props) => {
   const showBigShipsForm = values.boatType === BigBoatTypeValue;
   const isSwitchApplication = applicationType === 'site.steps.title.berths.switch';
 
   return (
     <OverviewInfo title={applicationType}>
-      {isSwitchApplication && (
-        <LinkedEditSection title="page.berth.switch_application.current_berth.title" link="berths/selected">
-          <OldBerthInfo berthSwitch={berthSwitch} />
+      {isSwitchApplication && values.berthSwitch && (
+        <LinkedEditSection title="page.berth.switch_application.current_berth.title" link={steps[3].linkTo}>
+          <OldBerthInfo berth={values.berthSwitch.berth.label} reasonTitle={values.berthSwitch.reason?.label} />
         </LinkedEditSection>
       )}
 
       <LinkedEditSection title="page.overview.info.boat_info" link={steps[2].linkTo}>
         {boatTab === 'registered-boat' && (
-          <Fragment>
+          <>
             <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
             <BoatTypeAndModel boatTypeId={values.boatType} boatModel={values.boatModel} boatTypes={boatTypes} />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
@@ -63,20 +52,20 @@ const BerthOverviewInfo = ({
                 rentTill={values.rentTill}
               />
             )}
-          </Fragment>
+          </>
         )}
         {boatTab === 'unregistered-boat' && (
-          <Fragment>
+          <>
             <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
             <BoatTypeAndModel boatTypeId={values.boatType} boatModel={values.boatModel} boatTypes={boatTypes} />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
-          </Fragment>
+          </>
         )}
         {boatTab === 'no-boat' && (
-          <Fragment>
+          <>
             <BoatTypeAndModel boatTypeId={values.boatType} boatModel={values.boatModel} boatTypes={boatTypes} />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
-          </Fragment>
+          </>
         )}
       </LinkedEditSection>
 
