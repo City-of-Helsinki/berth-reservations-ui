@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { LoadingSpinner } from 'hds-react';
 
 import './spinner.scss';
+
 export interface SpinnerProps {
   withText?: boolean;
   text?: string;
