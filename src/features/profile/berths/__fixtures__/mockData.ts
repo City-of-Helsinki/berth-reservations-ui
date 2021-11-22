@@ -201,6 +201,7 @@ export const mockCustomerBerthsProps = {
 };
 
 const application = {
+  id: 'abc-123',
   applicationDate: 'Thu May 28 2020 23:21:00 GMT+0300 (Eastern European Summer Time)',
   choices: mockCustomerBerthsProps.choices,
 };
@@ -228,34 +229,43 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
     case '1':
       return {
         // has an application
-        application,
+        applications: [application],
         offer: null,
         invoice: null,
         reservations: null,
+        onDeleteApplication: () => {
+          // pass
+        },
       };
 
     case '2':
       // has an application and an offer
       return {
-        application,
+        applications: [application],
         offer,
         invoice: null,
         reservations,
+        onDeleteApplication: () => {
+          // pass
+        },
       };
 
     case '3':
       // invoice unpaid
       return {
-        application: null,
+        applications: [],
         offer: null,
         invoice: { ...mockCustomerBerthsProps, contract: null },
         reservations,
+        onDeleteApplication: () => {
+          // pass
+        },
       };
 
     case '4':
       // invoice paid
       return {
-        application: null,
+        applications: [],
         offer: null,
         invoice: {
           ...mockCustomerBerthsProps,
@@ -267,15 +277,21 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
           },
         },
         reservations,
+        onDeleteApplication: () => {
+          // pass
+        },
       };
 
     default:
       // no berths
       return {
-        application: null,
+        applications: [],
         offer: null,
         invoice: null,
         reservations: null,
+        onDeleteApplication: () => {
+          // pass
+        },
       };
   }
 };

@@ -54,6 +54,7 @@ export interface Order {
 }
 
 export interface ApplicationData<T extends Record<string, boolean>> {
+  id: string;
   applicationDate: string;
   choices: Choice<T>[];
 }

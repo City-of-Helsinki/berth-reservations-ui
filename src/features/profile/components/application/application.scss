@@ -34,8 +34,12 @@
     grid-area: buttons;
     margin: $spacing-03 0;
 
-    > button:not(:first-child) {
+    > *:not(:first-child) {
       margin-left: $spacing-01;
     }
+  }
+
+  &__button {
+    display: inline-block;
   }
 }

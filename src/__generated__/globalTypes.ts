@@ -173,6 +173,11 @@ export interface CreateWinterStorageApplicationMutationInput {
   clientMutationId?: string | null;
 }
 
+export interface DeleteBerthApplicationMutationInput {
+  id: string;
+  clientMutationId?: string | null;
+}
+
 export interface FulfillContractMutationInput {
   orderNumber: string;
   returnUrl: string;

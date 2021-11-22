@@ -4,6 +4,7 @@
     "area": "Alue",
     "berth": "Paikka",
     "cancelled": "Peruutettu",
+    "data_missing_query_error": "Tietojen lataamisesa tapahtui virhe",
     "dinghy_place": "Jollapaikka",
     "drafted": "Luotu",
     "due_date": "Eräpäivä",
@@ -747,7 +748,11 @@
       "application": {
         "delete_application": "Poista hakemus",
         "edit_application": "Muokkaa hakemusta",
-        "keep_application_active": "Haluan että hakemus jää voimaan mikäli paikkoja ei ole vapaana tälle purjehduskaudelle"
+        "keep_application_active": "Haluan että hakemus jää voimaan mikäli paikkoja ei ole vapaana tälle purjehduskaudelle",
+        "confirm_delete_title": "Haluatko varmasti poistaa hakemuksen?",
+        "confirm_delete_description": "Poistettuasi hakemuksen et voi enää tarkastella sen tietoja.",
+        "confirm_delete_confirm": "Poista hakemus",
+        "confirm_delete_cancel": "Peruuta"
       },
       "boats": {
         "title": "Veneet",

@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Application from '../components/application/Application';
@@ -13,19 +14,20 @@ import { ApplicationData, OfferData, InvoiceData } from '../types';
 import { OrderStatus } from '../../../__generated__/globalTypes';
 
 export interface BerthsProps {
-  application: ApplicationData<Properties> | null;
+  applications: ApplicationData<Properties>[];
   offer: OfferData<BerthSpecs> | null;
   invoice: InvoiceData<BerthSpecs> | null;
   reservations: ReservationHistoryProps['reservations'] | null;
+  onDeleteApplication(berthApplicationId: string): void;
 }
 
-const Berths = ({ application, offer, invoice, reservations }: BerthsProps) => {
+const Berths = ({ applications, offer, invoice, reservations, onDeleteApplication }: BerthsProps) => {
   const {
     t,
     i18n: { language },
   } = useTranslation();
 
-  if (!application && !invoice)
+  if (applications.length === 0 && !invoice)
     return (
       <NoPlaces
         linkTo="berths"
@@ -119,10 +121,11 @@ const Berths = ({ application, offer, invoice, reservations }: BerthsProps) => {
           <Divider />
         </>
       )}
-      {application && (
-        <>
+      {applications.map((application) => (
+        <Fragment key={application.id}>
           <Application
-            {...application}
+            applicationDate={application.applicationDate}
+            choices={application.choices}
             subHeading={t('page.profile.berths.berth_offer.applied_berths')}
             heading={!offer && !invoice ? t('page.profile.berths.berth_offer.berth_application') : undefined}
             renderProperties={({ electricity, gate, lighting, wasteCollection, water }) => (
@@ -135,10 +138,11 @@ const Berths = ({ application, offer, invoice, reservations }: BerthsProps) => {
               </>
             )}
             disableButtons={!!offer}
+            onDelete={() => onDeleteApplication(application.id)}
           />
           <Divider />
-        </>
-      )}
+        </Fragment>
+      ))}
       {reservations && (
         <ReservationHistory label={t('page.profile.berths.history.label')} reservations={reservations} />
       )}
