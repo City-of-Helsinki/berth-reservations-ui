@@ -7,9 +7,13 @@ describe('SwitchApplication', () => {
   const getWrapper = (props?: Partial<SwitchApplicationProps>) =>
     shallow(
       <SwitchApplication
+        currentBerths={[
+          { value: '1234', label: 'Berth 1' },
+          { value: '9876', label: 'Berth 2' },
+        ]}
         reasonOptions={[
-          { label: '1', value: 'foo' },
-          { label: '2', value: 'bar' },
+          { value: '1', label: 'foo' },
+          { value: '2', label: 'bar' },
         ]}
         {...props}
       />
@@ -24,6 +28,6 @@ describe('SwitchApplication', () => {
     const wrapper = getWrapper();
     const select = wrapper.find(Field);
 
-    expect(select.find('[name="reason"]').prop('required')).toBeFalsy();
+    expect(select.find('[name="berthSwitch.reason"]').prop('required')).toBeFalsy();
   });
 });
