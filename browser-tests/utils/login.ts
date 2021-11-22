@@ -1,5 +1,6 @@
 import { ssoLogin } from '../ssoLogin';
 import { navbarSelectors } from '../selectors/navbar';
+import { testUserSSN } from './settings';
 
 export const login = async (t: TestController) => {
   await t.click(navbarSelectors.loginButton);
@@ -7,7 +8,7 @@ export const login = async (t: TestController) => {
   await t
     .click(ssoLogin.loginLink)
     .click(ssoLogin.testUser)
-    .click(ssoLogin.defaultSSN)
+    .typeText(ssoLogin.ssnInput, testUserSSN())
     .click(ssoLogin.authButton)
     .click(ssoLogin.continueButton)
     .click(ssoLogin.acceptButton);

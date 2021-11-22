@@ -4,7 +4,7 @@ import { screen } from '@testing-library/testcafe';
 export const ssoLogin = {
   loginLink: Selector('.login-method-heltunnistussuomifi'),
   testUser: Selector('#li_fakevetuma2'),
-  defaultSSN: Selector('#hetu_default'),
+  ssnInput: Selector('#hetu_input'),
   authButton: Selector('#tunnistaudu'),
   continueButton: Selector('#continue-button'),
   acceptButton: Selector('#kc-accept'),

@@ -90,6 +90,7 @@ jobs:
         run: yarn browser-test:ci
         env:
           BROWSER_TESTS_LOCAL_ENV_URL: https://${{ secrets.ENVIRONMENT_URL_STAGING }}
+          BROWSER_TESTS_SSN: ${{ secrets.BROWSER_TESTS_SSN }}
       - name: Upload screenshots of failed tests
         uses: actions/upload-artifact@v2
         if: failure()
