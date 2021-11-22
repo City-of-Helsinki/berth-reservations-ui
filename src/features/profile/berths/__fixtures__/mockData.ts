@@ -1,4 +1,4 @@
-import { OrderStatus } from '../../../../__generated__/globalTypes';
+import { OrderStatus, ApplicationStatus } from '../../../../__generated__/globalTypes';
 import { Area } from '../../components/placeInfo/PlaceInfo';
 import { BerthsProps } from '../Berths';
 import { Properties } from '../types';
@@ -204,6 +204,7 @@ const application = {
   id: 'abc-123',
   applicationDate: 'Thu May 28 2020 23:21:00 GMT+0300 (Eastern European Summer Time)',
   choices: mockCustomerBerthsProps.choices,
+  status: ApplicationStatus.PENDING,
 };
 
 const reservations = [
@@ -236,6 +237,9 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
         onDeleteApplication: () => {
           // pass
         },
+        onExtendApplication: () => {
+          // pass
+        },
       };
 
     case '2':
@@ -248,6 +252,9 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
         onDeleteApplication: () => {
           // pass
         },
+        onExtendApplication: () => {
+          // pass
+        },
       };
 
     case '3':
@@ -258,6 +265,9 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
         invoice: { ...mockCustomerBerthsProps, contract: null },
         reservations,
         onDeleteApplication: () => {
+          // pass
+        },
+        onExtendApplication: () => {
           // pass
         },
       };
@@ -280,6 +290,9 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
         onDeleteApplication: () => {
           // pass
         },
+        onExtendApplication: () => {
+          // pass
+        },
       };
 
     default:
@@ -290,6 +303,9 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
         invoice: null,
         reservations: null,
         onDeleteApplication: () => {
+          // pass
+        },
+        onExtendApplication: () => {
           // pass
         },
       };

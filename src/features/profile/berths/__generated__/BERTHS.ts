@@ -3,6 +3,8 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
+import { ApplicationStatus } from "./../../../../__generated__/globalTypes";
+
 // ====================================================
 // GraphQL query operation: BERTHS
 // ====================================================
@@ -39,6 +41,7 @@ export interface BERTHS_myProfile_berthApplications_edges_node {
   __typename: "BerthApplicationNode";
   id: string;
   createdAt: any;
+  status: ApplicationStatus;
   harborChoices: (BERTHS_myProfile_berthApplications_edges_node_harborChoices | null)[] | null;
 }
 

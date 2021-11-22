@@ -1,4 +1,4 @@
-import { OrderStatus } from '../../../../__generated__/globalTypes';
+import { OrderStatus, ApplicationStatus } from '../../../../__generated__/globalTypes';
 import { WinterStorageProps } from '../WinterStorage';
 import { Properties } from '../types';
 import { Choice, Order } from '../../types';
@@ -188,6 +188,7 @@ const application = {
   id: 'abc-123',
   applicationDate: 'Thu May 28 2020 23:21:00 GMT+0300 (Eastern European Summer Time)',
   choices: mockCustomerBerthsProps.choices,
+  status: ApplicationStatus.PENDING,
 };
 
 const reservations = [

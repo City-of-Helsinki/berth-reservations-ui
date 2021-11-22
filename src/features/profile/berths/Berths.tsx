@@ -19,9 +19,17 @@ export interface BerthsProps {
   invoice: InvoiceData<BerthSpecs> | null;
   reservations: ReservationHistoryProps['reservations'] | null;
   onDeleteApplication(berthApplicationId: string): void;
+  onExtendApplication(berthApplicationId: string): void;
 }
 
-const Berths = ({ applications, offer, invoice, reservations, onDeleteApplication }: BerthsProps) => {
+const Berths = ({
+  applications,
+  offer,
+  invoice,
+  reservations,
+  onDeleteApplication,
+  onExtendApplication,
+}: BerthsProps) => {
   const {
     t,
     i18n: { language },
@@ -126,6 +134,7 @@ const Berths = ({ applications, offer, invoice, reservations, onDeleteApplicatio
           <Application
             applicationDate={application.applicationDate}
             choices={application.choices}
+            status={application.status}
             subHeading={t('page.profile.berths.berth_offer.applied_berths')}
             heading={!offer && !invoice ? t('page.profile.berths.berth_offer.berth_application') : undefined}
             renderProperties={({ electricity, gate, lighting, wasteCollection, water }) => (
@@ -139,6 +148,7 @@ const Berths = ({ applications, offer, invoice, reservations, onDeleteApplicatio
             )}
             disableButtons={!!offer}
             onDelete={() => onDeleteApplication(application.id)}
+            onExtendApplication={() => onExtendApplication(application.id)}
           />
           <Divider />
         </Fragment>

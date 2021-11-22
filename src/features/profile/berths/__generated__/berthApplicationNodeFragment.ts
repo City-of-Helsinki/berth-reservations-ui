@@ -3,6 +3,8 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
+import { ApplicationStatus } from "./../../../../__generated__/globalTypes";
+
 // ====================================================
 // GraphQL fragment: berthApplicationNodeFragment
 // ====================================================
@@ -39,5 +41,6 @@ export interface berthApplicationNodeFragment {
   __typename: "BerthApplicationNode";
   id: string;
   createdAt: any;
+  status: ApplicationStatus;
   harborChoices: (berthApplicationNodeFragment_harborChoices | null)[] | null;
 }
