@@ -75,9 +75,9 @@ const apolloClient = new ApolloClient({
 
         if (!user) return null;
 
-        const { name, email, sub } = user.profile;
+        const { name, email, sub, amr } = user.profile;
 
-        return { __typename: 'CurrentUser', id: sub, name, email };
+        return { __typename: 'CurrentUser', id: sub, name, email, amr };
       },
     },
   },
