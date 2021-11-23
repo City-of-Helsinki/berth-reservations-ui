@@ -10,7 +10,7 @@ export interface Props {
 
 const ApplicationNoSuitableBerths = ({ onExtendApplication }: Props) => {
   const { t } = useTranslation();
-  const [continueIntent, setContinueInter] = useState(false);
+  const [continueIntent, setContinueIntent] = useState(false);
 
   return (
     <>
@@ -23,7 +23,7 @@ const ApplicationNoSuitableBerths = ({ onExtendApplication }: Props) => {
           checked={continueIntent}
           id="keep-application-active"
           label={t('page.profile.application.keep_application_active')}
-          onChange={() => setContinueInter((prev) => !prev)}
+          onChange={() => setContinueIntent((prev) => !prev)}
           className="vene-applicationNoSuitableBerths__checkbox"
         />
         <p className="vene-applicationNoSuitableBerths__notice">
