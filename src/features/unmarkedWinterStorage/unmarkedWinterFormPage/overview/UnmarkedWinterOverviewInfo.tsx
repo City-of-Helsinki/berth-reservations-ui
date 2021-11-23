@@ -32,14 +32,14 @@ const UnmarkedWinterOverviewInfo = ({
         {boatTab === 'registered-boat' && (
           <>
             <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
-            <BoatTypeAndModel boatTypeId={values.boatType} boatModel={values.boatModel} boatTypes={boatTypes} />
+            <BoatTypeAndModel boatTypeId={values.boatType ?? '-'} boatModel={values.boatModel} boatTypes={boatTypes} />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
           </>
         )}
         {boatTab === 'unregistered-boat' && (
           <>
             <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
-            <BoatTypeAndModel boatTypeId={values.boatType} boatModel={values.boatModel} boatTypes={boatTypes} />
+            <BoatTypeAndModel boatTypeId={values.boatType ?? '-'} boatModel={values.boatModel} boatTypes={boatTypes} />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
           </>
         )}
