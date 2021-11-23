@@ -749,7 +749,7 @@
         "delete_application": "Poista hakemus",
         "edit_application": "Muokkaa hakemusta",
         "keep_application_active": "Haluan että hakemus jää voimaan",
-        "no_berths": "Valitettavasti hakemiasi paikkoja ei ole vapaan",
+        "no_berths": "Valitettavasti hakemiasi paikkoja ei ole vapaana",
         "extend_application_explanation": "Voit halutessasi jättää hakemuksen voimaan seuraavalle kaudelle. Käsittelemme hakemuksia taas ensi vuonna.",
         "application_will_be_deleted_explanation": "Hakemus poistetaan mikäli et halua sen jäävän voimaan.",
         "confirm_my_choice": "Vahvista valintani",

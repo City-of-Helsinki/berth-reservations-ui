@@ -749,7 +749,7 @@
         "delete_application": "Ta bort ansökan",
         "edit_application": "Redigera ansökan",
         "keep_application_active": "Jag vill att ansökan ska vara giltig",
-        "no_berths": "SV: Valitettavasti hakemiasi paikkoja ei ole vapaan",
+        "no_berths": "SV: Valitettavasti hakemiasi paikkoja ei ole vapaana",
         "extend_application_explanation": "SV: Voit halutessasi jättää hakemuksen voimaan seuraavalle kaudelle. Käsittelemme hakemuksia taas ensi vuonna.",
         "application_will_be_deleted_explanation": "SV: Hakemus poistetaan mikäli et halua sen jäävän voimaan.",
         "confirm_my_choice": "SV: Vahvista valintani",
