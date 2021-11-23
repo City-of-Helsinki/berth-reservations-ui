@@ -1,0 +1,41 @@
+@import 'styles/variables';
+@import 'helsinki/fonts';
+
+.vene-applicationNoSuitableBerths {
+  &__title {
+    display: flex;
+    align-items: center;
+    margin-bottom: $spacing-03;
+
+    & > svg:first-child {
+      margin-right: $spacing-01;
+    }
+  }
+
+  &__checkbox label {
+    font-weight: 400;
+  }
+
+  &__stack {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $spacing-03;
+
+    & > * {
+      flex-grow: 0;
+    }
+
+    & > :not(:last-child) {
+      margin-bottom: $spacing-01-50;
+    }
+  }
+
+  &__notice {
+    font-size: $font-size-sm;
+  }
+
+  &__button {
+    width: fit-content;
+    margin-top: $spacing-00-25;
+  }
+}

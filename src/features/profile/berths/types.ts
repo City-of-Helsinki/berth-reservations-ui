@@ -1,3 +1,5 @@
+import { berthApplicationNodeFragment as BerthApplicationNode } from './__generated__/berthApplicationNodeFragment';
+
 export interface BerthSpecs {
   pier: string;
   berthLength: number;
@@ -7,8 +9,7 @@ export interface BerthSpecs {
 }
 
 export type Properties = Record<'electricity' | 'gate' | 'lighting' | 'wasteCollection' | 'water', boolean>;
+export type BerthApplicationNodeCertainly = Exclude<BerthApplicationNode, null | undefined>;
 
-export type {
-  berthApplicationNodeFragment as BerthApplicationNode,
-  berthApplicationNodeFragment_harborChoices as HarborChoice,
-} from './__generated__/berthApplicationNodeFragment';
+export type { BerthApplicationNode };
+export type { berthApplicationNodeFragment_harborChoices as HarborChoice } from './__generated__/berthApplicationNodeFragment';

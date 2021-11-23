@@ -14,6 +14,16 @@ export enum AddressType {
   WORK = "WORK",
 }
 
+export enum ApplicationStatus {
+  EXPIRED = "EXPIRED",
+  HANDLED = "HANDLED",
+  NO_SUITABLE_BERTHS = "NO_SUITABLE_BERTHS",
+  OFFER_GENERATED = "OFFER_GENERATED",
+  OFFER_SENT = "OFFER_SENT",
+  PENDING = "PENDING",
+  REJECTED = "REJECTED",
+}
+
 export enum ContactMethod {
   EMAIL = "EMAIL",
   SMS = "SMS",
@@ -174,6 +184,11 @@ export interface CreateWinterStorageApplicationMutationInput {
 }
 
 export interface DeleteBerthApplicationMutationInput {
+  id: string;
+  clientMutationId?: string | null;
+}
+
+export interface ExtendBerthApplicationMutationInput {
   id: string;
   clientMutationId?: string | null;
 }

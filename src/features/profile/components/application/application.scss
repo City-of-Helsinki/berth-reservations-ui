@@ -1,11 +1,16 @@
 @import 'styles/variables';
+@import 'helsinki/fonts';
 
 .vene-application {
   margin-top: $spacing-03;
 
   &__heading {
+    font-size: $spacing-01-50;
+  }
+
+  &__sub-heading {
     margin-top: $spacing-02;
-    font-size: $spacing-01;
+    font-size: $font-size-base;
   }
 
   &__choices {

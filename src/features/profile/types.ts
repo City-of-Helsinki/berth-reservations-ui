@@ -1,4 +1,4 @@
-import { OrderStatus, Language } from '../../__generated__/globalTypes';
+import { OrderStatus, Language, ApplicationStatus } from '../../__generated__/globalTypes';
 
 export type ContactInfo = {
   address: string;
@@ -57,6 +57,7 @@ export interface ApplicationData<T extends Record<string, boolean>> {
   id: string;
   applicationDate: string;
   choices: Choice<T>[];
+  status: ApplicationStatus;
 }
 
 export interface OfferData<PlaceSpecs> {

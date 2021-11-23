@@ -11,9 +11,14 @@ import {
   DELETE_BERTH_APPLICATION,
   DELETE_BERTH_APPLICATIONVariables as DELETE_BERTH_APPLICATION_VAR,
 } from './__generated__/DELETE_BERTH_APPLICATION';
+import {
+  EXTEND_BERTH_APPLICATION,
+  EXTEND_BERTH_APPLICATIONVariables as EXTEND_BERTH_APPLICATION_VAR,
+} from './__generated__/EXTEND_BERTH_APPLICATION';
 import Berths from './Berths';
-import { BERTHS_QUERY, DELETE_BERTH_APPLICATION_MUTATION } from './queries';
+import { BERTHS_QUERY, DELETE_BERTH_APPLICATION_MUTATION, EXTEND_BERTH_APPLICATION_MUTATION } from './queries';
 import { getChoicesFromBerthApplication } from './utils';
+import { BerthApplicationNodeCertainly } from './types';
 
 const BerthsContainer = () => {
   // TODO: Get real data
@@ -29,11 +34,21 @@ const BerthsContainer = () => {
       refetchQueries: [getOperationName(BERTHS_QUERY) || 'BERTHS_QUERY'],
     }
   );
+  const [extendBerthApplication] = useMutation<EXTEND_BERTH_APPLICATION, EXTEND_BERTH_APPLICATION_VAR>(
+    EXTEND_BERTH_APPLICATION_MUTATION,
+    {
+      refetchQueries: [getOperationName(BERTHS_QUERY) || 'BERTHS_QUERY'],
+    }
+  );
 
-  const berthApplications = data?.myProfile?.berthApplications?.edges?.map((edge) => edge?.node) ?? [];
+  const berthApplications =
+    data?.myProfile?.berthApplications?.edges
+      ?.map((edge) => edge?.node)
+      .filter((node): node is BerthApplicationNodeCertainly => Boolean(node)) ?? [];
   const applications = berthApplications.map((berthApplication) => ({
-    id: berthApplication?.id || '',
-    applicationDate: berthApplication?.createdAt,
+    id: berthApplication.id,
+    status: berthApplication.status,
+    applicationDate: berthApplication.createdAt,
     choices: getChoicesFromBerthApplication(berthApplication),
   }));
 
@@ -59,6 +74,16 @@ const BerthsContainer = () => {
     });
   };
 
+  const handleExtendApplication = (berthApplicationId: string) => {
+    extendBerthApplication({
+      variables: {
+        input: {
+          id: berthApplicationId,
+        },
+      },
+    });
+  };
+
   return (
     <Berths
       offer={offer}
@@ -66,6 +91,7 @@ const BerthsContainer = () => {
       reservations={reservations}
       applications={applications}
       onDeleteApplication={handleDeleteApplication}
+      onExtendApplication={handleExtendApplication}
     />
   );
 };
