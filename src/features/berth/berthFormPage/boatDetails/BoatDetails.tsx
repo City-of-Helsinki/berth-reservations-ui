@@ -22,7 +22,7 @@ enum BoatDetailsPhase {
   CREATE_BOAT = 4,
 }
 
-function getInitialPhase(boats?: any[]) {
+function getInitialPhase(boats?: Boat[]) {
   if (!boats || boats.length === 0) {
     return BoatDetailsPhase.CREATE_BOAT;
   }
