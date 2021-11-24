@@ -25,7 +25,7 @@ const BoatDetailsSelectBoat = ({ boats, onBoatChange, onCreateBoatIntent }: Prop
           id="boatId"
           name="boatId"
           label={t('form.registered.field.boat_id.label')}
-          options={boats.map((boat: any) => ({ value: boat.id, label: boat.name }))}
+          options={boats.map((boat) => ({ value: boat.id, label: boat.name }))}
           onChange={onBoatChange}
           style={{ maxWidth: '360px' }}
         />
