@@ -1,0 +1,15 @@
+@import 'styles/variables';
+
+.verify-berth-boat {
+  & h4 {
+    margin-bottom: $spacing-01-50;
+  }
+
+  &__detail-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    list-style-type: none;
+    margin: 0 0 $spacing-02 0;
+    padding: 0;
+  }
+}

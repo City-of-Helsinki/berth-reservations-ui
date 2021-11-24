@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
 
-import FormTab from '../../../../../common/formTab/FormTab';
+import FormTab from '../../../../../../common/formTab/FormTab';
 import Accessibility from './fragments/Accessibility';
 import BigShips from './fragments/BigShips';
-import BoatInfoFragment from '../../../../../common/boatInfoFragment/BoatInfoFragment';
-import BoatMeasures from '../../../../../common/boatMeasuresFragment/BoatMeasuresFragment';
-import RegisteredBoatDetails from '../../../../../common/registeredBoatDetails/RegisteredBoatDetails';
-import { WithBoatType } from '../../../../../common/selects/Selects';
+import BoatInfoFragment from '../../../../../../common/boatInfoFragment/BoatInfoFragment';
+import BoatMeasures from '../../../../../../common/boatMeasuresFragment/BoatMeasuresFragment';
+import RegisteredBoatDetails from '../../../../../../common/registeredBoatDetails/RegisteredBoatDetails';
+import { WithBoatType } from '../../../../../../common/selects/Selects';
 
 type Props = {
   showBigShipsForm: boolean;

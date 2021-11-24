@@ -298,7 +298,13 @@
       }
     },
     "registered": {
+      "action": {
+        "intent_to_create_boat": "EN: Lisää uusi vene"
+      },
       "field": {
+        "boat_id": {
+          "label": "EN: Vene"
+        },
         "draught": {
           "label": "Boat draught",
           "placeholder": "0.0"
@@ -342,7 +348,8 @@
         "additional_info": "Further information",
         "measures": "Boat dimensions",
         "title": "Information on a registered boat",
-        "legend": "Enter the information from the boat's registration certificate. The registration number must be provided if the boat is longer than 5.5 m or has an engine power of 15 kW or more."
+        "legend": "Enter the information from the boat's registration certificate. The registration number must be provided if the boat is longer than 5.5 m or has an engine power of 15 kW or more.",
+        "boat_info": "EN: Veneesi tiedot"
       }
     },
     "services": {
@@ -777,7 +784,7 @@
         "berth_offer": {
           "applied_berths": "Applied berths",
           "berth_application": "Berth application",
-          "docking_equipment_summer_storage":"Docking equipment summer storage",
+          "docking_equipment_summer_storage": "Docking equipment summer storage",
           "harbor_map": "Harbour map (PDF)",
           "harbor_website": "Website",
           "heading": "Offer for berth. If you wish to accept it, please pay the invoice before the due date {{date}}.",

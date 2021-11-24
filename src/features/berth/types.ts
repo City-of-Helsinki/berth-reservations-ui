@@ -54,3 +54,5 @@ export type BerthFormValues = Pick<
 > & { berthSwitch?: BerthSwitch } & ValuesToOverride;
 
 export type Harbors = List<HarborType>;
+
+export type { MyBoatsQuery, MyBoatsQuery_myProfile_boats_edges_node as Boat } from '../__generated__/MyBoatsQuery';
