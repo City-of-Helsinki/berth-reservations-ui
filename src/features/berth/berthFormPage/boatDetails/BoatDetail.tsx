@@ -8,8 +8,8 @@ type Props = {
 const BoatDetail = ({ title, description }: Props) => {
   return (
     <div className="boat-detail">
-      <strong>{title}</strong>
-      <p>{description}</p>
+      <strong className="boat-detail__title">{title}</strong>
+      <p className="boat-detail__description">{description}</p>
     </div>
   );
 };
