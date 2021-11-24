@@ -1,5 +1,10 @@
 @import 'styles/variables';
 
+.boat-details-phase {
+  padding-top: $spacing-03;
+  padding-bottom: $spacing-03;
+}
+
 .boat-details-phase-section {
   &:not(:last-child) {
     margin-bottom: $spacing-04;

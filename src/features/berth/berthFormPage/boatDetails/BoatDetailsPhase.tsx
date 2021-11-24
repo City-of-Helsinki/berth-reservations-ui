@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Col, Container, Row } from 'reactstrap';
+import classNames from 'classnames';
 
 import './boatDetailsPhase.scss';
 
@@ -18,7 +19,7 @@ type Props = {
 
 const BoatDetailsPhase = ({ children, className }: Props) => {
   return (
-    <Container className={className} style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
+    <Container className={classNames(className, 'boat-details-phase')}>
       <Row>
         <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
           {children}
