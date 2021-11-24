@@ -10,6 +10,7 @@ import { getHarbors } from '../utils';
 import BerthOverview from './overview/BerthOverview';
 import BoatDetails from './boatDetails/BoatDetails';
 import FormPage from '../../../common/formPage/FormPage';
+import Spinner from '../../../common/spinner/Spinner';
 import SwitchApplication from './switchApplication/SwitchApplication';
 import { ApplicationOptions } from '../../../common/types/applicationType';
 import { Store } from '../../../redux/types';
@@ -201,8 +202,10 @@ const BerthFormPageContainer = ({
   const getStepComponent = () => {
     switch (currentStep) {
       case 2:
-        return (
-          !loading && <BoatDetails tab={boatTab} boatTypes={boatTypes} selectedHarbors={selected} myBoats={myBoats} />
+        return !loading ? (
+          <BoatDetails tab={boatTab} boatTypes={boatTypes} selectedHarbors={selected} myBoats={myBoats} />
+        ) : (
+          <Spinner />
         );
       case 3:
         return (
