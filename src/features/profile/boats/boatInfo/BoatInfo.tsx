@@ -47,7 +47,7 @@ const BoatInfo = ({
       </div>
 
       <div>
-        <Button size="small" variant="secondary" onClick={() => editBoat(id)}>
+        <Button size="small" variant="secondary" onClick={() => editBoat(id)} theme="coat">
           {t('page.profile.boats.edit_boat')}
         </Button>
         &emsp;

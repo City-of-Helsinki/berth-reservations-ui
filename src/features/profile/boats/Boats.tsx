@@ -16,7 +16,9 @@ const Boats = ({ boats }: BoatsProps) => {
       {boats.map((boat) => (
         <BoatInfo {...boat} editBoat={() => undefined} deleteBoat={() => undefined} />
       ))}
-      <Button size="small">＋&emsp;{t('page.profile.boats.add_new_boat')}</Button>
+      <Button size="small" theme="coat">
+        ＋&emsp;{t('page.profile.boats.add_new_boat')}
+      </Button>
     </div>
   );
 };

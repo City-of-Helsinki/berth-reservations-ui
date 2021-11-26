@@ -39,7 +39,9 @@ const Offer = ({
         <PlaceInfo className="vene-offer__place-info" area={area} properties={properties} specs={placeSpecs} />
 
         <div className="vene-offer__buttons">
-          <Button size="small">{t('page.profile.offer.accept_and_pay')}</Button>
+          <Button size="small" theme="coat">
+            {t('page.profile.offer.accept_and_pay')}
+          </Button>
           <Button size="small" variant="danger">
             {t('page.profile.offer.reject_offer')}
           </Button>
