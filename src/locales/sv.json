@@ -920,7 +920,8 @@
       "cancel": "Avbryt",
       "next": "Nästa",
       "remove": "Ta bort",
-      "selected": "Vald"
+      "selected": "Vald",
+      "save": "SV: Tallenna"
     },
     "common": {
       "list": "Förteckning",
