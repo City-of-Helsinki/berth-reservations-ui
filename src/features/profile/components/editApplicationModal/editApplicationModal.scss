@@ -1,0 +1,16 @@
+@import 'helsinki/fonts';
+@import 'styles/variables';
+
+.vene-edit-application-modal {
+  padding-top: $spacing-02;
+  padding-bottom: $spacing-03;
+  overflow-y: scroll;
+
+  &__block {
+    margin-bottom: $spacing-02;
+  }
+
+  &__h3 {
+    font-size: $font-size-lg;
+  }
+}
