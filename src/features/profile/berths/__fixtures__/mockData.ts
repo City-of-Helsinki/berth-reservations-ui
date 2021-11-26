@@ -122,10 +122,13 @@ export const mockPaidOrder: Order = {
 
 export const mockChoices: Choice<Properties>[] = [
   {
+    priority: 1,
+    id: 'MOCK-CHOICE-0',
     name: 'Laivalahden venesatama (aallonmurtaja)',
     availabilityLevel: {
       id: '3',
-      label: 'Paljon jonoa',
+      title: 'Paljon jonoa',
+      description: null,
     },
     properties: {
       electricity: true,
@@ -136,10 +139,13 @@ export const mockChoices: Choice<Properties>[] = [
     },
   },
   {
+    priority: 2,
+    id: 'MOCK-CHOICE-1',
     name: 'Laivalahden venesatama (Reginankuja)',
     availabilityLevel: {
       id: '3',
-      label: 'Paljon jonoa',
+      title: 'Paljon jonoa',
+      description: null,
     },
     properties: {
       electricity: false,
@@ -150,10 +156,13 @@ export const mockChoices: Choice<Properties>[] = [
     },
   },
   {
+    priority: 3,
+    id: 'MOCK-CHOICE-2',
     name: 'Kipparlahden venesatama (rantamuuri)',
     availabilityLevel: {
       id: '2',
-      label: 'Jonkin verran jonoa',
+      title: 'Jonkin verran jonoa',
+      description: null,
     },
     properties: {
       electricity: false,
@@ -201,10 +210,15 @@ export const mockCustomerBerthsProps = {
 };
 
 const application = {
-  id: 'abc-123',
+  id: 'MOCK_APPLICATION_0',
   applicationDate: 'Thu May 28 2020 23:21:00 GMT+0300 (Eastern European Summer Time)',
   choices: mockCustomerBerthsProps.choices,
   status: ApplicationStatus.PENDING,
+  boat: {
+    id: 'MOCK_BOAT_0',
+    name: 'Test boat',
+    registrationNumber: 'ABC123',
+  },
 };
 
 const reservations = [
@@ -237,6 +251,9 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
         onDeleteApplication: () => {
           // pass
         },
+        onEditApplication: () => {
+          // pass
+        },
         onExtendApplication: () => {
           // pass
         },
@@ -252,6 +269,9 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
         onDeleteApplication: () => {
           // pass
         },
+        onEditApplication: () => {
+          // pass
+        },
         onExtendApplication: () => {
           // pass
         },
@@ -265,6 +285,9 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
         invoice: { ...mockCustomerBerthsProps, contract: null },
         reservations,
         onDeleteApplication: () => {
+          // pass
+        },
+        onEditApplication: () => {
           // pass
         },
         onExtendApplication: () => {
@@ -290,6 +313,9 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
         onDeleteApplication: () => {
           // pass
         },
+        onEditApplication: () => {
+          // pass
+        },
         onExtendApplication: () => {
           // pass
         },
@@ -303,6 +329,9 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
         invoice: null,
         reservations: null,
         onDeleteApplication: () => {
+          // pass
+        },
+        onEditApplication: () => {
           // pass
         },
         onExtendApplication: () => {

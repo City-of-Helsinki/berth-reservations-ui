@@ -107,10 +107,13 @@ export const mockPaidOrder: Order = {
 
 export const mockChoices: Choice<Properties>[] = [
   {
+    priority: 1,
+    id: 'MOCK-CHOICE-0',
     name: 'Laivalahden venesatama (aallonmurtaja)',
     availabilityLevel: {
       id: '3',
-      label: 'Paljon jonoa',
+      title: 'Paljon jonoa',
+      description: null,
     },
     properties: {
       electricity: true,
@@ -121,10 +124,13 @@ export const mockChoices: Choice<Properties>[] = [
     },
   },
   {
+    priority: 2,
+    id: 'MOCK-CHOICE-1',
     name: 'Laivalahden venesatama (Reginankuja)',
     availabilityLevel: {
       id: '3',
-      label: 'Paljon jonoa',
+      title: 'Paljon jonoa',
+      description: null,
     },
     properties: {
       electricity: true,
@@ -135,10 +141,13 @@ export const mockChoices: Choice<Properties>[] = [
     },
   },
   {
+    priority: 3,
+    id: 'MOCK-CHOICE-2',
     name: 'Kipparlahden venesatama (rantamuuri)',
     availabilityLevel: {
       id: '2',
-      label: 'Jonkin verran jonoa',
+      title: 'Jonkin verran jonoa',
+      description: null,
     },
     properties: {
       electricity: false,
@@ -189,6 +198,11 @@ const application = {
   applicationDate: 'Thu May 28 2020 23:21:00 GMT+0300 (Eastern European Summer Time)',
   choices: mockCustomerBerthsProps.choices,
   status: ApplicationStatus.PENDING,
+  boat: {
+    id: 'MOCK_BOAT_0',
+    name: 'Test Boat',
+    registrationNumber: 'z1234567',
+  },
 };
 
 const reservations = [
@@ -218,6 +232,9 @@ export const getCustomerWinterStorageProps = (id: string): WinterStorageProps =>
         offer: null,
         invoice: null,
         reservations: null,
+        onEditApplication: () => {
+          // pass
+        },
       };
 
     case '2':
@@ -227,6 +244,9 @@ export const getCustomerWinterStorageProps = (id: string): WinterStorageProps =>
         offer,
         invoice: null,
         reservations,
+        onEditApplication: () => {
+          // pass
+        },
       };
 
     case '3':
@@ -236,6 +256,9 @@ export const getCustomerWinterStorageProps = (id: string): WinterStorageProps =>
         offer: null,
         invoice: { ...mockCustomerBerthsProps, contract: null },
         reservations,
+        onEditApplication: () => {
+          // pass
+        },
       };
 
     case '4':
@@ -253,6 +276,9 @@ export const getCustomerWinterStorageProps = (id: string): WinterStorageProps =>
           },
         },
         reservations,
+        onEditApplication: () => {
+          // pass
+        },
       };
 
     default:
@@ -262,6 +288,9 @@ export const getCustomerWinterStorageProps = (id: string): WinterStorageProps =>
         offer: null,
         invoice: null,
         reservations: null,
+        onEditApplication: () => {
+          // pass
+        },
       };
   }
 };

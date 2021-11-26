@@ -13,6 +13,7 @@ export interface BERTHS_myProfile_berthApplications_edges_node_harborChoices_har
   __typename: "AvailabilityLevelType";
   id: string;
   title: string | null;
+  description: string | null;
 }
 
 export interface BERTHS_myProfile_berthApplications_edges_node_harborChoices_harbor_properties {
@@ -34,7 +35,15 @@ export interface BERTHS_myProfile_berthApplications_edges_node_harborChoices_har
 
 export interface BERTHS_myProfile_berthApplications_edges_node_harborChoices {
   __typename: "HarborChoiceType";
+  priority: number;
   harbor: BERTHS_myProfile_berthApplications_edges_node_harborChoices_harbor;
+}
+
+export interface BERTHS_myProfile_berthApplications_edges_node_boat {
+  __typename: "BoatNode";
+  id: string;
+  name: string;
+  registrationNumber: string;
 }
 
 export interface BERTHS_myProfile_berthApplications_edges_node {
@@ -43,6 +52,7 @@ export interface BERTHS_myProfile_berthApplications_edges_node {
   createdAt: any;
   status: ApplicationStatus;
   harborChoices: (BERTHS_myProfile_berthApplications_edges_node_harborChoices | null)[] | null;
+  boat: BERTHS_myProfile_berthApplications_edges_node_boat | null;
 }
 
 export interface BERTHS_myProfile_berthApplications_edges {
@@ -57,6 +67,7 @@ export interface BERTHS_myProfile_berthApplications {
 
 export interface BERTHS_myProfile {
   __typename: "ProfileNode";
+  id: string;
   berthApplications: BERTHS_myProfile_berthApplications | null;
 }
 
