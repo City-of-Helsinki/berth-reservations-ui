@@ -223,6 +223,11 @@ const offer = {
   seasonStartDate: mockCustomerBerthsProps.seasonStartDate,
 };
 
+const areasOptions = [{ value: 'MOCK_AREA_1', label: 'Test Area' }];
+const areasLoading = false;
+const ownBoatsOptions = [{ value: 'MOCK_BOAT_1', label: 'Test boat' }];
+const ownBoatsLoading = false;
+
 export const getCustomerWinterStorageProps = (id: string): WinterStorageProps => {
   switch (id) {
     case '1':
@@ -232,6 +237,13 @@ export const getCustomerWinterStorageProps = (id: string): WinterStorageProps =>
         offer: null,
         invoice: null,
         reservations: null,
+        areasOptions,
+        areasLoading,
+        ownBoatsOptions,
+        ownBoatsLoading,
+        getAreaChoiceFromData: () => {
+          return undefined;
+        },
         onEditApplication: () => {
           // pass
         },
@@ -244,6 +256,13 @@ export const getCustomerWinterStorageProps = (id: string): WinterStorageProps =>
         offer,
         invoice: null,
         reservations,
+        areasOptions,
+        areasLoading,
+        ownBoatsOptions,
+        ownBoatsLoading,
+        getAreaChoiceFromData: () => {
+          return undefined;
+        },
         onEditApplication: () => {
           // pass
         },
@@ -256,6 +275,13 @@ export const getCustomerWinterStorageProps = (id: string): WinterStorageProps =>
         offer: null,
         invoice: { ...mockCustomerBerthsProps, contract: null },
         reservations,
+        areasOptions,
+        areasLoading,
+        ownBoatsOptions,
+        ownBoatsLoading,
+        getAreaChoiceFromData: () => {
+          return undefined;
+        },
         onEditApplication: () => {
           // pass
         },
@@ -276,6 +302,13 @@ export const getCustomerWinterStorageProps = (id: string): WinterStorageProps =>
           },
         },
         reservations,
+        areasOptions,
+        areasLoading,
+        ownBoatsOptions,
+        ownBoatsLoading,
+        getAreaChoiceFromData: () => {
+          return undefined;
+        },
         onEditApplication: () => {
           // pass
         },
@@ -288,6 +321,13 @@ export const getCustomerWinterStorageProps = (id: string): WinterStorageProps =>
         offer: null,
         invoice: null,
         reservations: null,
+        areasOptions,
+        areasLoading,
+        ownBoatsOptions,
+        ownBoatsLoading,
+        getAreaChoiceFromData: () => {
+          return undefined;
+        },
         onEditApplication: () => {
           // pass
         },

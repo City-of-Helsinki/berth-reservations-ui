@@ -239,6 +239,11 @@ const offer = {
   seasonStartDate: mockCustomerBerthsProps.seasonStartDate,
 };
 
+const harborsOptions = [{ value: 'MOCK_HARBOR_1', label: 'Kipparlahden venesatama' }];
+const harborsLoading = false;
+const ownBoatsOptions = [{ value: 'MOCK_BOAT_1', label: 'Test boat' }];
+const ownBoatsLoading = false;
+
 export const getCustomerBerthsProps = (id: string): BerthsProps => {
   switch (id) {
     case '1':
@@ -248,6 +253,13 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
         offer: null,
         invoice: null,
         reservations: null,
+        harborsOptions,
+        harborsLoading,
+        ownBoatsOptions,
+        ownBoatsLoading,
+        getHarborChoiceFromData: () => {
+          return undefined;
+        },
         onDeleteApplication: () => {
           // pass
         },
@@ -266,6 +278,13 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
         offer,
         invoice: null,
         reservations,
+        harborsOptions,
+        harborsLoading,
+        ownBoatsOptions,
+        ownBoatsLoading,
+        getHarborChoiceFromData: () => {
+          return undefined;
+        },
         onDeleteApplication: () => {
           // pass
         },
@@ -284,6 +303,13 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
         offer: null,
         invoice: { ...mockCustomerBerthsProps, contract: null },
         reservations,
+        harborsOptions,
+        harborsLoading,
+        ownBoatsOptions,
+        ownBoatsLoading,
+        getHarborChoiceFromData: () => {
+          return undefined;
+        },
         onDeleteApplication: () => {
           // pass
         },
@@ -310,6 +336,13 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
           },
         },
         reservations,
+        harborsOptions,
+        harborsLoading,
+        ownBoatsOptions,
+        ownBoatsLoading,
+        getHarborChoiceFromData: () => {
+          return undefined;
+        },
         onDeleteApplication: () => {
           // pass
         },
@@ -328,6 +361,13 @@ export const getCustomerBerthsProps = (id: string): BerthsProps => {
         offer: null,
         invoice: null,
         reservations: null,
+        harborsOptions,
+        harborsLoading,
+        ownBoatsOptions,
+        ownBoatsLoading,
+        getHarborChoiceFromData: () => {
+          return undefined;
+        },
         onDeleteApplication: () => {
           // pass
         },
