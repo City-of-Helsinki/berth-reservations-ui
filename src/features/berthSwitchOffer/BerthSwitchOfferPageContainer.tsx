@@ -1,11 +1,14 @@
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 import { compose } from 'recompose';
 
 import { LocalePush, withMatchParamsHandlers } from '../../common/utils/container';
 import { getAccept, getOfferNumber } from '../../common/utils/urls';
 import { AcceptBerthSwitchOffer, AcceptBerthSwitchOfferVariables } from '../__generated__/AcceptBerthSwitchOffer';
 import BerthSwitchOfferPage from './BerthSwitchOfferPage';
-import { ACCEPT_BERTH_SWITCH_OFFER } from '../queries';
+import { ACCEPT_BERTH_SWITCH_OFFER, OFFER_DETAILS } from '../queries';
+import LoadingPage from '../../common/loadingPage/LoadingPage';
+import { OfferDetails, OfferDetailsVariables } from '../__generated__/OfferDetails';
+import GeneralOfferErrorPage from './offerError/GeneralOfferErrorPage';
 
 type Props = {
   localePush: LocalePush;
@@ -15,15 +18,12 @@ const BerthSwitchOfferPageContainer = ({ localePush }: Props) => {
   const offerNumber = getOfferNumber(window.location.search);
   const initialChoice = getAccept(window.location.search);
 
-  // TODO
-  // const { data, loading } = useQuery<SwitchOfferBerthDetails, SwitchOfferBerthDetailsVariables>(
-  //   SWITCH_OFFER_BERTH_DETAILS,
-  //   {
-  //     variables: {
-  //       offerNumber,
-  //     },
-  //   }
-  // );
+  const { data, loading } = useQuery<OfferDetails, OfferDetailsVariables>(OFFER_DETAILS, {
+    variables: {
+      offerNumber,
+    },
+  });
+
   const [acceptOfferMutation] = useMutation<AcceptBerthSwitchOffer, AcceptBerthSwitchOfferVariables>(
     ACCEPT_BERTH_SWITCH_OFFER
   );
@@ -39,14 +39,13 @@ const BerthSwitchOfferPageContainer = ({ localePush }: Props) => {
     }).then(() => localePush('/offer-thank-you'));
   };
 
-  // TODO
-  // if (loading) return <LoadingPage />;
-  // const berthDetails = getOfferBerthDetails(data);
-  const berthDetails = {
-    harbor: '?',
-    pier: '?',
-    berth: '?',
-  };
+  if (loading) return <LoadingPage />;
+
+  const berthDetails = data?.offerDetails;
+
+  if (!berthDetails) {
+    return <GeneralOfferErrorPage />;
+  }
 
   return (
     <BerthSwitchOfferPage
