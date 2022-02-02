@@ -687,6 +687,12 @@
         "owner_information": "Owner information"
       }
     },
+    "offer_error": {
+      "general_error": {
+        "message": "We are sorry, but the offer could not be found. It may have been cancelled or the link may be invalid.",
+        "title": "Failure"
+      }
+    },
     "payment_error": {
       "already_paid": {
         "title": "All done!",

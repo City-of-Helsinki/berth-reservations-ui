@@ -688,6 +688,12 @@
         "owner_information": "Omistajan tiedot"
       }
     },
+    "offer_error": {
+      "general_error": {
+        "message": "Pahoittelemme, mutta ilmoitusta ei löydy. Se on voitu peruuttaa tai linkki voi olla virheellinen.",
+        "title": "Virhetilanne"
+      }
+    },
     "payment_error": {
       "already_paid": {
         "title": "Valmis!",

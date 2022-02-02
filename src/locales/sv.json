@@ -687,6 +687,12 @@
         "owner_information": "Ägarens uppgifter"
       }
     },
+    "offer_error": {
+      "general_error": {
+        "message": "Vi kunde tyvärr inte hitta erbjudandet. Den kan ha annullerats, eller så kan länken vara felaktig.",
+        "title": "Fel"
+      }
+    },
     "payment_error": {
       "already_paid": {
         "title": "Färdig!",

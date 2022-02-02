@@ -32,6 +32,15 @@ export enum Language {
   SWEDISH = "SWEDISH",
 }
 
+export enum OfferStatus {
+  ACCEPTED = "ACCEPTED",
+  CANCELLED = "CANCELLED",
+  DRAFTED = "DRAFTED",
+  EXPIRED = "EXPIRED",
+  OFFERED = "OFFERED",
+  REJECTED = "REJECTED",
+}
+
 export enum OrderStatus {
   CANCELLED = "CANCELLED",
   DRAFTED = "DRAFTED",
