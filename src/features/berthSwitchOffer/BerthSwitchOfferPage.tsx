@@ -3,14 +3,11 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Layout from '../../common/layout/Layout';
+import { OfferDetails_offerDetails } from '../__generated__/OfferDetails';
 import './berthSwitchOfferPage.scss';
 
 type BerthSwitchOfferPageProps = {
-  berthDetails: {
-    harbor: string;
-    pier: string;
-    berth: string;
-  };
+  berthDetails: OfferDetails_offerDetails;
   initialChoice?: boolean;
   onConfirm(isAccepted: boolean): void;
 };
@@ -37,10 +34,16 @@ const BerthSwitchOfferPage = ({ berthDetails, initialChoice, onConfirm }: BerthS
 
         <div className="vene-offer-page__content">
           <div className="vene-offer-page__berth-info">
-            <p className="vene-offer-page__berth-info-label">Venepaikan tiedot:</p>
-            <p>Satama: {berthDetails.harbor}</p>
-            <p>Laituri: {berthDetails.pier}</p>
-            <p>Paikka: {berthDetails.berth}</p>
+            <p className="vene-offer-page__berth-info-label">{t('page.payment.berth_information')}:</p>
+            <p>
+              {t('common.harbor')}: {berthDetails.harbor}
+            </p>
+            <p>
+              {t('common.pier')}: {berthDetails.pier}
+            </p>
+            <p>
+              {t('common.berth')}: {berthDetails.berth}
+            </p>
           </div>
 
           <div className="vene-offer-page__choices">
