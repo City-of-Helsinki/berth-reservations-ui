@@ -193,8 +193,8 @@ describe('formValidation', () => {
       expect(mustBeBoatRegistrationNumber('P12345')).toBeUndefined();
     });
     test('should return an error message if number is invalid', () => {
-      expect(mustBeBoatRegistrationNumber('P1')).toEqual('validation.message.invalid_value');
-      expect(mustBeBoatRegistrationNumber('A12345678')).toEqual('validation.message.invalid_value');
+      expect(mustBeBoatRegistrationNumber('P123123123321')).toEqual('validation.message.invalid_value');
+      expect(mustBeBoatRegistrationNumber('pA12345678')).toEqual('validation.message.invalid_value');
       expect(mustBeBoatRegistrationNumber('A-1')).toEqual('validation.message.invalid_value');
     });
   });
