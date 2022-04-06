@@ -45,7 +45,7 @@ jobs:
           DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_SCOPE_BERTHS: 'https://api.hel.fi/auth/berths'
           DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_SCOPE_PROFILE: 'https://api.hel.fi/auth/helsinkiprofile'
           DOCKER_BUILD_ARG_REACT_APP_SENTRY_ENVIRONMENT: 'production'
-          DOCKER_BUILD_ARG_REACT_APP_TRAILER_PAYMENT_URL: 'https://checkout.hel.fi/purchase/306ab20a-6b30-3ce3-95e8-fef818e6c30e?language=fi&quantity=1&namespace=venepaikat'
+          DOCKER_BUILD_ARG_REACT_APP_TRAILER_PAYMENT_URL: 'https://checkout.hel.fi/purchase/e7c4e5e0-2208-34b4-a9d1-b1898d342c59?language=fi&quantity=1&namespace=venepaikat '
 
   smoke-tests:
     runs-on: windows-latest
@@ -80,7 +80,7 @@ jobs:
         with:
           name: screenshots
           path: screenshots/
-          
+
   production:
     runs-on: ubuntu-latest
     needs: build
@@ -98,4 +98,3 @@ jobs:
           K8S_ADDITIONAL_HOSTNAMES: ${{ secrets.K8S_ADDITIONAL_HOSTNAMES }}
           ENVIRONMENT_URL: https://${{ secrets.ENVIRONMENT_URL_STABLE }}
           DOCKER_IMAGE_NAME: ${{ env.REPO_NAME }}-production
-
