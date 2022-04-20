@@ -191,6 +191,7 @@ describe('formValidation', () => {
       expect(mustBeBoatRegistrationNumber('A1')).toBeUndefined();
       expect(mustBeBoatRegistrationNumber('Z1234567')).toBeUndefined();
       expect(mustBeBoatRegistrationNumber('P12345')).toBeUndefined();
+      expect(mustBeBoatRegistrationNumber('P012345')).toBeUndefined();
     });
     test('should return an error message if number is invalid', () => {
       expect(mustBeBoatRegistrationNumber('P123123123321')).toEqual('validation.message.invalid_value');
