@@ -9,6 +9,10 @@
 **Changed:**
 
 - Berth profile created on login if it did not previously exist
+
+**Fixed:**
+
+- Show harbours that are in the same location by clustering them
 </details>
 
 # 1.0.2 (October 28, 2020)
