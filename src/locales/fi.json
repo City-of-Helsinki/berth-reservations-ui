@@ -931,7 +931,8 @@
       "next": "Seuraava",
       "remove": "Poista",
       "selected": "Valittu",
-      "save": "Tallenna"
+      "save": "Tallenna",
+      "close": "Sulje"
     },
     "common": {
       "list": "Lista",

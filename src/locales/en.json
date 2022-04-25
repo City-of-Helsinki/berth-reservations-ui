@@ -920,7 +920,8 @@
       "next": "Next",
       "remove": "Remove",
       "selected": "Selected",
-      "save": "Save"
+      "save": "Save",
+      "close": "Close"
     },
     "common": {
       "list": "List",

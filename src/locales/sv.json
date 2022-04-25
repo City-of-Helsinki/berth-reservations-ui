@@ -921,7 +921,8 @@
       "next": "Nästa",
       "remove": "Ta bort",
       "selected": "Vald",
-      "save": "SV: Tallenna"
+      "save": "SV: Tallenna",
+      "close": "Stäng"
     },
     "common": {
       "list": "Förteckning",

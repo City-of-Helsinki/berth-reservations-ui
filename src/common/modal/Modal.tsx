@@ -35,7 +35,6 @@ const Modal = ({
     handleToggle();
   };
   const titleId = `${id}-dialog-title`;
-  const closeButtonLabelText = 'Close dialog';
 
   return (
     <Dialog
@@ -44,7 +43,7 @@ const Modal = ({
       isOpen={isOpen}
       className={className}
       close={handleToggle}
-      closeButtonLabelText={closeButtonLabelText}
+      closeButtonLabelText={t('site.buttons.close')}
       scrollable={scrollable}
       variant={variant}
     >
