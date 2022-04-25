@@ -5,7 +5,7 @@ import { Dialog, Button, DialogVariant } from 'hds-react';
 type Props = {
   actionDisabled?: boolean;
   id: string;
-  title?: string;
+  title: string;
   className?: string;
   isOpen: boolean;
   scrollable?: boolean;
@@ -48,7 +48,7 @@ const Modal = ({
       scrollable={scrollable}
       variant={variant}
     >
-      {title && <Dialog.Header title={title} id={id} />}
+      <Dialog.Header title={title} id={id} />
       {children && <Dialog.Content>{children}</Dialog.Content>}
       <Dialog.ActionButtons>
         <Button theme="coat" variant="secondary" onClick={handleToggle}>
