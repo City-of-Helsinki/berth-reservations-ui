@@ -48,7 +48,7 @@ const Modal = ({
       scrollable={scrollable}
       variant={variant}
     >
-      <Dialog.Header title={title} id={id} />
+      <Dialog.Header title={title} id={titleId} />
       {children && <Dialog.Content>{children}</Dialog.Content>}
       <Dialog.ActionButtons>
         <Button theme="coat" variant="secondary" onClick={handleToggle}>
