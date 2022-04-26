@@ -17,4 +17,12 @@
     font-weight: 500;
     line-height: 20px;
   }
+
+  &--selectedChildren {
+    background: #333333;
+
+    & > div {
+      background: #005799;
+    }
+  }
 }

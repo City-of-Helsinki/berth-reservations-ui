@@ -1,9 +1,13 @@
 import L from 'leaflet';
 
+import { getIsVeneIconSelected } from './mapVeneIcon';
 import './createVeneClusterIcon.scss';
 
-// MarkerCluster type is not exported so that it could be used in userland
-export default function createVeneClusterIcon(cluster: any) {
+export default function createVeneClusterIcon(cluster: L.MarkerCluster) {
+  const selectedChildrenCount =
+    cluster.getAllChildMarkers()?.filter((marker: L.Marker) => getIsVeneIconSelected(marker))?.length ?? 0;
+  const hasSelectedChildren = selectedChildrenCount > 0;
+
   return new L.DivIcon({
     html: `<div tabindex="-1"><span tabindex="-1">${cluster.getChildCount()}</span></div>`,
     className: [
@@ -12,6 +16,7 @@ export default function createVeneClusterIcon(cluster: any) {
       'leaflet-zoom-animated',
       'leaflet-interactive',
       'veneClusterIcon',
+      hasSelectedChildren ? 'veneClusterIcon--selectedChildren' : '',
     ].join(' '),
     iconSize: L.point(25, 25, true),
   });
