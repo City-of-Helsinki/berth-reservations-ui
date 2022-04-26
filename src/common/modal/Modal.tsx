@@ -1,44 +1,63 @@
-import classNames from 'classnames';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, Modal as RSModal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-
-import { TContext } from '../types/translation';
-
-import './modal.scss';
+import { Dialog, Button, DialogVariant } from 'hds-react';
 
 type Props = {
-  title?: string;
-  body?: string;
-  tContext?: TContext;
+  actionDisabled?: boolean;
+  id: string;
+  title: string;
   className?: string;
   isOpen: boolean;
+  scrollable?: boolean;
+  submitButtonLabel?: string;
+  variant?: DialogVariant;
   handleToggle: () => void;
-  handleAccept?: (e: React.SyntheticEvent) => void;
+  handleSubmit: (e: React.SyntheticEvent) => void;
+  children?: React.ReactNode;
 };
 
-const Modal = ({ title, tContext: context, body, className, isOpen, handleToggle, handleAccept }: Props) => {
+const Modal = ({
+  actionDisabled,
+  id,
+  title,
+  className,
+  isOpen,
+  scrollable,
+  submitButtonLabel,
+  variant,
+  handleToggle,
+  handleSubmit,
+  children,
+}: Props) => {
   const { t } = useTranslation();
   const onAccept = (e: React.SyntheticEvent) => {
-    if (handleAccept) handleAccept(e);
+    handleSubmit(e);
     handleToggle();
   };
+  const titleId = `${id}-dialog-title`;
 
   return (
-    <RSModal isOpen={isOpen} className={classNames('vene-modal', className)} toggle={handleToggle}>
-      {title && <ModalHeader>{t(title, { context })}</ModalHeader>}
-      {body && <ModalBody className="vene-modal__body">{t(body, { context })}</ModalBody>}
-      <ModalFooter>
-        {handleAccept && (
-          <Button className="vene-modal__btn" color="danger" onClick={onAccept}>
-            {t('site.buttons.remove')}
-          </Button>
-        )}
-        <Button className="vene-modal__btn" color="primary" outline onClick={handleToggle}>
+    <Dialog
+      id={id}
+      aria-labelledby={titleId}
+      isOpen={isOpen}
+      className={className}
+      close={handleToggle}
+      closeButtonLabelText={t('site.buttons.close')}
+      scrollable={scrollable}
+      variant={variant}
+    >
+      <Dialog.Header title={title} id={titleId} />
+      {children && <Dialog.Content>{children}</Dialog.Content>}
+      <Dialog.ActionButtons>
+        <Button theme="coat" variant="secondary" onClick={handleToggle}>
           {t('site.buttons.cancel')}
         </Button>
-      </ModalFooter>
-    </RSModal>
+        <Button theme="coat" variant={variant} onClick={onAccept} disabled={actionDisabled}>
+          {submitButtonLabel ?? t('site.buttons.save')}
+        </Button>
+      </Dialog.ActionButtons>
+    </Dialog>
   );
 };
 

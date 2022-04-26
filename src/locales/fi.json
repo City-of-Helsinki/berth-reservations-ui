@@ -776,7 +776,16 @@
         "confirm_delete_title": "Haluatko varmasti poistaa hakemuksen?",
         "confirm_delete_description": "Poistettuasi hakemuksen et voi enää tarkastella sen tietoja.",
         "confirm_delete_confirm": "Poista hakemus",
-        "confirm_delete_cancel": "Peruuta"
+        "confirm_delete_cancel": "Peruuta",
+        "edit": {
+          "selected_boat": "Hakemukselle valittu vene",
+          "boat_desc_berth": "Vaihda haettujen satamien toivejärjestystä tai vaihda vene jolle haet paikkaa",
+          "boat_desc_winter": "Vaihda haettujen paikkojen toivejärjestystä tai vaihda vene jolle haet paikkaa",
+          "selected_berth": "Valitut satamat",
+          "selected_winter": "Valitut paikat",
+          "add_place_berth": "Lisää satama hakemukseen",
+          "add_place_winter": "Lisää paikka hakemukseen"
+        }
       },
       "boats": {
         "title": "Veneet",
@@ -921,7 +930,9 @@
       "cancel": "Peruuta",
       "next": "Seuraava",
       "remove": "Poista",
-      "selected": "Valittu"
+      "selected": "Valittu",
+      "save": "Tallenna",
+      "close": "Sulje"
     },
     "common": {
       "list": "Lista",

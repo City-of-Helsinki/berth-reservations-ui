@@ -6,7 +6,7 @@ import Modal from '../Modal';
 describe('Modal', () => {
   const handleToggle = jest.fn();
   const handleAccept = jest.fn();
-  const getWrapper = () => shallow(<Modal isOpen handleToggle={handleToggle} handleAccept={handleAccept} />);
+  const getWrapper = () => shallow(<Modal id="modal" isOpen handleToggle={handleToggle} handleSubmit={handleAccept} />);
 
   beforeEach(() => {
     jest.resetAllMocks();

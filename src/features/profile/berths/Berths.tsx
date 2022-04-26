@@ -1,24 +1,36 @@
 import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Application from '../components/application/Application';
+import Application, { ApplicationProps } from '../components/application/Application';
 import ReservationHistory, { ReservationHistoryProps } from '../components/reservationHistory/ReservationHistory';
 import Offer from '../components/offer/Offer';
 import BerthInvoice from '../components/invoice/Invoice';
 import NoPlaces from '../components/noPlaces/NoPlaces';
-import Icon from '../../../common/icon/Icon';
+import Icon, { IconNames } from '../../../common/icon/Icon';
 import Divider from '../components/divider/Divider';
 import { BerthSpecs, Properties } from './types';
 import { formatDate, formatDimension } from '../../../common/utils/format';
-import { ApplicationData, OfferData, InvoiceData } from '../types';
-import { OrderStatus } from '../../../__generated__/globalTypes';
+import { ApplicationData, OfferData, InvoiceData, Choice } from '../types';
+import { OrderStatus, UpdateBerthApplicationInput } from '../../../__generated__/globalTypes';
+import SelectedResourceContainer from '../../../common/areaCard/selectedResource/SelectedResourceContainer';
 
 export interface BerthsProps {
   applications: ApplicationData<Properties>[];
   offer: OfferData<BerthSpecs> | null;
   invoice: InvoiceData<BerthSpecs> | null;
   reservations: ReservationHistoryProps['reservations'] | null;
+  harborsOptions: ApplicationProps<Properties>['placesOptions'];
+  harborsLoading: ApplicationProps<Properties>['placesLoading'];
+  ownBoatsOptions: ApplicationProps<Properties>['ownBoatsOptions'];
+  ownBoatsLoading: ApplicationProps<Properties>['ownBoatsLoading'];
+  getHarborChoiceFromData: (choiceId: string, priority: number) => Choice<Properties> | undefined;
   onDeleteApplication(berthApplicationId: string): void;
+  onEditApplication(
+    applicationId: string,
+    addChoices: UpdateBerthApplicationInput['addChoices'],
+    removeChoices: UpdateBerthApplicationInput['removeChoices'],
+    boatId: UpdateBerthApplicationInput['boatId']
+  ): void;
   onExtendApplication(berthApplicationId: string): void;
 }
 
@@ -27,7 +39,13 @@ const Berths = ({
   offer,
   invoice,
   reservations,
+  harborsOptions,
+  harborsLoading,
+  ownBoatsOptions,
+  ownBoatsLoading,
+  getHarborChoiceFromData,
   onDeleteApplication,
+  onEditApplication,
   onExtendApplication,
 }: BerthsProps) => {
   const {
@@ -132,6 +150,7 @@ const Berths = ({
       {applications.map((application) => (
         <Fragment key={application.id}>
           <Application
+            translationContext="berth"
             applicationDate={application.applicationDate}
             choices={application.choices}
             status={application.status}
@@ -146,6 +165,43 @@ const Berths = ({
                 {water && <Icon name="waterTap" />}
               </>
             )}
+            placesOptions={harborsOptions}
+            placesLoading={harborsLoading}
+            ownBoatsOptions={ownBoatsOptions}
+            ownBoatsLoading={ownBoatsLoading}
+            boat={application.boat}
+            renderChoices={(selectedResources, onRemove, onMoveUp, onMoveDown) => {
+              return selectedResources.map((choice, index) => {
+                const services: [IconNames, boolean][] = [
+                  ['plug', choice.properties.electricity],
+                  ['waterTap', choice.properties.water],
+                  ['trash', choice.properties.wasteCollection],
+                  ['fence', choice.properties.gate],
+                  ['streetLight', choice.properties.lighting],
+                ];
+
+                return (
+                  <SelectedResourceContainer
+                    tContext="berth"
+                    title={`${index + 1}. ${choice.name}`}
+                    id={choice.id}
+                    key={choice.id}
+                    services={services}
+                    moveUp={index !== 0 ? onMoveUp : undefined}
+                    moveDown={index !== selectedResources.length - 1 ? onMoveDown : undefined}
+                    handleRemove={onRemove}
+                    availabilityLevel={choice.availabilityLevel}
+                  />
+                );
+              });
+            }}
+            getChoiceFromData={(choiceId: string) => getHarborChoiceFromData(choiceId, application.choices.length)}
+            onEditApplication={(newChoicesIds, boatId) => {
+              const removeChoices = application.choices.map((choice) => choice.priority);
+              const addChoices = newChoicesIds.map((id, index) => ({ harborId: id, priority: index + 1 }));
+
+              return onEditApplication(application.id, addChoices, removeChoices, boatId);
+            }}
             disableButtons={!!offer}
             onDelete={() => onDeleteApplication(application.id)}
             onExtendApplication={() => onExtendApplication(application.id)}

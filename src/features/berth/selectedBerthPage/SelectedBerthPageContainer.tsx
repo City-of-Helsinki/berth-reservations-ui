@@ -108,7 +108,7 @@ const SelectedBerthPageContainer = ({
         key={resource.id}
         services={services}
         moveUp={index !== 0 ? moveUp : undefined}
-        moveDown={index !== selectedHarbors.size - 1 ? moveDown : undefined}
+        moveDown={index !== selected.size - 1 ? moveDown : undefined}
         handleRemove={deselectBerth}
         availabilityLevel={resource.availabilityLevel}
         validationErrMsg={filter(resource) ? undefined : 'error.message.invalid_berth'}

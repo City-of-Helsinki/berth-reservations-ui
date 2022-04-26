@@ -59,7 +59,9 @@ const Invoice = ({
         {contract && <ContractInfo className="vene-invoice__contract" {...contract} />}
 
         <div className="vene-invoice__buttons">
-          <Button size="small">{t('page.profile.invoice.pay')}</Button>
+          <Button size="small" theme="coat">
+            {t('page.profile.invoice.pay')}
+          </Button>
           <Button size="small" variant="danger">
             {t('page.profile.berths.berth_invoice.terminate_berth')}
           </Button>

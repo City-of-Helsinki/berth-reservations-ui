@@ -24,13 +24,17 @@ const useTransitionLogic = ({ id, handleRemove, moveDown, moveUp }: UseTransitio
     setChanged('nothing');
   };
 
-  const doMoveUp = () => {
-    setChanged('up');
-  };
+  const doMoveUp = moveUp
+    ? () => {
+        setChanged('up');
+      }
+    : undefined;
 
-  const doMoveDown = () => {
-    setChanged('down');
-  };
+  const doMoveDown = moveDown
+    ? () => {
+        setChanged('down');
+      }
+    : undefined;
 
   const doDelete = () => {
     setChanged('delete');

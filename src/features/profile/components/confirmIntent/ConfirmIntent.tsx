@@ -67,8 +67,10 @@ const ConfirmIntent = ({
           </p>
         </Dialog.Content>
         <Dialog.ActionButtons>
-          <Button onClick={handleConfirmIntent}>{confirmIntentLabel}</Button>
-          <Button onClick={handleClose} variant="secondary">
+          <Button onClick={handleConfirmIntent} theme="coat">
+            {confirmIntentLabel}
+          </Button>
+          <Button onClick={handleClose} theme="coat" variant="secondary">
             {cancelIntentLabel}
           </Button>
         </Dialog.ActionButtons>
