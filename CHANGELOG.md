@@ -9,6 +9,7 @@
 **Changed:**
 
 - Berth profile created on login if it did not previously exist
+- Allow boat registration numbers to contain 0
 </details>
 
 # 1.0.2 (October 28, 2020)
