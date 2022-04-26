@@ -94,4 +94,4 @@ Running against local environment
 - Running command inside Docker environment (test for example):
   (Make sure docker container is running)
   `$ docker-compose run web YOUR_COMMAND_HERE`
-- Encounter `node-sass` issue ? try to go inside docker container environment and run `npm rebuild node-sass`
+- Encounter `sass` issue ? try to go inside docker container environment and run `npm rebuild sass`
