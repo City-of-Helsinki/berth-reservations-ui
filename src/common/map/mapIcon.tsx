@@ -8,57 +8,61 @@ import HarborUnmatchActive from '../icon/icons/harbor-unmatch-active.svg';
 import HarborUnmatchActiveAndSelected from '../icon/icons/harbor-unmatch-chosen-active.svg';
 import HarborUnmatchSelected from '../icon/icons/harbor-unmatch-chosen.svg';
 import HarborUnmatchUnselected from '../icon/icons/harbor-unmatch.svg';
+import { createVeneIcon } from './mapVeneIcon';
 
-const IconMatchSelected = new L.Icon({
+const IconMatchSelected = createVeneIcon({
   iconUrl: HarborMatchSelected,
   iconRetinaUrl: HarborMatchSelected,
   iconSize: new L.Point(25, 25),
   className: 'map-marker',
+  isSelected: true,
 });
 
-const IconMatchUnselected = new L.Icon({
+const IconMatchUnselected = createVeneIcon({
   iconUrl: HarborMatchUnselected,
   iconRetinaUrl: HarborMatchUnselected,
   iconSize: new L.Point(25, 25),
   className: 'map-marker',
 });
 
-const IconMatchActive = new L.Icon({
+const IconMatchActive = createVeneIcon({
   iconUrl: HarborMatchActive,
   iconRetinaUrl: HarborMatchActive,
   iconSize: new L.Point(25, 25),
   className: 'map-marker',
 });
 
-const IconMatchActiveAndSelected = new L.Icon({
+const IconMatchActiveAndSelected = createVeneIcon({
   iconUrl: HarborMatchActiveAndSelected,
   iconRetinaUrl: HarborMatchActiveAndSelected,
   iconSize: new L.Point(25, 25),
   className: 'map-marker',
+  isSelected: true,
 });
 
-const IconUnmatchUnselected = new L.Icon({
+const IconUnmatchUnselected = createVeneIcon({
   iconUrl: HarborUnmatchUnselected,
   iconRetinaUrl: HarborUnmatchUnselected,
   iconSize: new L.Point(25, 25),
   className: 'map-marker',
 });
 
-const IconUnmatchSelected = new L.Icon({
+const IconUnmatchSelected = createVeneIcon({
   iconUrl: HarborUnmatchSelected,
   iconRetinaUrl: HarborUnmatchSelected,
   iconSize: new L.Point(25, 25),
   className: 'map-marker',
+  isSelected: true,
 });
 
-const IconUnmatchActive = new L.Icon({
+const IconUnmatchActive = createVeneIcon({
   iconUrl: HarborUnmatchActive,
   iconRetinaUrl: HarborUnmatchActive,
   iconSize: new L.Point(25, 25),
   className: 'map-marker',
 });
 
-const IconUnmatchActiveAndSelected = new L.Icon({
+const IconUnmatchActiveAndSelected = createVeneIcon({
   iconUrl: HarborUnmatchActiveAndSelected,
   iconRetinaUrl: HarborUnmatchActiveAndSelected,
   iconSize: new L.Point(25, 25),

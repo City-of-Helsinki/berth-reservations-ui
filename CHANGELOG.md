@@ -9,6 +9,10 @@
 **Changed:**
 
 - Berth profile created on login if it did not previously exist
+
+**Fixed:**
+
+- Show harbours that are in the same location by clustering them
 - Allow boat registration numbers to contain 0
 </details>
 

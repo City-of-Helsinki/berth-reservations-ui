@@ -1,0 +1,28 @@
+.veneClusterIcon {
+  // color-bus with reduced opacity
+  background: rgba(114, 114, 161, 0.5);
+
+  & > div {
+    margin: 2.5px 0 0 2.5px;
+
+    width: 20px;
+    height: 20px;
+
+    background: #0072c6;
+  }
+
+  & > div > span {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+
+  &--selectedChildren {
+    background: #333333;
+
+    & > div {
+      background: #005799;
+    }
+  }
+}
