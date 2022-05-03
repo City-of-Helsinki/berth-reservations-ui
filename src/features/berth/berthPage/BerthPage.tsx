@@ -101,8 +101,8 @@ const BerthPage = ({
   };
 
   const filter = getBerthFilterByValues(initialValues, selectedServices);
-  const filtered = harbors.filter(filter);
-  const filteredNot = harbors.filterNot(filter);
+  const filtered = harbors.filter(filter).sortBy((harbor) => harbor.name);
+  const filteredNot = harbors.filterNot(filter).sortBy((harbor) => harbor.name);
   const invalidSelection = !harbors
     .filter((selectedBerth) => selectedHarborsIds.find((selectedId) => selectedId === selectedBerth.id))
     .every(filter);

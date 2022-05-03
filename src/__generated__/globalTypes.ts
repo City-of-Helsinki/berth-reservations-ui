@@ -14,6 +14,12 @@ export enum AddressType {
   WORK = "WORK",
 }
 
+export enum ApplicationPriority {
+  HIGH = "HIGH",
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+}
+
 export enum ApplicationStatus {
   EXPIRED = "EXPIRED",
   HANDLED = "HANDLED",
@@ -263,6 +269,47 @@ export interface UpdateAddressInput {
   addressType?: AddressType | null;
 }
 
+export interface UpdateBerthApplicationInput {
+  id: string;
+  customerId?: string | null;
+  priority?: ApplicationPriority | null;
+  language?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  email?: string | null;
+  phoneNumber?: string | null;
+  address?: string | null;
+  zipCode?: string | null;
+  municipality?: string | null;
+  companyName?: string | null;
+  businessId?: string | null;
+  boatId?: string | null;
+  boatType?: string | null;
+  boatRegistrationNumber?: string | null;
+  boatName?: string | null;
+  boatModel?: string | null;
+  boatLength?: any | null;
+  boatWidth?: any | null;
+  applicationCode?: string | null;
+  acceptBoatingNewsletter?: boolean | null;
+  acceptFitnessNews?: boolean | null;
+  acceptLibraryNews?: boolean | null;
+  acceptOtherCultureNews?: boolean | null;
+  boatDraught?: any | null;
+  boatWeight?: any | null;
+  accessibilityRequired?: boolean | null;
+  boatPropulsion?: string | null;
+  boatHullMaterial?: string | null;
+  boatIntendedUse?: string | null;
+  rentFrom?: string | null;
+  rentTill?: string | null;
+  boatIsInspected?: boolean | null;
+  boatIsInsured?: boolean | null;
+  addChoices?: HarborChoiceInput[] | null;
+  removeChoices?: number[] | null;
+  clientMutationId?: string | null;
+}
+
 export interface UpdateEmailInput {
   primary?: boolean | null;
   id: string;
@@ -280,6 +327,41 @@ export interface UpdatePhoneInput {
   id: string;
   phone?: string | null;
   phoneType?: PhoneType | null;
+}
+
+export interface UpdateWinterStorageApplicationInput {
+  id: string;
+  customerId?: string | null;
+  priority?: ApplicationPriority | null;
+  language?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  email?: string | null;
+  phoneNumber?: string | null;
+  address?: string | null;
+  zipCode?: string | null;
+  municipality?: string | null;
+  companyName?: string | null;
+  businessId?: string | null;
+  boatId?: string | null;
+  boatType?: string | null;
+  boatRegistrationNumber?: string | null;
+  boatName?: string | null;
+  boatModel?: string | null;
+  boatLength?: any | null;
+  boatWidth?: any | null;
+  applicationCode?: string | null;
+  acceptBoatingNewsletter?: boolean | null;
+  acceptFitnessNews?: boolean | null;
+  acceptLibraryNews?: boolean | null;
+  acceptOtherCultureNews?: boolean | null;
+  boatDraught?: any | null;
+  boatWeight?: any | null;
+  storageMethod?: WinterStorageMethod | null;
+  trailerRegistrationNumber?: string | null;
+  addChoices?: WinterStorageAreaChoiceInput[] | null;
+  removeChoices?: number[] | null;
+  clientMutationId?: string | null;
 }
 
 export interface WinterStorageApplicationInput {

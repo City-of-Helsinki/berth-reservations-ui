@@ -16,10 +16,13 @@ export type ContactInfo = {
 };
 
 export interface Choice<T extends Record<string, boolean>> {
+  priority: number;
+  id: string;
   name: string;
   availabilityLevel: {
     id: string;
-    label: string;
+    title: string;
+    description: string | null;
   };
   properties: T;
 }
@@ -58,6 +61,11 @@ export interface ApplicationData<T extends Record<string, boolean>> {
   applicationDate: string;
   choices: Choice<T>[];
   status: ApplicationStatus;
+  boat: {
+    id: string;
+    name: string;
+    registrationNumber: string;
+  } | null;
 }
 
 export interface OfferData<PlaceSpecs> {

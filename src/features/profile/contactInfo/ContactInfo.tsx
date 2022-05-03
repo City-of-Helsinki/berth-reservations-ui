@@ -40,7 +40,7 @@ const ContactInfo = ({ contactInfo, handleEdit }: ContactInfoProps) => {
         <LabelValuePair label={t('page.profile.contact.customer_group')} value={customerGroup} />
         <LabelValuePair label={t('page.profile.contact.language')} value={t(`common.language.${language}`)} />
       </div>
-      <Button size="small" onClick={handleEdit}>
+      <Button size="small" theme="coat" onClick={handleEdit}>
         {t('page.profile.contact.edit')}
       </Button>
     </div>

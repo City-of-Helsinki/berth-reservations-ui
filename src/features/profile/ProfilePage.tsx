@@ -54,7 +54,7 @@ const ProfilePage = ({
     title: t('page.profile.winter_storage.title'),
   };
 
-  const modules = showUnfinishedModules ? [contactTab, boatsTab, berthsTab, winterStorageTab] : [contactTab];
+  const modules = showUnfinishedModules ? [contactTab, boatsTab, berthsTab, winterStorageTab] : [contactTab, berthsTab];
 
   return (
     <Layout>

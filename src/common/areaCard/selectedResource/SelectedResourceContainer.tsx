@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import * as React from 'react';
 import Transition from 'react-transition-group/Transition';
+import { useTranslation } from 'react-i18next';
 
 import { genValidSelector } from '../../utils/urls';
 import { TContext } from '../../types/translation';
 import { IconNames } from '../../icon/Icon';
 import Modal from '../../modal/Modal';
 import SelectedResource from './SelectedResource';
-import './selectedResource.scss';
 import useTransitionLogic from './useTransitionLogic';
+import './selectedResource.scss';
 
 export type Props = {
   tContext: TContext;
@@ -43,6 +44,7 @@ const SelectedResourceContainer = ({
     id,
   });
   const toggleModal = () => setModalOpen(!isModalOpen);
+  const { t } = useTranslation();
 
   const validDomId = genValidSelector(`popover_${id}`);
 
@@ -63,10 +65,12 @@ const SelectedResourceContainer = ({
             toggleModal={toggleModal}
           />
           <Modal
-            tContext={tContext}
-            body="page.selected.confirmation_body"
-            handleAccept={doDelete}
+            id="SelectedResourceContainer-remove"
+            variant="danger"
+            handleSubmit={doDelete}
             handleToggle={toggleModal}
+            submitButtonLabel={t('site.buttons.remove')}
+            title={t('page.selected.confirmation_body', { context: tContext })}
             isOpen={isModalOpen}
           />
         </>

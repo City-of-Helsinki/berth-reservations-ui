@@ -13,6 +13,7 @@
 **Fixed:**
 
 - Show harbours that are in the same location by clustering them
+- Allow boat registration numbers to contain 0
 </details>
 
 # 1.0.2 (October 28, 2020)

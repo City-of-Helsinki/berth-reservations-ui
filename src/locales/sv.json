@@ -769,7 +769,16 @@
         "confirm_delete_title": "SV: Haluatko varmasti poistaa hakemuksen?",
         "confirm_delete_description": "SV: Poistettuasi hakemuksen et voi enää tarkastella sen tietoja.",
         "confirm_delete_confirm": "SV: Poista hakemus",
-        "confirm_delete_cancel": "SV: Peruuta"
+        "confirm_delete_cancel": "SV: Peruuta",
+        "edit": {
+          "selected_boat": "SV: Hakemukselle valittu vene",
+          "boat_desc_berth": "SV: Vaihda haettujen satamien toivejärjestystä tai vaihda vene jolle haet paikkaa",
+          "boat_desc_winter": "SV: Vaihda haettujen paikkojen toivejärjestystä tai vaihda vene jolle haet paikkaa",
+          "selected_berth": "SV: Valitut satamat",
+          "selected_winter": "SV: Valitut paikat",
+          "add_place_berth": "SV: Lisää satama hakemukseen",
+          "add_place_winter": "SV: Lisää paikka hakemukseen"
+        }
       },
       "boats": {
         "title": "Båtar",
@@ -911,7 +920,9 @@
       "cancel": "Avbryt",
       "next": "Nästa",
       "remove": "Ta bort",
-      "selected": "Vald"
+      "selected": "Vald",
+      "save": "SV: Tallenna",
+      "close": "Stäng"
     },
     "common": {
       "list": "Förteckning",

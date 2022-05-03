@@ -6,6 +6,7 @@ const BERTH_APPLICATION_NODE = gql`
     createdAt
     status
     harborChoices {
+      priority
       harbor {
         id
         properties {
@@ -13,6 +14,7 @@ const BERTH_APPLICATION_NODE = gql`
           availabilityLevel {
             id
             title
+            description
           }
           electricity
           gate
@@ -22,12 +24,18 @@ const BERTH_APPLICATION_NODE = gql`
         }
       }
     }
+    boat {
+      id
+      name
+      registrationNumber
+    }
   }
 `;
 
 export const BERTHS_QUERY = gql`
   query BERTHS {
     myProfile {
+      id
       berthApplications {
         edges {
           node {
@@ -39,6 +47,14 @@ export const BERTHS_QUERY = gql`
   }
 
   ${BERTH_APPLICATION_NODE}
+`;
+
+export const UPDATE_BERTH_APPLICATION_MUTATION = gql`
+  mutation UPDATE_BERTH_APPLICATION($input: UpdateBerthApplicationInput!) {
+    updateBerthApplication(input: $input) {
+      clientMutationId
+    }
+  }
 `;
 
 export const DELETE_BERTH_APPLICATION_MUTATION = gql`
