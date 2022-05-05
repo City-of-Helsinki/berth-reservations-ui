@@ -7,6 +7,7 @@ import BoatInfoFragment from '../../../../../../common/boatInfoFragment/BoatInfo
 import BoatMeasures from '../../../../../../common/boatMeasuresFragment/BoatMeasuresFragment';
 import RegisteredBoatDetails from '../../../../../../common/registeredBoatDetails/RegisteredBoatDetails';
 import { WithBoatType } from '../../../../../../common/selects/Selects';
+import GdprNotes from './fragments/GdprNotes';
 
 type Props = {
   showBigShipsForm: boolean;
@@ -29,6 +30,7 @@ const BerthRegisteredBoat = ({ showBigShipsForm, boatTypes }: Props) => {
       )}
       <BoatInfoFragment />
       <Accessibility />
+      <GdprNotes />
     </FormTab>
   );
 };

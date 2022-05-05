@@ -42,6 +42,9 @@
       "FINNISH": "suomi",
       "ENGLISH": "englanti",
       "SWEDISH": "ruotsi"
+    },
+    "srOnly": {
+      "opensInANewTab": "Avautuu uudessa välilehdessä"
     }
   },
   "error": {
@@ -53,6 +56,19 @@
     }
   },
   "form": {
+    "gdpr": {
+      "berthPrivacyStatementLink": {
+        "text": "Venepaikkojen rekisteriseloste (pdf)"
+      },
+      "openCityProfilePrivacyStatementLink": {
+        "text": "Helsinki-profiilin rekisteriseloste",
+        "url": "#"
+      },
+      "cityOfHelsinkiPrivacyStatementLink": {
+        "text": "Helsingin kaupungin tietosuojakäytäntö",
+        "url": "#"
+      }
+    },
     "accessibility": {
       "field": {
         "accessibility": {

@@ -41,6 +41,9 @@
       "FINNISH": "Finnish",
       "ENGLISH": "English",
       "SWEDISH": "Swedish"
+    },
+    "srOnly": {
+      "opensInANewTab": "Opens in a new tab"
     }
   },
   "error": {
@@ -52,6 +55,19 @@
     }
   },
   "form": {
+    "gdpr": {
+      "berthPrivacyStatementLink": {
+        "text": "Berth reservation's privacy policy (pdf)"
+      },
+      "openCityProfilePrivacyStatementLink": {
+        "text": "Helsinki-profile's privacy policy",
+        "url": "#"
+      },
+      "cityOfHelsinkiPrivacyStatementLink": {
+        "text": "The privacy policy of the city of Helsinki",
+        "url": "#"
+      }
+    },
     "accessibility": {
       "field": {
         "accessibility": {
