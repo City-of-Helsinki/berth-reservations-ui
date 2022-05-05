@@ -1,0 +1,574 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExternalLink renders normally 1`] = `
+initialize {
+  "0": Node {
+    "attribs": Object {
+      "class": "link default",
+      "rel": "noopener noreferrer",
+      "target": "_blank",
+    },
+    "children": Array [
+      Node {
+        "data": "test",
+        "next": Node {
+          "attribs": Object {
+            "class": "icon",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "class": "Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik",
+                "role": "img",
+                "viewBox": "0 0 24 24",
+                "xmlns": "http://www.w3.org/2000/svg",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "fill": "none",
+                    "fill-rule": "evenodd",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "d": "M0 0h24v24H0z",
+                      },
+                      "children": Array [],
+                      "name": "path",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": Node {
+                        "attribs": Object {
+                          "d": "M10 3v2H5v14h14v-5h2v7H3V3h7zm11 0v8h-2V6.413l-7 7.001L10.586 12l6.999-7H13V3h8z",
+                          "fill": "currentColor",
+                        },
+                        "children": Array [],
+                        "name": "path",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": [Circular],
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "d": undefined,
+                          "fill": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "d": undefined,
+                          "fill": undefined,
+                        },
+                      },
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "d": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "d": undefined,
+                      },
+                    },
+                    Node {
+                      "attribs": Object {
+                        "d": "M10 3v2H5v14h14v-5h2v7H3V3h7zm11 0v8h-2V6.413l-7 7.001L10.586 12l6.999-7H13V3h8z",
+                        "fill": "currentColor",
+                      },
+                      "children": Array [],
+                      "name": "path",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": Node {
+                        "attribs": Object {
+                          "d": "M0 0h24v24H0z",
+                        },
+                        "children": Array [],
+                        "name": "path",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": [Circular],
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "d": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "d": undefined,
+                        },
+                      },
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "d": undefined,
+                        "fill": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "d": undefined,
+                        "fill": undefined,
+                      },
+                    },
+                  ],
+                  "name": "g",
+                  "namespace": "http://www.w3.org/2000/svg",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "fill": undefined,
+                    "fill-rule": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "fill": undefined,
+                    "fill-rule": undefined,
+                  },
+                },
+              ],
+              "name": "svg",
+              "namespace": "http://www.w3.org/2000/svg",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "role": undefined,
+                "viewBox": undefined,
+                "xmlns": "http://www.w3.org/2000/xmlns/",
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "role": undefined,
+                "viewBox": undefined,
+                "xmlns": "",
+              },
+            },
+          ],
+          "name": "i",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {
+              "class": "srOnly",
+            },
+            "children": Array [
+              Node {
+                "data": "Avautuu uudessa välilehdessä",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "text",
+      },
+      Node {
+        "attribs": Object {
+          "class": "icon",
+        },
+        "children": Array [
+          Node {
+            "attribs": Object {
+              "class": "Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik",
+              "role": "img",
+              "viewBox": "0 0 24 24",
+              "xmlns": "http://www.w3.org/2000/svg",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "fill": "none",
+                  "fill-rule": "evenodd",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "d": "M0 0h24v24H0z",
+                    },
+                    "children": Array [],
+                    "name": "path",
+                    "namespace": "http://www.w3.org/2000/svg",
+                    "next": Node {
+                      "attribs": Object {
+                        "d": "M10 3v2H5v14h14v-5h2v7H3V3h7zm11 0v8h-2V6.413l-7 7.001L10.586 12l6.999-7H13V3h8z",
+                        "fill": "currentColor",
+                      },
+                      "children": Array [],
+                      "name": "path",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "d": undefined,
+                        "fill": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "d": undefined,
+                        "fill": undefined,
+                      },
+                    },
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "d": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "d": undefined,
+                    },
+                  },
+                  Node {
+                    "attribs": Object {
+                      "d": "M10 3v2H5v14h14v-5h2v7H3V3h7zm11 0v8h-2V6.413l-7 7.001L10.586 12l6.999-7H13V3h8z",
+                      "fill": "currentColor",
+                    },
+                    "children": Array [],
+                    "name": "path",
+                    "namespace": "http://www.w3.org/2000/svg",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": Node {
+                      "attribs": Object {
+                        "d": "M0 0h24v24H0z",
+                      },
+                      "children": Array [],
+                      "name": "path",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "d": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "d": undefined,
+                      },
+                    },
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "d": undefined,
+                      "fill": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "d": undefined,
+                      "fill": undefined,
+                    },
+                  },
+                ],
+                "name": "g",
+                "namespace": "http://www.w3.org/2000/svg",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "fill": undefined,
+                  "fill-rule": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "fill": undefined,
+                  "fill-rule": undefined,
+                },
+              },
+            ],
+            "name": "svg",
+            "namespace": "http://www.w3.org/2000/svg",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "role": undefined,
+              "viewBox": undefined,
+              "xmlns": "http://www.w3.org/2000/xmlns/",
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "role": undefined,
+              "viewBox": undefined,
+              "xmlns": "",
+            },
+          },
+        ],
+        "name": "i",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "srOnly",
+          },
+          "children": Array [
+            Node {
+              "data": "Avautuu uudessa välilehdessä",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Node {
+          "data": "test",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "text",
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "srOnly",
+        },
+        "children": Array [
+          Node {
+            "data": "Avautuu uudessa välilehdessä",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "icon",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "class": "Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik",
+                "role": "img",
+                "viewBox": "0 0 24 24",
+                "xmlns": "http://www.w3.org/2000/svg",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "fill": "none",
+                    "fill-rule": "evenodd",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "d": "M0 0h24v24H0z",
+                      },
+                      "children": Array [],
+                      "name": "path",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": Node {
+                        "attribs": Object {
+                          "d": "M10 3v2H5v14h14v-5h2v7H3V3h7zm11 0v8h-2V6.413l-7 7.001L10.586 12l6.999-7H13V3h8z",
+                          "fill": "currentColor",
+                        },
+                        "children": Array [],
+                        "name": "path",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": [Circular],
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "d": undefined,
+                          "fill": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "d": undefined,
+                          "fill": undefined,
+                        },
+                      },
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "d": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "d": undefined,
+                      },
+                    },
+                    Node {
+                      "attribs": Object {
+                        "d": "M10 3v2H5v14h14v-5h2v7H3V3h7zm11 0v8h-2V6.413l-7 7.001L10.586 12l6.999-7H13V3h8z",
+                        "fill": "currentColor",
+                      },
+                      "children": Array [],
+                      "name": "path",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": Node {
+                        "attribs": Object {
+                          "d": "M0 0h24v24H0z",
+                        },
+                        "children": Array [],
+                        "name": "path",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": [Circular],
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "d": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "d": undefined,
+                        },
+                      },
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "d": undefined,
+                        "fill": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "d": undefined,
+                        "fill": undefined,
+                      },
+                    },
+                  ],
+                  "name": "g",
+                  "namespace": "http://www.w3.org/2000/svg",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "fill": undefined,
+                    "fill-rule": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "fill": undefined,
+                    "fill-rule": undefined,
+                  },
+                },
+              ],
+              "name": "svg",
+              "namespace": "http://www.w3.org/2000/svg",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "role": undefined,
+                "viewBox": undefined,
+                "xmlns": "http://www.w3.org/2000/xmlns/",
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "role": undefined,
+                "viewBox": undefined,
+                "xmlns": "",
+              },
+            },
+          ],
+          "name": "i",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "data": "test",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+    ],
+    "name": "a",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": Node {
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+    },
+    "prev": null,
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+      "rel": undefined,
+      "target": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+      "rel": undefined,
+      "target": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
