@@ -66,6 +66,9 @@
       "cityOfHelsinkiPrivacyStatementLink": {
         "text": "The privacy policy of the city of Helsinki",
         "url": "#"
+      },
+      "privacyPoliciesAgreement": {
+        "label": "I have read and agree to the following documents:"
       }
     },
     "accessibility": {

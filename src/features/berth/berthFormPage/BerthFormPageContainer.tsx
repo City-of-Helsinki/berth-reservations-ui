@@ -34,6 +34,7 @@ import { getCurrentBerths, getReasonOptions } from './switchApplication/utils';
 import { ProfilePageQuery } from '../../__generated__/ProfilePageQuery';
 import { getFormValuesFromProfile } from '../../profile/utils';
 import { MyBoatsQuery } from '../../__generated__/MyBoatsQuery';
+import GdprNotes from './boatDetails/createBerthBoat/tabs/fragments/GdprNotes';
 
 type Props = {
   applicationType: ApplicationOptions;
@@ -231,6 +232,7 @@ const BerthFormPageContainer = ({
       stepsBeforeForm={stepsBeforeForm}
       submit={submit}
       loading={profilePageQuery.loading}
+      gdprNotes={<GdprNotes />}
       {...rest}
     >
       {getStepComponent()}

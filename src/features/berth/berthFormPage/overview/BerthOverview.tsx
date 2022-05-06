@@ -36,7 +36,13 @@ const BerthOverview = ({ boatTab, boatTypes, selectedHarbors, steps, values }: P
             <h5>{t('form.overview.header.receivable_items.title')}</h5>
             <Newsletter />
             <h3>{t('form.overview.header.agreement.title')}</h3>
-            <Agreement label={<span>{t('form.overview.field.berth.guarantee.label')}</span>} />
+            <Agreement
+              label={
+                <span className="vene-formfield__label is-required">
+                  {t('form.overview.field.berth.guarantee.label')}
+                </span>
+              }
+            />
           </div>
         </Col>
       </Row>

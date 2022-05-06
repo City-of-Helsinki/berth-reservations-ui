@@ -67,6 +67,9 @@
       "cityOfHelsinkiPrivacyStatementLink": {
         "text": "Helsingin kaupungin tietosuojakäytäntö",
         "url": "#"
+      },
+      "privacyPoliciesAgreement": {
+        "label": "Olen tutustunut seuraaviin dokumentteihin ja hyväksyn tietojeni käytön niiden mukaisesti:"
       }
     },
     "accessibility": {
