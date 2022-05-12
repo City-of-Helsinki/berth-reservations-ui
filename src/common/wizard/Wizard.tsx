@@ -115,7 +115,7 @@ const Wizard = ({
   return (
     <Form initialValues={initialValues} onSubmit={handleSubmit}>
       {({ invalid, values }: { invalid: boolean; values: {} }) => (
-        <div className={`${!!gdprNotes ? 'vene-form-container__without-bottom-margin' : 'vene-form-container'}`}>
+        <div className={`vene-form-container${!!gdprNotes && '__without-bottom-margin'}`}>
           {React.isValidElement(formContentComponent) &&
             React.cloneElement<{ values?: {} }>(formContentComponent, { values })}
           {!!gdprNotes && (

@@ -14,7 +14,7 @@ const PrivacyPoliciesAgreement = ({ label, gdprNotes, colProps }: Props) => (
   <>
     <Row className={styles.inputs}>
       <Col {...colProps}>
-        <Checkbox name={`privacyPoliciesConfirmed`} label={label} required />
+        <Checkbox name="privacyPoliciesConfirmed" label={label} required />
       </Col>
     </Row>
     {gdprNotes && (
