@@ -8,9 +8,11 @@ import Form from '../form/Form';
 import { StepType } from '../steps/step/Step';
 import { WinterStorageMethod } from '../../__generated__/globalTypes';
 import './wizard.scss';
+import PrivacyPoliciesAgreement from '../agreement/PrivacyPoliciesAgreement';
 
 type Props = {
   children: React.ReactNode;
+  gdprNotes?: React.ReactNode;
   currentStep: number;
   goBackward: Function;
   goForward: Function;
@@ -26,6 +28,7 @@ type Props = {
 
 const Wizard = ({
   children,
+  gdprNotes,
   currentStep,
   goBackward,
   goForward,
@@ -105,14 +108,35 @@ const Wizard = ({
 
   const formContentComponent = React.Children.toArray(children)[0];
 
+  const confirmGdprPrivacyPolicies = isLastFormStep(currentStep);
+  const gdprColProps = { lg: { size: 10, offset: 1 }, xl: { size: 8, offset: 2 } };
   // FIXME
   /* eslint-disable react/no-unused-prop-types */
   return (
     <Form initialValues={initialValues} onSubmit={handleSubmit}>
       {({ invalid, values }: { invalid: boolean; values: {} }) => (
-        <>
+        <div className={`vene-form-container${!!gdprNotes && '__without-bottom-margin'}`}>
           {React.isValidElement(formContentComponent) &&
             React.cloneElement<{ values?: {} }>(formContentComponent, { values })}
+          {!!gdprNotes && (
+            <Container>
+              {confirmGdprPrivacyPolicies ? (
+                <PrivacyPoliciesAgreement
+                  colProps={gdprColProps}
+                  label={
+                    <span className="vene-formfield__label is-required">
+                      {t('form.gdpr.privacyPoliciesAgreement.label')}
+                    </span>
+                  }
+                  gdprNotes={gdprNotes}
+                />
+              ) : (
+                <Row>
+                  <Col {...gdprColProps}>{gdprNotes}</Col>
+                </Row>
+              )}
+            </Container>
+          )}
           <div className="vene-form__wizard-wrapper">
             <Container>
               <Row>
@@ -127,7 +151,7 @@ const Wizard = ({
               </Row>
             </Container>
           </div>
-        </>
+        </div>
       )}
     </Form>
   );

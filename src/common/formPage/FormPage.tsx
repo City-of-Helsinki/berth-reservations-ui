@@ -12,6 +12,7 @@ import './formPage.scss';
 
 interface Props {
   children: React.ReactNode;
+  gdprNotes?: React.ReactNode;
   currentStep: number;
   goBackward: Function;
   goForward: Function;
@@ -24,6 +25,7 @@ interface Props {
 
 const FormPage = ({
   children,
+  gdprNotes,
   currentStep,
   goBackward,
   goForward,
@@ -58,6 +60,7 @@ const FormPage = ({
           steps={steps}
           stepsBeforeForm={stepsBeforeForm}
           submit={submit}
+          gdprNotes={gdprNotes}
         >
           {children}
         </Wizard>

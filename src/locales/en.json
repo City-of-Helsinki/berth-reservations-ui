@@ -41,6 +41,9 @@
       "FINNISH": "Finnish",
       "ENGLISH": "English",
       "SWEDISH": "Swedish"
+    },
+    "srOnly": {
+      "opensInANewTab": "Opens in a new tab"
     }
   },
   "error": {
@@ -52,6 +55,23 @@
     }
   },
   "form": {
+    "gdpr": {
+      "berthPrivacyStatementLink": {
+        "text": "Berth reservation's privacy policy (pdf)",
+        "url": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri.pdf"
+      },
+      "openCityProfilePrivacyStatementLink": {
+        "text": "Helsinki-profile's privacy policy (pdf)",
+        "url": "https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Keha/Sahkoisten%20asiointipalveluiden%20rekisteri.pdf"
+      },
+      "cityOfHelsinkiPrivacyStatementLink": {
+        "text": "The privacy policy of the city of Helsinki",
+        "url": "https://www.hel.fi/helsinki/en/administration/information/data-protection/"
+      },
+      "privacyPoliciesAgreement": {
+        "label": "I have read and agree to the following documents:"
+      }
+    },
     "accessibility": {
       "field": {
         "accessibility": {

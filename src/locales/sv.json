@@ -4,7 +4,7 @@
     "area": "Området",
     "berth": "Båtplatsen",
     "cancelled": "Annullerat",
-    "data_missing_query_error": "SV: Tietojen lataamisesa tapahtui virhe",
+    "data_missing_query_error": "Det gick inte att läsa in data",
     "dinghy_place": "Jolleplats",
     "drafted": "Erbjuden",
     "due_date": "Förfallodatum",
@@ -52,6 +52,23 @@
     }
   },
   "form": {
+    "gdpr": {
+      "berthPrivacyStatementLink": {
+        "text": "Båtplatsers integritetspolicy (pdf)",
+        "url": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri-SV.pdf"
+      },
+      "openCityProfilePrivacyStatementLink": {
+        "text": "Helsingfors-profilens integritetspolicy (pdf)",
+        "url": "https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Keha/Register%20over%20e-tjanster.pdf"
+      },
+      "cityOfHelsinkiPrivacyStatementLink": {
+        "text": "Helsingfors stads integritetspolicy",
+        "url": "https://www.hel.fi/helsinki/sv/stad-och-forvaltning/information/dataskydd"
+      },
+      "privacyPoliciesAgreement": {
+        "label": "Jag har läst och godkänner följande dokument:"
+      }
+    },
     "accessibility": {
       "field": {
         "accessibility": {
@@ -299,11 +316,11 @@
     },
     "registered": {
       "action": {
-        "intent_to_create_boat": "SV: Lisää uusi vene"
+        "intent_to_create_boat": "Lägg till en ny båt"
       },
       "field": {
         "boat_id": {
-          "label": "SV: Vene"
+          "label": "Båt"
         },
         "draught": {
           "label": "Båtens djup",

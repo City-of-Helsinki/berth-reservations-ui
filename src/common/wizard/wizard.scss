@@ -26,3 +26,12 @@
     }
   }
 }
+
+/* Removes the bottom margin when gdpr notes are shown in the bottom of the wizard */
+.vene-form-container {
+  &__without-bottom-margin {
+    .vene-form__styled-container {
+      margin-bottom: 0 !important;
+    }
+  }
+}

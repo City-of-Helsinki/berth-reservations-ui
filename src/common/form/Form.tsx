@@ -7,13 +7,15 @@ interface Props {
   onSubmit: Function;
   initialValues: object;
   children: (props: any) => React.ReactNode;
+  className?: string;
 }
 
-const Form = ({ onSubmit, initialValues, children }: Props) => {
+const Form = ({ onSubmit, initialValues, children, className }: Props) => {
   const { i18n } = useTranslation();
 
   return (
     <FinalForm
+      className={className}
       onSubmit={(formData) => onSubmit(formData)}
       initialValues={{ ...initialValues, language: i18n.language }}
       render={({ handleSubmit, ...renderProps }) => (
