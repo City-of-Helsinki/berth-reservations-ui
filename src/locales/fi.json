@@ -58,15 +58,16 @@
   "form": {
     "gdpr": {
       "berthPrivacyStatementLink": {
-        "text": "Venepaikkojen rekisteriseloste (pdf)"
+        "text": "Venepaikkojen rekisteriseloste (pdf)",
+        "url": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri.pdf"
       },
       "openCityProfilePrivacyStatementLink": {
-        "text": "Helsinki-profiilin rekisteriseloste",
-        "url": "#"
+        "text": "Helsinki-profiilin rekisteriseloste (pdf)",
+        "url": "https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Keha/Sahkoisten%20asiointipalveluiden%20rekisteri.pdf"
       },
       "cityOfHelsinkiPrivacyStatementLink": {
         "text": "Helsingin kaupungin tietosuojakäytäntö",
-        "url": "#"
+        "url": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
       },
       "privacyPoliciesAgreement": {
         "label": "Olen tutustunut seuraaviin dokumentteihin ja hyväksyn tietojeni käytön niiden mukaisesti:"

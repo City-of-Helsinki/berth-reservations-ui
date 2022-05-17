@@ -54,15 +54,16 @@
   "form": {
     "gdpr": {
       "berthPrivacyStatementLink": {
-        "text": "Båtplatsers integritetspolicy (pdf)"
+        "text": "Båtplatsers integritetspolicy (pdf)",
+        "url": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri-SV.pdf"
       },
       "openCityProfilePrivacyStatementLink": {
-        "text": "Helsingfors-profilens integritetspolicy",
-        "url": "#"
+        "text": "Helsingfors-profilens integritetspolicy (pdf)",
+        "url": "https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Keha/Register%20over%20e-tjanster.pdf"
       },
       "cityOfHelsinkiPrivacyStatementLink": {
         "text": "Helsingfors stads integritetspolicy",
-        "url": "#"
+        "url": "https://www.hel.fi/helsinki/sv/stad-och-forvaltning/information/dataskydd"
       },
       "privacyPoliciesAgreement": {
         "label": "Jag har läst och godkänner följande dokument:"
