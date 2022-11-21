@@ -153,7 +153,7 @@ export const mustBeBusinessId = (value: string): string | undefined => {
 };
 
 export const mustBeBoatRegistrationNumber = (value: string): string | undefined => {
-  const regex = /^[A-ZÄÖÅ][0-9]{1,10}$/;
+  const regex = /^[A-ZÄÖÅa-zöäå][0-9]{1,10}$/;
   if (regex.test(value)) {
     return undefined;
   }

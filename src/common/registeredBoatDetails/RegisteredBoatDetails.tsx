@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
+import { FormSpy } from 'react-final-form';
 
 import { mustBeBoatRegistrationNumber } from '../utils/formValidation';
 import { Text } from '../fields/Fields';
@@ -7,6 +8,7 @@ import { BoatType, WithBoatType } from '../selects/Selects';
 
 const RegisteredBoatDetails = ({ boatTypes }: WithBoatType) => {
   const { t } = useTranslation();
+
   return (
     <>
       <h3>{t('form.registered.header.title')}</h3>
@@ -20,6 +22,14 @@ const RegisteredBoatDetails = ({ boatTypes }: WithBoatType) => {
             placeholder="form.registered.field.register_number.placeholder"
             required
             validate={mustBeBoatRegistrationNumber}
+          />
+          <FormSpy
+            subscription={{ values: true }}
+            onChange={(props) => {
+              if (props.values.boatRegistrationNumber) {
+                props.values.boatRegistrationNumber = props.values.boatRegistrationNumber.toUpperCase();
+              }
+            }}
           />
         </Col>
         <Col sm={6}>
