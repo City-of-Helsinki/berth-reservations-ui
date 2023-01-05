@@ -76,6 +76,7 @@ COPY .prod/nginx.conf /etc/nginx/conf.d/default.conf
 # OpenShift write access, runtime is created "/var/cache/nginx/client_temp"
 USER root
 RUN chgrp -R 0 /var/cache/nginx && chmod g+w -R /var/cache/nginx
+RUN chgrp -R 0 /run && chmod g+w -R /run
 USER appuser
 
 EXPOSE 8080
