@@ -78,4 +78,4 @@ USER root
 RUN chgrp -R 0 /var/cache/nginx && chmod g+w -R /var/cache/nginx
 USER appuser
 
-EXPOSE 80
+EXPOSE 8080
