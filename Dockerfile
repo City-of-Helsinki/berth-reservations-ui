@@ -81,4 +81,9 @@ COPY --from=staticbuilder --chown=nginx:nginx /app/build /usr/share/nginx/html
 
 COPY .prod/nginx.conf /etc/nginx/conf.d/default.conf
 
+# OpenShift write access, runtime is created "/var/cache/nginx/client_temp"
+USER root
+RUN chgrp -R 0 /var/cache/nginx && chmod g+w -R /var/cache/nginx
+USER appuser
+
 EXPOSE 80
