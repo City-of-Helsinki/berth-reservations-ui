@@ -20,7 +20,6 @@ env:
   K8S_REQUEST_RAM: 20Mi
   K8S_LIMIT_CPU: 15m
   K8S_LIMIT_RAM: 30Mi
-  BROWSER_TESTS_SSN: ${{ secrets.BROWSER_TESTS_SSN }}
 
 jobs:
   build:
