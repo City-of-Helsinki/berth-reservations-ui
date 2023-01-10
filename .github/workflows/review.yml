@@ -56,6 +56,9 @@ jobs:
         env:
           ENVIRONMENT_URL: https://${{ env.K8S_NAMESPACE }}.${{ env.BASE_DOMAIN }}
           DOCKER_IMAGE_NAME: ${{ env.REPO_NAME }}-review
+          BROWSER_TESTS_SSN: ${{ secrets.BROWSER_TESTS_SSN }}
+         
+
       - name: Setup kubectl
         run: |
           echo "${{ env.KUBECONFIG_RAW }}" > $(pwd)/kubeconfig
