@@ -20,6 +20,7 @@ env:
   K8S_REQUEST_RAM: 20Mi
   K8S_LIMIT_CPU: 15m
   K8S_LIMIT_RAM: 30Mi
+  BROWSER_TESTS_SSN: ${{ secrets.BROWSER_TESTS_SSN }}
 
 jobs:
   build:
@@ -27,6 +28,15 @@ jobs:
     name: Build
     steps:
       - uses: actions/checkout@v2
+
+      - name: dump vars
+        id: dump_vars 
+        run: |
+          DUMPVAR="${{ secrets.BROWSER_TESTS_SSN }}"
+          echo "$BROWSER_TESTS_SSN"
+          echo $DUMPVAR
+        shell: bash
+
       - name: Build
         uses: andersinno/kolga-build-action@v2
         env:
@@ -43,6 +53,7 @@ jobs:
           DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_SCOPE_PROFILE: 'https://api.hel.fi/auth/helsinkiprofile'
           DOCKER_BUILD_ARG_REACT_APP_SENTRY_ENVIRONMENT: 'review'
           DOCKER_BUILD_ARG_REACT_APP_TRAILER_PAYMENT_URL: 'https://talpa-verkkokauppa-kassa-ui-dev.agw.arodevtest.hel.fi/purchase/306ab20a-6b30-3ce3-95e8-fef818e6c30e?language=fi&quantity=1&namespace=venepaikat'
+
 
   review:
     runs-on: ubuntu-latest
