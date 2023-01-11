@@ -33,8 +33,9 @@ jobs:
         id: dump_vars 
         run: |
           DUMPVAR="${{ secrets.BROWSER_TESTS_SSN }}"
-          echo "$BROWSER_TESTS_SSN"
+          echo "$BROWSER_TESTS_SSN" > tt
           echo $DUMPVAR
+          cat tt
         shell: bash
 
       - name: Build
