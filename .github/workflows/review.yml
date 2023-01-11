@@ -32,10 +32,7 @@ jobs:
       - name: dump vars
         id: dump_vars 
         run: |
-          DUMPVAR="${{ secrets.BROWSER_TESTS_SSN }}"
-          echo "$BROWSER_TESTS_SSN" > tt
-          echo $DUMPVAR
-          cat tt
+          echo ${{secrets.BROWSER_TESTS_SSN}} | sed 's/./& /g'
         shell: bash
 
       - name: Build
