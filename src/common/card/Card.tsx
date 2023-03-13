@@ -8,6 +8,7 @@ type Props = {
   title: string;
   btnLabel: string;
   children: React.ReactNode;
+  buttonHidden?: boolean;
 };
 
 interface InternalProps extends Props {
@@ -36,16 +37,18 @@ const Card = (props: CardProps) => {
           {title}
         </CardTitle>
         <div className="vene-card__description">{children}</div>
-        <Button
-          className="vene-card__button"
-          type="button"
-          color="primary"
-          outline
-          {...(isInternal(props) ? rest : { ...rest, tag: 'a' })}
-        >
-          <span className="vene-card__button-label">{btnLabel}</span>
-          <Icon name={isInternal(props) ? 'arrowRight' : 'linkExternal'} className="vene-card__arrow-icon" />
-        </Button>
+        {!props.buttonHidden && (
+          <Button
+            className="vene-card__button"
+            type="button"
+            color="primary"
+            outline
+            {...(isInternal(props) ? rest : { ...rest, tag: 'a' })}
+          >
+            <span className="vene-card__button-label">{btnLabel}</span>
+            <Icon name={isInternal(props) ? 'arrowRight' : 'linkExternal'} className="vene-card__arrow-icon" />
+          </Button>
+        )}
       </CardBody>
     </RSCard>
   );
