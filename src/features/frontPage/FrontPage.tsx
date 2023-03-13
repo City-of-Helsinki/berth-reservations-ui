@@ -89,6 +89,7 @@ const FrontPage = ({ localePush }: Props) => {
                 title={t('page.front.card.trailer.title')}
                 href={trailerPaymentURL.href}
                 rel="noopener noreferrer nofollow"
+                buttonHidden
               >
                 <p>{t('page.front.card.trailer.description')}</p>
               </Card>
