@@ -9,9 +9,9 @@ const TermsOfService = () => {
       <p>
         Varattu trailerin kesäsäilytyspaikka on asiakkaan käytettävissä sopimuksessa määriteltynä aikana. Asiakkaalla
         tulee olla voimassa oleva venepaikan vuokrasopimus Helsingin kaupungin kanssa. Trailerin kesäsäilytys tällä
-        maksulla on mahdollista merkityillä trailerin kesäsäilytysalueillapurjehduskaudella 10.6.-14.9. maksusuoritusta
-        vastaavana vuonna.Trailerin voi kuitenkin viedä alueelle aikaisemmin, jos alueilla on tilaaja säilyttää alueella
-        siihen asti, kunnes nostaa veneensä vedestä talvisäilytystä varten.
+        maksulla on mahdollista merkityillä trailerin kesäsäilytysalueilla purjehduskaudella 10.6.-14.9. maksusuoritusta
+        vastaavana vuonna. Trailerin voi kuitenkin viedä alueelle aikaisemmin, jos alueilla on tilaa ja säilyttää
+        alueella siihen asti, kunnes nostaa veneensä vedestä talvisäilytystä varten.
       </p>
 
       <h3 className="vene-terms-of-service__sub-heading">MAKSAMINEN</h3>
@@ -69,7 +69,7 @@ const TermsOfService = () => {
       <p>
         Maksamiseen liittyvät tiedot löytyvät osoitteesta https://checkout.hel.fi/fi/information
         <br />
-        Verkkosivusto (checkout.hel.fi) on Helsingin kaupunginTaloushallintopalveluliikelaitoksen (Talpan)tuottaman
+        Verkkosivusto (checkout.hel.fi) on Helsingin kaupungin Taloushallintopalveluliikelaitoksen (Talpan) tuottaman
         verkkokauppapalvelun kassa, jota kaupungin toimialat ja palvelut voivat käyttää osana omaa verkkokauppaansa.
       </p>
       <h3 className="vene-terms-of-service__sub-heading">MAKSUVAHVISTUS</h3>
