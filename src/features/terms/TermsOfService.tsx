@@ -45,9 +45,6 @@ const TermsOfService = () => {
         satamassa tai trailerin kesäsäilytysalueella rikollista, vaarallista tai muutoin sopimuksen vastaista tai
         sopimattomaksi katsottavaa toimintaa. Jos trailerin kesäsäilytys joudutaan keskeyttämään asiakkaan
         häiriökäyttäytymisen tai laiminlyönnin takia, maksuja ei palauteta.
-        <br />
-        Jos trailerin kesäsäilytys joudutaan keskeyttämään asiakkaan häiriökäyttäytymisen tai laiminlyönnin takia,
-        maksuja ei palauteta.
       </p>
 
       <h3 className="vene-terms-of-service__sub-heading">VASTUUNRAJOITUKSET JA ERIMIELISYYKSIEN RATKAISEMINEN</h3>
