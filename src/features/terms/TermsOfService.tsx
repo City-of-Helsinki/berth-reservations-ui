@@ -16,13 +16,13 @@ const TermsOfService = () => {
 
       <h3 className="vene-terms-of-service__sub-heading">MAKSAMINEN</h3>
       <p>
-        Trailerin kesäsäilytys maksetaan välittömästi trailerin alueelle jättämisen jälkeen.Palvelun hinta sisältää
+        Trailerin kesäsäilytys maksetaan välittömästi trailerin alueelle jättämisen jälkeen. Palvelun hinta sisältää
         arvonlisäveron. Mahdolliset lisäpalvelut eivät sisälly hintaan.
       </p>
 
       <h3 className="vene-terms-of-service__sub-heading">PERUUTUSOIKEUS</h3>
       <p>
-        Palvelu katsotaan otetuksi käyttöön koko purjehduskaudelle,sillä hetkellä, kun traileri on viety
+        Palvelu katsotaan otetuksi käyttöön koko purjehduskaudelle, sillä hetkellä, kun traileri on viety
         säilytysalueelle. Maksua tai sen osaa ei palauteta, vaikka asiakas lopettaisi palvelun käytön ennen
         purjehduskauden päättymistä.
       </p>
@@ -30,7 +30,7 @@ const TermsOfService = () => {
       <h3 className="vene-terms-of-service__sub-heading">ASIAKKAAN VASTUU</h3>
       <p>
         Asiakas on vastuussa toimintansa turvallisuudesta. Asiakkaalle voidaan antaa velvoittavia palvelun järjestykseen
-        ja ylläpitoon liittyviä tarkempia käyttö-ja turvallisuusohjeita paikallisesti. Asiakas sitoutuu noudattamaan
+        ja ylläpitoon liittyviä tarkempia käyttö- ja turvallisuusohjeita paikallisesti. Asiakas sitoutuu noudattamaan
         venesatamasääntöjä.
       </p>
 
@@ -38,13 +38,13 @@ const TermsOfService = () => {
       <p>
         Jos palvelutarjoaja ei pysty ylivoimaisen esteen (force majeure) takia tarjoamaan varattua palvelua,
         palvelutarjoajalla on oikeus peruttaa asiakkaan trailerin kesäsäilytys. Palvelutarjoajan käyttäessä
-        peruutusoikeuttaan asiakkaasta riippumattomista syistä, maksu palautetaan asiakkaalle
-        kokonaisuudessaan.Palvelutarjoajalla on oikeus purkaa sopimus päättymään välittömästi, jos asiakas tai hänen
-        seuralaisensa syyllistyy sellaiseen laiminlyöntiintai menettelyyn, mikä olennaisesti rikkoo tätä sopimusta,
-        satamakiinteistön järjestyssääntöjä tai venesatamasääntöjä tai Suomen lakia, tai jos asiakas tai hänen
-        seuralaisensa harjoittaa satamassa tai trailerin kesäsäilytysalueella rikollista, vaarallista tai muutoin
-        sopimuksen vastaista tai sopimattomaksi katsottavaa toimintaa.Jos trailerin kesäsäilytys joudutaan keskeyttämään
-        asiakkaan häiriökäyttäytymisen tai laiminlyönnin takia, maksuja ei palauteta.
+        peruutusoikeuttaan asiakkaasta riippumattomista syistä, maksu palautetaan asiakkaalle kokonaisuudessaan.
+        Palvelutarjoajalla on oikeus purkaa sopimus päättymään välittömästi, jos asiakas tai hänen seuralaisensa
+        syyllistyy sellaiseen laiminlyöntiin tai menettelyyn, mikä olennaisesti rikkoo tätä sopimusta, satamakiinteistön
+        järjestyssääntöjä tai venesatamasääntöjä tai Suomen lakia, tai jos asiakas tai hänen seuralaisensa harjoittaa
+        satamassa tai trailerin kesäsäilytysalueella rikollista, vaarallista tai muutoin sopimuksen vastaista tai
+        sopimattomaksi katsottavaa toimintaa. Jos trailerin kesäsäilytys joudutaan keskeyttämään asiakkaan
+        häiriökäyttäytymisen tai laiminlyönnin takia, maksuja ei palauteta.
         <br />
         Jos trailerin kesäsäilytys joudutaan keskeyttämään asiakkaan häiriökäyttäytymisen tai laiminlyönnin takia,
         maksuja ei palauteta.
