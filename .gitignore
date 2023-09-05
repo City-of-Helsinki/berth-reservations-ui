@@ -29,3 +29,7 @@ yarn-error.log*
 
 .graphqlconfig
 schema.graphql
+
+# browser test screenshots and report
+screenshots
+report
