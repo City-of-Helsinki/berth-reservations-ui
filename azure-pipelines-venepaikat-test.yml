@@ -8,7 +8,7 @@ trigger:
   batch: true
   branches:
     include:
-      - release
+      - master
   paths:
     exclude:
       - README.md
