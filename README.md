@@ -33,6 +33,13 @@ $ yarn start
 
 This will start [the application](http://localhost:3000) on port `3000`.
 
+### Problems starting development environment
+
+#### Windows specific
+
+- `SassError: File to import not found or unreadable`, e.g. `@import 'helsinki/colors';`
+  - Change all `:` characters to `;` in SASS_PATH, see [sass documentation](https://github.com/sass/sass/blob/embedded-protocol-2.1.0/js-api-doc/legacy/options.d.ts#L32-L35)
+
 ### Starting dockerized development environment
 
 1. Check if Docker and docker CLI installed, port `3000` and `9000` is free, not occupied by running server.
