@@ -31,7 +31,14 @@ export const formatDate = (date: string | null, locale: string, withTime = false
     hour: '2-digit',
     minute: '2-digit',
   };
-  const options = withTime ? { ...dateOpts, ...timeOpts } : dateOpts;
+  const optionalTimeZoneOpts = process.env.TZ ? { timeZone: process.env.TZ } : {};
+  const options = withTime
+    ? {
+        ...dateOpts,
+        ...timeOpts,
+        ...optionalTimeZoneOpts,
+      }
+    : dateOpts;
 
   return new Date(date).toLocaleString(locale, options);
 };

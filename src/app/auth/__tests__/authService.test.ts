@@ -77,12 +77,19 @@ describe('authService', () => {
     });
 
     it('should call axios.get with the right arguments', async () => {
-      expect.assertions(2);
+      expect.assertions(5);
 
       await authService.fetchApiTokens(mockUser);
 
-      expect(axios.get as MockedGet).toHaveBeenCalledTimes(1);
-      expect((axios.get as MockedGet).mock.calls[0]).toMatchSnapshot();
+      const mockedGet = axios.get as MockedGet;
+      expect(mockedGet).toHaveBeenCalledTimes(1);
+      expect(mockedGet.mock.calls).toHaveLength(1);
+      expect(mockedGet.mock.calls[0]).toHaveLength(2);
+      expect(mockedGet.mock.calls[0][0]).toStrictEqual('api-tokens/');
+      expect(mockedGet.mock.calls[0][1]).toStrictEqual({
+        baseURL: process.env.REACT_APP_TUNNISTAMO_URI,
+        headers: { Authorization: 'bearer db237bc3-e197-43de-8c86-3feea4c5f886' },
+      });
     });
 
     it('should call localStorage.setItem with the right arguments', async () => {
