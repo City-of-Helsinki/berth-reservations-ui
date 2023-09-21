@@ -13,9 +13,9 @@
     "prettier": "prettier",
     "start": "react-scripts start",
     "test": "cross-env TZ=UTC NODE_ICU_DATA=node_modules/full-icu react-scripts test --no-watch",
-    "test:ci": "cross-env TZ=UTC NODE_ICU_DATA=node_modules/full-icu CI=true && yarn test:coverage",
+    "test:ci": "cross-env TZ=UTC NODE_ICU_DATA=node_modules/full-icu CI=true react-scripts test --coverage",
     "test:coverage": "cross-env TZ=UTC NODE_ICU_DATA=node_modules/full-icu react-scripts test --coverage",
-    "test:watch": "react-scripts test",
+    "test:watch": "cross-env TZ=UTC NODE_ICU_DATA=node_modules/full-icu react-scripts test",
     "types:generate": "apollo client:codegen --target=typescript --globalTypesFile='src/__generated__/globalTypes.ts'"
   },
   "dependencies": {
