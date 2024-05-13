@@ -647,9 +647,9 @@
           "title": "Anmälan för upplagsområde som fylls i upptagningsordning"
         },
         "trailer": {
-          "button_label": "Maksa kesäsäilytys tästä",
-          "description": "Osta venetrailerin kesäsäilytysoikeus vuodelle 2024. Maksa kesäsäilytysmaksu, jos olet säilyttänyt traileriasi Helsingin kaupungin trailereiden kesäsäilytykseen tarkoitetuilla alueilla tai paikoilla.",
-          "title": "Trailerin kesäsäilytysmaksu 2024"
+          "button_label": "Betala för sommarförvaring här",
+          "description": "Köp rätten att förvara din båttrailer för sommaren 2024. Betala sommarförvaringsavgiften om du har förvarat din trailer på Helsingfors stads områden och platser som är avsedda för sommarförvaring av båttrailers.",
+          "title": "Sommarförvaringsavgift för trailer 2024"
         }
       },
       "description": {
