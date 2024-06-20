@@ -73,7 +73,7 @@ COPY . /app
 RUN yarn build
 
 # =============================
-FROM nginx:1.17 as production
+FROM nginx:1.26 as production
 # =============================
 
 # Nginx runs with user "nginx" by default
