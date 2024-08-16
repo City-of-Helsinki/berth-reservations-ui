@@ -56,8 +56,19 @@ export const formatPrice = (value: number, locale: string, percentage?: number) 
   return formatter.format(value);
 };
 
+/**
+ * Formats a number as a percentage in the given locale with 0–3 fraction digits.
+ * @param value The number to format as a percentage
+ * @param locale The locale to use for formatting ('fi', 'en' or 'sv')
+ * @returns The formatted percentage rounded to maximum of three fraction digits,
+ * with a decimal separator and grouping separator (if any) depending on locale,
+ * and a percentage sign.
+ * @example formatPercentage(25.5, 'en') == '25,5%'
+ */
 export const formatPercentage = (value: number, locale: string) => {
   return new Intl.NumberFormat(locale, {
     style: 'percent',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 3,
   }).format(value / 100);
 };
