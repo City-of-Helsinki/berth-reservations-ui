@@ -50,7 +50,7 @@ const BerthOverviewInfo = ({
         {boatTab === 'registered-boat' && (
           <Fragment>
             <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
-            <BoatTypeAndModel boatTypeId={values.boatType} boatModel={values.boatModel} boatTypes={boatTypes} />
+            <BoatTypeAndModel boatTypeId={values.boatType ?? ''} boatModel={values.boatModel} boatTypes={boatTypes} />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
             <BoatDraughtAndWeight draught={values.boatDraught} weight={values.boatWeight} />
             {showBigShipsForm && (
@@ -68,13 +68,13 @@ const BerthOverviewInfo = ({
         {boatTab === 'unregistered-boat' && (
           <Fragment>
             <BoatInfo name={values.boatName} registerNumber={values.boatRegistrationNumber} />
-            <BoatTypeAndModel boatTypeId={values.boatType} boatModel={values.boatModel} boatTypes={boatTypes} />
+            <BoatTypeAndModel boatTypeId={values.boatType ?? ''} boatModel={values.boatModel} boatTypes={boatTypes} />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
           </Fragment>
         )}
         {boatTab === 'no-boat' && (
           <Fragment>
-            <BoatTypeAndModel boatTypeId={values.boatType} boatModel={values.boatModel} boatTypes={boatTypes} />
+            <BoatTypeAndModel boatTypeId={values.boatType ?? ''} boatModel={values.boatModel} boatTypes={boatTypes} />
             <BoatMeasures width={values.boatWidth} length={values.boatLength} />
           </Fragment>
         )}

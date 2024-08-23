@@ -5,9 +5,9 @@ import { OrderStatus, OrderTypeEnum } from '../../../../__generated__/globalType
 
 describe('PaymentPageContainer', () => {
   const placeDetails = {
-    harbor: 'Test Harbor',
-    pier: 'Test Pier',
-    berth: '10',
+    area: 'Test Harbor',
+    section: 'Test Pier',
+    place: '10',
   };
 
   it('should get correct page based on order status', () => {

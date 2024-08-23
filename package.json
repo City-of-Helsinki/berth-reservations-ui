@@ -9,14 +9,15 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ext js,ts,tsx src",
     "lint:fix": "eslint --fix --ext js,ts,tsx src",
-    "pre-push": "yarn types:generate && yarn lint",
-    "prettier": "prettier",
+    "pre-push": "yarn types:generate && yarn lint && yarn typecheck",
+    "prettier": "prettier --write \"./src/**/*.{js,ts,jsx,tsx}\"",
     "start": "react-scripts start",
     "test": "cross-env TZ=UTC NODE_ICU_DATA=node_modules/full-icu react-scripts test --no-watch",
     "test:ci": "cross-env TZ=UTC NODE_ICU_DATA=node_modules/full-icu CI=true react-scripts test --coverage",
     "test:coverage": "cross-env TZ=UTC NODE_ICU_DATA=node_modules/full-icu react-scripts test --coverage",
     "test:watch": "cross-env TZ=UTC NODE_ICU_DATA=node_modules/full-icu react-scripts test",
-    "types:generate": "apollo client:codegen --target=typescript --globalTypesFile='src/__generated__/globalTypes.ts'"
+    "typecheck": "tsc --project ./tsconfig.json --noEmit",
+    "types:generate": "apollo client:codegen --target=typescript --globalTypesFile=./src/__generated__/globalTypes.ts"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",

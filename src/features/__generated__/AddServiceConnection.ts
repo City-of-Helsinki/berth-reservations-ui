@@ -15,6 +15,15 @@ export interface AddServiceConnection_addServiceConnection {
 }
 
 export interface AddServiceConnection {
+  /**
+   * Connect the currently authenticated user's profile to the given service.
+   * 
+   * Requires authentication.
+   * 
+   * Possible error codes:
+   * 
+   * * `SERVICE_CONNECTION_ALREADY_EXISTS_ERROR`: Returned if the currently authenticated user's profile is already connected to the given service.
+   */
   addServiceConnection: AddServiceConnection_addServiceConnection | null;
 }
 

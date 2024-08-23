@@ -3,31 +3,26 @@ import { Field } from 'react-final-form';
 
 import SwitchApplication, { SwitchApplicationProps } from '../SwitchApplication';
 
+const defaultSwitchApplicationProps: SwitchApplicationProps = {
+  berthOptions: [],
+  pierOptionsLoading: false,
+  changeSelectedHarbor: jest.fn(),
+  changeSelectedPier: jest.fn(),
+  reasonOptions: [
+    { label: '1', value: 'foo' },
+    { label: '2', value: 'bar' },
+  ],
+  harborOptions: [
+    {
+      label: 'Harbor',
+      value: 'MOCK-HARBOR',
+    },
+  ],
+  pierOptions: [],
+};
+
 describe('SwitchApplication', () => {
-  const getWrapper = (props?: Partial<SwitchApplicationProps>) =>
-    shallow(
-      <SwitchApplication
-        change={() => undefined}
-        reasonOptions={[
-          { label: '1', value: 'foo' },
-          { label: '2', value: 'bar' },
-        ]}
-        harborOptions={[
-          {
-            label: 'Harbor',
-            value: 'MOCK-HARBOR',
-          },
-        ]}
-        pierOptions={[]}
-        values={{
-          berth: null,
-          harbor: null,
-          pier: null,
-          reason: null,
-        }}
-        {...props}
-      />
-    );
+  const getWrapper = () => shallow(<SwitchApplication {...defaultSwitchApplicationProps} />);
   test('render normally', () => {
     const wrapper = getWrapper();
 
