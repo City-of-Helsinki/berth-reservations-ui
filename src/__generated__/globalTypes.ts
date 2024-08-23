@@ -14,6 +14,9 @@ export enum AddressType {
   WORK = "WORK",
 }
 
+/**
+ * An enumeration.
+ */
 export enum ContactMethod {
   EMAIL = "EMAIL",
   SMS = "SMS",
@@ -26,6 +29,9 @@ export enum EmailType {
   WORK = "WORK",
 }
 
+/**
+ * An enumeration.
+ */
 export enum Language {
   ENGLISH = "ENGLISH",
   FINNISH = "FINNISH",
@@ -103,20 +109,21 @@ export interface BerthApplicationInput {
   municipality: string;
   companyName?: string | null;
   businessId?: string | null;
-  boatType: string;
+  boatId?: string | null;
+  boatType?: string | null;
   boatRegistrationNumber?: string | null;
   boatName?: string | null;
   boatModel?: string | null;
-  boatLength: number;
-  boatWidth: number;
+  boatLength?: any | null;
+  boatWidth?: any | null;
   applicationCode?: string | null;
   acceptBoatingNewsletter: boolean;
   acceptFitnessNews: boolean;
   acceptLibraryNews: boolean;
   acceptOtherCultureNews: boolean;
   informationAccuracyConfirmed: boolean;
-  boatDraught?: number | null;
-  boatWeight?: number | null;
+  boatDraught?: any | null;
+  boatWeight?: any | null;
   accessibilityRequired?: boolean | null;
   boatPropulsion?: string | null;
   boatHullMaterial?: string | null;
@@ -166,6 +173,11 @@ export interface CreateEmailInput {
   emailType: EmailType;
 }
 
+export interface CreateMyBerthProfileMutationInput {
+  profileToken: string;
+  clientMutationId?: string | null;
+}
+
 export interface CreatePhoneInput {
   primary?: boolean | null;
   phone: string;
@@ -189,6 +201,13 @@ export interface HarborChoiceInput {
   priority: number;
 }
 
+/**
+ * The following fields are deprecated:
+ * 
+ * * `image`
+ * 
+ * There's no replacement for these.
+ */
 export interface ProfileInput {
   firstName?: string | null;
   lastName?: string | null;
@@ -199,7 +218,6 @@ export interface ProfileInput {
   addEmails?: (CreateEmailInput | null)[] | null;
   addPhones?: (CreatePhoneInput | null)[] | null;
   addAddresses?: (CreateAddressInput | null)[] | null;
-  subscriptions?: (SubscriptionInputType | null)[] | null;
   sensitivedata?: SensitiveDataFields | null;
   updateEmails?: (UpdateEmailInput | null)[] | null;
   removeEmails?: (string | null)[] | null;
@@ -220,11 +238,6 @@ export interface ServiceConnectionInput {
 
 export interface ServiceInput {
   type?: ServiceType | null;
-}
-
-export interface SubscriptionInputType {
-  subscriptionTypeId: string;
-  enabled: boolean;
 }
 
 export interface UpdateAddressInput {
@@ -267,12 +280,13 @@ export interface WinterStorageApplicationInput {
   municipality: string;
   companyName?: string | null;
   businessId?: string | null;
-  boatType: string;
+  boatId?: string | null;
+  boatType?: string | null;
   boatRegistrationNumber?: string | null;
   boatName?: string | null;
   boatModel?: string | null;
-  boatLength: number;
-  boatWidth: number;
+  boatLength?: any | null;
+  boatWidth?: any | null;
   applicationCode?: string | null;
   acceptBoatingNewsletter: boolean;
   acceptFitnessNews: boolean;

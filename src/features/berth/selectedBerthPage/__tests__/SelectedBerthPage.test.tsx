@@ -6,26 +6,26 @@ import { ApplicationOptions } from '../../../../common/types/applicationType';
 
 describe('pages/BerthPage/SelectedBerthPage', () => {
   const defaultProps: Props = {
-    boatInfo: { width: '4', length: '10' },
+    boatInfo: { boatType: 'Soutuvene', width: '4', length: '10' },
     selectedHarbors: harbors,
     deselectBerth: jest.fn(),
     moveUp: jest.fn(),
     moveDown: jest.fn(),
     applicationType: ApplicationOptions.NewApplication,
     handleSubmit: jest.fn(),
-    values: {
-      berth: null,
-      pier: null,
-      harbor: null,
-      reason: null,
-    },
     handlePrevious: jest.fn(),
     validSelection: true,
     filter: jest.fn(),
-    reasonOptions: [],
-    harborOptions: [],
-    invalid: false,
-    change: jest.fn(),
+    submitDisabled: false,
+    switchApplicationProps: {
+      berthOptions: [],
+      harborOptions: [],
+      pierOptions: [],
+      pierOptionsLoading: false,
+      reasonOptions: [],
+      changeSelectedHarbor: jest.fn(),
+      changeSelectedPier: jest.fn(),
+    },
   };
 
   beforeEach(() => {
