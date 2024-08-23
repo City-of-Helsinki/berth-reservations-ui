@@ -8,30 +8,30 @@
 // ====================================================
 
 export interface HarborsQuery_boatTypes {
-  __typename: "BoatTypeType";
+  __typename: 'BoatTypeType';
   id: string;
   name: string | null;
 }
 
 export interface HarborsQuery_harbors_edges_node_geometry {
-  __typename: "GeometryObjectType";
+  __typename: 'GeometryObjectType';
   coordinates: any | null;
 }
 
 export interface HarborsQuery_harbors_edges_node_properties_availabilityLevel {
-  __typename: "AvailabilityLevelType";
+  __typename: 'AvailabilityLevelType';
   id: string;
   title: string | null;
   description: string | null;
 }
 
 export interface HarborsQuery_harbors_edges_node_properties_suitableBoatTypes {
-  __typename: "BoatTypeType";
+  __typename: 'BoatTypeType';
   id: string;
 }
 
 export interface HarborsQuery_harbors_edges_node_properties {
-  __typename: "HarborProperties";
+  __typename: 'HarborProperties';
   availabilityLevel: HarborsQuery_harbors_edges_node_properties_availabilityLevel | null;
   electricity: boolean;
   email: string;
@@ -56,19 +56,19 @@ export interface HarborsQuery_harbors_edges_node_properties {
 }
 
 export interface HarborsQuery_harbors_edges_node {
-  __typename: "HarborNode";
+  __typename: 'HarborNode';
   id: string;
   geometry: HarborsQuery_harbors_edges_node_geometry | null;
   properties: HarborsQuery_harbors_edges_node_properties | null;
 }
 
 export interface HarborsQuery_harbors_edges {
-  __typename: "HarborNodeEdge";
+  __typename: 'HarborNodeEdge';
   node: HarborsQuery_harbors_edges_node | null;
 }
 
 export interface HarborsQuery_harbors {
-  __typename: "HarborNodeConnection";
+  __typename: 'HarborNodeConnection';
   edges: (HarborsQuery_harbors_edges | null)[];
 }
 

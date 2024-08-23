@@ -20,7 +20,7 @@
     "order_number": "Tilaustunnus",
     "paid": "Maksettu",
     "paid_manually": "Maksettu muualla",
-    "parking_permit":"Pysäköintilupa",
+    "parking_permit": "Pysäköintilupa",
     "pier": "Laituri",
     "place": "Paikka",
     "rejected": "Hylätty",
@@ -770,7 +770,7 @@
         "berth_offer": {
           "applied_berths": "Haetut venepaikat",
           "berth_application": "Venepaikkahakemus",
-          "docking_equipment_summer_storage":"Telakointi\u00ADtarvikkeiden kesäsäilytys",
+          "docking_equipment_summer_storage": "Telakointi\u00ADtarvikkeiden kesäsäilytys",
           "harbor_map": "Satamakartta (PDF)",
           "harbor_website": "Toimipisteen nettisivut",
           "heading": "Tarjous venepaikasta. Jos haluat vastaanottaa sen,\n maksa se ennen eräpäivää {{date}}.",

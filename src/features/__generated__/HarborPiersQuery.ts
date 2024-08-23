@@ -8,50 +8,50 @@
 // ====================================================
 
 export interface HarborPiersQuery_harbor_properties_piers_edges_node_properties_berths_edges_node {
-  __typename: "BerthNode";
+  __typename: 'BerthNode';
   id: string;
   number: string;
 }
 
 export interface HarborPiersQuery_harbor_properties_piers_edges_node_properties_berths_edges {
-  __typename: "BerthNodeEdge";
+  __typename: 'BerthNodeEdge';
   node: HarborPiersQuery_harbor_properties_piers_edges_node_properties_berths_edges_node | null;
 }
 
 export interface HarborPiersQuery_harbor_properties_piers_edges_node_properties_berths {
-  __typename: "BerthNodeConnection";
+  __typename: 'BerthNodeConnection';
   edges: (HarborPiersQuery_harbor_properties_piers_edges_node_properties_berths_edges | null)[];
 }
 
 export interface HarborPiersQuery_harbor_properties_piers_edges_node_properties {
-  __typename: "PierProperties";
+  __typename: 'PierProperties';
   identifier: string;
   berths: HarborPiersQuery_harbor_properties_piers_edges_node_properties_berths;
 }
 
 export interface HarborPiersQuery_harbor_properties_piers_edges_node {
-  __typename: "PierNode";
+  __typename: 'PierNode';
   id: string;
   properties: HarborPiersQuery_harbor_properties_piers_edges_node_properties | null;
 }
 
 export interface HarborPiersQuery_harbor_properties_piers_edges {
-  __typename: "PierNodeEdge";
+  __typename: 'PierNodeEdge';
   node: HarborPiersQuery_harbor_properties_piers_edges_node | null;
 }
 
 export interface HarborPiersQuery_harbor_properties_piers {
-  __typename: "PierNodeConnection";
+  __typename: 'PierNodeConnection';
   edges: (HarborPiersQuery_harbor_properties_piers_edges | null)[];
 }
 
 export interface HarborPiersQuery_harbor_properties {
-  __typename: "HarborProperties";
+  __typename: 'HarborProperties';
   piers: HarborPiersQuery_harbor_properties_piers | null;
 }
 
 export interface HarborPiersQuery_harbor {
-  __typename: "HarborNode";
+  __typename: 'HarborNode';
   properties: HarborPiersQuery_harbor_properties | null;
 }
 

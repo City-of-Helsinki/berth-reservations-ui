@@ -8,7 +8,7 @@
 // ====================================================
 
 export interface ContractSigned_contractSigned {
-  __typename: "ContractSignedType";
+  __typename: 'ContractSignedType';
   isSigned: boolean;
 }
 
