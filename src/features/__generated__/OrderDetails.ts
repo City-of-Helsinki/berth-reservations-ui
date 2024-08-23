@@ -3,14 +3,14 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { OrderTypeEnum, OrderStatus } from "./../../__generated__/globalTypes";
+import { OrderTypeEnum, OrderStatus } from './../../__generated__/globalTypes';
 
 // ====================================================
 // GraphQL query operation: OrderDetails
 // ====================================================
 
 export interface OrderDetails_orderDetails {
-  __typename: "OrderDetailsType";
+  __typename: 'OrderDetailsType';
   orderType: OrderTypeEnum;
   status: OrderStatus;
   place: string | null;
@@ -20,12 +20,12 @@ export interface OrderDetails_orderDetails {
 }
 
 export interface OrderDetails_contractSigned {
-  __typename: "ContractSignedType";
+  __typename: 'ContractSignedType';
   isSigned: boolean | null;
 }
 
 export interface OrderDetails_contractAuthMethods {
-  __typename: "AuthMethod";
+  __typename: 'AuthMethod';
   identifier: string;
   name: string;
   image: string;

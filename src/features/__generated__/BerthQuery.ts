@@ -8,30 +8,30 @@
 // ====================================================
 
 export interface BerthQuery_berth_pier_properties_harbor_properties {
-  __typename: "HarborProperties";
+  __typename: 'HarborProperties';
   name: string | null;
 }
 
 export interface BerthQuery_berth_pier_properties_harbor {
-  __typename: "HarborNode";
+  __typename: 'HarborNode';
   id: string;
   properties: BerthQuery_berth_pier_properties_harbor_properties | null;
 }
 
 export interface BerthQuery_berth_pier_properties {
-  __typename: "PierProperties";
+  __typename: 'PierProperties';
   identifier: string;
   harbor: BerthQuery_berth_pier_properties_harbor;
 }
 
 export interface BerthQuery_berth_pier {
-  __typename: "PierNode";
+  __typename: 'PierNode';
   id: string;
   properties: BerthQuery_berth_pier_properties | null;
 }
 
 export interface BerthQuery_berth {
-  __typename: "BerthNode";
+  __typename: 'BerthNode';
   id: string;
   number: string;
   pier: BerthQuery_berth_pier;

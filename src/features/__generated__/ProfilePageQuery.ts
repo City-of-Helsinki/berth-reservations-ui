@@ -3,14 +3,14 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { Language } from "./../../__generated__/globalTypes";
+import { Language } from './../../__generated__/globalTypes';
 
 // ====================================================
 // GraphQL query operation: ProfilePageQuery
 // ====================================================
 
 export interface ProfilePageQuery_myProfile_primaryAddress {
-  __typename: "AddressNode";
+  __typename: 'AddressNode';
   /**
    * The ID of the object
    */
@@ -21,7 +21,7 @@ export interface ProfilePageQuery_myProfile_primaryAddress {
 }
 
 export interface ProfilePageQuery_myProfile_primaryEmail {
-  __typename: "EmailNode";
+  __typename: 'EmailNode';
   /**
    * The ID of the object
    */
@@ -30,7 +30,7 @@ export interface ProfilePageQuery_myProfile_primaryEmail {
 }
 
 export interface ProfilePageQuery_myProfile_primaryPhone {
-  __typename: "PhoneNode";
+  __typename: 'PhoneNode';
   /**
    * The ID of the object
    */
@@ -39,7 +39,7 @@ export interface ProfilePageQuery_myProfile_primaryPhone {
 }
 
 export interface ProfilePageQuery_myProfile {
-  __typename: "ProfileNode";
+  __typename: 'ProfileNode';
   /**
    * The ID of the object
    */
@@ -64,7 +64,7 @@ export interface ProfilePageQuery_myProfile {
 export interface ProfilePageQuery {
   /**
    * Get the profile belonging to the currently authenticated user.
-   * 
+   *
    * Requires authentication.
    */
   myProfile: ProfilePageQuery_myProfile | null;

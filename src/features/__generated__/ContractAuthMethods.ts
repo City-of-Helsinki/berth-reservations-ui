@@ -8,7 +8,7 @@
 // ====================================================
 
 export interface ContractAuthMethods_contractAuthMethods {
-  __typename: "AuthMethod";
+  __typename: 'AuthMethod';
   identifier: string;
   name: string;
   image: string;

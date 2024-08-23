@@ -3,14 +3,14 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { AcceptBerthSwitchOfferMutationInput } from "./../../__generated__/globalTypes";
+import { AcceptBerthSwitchOfferMutationInput } from './../../__generated__/globalTypes';
 
 // ====================================================
 // GraphQL mutation operation: AcceptBerthSwitchOffer
 // ====================================================
 
 export interface AcceptBerthSwitchOffer_acceptBerthSwitchOffer {
-  __typename: "AcceptBerthSwitchOfferMutationPayload";
+  __typename: 'AcceptBerthSwitchOfferMutationPayload';
   clientMutationId: string | null;
 }
 

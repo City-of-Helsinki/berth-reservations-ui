@@ -3,14 +3,14 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { CancelOrderMutationInput } from "./../../__generated__/globalTypes";
+import { CancelOrderMutationInput } from './../../__generated__/globalTypes';
 
 // ====================================================
 // GraphQL mutation operation: CancelOrder
 // ====================================================
 
 export interface CancelOrder_cancelOrder {
-  __typename: "CancelOrderMutationPayload";
+  __typename: 'CancelOrderMutationPayload';
 }
 
 export interface CancelOrder {

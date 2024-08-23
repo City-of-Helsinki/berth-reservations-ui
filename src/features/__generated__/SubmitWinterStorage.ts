@@ -3,19 +3,19 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { CreateWinterStorageApplicationMutationInput } from "./../../__generated__/globalTypes";
+import { CreateWinterStorageApplicationMutationInput } from './../../__generated__/globalTypes';
 
 // ====================================================
 // GraphQL mutation operation: SubmitWinterStorage
 // ====================================================
 
 export interface SubmitWinterStorage_createWinterStorageApplication_winterStorageApplication {
-  __typename: "WinterStorageApplicationNode";
+  __typename: 'WinterStorageApplicationNode';
   id: string;
 }
 
 export interface SubmitWinterStorage_createWinterStorageApplication {
-  __typename: "CreateWinterStorageApplicationMutationPayload";
+  __typename: 'CreateWinterStorageApplicationMutationPayload';
   winterStorageApplication: SubmitWinterStorage_createWinterStorageApplication_winterStorageApplication | null;
 }
 

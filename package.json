@@ -10,7 +10,7 @@
     "lint": "eslint --ext js,ts,tsx src",
     "lint:fix": "eslint --fix --ext js,ts,tsx src",
     "pre-push": "yarn types:generate && yarn lint && yarn typecheck",
-    "prettier": "prettier --write \"./src/**/*.{js,ts,jsx,tsx}\"",
+    "prettier": "prettier --write \"./**/*.{js,ts,jsx,tsx,json,css,scss}\"",
     "start": "react-scripts start",
     "test": "cross-env TZ=UTC NODE_ICU_DATA=node_modules/full-icu react-scripts test --no-watch",
     "test:ci": "cross-env TZ=UTC NODE_ICU_DATA=node_modules/full-icu CI=true react-scripts test --coverage",

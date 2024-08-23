@@ -3,14 +3,14 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { CreateBerthApplicationMutationInput } from "./../../__generated__/globalTypes";
+import { CreateBerthApplicationMutationInput } from './../../__generated__/globalTypes';
 
 // ====================================================
 // GraphQL mutation operation: SubmitBerth
 // ====================================================
 
 export interface SubmitBerth_createBerthApplication {
-  __typename: "CreateBerthApplicationMutationPayload";
+  __typename: 'CreateBerthApplicationMutationPayload';
   ok: boolean | null;
 }
 

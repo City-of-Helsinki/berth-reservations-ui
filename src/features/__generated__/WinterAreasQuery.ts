@@ -8,25 +8,25 @@
 // ====================================================
 
 export interface WinterAreasQuery_boatTypes {
-  __typename: "BoatTypeType";
+  __typename: 'BoatTypeType';
   id: string;
   name: string | null;
 }
 
 export interface WinterAreasQuery_winterStorageAreas_edges_node_geometry {
-  __typename: "GeometryObjectType";
+  __typename: 'GeometryObjectType';
   coordinates: any | null;
 }
 
 export interface WinterAreasQuery_winterStorageAreas_edges_node_properties_availabilityLevel {
-  __typename: "AvailabilityLevelType";
+  __typename: 'AvailabilityLevelType';
   id: string;
   title: string | null;
   description: string | null;
 }
 
 export interface WinterAreasQuery_winterStorageAreas_edges_node_properties {
-  __typename: "WinterStorageAreaProperties";
+  __typename: 'WinterStorageAreaProperties';
   availabilityLevel: WinterAreasQuery_winterStorageAreas_edges_node_properties_availabilityLevel | null;
   estimatedNumberOfSectionSpaces: number | null;
   estimatedNumberOfUnmarkedSpaces: number | null;
@@ -49,19 +49,19 @@ export interface WinterAreasQuery_winterStorageAreas_edges_node_properties {
 }
 
 export interface WinterAreasQuery_winterStorageAreas_edges_node {
-  __typename: "WinterStorageAreaNode";
+  __typename: 'WinterStorageAreaNode';
   id: string;
   geometry: WinterAreasQuery_winterStorageAreas_edges_node_geometry | null;
   properties: WinterAreasQuery_winterStorageAreas_edges_node_properties | null;
 }
 
 export interface WinterAreasQuery_winterStorageAreas_edges {
-  __typename: "WinterStorageAreaNodeEdge";
+  __typename: 'WinterStorageAreaNodeEdge';
   node: WinterAreasQuery_winterStorageAreas_edges_node | null;
 }
 
 export interface WinterAreasQuery_winterStorageAreas {
-  __typename: "WinterStorageAreaNodeConnection";
+  __typename: 'WinterStorageAreaNodeConnection';
   edges: (WinterAreasQuery_winterStorageAreas_edges | null)[];
 }
 

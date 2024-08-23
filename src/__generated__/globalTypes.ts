@@ -8,83 +8,83 @@
 //==============================================================
 
 export enum AddressType {
-  HOME = "HOME",
-  NONE = "NONE",
-  OTHER = "OTHER",
-  WORK = "WORK",
+  HOME = 'HOME',
+  NONE = 'NONE',
+  OTHER = 'OTHER',
+  WORK = 'WORK',
 }
 
 /**
  * An enumeration.
  */
 export enum ContactMethod {
-  EMAIL = "EMAIL",
-  SMS = "SMS",
+  EMAIL = 'EMAIL',
+  SMS = 'SMS',
 }
 
 export enum EmailType {
-  NONE = "NONE",
-  OTHER = "OTHER",
-  PERSONAL = "PERSONAL",
-  WORK = "WORK",
+  NONE = 'NONE',
+  OTHER = 'OTHER',
+  PERSONAL = 'PERSONAL',
+  WORK = 'WORK',
 }
 
 /**
  * An enumeration.
  */
 export enum Language {
-  ENGLISH = "ENGLISH",
-  FINNISH = "FINNISH",
-  SWEDISH = "SWEDISH",
+  ENGLISH = 'ENGLISH',
+  FINNISH = 'FINNISH',
+  SWEDISH = 'SWEDISH',
 }
 
 export enum OfferStatus {
-  ACCEPTED = "ACCEPTED",
-  CANCELLED = "CANCELLED",
-  DRAFTED = "DRAFTED",
-  EXPIRED = "EXPIRED",
-  OFFERED = "OFFERED",
-  REJECTED = "REJECTED",
+  ACCEPTED = 'ACCEPTED',
+  CANCELLED = 'CANCELLED',
+  DRAFTED = 'DRAFTED',
+  EXPIRED = 'EXPIRED',
+  OFFERED = 'OFFERED',
+  REJECTED = 'REJECTED',
 }
 
 export enum OrderStatus {
-  CANCELLED = "CANCELLED",
-  DRAFTED = "DRAFTED",
-  ERROR = "ERROR",
-  EXPIRED = "EXPIRED",
-  OFFERED = "OFFERED",
-  PAID = "PAID",
-  PAID_MANUALLY = "PAID_MANUALLY",
-  REFUNDED = "REFUNDED",
-  REJECTED = "REJECTED",
+  CANCELLED = 'CANCELLED',
+  DRAFTED = 'DRAFTED',
+  ERROR = 'ERROR',
+  EXPIRED = 'EXPIRED',
+  OFFERED = 'OFFERED',
+  PAID = 'PAID',
+  PAID_MANUALLY = 'PAID_MANUALLY',
+  REFUNDED = 'REFUNDED',
+  REJECTED = 'REJECTED',
 }
 
 export enum OrderTypeEnum {
-  ADDITIONAL_PRODUCT = "ADDITIONAL_PRODUCT",
-  BERTH = "BERTH",
-  UNKNOWN = "UNKNOWN",
-  WINTER_STORAGE = "WINTER_STORAGE",
+  ADDITIONAL_PRODUCT = 'ADDITIONAL_PRODUCT',
+  BERTH = 'BERTH',
+  UNKNOWN = 'UNKNOWN',
+  WINTER_STORAGE = 'WINTER_STORAGE',
 }
 
 export enum PhoneType {
-  HOME = "HOME",
-  MOBILE = "MOBILE",
-  NONE = "NONE",
-  OTHER = "OTHER",
-  WORK = "WORK",
+  HOME = 'HOME',
+  MOBILE = 'MOBILE',
+  NONE = 'NONE',
+  OTHER = 'OTHER',
+  WORK = 'WORK',
 }
 
 export enum ServiceType {
-  BERTH = "BERTH",
-  GODCHILDREN_OF_CULTURE = "GODCHILDREN_OF_CULTURE",
-  HKI_MY_DATA = "HKI_MY_DATA",
-  YOUTH_MEMBERSHIP = "YOUTH_MEMBERSHIP",
+  BERTH = 'BERTH',
+  GODCHILDREN_OF_CULTURE = 'GODCHILDREN_OF_CULTURE',
+  HKI_MY_DATA = 'HKI_MY_DATA',
+  YOUTH_MEMBERSHIP = 'YOUTH_MEMBERSHIP',
 }
 
 export enum WinterStorageMethod {
-  ON_TRAILER = "ON_TRAILER",
-  ON_TRESTLES = "ON_TRESTLES",
-  UNDER_TARP = "UNDER_TARP",
+  ON_TRAILER = 'ON_TRAILER',
+  ON_TRESTLES = 'ON_TRESTLES',
+  UNDER_TARP = 'UNDER_TARP',
 }
 
 export interface AcceptBerthSwitchOfferMutationInput {
@@ -203,9 +203,9 @@ export interface HarborChoiceInput {
 
 /**
  * The following fields are deprecated:
- * 
+ *
  * * `image`
- * 
+ *
  * There's no replacement for these.
  */
 export interface ProfileInput {

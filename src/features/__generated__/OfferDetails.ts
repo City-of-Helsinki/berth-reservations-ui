@@ -3,14 +3,14 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { OfferStatus } from "./../../__generated__/globalTypes";
+import { OfferStatus } from './../../__generated__/globalTypes';
 
 // ====================================================
 // GraphQL query operation: OfferDetails
 // ====================================================
 
 export interface OfferDetails_offerDetails {
-  __typename: "OfferDetailsType";
+  __typename: 'OfferDetailsType';
   status: OfferStatus;
   harbor: string;
   pier: string;
