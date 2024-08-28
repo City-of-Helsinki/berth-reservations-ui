@@ -51,7 +51,7 @@ export const mockOrder: Order = {
   price: 284,
   totalPrice: 440,
   vatAmount: 85.16,
-  vatPercentage: 24,
+  vatPercentage: 25.5,
 };
 
 export const mockPaidOrder: Order = {
@@ -102,7 +102,7 @@ export const mockPaidOrder: Order = {
   price: 284,
   totalPrice: 440,
   vatAmount: 85.16,
-  vatPercentage: 24,
+  vatPercentage: 25.5,
 };
 
 export const mockChoices: Choice<Properties>[] = [
