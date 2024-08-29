@@ -911,7 +911,7 @@
     "common": {
       "list": "Lista",
       "map": "Kartalla",
-      "servicemapURL": "https://palvelukartta.hel.fi/unit/{{servicemapId}}",
+      "servicemapURL": "https://palvelukartta.hel.fi/fi/unit/{{servicemapId}}",
       "loading": "Ladataan"
     },
     "navbar": {

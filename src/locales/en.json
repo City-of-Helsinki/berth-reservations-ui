@@ -907,7 +907,7 @@
     "common": {
       "list": "List",
       "map": "On the map",
-      "servicemapURL": "https://servicemap.hel.fi/unit/{{servicemapId}}",
+      "servicemapURL": "https://servicemap.hel.fi/en/unit/{{servicemapId}}",
       "loading": "Loading"
     },
     "navbar": {
