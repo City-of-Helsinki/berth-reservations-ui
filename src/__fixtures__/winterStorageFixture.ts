@@ -9,7 +9,7 @@ export const createWinterArea = (options?: Partial<WinterStorageAreaType>): Wint
     name: 'Marjaniemi',
     streetAddress: 'Niittyranta 19',
     zipCode: '00930',
-    imageFile: 'https://venepaikka-api.test.hel.ninja/media/winter_areas/9/marjaniemi.jpg',
+    imageFile: 'https://venepaikat-api.test.hel.ninja/media/winter_areas/9/marjaniemi.jpg',
     estimatedNumberOfSectionSpaces: null,
     maxWidth: null,
     maxLength: null,

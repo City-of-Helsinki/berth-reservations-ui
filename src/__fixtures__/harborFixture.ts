@@ -14,7 +14,7 @@ export const createHarbor = (options?: Partial<HarborType>): HarborType => {
     email: 'test@da.fi',
     wwwUrl:
       'https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/airorannan-venesatama',
-    imageFile: 'https://venepaikka-api.test.hel.ninja/media/harbors/airoranta-b/40393.jpg',
+    imageFile: 'https://venepaikat-api.test.hel.ninja/media/harbors/airoranta-b/40393.jpg',
     electricity: false,
     water: false,
     wasteCollection: false,
