@@ -455,8 +455,7 @@
     },
     "winter": {
       "paragraph": {
-        "first": "Här kan du ansöka om vinteruppläggningsplats i något av Helsingfors stads förvaringsområden. Rutor blir sällan lediga så välj också områden utan markerade platser för din ansökan.",
-        "second": "OBS! Läs igenom anvisningarna för val av förvaringsområden samt information om såväl reglerna för utdelning av uppläggningsplatser som tidsschemat för handläggningen av ansökningar på <0>hel.fi</0> innan du fyller i ansökan. <3/> Kontakta oss om du är intresserad av att lägga upp din båt på din egen båtplats för vintern."
+        "first": "Om du behöver en vinterförvaringsplats för din båt, erbjuder Helsingfors stad två alternativ för detta. Du kan ansöka om vinteruppläggning av din båt i ett område med rutor eller ta båten till önskat område för vinteruppläggning som fylls i upptagningsordning."
       },
       "title": "Ansökan om vinteruppläggningsplatser"
     },
@@ -860,7 +859,7 @@
         "paragraph1": "På den här sidan kan du ansöka om en rutplats för båtens vinterförvaring. Om du vill ha en vinteruppläggningsplats för din båt i ett område med rutor ska du ansöka om en plats med den elektroniska ansökningsblanketten. Denna ansökningsblankett är avsedd för nya sökande.",
         "paragraph2": "De kunder som hade en rutplats förra säsongen kommer att få en faktura för sin nuvarande plats.",
         "paragraph3": "För lyftordningsområden behöver du inte fylla i någon ansökningsblankett. Du kan ta din båt till önskat område som fylls i upptagningsordning från och med den 15 september. Fyll därefter i en lyftordningsanmälan på. Lyftordningsanmälan måste göras årligen om du lyfter båten till ett lyftordningsområde för vintern. Mer information om lyftordningsområden hittar du på <0>https://hel.fi/båtliv</0>",
-        "title": "Vinteruppläggningsplats för båt i område med rutor och områden för vinteruppläggning som fylls i upptagningsordning"
+        "title": "Rut- och upptagningsområden"
       },
       "selected": {
         "alert": {

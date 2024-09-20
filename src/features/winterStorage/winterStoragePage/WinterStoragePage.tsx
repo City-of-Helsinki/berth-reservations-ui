@@ -45,17 +45,6 @@ export type Props = {
   loading: boolean;
 };
 
-const getHeroContentLink = (locale: string) => {
-  switch (locale) {
-    case 'en':
-      return 'https://www.hel.fi/en/culture-and-leisure/outdoor-activities-parks-and-nature-destinations/boating/berths-for-rent';
-    case 'sv':
-      return 'https://www.hel.fi/sv/kultur-och-fritid/friluftsliv-parker-och-naturomraden/batliv/batplatser-som-kan-hyras';
-    default:
-      return 'https://www.hel.fi/fi/kulttuuri-ja-vapaa-aika/ulkoilu-puistot-ja-luontokohteet/veneily/vuokrattavat-venepaikat';
-  }
-};
-
 const getFormattedMessageId = (count: number, total: number): string => {
   if (count) {
     if (count === total) {
@@ -130,21 +119,6 @@ const WinterStoragePage = ({
         description={
           <>
             <p>{t('hero.winter.paragraph.first')}</p>
-            <p>
-              <Trans
-                i18nKey={'hero.winter.paragraph.second'}
-                components={[
-                  <a
-                    key={'winterHeroContentLink'}
-                    href={getHeroContentLink(language)}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    content
-                  </a>,
-                ]}
-              />
-            </p>
           </>
         }
       >
