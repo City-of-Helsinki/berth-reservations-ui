@@ -186,7 +186,7 @@
     "no_boat": {
       "field": {
         "accessibility": {
-          "label": "Tarvisen esteettömän venepaikan"
+          "label": "Tarvitsen esteettömän venepaikan"
         },
         "brand": {
           "label": "Nimi",
@@ -241,7 +241,7 @@
         },
         "winter": {
           "guarantee": {
-            "label": "Olen lukenut talvisäilytystä koskevat venesatamasäännöt <1>hel.fi</1> -sivustolta ja sitoudun niiden noudattamiseen. Vakuutan hakemuksessa antamani tiedot oikeiksi."
+            "label": "Olen lukenut talvisäilytystä koskevat venesatamasäännöt <1>hel.fi</1>-sivustolta ja sitoudun niiden noudattamiseen. Vakuutan hakemuksessa antamani tiedot oikeiksi."
           }
         },
         "unmarked_winter": {
@@ -424,7 +424,7 @@
           "field": {
             "label": "Trailerin rekisterinumero",
             "placeholder": "ABC-123",
-            "text": "Trailerilla säilytys vain rekisteröidyille trailereille. Jos trailerin rekisterinumero ei ole vielä tiedossa, ilmoita rekisterinumero ennen talvisäilytyksen aloittamista. Trailerilla säilyttäminen vaatii veneen pituuden lisäksi 1m lisätilaa."
+            "text": "Trailerilla säilytys vain rekisteröidyille trailereille. Jos trailerin rekisterinumero ei ole vielä tiedossa, ilmoita rekisterinumero ennen talvisäilytyksen aloittamista. Trailerilla säilyttäminen vaatii veneen pituuden lisäksi 1 metrin lisätilaa."
           }
         }
       }
@@ -456,7 +456,7 @@
     },
     "winter": {
       "paragraph": {
-        "first": "Tästä voit hakea veneen talvisäilytyspaikkaa Helsingin kaupungin säilytysalueilta. Ruutupaikkoja vapautuu harvoin joten valitsethan hakemukseesi myös alueita joissa ei ole merkittyjä paikkoja.",
+        "first": "Jos tarvitset veneellesi talvisäilytyspaikan, Helsingin kaupunki tarjoaa tähän kaksi vaihtoehtoa.  Voit hakea ruutupaikkaa veneen talvisäilytykseen tai viedä veneen haluamallesi nostojärjestysalueelle talvisäilytykseen.",
         "second": "HUOM! Ennen kuin täytät hakemuksen, lue ohjeet alueiden valintaan sekä tietoa säilytyspaikkojen jakoperusteista ja hakemuskäsittelyn aikataulusta <0>hel.fi</0> -sivustolta. <3/> Jos olet kiinnostunut talvisäilyttämään veneesi vedessä omalla venepaikallasi ota meihin yhteyttä."
       },
       "title": "Talvisäilytyspaikkojen haku"
@@ -519,7 +519,7 @@
     "application_sent": {
       "message": {
         "paragraph1": "Saat pian vahvistusviestin hakemuksesta antamaasi sähköpostiosoitteeseen. Jos haluat muuttaa tai perua hakemuksesi tai tiedustella muuta hakemukseesi liittyvää asiaa, lähetä sähköpostia osoitteeseen: venepaikkavaraukset@hel.fi.",
-        "paragraph2": "Helsingin kaupungin venepaikkavaraukset<br/>venepaikkavaraukset@hel.fi<br/>Puhelinneuvonta ma,ke,pe klo 9-12 ti,to klo 12-15 numerossa 09 310 87900."
+        "paragraph2": "Helsingin kaupungin venepaikkavaraukset<br/>venepaikkavaraukset@hel.fi<br/>Puhelinneuvonta ma, ke, pe klo 9-12 ti, to klo 12-15 numerossa 09 310 87900."
       },
       "title": "Kiitos, hakemuksesi on lähetetty!"
     },
@@ -611,7 +611,7 @@
     "cancel_order": {
       "title": "Tarjouksen/laskun peruuttaminen",
       "message": {
-        "paragraph1": "Oletko varma että haluat peruuttaa tarjouksen/laskun?",
+        "paragraph1": "Haluatko varmasti peruuttaa tarjouksen/laskun?",
         "paragraph2_berth": "HUOM! Tämä toiminto peruuttaa seuraavat kyseiseen paikkaan liitetyt asiakirjat:<br/>vuokrasopimus ja lasku",
         "paragraph2_winter": "HUOM! Tämä toiminto peruuttaa seuraavat kyseiseen paikkaan liitetyt asiakirjat:<br/>vuokrasopimus ja lasku",
         "paragraph2_application_berth": "HUOM! Jos päätät olla vastaanottamatta venepaikkaa, hakemuksesi raukeaa. Hakemuksesi raukeaa myös, jos et maksa venepaikkamaksua. Jos haluat hakea uudestaan venepaikkaa, sinun on tehtävä uusi hakemus osoitteessa venepaikat.hel.fi",
@@ -860,17 +860,17 @@
       "maximum_length": "Max. pituus",
       "maximum_width": "Max. leveys",
       "notice": {
-        "paragraph1": "Talvisäilytyspaikkojen haku kaudelle 2020–2021 on nyt ajankohtainen. Niille asiakkaille, joilla on ollut ruutupaikka viime kaudella, lähetetään lasku paikasta. Mikäli olet uusi hakija, hae ruutupaikkaa tekemällä sähköinen hakemus verkossa osoitteessa <0>venepaikat.hel.fi</0>. Vapautuneet ruudut jaetaan hakujärjestyksessä syksyllä. Lähetämme paikasta tarjouksen sähköpostilla.",
-        "paragraph2": "Niille asiakkaille, joilla on ollut talvisäilytyspaikka nostojärjestysalueella, emme lähetä laskua vaan maksaminen tapahtuu venepaikkavarausten tilille sen jälkeen, kun vene on viety nostojärjestysalueelle. Tiedotamme nostojärjestysaluepaikan maksamisesta myöhemmin verkossa osoitteessa <0>hel.fi/veneily</0> sekä nostojärjestysalueiden infotauluissa. Talvisäilytyspaikan maksaneille asiakkaille lähetetään talvisäilytys-tarra, joka kiinnitetään näkyvälle paikalle veneeseen.",
-        "paragraph3": "Veneilijät voivat viedä veneensä haluamalleen nostojärjestysalueelle 15.9.2020 alkaen. Huomioithan, että nostojärjestysalueille ei tule viedä veneitä ennen 15.9. alkavaa säilytyskautta.",
-        "title": "Talvisäilytyspaikkojen 2020–2021 hakeminen"
+        "paragraph1": "Tällä sivulla voit hakea ruutupaikkaa veneen talvisäilytykseen. Ruutupaikka on tarkoitettu vain sinulle ruutupaikan haltijana. Tämä hakulomake on tarkoitettu uusille ruutupaikan hakijoille. Niille asiakkaille, joilla on ollut ruutupaikka viime kaudella, lähetetään lasku nykyisestä ruudusta.",
+        "paragraph2": "Vapautuneet ruudut jaetaan hakujärjestyksessä. Lähetämme paikasta tarjouksen sähköpostilla ja tekstiviestillä.",
+        "paragraph3": "Nostojärjestysalueille ei tarvitse täyttää hakulomaketta. Voit viedä veneesi haluamallesi nostojärjestysalueelle 15.9. alkaen. Täytä sen jälkeen nostojärjestysilmoitus. Nostojärjestysilmoitus tulee tehdä vuosittain, mikäli nostat veneen nostojärjestysalueelle talveksi. Tarkempia tietoja nostojärjestysalueista löydät <0>hel.fi/veneily</0>.",
+        "title": "Ruutualueet ja nostojärjestysalueet"
       },
       "selected": {
         "alert": {
           "paragraph": "Valitse säilytysalueiden listasta alueet joista haluat hakea säilytyspaikkaa",
           "strong": "Huomio: Sinulla ei ole vielä valittuja alueita"
         },
-        "confirmation_body": "Oletko varma että haluat poistaa alueen valintalistalta?",
+        "confirmation_body": "Haluatko varmasti poistaa alueen valintalistalta?",
         "info_text": "Valitse sijoitettavan veneen tyyppi ja koko nähdäksesi onko valituilla alueilla sopivia paikkoja",
         "submit": "Jatka",
         "title": "Järjestä valitsemasi paikat toivejärjestykseen.",
@@ -933,10 +933,10 @@
       "terms_of_service": "Rekisteriseloste",
       "url": {
         "accessibility_statement": "/Saavutettavuusseloste_Venepaikat.pdf",
-        "berthing": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/",
-        "current_news": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/ajankohtaista/",
-        "feedback": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute/",
-        "helsinki_berths": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/",
+        "berthing": "https://www.hel.fi/veneily",
+        "current_news": "https://www.hel.fi/fi/kulttuuri-ja-vapaa-aika/ulkoilu-puistot-ja-luontokohteet/veneily/vuokrattavat-venepaikat/ajankohtaista-venepaikoista",
+        "feedback": "https://palautteet.hel.fi/",
+        "helsinki_berths": "https://www.hel.fi/fi/kulttuuri-ja-vapaa-aika/ulkoilu-puistot-ja-luontokohteet/veneily/venesatamat",
         "terms_of_service": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri.pdf"
       }
     },

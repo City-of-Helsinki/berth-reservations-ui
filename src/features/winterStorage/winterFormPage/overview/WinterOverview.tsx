@@ -19,11 +19,11 @@ type Props = {
 const getWinterStorageRulesLink = (language: string) => {
   switch (language) {
     case 'fi':
-      return 'https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/veneiden-talvisailytys/talvisailytyssaannot/';
+      return 'https://www.hel.fi/fi/kulttuuri-ja-vapaa-aika/ulkoilu-puistot-ja-luontokohteet/veneily/veneiden-talvisailytys';
     case 'sv':
-      return 'https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv/vinterupplaggning/anvisningar-for-forvaringen-av-batar-och-upplaggningstillbehor/';
+      return 'https://www.hel.fi/sv/kultur-och-fritid/friluftsliv-parker-och-naturomraden/batliv/vinterupplaggning-av-batar';
     case 'en':
-      return 'https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/veneiden-talvisailytys/talvisailytyssaannot/';
+      return 'https://www.hel.fi/en/culture-and-leisure/outdoor-activities-parks-and-nature-destinations/boating/winter-storage-of-boats';
   }
 };
 

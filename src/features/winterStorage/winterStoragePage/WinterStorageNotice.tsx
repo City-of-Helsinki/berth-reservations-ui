@@ -33,27 +33,14 @@ const WinterStorageNotice = () => {
       <Row>
         <Col lg={{ size: 10, offset: 1 }} xl={{ size: 8, offset: 2 }}>
           <h3>{t('page.winter_storage.notice.title')}</h3>
+          <p>{t('page.winter_storage.notice.paragraph1')}</p>
+          <p>{t('page.winter_storage.notice.paragraph2')}</p>
           <p>
             <Trans
-              i18nKey={'page.winter_storage.notice.paragraph1'}
+              i18nKey={'page.winter_storage.notice.paragraph3'}
               components={[
                 <a
-                  key={'wsNoticeParagraph1Link'}
-                  href={getBerthReservationsLink(language)}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  content
-                </a>,
-              ]}
-            />
-          </p>
-          <p>
-            <Trans
-              i18nKey={'page.winter_storage.notice.paragraph2'}
-              components={[
-                <a
-                  key={'wsNoticeParagraph2Link'}
+                  key={'wsNoticeParagraph3Link'}
                   href={getBoatingInfoLink(language)}
                   rel="noopener noreferrer"
                   target="_blank"
@@ -63,7 +50,6 @@ const WinterStorageNotice = () => {
               ]}
             />
           </p>
-          <p>{t('page.winter_storage.notice.paragraph3')}</p>
         </Col>
       </Row>
     </Container>

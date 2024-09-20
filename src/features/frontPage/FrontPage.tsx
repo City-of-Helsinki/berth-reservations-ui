@@ -43,7 +43,7 @@ const FrontPage = ({ localePush }: Props) => {
               >
                 <p>{t('page.front.card.berths.description')}</p>
                 <a
-                  href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/"
+                  href="https://www.hel.fi/fi/kulttuuri-ja-vapaa-aika/ulkoilu-puistot-ja-luontokohteet/veneily/vuokrattavat-venepaikat"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
@@ -59,7 +59,7 @@ const FrontPage = ({ localePush }: Props) => {
               >
                 <p>{t('page.front.card.winter.description')}</p>
                 <a
-                  href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/veneiden-talvisailytys/"
+                  href="https://www.hel.fi/fi/kulttuuri-ja-vapaa-aika/ulkoilu-puistot-ja-luontokohteet/veneily/veneiden-talvisailytys"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
@@ -75,7 +75,7 @@ const FrontPage = ({ localePush }: Props) => {
               >
                 <p>{t('page.front.card.unmarked_winter.description')}</p>
                 <a
-                  href="https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/veneiden-talvisailytys/nostojarjestyksessa/"
+                  href="https://www.hel.fi/fi/kulttuuri-ja-vapaa-aika/ulkoilu-puistot-ja-luontokohteet/veneily/veneiden-talvisailytys#talvisailytyksen-nostojarjestysalueet"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
