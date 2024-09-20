@@ -831,7 +831,7 @@
         "net_price": "Nettopris",
         "reject_offer": "Avvisa erbjudandet",
         "sports_services_prices": "Prislista för sporttjänster",
-        "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/sv/tjanster/motion-och-friluftsliv/priser/"
+        "sports_services_prices_url": "https://www.hel.fi/sv/kultur-och-fritid/friluftsliv-parker-och-naturomraden/batliv/batplatser-som-kan-hyras#batplatsernas-prislista"
       },
       "winter_storage": {
         "title": "Vinteruppläggningsplatser"
@@ -857,10 +857,10 @@
       "maximum_length": "Max. längd",
       "maximum_width": "Max. bredd",
       "notice": {
-        "paragraph1": "Ansökan om vinteruppläggningsplatser för säsongen 2020–2021 är nu aktuell. Vi skickar en faktura till de kunder som har haft rutplats förra säsongen. Om du är ny sökande, ansök om rutplats genom att göra en elektronisk ansökan på webben på <0>venepaikat.hel.fi/sv</0>. Lediga rutplatser delas ut på hösten i ansökningsordning. Vi skickar ut erbjudande om plats via e-post.",
-        "paragraph2": "Vi skickar inte någon faktura till de kunder som har haft vinteruppläggningsplats i upptagningsordningsområdet, utan betalning sker till båtplatsreserveringens konto efter att båten har tagits till upptagningsordningsområdet. Vi informerar senare på webben om betalning för plats i upptagningsordningsområdet på adressen <0>hel.fi/båtliv</0>, samt på upptagningsordningsområdets infotavlor. Till de kunder som har betalat för en vinteruppläggningsplats skickas en vinteruppläggningsdekal till hemadressen, Vi ber er klistra dekalen på en synlig plats på båten.",
-        "paragraph3": "Båtägarna kan ta sin båt till önskat upptagningsordningsområde från och med den 15 september 2020. Observera att man inte får ta båtar till upptagningsordningsområdena innan uppläggningstiden börjar den 15 september 2020.",
-        "title": "Ansökan om vinteruppläggningsplatser 2020–2021"
+        "paragraph1": "På den här sidan kan du ansöka om en rutplats för båtens vinterförvaring. Om du vill ha en vinteruppläggningsplats för din båt i ett område med rutor ska du ansöka om en plats med den elektroniska ansökningsblanketten. Denna ansökningsblankett är avsedd för nya sökande.",
+        "paragraph2": "De kunder som hade en rutplats förra säsongen kommer att få en faktura för sin nuvarande plats.",
+        "paragraph3": "För lyftordningsområden behöver du inte fylla i någon ansökningsblankett. Du kan ta din båt till önskat område som fylls i upptagningsordning från och med den 15 september. Fyll därefter i en lyftordningsanmälan på. Lyftordningsanmälan måste göras årligen om du lyfter båten till ett lyftordningsområde för vintern. Mer information om lyftordningsområden hittar du på <0>https://hel.fi/båtliv</0>",
+        "title": "Vinteruppläggningsplats för båt i område med rutor och områden för vinteruppläggning som fylls i upptagningsordning"
       },
       "selected": {
         "alert": {
@@ -931,9 +931,9 @@
       "url": {
         "accessibility_statement": "/Tillgänglighetsutlåtande_Venepaikat.pdf",
         "berthing": "https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv/",
-        "current_news": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/ajankohtaista/",
-        "feedback": "https://www.hel.fi/helsinki/sv/stad-och-forvaltning/delta/feedback/",
-        "helsinki_berths": "https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv/batplatser/",
+        "current_news": "https://www.hel.fi/sv/kultur-och-fritid/friluftsliv-parker-och-naturomraden/batliv/batplatser-som-kan-hyras/aktuellt-om-batplatser",
+        "feedback": "https://palautteet.hel.fi/sv/",
+        "helsinki_berths": "https://www.hel.fi/sv/kultur-och-fritid/friluftsliv-parker-och-naturomraden/batliv/bathamnar",
         "terms_of_service": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri-SV.pdf"
       }
     },
