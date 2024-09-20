@@ -924,11 +924,11 @@
     "footer": {
       "accessibility_statement": "Saavutettavuusseloste",
       "berth_search": "Venepaikkahaku",
-      "boating_info": "Veneilytietoa",
+      "boating_info": "Veneily Helsingissä",
       "browse_berths": "Selaa venesatamia",
       "contact_us": "Ota yhteyttä",
       "copyright": "{{year}} Helsingin kaupunki",
-      "news": "Ajankohtaista",
+      "news": "Ajankohtaista venepaikoista",
       "send_feedback": "Lähetä palautetta",
       "terms_of_service": "Rekisteriseloste",
       "url": {
