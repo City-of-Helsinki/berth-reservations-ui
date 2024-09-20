@@ -48,11 +48,11 @@ export type Props = {
 const getHeroContentLink = (locale: string) => {
   switch (locale) {
     case 'en':
-      return 'https://www.hel.fi/helsinki/en/culture/recreation/boating/boat-berths/';
+      return 'https://www.hel.fi/en/culture-and-leisure/outdoor-activities-parks-and-nature-destinations/boating/berths-for-rent';
     case 'sv':
-      return 'https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv/batplatser/';
+      return 'https://www.hel.fi/sv/kultur-och-fritid/friluftsliv-parker-och-naturomraden/batliv/batplatser-som-kan-hyras';
     default:
-      return 'https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/venepaikan-hakeminen/';
+      return 'https://www.hel.fi/fi/kulttuuri-ja-vapaa-aika/ulkoilu-puistot-ja-luontokohteet/veneily/vuokrattavat-venepaikat';
   }
 };
 
