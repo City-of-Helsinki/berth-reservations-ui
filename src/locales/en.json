@@ -455,7 +455,7 @@
     },
     "winter": {
       "paragraph": {
-        "first": "Here you can apply for a winter storage space for your boat in the City of Helsinki’s storage locations. Appointed spaces become available only rarely, so please also include locations with no designated spaces in your application.",
+        "first": "If you need a winter storage space for your boat, the City of Helsinki offers two options. You can apply for a marked spot for winter storage or bring your boat to unmarked areas for winter storage.",
         "second": "NOTE! Please read the instructions on selecting storage areas as well as further details concerning the principles of assigning storage spaces and the processing times for applications on the <0>hel.fi</0> website before completing your application. <3/> If you are interested in storing your boat in the water at your designated boat berth over the winter, please contact us."
       },
       "title": "Winter storage place search"
@@ -518,7 +518,7 @@
     "application_sent": {
       "message": {
         "paragraph1": "You will shortly receive a confirmation message to the e-mail address you provided on your application. If you wish to change or cancel your application or ask any questions regarding your application, please e-mail venepaikkavaraukset@hel.fi.",
-        "paragraph2": "Helsingin kaupungin venepaikkavaraukset (Berth reservations of the City of Helsinki)<br/>venepaikkavaraukset@hel.fi<br/>Advice over the telephone is available Mon,Wed,Fri 9am–noon Tues,Thur noon–3pm by calling 09 310 87900."
+        "paragraph2": "Helsingin kaupungin venepaikkavaraukset (Berth reservations of the City of Helsinki)<br/>venepaikkavaraukset@hel.fi<br/>Advice over the telephone is available Mon, Wed, Fri 9am–noon Tues, Thur noon–3pm by calling +358 9 310 87900."
       },
       "title": "Thank you, your application has been sent successfully!"
     },
@@ -830,7 +830,7 @@
         "net_price": "Net price",
         "reject_offer": "Decline offer",
         "sports_services_prices": "Sports services pricing",
-        "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/en/services/sports-and-recreation/pricing/"
+        "sports_services_prices_url": "https://www.hel.fi/en/culture-and-leisure/outdoor-activities-parks-and-nature-destinations/boating/berths-for-rent#price-list-for-berths"
       },
       "winter_storage": {
         "title": "Winter storage places"
@@ -856,10 +856,10 @@
       "maximum_length": "Max. length",
       "maximum_width": "Max. width",
       "notice": {
-        "paragraph1": "Applying for winter storage spaces in the 2020–2021 season is now current. Customers who have had a square space in the last season will be sent an invoice for the space. If you are a new applicant, you can apply for a square space by filling out the online application at <0>venepaikat.hel.fi/en</0>. Available squares will be assigned on a first-come, first-served basis in the autumn. We will send offers for these spaces by e-mail.",
-        "paragraph2": "Customers who have had a winter storage space in a unmarked winter storage area will not be sent an invoice. Instead, they can pay their fee onto the berth reservation account after the boat has been brought to the unmarked winter storage area. We will provide information about paying for unmarked winter storage area spaces later online at <0>hel.fi/boating</0> and on the information boards of unmarked winter storage areas. Customers who have paid for a winter storage space will be sent a winter storage sticker to be attached to their boats on a visible spot.",
-        "paragraph3": "Boaters can bring their boats to the unmarked winter storage area of their choosing starting from 15 September 2020. Please note that boats must not be brought to unmarked winter storage areas before the storage season starts on 15 September.",
-        "title": "Applying for winter storage spaces 2020–2021"
+        "paragraph1": "On this page you can apply for a marked spot for your boat. The marked spot is reserved solely for you as the holder of the spot. This application form is intended for new applicants. Customers who had a marked spot last season will receive an invoice for their current spot.",
+        "paragraph2": "If you want marked winter storage space for your boat, apply for a place using the electronic application.",
+        "paragraph3": "For unmarked areas, there is no need to fill out an application form. You can take your boat to the unmarked area of your choice from 15 September. After that, fill in the unmarked winter storage notification. The winter storage notification must be submitted annually if you store your boat in unmarked areas for the winter. For more information about unmarked areas please visit <0>https://www.hel.fi/boating</0>.",
+        "title": "Marked winter storage places and unmarked areas for winter storage"
       },
       "selected": {
         "alert": {
@@ -929,10 +929,10 @@
       "terms_of_service": "Description of the personal data file",
       "url": {
         "accessibility_statement": "/Accessibility_statement_Venepaikat.pdf",
-        "berthing": "https://www.hel.fi/helsinki/en/culture/recreation/boating",
-        "current_news": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/ajankohtaista/",
-        "feedback": "https://www.hel.fi/helsinki/en/administration/participate/feedback/",
-        "helsinki_berths": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/",
+        "berthing": "https://www.hel.fi/en/culture-and-leisure/outdoor-activities-parks-and-nature-destinations/boating",
+        "current_news": "https://www.hel.fi/en/culture-and-leisure/outdoor-activities-parks-and-nature-destinations/boating/berths-for-rent/latest-news-on-berths",
+        "feedback": "https://palautteet.hel.fi/en/",
+        "helsinki_berths": "https://www.hel.fi/en/culture-and-leisure/outdoor-activities-parks-and-nature-destinations/boating/boat-harbours",
         "terms_of_service": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Venepaikkojen-varausrekisteri.pdf"
       }
     },

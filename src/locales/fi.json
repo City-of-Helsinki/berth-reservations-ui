@@ -457,7 +457,7 @@
     "winter": {
       "paragraph": {
         "first": "Jos tarvitset veneellesi talvisäilytyspaikan, Helsingin kaupunki tarjoaa tähän kaksi vaihtoehtoa.  Voit hakea ruutupaikkaa veneen talvisäilytykseen tai viedä veneen haluamallesi nostojärjestysalueelle talvisäilytykseen.",
-        "second": "HUOM! Ennen kuin täytät hakemuksen, lue ohjeet alueiden valintaan sekä tietoa säilytyspaikkojen jakoperusteista ja hakemuskäsittelyn aikataulusta <0>hel.fi</0> -sivustolta. <3/> Jos olet kiinnostunut talvisäilyttämään veneesi vedessä omalla venepaikallasi ota meihin yhteyttä."
+        "second": "HUOM! Ennen kuin täytät hakemuksen, lue ohjeet alueiden valintaan sekä tietoa säilytyspaikkojen jakoperusteista ja hakemuskäsittelyn aikataulusta <0>hel.fi</0>-sivustolta. <3/> Jos olet kiinnostunut talvisäilyttämään veneesi vedessä omalla venepaikallasi ota meihin yhteyttä."
       },
       "title": "Talvisäilytyspaikkojen haku"
     },
@@ -519,7 +519,7 @@
     "application_sent": {
       "message": {
         "paragraph1": "Saat pian vahvistusviestin hakemuksesta antamaasi sähköpostiosoitteeseen. Jos haluat muuttaa tai perua hakemuksesi tai tiedustella muuta hakemukseesi liittyvää asiaa, lähetä sähköpostia osoitteeseen: venepaikkavaraukset@hel.fi.",
-        "paragraph2": "Helsingin kaupungin venepaikkavaraukset<br/>venepaikkavaraukset@hel.fi<br/>Puhelinneuvonta ma, ke, pe klo 9-12 ti, to klo 12-15 numerossa 09 310 87900."
+        "paragraph2": "Helsingin kaupungin venepaikkavaraukset<br/>venepaikkavaraukset@hel.fi<br/>Puhelinneuvonta ma, ke, pe klo 9-12 ja ti, to klo 12-15 numerossa (09) 310 87900."
       },
       "title": "Kiitos, hakemuksesi on lähetetty!"
     },
@@ -834,7 +834,7 @@
         "net_price": "Nettohinta",
         "reject_offer": "Hylkää tarjous",
         "sports_services_prices": "Liikuntapalvelujen hinnasto",
-        "sports_services_prices_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/palvelut/liikunta-ja-ulkoilu/maksut/"
+        "sports_services_prices_url": "https://www.hel.fi/fi/kulttuuri-ja-vapaa-aika/ulkoilu-puistot-ja-luontokohteet/veneily/vuokrattavat-venepaikat#venepaikkojen-hinnasto"
       },
       "winter_storage": {
         "title": "Talvisäilytyspaikat"

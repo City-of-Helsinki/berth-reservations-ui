@@ -1,17 +1,6 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'reactstrap';
 
-const getBerthReservationsLink = (language: string) => {
-  switch (language) {
-    case 'fi':
-      return 'https://venepaikat.hel.fi/fi';
-    case 'sv':
-      return 'https://venepaikat.hel.fi/sv';
-    case 'en':
-      return 'https://venepaikat.hel.fi/en';
-  }
-};
-
 const getBoatingInfoLink = (language: string) => {
   switch (language) {
     case 'fi':
