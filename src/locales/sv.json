@@ -988,5 +988,9 @@
       "must_be_ssn": "Det angivna värdet är inte ett giltigt personnummer",
       "required": "Obligatoriskt fält"
     }
+  },
+  "discontinuationNotice": {
+    "label": "Annons",
+    "message": "<strong>Bokningssystemet för båtplatser förnyas hösten 2025.</strong><br />Läs mer: <Link href='https://www.hel.fi/sv/kultur-och-fritid/friluftsliv-parker-och-naturomraden/batliv/batplatser-som-kan-hyras/aktuellt-om-batplatser'>Aktuellt om båtplatser | Helsingfors stad</Link>"
   }
 }
