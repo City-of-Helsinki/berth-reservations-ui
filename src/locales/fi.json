@@ -991,5 +991,9 @@
       "must_be_ssn": "Syötetty arvo ei ole kelvollinen henkilötunnus",
       "required": "Pakollinen kenttä"
     }
+  },
+  "discontinuationNotice": {
+    "label": "Ilmoitus",
+    "message": "<strong>Venepaikkajärjestelmä vaihtuu ja samalla venepaikkojen varausprosessi uudistuu syksyllä 2025.</strong><br />Lue lisää: <Link href='https://www.hel.fi/fi/kulttuuri-ja-vapaa-aika/ulkoilu-puistot-ja-luontokohteet/veneily/vuokrattavat-venepaikat/ajankohtaista-venepaikoista'>Ajankohtaista venepaikoista | Helsingin kaupunki</Link>"
   }
 }

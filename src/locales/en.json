@@ -987,5 +987,9 @@
       "must_be_ssn": "Entered value is not a valid SSN",
       "required": "Mandatory field"
     }
+  },
+  "discontinuationNotice": {
+    "label": "Notification",
+    "message": "<strong>Boat berth system and booking process will be renewed in autumn 2025.</strong><br/>Read more: <Link href='https://www.hel.fi/en/culture-and-leisure/outdoor-activities-parks-and-nature-destinations/boating/berths-for-rent/latest-news-on-berths'>Latest news on berths | City of Helsinki</Link>"
   }
 }
