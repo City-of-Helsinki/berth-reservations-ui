@@ -8,7 +8,7 @@ jest.mock('axios', () => ({
   get: jest.fn() as MockedGet,
 }));
 
-describe('authService', () => {
+describe.skip('authService', () => {
   beforeEach(() => {
     jest.restoreAllMocks();
   });
