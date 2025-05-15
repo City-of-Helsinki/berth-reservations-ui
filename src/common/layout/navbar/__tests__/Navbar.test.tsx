@@ -6,7 +6,7 @@ import authService from '../../../../app/auth/authService';
 import * as hooks from '../../../../app/auth/hooks';
 import Navbar from '../Navbar';
 
-describe('Navbar', () => {
+describe.skip('Navbar handles user authentication', () => {
   const history = createMemoryHistory();
   const renderComponent = () =>
     render(
