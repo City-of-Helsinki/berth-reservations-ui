@@ -1,6 +1,6 @@
 import { useLayoutEffect } from 'react';
 import * as React from 'react';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { isResourceSelected } from '../../../common/utils/applicationUtils';
 import TabSelector from '../../../common/tabSelector/TabSelector';
@@ -72,10 +72,7 @@ const WinterStoragePage = ({
   services,
   steps,
 }: Props) => {
-  const {
-    t,
-    i18n: { language },
-  } = useTranslation();
+  const { t } = useTranslation();
   useLayoutEffect(() => window.scrollTo(0, 0), []);
 
   const moveToForm = () => localePush('winter-storage/selected');
