@@ -5,9 +5,6 @@ const element = Selector('header');
 
 export const navbarSelectors = {
   mainLink: within(element).getByRole('link', { name: 'Venepaikat' }),
-  berths: within(element).getByText('Venepaikkahaku'),
-  winterStorage: within(element).getByText('Talvisäilytyspaikat'),
-  unmarkedWinterStorage: within(element).getByText('Nostojärjestysilmoitus'),
   languageSelect: {
     button: within(element).getByRole('button', {
       name: /site\.language\.select/i,
