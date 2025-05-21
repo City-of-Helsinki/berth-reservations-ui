@@ -38,14 +38,6 @@ const Navbar = () => {
       url: '/berths',
       label: t('site.berth.title'),
     },
-    {
-      url: '/winter-storage',
-      label: t('site.winter.title'),
-    },
-    {
-      url: '/unmarked-winter-storage',
-      label: t('site.unmarked_winter_storage.title'),
-    },
   ];
 
   return (
