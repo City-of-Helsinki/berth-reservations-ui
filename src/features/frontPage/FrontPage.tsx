@@ -26,15 +26,13 @@ const FrontPage = ({ localePush }: Props) => {
   return (
     <Layout>
       <Hero title="page.front.title" bgUrl={frontHeroImg} />
-      <KoroSection
-        color="fog"
-        top
-        title="page.front.description.heading"
-        description={<p>{t('page.front.description.body')}</p>}
-        centered
-      >
+      {/* The service is shutting down, so we are not using the title and description.
+      They are explicitly set as undefined, so the properties are easily seeable for devs, 
+      until we have a good fitting text to show there.
+      Ref. https://helsinkisolutionoffice.atlassian.net/browse/VEN-1596. */}
+      <KoroSection color="fog" top title={undefined} description={undefined} centered>
         <Container className="vene-front-page">
-          <Row sm="1" md="2" lg="3">
+          <Row sm="1" md="2" lg="2">
             <Col className="vene-front-page__card-wrapper">
               <Card
                 onClick={() => localePush('/berths')}
@@ -48,38 +46,6 @@ const FrontPage = ({ localePush }: Props) => {
                   target="_blank"
                 >
                   <p>{t('page.front.card.instructions')}</p>
-                </a>
-              </Card>
-            </Col>
-            <Col className="vene-front-page__card-wrapper">
-              <Card
-                onClick={() => localePush('/winter-storage')}
-                btnLabel={t('page.front.card.winter.button_label')}
-                title={t('page.front.card.winter.title')}
-              >
-                <p>{t('page.front.card.winter.description')}</p>
-                <a
-                  href="https://www.hel.fi/fi/kulttuuri-ja-vapaa-aika/ulkoilu-puistot-ja-luontokohteet/veneily/veneiden-talvisailytys"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <p>{t('page.front.card.instructions')}</p>
-                </a>
-              </Card>
-            </Col>
-            <Col className="vene-front-page__card-wrapper">
-              <Card
-                onClick={() => localePush('/unmarked-winter-storage')}
-                btnLabel={t('page.front.card.unmarked_winter.button_label')}
-                title={t('page.front.card.unmarked_winter.title')}
-              >
-                <p>{t('page.front.card.unmarked_winter.description')}</p>
-                <a
-                  href="https://www.hel.fi/fi/kulttuuri-ja-vapaa-aika/ulkoilu-puistot-ja-luontokohteet/veneily/veneiden-talvisailytys#talvisailytyksen-nostojarjestysalueet"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <p>{t('page.front.card.instructions_short')}</p>
                 </a>
               </Card>
             </Col>

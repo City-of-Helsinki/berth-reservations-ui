@@ -4,28 +4,16 @@ import { navbarSelectors } from './selectors/navbar';
 import { navigateToFrontPage } from './utils/navigation';
 import { envUrl } from './utils/settings';
 import { switchToEnglish, switchToFinnish, switchToSwedish } from './utils/switchLanguage';
-import { isBerthsPage, isFrontPage, isUnmarkedWinterStoragePage, isWinterStoragePage } from './utils/page';
+import { isBerthsPage, isFrontPage } from './utils/page';
 
 fixture('Front page').page(envUrl());
 
 test('Navigation', async (t) => {
-  const { mainLink, berths, winterStorage, unmarkedWinterStorage } = navbarSelectors;
+  const { mainLink } = navbarSelectors;
 
   // Main link
   await t.click(mainLink);
   await isFrontPage();
-
-  // Berths
-  await t.click(berths);
-  await isBerthsPage();
-
-  // Winter storage
-  await t.click(winterStorage);
-  await isWinterStoragePage();
-
-  // Unmarked winter storage
-  await t.click(unmarkedWinterStorage);
-  await isUnmarkedWinterStoragePage();
 });
 
 test('Switching language', async (t) => {
@@ -45,21 +33,11 @@ test('Switching language', async (t) => {
 });
 
 test('Front page links', async (t) => {
-  const { berths, winterStorage, unmarkedWinterStorage } = frontPageSelectors;
+  const { berths } = frontPageSelectors;
 
   // Berths
   await t.click(berths);
   await isBerthsPage();
-  await navigateToFrontPage();
-
-  // Winter storage
-  await t.click(winterStorage);
-  await isWinterStoragePage();
-  await navigateToFrontPage();
-
-  // Unmarked winter storage
-  await t.click(unmarkedWinterStorage);
-  await isUnmarkedWinterStoragePage();
   await navigateToFrontPage();
 });
 
