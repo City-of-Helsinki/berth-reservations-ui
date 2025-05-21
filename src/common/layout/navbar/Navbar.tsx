@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 import authService from '../../../app/auth/authService';
 import { useCurrentUser } from '../../../app/auth/hooks';
 import { isUserAuthenticationEnabled } from '../../utils/featureFlags';
-import { isLinkActive, localizedLink, makeNavigationItemProps, stripUrlLocale } from './utils';
+import { localizedLink, makeNavigationItemProps, stripUrlLocale } from './utils';
 
 const Navbar = () => {
   const {
@@ -33,34 +33,9 @@ const Navbar = () => {
     titleUrl: localizedLink('/', language),
   };
   const languages = ['fi', 'sv', 'en'];
-  const links = [
-    {
-      url: '/berths',
-      label: t('site.berth.title'),
-    },
-    {
-      url: '/winter-storage',
-      label: t('site.winter.title'),
-    },
-    {
-      url: '/unmarked-winter-storage',
-      label: t('site.unmarked_winter_storage.title'),
-    },
-  ];
 
   return (
     <Navigation {...navigationProps}>
-      <Navigation.Row>
-        {links.map(({ label, url }) => (
-          <Navigation.Item
-            key={url}
-            active={isLinkActive(localizedLink(url, language), location)}
-            {...makeNavigationItemProps(localizedLink(url, language), history)}
-            label={label}
-          />
-        ))}
-      </Navigation.Row>
-
       <Navigation.Actions>
         {isUserAuthenticationEnabled && (
           <Navigation.User

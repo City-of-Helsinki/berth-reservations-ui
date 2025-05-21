@@ -4,8 +4,6 @@ import { RouteComponentProps } from 'react-router-dom';
 
 import SwitchOfferCompletedPage from '../features/berthSwitchOffer/SwitchOfferCompletedPage';
 import ApplicationSentPage from '../features/notice/ApplicationSentPage';
-import BerthFormPageContainer from '../features/berth/berthFormPage/BerthFormPageContainer';
-import BerthPageContainer from '../features/berth/berthPage/BerthPageContainer';
 import BerthSwitchOfferPageContainer from '../features/berthSwitchOffer/BerthSwitchOfferPageContainer';
 import ProfilePageContainer from '../features/profile/ProfilePageContainer';
 import CallbackPage from './auth/callbackPage/CallbackPage';
@@ -19,14 +17,7 @@ import OrderCancelledPage from '../features/payment/cancelOrderPage/OrderCancell
 import PaymentPageContainer from '../features/payment/paymentPage/PaymentPageContainer';
 import PrivateRoute from './auth/privateRoute/PrivateRoute';
 import MockProfilePageContainer from '../features/profile/MockProfilePageContainer';
-import SelectedAreaPageContainer from '../features/winterStorage/selectedAreaPage/SelectedAreaPageContainer';
-import SelectedBerthPageContainer from '../features/berth/selectedBerthPage/SelectedBerthPageContainer';
-import UnmarkedWinterFormPageContainer from '../features/unmarkedWinterStorage/unmarkedWinterFormPage/UnmarkedWinterFormPageContainer';
-import UnmarkedWinterStoragePageContainer from '../features/unmarkedWinterStorage/unmarkedWinterStoragePage/UnmarkedWinterStoragePageContainer';
-import WinterFormPageContainer from '../features/winterStorage/winterFormPage/WinterFormPageContainer';
-import WinterStoragePageContainer from '../features/winterStorage/winterStoragePage/WinterStoragePageContainer';
 import i18n from '../locales/i18n';
-import { ApplicationType } from '../common/types/applicationType';
 import { LocaleOpts } from '../common/types/intl';
 import { PaymentResultContainer } from '../features/payment/paymentResultPage/PaymentResultContainer';
 import { isMockProfileRouteEnabled, isUserAuthenticationEnabled } from '../common/utils/featureFlags';
@@ -34,9 +25,6 @@ import { isMockProfileRouteEnabled, isUserAuthenticationEnabled } from '../commo
 type Props = RouteComponentProps<{ locale: LocaleOpts }>;
 
 const localeParam = ':locale(fi|en|sv)';
-const berthParam = `:app(${ApplicationType.BerthApp})`;
-const winterParam = `:app(${ApplicationType.WinterStorageApp})`;
-const unmarkedWsParam = `:app(${ApplicationType.UnmarkedWinterStorageApp})`;
 
 const App = ({
   match: {
@@ -58,20 +46,6 @@ const App = ({
       {isMockProfileRouteEnabled && (
         <PrivateRoute exact path={`/${localeParam}/profile/:id`} component={MockProfilePageContainer} />
       )}
-
-      <Route exact path={`/${localeParam}/${berthParam}`} component={BerthPageContainer} />
-      <Route exact path={`/${localeParam}/${berthParam}/selected`} component={SelectedBerthPageContainer} />
-      <Route exact path={`/${localeParam}/${berthParam}/form`} component={BerthFormPageContainer} />
-      <Route exact path={`/${localeParam}/${berthParam}/form/:tab`} component={BerthFormPageContainer} />
-
-      <Route exact path={`/${localeParam}/${winterParam}`} component={WinterStoragePageContainer} />
-      <Route exact path={`/${localeParam}/${winterParam}/selected`} component={SelectedAreaPageContainer} />
-      <Route exact path={`/${localeParam}/${winterParam}/form`} component={WinterFormPageContainer} />
-      <Route exact path={`/${localeParam}/${winterParam}/form/:tab`} component={WinterFormPageContainer} />
-
-      <Route exact path={`/${localeParam}/${unmarkedWsParam}`} component={UnmarkedWinterStoragePageContainer} />
-      <Route exact path={`/${localeParam}/${unmarkedWsParam}/form`} component={UnmarkedWinterFormPageContainer} />
-      <Route exact path={`/${localeParam}/${unmarkedWsParam}/form/:tab`} component={UnmarkedWinterFormPageContainer} />
 
       <Route exact path={`/${localeParam}/payment`} component={PaymentPageContainer} />
       <Route exact path={`/${localeParam}/payment-result`} component={PaymentResultContainer} />
