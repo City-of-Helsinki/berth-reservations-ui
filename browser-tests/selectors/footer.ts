@@ -8,7 +8,7 @@ export const footerSelectors = {
   browseBerths: within(element).getByText('Selaa venesatamia'),
   boatingInformation: within(element).getByText('Veneilytietoa'),
   recent: within(element).getByText('Ajankohtaista'),
-  privacyPolicy: within(element).getByText('Rekisteriseloste'),
+  privacyPolicy: within(element).getByText('Tietosuojaseloste'),
   accessibilityPolicy: within(element).getByText('Saavutettavuusseloste'),
   sendFeedback: within(element).getByText('Lähetä palautetta'),
   contact: within(element).getByText('Ota yhteyttä'),
