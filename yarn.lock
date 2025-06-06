@@ -2618,12 +2618,13 @@
     "@types/prop-types" "*"
     csstype "^3.0.2"
 
-"@types/react@^16.14.2":
-  version "16.14.3"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.14.3.tgz#f5210f5deecf35d8794845549c93c2c3ad63aa9c"
-  integrity sha512-zPrXn03hmPYqh9DznqSFQsoRtrQ4aHgnZDO+hMGvsE/PORvDTdJCHQ6XvJV31ic+0LzF73huPFXUb++W6Kri0Q==
+"@types/react@^16.14.50":
+  version "16.14.51"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.14.51.tgz#2bf66518ee13947bb5074de6c14e6b3ac343cfe0"
+  integrity sha512-4T/wsDXStA5OUGTj6w2INze3ZCz22IwQiWcApgqqNRU2A6vNUIPXpNkjAMUFxx6diYPVkvz+d7gEtU7AZ+0Xqg==
   dependencies:
     "@types/prop-types" "*"
+    "@types/scheduler" "*"
     csstype "^3.0.2"
 
 "@types/recompose@^0.30.7":
@@ -2644,6 +2645,11 @@
   integrity sha512-auApPaJf3NPfe18hSoJkp8EbZzer2ISk7o8mCC3M9he/a04+gbMF97NkpD2S8riMGvm4BMRI59/SZQSaLTKpsQ==
   dependencies:
     "@types/node" "*"
+
+"@types/scheduler@*":
+  version "0.16.6"
+  resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.6.tgz#eb26db6780c513de59bee0b869ef289ad3068711"
+  integrity sha512-Vlktnchmkylvc9SnwwwozTv04L/e1NykF5vgoQ0XTmI8DD+wxfjQuHuvHS3p0r2jz2x2ghPs2h1FVeDirIteWA==
 
 "@types/source-list-map@*":
   version "0.1.2"
