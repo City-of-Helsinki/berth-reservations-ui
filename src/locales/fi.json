@@ -656,7 +656,11 @@
         "body": "Selaa Helsingin kaupungin venesatamia. Voit tehdä uuden venepaikkahakemuksen tai hakea käytössäsi olevan venepaikan vaihtoa toiseen.",
         "heading": "Venepaikat ja veneiden talvisäilytys"
       },
-      "title": "Venepaikat"
+      "title": "Venepaikat",
+      "deprecation": {
+        "title": "Venepaikkajärjestelmä on vaihtunut",
+        "description": "<p>Venepaikkajärjestelmä on vaihtunut ja venepaikkojen varausprosessi uudistunut syksyllä 2025.</p><p>Seuraavan talvisäilytyskauden 2025–2026 paikat varataan uudesta Timmi-varausjärjestelmästä.</p><p>Lue lisää: <Link href='https://www.hel.fi/fi/kulttuuri-ja-vapaa-aika/ulkoilu-puistot-ja-luontokohteet/veneily/vuokrattavat-venepaikat/ajankohtaista-venepaikoista'>Ajankohtaista venepaikoista | Helsingin kaupunki</Link></p>"
+      }
     },
     "not_found": {
       "message": "Pahoittelemme, mutta hakemaasi sivua ei löydy.",
@@ -991,9 +995,5 @@
       "must_be_ssn": "Syötetty arvo ei ole kelvollinen henkilötunnus",
       "required": "Pakollinen kenttä"
     }
-  },
-  "discontinuationNotice": {
-    "label": "Ilmoitus",
-    "message": "<strong>Venepaikkajärjestelmä vaihtuu ja samalla venepaikkojen varausprosessi uudistuu syksyllä 2025.</strong><br />Lue lisää: <Link href='https://www.hel.fi/fi/kulttuuri-ja-vapaa-aika/ulkoilu-puistot-ja-luontokohteet/veneily/vuokrattavat-venepaikat/ajankohtaista-venepaikoista'>Ajankohtaista venepaikoista | Helsingin kaupunki</Link>"
   }
 }
