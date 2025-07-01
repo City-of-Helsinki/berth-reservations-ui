@@ -4,15 +4,7 @@
 .vene-hero {
   background-size: cover;
   background-position: right top;
-  padding: 4em 0;
-  min-height: 10em;
-  @include for-tablet {
-    min-height: 20em;
-  }
-  @include for-big-desktop {
-    min-height: 30em;
-  }
-
+  flex-grow: 1;
   &__title {
     font-size: 3em;
     hyphens: auto;

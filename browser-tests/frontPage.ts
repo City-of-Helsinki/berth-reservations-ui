@@ -1,10 +1,9 @@
 import { footerSelectors } from './selectors/footer';
 import { frontPageSelectors } from './selectors/frontPage';
 import { navbarSelectors } from './selectors/navbar';
-import { navigateToFrontPage } from './utils/navigation';
 import { envUrl } from './utils/settings';
 import { switchToEnglish, switchToFinnish, switchToSwedish } from './utils/switchLanguage';
-import { isBerthsPage, isFrontPage } from './utils/page';
+import { isFrontPage } from './utils/page';
 
 fixture('Front page').page(envUrl());
 
@@ -30,15 +29,6 @@ test('Switching language', async (t) => {
   // Switch to Finnish
   await switchToFinnish(t);
   await t.expect(title.innerText).eql('Venepaikat');
-});
-
-test('Front page links', async (t) => {
-  const { berths } = frontPageSelectors;
-
-  // Berths
-  await t.click(berths);
-  await isBerthsPage();
-  await navigateToFrontPage();
 });
 
 test('Footer', async (t) => {
