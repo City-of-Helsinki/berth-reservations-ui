@@ -655,7 +655,11 @@
         "body": "Bläddra bland stadens båthamnar. Du kan göra en ny ansökan om båtplats eller ansöka om byte av nuvarande båtplats till en annan.",
         "heading": "Båtplatser och vinteruppläggning"
       },
-      "title": "Båtplatser"
+      "title": "Båtplatser",
+      "deprecation": {
+        "title": "Bokningssystemet för båtplatser har förnyats",
+        "description": "<p>Bokningssystemet och bokningsprocessen för båtplatser har förnyats hösten 2025.</p><p>Bokningen för vintersäsongen 2025–2026 görs via det nya Timmi-bokningssystemet.</p><p>Läs mer: <Link href='https://www.hel.fi/sv/kultur-och-fritid/friluftsliv-parker-och-naturomraden/batliv/batplatser-som-kan-hyras/aktuellt-om-batplatser'>Aktuellt om båtplatser | Helsingfors stad</Link></p>"
+      }
     },
     "not_found": {
       "message": "Sidan du sökte kunde tyvärr inte hittas.",
@@ -988,9 +992,5 @@
       "must_be_ssn": "Det angivna värdet är inte ett giltigt personnummer",
       "required": "Obligatoriskt fält"
     }
-  },
-  "discontinuationNotice": {
-    "label": "Annons",
-    "message": "<strong>Bokningssystemet för båtplatser förnyas hösten 2025.</strong><br />Läs mer: <Link href='https://www.hel.fi/sv/kultur-och-fritid/friluftsliv-parker-och-naturomraden/batliv/batplatser-som-kan-hyras/aktuellt-om-batplatser'>Aktuellt om båtplatser | Helsingfors stad</Link>"
   }
 }
