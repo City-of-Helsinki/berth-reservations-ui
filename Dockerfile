@@ -1,5 +1,10 @@
 # ===============================================
-FROM public.ecr.aws/docker/library/node:14-slim AS appbase
+# NOTE:
+#   Using docker hub as a source even though their
+#   rate limits can be problematic and make builds
+#   fail. This is because AWS image doesn't work:
+#   public.ecr.aws/docker/library/node:14-slim
+FROM node:14-bullseye-slim AS appbase
 # ===============================================
 USER root
 WORKDIR /app
@@ -49,6 +54,13 @@ FROM appbase AS development
 # Set NODE_ENV to development in the development container
 ARG NODE_ENV=development
 ENV NODE_ENV=$NODE_ENV
+
+# Enable hot reload by default by polling for file changes.
+#
+# NOTE: Can be disabled by setting CHOKIDAR_USEPOLLING=false in file `.env`
+#       if hot reload works on your system without polling to save CPU time.
+ARG CHOKIDAR_USEPOLLING=true
+ENV CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING}
 
 # copy in our source code last, as it changes the most
 COPY --chown=appuser:appuser . .
