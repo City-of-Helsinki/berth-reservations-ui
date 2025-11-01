@@ -57,7 +57,7 @@
     "focus-visible": "5.2.0",
     "graphql": "^15.0.0",
     "graphql-tag": "^2.10.3",
-    "hds-react": "^1.0.0",
+    "hds-react": "^3.12.1",
     "history": "^4.10.1",
     "i18next": "^19.8.7",
     "immutable": "^4.0.0-rc.12",
