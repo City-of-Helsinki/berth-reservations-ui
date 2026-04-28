@@ -3,6 +3,10 @@
 [![CI status](https://github.com/City-of-Helsinki/berth-reservations-ui/workflows/CI/badge.svg)](https://github.com/City-of-Helsinki/berth-reservations-ui/actions?query=workflow%3ACI)
 [![Browser Tests status](https://github.com/City-of-Helsinki/berth-reservations-ui/workflows/Browser%20Tests/badge.svg)](https://github.com/City-of-Helsinki/berth-reservations-ui/actions?query=workflow%3A%22Browser+Tests%22)
 
+
+> [!NOTE]
+> This repository was archived on 2026-04-28. Development has ceased because the project has been replaced by a SaaS-based solution.
+
 ## Prerequisites
 
 - Yarn
